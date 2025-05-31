@@ -6,6 +6,15 @@ body {
       background-color: #fff;
     }
 
+.site-wrapper {
+  max-width: 980px;
+  margin: 1rem auto;
+  padding: 0 1rem;
+  background-color: white; /* optional if you want it to pop */
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.03); /* optional soft shadow */
+}
+
+
 .top-banner {
   background-color: #70778d;
   color: white;
