@@ -96,7 +96,7 @@ body {
 }
 
 .nav-spacer {
-  width: clamp(40px, 20vw, 260px); /* match approx. width of search bar */
+  width: clamp(40px, 20vw, 150px); /* match approx. width of search bar */
 }
 
 .top-nav ul {
