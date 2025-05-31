@@ -497,12 +497,6 @@ footer {
 }
 
 @media (max-width: 600px) {
-  .quote {
-  font-family: 'Borel', cursive;
-  color: #423d42;
-  font-size: 0.6em;
-
-
   .top-nav ul {
     gap: 0.rem;
     font-size: 0.6rem;
@@ -513,7 +507,7 @@ footer {
   }
 
   .quote {
-    font-size: 0.6rem;
+    font-size: 0.55rem;
   }
   
   .search-input {
