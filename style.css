@@ -60,7 +60,7 @@ body {
 }
 
 .logo{
-  font-family: 'Passion One';
+  font-family: 'Passion One', 'Protest Strike',  'Alfa Slab One', sans-serif;
   font-size: 2.4rem;
   font-weight: 900;
   letter-spacing: 0.01em;
@@ -448,6 +448,12 @@ footer {
 }
 
 @media (max-width: 800px) {
+  .quote {
+  font-family: 'Borel', cursive;
+  color: #423d42;
+  font-size: 0.65em;
+
+
   .nav-inner {
     flex-direction: column;
     align-items: center;
@@ -491,6 +497,12 @@ footer {
 }
 
 @media (max-width: 600px) {
+  .quote {
+  font-family: 'Borel', cursive;
+  color: #423d42;
+  font-size: 0.6em;
+
+
   .top-nav ul {
     gap: 0.rem;
     font-size: 0.6rem;
@@ -512,6 +524,12 @@ footer {
 }
 
 @media (max-width: 480px) {
+  .quote {
+  font-family: 'Borel', cursive;
+  color: #423d42;
+  font-size: 0.55em;
+
+
   .top-banner {
     font-size: 0.5rem;
     flex-direction: column;
