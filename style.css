@@ -1,19 +1,18 @@
+<style>
 
 body {
-      font-family: 'EB Garamond', 'sans-serif';
+       font-family: 'EB Garamond', 'sans-serif';
       margin: 0;
       padding: 0;
       background-color: #fff;
     }
 
 .site-wrapper {
-  max-width: 980px;
-  margin: 1rem auto;
-  padding: 0 1rem;
-  background-color: f9f9f9; /* optional if you want it to pop */
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.03); /* optional soft shadow */
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 1rem;
+  background-color: #f9f9f9;
 }
-
 
 .top-banner {
   background-color: #70778d;
@@ -61,7 +60,7 @@ body {
 }
 
 .logo{
-  font-family: Passion One Black;
+  font-family: 'Passion One Black';
   font-size: 2.4rem;
   letter-spacing: 0.01em;
   text-shadow: 0.6px 0.6px 1.2px rgba(0, 0, 0, 0.15);
@@ -111,7 +110,7 @@ body {
 }
 
 .top-nav a {
-  font-family: Abel, sans-serif;
+  font-family: 'Abel', 'sans-serif';
   color: #423d42;
   font-size: 0.65rem;
   line-height: 1.2;
@@ -303,7 +302,7 @@ body {
 }
 
 .post-title {
-  font-family: 'Bahnschrift SemiCondensed';
+  font-family: 'Bahnschrift SemiCondensed', 'Abel', 'sans-serif';
   font-size: 1rem;
   margin: 0 0 0.3rem 0;
   color: #333;
@@ -353,7 +352,7 @@ body {
   background: #eeeeee;
   padding: 1rem;
   padding-top: 1rem;
-  font-family: EB Garamond, sans-serif;
+  font-family: 'EB Garamond', 'sans-serif';
   color: #6d666d;
   order: 1;
 }
@@ -538,7 +537,7 @@ footer {
   }
 
 .archive-title {
-  font-family: 'Abel', sans-serif;
+  font-family: 'Abel', 'sans-serif';
   font-size: 0.7rem;
   margin-top: 2rem;
   margin-bottom: 0.6rem;
@@ -550,7 +549,7 @@ footer {
 }
 
 .featured-title {
-  font-family: 'Abel', sans-serif;
+  font-family: 'Abel', 'sans-serif';
   font-size: 0.7rem;
   margin-top: 2rem;
   margin-bottom: 0.6rem;
@@ -612,7 +611,7 @@ footer {
 }
 
 .featured-post-item .post-title {
-  font-family: 'Abel', sans-serif;
+  font-family: 'Abel', 'sans-serif';
   font-size: 0.58rem;
   font-weight: bold;
   color: #565056;
@@ -625,13 +624,14 @@ footer {
   color: #6d666d;
   margin: 0.06rem 0 0 0;
   line-height: 0.65rem;
-  font-family: 'Abel', sans-serif;
+  font-family: 'Abel', 'sans-serif';
 }
 
 .featured-post-item .post-date {
   font-size: 0.45rem;
   color: #888;
   margin: 0 0 0 0;
-  font-family: 'Abel', sans-serif;
+  font-family: 'Abel', 'sans-serif';
 }
 
+</style>
