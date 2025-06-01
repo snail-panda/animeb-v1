@@ -631,9 +631,10 @@ footer {
    gap: 0.4rem;
 }
 
-  .quote {
-    font-size: 0.4rem;
+ .quote {
+  font-size: 0.4rem !important;
 }
+
 
   .top-banner {
     font-size: 0.5rem;
