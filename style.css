@@ -161,7 +161,7 @@ body {
 .search-input {
   max-width: 80vw;
   position: absolute;
-  right: 83%;
+  right: 85%;
   top: ;
   transform: scaleX(0);
   transform-origin: right;
