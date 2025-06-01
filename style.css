@@ -478,7 +478,6 @@ footer {
 .week-info {
   margin-top: 0.3rem;
   font-size: 0.6rem;
-  color: #555;
 }
 
 .latest-badge {
@@ -489,9 +488,9 @@ footer {
   line-height: 0.9;
   border: 0.5px solid #666;
   border-radius: 0px;
-  background-color: #eee;
+  background-color: transparent;
   font-size: 0.5rem;
-  color: #333;
+  color: #555;
   font-weight: 500;
   vertical-align: middle;
 }
