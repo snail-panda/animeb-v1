@@ -653,27 +653,19 @@ ul {
 }
 
 
-footer {
+.main-footer {
   font-family: 'Abel', 'sans-serif';
   font-size: 0.7rem;
   color: #fdfdf0;
   font-weight: normal;
   text-align: center;
-  padding: 0.5rem;
+  padding: 2rem 1rem;
   background-color: #333;
   border-right: 1px solid #dcd5dc;
   border-left: 1px solid #dcd5dc;
  
 }
 
-
-.main-footer {
-  background-color: #111;
-  color: #fff;
-  padding: 2rem 1rem;
-  text-align: center;
-  font-size: 0.9rem;
-}
 
 .footer-socials {
   margin-bottom: 1rem;
@@ -695,7 +687,8 @@ footer {
 }
 
 .footer-links a {
-  color: #fff;
+  color: #fff8f8;
+  font-size: 0.85rem;
   text-decoration: none;
   margin: 0 0.75rem;
 }
