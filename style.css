@@ -622,12 +622,9 @@ footer {
 }
 
 @media (max-width: 480px) {
-
-
 .quote {
   font-size: 0.4rem !important;
 }
-
 
   .top-banner {
     font-size: 0.5rem;
@@ -636,6 +633,7 @@ footer {
 
 .banner-logo img {
   height: 10px;
+  vertical-align: middle;
 }
 
   .top-nav ul {
@@ -654,7 +652,6 @@ footer {
     padding: 0.5rem;
   }
 }
-
 
 
 </style>
