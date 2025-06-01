@@ -622,18 +622,12 @@ footer {
 }
 
 @media (max-width: 480px) {
-  .top-banner {
-   flex-wrap: nowrap;
-   white-space: nowrap;
-   overflow: hidden;
-   justify-content: space-between;
-   padding: 0.3rem 0.6rem;
-   gap: 0.4rem;
+
+
+.quote {
+  font-size: 0.4rem !important;
 }
 
-  .quote {
-    font-size: 0.4rem;
-}
 
   .top-banner {
     font-size: 0.5rem;
