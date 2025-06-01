@@ -655,15 +655,14 @@ ul {
 
 .main-footer {
   font-family: 'Abel', 'sans-serif';
-  font-size: 0.7rem;
+  font-size: 0.55rem;
   color: #fdfdf0;
   font-weight: normal;
   text-align: center;
   padding: 2rem 1rem;
   background-color: #333;
   border-right: 1px solid #dcd5dc;
-  border-left: 1px solid #dcd5dc;
- 
+  border-left: 1px solid #dcd5dc; 
 }
 
 
@@ -688,7 +687,7 @@ ul {
 
 .footer-links a {
   color: #fff8f8;
-  font-size: 0.85rem;
+  font-size: 0.7rem;
   text-decoration: none;
   margin: 0 0.75rem;
 }
