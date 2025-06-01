@@ -622,10 +622,16 @@ footer {
 }
 
 @media (max-width: 480px) {
+  .top-banner {
+    flex-wrap: nowrap;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
   .quote {
-  font-family: 'Borel', cursive;
-  color: #423d42;
-  font-size: 0.5rem;
+    font-family: 'Borel', cursive;
+    color: #423d42;
+    font-size: 0.5rem;
 }
 
   .top-banner {
