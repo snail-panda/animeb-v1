@@ -637,8 +637,12 @@ footer {
 
   .top-banner {
     font-size: 0.5rem;
-    flex-direction: column;
+    flex-direction: row;
   }
+
+.banner-logo img {
+  height: 10px;
+}
 
   .top-nav ul {
     gap: 0.5rem;
