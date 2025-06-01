@@ -697,9 +697,15 @@ ul {
 }
 
 .footer-copy {
+  font-family: 'Abel', 'sans-serif';
+  font-size: 0.55rem;
+  color: #fdfdf0;
+  font-weight: normal;
+  text-align: center;
   margin-top: 1rem;
   color: #aaa;
-  font-size: 0.8rem;
+  font-size: 0.55rem;
+  margin-bottom: 0.05rem;
 }
 
 
