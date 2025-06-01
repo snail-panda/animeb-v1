@@ -1,5 +1,5 @@
 .tierlist-wrapper {
-  max-width: 1200px; /* Match your full site content width */
+  max-width: 960px; /* Match your full site content width */
   margin: 0 auto;
   padding: 2rem 1rem;
 }
