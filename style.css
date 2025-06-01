@@ -436,19 +436,6 @@ ul {
 }
 
 
-footer {
-  font-family: 'Abel', 'sans-serif';
-  font-size: 0.7rem;
-  color: #fdfdf0;
-  font-weight: normal;
-  text-align: center;
-  padding: 0.5rem;
-  background-color: #333;
-  border-right: 1px solid #dcd5dc;
-  border-left: 1px solid #dcd5dc;
- 
-}
-
 .search-wrapper.active {
     display: block;
   }
@@ -664,6 +651,67 @@ footer {
   margin: 0 0 0 0;
   font-family: 'Abel', 'sans-serif';
 }
+
+
+footer {
+  font-family: 'Abel', 'sans-serif';
+  font-size: 0.7rem;
+  color: #fdfdf0;
+  font-weight: normal;
+  text-align: center;
+  padding: 0.5rem;
+  background-color: #333;
+  border-right: 1px solid #dcd5dc;
+  border-left: 1px solid #dcd5dc;
+ 
+}
+
+
+.main-footer {
+  background-color: #111;
+  color: #fff;
+  padding: 2rem 1rem;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.footer-socials {
+  margin-bottom: 1rem;
+}
+
+.footer-socials a img {
+  width: 24px;
+  height: 24px;
+  margin: 0 0.5rem;
+  transition: opacity 0.3s;
+}
+
+.footer-socials a img:hover {
+  opacity: 0.7;
+}
+
+.footer-links {
+  margin-bottom: 1rem;
+}
+
+.footer-links a {
+  color: #fff;
+  text-decoration: none;
+  margin: 0 0.75rem;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+}
+
+.footer-copy {
+  margin-top: 1rem;
+  color: #aaa;
+  font-size: 0.8rem;
+}
+
+
+
 
 @media (max-width: 800px) {
   .quote {
