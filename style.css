@@ -454,7 +454,7 @@ footer {
   font-family: 'Borel', cursive;
   color: #423d42;
   font-size: 0.6em;
-
+}
 
   .nav-inner {
     flex-direction: column;
@@ -547,6 +547,7 @@ footer {
     padding: 0.5rem;
   }
 }
+
 .search-wrapper.active {
     display: block;
   }
