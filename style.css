@@ -598,6 +598,11 @@ footer {
     width: 80px;
     margin-top: 0;
   }
+
+ .post-image-shoshimin {
+  height: 200px;
+  }
+
 }
 
 @media (max-width: 600px) {
@@ -650,29 +655,12 @@ footer {
   }
 
 .post-image {
-  flex-shrink: 0;
-  width: 160px;
   height: 200px;
-  overflow: hidden;
-  margin-bottom: 0.8rem;
-}
-
-.post-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: 50% 10%;
-  display: block;
 }
 
 .post-image-shoshimin {
-  flex-shrink: 0;
-  width: 160px;
-  height: 200px;
-  overflow: hidden;
-  margin-bottom: 0.8rem;
+  height: 220px;
 }
-
 
   .sidebar {
     display: none;
