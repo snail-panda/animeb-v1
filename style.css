@@ -633,7 +633,7 @@ footer {
 
 .banner-logo img {
   height: 10px;
-  vertical-align: middle;
+  vertical-align: text-bottom;
 }
 
 .banner-title {
