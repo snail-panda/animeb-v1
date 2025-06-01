@@ -1,5 +1,5 @@
 .tierlist-wrapper {
-  max-width: 1200px;
+  max-width: 1200px; /* Match your full site content width */
   margin: 0 auto;
   padding: 2rem 1rem;
 }
@@ -66,6 +66,7 @@
   text-decoration: underline;
 }
 
+/* Mobile fix: disable zoom on hover */
 @media (max-width: 600px) {
   .tierlist-image img {
     max-width: 100%;
