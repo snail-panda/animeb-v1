@@ -592,13 +592,14 @@ ul {
 }
 
 .ep {
-  font-size: 0.5rem;
-  color: #666;
+  font-size: 0.45rem;
+  font-weight: normal;
 }
 
 .score {
   font-weight: normal;
   font-size: 0.45rem;
+  color: #666;
 }
 
 
