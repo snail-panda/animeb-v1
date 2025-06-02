@@ -811,6 +811,14 @@ ul {
   height: 200px;
   }
 
+.footer-links a {
+  font-size: 0.55rem;
+}
+
+.footer-copy {
+   font-size: 0.5rem;
+}
+
 }
 
 @media (max-width: 600px) {
