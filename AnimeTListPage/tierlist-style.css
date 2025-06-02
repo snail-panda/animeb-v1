@@ -25,18 +25,36 @@
 }
 
 h2 {
-  font-size: 0.9rem;
+  font-size: 0.75rem;
   }
 
 h3 {
-  font-size: 0.8rem;
+  font-size: 0.65rem;
   }
 
-.post-intro,
-.post-content,
-.post-conclusion {
-  font-size: 0.8rem;
-  margin-top: 0.8rem;
+.post-intro {
+  font-size: 0.75rem;
+  margin-top: 0.9rem;
+  margin-bottom: 0.9rem;
+  line-height: 1.2;
+} 
+
+.post-content {
+  font-size: 0.75rem;
+  margin-top: 0.9rem;
+  line-height: 1.2;
+} 
+
+.post-conclusion  {
+  font-size: 0.75rem;
+  margin-top: 2rem;
+  line-height: 1.2;
+} 
+
+.tier-critiria .post-content {
+  font-size: 0.65rem;
+  margin-top: 0.65rem;
+  margin-bottom: 0.8rem;
   line-height: 1.2;
 }
 
