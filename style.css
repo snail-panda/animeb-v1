@@ -721,15 +721,25 @@ ul {
 }
 
 .category-list {
-  list-style: disc inside;
-  padding-left: 0.5rem;
-  font-size: 0.6rem;
-  line-height: 1.3;
+  list-style: none;
+  padding-left: 0rem;
 }
 
 .category-list li {
-  list-style: no bullet;
+  position: relative;
+  padding-left: 0.8rem;
+  font-size: 0.6rem;
+  line-height: 1;
   margin-bottom: 0.3rem;
+}
+
+.category-list li::before {
+  content: "•";
+  position: absolute;
+  left: 0.3rem;
+  color: #423d42;
+  font-size: 0.5rem;
+  line-height: 1.4;
 }
 
 .category-list a {
