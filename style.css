@@ -440,6 +440,54 @@ ul {
     display: block;
   }
 
+/* Search Bar for Sidebar*/
+
+.sidebar-search-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.sidebar-search {
+  width: 150px;
+  margin: 0 auto;
+  margin-bottom: 1.5rem;
+}
+
+.sidebar-search form {
+  display: inline-flex;
+  margin-top: 1rem;
+  margin-bottom: 0rem;
+}
+
+.sidebar-search input[type="text"] {
+  width: 90px;
+  background-color: #faf8fa;
+  padding: 0.3rem 0.5rem;
+  font-size: 0.6rem;
+  height: 0.7rem;
+  border: 1px solid #ccc;
+  border-right: none;
+  border-radius: 3px 0 0 3px;
+  outline: none;
+}
+
+.sidebar-search button {
+  background-color: #70778d;
+  color: white;
+  border: none;
+  border-radius: 0 3px 3px 0;
+  padding: 0.2rem 0.5rem;
+  font-size: 0.5rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.sidebar-search button:hover {
+  background-color: #717a65; 
+}
+
+/* Latest Top5 Ranking */
+
 .ranking-widget {
   background-color: transparent;
   border: 1px solid #ccc;
@@ -450,7 +498,7 @@ ul {
   display: flex;
   flex-direction: column;
   gap: 0.2rem;
-  margin: 3rem 0.2rem 2rem 0.1rem;
+  margin: 1.5rem 0.2rem 2rem 0.1rem;
 
 }
 
