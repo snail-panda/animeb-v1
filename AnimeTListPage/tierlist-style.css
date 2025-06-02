@@ -38,7 +38,7 @@
 }
 
 .tierlist-image img {
-  max-width: 80%;
+  max-width: 60%;
   height: auto;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   border: 1px solid #ddd;
