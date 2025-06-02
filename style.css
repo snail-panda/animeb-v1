@@ -448,7 +448,7 @@ ul {
 }
 
 .sidebar-search {
-  width: 150px;
+  width: 140px;
   margin: 0 auto;
   margin-bottom: 1.5rem;
 }
@@ -460,11 +460,11 @@ ul {
 }
 
 .sidebar-search input[type="text"] {
-  width: 90px;
+  width: 80px;
   background-color: #faf8fa;
   padding: 0.3rem 0.5rem;
   font-size: 0.6rem;
-  height: 0.7rem;
+  height: 0.5rem;
   border: 1px solid #ccc;
   border-right: none;
   border-radius: 3px 0 0 3px;
@@ -476,8 +476,9 @@ ul {
   color: white;
   border: none;
   border-radius: 0 3px 3px 0;
-  padding: 0.2rem 0.5rem;
+  padding: 0.2rem 0.4rem;
   font-size: 0.5rem;
+  font-family: 'Abel', 'sans-serif';
   cursor: pointer;
   transition: background-color 0.2s ease;
 }
@@ -485,7 +486,6 @@ ul {
 .sidebar-search button:hover {
   background-color: #717a65; 
 }
-
 /* Latest Top5 Ranking */
 
 .ranking-widget {
