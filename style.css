@@ -738,8 +738,9 @@ ul {
   position: absolute;
   left: 0.3rem;
   color: #423d42;
+  top: 0.1rem;
   font-size: 0.5rem;
-  line-height: 1.4;
+  line-height: 1;
 }
 
 .category-list a {
