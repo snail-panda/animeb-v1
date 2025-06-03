@@ -63,6 +63,12 @@ body {
   margin-right: 0.3rem;
 }
 
+.disclaimer {
+  font-size: 0.85em;
+  color: #555;
+  margin-top: 18px;
+  padding-top: 10px;
+}
 
 .post-intro {
   font-size: 0.9rem;
