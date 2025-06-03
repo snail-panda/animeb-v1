@@ -209,9 +209,10 @@ body {
 }
 
 .dropdown li a {
-  padding: 0.2rem 0.5rem;
+  padding: 0.2rem 0.3rem;
   font-size: 0.6rem;
   text-align: left;
+  line-height: 1.3;
   display: block;
   color: #423d42;
   text-decoration: none;
