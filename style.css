@@ -87,7 +87,9 @@ body {
   border-top: 1px solid #dcd5dc;
   border-bottom: 1px solid #dcd5dc;
   width: 100%;
-  overflow-x: hidden;
+  overflow: visible; /* Let dropdowns extend outside */
+  position: relative; /* Anchor for dropdown positioning */
+  z-index: 2; /* Make sure it’s above other layers */
 }
 
 .nav-inner {
@@ -96,7 +98,9 @@ body {
   align-items: center;
   width: 100%;
   max-width: 100%;
+  overflow: visible;
   position: relative;
+  z-index: 3;
 }
 
 .nav-spacer {
@@ -145,20 +149,21 @@ body {
    outline: none;
 }
 
+/* Dropdown Navigation Styles */
 .nav-menu {
   list-style: none;
   display: flex;
+  justify-content: center;
   gap: 1.2rem;
   padding: 0;
   margin: 0 auto;
-  position: relative;
 }
 
 .nav-menu li {
   position: relative;
 }
 
-.nav-menu li a {
+.nav-menu a {
   font-family: 'Abel', sans-serif;
   font-size: 0.65rem;
   color: #423d42;
@@ -168,32 +173,46 @@ body {
   white-space: nowrap;
 }
 
-.nav-menu .dropdown-menu {
-  display: none;
-  position: absolute;
-  background-color: #faf8fa;
-  top: 100%;
-  left: 0;
-  min-width: 140px;
-  box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
-  z-index: 999;
-  border: 1px solid #dcd5dc;
-}
-
-.nav-menu .dropdown-menu li a {
-  padding: 0.4rem 0.6rem;
-  font-size: 0.6rem;
-  border-bottom: 1px solid #eee;
-}
-
-.nav-menu li:hover .dropdown-menu {
-  display: block;
-}
-
-.nav-menu li a:hover {
+.nav-menu li:hover > a {
   color: #846584;
   text-decoration: underline;
 }
+
+.has-dropdown {
+  position: relative;
+  z-index: 5;
+}
+
+.has-dropdown .dropdown {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: auto;
+  background-color: #faf8fa;
+  min-width: 140px;
+  box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
+  border: 1px solid #dcd5dc;
+  z-index: 1000;
+}
+
+.has-dropdown:hover .dropdown {
+  display: block;
+}
+
+.dropdown li {
+  border-bottom: 1px solid #eee;
+}
+
+.dropdown li a {
+  padding: 0.4rem 0.6rem;
+  font-size: 0.6rem;
+}
+
+.dropdown li:last-child {
+  border-bottom: none;
+}
+
 
 /* Search window and button*/
 .search-wrapper {
