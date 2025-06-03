@@ -5,7 +5,7 @@
 }
 
 .tierlist-post {
-  background-color: #fff;
+  background-color: #fdfae8;
   padding: 2rem;
   border-radius: 10px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.05);
@@ -20,8 +20,8 @@
 }
 
 .post-date {
-  font-size: 0.7rem;
-  color: #888;
+  font-size: 0.75rem;
+  color: #707070;
   margin-bottom: 2rem;
 }
 
@@ -29,14 +29,14 @@
   max-width: 720px;
   margin: 2rem auto;
   padding: 0.5rem 1rem 1.5rem 1rem ;
-  font-size: 0.75rem;
+  font-size: 0.8rem;
   color: #555;
   border-top: 1px solid #ddd;
   border-bottom: 1px solid #ddd;
 }
 
 .criteria-title {
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   font-weight: 600;
   margin-bottom: 0.5rem;
   color: #444;
@@ -61,19 +61,19 @@
 
 
 .post-intro {
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   margin-top: 0.9rem;
   line-height: 1.2;
 } 
 
 .post-content {
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   margin-top: 0.9rem;
   line-height: 1.2;
 } 
 
 .post-conclusion  {
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   margin-top: 2rem;
   line-height: 1.2;
 } 
