@@ -25,28 +25,55 @@
   margin-bottom: 2rem;
 }
 
-h2 {
+.tier-criteria {
+  max-width: 720px;
+  margin: 2rem auto;
+  padding: 0.5rem 1rem 1.5rem 1rem ;
   font-size: 0.75rem;
-  }
+  color: #555;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+}
 
-h3 {
-  font-size: 0.65rem;
-  }
+.criteria-title {
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #444;
+}
+
+.criteria-list {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.criteria-list li {
+  margin: 0.25rem 0;
+  line-height: 1.5;
+}
+
+.criteria-list span {
+  font-weight: 500;
+  color: #222;
+  margin-right: 0.3rem;
+}
+
 
 .post-intro {
-  font-size: 0.8rem;
+  font-size: 0.85rem;
   margin-top: 0.9rem;
   line-height: 1.2;
 } 
 
 .post-content {
-  font-size: 0.75rem;
+  font-size: 0.85rem;
   margin-top: 0.9rem;
   line-height: 1.2;
 } 
 
 .post-conclusion  {
-  font-size: 0.8rem;
+  font-size: 0.85rem;
   margin-top: 2rem;
   line-height: 1.2;
 } 
