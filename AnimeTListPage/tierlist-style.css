@@ -1,3 +1,7 @@
+body {
+  background-color: #fefcee; 
+}
+
 .tierlist-wrapper {
   max-width: 960px; /* Match your full site content width */
   margin: 0 auto;
@@ -5,7 +9,7 @@
 }
 
 .tierlist-post {
-  background-color: #fdfae8;
+  background-color: #fefcee;
   padding: 2rem;
   border-radius: 10px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.05);
