@@ -446,6 +446,20 @@ body {
   order: 1;
 }
 
+.ranking-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.ranking-link:hover {
+  color: #a4b4bc; /* 好きなホバー色 */
+  text-decoration: none; /* 念のためホバーでも消す */
+}
+
+
+
+
 .week-rank {
   font-family: 'Abel', 'sans-serif';
   font-weight: normal;
