@@ -338,6 +338,20 @@
       margin-right: 6px;
     }
 
+.back-link {
+  display: inline-block;
+  margin-bottom: 1rem;
+  font-size: 0.8rem;
+  color: #555;
+  text-decoration: none;
+  font-family: 'Abel';
+}
+
+.back-link:hover {
+  text-decoration: underline;
+}
+
+
 @font-face {
   font-family: 'Bahnschrift Semibold Condensed';
   src: url('https://snail-panda.github.io/animeb-v1/Fonts/bahnschrift.woff') format('woff');
