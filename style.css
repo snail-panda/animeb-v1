@@ -448,21 +448,22 @@ body {
 
 .ranking-link {
   text-decoration: none;
-  color: inherit;
+  color: #6d666d;
   display: block;
 }
 
 .ranking-link:hover {
-  color: #77909c; /* 好きなホバー色 */
+  color: #47758c; /* 好きなホバー色 */
   text-decoration: none; /* 念のためホバーでも消す */
 }
 
 .latest-batch-link {
    color: #6d666d;
    font-family: 'Abel', 'sans-serif';
-   font-weight: normal;
-   font-size: 0.7rem;
-   padding: 0.1rem 0.5rem;
+   font-weight: middle;
+   font-size: 0.55rem;
+   text-align: center;
+   padding: 0.02rem 0rem 1.5rem 0rem;
 }
 
 .week-rank {
@@ -603,7 +604,7 @@ ul {
   display: flex;
   flex-direction: column;
   gap: 0.2rem;
-  margin: 1.5rem 0.2rem 0rem 0.1rem;
+  margin: 1.5rem 0.2rem 0.4rem 0.1rem;
 
 }
 
