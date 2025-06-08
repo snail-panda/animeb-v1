@@ -459,10 +459,10 @@ body {
 
 .latest-batch-link {
    color: #6d666d;
-   ffont-family: 'Abel', 'sans-serif';
+   font-family: 'Abel', 'sans-serif';
    font-weight: normal;
    font-size: 0.7rem;
-    padding: 0.1rem 0.5rem;
+   padding: 0.1rem 0.5rem;
 }
 
 .week-rank {
