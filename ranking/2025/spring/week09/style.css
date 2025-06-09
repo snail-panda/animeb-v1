@@ -189,8 +189,8 @@
 }
 
 .trend-icon-down {
-  width: auto;
-  height: 14px;
+  width: 14px !important;
+  height: auto !important;
 }
 
 .trend-label {
