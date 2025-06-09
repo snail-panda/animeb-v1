@@ -1,0 +1,57 @@
+[
+  {
+    "rank": 1,
+    "title": "Catcher in the Ballpark",
+    "episode": 7,
+    "score": 9.2,
+    "trend": "up",
+    "label": "UP",
+    "badge": {
+      "type": "editor",
+      "icon": "editors-pick.png",
+      "title": "Editor\u2019s Pick"
+    }
+  },
+  {
+    "rank": 2,
+    "title": "Yozakura Quartet",
+    "episode": 8,
+    "score": 8.7,
+    "trend": "stay",
+    "label": "STAY",
+    "badge": {
+      "type": "spotlight",
+      "icon": "spotlight.png",
+      "title": "Spotlight"
+    }
+  },
+  {
+    "rank": 3,
+    "title": "Demon Sweeper Squad",
+    "episode": 6,
+    "score": 8.5,
+    "trend": "down",
+    "label": "DOWN",
+    "badge": {
+      "type": "dookie",
+      "icon": "dookie.png",
+      "title": "Dookie"
+    }
+  },
+  {
+    "rank": 4,
+    "title": "Sugar Samurai",
+    "episode": 9,
+    "score": 8.1,
+    "trend": "up",
+    "label": "UP"
+  },
+  {
+    "rank": 5,
+    "title": "Virtual Vibes",
+    "episode": 5,
+    "score": 7.9,
+    "trend": "stay",
+    "label": "STAY"
+  }
+]
