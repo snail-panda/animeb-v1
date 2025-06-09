@@ -49,7 +49,7 @@
 }
 
 .table-header {
-  font-family: 'Agency FB', 'Pathway Gothic One', 'sans-serif';
+  font-family: 'Agency FB', 'Pathway Gothic One', 'Barlow Condensed Light', 'sans-serif';
   font-size: 10px;
   font-weight: bold;
   color: #595959;
@@ -142,7 +142,7 @@
 }
      .rank-number {
   font-size: 1.1rem;
-  font-family: 'Agency FB', 'Pathway Gothic One', 'sans-serif';
+  font-family: 'Agency FB', 'Pathway Gothic One', 'Barlow Condensed Light', 'sans-serif';
   font-weight: 500;
   letter-spacing: 0.1px;
   text-transform: none;
@@ -150,7 +150,7 @@
 }
 
 .rank-number .label-big {
-  font-family: 'Agency FB', 'Pathway Gothic One', 'sans-serif';
+  font-family: 'Agency FB', 'Pathway Gothic One', 'Barlow Condensed Light', 'sans-serif';
   font-size: 1.1rem;
   font-weight: 500;
   letter-spacing: 0;
@@ -158,7 +158,7 @@
 }
 
 .rank-number .label-rest {
-  font-family: 'Agency FB','Pathway Gothic One', 'Oswald Light', 'sans-serif';
+  font-family: 'Agency FB','Pathway Gothic One', 'Barlow Condensed Light', 'Oswald Light', 'sans-serif';
   font-size: 0.75rem;
   font-weight: 400;
   letter-spacing: -0.5px;
@@ -316,7 +316,7 @@
     .score {
       display: block;
       align-items: center;
-      font-family: 'Agency FB', 'Pathway Gothic One', 'sans-serif';
+      font-family: 'Agency FB', 'Pathway Gothic One', 'Barlow Condensed Light', 'sans-serif';
       font-size: 20px;
       font-weight: bold;
       text-transform: lowercase;
