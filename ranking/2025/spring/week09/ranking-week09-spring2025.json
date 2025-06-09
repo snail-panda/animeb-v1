@@ -1,130 +1,126 @@
 {
   "meta": {
     "week": "Week 9",
-    "season": "Spring 2025",
-    "title": "Week 9 – Spring 2025"
+    "season": "2025 Spring"
   },
-  "entries": [ ... ]
+  "entries": [
+    {
+      "rank": 1,
+      "title": "The Apothecary Diaries 2nd Season",
+      "episode": "Ep 45",
+      "score": 11,
+      "trend": {
+        "label": "UP",
+        "icon": "../../../../images/trends/up-arrow.png"
+      },
+      "badge": {
+        "type": "crown-gold",
+        "icon": "../../../../images/badges/gold-crown-large.png",
+        "title": "Top Rank"
+      },
+      "wrp_score": 10.2
+    },
+    {
+      "rank": 2,
+      "title": "The Catcher in the Ballpark!",
+      "episode": "Ep 10",
+      "score": 10,
+      "trend": {
+        "label": "UP",
+        "icon": "../../../../images/trends/up-arrow.png"
+      },
+      "badge": {
+        "type": "crown-silver",
+        "icon": "../../../../images/badges/silver-crown-large.png",
+        "title": "Second Place"
+      },
+      "wrp_score": 9.9
+    },
+    {
+      "rank": 3,
+      "title": "Sword of the Demon Hunter",
+      "episode": "Ep 10",
+      "score": 10,
+      "trend": {
+        "label": "DOWN",
+        "icon": "../../../../images/trends/down-arrow.png"
+      },
+      "badge": {
+        "type": "crown-bronze",
+        "icon": "../../../../images/badges/bronze-crown-large.png",
+        "title": "Third Place"
+      },
+      "wrp_score": 9.55
+    },
+    {
+      "rank": 4,
+      "title": "Mobile Suit Gundam GQuuuuuuX",
+      "episode": "Ep 9",
+      "score": 9,
+      "trend": {
+        "label": "DOWN",
+        "icon": "../../../../images/trends/down-arrow.png"
+      },
+      "wrp_score": 9.25
+    },
+    {
+      "rank": 5,
+      "title": "SHoshimin: How to Become Ordinary 2",
+      "episode": "Ep 10",
+      "score": 9,
+      "trend": {
+        "label": "UP",
+        "icon": "../../../../images/trends/up-arrow.png"
+      },
+      "wrp_score": 9.1
+    },
+    {
+      "rank": "SPOTLIGHT",
+      "title": "From Old Country Bumpkin to Master Swordsman",
+      "episode": "Ep 10",
+      "score": 9,
+      "trend": {
+        "label": "DOWN",
+        "icon": "../../../../images/trends/down-arrow.png"
+      },
+      "badge": {
+        "type": "spotlight",
+        "icon": "../../../../images/badges/spotlight.png",
+        "title": "Spotlight Pick"
+      },
+      "wrp_score": 9.0
+    },
+    {
+      "rank": "EDITOR'S PICK",
+      "title": "Kowloon Generic Romance",
+      "episode": "Ep 10",
+      "score": 8,
+      "trend": {
+        "label": "UP",
+        "icon": "../../../../images/trends/up-arrow.png"
+      },
+      "badge": {
+        "type": "editor-pick",
+        "icon": "../../../../images/badges/glasses-mustache-grey.png",
+        "title": "Editor's Pick"
+      },
+      "wrp_score": 8.5
+    },
+    {
+      "rank": "DOOKIE",
+      "title": "Can a Boy-Girl Friendship Survive?",
+      "episode": "Ep 10",
+      "score": 4,
+      "trend": {
+        "label": "STAY",
+        "icon": "../../../../images/trends/stay-arrow.png"
+      },
+      "badge": {
+        "type": "dookie",
+        "icon": "../../../../images/badges/pink-dookie-skull.png",
+        "title": "Dookie of the Week"
+      },
+      "wrp_score": 4.8
+    }
+  ]
 }
-
-
-[
-  {
-    "rank": 1,
-    "title": "The Apothecary Diaries 2nd Season",
-    "episode": "Ep 45",
-    "wrp-score": 10.20,
-    "score": 11,
-    "trend": {
-      "label": "UP",
-      "icon": "../../../../images/trends/up-arrow.png"
-    },
-    "badge": {
-      "type": "crown-gold",
-      "icon": "../../../../images/badges/gold-crown-large.png",
-      "title": "Top Rank"
-    }
-  },
-  {
-    "rank": 2,
-    "title": "The Catcher in the Ballpark!",
-    "episode": "Ep 10",
-    "wrp-score": 9.90,
-    "score": 10,
-    "trend": {
-      "label": "UP",
-      "icon": "../../../../images/trends/up-arrow.png"
-    },
-    "badge": {
-      "type": "crown-silver",
-      "icon": "../../../../images/badges/silver-crown-large.png",
-      "title": "Second Place"
-    }
-  },
-  {
-    "rank": 3,
-    "title": "Sword of the Demon Hunter",
-    "episode": "Ep 10",
-    "wrp-score": 9.55,
-    "score": 10,
-    "trend": {
-      "label": "DOWN",
-      "icon": "../../../../images/trends/down-arrow.png"
-    },
-    "badge": {
-      "type": "crown-bronze",
-      "icon": "../../../../images/badges/bronze-crown-large.png",
-      "title": "Third Place"
-    }
-  },
-  {
-    "rank": 4,
-    "title": "Mobile Suit Gundam GQuuuuuuX",
-    "episode": "Ep 9",
-    "wrp-score": 9.25,
-    "score": 9,
-    "trend": {
-      "label": "DOWN",
-      "icon": "../../../../images/trends/down-arrow.png"
-    }
-  },
-  {
-    "rank": 5,
-    "title": "SHoshimin: How to Become Ordinary 2",
-    "episode": "Ep 10",
-    "wrp-score": 9.10,
-    "score": 9,
-    "trend": {
-      "label": "UP",
-      "icon": "../../../../images/trends/up-arrow.png"
-    }
-  },
-  {
-    "rank": "SPOTLIGHT",
-    "title": "From Old Country Bumpkin to Master Swordsman",
-    "episode": "Ep 10",
-    "wrp-score": 9.00,
-    "score": 9,
-    "trend": {
-      "label": "DOWN",
-      "icon": "../../../../images/trends/down-arrow.png"
-    },
-    "badge": {
-      "type": "spotlight",
-      "icon": "../../../../images/badges/spotlight.png",
-      "title": "Spotlight Pick"
-    }
-  },
-  {
-    "rank": "EDITOR'S PICK",
-    "title": "Kowloon Generic Romance",
-    "episode": "Ep 10",
-    "wrp-score": 8.50,
-    "score": 8,
-    "trend": {
-      "label": "UP",
-      "icon": "../../../../images/trends/up-arrow.png"
-    },
-    "badge": {
-      "type": "editor-pick",
-      "icon": "../../../../images/badges/glasses-mustache-grey.png",
-      "title": "Editor's Pick"
-    }
-  },
-  {
-    "rank": "DOOKIE",
-    "title": "Can a Boy-Girl Friendship Survive?",
-    "episode": "Ep 10",
-    "wrp-score": 4.80,
-    "score": 4,
-    "trend": {
-      "label": "STAY",
-      "icon": "../../../../images/trends/stay-arrow.png"
-    },
-    "badge": {
-      "type": "dookie",
-      "icon": "../../../../images/badges/pink-dookie-skull.png",
-      "title": "Dookie of the Week"
-    }
-  }
-]

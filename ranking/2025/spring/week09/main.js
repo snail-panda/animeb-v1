@@ -1,5 +1,4 @@
 // ========= 1. SCORE BAR WIDTH + MARGIN =========
-
 document.querySelectorAll('.bar').forEach(bar => {
   const score = parseFloat(bar.querySelector('.wrp-score')?.textContent || '0');
   const main = bar.querySelector('.bar-main');
@@ -17,31 +16,25 @@ document.querySelectorAll('.bar').forEach(bar => {
 
   main.style.width = `${percentMain}%`;
   overflow.style.width = `${percentOverflow}%`;
-  
-// スコアに応じて wrp-score の左マージンを変える
-const wrpScore = bar.querySelector('.wrp-score');
+
+  const wrpScore = bar.querySelector('.wrp-score');
   if (score > 11) {
-  wrpScore.style.marginLeft = '60px';
+    wrpScore.style.marginLeft = '60px';
   } else if (score > 10.8) {
-  wrpScore.style.marginLeft = '44px';
-} else if (score > 10.5) {
-  wrpScore.style.marginLeft = '34px'; // オーバーフローがあるときに少しスペース空ける    
-} else if (score > 10.3) {
-  wrpScore.style.marginLeft = '21px'; // オーバーフローがあるときに少しスペース空ける
-} else if (score > 10) {
-  wrpScore.style.marginLeft = '14px';    
-} else {
-  wrpScore.style.marginLeft = '6px'; // 通常時はコンパクトに
-} 
+    wrpScore.style.marginLeft = '44px';
+  } else if (score > 10.5) {
+    wrpScore.style.marginLeft = '34px';
+  } else if (score > 10.3) {
+    wrpScore.style.marginLeft = '21px';
+  } else if (score > 10) {
+    wrpScore.style.marginLeft = '14px';
+  } else {
+    wrpScore.style.marginLeft = '6px';
+  }
 });
 
-
-// TODO: カード表示切り替え
-// TODO: JSONデータからアニメランキング読み込み
-
-//===============2. LOAD JASON============================
-
-fetch('ranking-week09-spring2025_modified.json')
+// ========= 2. LOAD JSON AND RENDER CARDS =========
+fetch('ranking-week09-spring2025.json')
   .then(response => response.json())
   .then(data => {
     // Update meta info
@@ -78,4 +71,3 @@ fetch('ranking-week09-spring2025_modified.json')
       if (scoreEl) scoreEl.innerHTML = `${entryData.score}<span class="score-unit">pt</span>`;
     });
   });
-
