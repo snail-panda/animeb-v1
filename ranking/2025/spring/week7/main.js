@@ -41,7 +41,7 @@ const wrpScore = bar.querySelector('.wrp-score');
 
 //===============2. LOAD JASON============================
 
-/*fetch('ranking-week07-spring2025_modified.json')
+fetch('ranking-week07-spring2025_modified.json')
   .then(response => response.json())
   .then(data => {
     // Update meta info
@@ -64,10 +64,17 @@ const wrpScore = bar.querySelector('.wrp-score');
       }
 
       // Trend Label & Icon
-      const trendLabel = el.querySelector('.trend-label');
+       const trendLabel = el.querySelector('.trend-label');
       const trendIcon = el.querySelector('.rank-trend img');
-      if (trendLabel) trendLabel.textContent = entryData.trend.label;
-      if (trendIcon) trendIcon.src = entryData.trend.icon;
+
+      if (trendLabel && trendIcon) {
+        const label = entryData.trend.label.toLowerCase(); // 'UP' → 'up'
+        trendLabel.textContent = entryData.trend.label;
+        console.log(`images/trends/${label}-arrow.png`);
+        trendIcon.src = `../../../../images/trends/${label}-arrow.png`;
+        trendIcon.className = `trend-icon-${label}`;
+      }
+
 
       // WRP Score
       const wrpScoreEl = el.querySelector('.wrp-score');
@@ -78,4 +85,3 @@ const wrpScore = bar.querySelector('.wrp-score');
       if (scoreEl) scoreEl.innerHTML = `${entryData.score}<span class="score-unit">pt</span>`;
     });
   });
-*/
