@@ -34,16 +34,13 @@ document.querySelectorAll('.bar').forEach(bar => {
 });
 
 // ========= 2. LOAD JSON AND RENDER CARDS =========
-fetch('ranking-week09-spring2025.json')
+fetch('ranking-week08-spring2025.json')
   .then(response => response.json())
   .then(data => {
     // Update meta info
     document.querySelector('.week-title').textContent = data.meta.week;
     document.querySelector('.season-title').textContent = data.meta.season;
-
-// ✅ Update <title> dynamically
-document.title = `Anime Weekly Ranking - ${data.meta.week}`;
-
+    document.title = `Anime Weekly Ranking - ${data.meta.week}`;
 
     // Get all entry elements in order
     const entryElements = document.querySelectorAll('.entry');
@@ -57,28 +54,30 @@ document.title = `Anime Weekly Ranking - ${data.meta.week}`;
       if (titleEl) {
         const epSpan = titleEl.querySelector('.title-ep');
         titleEl.childNodes[0].textContent = entryData.title;
-        if (epSpan) epSpan.textContent = ` — ${entryData.episode}`;
+        if (epSpan) epSpan.textContent = ` — Ep ${entryData.episode}`;
       }
 
       // Trend Label & Icon
       const trendLabel = el.querySelector('.trend-label');
       const trendIcon = el.querySelector('.rank-trend img');
+      const label = entryData.trend.toLowerCase(); // 例: "UP" → "up"
 
       if (trendLabel && trendIcon) {
-        const label = entryData.trend.label.toLowerCase(); // 'UP' → 'up'
-        trendLabel.textContent = entryData.trend.label;
-        console.log(`images/trends/${label}-arrow.png`);
+        trendLabel.textContent = entryData.trend;
         trendIcon.src = `../../../../images/trends/${label}-arrow.png`;
         trendIcon.className = `trend-icon-${label}`;
       }
 
-
       // WRP Score
       const wrpScoreEl = el.querySelector('.wrp-score');
-      if (wrpScoreEl) wrpScoreEl.innerHTML = `${entryData.wrp_score}<span class="wrp-score-unit">pt</span>`;
+      if (wrpScoreEl) {
+        wrpScoreEl.innerHTML = `${entryData.wrp_score}<span class="wrp-score-unit">pt</span>`;
+      }
 
       // Total Score
       const scoreEl = el.querySelector('.score');
-      if (scoreEl) scoreEl.innerHTML = `${entryData.score}<span class="score-unit">pt</span>`;
+      if (scoreEl) {
+        scoreEl.innerHTML = `${entryData.score}<span class="score-unit">pt</span>`;
+      }
     });
   });

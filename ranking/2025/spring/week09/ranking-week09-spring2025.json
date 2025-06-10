@@ -4,123 +4,69 @@
     "season": "2025 Spring"
   },
   "entries": [
-    {
-      "rank": 1,
-      "title": "The Apothecary Diaries 2nd Season",
-      "episode": "Ep 45",
-      "score": 11,
-      "trend": {
-        "label": "UP",
-        "icon": "../../../../images/trends/up-arrow.png"
-      },
-      "badge": {
-        "type": "crown-gold",
-        "icon": "../../../../images/badges/gold-crown-large.png",
-        "title": "Top Rank"
-      },
-      "wrp_score": 10.2
-    },
-    {
-      "rank": 2,
-      "title": "The Catcher in the Ballpark!",
-      "episode": "Ep 10",
-      "score": 10,
-      "trend": {
-        "label": "UP",
-        "icon": "../../../../images/trends/up-arrow.png"
-      },
-      "badge": {
-        "type": "crown-silver",
-        "icon": "../../../../images/badges/silver-crown-large.png",
-        "title": "Second Place"
-      },
-      "wrp_score": 9.9
-    },
-    {
-      "rank": 3,
-      "title": "Sword of the Demon Hunter",
-      "episode": "Ep 10",
-      "score": 10,
-      "trend": {
-        "label": "DOWN",
-        "icon": "../../../../images/trends/down-arrow.png"
-      },
-      "badge": {
-        "type": "crown-bronze",
-        "icon": "../../../../images/badges/bronze-crown-large.png",
-        "title": "Third Place"
-      },
-      "wrp_score": 9.55
-    },
-    {
-      "rank": 4,
-      "title": "Mobile Suit Gundam GQuuuuuuX",
-      "episode": "Ep 9",
-      "score": 9,
-      "trend": {
-        "label": "DOWN",
-        "icon": "../../../../images/trends/down-arrow.png"
-      },
-      "wrp_score": 9.25
-    },
-    {
-      "rank": 5,
-      "title": "SHoshimin: How to Become Ordinary 2",
-      "episode": "Ep 10",
-      "score": 9,
-      "trend": {
-        "label": "UP",
-        "icon": "../../../../images/trends/up-arrow.png"
-      },
-      "wrp_score": 9.1
-    },
-    {
-      "rank": "SPOTLIGHT",
-      "title": "From Old Country Bumpkin to Master Swordsman",
-      "episode": "Ep 10",
-      "score": 9,
-      "trend": {
-        "label": "DOWN",
-        "icon": "../../../../images/trends/down-arrow.png"
-      },
-      "badge": {
-        "type": "spotlight",
-        "icon": "../../../../images/badges/spotlight.png",
-        "title": "Spotlight Pick"
-      },
-      "wrp_score": 9.0
-    },
-    {
-      "rank": "EDITOR'S PICK",
-      "title": "Kowloon Generic Romance",
-      "episode": "Ep 10",
-      "score": 8,
-      "trend": {
-        "label": "UP",
-        "icon": "../../../../images/trends/up-arrow.png"
-      },
-      "badge": {
-        "type": "editor-pick",
-        "icon": "../../../../images/badges/glasses-mustache-grey.png",
-        "title": "Editor's Pick"
-      },
-      "wrp_score": 8.5
-    },
-    {
-      "rank": "DOOKIE",
-      "title": "Can a Boy-Girl Friendship Survive?",
-      "episode": "Ep 10",
-      "score": 4,
-      "trend": {
-        "label": "STAY",
-        "icon": "../../../../images/trends/stay-arrow.png"
-      },
-      "badge": {
-        "type": "dookie",
-        "icon": "../../../../images/badges/pink-dookie-skull.png",
-        "title": "Dookie of the Week"
-      },
-      "wrp_score": 4.8
-    }
-  ]
+  {
+    "rank": 1,
+    "trend": "UP",
+    "title": "The Apothecary Diaries 2nd Season",
+    "episode": 45,
+    "wrp_score": 10.2,
+    "score": 11
+  },
+  {
+    "rank": 2,
+    "trend": "UP",
+    "title": "The Catcher in the Ballpark!",
+    "episode": 10,
+    "wrp_score": 9.9,
+    "score": 10
+  },
+  {
+    "rank": 3,
+    "trend": "DOWN",
+    "title": "Sword of the Demon Hunter",
+    "episode": 10,
+    "wrp_score": 9.55,
+    "score": 10
+  },
+  {
+    "rank": 4,
+    "trend": "DOWN",
+    "title": "Mobile Suit Gundam GQuuuuuuX",
+    "episode": 9,
+    "wrp_score": 9.25,
+    "score": 9
+  },
+  {
+    "rank": 5,
+    "trend": "DOWN",
+    "title": "Shoshimin: How to Become Ordinary 2",
+    "episode": 10,
+    "wrp_score": 9.1,
+    "score": 9
+  },
+  {
+    "rank": "spotlight",
+    "trend": "DOWN",
+    "title": "From Old Country Bumpkin to Master Swordsman: My Hotshot Disciples Are All Grown Up Now, and They Won’t Leave Me Alone",
+    "episode": 10,
+    "wrp_score": 9,
+    "score": 9
+  },
+  {
+    "rank": "editor's pick",
+    "trend": "UP",
+    "title": "Kowloon Generic Romance",
+    "episode": 10,
+    "wrp_score": 8.5,
+    "score": 8
+  },
+  {
+    "rank": "dookie",
+    "trend": "STAY",
+    "title": "Uma Musume: Cinderella Grey",
+    "episode": "ep.10",
+    "wrp_score": 4.8,
+    "score": 4
+  }
+]
 }
