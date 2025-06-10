@@ -664,7 +664,8 @@ ul {
 }
 
 .arrow-up {
-  transform: rotate(90deg);
+  width:10px;
+  height: auto;
 }
 
 .arrow-stay {
