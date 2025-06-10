@@ -190,8 +190,8 @@ It wasn’t just the conclusion of a case; it was a symbolic act of emotional re
   <div class="ranking-widget">
   <div class="ranking-header">
     <a href="ranking/2025/spring/week09/index.html" class="ranking-link">
-2025 Spring Weekly Anime Ranking
-    <div class="week-info">– Week 9 – <span class="eps">[ep.9–10]</span><span class="latest-badge">Latest</span></div></a>
+<span class="season-title">2025 Spring</span> Weekly Anime Ranking
+    <div class="week-info">– <span="week-title">Week 9</span> – <span class="eps">[ep.9–10]</span><span class="latest-badge">Latest</span></div></a>
   </div>
 
   <div class="ranking-entry">
@@ -410,6 +410,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
       // 既存のエントリー要素をすべて削除
       container.querySelectorAll(".ranking-entry").forEach(el => el.remove());
+
+      // メタ情報も反映
+const seasonEl = document.querySelector(".season-title");
+const weekEl = document.querySelector(".week-title");
+
+if (seasonEl) seasonEl.textContent = data.meta.season;
+if (weekEl) weekEl.textContent = `– ${data.meta.week} –`;
+
 
       const top5 = data.entries.slice(0, 5);
 
