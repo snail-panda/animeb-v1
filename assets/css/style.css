@@ -32,7 +32,7 @@
       color: #8E0000;
     }
 
-    .season-title {
+    .sub-header {
       font-family:'Special Gothic Condensed One', 'Bebas Neue', 'sans-serif';
       color: #A3A3A3;
       letter-spacing: -0.02rem;
@@ -369,6 +369,7 @@
 .nav-link.right {
   width: 90px;
 }
+
 
 @font-face {
   font-family: 'Bahnschrift Semibold Condensed';
