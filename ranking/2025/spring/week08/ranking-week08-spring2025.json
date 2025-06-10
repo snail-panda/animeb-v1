@@ -6,67 +6,67 @@
   "entries": [
   {
     "rank": 1,
+    "trend": "UP",
     "title": "Sword of the Demon Hunter",
-    "episode": "Ep 9",
-    "score": 11,
-    "trend.label": "UP",
-    "wrp_score": 10.9
+    "episode": 9,
+    "wrp_score": 10.9,
+    "score": 11
   },
   {
     "rank": 2,
+    "trend": "UP",
     "title": "The Apothecary Diaries 2nd Season",
-    "episode": "Ep 44",
-    "score": 10,
-    "trend.label": "UP",
-    "wrp_score": 9.7
+    "episode": 44,
+    "wrp_score": 9.7,
+    "score": 10
   },
   {
     "rank": 3,
+    "trend": "UP",
     "title": "Mobile Suit Gundam GQuuuuuuX",
-    "episode": "Ep 8",
-    "score": 9,
-    "trend.label": "UP",
-    "wrp_score": 9.3
+    "episode": 8,
+    "wrp_score": 9.3,
+    "score": 9
   },
   {
     "rank": 4,
+    "trend": "DOWN",
     "title": "Shoshimin: How to Become Ordinary 2",
-    "episode": "Ep 9",
-    "score": 8,
-    "trend.label": "DOWN",
-    "wrp_score": 8.7
+    "episode": 9,
+    "wrp_score": 8.7,
+    "score": 8
   },
   {
     "rank": 5,
+    "trend": "UP",
     "title": "From Old Country Bumpkin to Master Swordsman: My Hotshot Disciples Are All Grown Up Now, and They Won’t Leave Me Alone",
-    "episode": "Ep 9",
-    "score": 8,
-    "trend.label": "UP",
-    "wrp_score": 8.4
+    "episode": 9,
+    "wrp_score": 8.4,
+    "score": 8
   },
   {
     "rank": "spotlight",
+    "trend": "DOWN",
     "title": "Apocalypse Hotel",
-    "episode": "Ep 8",
-    "score": 8,
-    "trend.label": "DOWN",
-    "wrp_score": 8.2
+    "episode": 8,
+    "wrp_score": 8.2,
+    "score": 8
   },
   {
     "rank": "editor's pick",
+    "trend": "DOWN",
     "title": "A Ninja and an Assassin Under One Roof",
-    "episode": "Ep 8",
-    "score": 7,
-    "trend.label": "DOWN",
-    "wrp_score": 7.9
+    "episode": 8,
+    "wrp_score": 7.9,
+    "score": 7
   },
   {
     "rank": "dookie",
+    "trend": "UP",
     "title": "Can a Boy-Girl Friendship Survive?",
-    "episode": "Ep 9",
-    "score": 5,
-    "trend.label": "UP",
-    "wrp_score": 5.5
+    "episode": 9,
+    "wrp_score": 5.5,
+    "score": 5
   }
 ]
 }
