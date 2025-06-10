@@ -1,0 +1,72 @@
+{
+  "meta": {
+    "week": "Week 8",
+    "season": "2025 Spring"
+  },
+  "entries": 
+[
+  {
+    "rank": 1,
+    "trend.label": "up",
+    "title": "Sword of the Demon Hunter",
+    "ep.": 9,
+    "wrp_score": 10.9,
+    "score": 11
+  },
+  {
+    "rank": 2,
+    "trend.label": "up",
+    "title": "The Apothecary Diaries 2nd Season",
+    "ep.": 44,
+    "wrp_score": 9.7,
+    "score": 10
+  },
+  {
+    "rank": 3,
+    "trend.label": "up",
+    "title": "Mobile Suit Gundam GQuuuuuuX",
+    "ep.": 8,
+    "wrp_score": 9.3,
+    "score": 9
+  },
+  {
+    "rank": 4,
+    "trend.label": "down",
+    "title": "Shoshimin: How to Become Ordinary 2",
+    "ep.": 9,
+    "wrp_score": 8.7,
+    "score": 8
+  },
+  {
+    "rank": 5,
+    "trend.label": "up",
+    "title": "From Old Country Bumpkin to Master Swordsman: My Hotshot Disciples Are All Grown Up Now, and They Won’t Leave Me Alone",
+    "ep.": 9,
+    "wrp_score": 8.4,
+    "score": 8
+  },
+  {
+    "rank": "spotlight",
+    "trend.label": "down",
+    "title": "Apocalypse Hotel",
+    "ep.": 8,
+    "wrp_score": 8.2,
+    "score": 8
+  },
+  {
+    "rank": "editor's pick",
+    "trend.label": "down",
+    "title": "A Ninja and an Assassin Under One Roof",
+    "ep.": 8,
+    "wrp_score": 7.9,
+    "score": 7
+  },
+  {
+    "rank": "dookie",
+    "trend.label": "up",
+    "title": "Can a Boy-Girl Friendship Survive?",
+    "ep.": 9,
+    "wrp_score": 5.5,
+    "score": 5
+  }
+]
