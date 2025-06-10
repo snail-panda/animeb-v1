@@ -106,7 +106,7 @@
 .rank-top {
   display: flex;
   align-items: center;
-  gap: 2px; /* tweak as needed for spacing between crown and rank number */
+  gap: 1px; /* tweak as needed for spacing between crown and rank number */
 }
      .crown-gold {
   width: 14.4px;
