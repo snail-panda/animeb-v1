@@ -41,6 +41,10 @@ fetch('ranking-week09-spring2025.json')
     document.querySelector('.week-title').textContent = data.meta.week;
     document.querySelector('.season-title').textContent = data.meta.season;
 
+// ✅ Update <title> dynamically
+document.title = `Anime Weekly Ranking - ${data.meta.week}`;
+
+
     // Get all entry elements in order
     const entryElements = document.querySelectorAll('.entry');
 
