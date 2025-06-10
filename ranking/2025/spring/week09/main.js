@@ -68,7 +68,6 @@ if (trendLabel && trendIcon) {
 }
 
 
-
       // WRP Score
       const wrpScoreEl = el.querySelector('.wrp-score');
       if (wrpScoreEl) wrpScoreEl.innerHTML = `${entryData.wrp_score}<span class="wrp-score-unit">pt</span>`;
