@@ -41,7 +41,7 @@ const wrpScore = bar.querySelector('.wrp-score');
 
 //===============2. LOAD JASON============================
 
-fetch('ranking-week09-spring2025_modified.json')
+/*fetch('ranking-week09-spring2025_modified.json')
   .then(response => response.json())
   .then(data => {
     // Update meta info
@@ -78,4 +78,4 @@ fetch('ranking-week09-spring2025_modified.json')
       if (scoreEl) scoreEl.innerHTML = `${entryData.score}<span class="score-unit">pt</span>`;
     });
   });
-
+*/
