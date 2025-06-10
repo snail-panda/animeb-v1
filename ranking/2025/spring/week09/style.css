@@ -76,7 +76,7 @@
 
 .entry {
   display: grid;
-  grid-template-columns: 95px 1fr 1.1fr 80px;
+  grid-template-columns: 85px 1fr 1.1fr 80px;
   align-items: center;
   min-height: 64px;  /* 仮、全体の高さ感調整 */
   font-family: 'Agency FB', sans-serif;
