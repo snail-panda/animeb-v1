@@ -6,7 +6,7 @@
       background: #f6f6f6;
     }
     .wrapper {
-      max-width: 760px;
+      max-width: 740px;
       margin: auto;
       background: white;
       padding: 40px;
@@ -127,17 +127,17 @@
 }
 
 .spotlight {
-  width: 15px;
-  height: auto;
-}
-
-.editor-pick {
   width: 14px;
   height: auto;
 }
 
+.editor-pick {
+  width: 13px;
+  height: auto;
+}
+
 .dookie-skull {
-  width: 20px;
+  width: 19px;
   height: auto;
 }
      .rank-number {
@@ -151,7 +151,7 @@
 
 .rank-number .label-big {
   font-family: 'Agency FB', 'Pathway Gothic One', 'Barlow Condensed Light', 'sans-serif';
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   font-weight: 500;
   letter-spacing: 0;
   text-shadow: 0.1px 0.1px #333;
@@ -159,7 +159,7 @@
 
 .rank-number .label-rest {
   font-family: 'Agency FB','Pathway Gothic One', 'Barlow Condensed Light', 'Oswald Light', 'sans-serif';
-  font-size: 0.75rem;
+  font-size: 0.5rem;
   font-weight: 400;
   letter-spacing: -0.5px;
   position: relative;;
