@@ -57,7 +57,6 @@ fetch('ranking-week09-spring2025.json')
       }
 
       // Trend Label & Icon
-     // Trend Label & Icon
 const trendLabel = el.querySelector('.trend-label');
 const trendIcon = el.querySelector('.rank-trend img');
 
