@@ -49,6 +49,7 @@ fetch('ranking-week07-spring2025.json')
   
 
 // ========= 1. SCORE BAR WIDTH + MARGIN =========
+function adjustScoreBars() {
 document.querySelectorAll('.bar').forEach(bar => {
   const score = parseFloat(bar.querySelector('.wrp-score')?.textContent || '0');
   const main = bar.querySelector('.bar-main');
@@ -81,5 +82,6 @@ document.querySelectorAll('.bar').forEach(bar => {
   } else {
     wrpScore.style.marginLeft = '6px';
   }
+}
 });
 });
