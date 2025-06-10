@@ -669,11 +669,13 @@ ul {
 }
 
 .arrow-stay {
-  transform: rotate(180deg);
+  width:10px;
+  height: auto;
 }
 
 .arrow-down {
-  transform: rotate(270deg);
+  width:10px;
+  height: auto;
 }
 
 .trend.up {
