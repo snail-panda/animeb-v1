@@ -43,7 +43,7 @@
 
     .table {
   display: grid;
-  grid-template-columns: 90px 1fr 1.1fr 80px;
+  grid-template-columns: 85px 1fr 1.1fr 80px;
   border-bottom: 2px solid #aaa; /* 太めの外枠線 */
   margin: 0;
 }
