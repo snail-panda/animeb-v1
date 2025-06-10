@@ -1,0 +1,72 @@
+{
+  "meta": {
+    "week": "Week 7",
+    "season": "2025 Spring"
+  },
+  "entries": [
+  {
+    "rank": 1,
+    "trend": "UP",
+    "title": "A Ninja and an Assassin Under One Roof",
+    "episode": 7,
+    "wrp_score": 10.3,
+    "score": 11
+  },
+  {
+    "rank": 2,
+    "trend": "STAY",
+    "title": "Shoshimin: How to Become Ordinary 2",
+    "episode": 8,
+    "wrp_score": 9.7,
+    "score": 10
+  },
+  {
+    "rank": 3,
+    "trend": "UP",
+    "title": "Apocalypse Hotel",
+    "episode": 7,
+    "wrp_score": 9.5,
+    "score": 10
+  },
+  {
+    "rank": 4,
+    "trend": "UP",
+    "title": "Mobile Suit Gundam GQuuuuuuX",
+    "episode": 7,
+    "wrp_score": 9.3,
+    "score": 9
+  },
+  {
+    "rank": 5,
+    "trend": "UP",
+    "title": "The Apothecary Diaries 2nd Season",
+    "episode": 43,
+    "wrp_score": 9.2,
+    "score": 9
+  },
+  {
+    "rank": "spotlight",
+    "trend": "DOWN",
+    "title": "Sword of the Demon Hunter",
+    "episode": 8,
+    "wrp_score": 8.8,
+    "score": 8
+  },
+  {
+    "rank": "editor's pick",
+    "trend": "UP",
+    "title": "Kowloon Generic Romance",
+    "episode": 8,
+    "wrp_score": 8.6,
+    "score": 8
+  },
+  {
+    "rank": "dookie",
+    "trend": "DOWN",
+    "title": "Once Upon a Witch's Death",
+    "episode": "ep.8",
+    "wrp_score": 4.25,
+    "score": 4
+  }
+]
+}
