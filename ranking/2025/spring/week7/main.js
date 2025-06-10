@@ -41,7 +41,7 @@ const wrpScore = bar.querySelector('.wrp-score');
 
 //===============2. LOAD JASON============================
 
-/*fetch('ranking-week09-spring2025_modified.json')
+/*fetch('ranking-week07-spring2025_modified.json')
   .then(response => response.json())
   .then(data => {
     // Update meta info
