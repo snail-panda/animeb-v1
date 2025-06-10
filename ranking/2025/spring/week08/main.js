@@ -1,4 +1,5 @@
 // ========= 1. SCORE BAR WIDTH + MARGIN =========
+function adjustScoreBars() {
 document.querySelectorAll('.bar').forEach(bar => {
   const score = parseFloat(bar.querySelector('.wrp-score')?.textContent || '0');
   const main = bar.querySelector('.bar-main');
@@ -32,6 +33,7 @@ document.querySelectorAll('.bar').forEach(bar => {
     wrpScore.style.marginLeft = '6px';
   }
 });
+}
 
 // ========= 2. LOAD JSON AND RENDER CARDS =========
 fetch('ranking-week08-spring2025.json')
@@ -80,4 +82,7 @@ fetch('ranking-week08-spring2025.json')
         scoreEl.innerHTML = `${entryData.score}<span class="score-unit">pt</span>`;
       }
     });
-  });
+
+ // ← JSONでDOM更新が終わったあとにバー調整！
+    adjustScoreBars();
+});
