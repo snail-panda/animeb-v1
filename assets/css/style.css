@@ -49,9 +49,9 @@
 }
 
 .table-header {
-  font-family: 'Agency FB', 'Barlow Condensed', 'Pathway Gothic One', 'sans-serif';
+  font-family: 'Barlow Condensed', 'Agency FB', 'Pathway Gothic One', 'sans-serif';
   font-size: 10px;
-  font-weight: bold;
+  font-weight: 400;
   color: #595959;
   text-transform: uppercase;
   align-items: center;
