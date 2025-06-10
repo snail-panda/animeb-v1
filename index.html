@@ -397,4 +397,44 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 });
+
+//For Latest Top5 in sidebar
+document.addEventListener("DOMContentLoaded", function () {
+  // JSONファイルのパス（index.html からの相対パス）
+  const jsonPath = "ranking/2025/spring/week09/ranking-week09-spring2025.json";
+
+  fetch(jsonPath)
+    .then(response => response.json())
+    .then(data => {
+      const container = document.querySelector(".ranking-widget");
+
+      // 既存のエントリー要素をすべて削除
+      container.querySelectorAll(".ranking-entry").forEach(el => el.remove());
+
+      const top5 = data.entries.slice(0, 5);
+
+      top5.forEach(entry => {
+        const entryDiv = document.createElement("div");
+        entryDiv.className = "ranking-entry";
+
+        const trend = entry.trend.toLowerCase();
+        const trendIcon = {
+          up: "arrow-up.svg",
+          down: "arrow-down.svg",
+          stay: "arrow-stay.svg"
+        }[trend] || "arrow-stay.svg";
+
+        entryDiv.innerHTML = `
+          <span class="rank">${entry.rank}</span>
+          <span class="trend ${trend}"><img src="images/trends/${trendIcon}" class="arrow-${trend}"></span>
+          <span class="title">${entry.title}</span>
+          <span class="ep">ep.${entry.episode}</span>
+          <span class="score">${entry.score}pt</span>
+        `;
+
+        container.appendChild(entryDiv);
+      });
+    });
+});
+
 </script>
