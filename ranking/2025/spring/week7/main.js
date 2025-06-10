@@ -34,7 +34,7 @@ document.querySelectorAll('.bar').forEach(bar => {
 });
 
 // ========= 2. LOAD JSON AND RENDER CARDS =========
-fetch('ranking-week08-spring2025.json')
+fetch('ranking-week07-spring2025.json')
   .then(response => response.json())
   .then(data => {
     // Update meta info
