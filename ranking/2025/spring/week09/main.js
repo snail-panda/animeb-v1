@@ -57,10 +57,17 @@ fetch('ranking-week09-spring2025.json')
       }
 
       // Trend Label & Icon
+           // Trend Label & Icon
       const trendLabel = el.querySelector('.trend-label');
       const trendIcon = el.querySelector('.rank-trend img');
-      if (trendLabel) trendLabel.textContent = entryData.trend.label;
-      if (trendIcon) trendIcon.src = entryData.trend.icon;
+
+      if (trendLabel && trendIcon) {
+        const label = entryData.trend.label.toLowerCase(); // 'UP' → 'up'
+        trendLabel.textContent = entryData.trend.label;
+        trendIcon.src = entryData.trend.icon;
+        trendIcon.className = `trend-icon-${label}`;
+      }
+
 
       // WRP Score
       const wrpScoreEl = el.querySelector('.wrp-score');
