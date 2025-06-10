@@ -57,15 +57,16 @@ fetch('ranking-week09-spring2025.json')
       }
 
       // Trend Label & Icon
-const trendLabel = el.querySelector('.trend-label');
-const trendIcon = el.querySelector('.rank-trend img');
+const label = entryData.trend.label.toLowerCase();
+const iconPaths = {
+  up: "images/trends/up-arrow.png",
+  down: "images/trends/down-arrow.png",
+  stay: "images/trends/stay-arrow.png"
+};
 
-if (trendLabel && trendIcon) {
-  const label = entryData.trend.label.toLowerCase(); // "up", "down", or "stay"
-  trendLabel.textContent = entryData.trend.label;
-  trendIcon.src = `images/trends/${label}-arrow.png`;
-  trendIcon.className = `trend-icon-${label}`;
-}
+trendLabel.textContent = entryData.trend.label;
+trendIcon.src = iconPaths[label];
+trendIcon.className = "trend-icon-" + label;
 
 
       // WRP Score
