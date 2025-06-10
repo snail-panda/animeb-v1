@@ -142,8 +142,8 @@
 }
      .rank-number {
   font-size: 1.1rem;
-  font-family: 'Agency FB', 'Barlow Condensed', 'Pathway Gothic One', 'sans-serif';
-  font-weight: 500;
+  font-family: 'Barlow Condensed', 'Agency FB', 'Pathway Gothic One', 'sans-serif';
+  font-weight: 400;
   letter-spacing: 0.1px;
   text-transform: none;
   text-shadow: 0.1px 0.1px #333;     
@@ -317,9 +317,9 @@
     .score {
       display: block;
       align-items: center;
-      font-family: 'Agency FB', 'Barlow Condensed', 'Pathway Gothic One', 'sans-serif';
+      font-family: 'Barlow Condensed', 'Agency FB', 'Pathway Gothic One', 'sans-serif';
       font-size: 20px;
-      font-weight: bold;
+      font-weight: 400;
       text-transform: lowercase;
       text-align: center;
     }
