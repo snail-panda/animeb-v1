@@ -424,6 +424,34 @@ if (epsEl && data.meta.ep_range) {
   epsEl.textContent = `[${data.meta.ep_range}]`;
 }
 
+// ===  UPDATE RANKING LINK BLOCKS (Header + Bottom) ===
+
+// メタ情報を整形してパスに変換
+const seasonRaw = data.meta.season;         // 例: "2025 Spring"
+const weekRaw = data.meta.week;             // 例: "Week 9"
+
+// それぞれパス用に整形
+const [year, seasonName] = seasonRaw.split(' ');               // "2025", "Spring"
+const season = `${year}/${seasonName.toLowerCase()}`;          // "2025/spring"
+const week = weekRaw.toLowerCase().replace(' ', '0');          // "week09"
+
+const path = `ranking/${season}/${week}/index.html`;           // 完成形のパス
+
+// 上部リンク（.ranking-header 内の a）
+const headerLink = document.querySelector('.ranking-header .ranking-link');
+if (headerLink) {
+  headerLink.href = path;
+}
+
+// 下部リンク（.latest-batch-link 内の a）
+const bottomLink = document.querySelector('.latest-batch-link .ranking-link');
+if (bottomLink) {
+  bottomLink.href = path;
+  bottomLink.textContent = "View Full Ranking";
+}
+
+// ===  ここまで　UPDATE RANKING LINK BLOCKS (Header + Bottom) ===
+
       const top5 = data.entries.slice(0, 5);
 
       top5.forEach(entry => {
