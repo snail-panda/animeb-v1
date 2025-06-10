@@ -127,17 +127,17 @@
 }
 
 .spotlight {
-  width: 15px;
-  height: auto;
-}
-
-.editor-pick {
   width: 14px;
   height: auto;
 }
 
+.editor-pick {
+  width: 13px;
+  height: auto;
+}
+
 .dookie-skull {
-  width: 20px;
+  width: 19px;
   height: auto;
 }
      .rank-number {
