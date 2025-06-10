@@ -340,19 +340,35 @@
       margin-right: 6px;
     }
 
-.back-link {
-  display: inline-block;
-  margin-bottom: 1rem;
-  font-size: 0.8rem;
-  color: #555;
-  text-decoration: none;
-  font-family: 'Abel';
+.nav-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'Abel', sans-serif;
+  font-size: 0.85rem;
+  margin-bottom: 1.5rem;
+  padding: 0 8px;
+  color: #444;
 }
 
-.back-link:hover {
+.nav-link {
+  text-decoration: none;
+  color: #555;
+}
+
+.nav-link:hover {
   text-decoration: underline;
 }
 
+.nav-link.center {
+  text-align: center;
+  flex: 1;
+}
+
+.nav-link.left,
+.nav-link.right {
+  width: 90px;
+}
 
 @font-face {
   font-family: 'Bahnschrift Semibold Condensed';
