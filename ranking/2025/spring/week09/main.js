@@ -64,7 +64,7 @@ fetch('ranking-week09-spring2025.json')
         const label = entryData.trend.label.toLowerCase(); // 'UP' → 'up'
         trendLabel.textContent = entryData.trend.label;
         console.log(`images/trends/${label}-arrow.png`);
-        trendIcon.src = `images/trends/${label}-arrow.png`;
+        trendIcon.src = `../../../../images/trends/${label}-arrow.png`;
         trendIcon.className = `trend-icon-${label}`;
       }
 
