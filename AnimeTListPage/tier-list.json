@@ -1,0 +1,14 @@
+{
+  "2025": {
+    "Spring": ["Beginning", "Mid", "End"],
+    "Summer": ["Beginning", "Mid", "End"],
+    "Fall": ["Beginning", "Mid", "End"],
+    "Winter": ["Beginning", "Mid", "End"]
+  },
+  "2026": {
+    "Spring": ["Beginning", "Mid", "End"],
+    "Summer": ["Beginning", "Mid", "End"],
+    "Fall": ["Beginning", "Mid", "End"],
+    "Winter": ["Beginning", "Mid", "End"]
+  }
+}
