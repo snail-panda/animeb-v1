@@ -233,6 +233,7 @@ body {
 
 .nav-menu li {
   position: relative;
+  z-index: 10; /* 重なり優先 */
 }
 
 .nav-menu .dropdown,
@@ -248,6 +249,9 @@ body {
   z-index: 1000;
   min-width: 140px;
   box-shadow: 0px 3px 8px rgba(0,0,0,0.12);
+  transition: opacity 0.2s ease, visibility 0.2s ease;
+  opacity: 0;
+  visibility: hidden;
 }
 
 .nav-menu .dropdown {
@@ -267,6 +271,14 @@ body {
   display: block;
 }
 
+/* hover時の表示＋フェード */
+.has-submenu:hover > .season-menu,
+.season-menu .has-submenu:hover > .week-menu {
+  display: block;
+  opacity: 1;
+  visibility: visible;
+}
+
 .year-menu {
   top: 0;
   left: 100%;
@@ -280,6 +292,19 @@ body {
 .week-menu {
   top: 0;
   left: 100%;
+}
+
+/* パネル間の隙間を吸収 (hover範囲拡大) */
+.season-menu,
+.week-menu {
+  margin-top: 0;
+  top: 100%;
+}
+
+.season-menu .has-submenu > .week-menu {
+  top: 0;
+  left: 100%;
+  margin-left: 0;
 }
 
 /* Link styles */
