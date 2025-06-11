@@ -29,7 +29,8 @@
     .header .week-title {
       font-family: 'Anton', sans-serif;
       font-size: 20px;
-      word-spacing: -0.08rem;
+      letter-spacing: -0.02rem;
+      word-spacing: -0.09rem;
       color: #8E0000;
     }
 
