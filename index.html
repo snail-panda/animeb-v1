@@ -491,8 +491,7 @@ document.addEventListener("DOMContentLoaded", () => {
   fetch("weekly-rankings.json")
     .then(res => res.json())
     .then(data => {
-      const rankings = data;  // ← ここが修正ポイント
-
+      const rankings = data;
       const yearMenu = document.querySelector('.year-menu');
 
       Object.keys(rankings).forEach(year => {
@@ -506,14 +505,14 @@ document.addEventListener("DOMContentLoaded", () => {
         Object.keys(rankings[year]).forEach(season => {
           const seasonLi = document.createElement('li');
           seasonLi.classList.add('has-submenu');
-          seasonLi.innerHTML = `<a href="#">${season}</a>`;
+          seasonLi.innerHTML = `<a href="#">${season.charAt(0).toUpperCase() + season.slice(1)}</a>`;
 
           const weekMenu = document.createElement('ul');
           weekMenu.classList.add('week-menu');
 
           rankings[year][season].forEach(week => {
             const weekLi = document.createElement('li');
-            weekLi.innerHTML = `<a href="ranking/${year}/${season.toLowerCase()}/${week.toLowerCase().replace(' ', '')}/index.html">${week}</a>`;
+            weekLi.innerHTML = `<a href="ranking/${year}/${season}/${week}/index.html">${week.replace('Week ', 'Week ')}</a>`;
             weekMenu.appendChild(weekLi);
           });
 
@@ -523,6 +522,37 @@ document.addEventListener("DOMContentLoaded", () => {
 
         yearLi.appendChild(seasonMenu);
         yearMenu.appendChild(yearLi);
+      });
+
+      // ここから：サブメニューの位置補正ロジック追加
+      document.querySelectorAll('.has-submenu').forEach(parent => {
+        parent.addEventListener('mouseenter', () => {
+          const submenu = parent.querySelector('ul');
+          if (submenu) {
+            submenu.style.visibility = 'hidden'; // 一旦非表示にしてサイズ測定準備
+            submenu.style.display = 'block';
+
+            const rect = submenu.getBoundingClientRect();
+            const overflowRight = rect.right > window.innerWidth;
+
+            if (overflowRight) {
+              submenu.style.left = 'auto';
+              submenu.style.right = '100%';
+            } else {
+              submenu.style.left = '100%';
+              submenu.style.right = 'auto';
+            }
+
+            submenu.style.visibility = 'visible';
+          }
+        });
+
+        parent.addEventListener('mouseleave', () => {
+          const submenu = parent.querySelector('ul');
+          if (submenu) {
+            submenu.style.display = ''; // 元のCSSに戻す
+          }
+        });
       });
     });
 });
