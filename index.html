@@ -511,13 +511,13 @@ document.addEventListener("DOMContentLoaded", () => {
       id: "weekly-rankings-menu",
       json: "./weekly-rankings.json",
       pathBuilder: (year, season, week) => `ranking/${year}/${season}/${week}/index.html`,
-      isTier: false
+      finalType: "week"
     },
     {
       id: "tier-list-menu",
       json: "./AnimeTListPage/tier-list.json",
-      pathBuilder: (year, season, item) => item.path,
-      isTier: true
+      pathBuilder: (year, season, tierObj) => tierObj.path,
+      finalType: "tier"
     }
   ];
 
@@ -545,23 +545,25 @@ document.addEventListener("DOMContentLoaded", () => {
             seasonLi.innerHTML = `<a href="#">${season}</a>`;
 
             const finalMenu = document.createElement('ul');
-            finalMenu.classList.add(config.isTier ? 'tier-menu' : 'week-menu');
+            finalMenu.classList.add(config.finalType === "week" ? 'week-menu' : 'tier-menu');
 
-            data[year][season].forEach(item => {
-              const itemLi = document.createElement('li');
-              let linkText, linkHref;
-
-              if (config.isTier) {
-                linkText = item.title;
-                linkHref = config.pathBuilder(year, season, item);
-              } else {
-                linkText = item.replace('week', 'Week ');
-                linkHref = config.pathBuilder(year, season, item);
-              }
-
-              itemLi.innerHTML = `<a href="${linkHref}">${linkText}</a>`;
-              finalMenu.appendChild(itemLi);
-            });
+            if (config.finalType === "week") {
+              data[year][season].forEach(week => {
+                const itemLi = document.createElement('li');
+                const linkText = week.replace('week', 'Week ');
+                const linkHref = config.pathBuilder(year, season, week);
+                itemLi.innerHTML = `<a href="${linkHref}">${linkText}</a>`;
+                finalMenu.appendChild(itemLi);
+              });
+            } else if (config.finalType === "tier") {
+              data[year][season].forEach(tierObj => {
+                const itemLi = document.createElement('li');
+                const linkText = `${tierObj.title} (${tierObj.episodes})`;
+                const linkHref = config.pathBuilder(year, season, tierObj);
+                itemLi.innerHTML = `<a href="${linkHref}">${linkText}</a>`;
+                finalMenu.appendChild(itemLi);
+              });
+            }
 
             seasonLi.appendChild(finalMenu);
             seasonMenu.appendChild(seasonLi);
@@ -570,31 +572,10 @@ document.addEventListener("DOMContentLoaded", () => {
           yearLi.appendChild(seasonMenu);
           menuRoot.appendChild(yearLi);
         });
-
-        applyOverflowProtection();
       })
       .catch(err => console.error(`Failed to load ${config.json}:`, err));
   });
-
-  function applyOverflowProtection() {
-    document.querySelectorAll('.has-submenu').forEach(item => {
-      item.addEventListener('mouseenter', () => {
-        const submenu = item.querySelector('ul');
-        if (submenu) {
-          const rect = submenu.getBoundingClientRect();
-          if (rect.right > window.innerWidth) {
-            submenu.style.left = 'auto';
-            submenu.style.right = '100%';
-          } else {
-            submenu.style.left = '';
-            submenu.style.right = '';
-          }
-        }
-      });
-    });
-  }
 });
-
 
 
 </script>
