@@ -543,11 +543,11 @@ document.addEventListener("DOMContentLoaded", () => {
             seasonLi.innerHTML = `<a href="#">${season}</a>`;
 
             const finalMenu = document.createElement('ul');
-            finalMenu.classList.add(config.id === "weeklyRankingsMenu" ? 'week-menu' : 'tier-menu');
+            finalMenu.classList.add(config.id === "weekly-rankings-menu" ? 'week-menu' : 'tier-menu');
 
             data[year][season].forEach(finalItem => {
               const itemLi = document.createElement('li');
-              const linkText = config.id === "weeklyRankingsMenu" ? finalItem.replace('week', 'Week ') : finalItem;
+              const linkText = config.id === "weekly-rankings-menu" ? finalItem.replace('week', 'Week ') : finalItem;
               const linkHref = config.pathBuilder(year, season, finalItem);
               itemLi.innerHTML = `<a href="${linkHref}">${linkText}</a>`;
               finalMenu.appendChild(itemLi);
