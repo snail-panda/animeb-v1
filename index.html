@@ -527,7 +527,9 @@ document.addEventListener("DOMContentLoaded", () => {
           data[year][season].forEach(week => {
             const weekLi = document.createElement('li');
             const weekNum = week.replace('week', 'Week ');
-            const link = `ranking/${year}/${season}/${week}/index.html`;
+           const cleanWeek = week.toLowerCase().replace(/\s+/g, '');  // スペース除去
+           const linkHref = `ranking/${year}/${season}/${cleanWeek}/index.html`;
+
             weekLi.innerHTML = `<a href="${link}">${weekNum}</a>`;
             weekMenu.appendChild(weekLi);
           });
