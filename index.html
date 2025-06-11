@@ -488,7 +488,7 @@ if (bottomLink) {
 
 
 document.addEventListener("DOMContentLoaded", () => {
-  fetch("weekly-rankings.json")
+  fetch("./weekly-rankings.json")
     .then(res => res.json())
     .then(data => {
       const rankings = data.weekly_rankings;
