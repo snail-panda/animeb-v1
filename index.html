@@ -547,15 +547,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 document.addEventListener("DOMContentLoaded", () => {
+  const menuRoot = document.getElementById("tier-list-menu");
+  if (!menuRoot) {
+    console.warn("TierList menu container not found.");
+    return;
+  }
+
   fetch("./AnimeTListPage/tier-list.json")
     .then(res => res.json())
     .then(data => {
-      const tierMenuRoot = document.getElementById("tier-list-menu");
-      if (!tierMenuRoot) {
-        console.warn("Tier List container not found.");
-        return;
-      }
-
       Object.keys(data).forEach(year => {
         const yearLi = document.createElement('li');
         yearLi.classList.add('has-submenu');
@@ -572,12 +572,12 @@ document.addEventListener("DOMContentLoaded", () => {
           const timeMenu = document.createElement('ul');
           timeMenu.classList.add('tier-menu');
 
-          data[year][season].forEach(timeItem => {
-            const itemLi = document.createElement('li');
-            const timeKey = timeItem.toLowerCase().replace(" ", "-");
-            const path = `AnimeTListPage/${year}/${season.toLowerCase()}/${timeKey}.html`;
-            itemLi.innerHTML = `<a href="${path}">${timeItem}</a>`;
-            timeMenu.appendChild(itemLi);
+          data[year][season].forEach(tierPeriod => {
+            const periodLi = document.createElement('li');
+            const href = `AnimeTListPage/${year}/${season}/${tierPeriod.toLowerCase()}/index.html`;
+            const label = tierPeriod.replace(/-/g, ' ');
+            periodLi.innerHTML = `<a href="${href}">${label}</a>`;
+            timeMenu.appendChild(periodLi);
           });
 
           seasonLi.appendChild(timeMenu);
@@ -585,10 +585,10 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
         yearLi.appendChild(seasonMenu);
-        tierMenuRoot.appendChild(yearLi);
+        menuRoot.appendChild(yearLi);
       });
     })
-    .catch(err => console.error("Failed to load Tier List JSON:", err));
+    .catch(err => console.error("Failed to load tier-list.json:", err));
 });
 
 
