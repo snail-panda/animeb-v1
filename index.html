@@ -488,56 +488,39 @@ if (bottomLink) {
 
 
 document.addEventListener("DOMContentLoaded", () => {
-  const jsonPath = "./weekly-rankings.json";  // JSONファイルパス
-
-  fetch(jsonPath)
-    .then(response => response.json())
+  fetch("weekly-rankings.json")
+    .then(res => res.json())
     .then(data => {
-      const yearMenu = document.querySelector("#year-menu");
-      if (!yearMenu) return;
+      const rankings = data.weekly_rankings;
+      const yearMenu = document.querySelector('.year-menu');
 
-      Object.keys(data).forEach(year => {
-        const yearLi = document.createElement("li");
-        yearLi.classList.add("has-submenu");
-        const yearA = document.createElement("a");
-        yearA.href = "#";
-        yearA.textContent = year;
-        yearLi.appendChild(yearA);
+      Object.keys(rankings).forEach(year => {
+        const yearLi = document.createElement('li');
+        yearLi.classList.add('has-submenu');
+        yearLi.innerHTML = `<a href="#">${year}</a>`;
 
-        const seasonUl = document.createElement("ul");
-        seasonUl.classList.add("season-menu");
+        const seasonMenu = document.createElement('ul');
+        seasonMenu.classList.add('season-menu');
 
-        Object.keys(data[year]).forEach(season => {
-          const seasonLi = document.createElement("li");
-          seasonLi.classList.add("has-submenu");
-          const seasonA = document.createElement("a");
-          seasonA.href = "#";
-          seasonA.textContent = season;
-          seasonLi.appendChild(seasonA);
+        Object.keys(rankings[year]).forEach(season => {
+          const seasonLi = document.createElement('li');
+          seasonLi.classList.add('has-submenu');
+          seasonLi.innerHTML = `<a href="#">${season.charAt(0).toUpperCase() + season.slice(1)}</a>`;
 
-          const weekUl = document.createElement("ul");
-          weekUl.classList.add("week-menu");
+          const weekMenu = document.createElement('ul');
+          weekMenu.classList.add('week-menu');
 
-          data[year][season].forEach(week => {
-            const weekLi = document.createElement("li");
-            const weekA = document.createElement("a");
-
-            const pathYear = year;
-            const pathSeason = season.toLowerCase();
-            const pathWeek = week.toLowerCase().replace(" ", "");
-
-            weekA.href = `ranking/${pathYear}/${pathSeason}/${pathWeek}/index.html`;
-            weekA.textContent = week;
-
-            weekLi.appendChild(weekA);
-            weekUl.appendChild(weekLi);
+          rankings[year][season].forEach(week => {
+            const weekLi = document.createElement('li');
+            weekLi.innerHTML = `<a href="ranking/${year}/${season}/${week}/index.html">${week.replace('week', 'Week ')}</a>`;
+            weekMenu.appendChild(weekLi);
           });
 
-          seasonLi.appendChild(weekUl);
-          seasonUl.appendChild(seasonLi);
+          seasonLi.appendChild(weekMenu);
+          seasonMenu.appendChild(seasonLi);
         });
 
-        yearLi.appendChild(seasonUl);
+        yearLi.appendChild(seasonMenu);
         yearMenu.appendChild(yearLi);
       });
     });
