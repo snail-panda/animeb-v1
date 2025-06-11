@@ -510,14 +510,14 @@ document.addEventListener("DOMContentLoaded", () => {
     {
       id: "weekly-rankings-menu",
       json: "./weekly-rankings.json",
-      pathBuilder: (year, season, week) => `ranking/${year}/${season}/${week}/index.html`,
-      type: "week"
+      menuType: "weekly",
+      pathBuilder: (year, season, week) => `ranking/${year}/${season}/${week}/index.html`
     },
     {
       id: "tier-list-menu",
       json: "./AnimeTListPage/tier-list.json",
-      pathBuilder: (year, season, tier) => `AnimeTListPage/${year}/${season}/${tier}/index.html`,
-      type: "tier"
+      menuType: "tier",
+      pathBuilder: (year, season, tier) => `AnimeTListPage/${year}/${season}/${tier}/index.html`
     }
   ];
 
@@ -531,7 +531,7 @@ document.addEventListener("DOMContentLoaded", () => {
     fetch(config.json)
       .then(res => res.json())
       .then(data => {
-        Object.entries(data).forEach(([year, seasons]) => {
+        Object.keys(data).forEach(year => {
           const yearLi = document.createElement('li');
           yearLi.classList.add('has-submenu');
           yearLi.innerHTML = `<a href="#">${year}</a>`;
@@ -539,18 +539,25 @@ document.addEventListener("DOMContentLoaded", () => {
           const seasonMenu = document.createElement('ul');
           seasonMenu.classList.add('season-menu');
 
-          Object.entries(seasons).forEach(([season, finalItems]) => {
+          Object.keys(data[year]).forEach(season => {
             const seasonLi = document.createElement('li');
             seasonLi.classList.add('has-submenu');
             seasonLi.innerHTML = `<a href="#">${season}</a>`;
 
             const finalMenu = document.createElement('ul');
-            finalMenu.classList.add(config.type === "week" ? 'week-menu' : 'tier-menu');
+            finalMenu.classList.add(config.menuType === "weekly" ? 'week-menu' : 'tier-menu');
 
-            finalItems.forEach(item => {
+            data[year][season].forEach(finalItem => {
               const itemLi = document.createElement('li');
-              const linkText = config.type === "week" ? item.replace('week', 'Week ') : item;
-              const linkHref = config.pathBuilder(year, season, item);
+              let linkText = "";
+
+              if (config.menuType === "weekly") {
+                linkText = finalItem.replace("week", "Week ");
+              } else {
+                linkText = finalItem;
+              }
+
+              const linkHref = config.pathBuilder(year, season, finalItem);
               itemLi.innerHTML = `<a href="${linkHref}">${linkText}</a>`;
               finalMenu.appendChild(itemLi);
             });
@@ -562,30 +569,33 @@ document.addEventListener("DOMContentLoaded", () => {
           yearLi.appendChild(seasonMenu);
           menuRoot.appendChild(yearLi);
         });
+
+        // オーバーフロー検知処理
+        menuRoot.querySelectorAll('.has-submenu').forEach(submenu => {
+          submenu.addEventListener('mouseenter', () => {
+            const dropdown = submenu.querySelector('ul');
+            if (dropdown) {
+              dropdown.style.display = 'block';
+              const rect = dropdown.getBoundingClientRect();
+              if (rect.right > window.innerWidth) {
+                dropdown.style.left = 'auto';
+                dropdown.style.right = '100%';
+              } else {
+                dropdown.style.left = '';
+                dropdown.style.right = '';
+              }
+            }
+          });
+
+          submenu.addEventListener('mouseleave', () => {
+            const dropdown = submenu.querySelector('ul');
+            if (dropdown) {
+              dropdown.style.display = '';
+            }
+          });
+        });
       })
       .catch(err => console.error(`Failed to load ${config.json}:`, err));
-  });
-
-  // オーバーフロー対策 (画面右端のときは左側に出す)
-  document.querySelectorAll('.has-submenu').forEach(parent => {
-    parent.addEventListener('mouseenter', () => {
-      const submenu = parent.querySelector('ul');
-      if (submenu) {
-        submenu.style.visibility = 'hidden';
-        submenu.style.left = '100%';
-        submenu.style.right = 'auto';
-        submenu.style.top = '0';
-        submenu.style.whiteSpace = 'nowrap';
-        submenu.style.display = 'block';
-        const rect = submenu.getBoundingClientRect();
-        const overflowRight = rect.right > window.innerWidth;
-        if (overflowRight) {
-          submenu.style.left = 'auto';
-          submenu.style.right = '100%';
-        }
-        submenu.style.visibility = 'visible';
-      }
-    });
   });
 });
 
