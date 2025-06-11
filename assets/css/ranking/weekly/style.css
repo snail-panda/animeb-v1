@@ -20,7 +20,7 @@
     }
     .header h1 {
       font-family: 'Alfa Slab One', serif;
-      font-size: 35px;
+      font-size: 34px;
       color: #404040;
       margin: 0;
       margin-right: -0.4rem;
@@ -30,7 +30,7 @@
       font-family: 'Anton', sans-serif;
       font-size: 20px;
       letter-spacing: -0.02rem;
-      word-spacing: -0.09rem;
+      word-spacing: -0.1rem;
       color: #8E0000;
     }
 
