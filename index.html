@@ -488,10 +488,11 @@ if (bottomLink) {
 
 
 document.addEventListener("DOMContentLoaded", () => {
-  fetch("./weekly-rankings.json")
+  fetch("weekly-rankings.json")
     .then(res => res.json())
     .then(data => {
-      const rankings = data.weekly_rankings;
+      const rankings = data;  // ← ここが修正ポイント
+
       const yearMenu = document.querySelector('.year-menu');
 
       Object.keys(rankings).forEach(year => {
@@ -505,14 +506,14 @@ document.addEventListener("DOMContentLoaded", () => {
         Object.keys(rankings[year]).forEach(season => {
           const seasonLi = document.createElement('li');
           seasonLi.classList.add('has-submenu');
-          seasonLi.innerHTML = `<a href="#">${season.charAt(0).toUpperCase() + season.slice(1)}</a>`;
+          seasonLi.innerHTML = `<a href="#">${season}</a>`;
 
           const weekMenu = document.createElement('ul');
           weekMenu.classList.add('week-menu');
 
           rankings[year][season].forEach(week => {
             const weekLi = document.createElement('li');
-            weekLi.innerHTML = `<a href="ranking/${year}/${season}/${week}/index.html">${week.replace('week', 'Week ')}</a>`;
+            weekLi.innerHTML = `<a href="ranking/${year}/${season.toLowerCase()}/${week.toLowerCase().replace(' ', '')}/index.html">${week}</a>`;
             weekMenu.appendChild(weekLi);
           });
 
