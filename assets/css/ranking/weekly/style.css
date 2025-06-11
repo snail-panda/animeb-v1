@@ -18,30 +18,28 @@
       letter-spacing: -0.2px;
       gap: 9px;
     }
-   .header h1 {
+    .header h1 {
       font-family: 'Alfa Slab One', serif;
       font-size: 35px;
       color: #404040;
       margin: 0;
-      margin-right: -0.3rem;
+      margin-right: -0.5rem;
     }
 
-    .header .week {
+    .header .week-title {
       font-family: 'Anton', sans-serif;
       font-size: 20px;
-      word-spacing: -0.06rem;
       color: #8E0000;
     }
 
-    .subheader {
+    .sub-header {
       font-family:'Special Gothic Condensed One', 'Bebas Neue', 'sans-serif';
       color: #A3A3A3;
       letter-spacing: -0.02rem;
-      word-spacing: -0.05rem;
+      word-spacing: -0.04rem;
       font-size: 19px;
       margin-top: -5px;
     }
-
 
     .table {
   display: grid;
