@@ -26,18 +26,24 @@
    <div class="nav-spacer"></div> <!-- LEFT EMPTY SPACER -->
     <ul class="nav-menu">
   <li><a href="#">Home</a></li>
-  <li class="has-dropdown">
-    <a href="#">Anime</a>
-    <ul class="dropdown">
-      <li><a href="#">Weekly Rankings</a></li>
-      <li><a href="#">Reviews</a></li>
-      <li><a href="#">Tier List</a></li>
-      <li><a href="#">Spotlight</a></li>
-      <li><a href="#">Classics</a></li>
-      <li><a href="#">Misc</a></li>
-      <li><a href="#">Editorial</a></li>
-    </ul>
-  </li>
+  <li class="has-dropdown multi-level">
+  <a href="#">Anime</a>
+  <ul class="dropdown">
+    <li class="has-submenu">
+      <a href="#">Weekly Rankings</a>
+      <ul class="year-menu">
+        <!-- 自動でここに年〜週まで挿入される -->
+      </ul>
+    </li>
+    <li><a href="#">Reviews</a></li>
+    <li><a href="#">Tier List</a></li>
+    <li><a href="#">Spotlight</a></li>
+    <li><a href="#">Classics</a></li>
+    <li><a href="#">Misc</a></li>
+    <li><a href="#">Editorial</a></li>
+  </ul>
+</li>
+
   <li class="has-dropdown">
     <a href="#">English</a>
     <ul class="dropdown">
@@ -373,7 +379,7 @@ It wasn’t just the conclusion of a case; it was a symbolic act of emotional re
 </footer>
 
 </div>
-</body>
+
 
 <script>
 document.addEventListener("DOMContentLoaded", function () {
@@ -478,4 +484,46 @@ if (bottomLink) {
     });
 });
 
+
+document.addEventListener("DOMContentLoaded", () => {
+  fetch("weekly-nav.json")
+    .then(res => res.json())
+    .then(data => {
+      const rankings = data.weekly_rankings;
+      const yearMenu = document.querySelector('.year-menu');
+
+      Object.keys(rankings).forEach(year => {
+        const yearLi = document.createElement('li');
+        yearLi.classList.add('has-submenu');
+        yearLi.innerHTML = `<a href="#">${year}</a>`;
+
+        const seasonMenu = document.createElement('ul');
+        seasonMenu.classList.add('season-menu');
+
+        Object.keys(rankings[year]).forEach(season => {
+          const seasonLi = document.createElement('li');
+          seasonLi.classList.add('has-submenu');
+          seasonLi.innerHTML = `<a href="#">${season.charAt(0).toUpperCase() + season.slice(1)}</a>`;
+
+          const weekMenu = document.createElement('ul');
+          weekMenu.classList.add('week-menu');
+
+          rankings[year][season].forEach(week => {
+            const weekLi = document.createElement('li');
+            weekLi.innerHTML = `<a href="ranking/${year}/${season}/${week}/index.html">${week.replace('week', 'Week ')}</a>`;
+            weekMenu.appendChild(weekLi);
+          });
+
+          seasonLi.appendChild(weekMenu);
+          seasonMenu.appendChild(seasonLi);
+        });
+
+        yearLi.appendChild(seasonMenu);
+        yearMenu.appendChild(yearLi);
+      });
+    });
+});
+
 </script>
+
+</body>
