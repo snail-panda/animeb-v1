@@ -575,6 +575,7 @@ document.addEventListener("DOMContentLoaded", () => {
   fetch("./AnimeTListPage/tier-list.json")
     .then(res => res.json())
     .then(data => {
+      // Yearレベル
       Object.keys(data).forEach(year => {
         const yearLi = document.createElement('li');
         yearLi.classList.add('has-submenu');
@@ -583,24 +584,26 @@ document.addEventListener("DOMContentLoaded", () => {
         const seasonMenu = document.createElement('ul');
         seasonMenu.classList.add('season-menu');
 
+        // Seasonレベル
         Object.keys(data[year]).forEach(season => {
           const seasonLi = document.createElement('li');
           seasonLi.classList.add('has-submenu');
           seasonLi.innerHTML = `<a href="#">${season}</a>`;
 
-          const pointMenu = document.createElement('ul');
-          pointMenu.classList.add('tier-menu');
+          const periodMenu = document.createElement('ul');
+          periodMenu.classList.add('period-menu');
 
-          data[year][season].forEach(point => {
-            const pointLi = document.createElement('li');
+          // Periodレベル
+          data[year][season].forEach(period => {
+            const periodLi = document.createElement('li');
             const seasonFolder = season.toLowerCase();
-            const pointFolder = point.toLowerCase();
-            const href = `AnimeTListPage/${year}/${seasonFolder}/${pointFolder}/tierlist.html`;
-            pointLi.innerHTML = `<a href="${href}">${point}</a>`;
-            pointMenu.appendChild(pointLi);
+            const periodFolder = period.toLowerCase();
+            const href = `AnimeTListPage/${year}/${seasonFolder}/${periodFolder}/tierlist.html`;
+            periodLi.innerHTML = `<a href="${href}">${period}</a>`;
+            periodMenu.appendChild(periodLi);
           });
 
-          seasonLi.appendChild(pointMenu);
+          seasonLi.appendChild(periodMenu);
           seasonMenu.appendChild(seasonLi);
         });
 
@@ -608,11 +611,11 @@ document.addEventListener("DOMContentLoaded", () => {
         menuRoot.appendChild(yearLi);
       });
 
-      applyOverflowProtection();
+      applyTierListOverflowProtection();
     });
 
-  function applyOverflowProtection() {
-    document.querySelectorAll('.nav-menu li.has-submenu').forEach(submenu => {
+  function applyTierListOverflowProtection() {
+    document.querySelectorAll('#tier-list-menu li.has-submenu').forEach(submenu => {
       submenu.addEventListener('mouseenter', function () {
         const subMenuPanel = this.querySelector('ul');
         if (subMenuPanel) {
