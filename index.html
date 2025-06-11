@@ -575,7 +575,6 @@ document.addEventListener("DOMContentLoaded", () => {
   fetch("./AnimeTListPage/tier-list.json")
     .then(res => res.json())
     .then(data => {
-      // Yearレベル
       Object.keys(data).forEach(year => {
         const yearLi = document.createElement('li');
         yearLi.classList.add('has-submenu');
@@ -584,7 +583,6 @@ document.addEventListener("DOMContentLoaded", () => {
         const seasonMenu = document.createElement('ul');
         seasonMenu.classList.add('season-menu');
 
-        // Seasonレベル
         Object.keys(data[year]).forEach(season => {
           const seasonLi = document.createElement('li');
           seasonLi.classList.add('has-submenu');
@@ -593,7 +591,6 @@ document.addEventListener("DOMContentLoaded", () => {
           const periodMenu = document.createElement('ul');
           periodMenu.classList.add('period-menu');
 
-          // Periodレベル
           data[year][season].forEach(period => {
             const periodLi = document.createElement('li');
             const seasonFolder = season.toLowerCase();
