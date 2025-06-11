@@ -506,24 +506,27 @@ if (bottomLink) {
 //=============pulldown 統合用 & オーバーフロー対策も===========
 
 document.addEventListener("DOMContentLoaded", () => {
-
-  const menus = [
+  const configs = [
     {
-      id: 'weekly-rankings-menu',
-      json: './weekly-rankings.json',
-      target: document.querySelector('#weekly-rankings > .year-menu'),
+      id: "weekly-rankings-menu",
+      json: "./weekly-rankings.json",
       pathBuilder: (year, season, week) => `ranking/${year}/${season}/${week}/index.html`
     },
     {
-      id: 'tier-list-menu',
-      json: './AnimeTListPage/tier-list.json',
-      target: document.querySelector('#tier-list > .year-menu'),
-      pathBuilder: (year, season, label) => `AnimeTListPage/${year}/${season}/${label}.html`
+      id: "tier-list-menu",
+      json: "./AnimeTListPage/tier-list.json",
+      pathBuilder: (year, season, tier) => `AnimeTListPage/${year}/${season}/${tier}/index.html`
     }
   ];
 
-  menus.forEach(menu => {
-    fetch(menu.json)
+  configs.forEach(config => {
+    const menuRoot = document.getElementById(config.id);
+    if (!menuRoot) {
+      console.warn(`Menu container with id '${config.id}' not found.`);
+      return;
+    }
+
+    fetch(config.json)
       .then(res => res.json())
       .then(data => {
         Object.keys(data).forEach(year => {
@@ -540,49 +543,26 @@ document.addEventListener("DOMContentLoaded", () => {
             seasonLi.innerHTML = `<a href="#">${season}</a>`;
 
             const finalMenu = document.createElement('ul');
-            if (menu.id === 'weekly-rankings') {
-              finalMenu.classList.add('week-menu');
-              data[year][season].forEach(week => {
-                const weekLi = document.createElement('li');
-                weekLi.innerHTML = `<a href="${menu.pathBuilder(year, season, week)}">${week.replace('week', 'Week ')}</a>`;
-                finalMenu.appendChild(weekLi);
-              });
-            } else {
-              finalMenu.classList.add('tier-menu');
-              data[year][season].forEach(label => {
-                const labelLi = document.createElement('li');
-                labelLi.innerHTML = `<a href="${menu.pathBuilder(year, season, label)}">${label}</a>`;
-                finalMenu.appendChild(labelLi);
-              });
-            }
+            finalMenu.classList.add(config.id === "weeklyRankingsMenu" ? 'week-menu' : 'tier-menu');
+
+            data[year][season].forEach(finalItem => {
+              const itemLi = document.createElement('li');
+              const linkText = config.id === "weeklyRankingsMenu" ? finalItem.replace('week', 'Week ') : finalItem;
+              const linkHref = config.pathBuilder(year, season, finalItem);
+              itemLi.innerHTML = `<a href="${linkHref}">${linkText}</a>`;
+              finalMenu.appendChild(itemLi);
+            });
 
             seasonLi.appendChild(finalMenu);
             seasonMenu.appendChild(seasonLi);
           });
 
           yearLi.appendChild(seasonMenu);
-          menu.target.appendChild(yearLi);
+          menuRoot.appendChild(yearLi);
         });
-      });
+      })
+      .catch(err => console.error(`Failed to load ${config.json}:`, err));
   });
-
-  // overflow detection for submenus
-  document.querySelectorAll('.has-submenu').forEach(submenu => {
-    submenu.addEventListener('mouseenter', () => {
-      const subMenuEl = submenu.querySelector('ul');
-      if (!subMenuEl) return;
-
-      const rect = subMenuEl.getBoundingClientRect();
-      if (rect.right > window.innerWidth) {
-        subMenuEl.style.left = 'auto';
-        subMenuEl.style.right = '100%';
-      } else {
-        subMenuEl.style.left = '100%';
-        subMenuEl.style.right = 'auto';
-      }
-    });
-  });
-
 });
 
 
