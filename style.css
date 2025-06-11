@@ -304,6 +304,52 @@ body {
   color: #5c4084;
 }
 
+/* Tier List Multi-Level Dropdown Structure */
+
+#tier-list-menu li {
+  position: relative;
+}
+
+.tier-season-menu,
+.tier-period-menu {
+  display: none;
+  position: absolute;
+  background-color: #faf8fa;
+  border: 1px solid #dcd5dc;
+  border-radius: 4px;
+  padding: 0.3rem 0;
+  z-index: 1000;
+  min-width: 140px;
+  box-shadow: 0px 3px 8px rgba(0,0,0,0.12);
+}
+
+.has-submenu:hover > .tier-season-menu {
+  display: block;
+  top: 100%;
+  left: 0;
+}
+
+.tier-season-menu .has-submenu:hover > .tier-period-menu {
+  display: block;
+  top: 0;
+  left: 100%;
+}
+
+.tier-season-menu li a,
+.tier-period-menu li a {
+  display: block;
+  padding: 0.3rem 0.5rem;
+  font-size: 0.6rem;
+  color: #423d42;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.tier-season-menu li a:hover,
+.tier-period-menu li a:hover {
+  background-color: #eee;
+  color: #5c4084;
+}
 
 
 
