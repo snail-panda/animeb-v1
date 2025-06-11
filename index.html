@@ -510,14 +510,14 @@ document.addEventListener("DOMContentLoaded", () => {
     {
       id: "weekly-rankings-menu",
       json: "./weekly-rankings.json",
-      menuType: "weekly",
-      pathBuilder: (year, season, week) => `ranking/${year}/${season}/${week}/index.html`
+      pathBuilder: (year, season, week) => `ranking/${year}/${season}/${week}/index.html`,
+      isTier: false
     },
     {
       id: "tier-list-menu",
       json: "./AnimeTListPage/tier-list.json",
-      menuType: "tier",
-      pathBuilder: (year, season, tier) => `AnimeTListPage/${year}/${season}/${tier}/index.html`
+      pathBuilder: (year, season, item) => item.path,
+      isTier: true
     }
   ];
 
@@ -545,19 +545,20 @@ document.addEventListener("DOMContentLoaded", () => {
             seasonLi.innerHTML = `<a href="#">${season}</a>`;
 
             const finalMenu = document.createElement('ul');
-            finalMenu.classList.add(config.menuType === "weekly" ? 'week-menu' : 'tier-menu');
+            finalMenu.classList.add(config.isTier ? 'tier-menu' : 'week-menu');
 
-            data[year][season].forEach(finalItem => {
+            data[year][season].forEach(item => {
               const itemLi = document.createElement('li');
-              let linkText = "";
+              let linkText, linkHref;
 
-              if (config.menuType === "weekly") {
-                linkText = finalItem.replace("week", "Week ");
+              if (config.isTier) {
+                linkText = item.title;
+                linkHref = config.pathBuilder(year, season, item);
               } else {
-                linkText = finalItem;
+                linkText = item.replace('week', 'Week ');
+                linkHref = config.pathBuilder(year, season, item);
               }
 
-              const linkHref = config.pathBuilder(year, season, finalItem);
               itemLi.innerHTML = `<a href="${linkHref}">${linkText}</a>`;
               finalMenu.appendChild(itemLi);
             });
@@ -570,33 +571,28 @@ document.addEventListener("DOMContentLoaded", () => {
           menuRoot.appendChild(yearLi);
         });
 
-        // オーバーフロー検知処理
-        menuRoot.querySelectorAll('.has-submenu').forEach(submenu => {
-          submenu.addEventListener('mouseenter', () => {
-            const dropdown = submenu.querySelector('ul');
-            if (dropdown) {
-              dropdown.style.display = 'block';
-              const rect = dropdown.getBoundingClientRect();
-              if (rect.right > window.innerWidth) {
-                dropdown.style.left = 'auto';
-                dropdown.style.right = '100%';
-              } else {
-                dropdown.style.left = '';
-                dropdown.style.right = '';
-              }
-            }
-          });
-
-          submenu.addEventListener('mouseleave', () => {
-            const dropdown = submenu.querySelector('ul');
-            if (dropdown) {
-              dropdown.style.display = '';
-            }
-          });
-        });
+        applyOverflowProtection();
       })
       .catch(err => console.error(`Failed to load ${config.json}:`, err));
   });
+
+  function applyOverflowProtection() {
+    document.querySelectorAll('.has-submenu').forEach(item => {
+      item.addEventListener('mouseenter', () => {
+        const submenu = item.querySelector('ul');
+        if (submenu) {
+          const rect = submenu.getBoundingClientRect();
+          if (rect.right > window.innerWidth) {
+            submenu.style.left = 'auto';
+            submenu.style.right = '100%';
+          } else {
+            submenu.style.left = '';
+            submenu.style.right = '';
+          }
+        }
+      });
+    });
+  }
 });
 
 
