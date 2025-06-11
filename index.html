@@ -575,39 +575,60 @@ document.addEventListener("DOMContentLoaded", () => {
   fetch("./AnimeTListPage/tier-list.json")
     .then(res => res.json())
     .then(data => {
-      // Yearレベル
-     Object.keys(data).forEach(year => {
-  const yearLi = document.createElement('li');
-  yearLi.classList.add('has-submenu');
-  yearLi.innerHTML = `<a href="#">${year}</a>`;
+      Object.keys(data).forEach(year => {
+        const yearLi = document.createElement('li');
+        yearLi.classList.add('has-submenu');
+        yearLi.innerHTML = `<a href="#">${year}</a>`;
 
-  const seasonMenu = document.createElement('ul');
-  seasonMenu.classList.add('season-menu');
+        const seasonMenu = document.createElement('ul');
+        seasonMenu.classList.add('season-menu');
 
-  Object.keys(data[year]).forEach(season => {
-    const seasonLi = document.createElement('li');
-    seasonLi.classList.add('has-submenu');
-    seasonLi.innerHTML = `<a href="#">${season}</a>`;
+        Object.keys(data[year]).forEach(season => {
+          const seasonLi = document.createElement('li');
+          seasonLi.classList.add('has-submenu');
+          seasonLi.innerHTML = `<a href="#">${season}</a>`;
 
-    const periodMenu = document.createElement('ul');
-    periodMenu.classList.add('period-menu');
+          const periodMenu = document.createElement('ul');
+          periodMenu.classList.add('period-menu');
 
-    data[year][season].forEach(period => {
-      const periodLi = document.createElement('li');
-      const seasonFolder = season.toLowerCase();
-      const periodFolder = period.toLowerCase();
-      const href = `AnimeTListPage/${year}/${seasonFolder}/${periodFolder}/tierlist.html`;
-      periodLi.innerHTML = `<a href="${href}">${period}</a>`;
-      periodMenu.appendChild(periodLi);
+          data[year][season].forEach(period => {
+            const periodLi = document.createElement('li');
+            const seasonFolder = season.toLowerCase();
+            const periodFolder = period.toLowerCase();
+            const href = `AnimeTListPage/${year}/${seasonFolder}/${periodFolder}/tierlist.html`;
+            periodLi.innerHTML = `<a href="${href}">${period}</a>`;
+            periodMenu.appendChild(periodLi);
+          });
+
+          seasonLi.appendChild(periodMenu);
+          seasonMenu.appendChild(seasonLi);
+        });
+
+        yearLi.appendChild(seasonMenu);
+        menuRoot.appendChild(yearLi);
+      });
+
+      applyTierListOverflowProtection();
     });
 
-    // 💡 ここが超重要！！
-    seasonLi.appendChild(periodMenu);
-    seasonMenu.appendChild(seasonLi);
-  });
-
-  yearLi.appendChild(seasonMenu);
-  menuRoot.appendChild(yearLi);
+  function applyTierListOverflowProtection() {
+    document.querySelectorAll('#tier-list-menu li.has-submenu').forEach(submenu => {
+      submenu.addEventListener('mouseenter', function () {
+        const subMenuPanel = this.querySelector('ul');
+        if (subMenuPanel) {
+          const rect = subMenuPanel.getBoundingClientRect();
+          const viewportWidth = window.innerWidth;
+          if (rect.right > viewportWidth) {
+            subMenuPanel.style.left = 'auto';
+            subMenuPanel.style.right = '100%';
+          } else {
+            subMenuPanel.style.left = '100%';
+            subMenuPanel.style.right = 'auto';
+          }
+        }
+      });
+    });
+  }
 });
 
 
