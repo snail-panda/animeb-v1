@@ -510,12 +510,14 @@ document.addEventListener("DOMContentLoaded", () => {
     {
       id: "weekly-rankings-menu",
       json: "./weekly-rankings.json",
-      pathBuilder: (year, season, week) => `ranking/${year}/${season}/${week}/index.html`
+      pathBuilder: (year, season, week) => `ranking/${year}/${season}/${week}/index.html`,
+      type: "week"
     },
     {
       id: "tier-list-menu",
       json: "./AnimeTListPage/tier-list.json",
-      pathBuilder: (year, season, tier) => `AnimeTListPage/${year}/${season}/${tier}/index.html`
+      pathBuilder: (year, season, tier) => `AnimeTListPage/${year}/${season}/${tier}/index.html`,
+      type: "tier"
     }
   ];
 
@@ -529,7 +531,7 @@ document.addEventListener("DOMContentLoaded", () => {
     fetch(config.json)
       .then(res => res.json())
       .then(data => {
-        Object.keys(data).forEach(year => {
+        Object.entries(data).forEach(([year, seasons]) => {
           const yearLi = document.createElement('li');
           yearLi.classList.add('has-submenu');
           yearLi.innerHTML = `<a href="#">${year}</a>`;
@@ -537,18 +539,18 @@ document.addEventListener("DOMContentLoaded", () => {
           const seasonMenu = document.createElement('ul');
           seasonMenu.classList.add('season-menu');
 
-          Object.keys(data[year]).forEach(season => {
+          Object.entries(seasons).forEach(([season, finalItems]) => {
             const seasonLi = document.createElement('li');
             seasonLi.classList.add('has-submenu');
             seasonLi.innerHTML = `<a href="#">${season}</a>`;
 
             const finalMenu = document.createElement('ul');
-            finalMenu.classList.add(config.id === "weekly-rankings-menu" ? 'week-menu' : 'tier-menu');
+            finalMenu.classList.add(config.type === "week" ? 'week-menu' : 'tier-menu');
 
-            data[year][season].forEach(finalItem => {
+            finalItems.forEach(item => {
               const itemLi = document.createElement('li');
-              const linkText = config.id === "weekly-rankings-menu" ? finalItem.replace('week', 'Week ') : finalItem;
-              const linkHref = config.pathBuilder(year, season, finalItem);
+              const linkText = config.type === "week" ? item.replace('week', 'Week ') : item;
+              const linkHref = config.pathBuilder(year, season, item);
               itemLi.innerHTML = `<a href="${linkHref}">${linkText}</a>`;
               finalMenu.appendChild(itemLi);
             });
@@ -562,6 +564,28 @@ document.addEventListener("DOMContentLoaded", () => {
         });
       })
       .catch(err => console.error(`Failed to load ${config.json}:`, err));
+  });
+
+  // オーバーフロー対策 (画面右端のときは左側に出す)
+  document.querySelectorAll('.has-submenu').forEach(parent => {
+    parent.addEventListener('mouseenter', () => {
+      const submenu = parent.querySelector('ul');
+      if (submenu) {
+        submenu.style.visibility = 'hidden';
+        submenu.style.left = '100%';
+        submenu.style.right = 'auto';
+        submenu.style.top = '0';
+        submenu.style.whiteSpace = 'nowrap';
+        submenu.style.display = 'block';
+        const rect = submenu.getBoundingClientRect();
+        const overflowRight = rect.right > window.innerWidth;
+        if (overflowRight) {
+          submenu.style.left = 'auto';
+          submenu.style.right = '100%';
+        }
+        submenu.style.visibility = 'visible';
+      }
+    });
   });
 });
 
