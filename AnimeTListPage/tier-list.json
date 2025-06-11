@@ -1,14 +1,14 @@
 {
   "2025": {
-    "Spring": ["Beginning", "Mid", "End"],
-    "Summer": ["Beginning", "Mid", "End"],
-    "Fall": ["Beginning", "Mid", "End"],
-    "Winter": ["Beginning", "Mid", "End"]
+    "Spring": ["Week 01", "Week 02", "Week 03"],
+    "Summer": ["Week 01", "Week 02"],
+    "Fall": ["Week 01"],
+    "Winter": ["Week 01"]
   },
   "2026": {
-    "Spring": ["Beginning", "Mid", "End"],
-    "Summer": ["Beginning", "Mid", "End"],
-    "Fall": ["Beginning", "Mid", "End"],
-    "Winter": ["Beginning", "Mid", "End"]
+    "Spring": ["Week 01", "Week 02", "Week 03"],
+    "Summer": ["Week 01", "Week 02"],
+    "Fall": ["Week 01"],
+    "Winter": ["Week 01"]
   }
 }
