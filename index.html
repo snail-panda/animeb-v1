@@ -614,7 +614,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
   function applyOverflowProtection() {
-    document.querySelectorAll('.nav-menu li.has-submenu').forEach(submenu => {
+    document.querySelectorAll('#tier-list-menu li.has-submenu').forEach(submenu => {
       submenu.addEventListener('mouseenter', function () {
         const subMenuPanel = this.querySelector('ul');
         if (subMenuPanel) {
