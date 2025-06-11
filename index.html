@@ -593,10 +593,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
           data[year][season].forEach(point => {
             const pointLi = document.createElement('li');
-            const yearFolder = year;
             const seasonFolder = season.toLowerCase();
             const pointFolder = point.toLowerCase();
-            const href = `AnimeTListPage/${yearFolder}/${seasonFolder}/${pointFolder}/tierlist.html`;
+            const href = `AnimeTListPage/${year}/${seasonFolder}/${pointFolder}/tierlist.html`;
             pointLi.innerHTML = `<a href="${href}">${point}</a>`;
             pointMenu.appendChild(pointLi);
           });
