@@ -506,14 +506,16 @@ if (bottomLink) {
 //=============pulldown 統合用 & オーバーフロー対策も===========
 
 document.addEventListener("DOMContentLoaded", () => {
+  const menuRoot = document.getElementById("weekly-rankings-menu");
+
   fetch("./weekly-rankings.json")
     .then(res => res.json())
     .then(data => {
-      const menuRoot = document.getElementById("weekly-rankings-menu");
       Object.keys(data).forEach(year => {
         const yearLi = document.createElement('li');
         yearLi.classList.add('has-submenu');
         yearLi.innerHTML = `<a href="#">${year}</a>`;
+
         const seasonMenu = document.createElement('ul');
         seasonMenu.classList.add('season-menu');
 
@@ -521,18 +523,19 @@ document.addEventListener("DOMContentLoaded", () => {
           const seasonLi = document.createElement('li');
           seasonLi.classList.add('has-submenu');
           seasonLi.innerHTML = `<a href="#">${season}</a>`;
+
           const weekMenu = document.createElement('ul');
           weekMenu.classList.add('week-menu');
 
           data[year][season].forEach(week => {
             const weekLi = document.createElement('li');
-            const weekNum = week.replace('week', 'Week ');
-            const link = `ranking/${year}/${season}/${week}/index.html`;
-            weekLi.innerHTML = `<a href="${link}">${weekNum}</a>`;
+            const weekClean = week.toLowerCase().replace(/\s+/g, '');
+            const seasonClean = season.toLowerCase();
+            const link = `ranking/${year}/${seasonClean}/${weekClean}/index.html`;
+            weekLi.innerHTML = `<a href="${link}">${week}</a>`;
             weekMenu.appendChild(weekLi);
           });
 
-          // 空チェック：week が空配列なら作成しない
           if (data[year][season].length > 0) {
             seasonLi.appendChild(weekMenu);
           }
@@ -545,13 +548,8 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
-
 document.addEventListener("DOMContentLoaded", () => {
   const menuRoot = document.getElementById("tier-list-menu");
-  if (!menuRoot) {
-    console.warn("TierList menu container not found.");
-    return;
-  }
 
   fetch("./AnimeTListPage/tier-list.json")
     .then(res => res.json())
@@ -569,26 +567,163 @@ document.addEventListener("DOMContentLoaded", () => {
           seasonLi.classList.add('has-submenu');
           seasonLi.innerHTML = `<a href="#">${season}</a>`;
 
-          const timeMenu = document.createElement('ul');
-          timeMenu.classList.add('tier-menu');
+          const pointMenu = document.createElement('ul');
+          pointMenu.classList.add('tier-menu');
 
-          data[year][season].forEach(tierPeriod => {
-            const periodLi = document.createElement('li');
-            const href = `AnimeTListPage/${year}/${season}/${tierPeriod.toLowerCase()}/index.html`;
-            const label = tierPeriod.replace(/-/g, ' ');
-            periodLi.innerHTML = `<a href="${href}">${label}</a>`;
-            timeMenu.appendChild(periodLi);
+          data[year][season].forEach(point => {
+            const pointLi = document.createElement('li');
+            const yearFolder = year;
+            const seasonFolder = season;
+            const pointFolder = point.toLowerCase();
+            const href = `AnimeTListPage/${yearFolder}/${seasonFolder}/${pointFolder}/tierlist.html`;
+            pointLi.innerHTML = `<a href="${href}">${point}</a>`;
+            pointMenu.appendChild(pointLi);
           });
 
-          seasonLi.appendChild(timeMenu);
+          seasonLi.appendChild(pointMenu);
           seasonMenu.appendChild(seasonLi);
         });
 
         yearLi.appendChild(seasonMenu);
         menuRoot.appendChild(yearLi);
       });
-    })
-    .catch(err => console.error("Failed to load tier-list.json:", err));
+
+      /** オーバーフロー自動判定：左右判定 **/
+      document.querySelectorAll('.nav-menu li.has-submenu').forEach(submenu => {
+        submenu.addEventListener('mouseenter', function () {
+          const subMenuPanel = this.querySelector('ul');
+          if (subMenuPanel) {
+            const rect = subMenuPanel.getBoundingClientRect();
+            const viewportWidth = window.innerWidth;
+            if (rect.right > viewportWidth) {
+              subMenuPanel.style.left = 'auto';
+              subMenuPanel.style.right = '100%';
+            } else {
+              subMenuPanel.style.left = '100%';
+              subMenuPanel.style.right = 'auto';
+            }
+          }
+        });
+      });
+    });
+});
+document.addEventListener("DOMContentLoaded", () => {
+  const menuRoot = document.getElementById("tier-list-menu");
+
+  fetch("./AnimeTListPage/tier-list.json")
+    .then(res => res.json())
+    .then(data => {
+      Object.keys(data).forEach(year => {
+        const yearLi = document.createElement('li');
+        yearLi.classList.add('has-submenu');
+        yearLi.innerHTML = `<a href="#">${year}</a>`;
+
+        const seasonMenu = document.createElement('ul');
+        seasonMenu.classList.add('season-menu');
+
+        Object.keys(data[year]).forEach(season => {
+          const seasonLi = document.createElement('li');
+          seasonLi.classList.add('has-submenu');
+          seasonLi.innerHTML = `<a href="#">${season}</a>`;
+
+          const pointMenu = document.createElement('ul');
+          pointMenu.classList.add('tier-menu');
+
+          data[year][season].forEach(point => {
+            const pointLi = document.createElement('li');
+            const yearFolder = year;
+            const seasonFolder = season;
+            const pointFolder = point.toLowerCase();
+            const href = `AnimeTListPage/${yearFolder}/${seasonFolder}/${pointFolder}/tierlist.html`;
+            pointLi.innerHTML = `<a href="${href}">${point}</a>`;
+            pointMenu.appendChild(pointLi);
+          });
+
+          seasonLi.appendChild(pointMenu);
+          seasonMenu.appendChild(seasonLi);
+        });
+
+        yearLi.appendChild(seasonMenu);
+        menuRoot.appendChild(yearLi);
+      });
+
+      /** オーバーフロー自動判定：左右判定 **/
+      document.querySelectorAll('.nav-menu li.has-submenu').forEach(submenu => {
+        submenu.addEventListener('mouseenter', function () {
+          const subMenuPanel = this.querySelector('ul');
+          if (subMenuPanel) {
+            const rect = subMenuPanel.getBoundingClientRect();
+            const viewportWidth = window.innerWidth;
+            if (rect.right > viewportWidth) {
+              subMenuPanel.style.left = 'auto';
+              subMenuPanel.style.right = '100%';
+            } else {
+              subMenuPanel.style.left = '100%';
+              subMenuPanel.style.right = 'auto';
+            }
+          }
+        });
+      });
+    });
+});
+document.addEventListener("DOMContentLoaded", () => {
+  const menuRoot = document.getElementById("tier-list-menu");
+
+  fetch("./AnimeTListPage/tier-list.json")
+    .then(res => res.json())
+    .then(data => {
+      Object.keys(data).forEach(year => {
+        const yearLi = document.createElement('li');
+        yearLi.classList.add('has-submenu');
+        yearLi.innerHTML = `<a href="#">${year}</a>`;
+
+        const seasonMenu = document.createElement('ul');
+        seasonMenu.classList.add('season-menu');
+
+        Object.keys(data[year]).forEach(season => {
+          const seasonLi = document.createElement('li');
+          seasonLi.classList.add('has-submenu');
+          seasonLi.innerHTML = `<a href="#">${season}</a>`;
+
+          const pointMenu = document.createElement('ul');
+          pointMenu.classList.add('tier-menu');
+
+          data[year][season].forEach(point => {
+            const pointLi = document.createElement('li');
+            const yearFolder = year;
+            const seasonFolder = season;
+            const pointFolder = point.toLowerCase();
+            const href = `AnimeTListPage/${yearFolder}/${seasonFolder}/${pointFolder}/tierlist.html`;
+            pointLi.innerHTML = `<a href="${href}">${point}</a>`;
+            pointMenu.appendChild(pointLi);
+          });
+
+          seasonLi.appendChild(pointMenu);
+          seasonMenu.appendChild(seasonLi);
+        });
+
+        yearLi.appendChild(seasonMenu);
+        menuRoot.appendChild(yearLi);
+      });
+
+      /** オーバーフロー自動判定：左右判定 **/
+      document.querySelectorAll('.nav-menu li.has-submenu').forEach(submenu => {
+        submenu.addEventListener('mouseenter', function () {
+          const subMenuPanel = this.querySelector('ul');
+          if (subMenuPanel) {
+            const rect = subMenuPanel.getBoundingClientRect();
+            const viewportWidth = window.innerWidth;
+            if (rect.right > viewportWidth) {
+              subMenuPanel.style.left = 'auto';
+              subMenuPanel.style.right = '100%';
+            } else {
+              subMenuPanel.style.left = '100%';
+              subMenuPanel.style.right = 'auto';
+            }
+          }
+        });
+      });
+    });
 });
 
 
