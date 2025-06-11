@@ -490,66 +490,88 @@ if (bottomLink) {
     });
 });
 
+//=============pulldown 統合用 & オーバーフロー対策も===========
 
 document.addEventListener("DOMContentLoaded", () => {
-  // 構成情報 (各メニューのデータソース)
-  const configs = [
-    { selector: ".year-menu-weekly", json: "weekly-rankings.json", basePath: "ranking" },
-    { selector: ".year-menu-tierlist", json: "tierlist.json", basePath: "tierlist" }
-  ];
+  // ---------- 共通関数 ----------
+  function attachSubmenuHover(parentSelector, data, urlBuilder) {
+    const parent = document.querySelector(parentSelector);
+    if (!parent) return;
 
-  configs.forEach(cfg => {
-    fetch(cfg.json)
-      .then(res => res.json())
-      .then(data => {
-        const yearMenu = document.querySelector(cfg.selector);
-        Object.keys(data).forEach(year => {
-          const yearLi = document.createElement("li");
-          yearLi.classList.add("has-submenu");
-          yearLi.innerHTML = `<a href="#">${year}</a>`;
+    const yearMenu = document.createElement('ul');
+    yearMenu.classList.add('year-menu');
+    parent.appendChild(yearMenu);
 
-          const seasonMenu = document.createElement("ul");
-          seasonMenu.classList.add("season-menu");
+    Object.keys(data).forEach(year => {
+      const yearLi = document.createElement('li');
+      yearLi.classList.add('has-submenu');
+      yearLi.innerHTML = `<a href="#">${year}</a>`;
 
-          Object.keys(data[year]).forEach(season => {
-            const seasonLi = document.createElement("li");
-            seasonLi.classList.add("has-submenu");
-            seasonLi.innerHTML = `<a href="#">${season.charAt(0).toUpperCase() + season.slice(1)}</a>`;
+      const seasonMenu = document.createElement('ul');
+      seasonMenu.classList.add('season-menu');
 
-            const weekMenu = document.createElement("ul");
-            weekMenu.classList.add("week-menu");
+      Object.keys(data[year]).forEach(season => {
+        const seasonLi = document.createElement('li');
+        seasonLi.classList.add('has-submenu');
+        seasonLi.innerHTML = `<a href="#">${season}</a>`;
 
-            data[year][season].forEach(week => {
-              const weekLi = document.createElement("li");
-              weekLi.innerHTML = `<a href="${cfg.basePath}/${year}/${season.toLowerCase()}/${week.toLowerCase()}/index.html">${week.replace("week", "Week ")}</a>`;
-              weekMenu.appendChild(weekLi);
-            });
+        const weekMenu = document.createElement('ul');
+        weekMenu.classList.add('week-menu');
 
-            seasonLi.appendChild(weekMenu);
-            seasonMenu.appendChild(seasonLi);
-          });
-
-          yearLi.appendChild(seasonMenu);
-          yearMenu.appendChild(yearLi);
+        data[year][season].forEach(week => {
+          const weekLi = document.createElement('li');
+          const link = urlBuilder(year, season, week);
+          weekLi.innerHTML = `<a href="${link}">${week.replace("Week", "Week ")}</a>`;
+          weekMenu.appendChild(weekLi);
         });
+
+        seasonLi.appendChild(weekMenu);
+        seasonMenu.appendChild(seasonLi);
       });
-  });
 
-  // オーバーフロー補正
-  document.querySelectorAll('.has-submenu').forEach(submenu => {
-    submenu.addEventListener('mouseenter', () => {
-      const dropdown = submenu.querySelector('ul');
-      if (!dropdown) return;
-
-      dropdown.style.left = ""; // 一旦初期化
-      const rect = dropdown.getBoundingClientRect();
-      const overflowRight = rect.right > window.innerWidth;
-      const overflowLeft = rect.left < 0;
-
-      if (overflowRight) dropdown.style.left = `-${rect.width}px`;
-      if (overflowLeft) dropdown.style.left = `0`;
+      yearLi.appendChild(seasonMenu);
+      yearMenu.appendChild(yearLi);
     });
-  });
+
+    // --- オーバーフロー自動判定 ---
+    parent.querySelectorAll('.has-submenu').forEach(submenu => {
+      submenu.addEventListener('mouseenter', () => {
+        const sub = submenu.querySelector('ul');
+        if (!sub) return;
+        const rect = sub.getBoundingClientRect();
+        const viewportWidth = window.innerWidth;
+        if (rect.right > viewportWidth) {
+          sub.style.left = "auto";
+          sub.style.right = "100%";
+        } else {
+          sub.style.left = "100%";
+          sub.style.right = "auto";
+        }
+      });
+    });
+  }
+
+  // ---------- Weekly Rankings ----------
+  fetch("./weekly-rankings.json")
+    .then(res => res.json())
+    .then(data => {
+      attachSubmenuHover(
+        '.weekly-rankings-hook',
+        data,
+        (year, season, week) => `ranking/${year}/${season.toLowerCase()}/${week.toLowerCase()}/index.html`
+      );
+    });
+
+  // ---------- Tier List ----------
+  fetch("AnimeTListPage/tierlist-data.json")
+    .then(res => res.json())
+    .then(data => {
+      attachSubmenuHover(
+        '.tierlist-hook',
+        data,
+        (year, season, week) => `AnimeTListPage/tierlist-${year}-${season.toLowerCase()}-${week.toLowerCase()}.html`
+      );
+    });
 });
 
 
