@@ -26,13 +26,15 @@
    <div class="nav-spacer"></div> <!-- LEFT EMPTY SPACER -->
     <ul class="nav-menu">
   <li><a href="#">Home</a></li>
+
+ <!-- Anime dropdown (ここが更新ポイント) -->
   <li class="has-dropdown multi-level">
   <a href="#">Anime</a>
   <ul class="dropdown">
     <li class="has-submenu">
       <a href="#">Weekly Rankings</a>
       <ul class="year-menu">
-        <!-- 自動でここに年〜週まで挿入される -->
+        <!-- ここはJS + JSONで自動で年〜週まで挿入される -->
       </ul>
     </li>
     <li><a href="#">Reviews</a></li>
@@ -486,39 +488,56 @@ if (bottomLink) {
 
 
 document.addEventListener("DOMContentLoaded", () => {
-  fetch("weekly-nav.json")
-    .then(res => res.json())
+  const jsonPath = "./weekly-rankings.json";  // JSONファイルパス
+
+  fetch(jsonPath)
+    .then(response => response.json())
     .then(data => {
-      const rankings = data.weekly_rankings;
-      const yearMenu = document.querySelector('.year-menu');
+      const yearMenu = document.querySelector("#year-menu");
+      if (!yearMenu) return;
 
-      Object.keys(rankings).forEach(year => {
-        const yearLi = document.createElement('li');
-        yearLi.classList.add('has-submenu');
-        yearLi.innerHTML = `<a href="#">${year}</a>`;
+      Object.keys(data).forEach(year => {
+        const yearLi = document.createElement("li");
+        yearLi.classList.add("has-submenu");
+        const yearA = document.createElement("a");
+        yearA.href = "#";
+        yearA.textContent = year;
+        yearLi.appendChild(yearA);
 
-        const seasonMenu = document.createElement('ul');
-        seasonMenu.classList.add('season-menu');
+        const seasonUl = document.createElement("ul");
+        seasonUl.classList.add("season-menu");
 
-        Object.keys(rankings[year]).forEach(season => {
-          const seasonLi = document.createElement('li');
-          seasonLi.classList.add('has-submenu');
-          seasonLi.innerHTML = `<a href="#">${season.charAt(0).toUpperCase() + season.slice(1)}</a>`;
+        Object.keys(data[year]).forEach(season => {
+          const seasonLi = document.createElement("li");
+          seasonLi.classList.add("has-submenu");
+          const seasonA = document.createElement("a");
+          seasonA.href = "#";
+          seasonA.textContent = season;
+          seasonLi.appendChild(seasonA);
 
-          const weekMenu = document.createElement('ul');
-          weekMenu.classList.add('week-menu');
+          const weekUl = document.createElement("ul");
+          weekUl.classList.add("week-menu");
 
-          rankings[year][season].forEach(week => {
-            const weekLi = document.createElement('li');
-            weekLi.innerHTML = `<a href="ranking/${year}/${season}/${week}/index.html">${week.replace('week', 'Week ')}</a>`;
-            weekMenu.appendChild(weekLi);
+          data[year][season].forEach(week => {
+            const weekLi = document.createElement("li");
+            const weekA = document.createElement("a");
+
+            const pathYear = year;
+            const pathSeason = season.toLowerCase();
+            const pathWeek = week.toLowerCase().replace(" ", "");
+
+            weekA.href = `ranking/${pathYear}/${pathSeason}/${pathWeek}/index.html`;
+            weekA.textContent = week;
+
+            weekLi.appendChild(weekA);
+            weekUl.appendChild(weekLi);
           });
 
-          seasonLi.appendChild(weekMenu);
-          seasonMenu.appendChild(seasonLi);
+          seasonLi.appendChild(weekUl);
+          seasonUl.appendChild(seasonLi);
         });
 
-        yearLi.appendChild(seasonMenu);
+        yearLi.appendChild(seasonUl);
         yearMenu.appendChild(yearLi);
       });
     });

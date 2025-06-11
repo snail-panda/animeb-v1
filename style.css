@@ -228,6 +228,85 @@ body {
 }
 
 
+
+/* --- MULTI-LEVEL DROPDOWN STRUCTURE --- */
+
+.nav-menu li {
+  position: relative;
+}
+
+.nav-menu .dropdown,
+.nav-menu .year-menu,
+.nav-menu .season-menu,
+.nav-menu .week-menu {
+  display: none;
+  position: absolute;
+  background-color: #faf8fa;
+  border: 1px solid #dcd5dc;
+  border-radius: 4px;
+  padding: 0.3rem 0;
+  z-index: 1000;
+  min-width: 140px;
+  box-shadow: 0px 3px 8px rgba(0,0,0,0.12);
+}
+
+.nav-menu .dropdown {
+  top: 100%;
+  left: 0;
+}
+
+.nav-menu li:hover > .dropdown {
+  display: block;
+}
+
+/* Sub-levels */
+
+.has-submenu:hover > .year-menu,
+.year-menu .has-submenu:hover > .season-menu,
+.season-menu .has-submenu:hover > .week-menu {
+  display: block;
+}
+
+.year-menu {
+  top: 0;
+  left: 100%;
+}
+
+.season-menu {
+  top: 0;
+  left: 100%;
+}
+
+.week-menu {
+  top: 0;
+  left: 100%;
+}
+
+/* Link styles */
+
+.nav-menu .dropdown li a,
+.year-menu li a,
+.season-menu li a,
+.week-menu li a {
+  display: block;
+  padding: 0.3rem 0.5rem;
+  font-size: 0.6rem;
+  color: #423d42;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.nav-menu .dropdown li a:hover,
+.year-menu li a:hover,
+.season-menu li a:hover,
+.week-menu li a:hover {
+  background-color: #eee;
+  color: #5c4084;
+}
+
+
+
+
 /* Search window and button*/
 .search-wrapper {
   position: relative;
