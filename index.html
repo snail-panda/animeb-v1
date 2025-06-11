@@ -38,7 +38,11 @@
       </ul>
     </li>
     <li><a href="#">Reviews</a></li>
-    <li><a href="#">Tier List</a></li>
+    <li class="has-dropdown"><a href="#">Tier List</a>
+         <ul class="dropdown tier-menu">
+    <!-- JSがここに自動挿入 -->
+       </ul>
+   </li>
     <li><a href="#">Spotlight</a></li>
     <li><a href="#">Classics</a></li>
     <li><a href="#">Misc</a></li>
@@ -556,6 +560,49 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     });
 });
+
+//============Tier List用のドロップダウン=============
+
+document.addEventListener("DOMContentLoaded", () => {
+  fetch("tier-list.json")
+    .then(res => res.json())
+    .then(data => {
+      const tierData = data;
+      const tierMenu = document.querySelector('.tier-menu');
+
+      Object.keys(tierData).forEach(year => {
+        const yearLi = document.createElement('li');
+        yearLi.classList.add('has-submenu');
+        yearLi.innerHTML = `<a href="#">${year}</a>`;
+
+        const seasonMenu = document.createElement('ul');
+        seasonMenu.classList.add('season-menu');
+
+        Object.keys(tierData[year]).forEach(season => {
+          const seasonLi = document.createElement('li');
+          seasonLi.classList.add('has-submenu');
+          seasonLi.innerHTML = `<a href="#">${season}</a>`;
+
+          const listMenu = document.createElement('ul');
+          listMenu.classList.add('list-menu');
+
+          tierData[year][season].forEach(entry => {
+            const entryLi = document.createElement('li');
+            entryLi.innerHTML = `<a href="${entry.path}">${entry.title} (${entry.episodes})</a>`;
+            listMenu.appendChild(entryLi);
+          });
+
+          seasonLi.appendChild(listMenu);
+          seasonMenu.appendChild(seasonLi);
+        });
+
+        yearLi.appendChild(seasonMenu);
+        tierMenu.appendChild(yearLi);
+      });
+    });
+});
+
+
 
 </script>
 
