@@ -550,11 +550,17 @@ document.addEventListener("DOMContentLoaded", () => {
   fetch("./AnimeTListPage/tier-list.json")
     .then(res => res.json())
     .then(data => {
-      const menuRoot = document.getElementById("tier-list-menu");
+      const tierMenuRoot = document.getElementById("tier-list-menu");
+      if (!tierMenuRoot) {
+        console.warn("Tier List container not found.");
+        return;
+      }
+
       Object.keys(data).forEach(year => {
         const yearLi = document.createElement('li');
         yearLi.classList.add('has-submenu');
         yearLi.innerHTML = `<a href="#">${year}</a>`;
+
         const seasonMenu = document.createElement('ul');
         seasonMenu.classList.add('season-menu');
 
@@ -562,26 +568,27 @@ document.addEventListener("DOMContentLoaded", () => {
           const seasonLi = document.createElement('li');
           seasonLi.classList.add('has-submenu');
           seasonLi.innerHTML = `<a href="#">${season}</a>`;
-          const tierMenu = document.createElement('ul');
-          tierMenu.classList.add('tier-menu');
 
-          data[year][season].forEach(item => {
-            const tierLi = document.createElement('li');
-            tierLi.innerHTML = `<a href="${item.path}">${item.title}</a>`;
-            tierMenu.appendChild(tierLi);
+          const timeMenu = document.createElement('ul');
+          timeMenu.classList.add('tier-menu');
+
+          data[year][season].forEach(timeItem => {
+            const itemLi = document.createElement('li');
+            const timeKey = timeItem.toLowerCase().replace(" ", "-");
+            const path = `AnimeTListPage/${year}/${season.toLowerCase()}/${timeKey}.html`;
+            itemLi.innerHTML = `<a href="${path}">${timeItem}</a>`;
+            timeMenu.appendChild(itemLi);
           });
 
-          // 空なら作成しない
-          if (data[year][season].length > 0) {
-            seasonLi.appendChild(tierMenu);
-          }
+          seasonLi.appendChild(timeMenu);
           seasonMenu.appendChild(seasonLi);
         });
 
         yearLi.appendChild(seasonMenu);
-        menuRoot.appendChild(yearLi);
+        tierMenuRoot.appendChild(yearLi);
       });
-    });
+    })
+    .catch(err => console.error("Failed to load Tier List JSON:", err));
 });
 
 
