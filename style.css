@@ -291,14 +291,6 @@ body {
   left: 100%;
 }
 
-
-/* パネル間の隙間を吸収 (hover範囲拡大) */
-.season-menu,
-.week-menu {
-  margin-top: 0;
-  top: 100%;
-}
-
 .season-menu .has-submenu > .week-menu {
   opacity: 1;
   visibility: visible;
