@@ -182,22 +182,22 @@
 
 .trend-icon-up {
   width: auto;
-  height: 14px;
+  height: 13px;
 }
 
 .trend-icon-stay {
   width: auto;
-  height: 9px;
+  height: 8px;
 }
 
 .trend-icon-down {
   width: auto;
-  height: 14px;
+  height: 13px;
 }
 
 .trend-label {
   font-family: 'Agency FB', 'Pathway Gothic One', 'sans-serif';
-  font-size: 0.6rem;
+  font-size: 0.55rem;
   font-weight: 600;
   text-align: right;
 }
