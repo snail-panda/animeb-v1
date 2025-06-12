@@ -244,7 +244,6 @@ body {
   position: absolute;
   background-color: #faf8fa;
   border: 1px solid #dcd5dc;
-  border-radius: 4px;
   padding: 0.3rem 0;
   z-index: 1000;
   min-width: 140px;
@@ -271,7 +270,7 @@ body {
 /* hover時の表示＋フェード */
 .has-submenu:hover > .season-menu,
 .season-menu .has-submenu:hover > .week-menu {
-  display: block;
+  
   opacity: 1;
   visibility: visible;
 }
