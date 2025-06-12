@@ -1,21 +1,30 @@
 body {
   background-color: #fffdec; 
+   margin: 0;
+   padding: 0;
+   font-family: 'Abel', sans-serif;
+   color: #333;
 }
 
-.tierlist-wrapper {
-  max-width: 960px; /* Match your full site content width */
-  margin: 0 auto;
-  padding: 2rem 1rem;
-}
+.outer-wrapper {
+      display: flex;
+      justify-content: center;
+      padding: 2rem 1rem;
+    }
 
-.tierlist-post {
-  background-color: #fffdec;
-  padding: 2rem;
-  border-radius: 10px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-  font-family: 'Abel', sans-serif;
-  color: #333;
-}
+.main-container {
+      max-width: 800px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      background-color: #fffdec;
+      padding: 1rem;
+      margin: 0 auto;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    }
+
 
 .post-header h1 {
   font-size: 1.6rem;
@@ -29,14 +38,20 @@ body {
   margin-bottom: 2rem;
 }
 
+.post-intro, .post-conclusion, .disclaimer {
+      font-size: 0.9rem;
+      margin-top: 1rem;
+      line-height: 1.4;
+    }
+
 .tier-criteria {
-  max-width: 720px;
-  margin: 2rem auto;
-  padding: 0.5rem 1rem 1.5rem 1rem ;
+  margin: 2rem 0;
+  padding: 1rem;
   font-size: 0.8rem;
   color: #555;
   border-top: 1px solid #ddd;
   border-bottom: 1px solid #ddd;
+  width: 100%;
 }
 
 .criteria-title {
@@ -64,7 +79,7 @@ body {
 }
 
 .disclaimer {
-  font-size: 0.85em;
+  font-size: 0.95em;
   color: #555;
   margin-top: 18px;
   padding-top: 10px;
@@ -73,6 +88,7 @@ body {
 .post-intro {
   font-size: 0.9rem;
   margin-top: 0.9rem;
+  margin-bottom: 2rem;
   line-height: 1.2;
 } 
 
@@ -96,15 +112,15 @@ body {
 }
 
 .tierlist-image {
-  margin-top: 3rem;
-  margin-bottom: 1.5rem;
-  text-align: center;
-  overflow: hidden;
+  margin-top: 2rem 0 1.5rem 0;
+  width: 100%;
 }
 
 .tierlist-image img {
   max-width: 60%;
   height: auto;
+  border: 1px solid #ddd;
+  brder-radius: 6px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   border: 1px solid #ddd;
   border-radius: 6px;
@@ -119,12 +135,10 @@ body {
 }
 
 .back-link {
-  display: inline-block;
   margin-bottom: 1rem;
   font-size: 0.8rem;
   color: #555;
   text-decoration: none;
-  font-family: 'Abel';
 }
 
 .back-link:hover {
