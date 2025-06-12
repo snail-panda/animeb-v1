@@ -1,5 +1,5 @@
 body {
-  background-color: #fffdec; 
+  background-color: #fcfdea; 
    margin: 0;
    padding: 0;
    font-family: 'Abel', sans-serif;
@@ -18,7 +18,7 @@ body {
       display: flex;
       flex-direction: column;
       align-items: flex-start;
-      background-color: #fffdec;
+      background-color: #fcfdea;
       padding: 1rem;
       margin: 0 auto;
       border-radius: 10px;
