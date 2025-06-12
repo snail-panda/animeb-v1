@@ -291,13 +291,6 @@ body {
   left: 100%;
 }
 
-.season-menu .has-submenu > .week-menu {
-  opacity: 1;
-  visibility: visible;
-  top: 0;
-  left: 100%;
-  margin-left: 0;
-}
 
 .has-submenu:hover > .season-menu {
   opacity: 1;
