@@ -238,12 +238,12 @@ body {
 .nav-menu .week-menu {
   display: none;
   position: absolute;
-  background-color: #faf8fa;
+  background-color: #f4f8e6;
   border: 1px solid #dcd5dc;
   border-radius: 2px;
   padding: 0.3rem 0;
   z-index: 1000;
-  min-width: 140px;
+  min-width: 100px;
   box-shadow: 0px 3px 8px rgba(0,0,0,0.12);
 }
 
@@ -290,7 +290,7 @@ body {
   display: block;
   padding: 0.3rem 0.5rem;
   font-size: 0.6rem;
-  color: #423d42;
+  color: #5f7354;
   text-decoration: none;
   white-space: nowrap;
 }
@@ -299,8 +299,8 @@ body {
 .year-menu li a:hover,
 .season-menu li a:hover,
 .week-menu li a:hover {
-  background-color: #eee;
-  color: #5c4084;
+  background-color: #dde7ce;
+  color: #4c5b43;
 }
 
 
