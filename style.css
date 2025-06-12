@@ -50,8 +50,8 @@ body {
   color: #2c342c;
   padding: 0.8rem 1rem 0.5rem 1rem;
   flex-wrap: wrap;
-  border-left: 1px solid #dcd5dc;
-  border-right: 1px solid #dcd5dc;
+  border-left: 1px solid #d4ddd0;
+  border-right: 1px solid #d4ddd0;
 }
 
 .header-text {
@@ -84,8 +84,8 @@ body {
 .top-nav {
   box-sizing: border-box;
   padding: 0 1rem;
-  border-top: 1px solid #dcd5dc;
-  border-bottom: 1px solid #dcd5dc;
+  border-top: 1px solid #d4ddd0;
+  border-bottom: 1px solid #d4ddd0;
   width: 100%;
   overflow: visible; /* Let dropdowns extend outside */
   position: relative; /* Anchor for dropdown positioning */
@@ -351,8 +351,8 @@ body {
 .container {
   display: flex;
   min-height: 100vh;
-  border-right: 1px solid #dcd5dc;
-  border-left: 1px solid #dcd5dc;
+  border-right: 1px solid #d4ddd0;
+  border-left: 1px solid #d4ddd0;
 }
 
 .content {
@@ -497,7 +497,7 @@ body {
   display: inline-block;
   margin-top: 0.6rem;
   font-size: 0.6rem;
-  color: #5c4084;
+  color: #684887;
   text-decoration: none;
   font-weight: bold;
 }
@@ -672,7 +672,7 @@ ul {
 
 .ranking-widget {
   background-color: transparent;
-  border: 1px solid #ccc;
+  border: 1px solid #d4ddd0;
   padding: 0.6rem 0.2rem 0.6rem 0.2rem;
   font-family: 'Abel', 'sans-serif';
   font-size: 0.6rem;
@@ -956,8 +956,8 @@ footer {
   text-align: center;
   padding: 2rem 0rem;
   background-color: #bcd6b9;
-  border-right: 1px solid #dcd5dc;
-  border-left: 1px solid #dcd5dc; 
+  border-right: 1px solid #d4ddd0;
+  border-left: 1px solid #d4ddd0; 
 }
 
 
