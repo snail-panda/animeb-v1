@@ -1,0 +1,19 @@
+{
+  "season": "2025 Spring",
+  "version": "Mid-Season Tier List – Episodes 7–8",
+  "date": "May 31, 2025",
+  "intro": "We’re already halfway through the season! Here’s my updated tier list after Episode 8. Some shows continue to shine, others fell off, and a few... I had to drop.",
+  "mainContent": "Sample main content text for now.",
+  "conclusion": "That wraps up my Ep. 7–8 impressions. Thanks for reading! Let me know where your favorites landed.",
+  "recentlyDropped": ["Title A", "Title B", "Title C"],
+  "tiers": {
+    "SS": ["Title 1", "Title 2", "Title 3"],
+    "S": ["Title 4", "Title 5"],
+    "A": ["Title 6", "Title 7"],
+    "B": ["Title 8", "Title 9"],
+    "C": ["Title 10", "Title 11", "Title 12"],
+    "D": ["Title 13", "Title 14"],
+    "Dropped": ["Title 15", "Title 16", "Title 17", "Title 18", "Title 19"],
+    "NA": ["Title 20", "Title 21", "Title 22"]
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "title": "<SeasonTitle>",
+  "date": "<SeasonDate>",
+  "intro": "<Intro>",
+  "content": "<Content>",
+  "conclusion": "<Conclusion>",
+  "tiers": {
+    "ss": ["Title 1", "Title 2", ...],
+    "s": ["Title 1", "Title 2", ...],
+    "a": [...],
+    "b": [...],
+    "c": [...],
+    "d": [...],
+    "dropped": [...],
+    "na": [...]
+  },
+  "recentlyDropped": ["Title 1", "Title 2", ...]
+}
