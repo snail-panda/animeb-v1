@@ -423,7 +423,7 @@ body {
 
 /* WRP詳細アイコン */
 .wrp-detail-btn {
-  position: inline-block;
+  position: relative;
   top: 0.07rem;
   right: -15px;
   width: 8px;
