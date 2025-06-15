@@ -102,7 +102,7 @@ if (wrpDetailBtn && entryData.wrp_breakdown) {
     });
 
     // 全ての更新が終わったあとにバー描画
-    adjustScoreBars();
+  //  adjustScoreBars();
 
     // イベントリスナー登録
     setupPopups();
