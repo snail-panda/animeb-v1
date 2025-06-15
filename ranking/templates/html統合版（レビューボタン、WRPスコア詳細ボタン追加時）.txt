@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Anime Weekly Ranking - Week 7</title>
+  <link rel="stylesheet" href="../../../../assets/css/ranking/weekly/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Special+Gothic+Expanded+One&family=Agency+FB&family=Roboto+Condensed+Medium&family=Special+Gothic&family=Oswald&family=Tuffy&family=Pathway+Gothic+One&family=Barlow+Condensed+Medium&family=Bebas+Neue&family=Anton&family=Abel&family=Fira+Sans&family=Barlow+Condensed:wght@300;700&&family=Barlow+Condensed:ital,wght@0,300&family=Special+Elite&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<div class="nav-bar">
+  <a href="#" class="nav-link left">← Previous</a>
+  <a href="https://snail-panda.github.io/animeb-v1/#" class="nav-link center">Back to Homepage</a>
+  <a href="https://snail-panda.github.io/animeb-v1/ranking/2025/spring/week08/" class="nav-link right">Next →</a>
+</div>
+
+<div class="wrapper">
+  <div class="header">
+    <h1>TOP5</h1>
+    <div class="week-title">WEEK 7</div>
+  </div>
+
+  <div class="sub-header">
+    <span class="season-title">2025 SPRING</span> ANIME RANKING
+  </div>
+
+  <!-- Table Header -->
+  <div class="table table-header">
+    <div class="rank">RANK (Δ)</div>
+    <div class="title">TITLE</div>
+    <div>WEEKLY RANKING POINT - WRP (Bar Scale: 4-11)</div>
+    <div class="totalscore">TOTAL SCORE</div>
+  </div>
+
+  <!-- Entry List -->
+  <div class="entry-list">
+
+    <!-- ENTRY TEMPLATE SAMPLE -->
+    <div class="entry">
+      <div class="rank-wrapper">
+        <div class="rank-top">
+          <img class="crown-gold" src="https://i.postimg.cc/d336xV81/cupcake.png">
+          <div class="rank-number first">1</div>
+        </div>
+        <div class="rank-trend">
+          <img class="trend-icon-up" src="https://i.postimg.cc/x1bcfV04/trend-up-arrow01.png">
+          <div class="trend-label">UP</div>
+        </div>
+      </div>
+
+      <div class="title">
+        Sword of the Demon Hunter<span class="title-ep">&ensp; &mdash; Ep.7</span>
+        <span class="review-tag" data-review="">Review</span>
+      </div>
+
+      <div class="bar-wrapper">
+        <div class="bar">
+          <div class="bar-label">Weekly Ranking Point</div>
+          <div class="bar-inner">
+            <div class="bar-track">
+              <div class="bar-fill">
+                <div class="bar-main"></div>
+                <div class="bar-overflow"></div>
+              </div>
+            </div>
+            <div class="wrp-score">9.4<span class="wrp-score-unit">pt</span>
+              <button class="wrp-detail-btn" data-breakdown=""></button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="score">9<span class="score-unit">pt</span></div>
+    </div>
+
+  <!-- ※以下、同じEntry構造で他のランク（2位, 3位, 4位, 5位, Spotlight, Editor's Pick, Dookie etc...）が続く -->
+  <!-- ここは省略。あなたの現状通りのEntry構成でOKです -->
+  
+  </div>
+
+  <!-- Note -->
+  <div class="note">
+    *Note: This ranking is absolutely subjective and personal, while striving to remain as objective as possible. There is genuinely no intent to humiliate, belittle, or undermine any creators or their work. The scoring is based on a personal set of criteria, refined over time and shaped by both relative and absolute evaluation. These criteria focus on key elements such as animation, script, structure, direction, pacing, overall appeal, charm, and the degree of satisfaction the work delivers as a complete piece.
+  </div>
+
+</div>
+
+<script src="main.js"></script>
+
+</body>
+</html>
