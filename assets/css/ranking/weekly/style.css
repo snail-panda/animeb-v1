@@ -428,7 +428,7 @@ body {
   right: -15px;
   width: 8px;
   height: 8px;
-  background: url('../../../../images/badges/info-green.png') no-repeat center;
+  background: url('../../../../images/badges/info-green.svg') no-repeat center;
   background-size: contain;
   cursor: pointer;
   border: none;

@@ -1,6 +1,4 @@
-// ========= 完全版 main.js =========
-
-// ========== ① バー描画ロジック ==========
+// ========== バー描画ロジック ==========
 function adjustScoreBars() {
   document.querySelectorAll('.bar').forEach(bar => {
     const scoreText = bar.querySelector('.wrp-score')?.textContent || '0';
@@ -38,7 +36,7 @@ function adjustScoreBars() {
   });
 }
 
-// ========== ② JSON読み込み & DOM更新 ==========
+// ========== JSON読み込み & DOM更新 ==========
 fetch('ranking-week07-spring2025.json')
   .then(response => response.json())
   .then(data => {
@@ -54,7 +52,7 @@ fetch('ranking-week07-spring2025.json')
       const el = entryElements[index];
       if (!el) return;
 
-      // タイトル + エピソード更新
+      // タイトル更新
       const titleEl = el.querySelector('.title');
       if (titleEl) {
         const epSpan = titleEl.querySelector('.title-ep');
@@ -87,13 +85,19 @@ fetch('ranking-week07-spring2025.json')
         wrpScoreEl.innerHTML = `${entryData.wrp_score}<span class="wrp-score-unit">pt</span>`;
       }
 
-      // WRP Breakdown埋め込み
+      // WRP Breakdown埋め込み & SVG埋め込み処理
       const wrpDetailBtn = el.querySelector('.wrp-detail-btn');
       if (wrpDetailBtn && entryData.wrp_breakdown) {
         const breakdown = Object.entries(entryData.wrp_breakdown)
           .map(([key, val]) => `${capitalize(key)}: ${val}`)
           .join(', ');
         wrpDetailBtn.dataset.breakdown = breakdown;
+
+        // SVGアイコンをJSで埋め込む
+        const icon = document.createElement('img');
+        icon.src = '../../../../images/badges/info-green.svg';
+        icon.width = 8;
+        wrpDetailBtn.appendChild(icon);
       }
 
       // Totalスコア更新
@@ -106,11 +110,11 @@ fetch('ranking-week07-spring2025.json')
     // 全ての更新が終わったあとにバー描画
     adjustScoreBars();
 
-    // イベントリスナー登録（描画後に行うのが重要！）
+    // イベントリスナー登録
     setupPopups();
   });
 
-// ========== ③ ポップアップロジック ==========
+// ========== ポップアップロジック ==========
 function setupPopups() {
   document.querySelectorAll('.review-tag').forEach(btn => {
     btn.addEventListener('click', function (e) {
@@ -132,7 +136,6 @@ function setupPopups() {
     });
   });
 
-  // 画面クリックで全ポップアップ閉じる
   document.addEventListener('click', () => closeAll());
 }
 
