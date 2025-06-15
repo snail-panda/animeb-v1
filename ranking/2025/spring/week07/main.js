@@ -87,18 +87,23 @@ fetch('ranking-week07-spring2025.json')
 
       // WRP Breakdown埋め込み & SVG埋め込み処理
       const wrpDetailBtn = el.querySelector('.wrp-detail-btn');
-      if (wrpDetailBtn && entryData.wrp_breakdown) {
-        const breakdown = Object.entries(entryData.wrp_breakdown)
-          .map(([key, val]) => `${capitalize(key)}: ${val}`)
-          .join(', ');
-        wrpDetailBtn.dataset.breakdown = breakdown;
+     if (wrpDetailBtn && entryData.wrp_breakdown) {
+  const breakdown = Object.entries(entryData.wrp_breakdown)
+    .map(([key, val]) => `${capitalize(key)}: ${val}`)
+    .join(', ');
+  wrpDetailBtn.dataset.breakdown = breakdown;
 
-        // SVGアイコンをJSで埋め込む
-        const icon = document.createElement('img');
-        icon.src = '../../../../images/badges/info-green.svg';
-        icon.width = 8;
-        wrpDetailBtn.appendChild(icon);
-      }
+  const icon = document.createElement('img');
+  icon.src = '../../../../images/badges/info-green.svg';
+  icon.width = 8;
+  icon.style.position = 'absolute';
+  icon.style.top = '2px';
+  icon.style.right = '-10px';
+  icon.style.zIndex = '999';
+
+  el.querySelector('.bar-inner').appendChild(icon);
+}
+
 
       // Totalスコア更新
       const scoreEl = el.querySelector('.score');
