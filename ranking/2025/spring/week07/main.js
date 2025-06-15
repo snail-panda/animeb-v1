@@ -87,22 +87,38 @@ fetch('ranking-week07-spring2025.json')
 
       // WRP Breakdown埋め込み & SVG埋め込み処理
       const wrpDetailBtn = el.querySelector('.wrp-detail-btn');
-     if (wrpDetailBtn && entryData.wrp_breakdown) {
+  if (wrpDetailBtn && entryData.wrp_breakdown) {
   const breakdown = Object.entries(entryData.wrp_breakdown)
     .map(([key, val]) => `${capitalize(key)}: ${val}`)
     .join(', ');
   wrpDetailBtn.dataset.breakdown = breakdown;
 
-  const icon = document.createElement('img');
-  icon.src = '../../../../images/badges/info-green.svg';
-  icon.width = 8;
-  icon.style.position = 'absolute';
-  icon.style.top = '2px';
-  icon.style.right = '-10px';
-  icon.style.zIndex = '999';
+  // アイコンの描画位置を親要素から取得
+  const rect = wrpDetailBtn.getBoundingClientRect();
 
-  el.querySelector('.bar-inner').appendChild(icon);
+  // オーバーレイアイコン作成
+  const overlayIcon = document.createElement('img');
+  overlayIcon.src = '../../../../images/badges/info-green.svg';
+  overlayIcon.width = 8;
+  overlayIcon.style.position = 'absolute';
+  overlayIcon.style.left = `${rect.left + window.scrollX}px`;
+  overlayIcon.style.top = `${rect.top + window.scrollY}px`;
+  overlayIcon.style.zIndex = '9999';
+  overlayIcon.style.pointerEvents = 'auto';
+  overlayIcon.style.cursor = 'pointer';
+
+  // クリック時に同じポップアップを出す（レビューと統一）
+  overlayIcon.addEventListener('click', function(e) {
+    e.stopPropagation();
+    closeAll();
+    const popup = createPopup('WRP Breakdown:<br>' + breakdown.replace(/,/g, '<br>'), 'wrp-popup');
+    positionPopup(this, popup);
+  });
+
+  // bodyに追加 (完全に親DOMとは独立)
+  document.body.appendChild(overlayIcon);
 }
+
 
 
       // Totalスコア更新
