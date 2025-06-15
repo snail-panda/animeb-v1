@@ -15,8 +15,8 @@ document.querySelectorAll('.bar').forEach(bar => {
   const percentMain = ((baseWidth - min) / unit) * 100;
   const percentOverflow = (extraWidth / unit) * 100;
 
-  main.style.width = `${percentMain}%`;
-  overflow.style.width = `${percentOverflow}%`;
+  main.style.width = ${percentMain}%;
+  overflow.style.width = ${percentOverflow}%;
 
   const wrpScore = bar.querySelector('.wrp-score');
   if (score > 11) {
@@ -42,7 +42,7 @@ fetch('ranking-week07-spring2025.json')
     // Update meta info
     document.querySelector('.week-title').textContent = data.meta.week;
     document.querySelector('.season-title').textContent = data.meta.season;
-    document.title = `Anime Weekly Ranking - ${data.meta.week}`;
+    document.title = Anime Weekly Ranking - ${data.meta.week};
 
     // Get all entry elements in order
     const entryElements = document.querySelectorAll('.entry');
@@ -56,7 +56,7 @@ fetch('ranking-week07-spring2025.json')
       if (titleEl) {
         const epSpan = titleEl.querySelector('.title-ep');
         titleEl.childNodes[0].textContent = entryData.title;
-        if (epSpan) epSpan.textContent = ` — Ep ${entryData.episode}`;
+        if (epSpan) epSpan.textContent =  — Ep ${entryData.episode};
       }
 
       // Trend Label & Icon
@@ -66,23 +66,71 @@ fetch('ranking-week07-spring2025.json')
 
       if (trendLabel && trendIcon) {
         trendLabel.textContent = entryData.trend;
-        trendIcon.src = `../../../../images/trends/${label}-arrow.png`;
-        trendIcon.className = `trend-icon-${label}`;
+        trendIcon.src = ../../../../images/trends/${label}-arrow.png;
+        trendIcon.className = trend-icon-${label};
       }
 
       // WRP Score
       const wrpScoreEl = el.querySelector('.wrp-score');
       if (wrpScoreEl) {
-        wrpScoreEl.innerHTML = `${entryData.wrp_score}<span class="wrp-score-unit">pt</span>`;
+        wrpScoreEl.innerHTML = ${entryData.wrp_score}<span class="wrp-score-unit">pt</span>;
       }
 
       // Total Score
       const scoreEl = el.querySelector('.score');
       if (scoreEl) {
-        scoreEl.innerHTML = `${entryData.score}<span class="score-unit">pt</span>`;
+        scoreEl.innerHTML = ${entryData.score}<span class="score-unit">pt</span>;
       }
     });
 
  // ← JSONでDOM更新が終わったあとにバー調整！
     adjustScoreBars();
 });
+
+// ポップアップ全閉じ
+document.addEventListener('click', function() {
+  document.querySelectorAll('.popup').forEach(p => p.remove());
+});
+
+// Reviewボタン
+document.querySelectorAll('.review-tag').forEach(btn => {
+  btn.addEventListener('click', function(e) {
+    e.stopPropagation();
+    closeAll();
+    const review = this.dataset.review;
+    const popup = createPopup(review, 'review-popup');
+    positionPopup(this, popup);
+  });
+});
+
+// WRP詳細ボタン
+document.querySelectorAll('.wrp-detail-btn').forEach(btn => {
+  btn.addEventListener('click', function(e) {
+    e.stopPropagation();
+    closeAll();
+    const breakdown = this.dataset.breakdown.replace(/,/g, '<br>');
+    const popup = createPopup('WRP Breakdown:<br>' + breakdown, 'wrp-popup');
+
+    positionPopup(this, popup);
+  });
+});
+
+// 共通処理
+function closeAll() {
+  document.querySelectorAll('.popup').forEach(p => p.remove());
+}
+
+function createPopup(content, typeClass) {
+  const popup = document.createElement('div');
+  popup.className = popup ${typeClass} active;
+  popup.innerHTML = content;
+  document.body.appendChild(popup);
+  return popup;
+}
+
+
+function positionPopup(button, popup) {
+  const rect = button.getBoundingClientRect();
+  popup.style.top = ${rect.bottom + window.scrollY + 5}px;
+  popup.style.left = ${rect.left + window.scrollX}px;
+}
