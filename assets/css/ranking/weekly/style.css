@@ -428,8 +428,8 @@ body {
   right: -15px;
   width: 8px;
   height: 8px;
-  background: url('../../../../assets/images/badges/info-green.svg') no-repeat center;
-background-size: contain;
+  background: url('../../../../images/badges/info-green.svg') no-repeat center;
+  background-size: contain;
   cursor: pointer;
   border: none;
 }
