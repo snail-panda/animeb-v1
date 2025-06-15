@@ -1,136 +1,159 @@
-// ========= 1. SCORE BAR WIDTH + MARGIN =========
+// ========= 完全版 main.js =========
+
+// ========== ① バー描画ロジック ==========
 function adjustScoreBars() {
-document.querySelectorAll('.bar').forEach(bar => {
-  const score = parseFloat(bar.querySelector('.wrp-score')?.textContent || '0');
-  const main = bar.querySelector('.bar-main');
-  const overflow = bar.querySelector('.bar-overflow');
+  document.querySelectorAll('.bar').forEach(bar => {
+    const scoreText = bar.querySelector('.wrp-score')?.textContent || '0';
+    const score = parseFloat(scoreText);
+    const main = bar.querySelector('.bar-main');
+    const overflow = bar.querySelector('.bar-overflow');
 
-  const min = 4;
-  const max = 10;
-  const unit = max - min;
+    const min = 4;
+    const max = 10;
+    const unit = max - min;
 
-  const baseWidth = Math.min(score, max);
-  const extraWidth = score > max ? score - max : 0;
+    const baseWidth = Math.min(score, max);
+    const extraWidth = score > max ? score - max : 0;
 
-  const percentMain = ((baseWidth - min) / unit) * 100;
-  const percentOverflow = (extraWidth / unit) * 100;
+    const percentMain = ((baseWidth - min) / unit) * 100;
+    const percentOverflow = (extraWidth / unit) * 100;
 
-  main.style.width = ${percentMain}%;
-  overflow.style.width = ${percentOverflow}%;
+    main.style.width = `${percentMain}%`;
+    overflow.style.width = `${percentOverflow}%`;
 
-  const wrpScore = bar.querySelector('.wrp-score');
-  if (score > 11) {
-    wrpScore.style.marginLeft = '60px';
-  } else if (score > 10.8) {
-    wrpScore.style.marginLeft = '44px';
-  } else if (score > 10.5) {
-    wrpScore.style.marginLeft = '34px';
-  } else if (score > 10.3) {
-    wrpScore.style.marginLeft = '21px';
-  } else if (score > 10) {
-    wrpScore.style.marginLeft = '14px';
-  } else {
-    wrpScore.style.marginLeft = '6px';
-  }
-});
+    const wrpScore = bar.querySelector('.wrp-score');
+    if (score > 11) {
+      wrpScore.style.marginLeft = '60px';
+    } else if (score > 10.8) {
+      wrpScore.style.marginLeft = '44px';
+    } else if (score > 10.5) {
+      wrpScore.style.marginLeft = '34px';
+    } else if (score > 10.3) {
+      wrpScore.style.marginLeft = '21px';
+    } else if (score > 10) {
+      wrpScore.style.marginLeft = '14px';
+    } else {
+      wrpScore.style.marginLeft = '6px';
+    }
+  });
 }
 
-// ========= 2. LOAD JSON AND RENDER CARDS =========
+// ========== ② JSON読み込み & DOM更新 ==========
 fetch('ranking-week07-spring2025.json')
   .then(response => response.json())
   .then(data => {
-    // Update meta info
+    // メタ情報更新
     document.querySelector('.week-title').textContent = data.meta.week;
     document.querySelector('.season-title').textContent = data.meta.season;
-    document.title = Anime Weekly Ranking - ${data.meta.week};
+    document.title = `Anime Weekly Ranking - ${data.meta.week}`;
 
-    // Get all entry elements in order
+    // エントリー取得
     const entryElements = document.querySelectorAll('.entry');
 
     data.entries.forEach((entryData, index) => {
       const el = entryElements[index];
       if (!el) return;
 
-      // Title + Episode
+      // タイトル + エピソード更新
       const titleEl = el.querySelector('.title');
       if (titleEl) {
         const epSpan = titleEl.querySelector('.title-ep');
         titleEl.childNodes[0].textContent = entryData.title;
-        if (epSpan) epSpan.textContent =  — Ep ${entryData.episode};
+        if (epSpan) epSpan.textContent = ` — Ep.${entryData.episode}`;
+
+        // Review挿入処理
+        const reviewTag = titleEl.querySelector('.review-tag');
+        if (entryData.review && entryData.review.trim() !== '') {
+          reviewTag.dataset.review = entryData.review;
+          reviewTag.style.display = 'inline-block';
+        } else {
+          reviewTag.style.display = 'none';
+        }
       }
 
-      // Trend Label & Icon
+      // トレンド情報更新
       const trendLabel = el.querySelector('.trend-label');
       const trendIcon = el.querySelector('.rank-trend img');
-      const label = entryData.trend.toLowerCase(); // 例: "UP" → "up"
-
+      const label = entryData.trend.toLowerCase();
       if (trendLabel && trendIcon) {
         trendLabel.textContent = entryData.trend;
-        trendIcon.src = ../../../../images/trends/${label}-arrow.png;
-        trendIcon.className = trend-icon-${label};
+        trendIcon.src = `../../../../images/trends/${label}-arrow.png`;
+        trendIcon.className = `trend-icon-${label}`;
       }
 
-      // WRP Score
+      // WRPスコア更新
       const wrpScoreEl = el.querySelector('.wrp-score');
       if (wrpScoreEl) {
-        wrpScoreEl.innerHTML = ${entryData.wrp_score}<span class="wrp-score-unit">pt</span>;
+        wrpScoreEl.innerHTML = `${entryData.wrp_score}<span class="wrp-score-unit">pt</span>`;
       }
 
-      // Total Score
+      // WRP Breakdown埋め込み
+      const wrpDetailBtn = el.querySelector('.wrp-detail-btn');
+      if (wrpDetailBtn && entryData.wrp_breakdown) {
+        const breakdown = Object.entries(entryData.wrp_breakdown)
+          .map(([key, val]) => `${capitalize(key)}: ${val}`)
+          .join(', ');
+        wrpDetailBtn.dataset.breakdown = breakdown;
+      }
+
+      // Totalスコア更新
       const scoreEl = el.querySelector('.score');
       if (scoreEl) {
-        scoreEl.innerHTML = ${entryData.score}<span class="score-unit">pt</span>;
+        scoreEl.innerHTML = `${entryData.score}<span class="score-unit">pt</span>`;
       }
     });
 
- // ← JSONでDOM更新が終わったあとにバー調整！
+    // 全ての更新が終わったあとにバー描画
     adjustScoreBars();
-});
 
-// ポップアップ全閉じ
-document.addEventListener('click', function() {
-  document.querySelectorAll('.popup').forEach(p => p.remove());
-});
-
-// Reviewボタン
-document.querySelectorAll('.review-tag').forEach(btn => {
-  btn.addEventListener('click', function(e) {
-    e.stopPropagation();
-    closeAll();
-    const review = this.dataset.review;
-    const popup = createPopup(review, 'review-popup');
-    positionPopup(this, popup);
+    // イベントリスナー登録（描画後に行うのが重要！）
+    setupPopups();
   });
-});
 
-// WRP詳細ボタン
-document.querySelectorAll('.wrp-detail-btn').forEach(btn => {
-  btn.addEventListener('click', function(e) {
-    e.stopPropagation();
-    closeAll();
-    const breakdown = this.dataset.breakdown.replace(/,/g, '<br>');
-    const popup = createPopup('WRP Breakdown:<br>' + breakdown, 'wrp-popup');
-
-    positionPopup(this, popup);
+// ========== ③ ポップアップロジック ==========
+function setupPopups() {
+  document.querySelectorAll('.review-tag').forEach(btn => {
+    btn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      closeAll();
+      const review = this.dataset.review;
+      const popup = createPopup(review, 'review-popup');
+      positionPopup(this, popup);
+    });
   });
-});
 
-// 共通処理
+  document.querySelectorAll('.wrp-detail-btn').forEach(btn => {
+    btn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      closeAll();
+      const breakdown = this.dataset.breakdown.replace(/,/g, '<br>');
+      const popup = createPopup('WRP Breakdown:<br>' + breakdown, 'wrp-popup');
+      positionPopup(this, popup);
+    });
+  });
+
+  // 画面クリックで全ポップアップ閉じる
+  document.addEventListener('click', () => closeAll());
+}
+
 function closeAll() {
   document.querySelectorAll('.popup').forEach(p => p.remove());
 }
 
 function createPopup(content, typeClass) {
   const popup = document.createElement('div');
-  popup.className = popup ${typeClass} active;
+  popup.className = `popup ${typeClass} active`;
   popup.innerHTML = content;
   document.body.appendChild(popup);
   return popup;
 }
 
-
 function positionPopup(button, popup) {
   const rect = button.getBoundingClientRect();
-  popup.style.top = ${rect.bottom + window.scrollY + 5}px;
-  popup.style.left = ${rect.left + window.scrollX}px;
+  popup.style.top = `${rect.bottom + window.scrollY + 5}px`;
+  popup.style.left = `${rect.left + window.scrollX}px`;
+}
+
+function capitalize(str) {
+  return str.charAt(0).toUpperCase() + str.slice(1);
 }
