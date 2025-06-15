@@ -423,11 +423,13 @@ body {
 
 /* WRP詳細アイコン */
 .wrp-detail-btn {
-  position: absolute;
+  position: relative
   top: 0.07rem;
   right: -15px;
   width: 8px;
   height: 8px;
+  background: url('../../../../images/badges/info-green.svg') no-repeat center;
+  background-size: contain;
   cursor: pointer;
   border: none;
 }
