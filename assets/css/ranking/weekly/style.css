@@ -515,13 +515,3 @@ body {
   font-style: normal;
 }
 
-.wrp-detail-btn::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 8px;
-  height: 8px;
-  background: url('../../../../images/badges/info-green.svg') no-repeat center;
-  background-size: contain;
-}
