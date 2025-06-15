@@ -423,7 +423,7 @@ body {
 
 /* WRP詳細アイコン   background: url('../../../../images/badges/info-green.svg') no-repeat center;
   background-size: contain;*/
-.wrp-detail-btn {
+ .wrp-detail-btn {
   position: absolute
   top: 0.07rem;
   right: -15px;
