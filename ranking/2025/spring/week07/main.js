@@ -79,13 +79,29 @@ fetch('ranking-week07-spring2025.json')
         trendIcon.className = `trend-icon-${label}`;
       }
 
-      // WRPスコア更新
-      const wrpScoreEl = el.querySelector('.wrp-score');
-      if (wrpScoreEl) {
-        wrpScoreEl.innerHTML = `${entryData.wrp_score}<span class="wrp-score-unit">pt</span>`;
-      }
+     // WRPスコア更新 (完全統合)
+const wrpScoreEl = el.querySelector('.wrp-score');
+if (wrpScoreEl) {
+  wrpScoreEl.innerHTML = `${entryData.wrp_score}<span class="wrp-score-unit">pt</span><img src="../../../../images/badges/info-green.svg" width="8px" style="margin-left:3px;vertical-align:middle;cursor:pointer;" class="wrp-icon">`;
+  wrpScoreEl.dataset.score = entryData.wrp_score;  // margin調整用に保持
+}
 
-  
+//WRP詳細ポップアップ割当（元：Breakdown埋め込み）
+  const wrpIcon = el.querySelector('.wrp-icon');
+if (wrpIcon && entryData.wrp_breakdown) {
+  const breakdown = Object.entries(entryData.wrp_breakdown)
+    .map(([key, val]) => `${capitalize(key)}: ${val}`)
+    .join('<br>');
+
+  wrpIcon.addEventListener('click', function (e) {
+    e.stopPropagation();
+    closeAll();
+    const popup = createPopup('WRP Breakdown:<br>' + breakdown, 'wrp-popup');
+    positionPopup(this, popup);
+  });
+}
+
+
       // Totalスコア更新
       const scoreEl = el.querySelector('.score');
       if (scoreEl) {
