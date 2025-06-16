@@ -79,12 +79,7 @@ fetch('ranking-week07-spring2025.json')
         trendIcon.className = `trend-icon-${label}`;
       }
 
-      // WRPスコア更新
-      const wrpScoreEl = el.querySelector('.wrp-score');
-      if (wrpScoreEl) {
-        wrpScoreEl.innerHTML = `${entryData.wrp_score}<span class="wrp-score-unit">pt</span>`;
-      }
-
+      
   // WRP Breakdown埋め込み
      const wrpDetailBtn = el.querySelector('.wrp-detail-btn');
 if (wrpDetailBtn && entryData.wrp_breakdown) {
