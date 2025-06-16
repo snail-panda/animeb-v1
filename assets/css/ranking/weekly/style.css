@@ -448,7 +448,7 @@ body {
 .nav-bar {
   display: flex;
   width: 680px;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   font-family: 'Abel', sans-serif;
   font-size: 0.8rem;
