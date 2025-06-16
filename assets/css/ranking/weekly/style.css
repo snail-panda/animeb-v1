@@ -448,7 +448,7 @@ body {
 .nav-bar {
   display: flex;
   width: 680px;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   font-family: 'Abel', sans-serif;
   font-size: 0.8rem;
@@ -471,9 +471,12 @@ body {
   flex: 1;
 }
 
-.nav-link.left,
+.nav-link.left {
+  margin-right: auto;
+}
+
 .nav-link.right {
-  width: 90px;
+  margin-left: auto;
 }
 
 /* 注意書きエリア */
