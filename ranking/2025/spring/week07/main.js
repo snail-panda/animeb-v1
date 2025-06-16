@@ -45,7 +45,13 @@ fetch('ranking-week07-spring2025.json')
     document.querySelector('.season-title').textContent = data.meta.season;
     document.title = `Anime Weekly Ranking - ${data.meta.week}`;
 
-   
+    // エントリー取得
+    const entryElements = document.querySelectorAll('.entry');
+
+    data.entries.forEach((entryData, index) => {
+      const el = entryElements[index];
+      if (!el) return;
+
       // タイトル更新
       const titleEl = el.querySelector('.title');
       if (titleEl) {
@@ -73,12 +79,7 @@ fetch('ranking-week07-spring2025.json')
         trendIcon.className = `trend-icon-${label}`;
       }
 
-      // WRPスコア更新
-      const wrpScoreEl = el.querySelector('.wrp-score');
-      if (wrpScoreEl) {
-        wrpScoreEl.innerHTML = `${entryData.wrp_score}<span class="wrp-score-unit">pt</span>`;
-      }
-
+     
   // WRP Breakdown埋め込み
      const wrpDetailBtn = el.querySelector('.wrp-detail-btn');
 if (wrpDetailBtn && entryData.wrp_breakdown) {
