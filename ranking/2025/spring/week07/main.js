@@ -90,7 +90,10 @@ if (wrpScoreEl) {
   const wrpIcon = el.querySelector('.wrp-icon');
 if (wrpIcon && entryData.wrp_breakdown) {
   const breakdown = Object.entries(entryData.wrp_breakdown)
-    .map(([key, val]) => `${capitalize(key)}: ${val}`)
+  .map(([key, val]) => {
+    const formattedKey = capitalize(key.replace(/_/g, ' '));
+    return `${formattedKey}: ${val}`;
+  })
     .join('<br>');
 
   wrpIcon.addEventListener('click', function (e) {
