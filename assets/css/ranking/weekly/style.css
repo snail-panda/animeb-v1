@@ -437,6 +437,7 @@ body {
 .wrp-score img {
   vertical-align: -1.5px;  /* 上下微調整 */
   margin-left: 2px;        /* 数字とアイコンの間隔調整 */
+  height: 8px;          /* サイズは現行維持 */
 }
 
 
