@@ -80,18 +80,18 @@ Arigatou…",
     {
       "rank": 5,
       "trend": "UP",
-      "title": "\"From Old Country Bumpkin to Master Swordsman",
-      "episode": null,
-      "wrp_score": 9,
+      "title": "From Old Country Bumpkin to Master Swordsman",
+      "episode": 9,
+      "wrp_score": 8.4,
       "score": 8,
-      "review": "8",
+      "review": "",
       "wrp_breakdown": {
-        "base_score": null,
-        "animation": 5,
+        "base_score": 5,
+        "animation": 0.6,
         "script": 0.6,
-        "direction": 0.6,
-        "charm": 0.55,
-        "overall": 0.4
+        "direction": 0.55,
+        "charm": 0.4,
+        "overall": 1.25
       }
     },
     {

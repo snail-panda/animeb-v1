@@ -97,18 +97,18 @@ No question—solid 10",
     {
       "rank": "spotlight",
       "trend": "DOWN",
-      "title": "\"From Old Country Bumpkin to Master Swordsman: My Hotshot Disciples Are All Grown Up Now",
-      "episode": null,
-      "wrp_score": 10,
+      "title": "From Old Country Bumpkin to Master Swordsman",
+      "episode": 10,
+      "wrp_score": 9,
       "score": 9,
-      "review": "9",
+      "review": "",
       "wrp_breakdown": {
-        "base_score": null,
-        "animation": 5,
-        "script": 0.65,
+        "base_score": 5,
+        "animation": 0.65,
+        "script": 0.7,
         "direction": 0.7,
-        "charm": 0.7,
-        "overall": 0.5
+        "charm": 0.5,
+        "overall": 1.45
       }
     },
     {
