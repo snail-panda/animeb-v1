@@ -1,0 +1,145 @@
+{
+  "meta": {
+    "week": "Week 10",
+    "season": "2025 Spring",
+    "ep_range": "ep.10-11"
+  },
+  "entries": [
+    {
+      "rank": 1,
+      "trend": "UP",
+      "title": "Shoshimin: How to Become Ordinary 2",
+      "episode": 11,
+      "wrp_score": 9.75,
+      "score": 10,
+      "review": "",
+      "wrp_breakdown": {
+        "base_score": 5,
+        "animation": 0.75,
+        "script": 0.8,
+        "direction": 0.8,
+        "charm": 0.7,
+        "overall": 1.7
+      }
+    },
+    {
+      "rank": 2,
+      "trend": "DOWN",
+      "title": "The Apothecary Diaries 2nd Season",
+      "episode": 46,
+      "wrp_score": 9.6,
+      "score": 10,
+      "review": "",
+      "wrp_breakdown": {
+        "base_score": 5,
+        "animation": 0.75,
+        "script": 0.75,
+        "direction": 0.75,
+        "charm": 0.7,
+        "overall": 1.65
+      }
+    },
+    {
+      "rank": 3,
+      "trend": "DOWN",
+      "title": "The Catcher in the Ballpark!",
+      "episode": 11,
+      "wrp_score": 9.5,
+      "score": 10,
+      "review": "",
+      "wrp_breakdown": {
+        "base_score": 5,
+        "animation": 0.7,
+        "script": 0.7,
+        "direction": 0.75,
+        "charm": 0.7,
+        "overall": 1.65
+      }
+    },
+    {
+      "rank": 4,
+      "trend": "STAY",
+      "title": "Mobile Suit Gundam GQuuuuuuX",
+      "episode": 10,
+      "wrp_score": 9.4,
+      "score": 9,
+      "review": "",
+      "wrp_breakdown": {
+        "base_score": 5,
+        "animation": 0.75,
+        "script": 0.75,
+        "direction": 0.75,
+        "charm": 0.65,
+        "overall": 1.5
+      }
+    },
+    {
+      "rank": 5,
+      "trend": "UP",
+      "title": "\"From Old Country Bumpkin to Master Swordsman: My Hotshot Disciples Are All Grown Up Now",
+      "episode": null,
+      "wrp_score": 11,
+      "score": 9,
+      "review": "9",
+      "wrp_breakdown": {
+        "base_score": null,
+        "animation": 5,
+        "script": 0.75,
+        "direction": 0.7,
+        "charm": 0.75,
+        "overall": 0.6
+      }
+    },
+    {
+      "rank": "spotlight",
+      "trend": "DOWN",
+      "title": "Sword of the Demon Hunter",
+      "episode": 10,
+      "wrp_score": 9,
+      "score": 9,
+      "review": "",
+      "wrp_breakdown": {
+        "base_score": 5,
+        "animation": 0.7,
+        "script": 0.65,
+        "direction": 0.7,
+        "charm": 0.6,
+        "overall": 1.4
+      }
+    },
+    {
+      "rank": "editor's pick",
+      "trend": "UP",
+      "title": "Apocalypse Hotel",
+      "episode": 10,
+      "wrp_score": 8.5,
+      "score": 8,
+      "review": "",
+      "wrp_breakdown": {
+        "base_score": 5,
+        "animation": 0.65,
+        "script": 0.55,
+        "direction": 0.55,
+        "charm": 0.45,
+        "overall": 0.5
+      }
+    },
+    {
+      "rank": "dookie",
+      "trend": "STAY",
+      "title": "Can a Boy-Girl Friendship Survive?",
+      "episode": 10,
+      "wrp_score": 4.8,
+      "score": 4,
+      "review": "",
+      "wrp_breakdown": {
+        "base_score": 5,
+        "animation": 0.5,
+        "script": 0.3,
+        "direction": 0.3,
+        "charm": 0.2,
+        "overall": -1.5
+      }
+    }
+  ]
+}

@@ -1,73 +1,149 @@
 {
   "meta": {
-    "week": "Week 9",
+    "week": "week 9",
     "season": "2025 Spring",
-    "ep_range": "ep.9–10"
+    "ep_range": "ep.9-10"
   },
   "entries": [
-  {
-    "rank": 1,
-    "trend": "UP",
-    "title": "The Apothecary Diaries 2nd Season",
-    "episode": 45,
-    "wrp_score": 10.2,
-    "score": 11
-  },
-  {
-    "rank": 2,
-    "trend": "UP",
-    "title": "The Catcher in the Ballpark!",
-    "episode": 10,
-    "wrp_score": 9.9,
-    "score": 10
-  },
-  {
-    "rank": 3,
-    "trend": "DOWN",
-    "title": "Sword of the Demon Hunter",
-    "episode": 10,
-    "wrp_score": 9.55,
-    "score": 10
-  },
-  {
-    "rank": 4,
-    "trend": "DOWN",
-    "title": "Mobile Suit Gundam GQuuuuuuX",
-    "episode": 9,
-    "wrp_score": 9.25,
-    "score": 9
-  },
-  {
-    "rank": 5,
-    "trend": "DOWN",
-    "title": "Shoshimin: How to Become Ordinary 2",
-    "episode": 10,
-    "wrp_score": 9.1,
-    "score": 9
-  },
-  {
-    "rank": "spotlight",
-    "trend": "DOWN",
-    "title": "From Old Country Bumpkin to Master Swordsman",
-    "episode": 10,
-    "wrp_score": 9,
-    "score": 9
-  },
-  {
-    "rank": "editor's pick",
-    "trend": "UP",
-    "title": "Kowloon Generic Romance",
-    "episode": 10,
-    "wrp_score": 8.5,
-    "score": 8
-  },
-  {
-    "rank": "dookie",
-    "trend": "STAY",
-    "title": "Uma Musume: Cinderella Grey",
-    "episode": "ep.10",
-    "wrp_score": 4.8,
-    "score": 4
-  }
-]
+    {
+      "rank": 1,
+      "trend": "UP",
+      "title": "The Apothecary Diaries 2nd Season",
+      "episode": 45,
+      "wrp_score": 10.2,
+      "score": 11,
+      "review": "",
+      "wrp_breakdown": {
+        "base_score": 5,
+        "animation": 0.8,
+        "script": 0.9,
+        "direction": 0.9,
+        "charm": 0.8,
+        "overall": 1.8
+      }
+    },
+    {
+      "rank": 2,
+      "trend": "UP",
+      "title": "The Catcher in the Ballpark!",
+      "episode": 10,
+      "wrp_score": 9.9,
+      "score": 10,
+      "review": "",
+      "wrp_breakdown": {
+        "base_score": 5,
+        "animation": 0.65,
+        "script": 0.85,
+        "direction": 0.85,
+        "charm": 0.8,
+        "overall": 1.75
+      }
+    },
+    {
+      "rank": 3,
+      "trend": "DOWN",
+      "title": "Sword of the Demon Hunter",
+      "episode": 10,
+      "wrp_score": 9.55,
+      "score": 10,
+      "review": "I didn’t expect the transition from Edo to Heisei to hit this hard—it was subtle, but so cleverly done it caught me off guard.
+The play, written by Yotaka (yep, the prostitute from the Edo arc), nailed the essence of the story and its characters. And the fact that the Heisei students were watching it, commenting on it—cracking up over how uncool Jinya’s role was—just made it all land even harder.
+There was this quiet sense of nostalgia layered under the humor, like you’re laughing but also feeling the weight of everything that’s been lost.
+And the way they used traditional theater pacing and structure? Absolutely nailed it. It was tight, emotional, and totally immersive.
+No question—solid 10",
+      "wrp_breakdown": {
+        "base_score": 5,
+        "animation": 0.7,
+        "script": 0.8,
+        "direction": 0.75,
+        "charm": 0.7,
+        "overall": 1.6
+      }
+    },
+    {
+      "rank": 4,
+      "trend": "DOWN",
+      "title": "Mobile Suit Gundam GQuuuuuuX",
+      "episode": 9,
+      "wrp_score": 9.25,
+      "score": 9,
+      "review": "",
+      "wrp_breakdown": {
+        "base_score": 5,
+        "animation": 0.75,
+        "script": 0.7,
+        "direction": 0.65,
+        "charm": 0.65,
+        "overall": 1.5
+      }
+    },
+    {
+      "rank": 5,
+      "trend": "DOWN",
+      "title": "Shoshimin: How to Become Ordinary 2",
+      "episode": 10,
+      "wrp_score": 9.1,
+      "score": 9,
+      "review": "",
+      "wrp_breakdown": {
+        "base_score": 5,
+        "animation": 0.7,
+        "script": 0.65,
+        "direction": 0.7,
+        "charm": 0.6,
+        "overall": 1.45
+      }
+    },
+    {
+      "rank": "spotlight",
+      "trend": "DOWN",
+      "title": "\"From Old Country Bumpkin to Master Swordsman: My Hotshot Disciples Are All Grown Up Now",
+      "episode": null,
+      "wrp_score": 10,
+      "score": 9,
+      "review": "9",
+      "wrp_breakdown": {
+        "base_score": null,
+        "animation": 5,
+        "script": 0.65,
+        "direction": 0.7,
+        "charm": 0.7,
+        "overall": 0.5
+      }
+    },
+    {
+      "rank": "editor's pick",
+      "trend": "UP",
+      "title": "Kowloon Generic Romance",
+      "episode": 10,
+      "wrp_score": 8.5,
+      "score": 8,
+      "review": "",
+      "wrp_breakdown": {
+        "base_score": 5,
+        "animation": 0.65,
+        "script": 0.6,
+        "direction": 0.6,
+        "charm": 0.45,
+        "overall": 1.2
+      }
+    },
+    {
+      "rank": "dookie",
+      "trend": "STAY",
+      "title": "Can a Boy-Girl Friendship Survive?",
+      "episode": 10,
+      "wrp_score": 4.8,
+      "score": 4,
+      "review": "",
+      "wrp_breakdown": {
+        "base_score": 5,
+        "animation": 0.5,
+        "script": 0.3,
+        "direction": 0.3,
+        "charm": 0.2,
+        "overall": -1.5
+      }
+    }
+  ]
 }

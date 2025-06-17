@@ -37,7 +37,7 @@ function adjustScoreBars() {
 }
 
 // ========== JSON読み込み & DOM更新 ==========
-fetch('ranking-week07-spring2025.json')
+fetch('ranking-week08-spring2025.json')
   .then(response => response.json())
   .then(data => {
     // メタ情報更新

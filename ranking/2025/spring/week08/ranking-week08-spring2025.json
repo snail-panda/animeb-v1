@@ -1,34 +1,39 @@
 {
   "meta": {
-    "week": "Week 8",
+    "week": "week 8",
     "season": "2025 Spring",
-    "ep_range": "ep.9–10"
+    "ep_range": "ep.8-9"
   },
   "entries": [
-  {
-    "rank": 1,
-    "trend": "UP",
-    "title": "Sword of the Demon Hunter",
-    "episode": 9,
-    "wrp_score": 10.9,
-    "score": 11,
-    "review": "",
+    {
+      "rank": 1,
+      "trend": "UP",
+      "title": "Sword of the Demon Hunter",
+      "episode": 9,
+      "wrp_score": 10.9,
+      "score": 11,
+      "review": "It was beyond a masterpiece—an episode you might only see once in two decades.
+The moment I figured out that Natsu’s powerful feelings for Jinya came from the kogai… I just froze. It all made sense—and then I broke down.
+I couldn’t move or speak—just felt like I was hit by a surge of electricity and burst into tears without even knowing why.
+I don’t think I’m even fit to rate this—what I can do is simply be grateful for having witnessed it.
+Arigatou…",
       "wrp_breakdown": {
         "base_score": 5,
-        "animation": 0.85,
-        "script": 0.85,
-        "direction": 0.9,
-        "charm": 0.85,
-        "overall": 1.85
-  },
-  {
-    "rank": 2,
-    "trend": "UP",
-    "title": "The Apothecary Diaries 2nd Season",
-    "episode": 44,
-    "wrp_score": 9.7,
-    "score": 10
-    "review": "",
+        "animation": 0.9,
+        "script": 1,
+        "direction": 1,
+        "charm": 1,
+        "overall": 2
+      }
+    },
+    {
+      "rank": 2,
+      "trend": "UP",
+      "title": "The Apothecary Diaries 2nd Season",
+      "episode": 44,
+      "wrp_score": 9.7,
+      "score": 10,
+      "review": "",
       "wrp_breakdown": {
         "base_score": 5,
         "animation": 0.75,
@@ -36,102 +41,109 @@
         "direction": 0.75,
         "charm": 0.7,
         "overall": 1.7
-  },
-  {
-    "rank": 3,
-    "trend": "UP",
-    "title": "Mobile Suit Gundam GQuuuuuuX",
-    "episode": 8,
-    "wrp_score": 9.3,
-    "score": 9
-    "review": "",
-      "wrp_breakdown": {
-        "base_score": 5,
-        "animation": 0.75,
-        "script": 0.7,
-        "direction": 0.75,
-        "charm": 0.65,
-        "overall": 1.65
-  },
-  {
-    "rank": 4,
-    "trend": "DOWN",
-    "title": "Shoshimin: How to Become Ordinary 2",
-    "episode": 9,
-    "wrp_score": 8.7,
-    "score": 8
-    "review": "",
-      "wrp_breakdown": {
-        "base_score": 5,
-        "animation": 0.75,
-        "script": 0.7,
-        "direction": 0.7,
-        "charm": 0.55,
-        "overall": 1.6
-  },
-  {
-    "rank": 5,
-    "trend": "UP",
-    "title": "From Old Country Bumpkin to Master Swordsman",
-    "episode": 9,
-    "wrp_score": 8.4,
-    "score": 8
-    "review": "",
+      }
+    },
+    {
+      "rank": 3,
+      "trend": "UP",
+      "title": "Mobile Suit Gundam GQuuuuuuX",
+      "episode": 8,
+      "wrp_score": 9.3,
+      "score": 9,
+      "review": "",
       "wrp_breakdown": {
         "base_score": 5,
         "animation": 0.75,
         "script": 0.7,
         "direction": 0.75,
         "charm": 0.55,
-        "overall": 1.45
-  },
-  {
-    "rank": "spotlight",
-    "trend": "DOWN",
-    "title": "Apocalypse Hotel",
-    "episode": 8,
-    "wrp_score": 8.2,
-    "score": 8
-    "review": "",
+        "overall": 1.55
+      }
+    },
+    {
+      "rank": 4,
+      "trend": "DOWN",
+      "title": "Shoshimin: How to Become Ordinary 2",
+      "episode": 9,
+      "wrp_score": 8.7,
+      "score": 8,
+      "review": "",
       "wrp_breakdown": {
         "base_score": 5,
-        "animation": 0.65,
-        "script": 0.65,
-        "direction": 0.65,
-        "charm": 0.55,
-        "overall": 1.3
-  },
-  {
-    "rank": "editor's pick",
-    "trend": "DOWN",
-    "title": "A Ninja and an Assassin Under One Roof",
-    "episode": 8,
-    "wrp_score": 7.9,
-    "score": 7
-    "review": "",
-      "wrp_breakdown": {
-        "base_score": 5,
-        "animation": 0.65,
+        "animation": 0.7,
         "script": 0.6,
         "direction": 0.6,
         "charm": 0.5,
-        "overall": 1.25
-  },
-  {
-    "rank": "dookie",
-    "trend": "UP",
-    "title": "Can a Boy-Girl Friendship Survive?",
-    "episode": 9,
-    "wrp_score": 5.5,
-    "score": 5
-    "review": "",
+        "overall": 1.3
+      }
+    },
+    {
+      "rank": 5,
+      "trend": "UP",
+      "title": "\"From Old Country Bumpkin to Master Swordsman",
+      "episode": null,
+      "wrp_score": 9,
+      "score": 8,
+      "review": "8",
+      "wrp_breakdown": {
+        "base_score": null,
+        "animation": 5,
+        "script": 0.6,
+        "direction": 0.6,
+        "charm": 0.55,
+        "overall": 0.4
+      }
+    },
+    {
+      "rank": "spotlight",
+      "trend": "DOWN",
+      "title": "Apocalypse Hotel",
+      "episode": 8,
+      "wrp_score": 8.2,
+      "score": 8,
+      "review": "",
       "wrp_breakdown": {
         "base_score": 5,
-        "animation": 0.4,
-        "script": 0.3,
-        "direction": 0.2,
-        "charm": 0.1,
-        "overall": -1.75
-  }
-]
+        "animation": 0.7,
+        "script": 0.55,
+        "direction": 0.55,
+        "charm": 0.5,
+        "overall": 0.9
+      }
+    },
+    {
+      "rank": "editor's pick",
+      "trend": "DOWN",
+      "title": "A Ninja and an Assassin Under One Roof",
+      "episode": 8,
+      "wrp_score": 7.9,
+      "score": 7,
+      "review": "",
+      "wrp_breakdown": {
+        "base_score": 5,
+        "animation": 0.6,
+        "script": 0.6,
+        "direction": 0.55,
+        "charm": 0.45,
+        "overall": 0.7
+      }
+    },
+    {
+      "rank": "dookie",
+      "trend": "UP",
+      "title": "Can a Boy-Girl Friendship Survive?",
+      "episode": 9,
+      "wrp_score": 5.5,
+      "score": 5,
+      "review": "",
+      "wrp_breakdown": {
+        "base_score": 5,
+        "animation": 0.5,
+        "script": 0.35,
+        "direction": 0.35,
+        "charm": 0.3,
+        "overall": -1
+      }
+    }
+  ]
 }
