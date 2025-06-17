@@ -451,6 +451,8 @@ if (epsEl && data.meta.ep_range) {
 
 // ===  UPDATE RANKING LINK BLOCKS (Header + Bottom) ===
 
+// ===  UPDATE RANKING LINK BLOCKS (Header + Bottom) ===
+
 // メタ情報を整形してパスに変換
 const seasonRaw = data.meta.season;         // 例: "2025 Spring"
 const weekRaw = data.meta.week;             // 例: "Week 9"
@@ -458,9 +460,13 @@ const weekRaw = data.meta.week;             // 例: "Week 9"
 // それぞれパス用に整形
 const [year, seasonName] = seasonRaw.split(' ');               // "2025", "Spring"
 const season = `${year}/${seasonName.toLowerCase()}`;          // "2025/spring"
-const week = weekRaw.toLowerCase().replace(' ', '0');          // "week09"
 
-const path = `ranking/${season}/${week}/index.html`;           // 完成形のパス
+// ✅ Week番号だけを抽出し、2桁に変換（例: 9 → "09", 10 → "10"）
+const weekNumber = parseInt(weekRaw.replace(/[^\d]/g, ''), 10); // 数字部分だけ取り出して整数化
+const week = `week${weekNumber < 10 ? '0' + weekNumber : weekNumber}`;
+
+// 完成形のパスを組み立て
+const path = `ranking/${season}/${week}/index.html`;
 
 // 上部リンク（.ranking-header 内の a）
 const headerLink = document.querySelector('.ranking-header .ranking-link');
@@ -474,6 +480,8 @@ if (bottomLink) {
   bottomLink.href = path;
   bottomLink.textContent = "View Full Ranking";
 }
+
+// ===  ここまで　UPDATE RANKING LINK BLOCKS (Header + Bottom) ===
 
 // ===  ここまで　UPDATE RANKING LINK BLOCKS (Header + Bottom) ===
 
