@@ -60,6 +60,14 @@ body {
   border-bottom: 1px solid #ddd;
 } 
 
+.anime-title {
+  font-style: italic;
+  font-size: 1.1em;
+  font-weight: 500;
+  color: #444;
+}
+
+
 .post-conclusion  {
   font-size: 0.9rem;
   margin-top: 2rem;
