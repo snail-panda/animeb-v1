@@ -309,7 +309,12 @@ body {
 
 .nav-center {
   text-align: center;
+  width: 34%;
   flex: 1;
+}
+
+.nav-left, .nav-right {
+  width: 33%;
 }
 
 
