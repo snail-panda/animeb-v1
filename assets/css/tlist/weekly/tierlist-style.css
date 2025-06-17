@@ -297,7 +297,7 @@ body {
   text-decoration: none;
   font-size: 0.75rem;
   font-weight: normal;
-  color: #0066cc;
+  color: #333;
 }
 
 .nav-left {
@@ -313,8 +313,9 @@ body {
 }
 
 
-.back-link:hover {
+.tierlist-nav:hover {
   text-decoration: underline;
+  color: #0066cc;
 }
 
 /* ====================================================
