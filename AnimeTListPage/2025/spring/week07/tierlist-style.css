@@ -289,7 +289,7 @@ body {
   Tierlist nav Style
 ==================================================== */
 
-..tierlist-nav {
+.tierlist-nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
