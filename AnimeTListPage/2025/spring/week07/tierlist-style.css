@@ -286,29 +286,32 @@ body {
 
 
 /* ====================================================
-  Back Link Style
+  Tierlist nav Style
 ==================================================== */
 
-.tierlist-nav {
+..tierlist-nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 1.5em;
+  margin-bottom: 2em;
+  max-width: 960px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 1em;
 }
 
-.nav-left, .nav-center, .nav-right {
+.tierlist-nav a {
   text-decoration: none;
   font-size: 0.7rem;
-  color: #337ab7;
+  font-weight: normal;
+  color: #0066cc;
 }
+
 .nav-center {
   text-align: center;
   flex: 1;
 }
 
-.nav-left, nav-center, nav-right:hover {
-  text-decoration: underline;
-}
 
 /* ====================================================
   Mobile Fix — Disable Hover Zoom on Small Devices
