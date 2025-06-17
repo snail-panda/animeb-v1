@@ -1,0 +1,62 @@
+{
+  "season": "2025 Spring",
+  "version": "Mid-Season Tier List – Episodes 7–8",
+  "date": "May 31, 2025",
+  "intro": "We’re already halfway through the season! Here’s my updated tier list after Episode 8. Some shows continue to shine, others fell off, and a few... I had to drop.",
+  "mainContent": "Sample main content text for now.",
+  "conclusion": "That wraps up my Ep. 7–8 impressions. Thanks for reading! Let me know where your favorites landed.",
+  "recentlyDropped": ["Title A", "Title B", "Title C"],
+  "tiers": {
+    "tiers": {
+    "SS": [
+      "The Apothecary Diaries 2nd Season",
+      "Sword of the Demon Hunter",
+      "Shoshimin: How to Become Ordinary 2"
+    ],
+    "S": [
+      "Apocalypse Hotel",
+      "A Ninja and an Assassin Under One Roof",
+      "Me and the Alien MuMu"
+    ],
+    "A": [
+      "Mobile Suit Gundam GQuuuuuuX",
+      "The Catcher in the Ballpark!"
+    ],
+    "B": [
+      "\"Please Put Them On",
+      "Kowloon Generic Romance"
+    ],
+    "C": [
+      "\"From Old Country Bumpkin to Master Swordsman: My Hotshot Disciples Are All Grown Up Now",
+      "Your Forma",
+      "Miru: Paths to My Future"
+    ],
+    "D": [
+      "Can a Boy-Girl Friendship Survive?",
+      "Once Upon a Witch's Death"
+    ],
+    "Dropped": [
+      "LAZARUS",
+      "Uma Musume: Cinderella Grey",
+      "The Dinner Table Detective",
+      "Mono",
+      "Anne Shirley",
+      "Zatsu Tabi: That's Journey",
+      "Rock wa Lady no Tashinami deshite",
+      "Food For the Soul",
+      "The Shiunji Family Children",
+      "The Too-Perfect Saint: Tossed Aside by My Fiancé and Sold to Another Kingdom",
+      "Summer Pockets"
+    ],
+    "N/A": [
+      "The Mononoke Lecture Logs of Chuzenji-sensei",
+      "The Brilliant Healer's New Life in the Shadows",
+      "Maebashi Witches",
+      "Aharen Is Indecipherable 2nd Season",
+      "Moonrise",
+      "Yandere Dark Elf: She Chased Me All the Way From Another World!",
+      "The Beginning After the End",
+      "Witch Watch"
+    ]
+  }
+}
