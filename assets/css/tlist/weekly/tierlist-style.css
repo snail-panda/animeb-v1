@@ -76,6 +76,13 @@ body {
   color: #333;
 }
 
+.anime-title {
+  font-style: italic;
+  font-size: 1.1em;
+  font-weight: 500;
+  color: #444;
+}
+
 #conclusionText {
   text-indent: 1.5em;
 }
