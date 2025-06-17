@@ -288,33 +288,37 @@ body {
 /* ====================================================
   Tierlist nav Style
 ==================================================== */
-
 .tierlist-nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 2em;
+  margin-bottom: 1.5em;
   max-width: 800px;
   margin-left: auto;
   margin-right: auto;
   padding: 0 1em;
+  gap: 10px;
 }
 
 .tierlist-nav a {
+  flex: 1;
+  text-align: center;
   text-decoration: none;
   font-size: 0.7rem;
   font-weight: normal;
   color: #0066cc;
 }
 
-.nav-center {
-  text-align: center;
-  width: 34%;
-  flex: 1;
+.nav-left {
+  text-align: left;
 }
 
-.nav-left, .nav-right {
-  width: 33%;
+.nav-center {
+  text-align: center;
+}
+
+.nav-right {
+  text-align: right;
 }
 
 
