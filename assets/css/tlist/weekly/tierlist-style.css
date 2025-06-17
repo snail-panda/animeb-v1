@@ -286,7 +286,7 @@ body {
   justify-content: space-between;
   align-items: center;
   max-width: 800px;
-  margin: 2rem auto 1.5em auto;
+  margin: 1rem auto 1.5em auto;
   padding: 0 1em;
   gap: 10px;
 }
@@ -295,7 +295,7 @@ body {
   flex: 1;
   text-align: center;
   text-decoration: none;
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   font-weight: normal;
   color: #333;
 }
@@ -313,7 +313,7 @@ body {
 }
 
 
-.tierlist-nav:hover {
+.tierlist-nav a:hover {
   text-decoration: underline;
   color: #0066cc;
 }
