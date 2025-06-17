@@ -11,7 +11,15 @@
     "title": "Sword of the Demon Hunter",
     "episode": 9,
     "wrp_score": 10.9,
-    "score": 11
+    "score": 11,
+    "review": "",
+      "wrp_breakdown": {
+        "base_score": 5,
+        "animation": 0.85,
+        "script": 0.85,
+        "direction": 0.9,
+        "charm": 0.85,
+        "overall": 1.85
   },
   {
     "rank": 2,
@@ -20,6 +28,14 @@
     "episode": 44,
     "wrp_score": 9.7,
     "score": 10
+    "review": "",
+      "wrp_breakdown": {
+        "base_score": 5,
+        "animation": 0.75,
+        "script": 0.8,
+        "direction": 0.75,
+        "charm": 0.7,
+        "overall": 1.7
   },
   {
     "rank": 3,
@@ -28,6 +44,14 @@
     "episode": 8,
     "wrp_score": 9.3,
     "score": 9
+    "review": "",
+      "wrp_breakdown": {
+        "base_score": 5,
+        "animation": 0.75,
+        "script": 0.7,
+        "direction": 0.75,
+        "charm": 0.65,
+        "overall": 1.65
   },
   {
     "rank": 4,
@@ -36,6 +60,14 @@
     "episode": 9,
     "wrp_score": 8.7,
     "score": 8
+    "review": "",
+      "wrp_breakdown": {
+        "base_score": 5,
+        "animation": 0.75,
+        "script": 0.7,
+        "direction": 0.7,
+        "charm": 0.55,
+        "overall": 1.6
   },
   {
     "rank": 5,
@@ -44,6 +76,14 @@
     "episode": 9,
     "wrp_score": 8.4,
     "score": 8
+    "review": "",
+      "wrp_breakdown": {
+        "base_score": 5,
+        "animation": 0.75,
+        "script": 0.7,
+        "direction": 0.75,
+        "charm": 0.55,
+        "overall": 1.45
   },
   {
     "rank": "spotlight",
@@ -52,6 +92,14 @@
     "episode": 8,
     "wrp_score": 8.2,
     "score": 8
+    "review": "",
+      "wrp_breakdown": {
+        "base_score": 5,
+        "animation": 0.65,
+        "script": 0.65,
+        "direction": 0.65,
+        "charm": 0.55,
+        "overall": 1.3
   },
   {
     "rank": "editor's pick",
@@ -60,6 +108,14 @@
     "episode": 8,
     "wrp_score": 7.9,
     "score": 7
+    "review": "",
+      "wrp_breakdown": {
+        "base_score": 5,
+        "animation": 0.65,
+        "script": 0.6,
+        "direction": 0.6,
+        "charm": 0.5,
+        "overall": 1.25
   },
   {
     "rank": "dookie",
@@ -68,6 +124,14 @@
     "episode": 9,
     "wrp_score": 5.5,
     "score": 5
+    "review": "",
+      "wrp_breakdown": {
+        "base_score": 5,
+        "animation": 0.4,
+        "script": 0.3,
+        "direction": 0.2,
+        "charm": 0.1,
+        "overall": -1.75
   }
 ]
 }
