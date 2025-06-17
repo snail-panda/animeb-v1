@@ -216,7 +216,7 @@ It wasn’t just the conclusion of a case; it was a symbolic act of emotional re
   <div class="ranking-header">
     <a href="ranking/2025/spring/week09/index.html" class="ranking-link">
 <span class="season-title">2025 Spring</span> Weekly Anime Ranking
-    <div class="week-info">– <span class="week-title">Week 9</span> – <span class="eps">[ep.9–10]</span><span class="latest-badge">Latest</span></div></a>
+    <div class="week-info"><span class="week-title">Week 9</span><span class="eps">[ep.9–10]</span><span class="latest-badge">Latest</span></div></a>
   </div>
 
   <div class="ranking-entry">
@@ -441,7 +441,6 @@ document.addEventListener("DOMContentLoaded", function () {
 const seasonEl = document.querySelector(".season-title");
 const weekEl = document.querySelector(".week-title");
 
-console.log(weekEl); // 👈←これ追加！
 
 if (seasonEl) seasonEl.textContent = data.meta.season;
 if (weekEl) weekEl.textContent = `– ${data.meta.week} –`;
