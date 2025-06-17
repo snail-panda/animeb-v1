@@ -289,14 +289,24 @@ body {
   Back Link Style
 ==================================================== */
 
-.back-link {
-  margin-bottom: 1rem;
-  font-size: 0.8rem;
-  color: #555;
-  text-decoration: none;
+.tierlist-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5em;
 }
 
-.back-link:hover {
+.nav-left, .nav-center, .nav-right {
+  text-decoration: none;
+  font-size: 0.8rem;
+  color: #337ab7;
+}
+.nav-center {
+  text-align: center;
+  flex: 1;
+}
+
+.nav-left, nav-center, nav-right:hover {
   text-decoration: underline;
 }
 
