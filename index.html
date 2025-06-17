@@ -432,9 +432,7 @@ document.addEventListener("DOMContentLoaded", function () {
     .then(response => response.json())
     .then(data => {
       const container = document.querySelector(".ranking-widget");
-     
-      console.log("デバッグ用: 今読み込んでるJSONのweekは →", data.meta.week);
-
+    
 
       // 既存のエントリー要素をすべて削除
       container.querySelectorAll(".ranking-entry").forEach(el => el.remove());
@@ -442,6 +440,8 @@ document.addEventListener("DOMContentLoaded", function () {
       // メタ情報も反映
 const seasonEl = document.querySelector(".season-title");
 const weekEl = document.querySelector(".week-title");
+
+console.log(weekEl); // 👈←これ追加！
 
 if (seasonEl) seasonEl.textContent = data.meta.season;
 if (weekEl) weekEl.textContent = `– ${data.meta.week} –`;
