@@ -350,11 +350,6 @@ body {
     font-size: 0.9rem;
   }
 
- .tierlist-image img:hover {
-    transform: scale(1.5);
-    box-shadow: none;
-  }
-}
 
 @media (max-width: 480px) {
   .tierlist-image img {
@@ -366,9 +361,5 @@ body {
   .tierlist-titles-header 
   .tierlist-titles {
     font-size: 0.8rem;
-  }
-
-  .tierlist-image img:hover {
-    box-shadow: none;
   }
 }
