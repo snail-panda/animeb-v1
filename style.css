@@ -761,13 +761,13 @@ ul {
   transform: none !important;
 }
 
-.trend.up img {
+.arrow-up img {
   transform: rotate(0deg);
 }
-.trend.down img {
+.arrow-down img {
   transform: rotate(180deg);
 }
-.trend.stay img {
+.arrow-stay img {
   transform: rotate(90deg);
 }
 

@@ -496,10 +496,10 @@ console.log("trend raw value:", entry.trend);
 
         const trend = entry.trend.toLowerCase();
         const trendIcon = {
-          up: "arrow-up.png",
-          down: "arrow-down.png",
-          stay: "arrow-stay.png"
-        }[trend] || "arrow-stay.png";
+          up: "arrow-up.svg",
+          down: "arrow-down.svg",
+          stay: "arrow-stay.svg"
+        }[trend] || "arrow-stay.svg";
 
         entryDiv.innerHTML = `
           <span class="rank">${entry.rank}</span>
