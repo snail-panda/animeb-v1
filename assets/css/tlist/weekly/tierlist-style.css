@@ -353,11 +353,7 @@ body {
     transform: none;
     box-shadow: none;
   }
-
-
 }
-
-
 
 @media (max-width: 600px) {
   .tierlist-image img {
