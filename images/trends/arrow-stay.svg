@@ -1,9 +1,1 @@
-<svg width="800px" height="800px" viewBox="0 -4 28 28" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#5fd376" transform="rotate(0) scale(-1, 1)" stroke="#5fd376" data-originalfillcolor="#5fd376" data-originalstrokecolor="#5fd376">
-
-<g id="SVGRepo_bgCarrier" stroke-width="0"/>
-
-<g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/>
-
-<g id="SVGRepo_iconCarrier"> <!-- Uploaded to: SVG Repo, www.svgrepo.com, Transformed by: SVG Repo Mixer Tools --> <title>arrow-left</title> <desc>Created with Sketch.</desc> <defs> </defs> <g id="Vivid.JS" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"> <g id="Vivid-Icons" transform="translate(-437.000000, -651.000000)"> <g id="Icons" transform="translate(37.000000, 169.000000)"> <g id="arrow-left" transform="translate(390.000000, 468.000000)"> <g transform="translate(10.000000, 14.000000)" id="Shape"> <polygon fill="#ffac40" points="28 12 8 12 13 17 10 20 0 10 10 0 13 3 8 8 28 8"> </polygon> <polygon fill="#0c0058" points="20 8 20 12 28 12 28 8"> </polygon> </g> </g> </g> </g> </g> </g>
-
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" fill="#5fd376" stroke="#5fd376" data-originalfillcolor="#5fd376" data-originalstrokecolor="#5fd376" transform="scale(-1 1)" viewBox="0 -4 28 28"><g id="SVGRepo_iconCarrier"><g id="Vivid.JS" fill="none" fill-rule="evenodd" stroke="none" stroke-width="1"><g id="Vivid-Icons" transform="translate(-437 -651)"><g id="Icons" transform="translate(37 169)"><g id="arrow-left" transform="translate(390 468)"><g id="Shape"><path fill="#ffac40" d="M38 26H18l5 5-3 3-10-10 10-10 3 3-5 5h20z"/><path fill="#0c0058" d="M30 22v4h8v-4z"/></g></g></g></g></g></g></svg>
