@@ -761,6 +761,16 @@ ul {
   transform: none !important;
 }
 
+.trend.up img {
+  transform: rotate(0deg);
+}
+.trend.down img {
+  transform: rotate(180deg);
+}
+.trend.stay img {
+  transform: rotate(90deg);
+}
+
 .trend.up {
   color: green;
 }
