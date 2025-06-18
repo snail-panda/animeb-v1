@@ -342,6 +342,13 @@ body {
   .tierlist-titles-header {
     font-size: 0.8rem;
   }
+
+ .tierlist-image img:hover {
+    transform: none;
+    box-shadow: none;
+  }
+
+
 }
 
 
