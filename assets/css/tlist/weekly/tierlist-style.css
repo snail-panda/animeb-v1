@@ -345,7 +345,8 @@ body {
 }
 
   .criteria-title,
-  .tierlist-titles-header {
+  .tierlist-titles-header
+  .tierlist-titles {
     font-size: 0.9rem;
   }
 
