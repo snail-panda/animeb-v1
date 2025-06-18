@@ -338,6 +338,12 @@ body {
     line-height: 1.3;
   }
 
+#contentText::first-letter {
+  font-size: 150%;
+  font-weight: bold;
+  color: #333;
+}
+
   .criteria-title,
   .tierlist-titles-header {
     font-size: 0.8rem;
@@ -357,6 +363,11 @@ body {
   .tierlist-image img {
     max-width: 100%;
     cursor: default;
+  }
+
+  .criteria-title,
+  .tierlist-titles-header {
+    font-size: 0.7rem;
   }
 
   .tierlist-image img:hover {
