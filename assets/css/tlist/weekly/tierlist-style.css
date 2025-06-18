@@ -355,7 +355,7 @@ body {
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 480px) {
   .tierlist-image img {
     max-width: 100%;
     cursor: default;
