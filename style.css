@@ -755,6 +755,12 @@ ul {
   height: auto;
 }
 
+.arrow-up,
+.arrow-stay,
+.arrow-down {
+  transform: none !important;
+}
+
 .trend.up {
   color: green;
 }
