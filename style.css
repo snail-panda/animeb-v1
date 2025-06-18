@@ -755,12 +755,6 @@ ul {
   height: auto;
 }
 
-.arrow-up,
-.arrow-stay,
-.arrow-down {
-  transform: none !important;
-}
-
 .arrow-up img {
   transform: rotate(0deg);
 }
