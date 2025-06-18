@@ -328,6 +328,24 @@ body {
 /* ====================================================
   Mobile Fix — Disable Hover Zoom on Small Devices
 ==================================================== */
+@media (max-width: 768px) and (orientation: landscape) {
+  .post-intro,
+  .tier-criteria,
+  .disclaimer,
+  .post-content,
+  .post-conclusion {
+    font-size: 0.75rem;
+    line-height: 1.3;
+  }
+
+  .criteria-title,
+  .tierlist-titles-header {
+    font-size: 0.8rem;
+  }
+}
+
+
+
 @media (max-width: 600px) {
   .tierlist-image img {
     max-width: 100%;
@@ -335,7 +353,7 @@ body {
   }
 
   .tierlist-image img:hover {
-    transform: none;
+    
     box-shadow: none;
   }
 }
