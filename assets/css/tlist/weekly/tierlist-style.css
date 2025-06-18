@@ -350,7 +350,7 @@ body {
   }
 
  .tierlist-image img:hover {
-    transform: none;
+    transform: scale(1.5);
     box-shadow: none;
   }
 }
