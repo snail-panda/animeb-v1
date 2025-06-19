@@ -180,7 +180,7 @@ body {
   flex: 2 0 0; /* grow 2, don't shrink */
   max-width: 300px;
   font-family: 'Abel', 'sans-serif';
-  font-size: 0.7rem;
+  font-size: 0.75rem;
   font-weight: normal;
   color: #364c30;
   padding: 0px 10px 5px 10px;
