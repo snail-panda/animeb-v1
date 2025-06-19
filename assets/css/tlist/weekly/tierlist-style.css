@@ -329,7 +329,14 @@ body {
   Mobile Fix — Disable Hover Zoom on Small Devices
 ==================================================== */
 @media (max-width: 748px) and (orientation: landscape) {
-  .c
+post-intro,
+  .tier-criteria,
+  .disclaimer,
+  .post-content,
+  .post-conclusion {
+    font-size: 0.6rem;
+    line-height: 1.3;
+  }
 
 #contentText::first-letter {
   font-size: 150%;
@@ -340,7 +347,7 @@ body {
   .criteria-title,
   .tierlist-titles-header
   .tierlist-titles {
-    font-size: 0.8rem;
+    font-size: 0.9rem;
   }
 
 
