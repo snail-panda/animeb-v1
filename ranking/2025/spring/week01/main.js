@@ -130,60 +130,78 @@ function titleCase(str) {
   });
 
 // ========== ポップアップロジック ==========
-function setupPopups() {
-  document.querySelectorAll('.review-tag').forEach(btn => {
-    btn.addEventListener('click', function (e) {
-      e.stopPropagation();
-      closeAll();
+// ================================
+// 🟡 レビューポップアップの処理
+// ================================
 
-      const en = this.dataset.reviewEn || "";
-      const jp = this.dataset.reviewJp || "";
+// ボタンクリックでポップアップ表示
+document.querySelectorAll('.review-btn').forEach(btn => {
+  btn.addEventListener('click', event => {
+    const card = btn.closest('.anime-card');
+    const entryId = card.getAttribute('data-id'); // 例: "1", "2"
+    const entryData = animeData.find(e => e.id == entryId);
 
-      const popup = createReviewPopup(en, jp);
-      positionPopup(this, popup);
+    // データからレビュー情報を取り出す
+    const reviewData = entryData.review || {};
+    const reviewEN = (reviewData.en || "").trim();
+    const reviewJP = (reviewData.jp || "").trim();
+
+    const hasEN = reviewEN.length > 0;
+    const hasJP = reviewJP.length > 0;
+
+    const popup = document.getElementById('review-popup');
+    const popupContent = popup.querySelector('.popup-content');
+    const toggleButtons = popup.querySelectorAll('.popup-toggle');
+
+    // 両方レビューが空なら何もしない（ボタン自体が表示されてないはず）
+    if (!hasEN && !hasJP) return;
+
+    // 初期表示（英語優先）
+    popupContent.innerText = hasEN ? reviewEN : reviewJP;
+
+    // 切り替えボタンの状態設定（存在しない方は無効化）
+    toggleButtons.forEach(button => {
+      const lang = button.getAttribute("data-lang");
+      const isActive = (lang === "en" && hasEN) || (lang === "jp" && hasJP);
+
+      button.disabled = !isActive;
+      if (isActive) {
+        button.classList.remove("disabled");
+      } else {
+        button.classList.add("disabled");
+      }
+
+      button.classList.remove("active");
+    });
+
+    // デフォルトボタンをアクティブに（EN優先）
+    const defaultLang = hasEN ? "en" : "jp";
+    const defaultButton = popup.querySelector(`.popup-toggle[data-lang='${defaultLang}']`);
+    if (defaultButton) defaultButton.classList.add("active");
+
+    // 表示
+    popup.style.display = "flex";
+
+    // 切り替えボタンクリック処理
+    toggleButtons.forEach(button => {
+      button.addEventListener("click", () => {
+        const lang = button.getAttribute("data-lang");
+        const content = (lang === "en")
+          ? (hasEN ? reviewEN : "No English Review Available.")
+          : (hasJP ? reviewJP : "日本語のレビューはありません。");
+
+        popupContent.innerText = content;
+
+        toggleButtons.forEach(btn => btn.classList.remove("active"));
+        button.classList.add("active");
+      });
     });
   });
+});
 
-  document.querySelectorAll('.wrp-detail-btn').forEach(btn => {
-    btn.addEventListener('click', function (e) {
-      e.stopPropagation();
-      closeAll();
-      const breakdown = this.dataset.breakdown.replace(/,/g, '<br>');
-      const popup = createPopup('WRP Breakdown:<br>' + breakdown, 'wrp-popup');
-      positionPopup(this, popup);
-    });
-  });
+// ポップアップ閉じる処理（× ボタン）
+document.querySelector(".popup-close")?.addEventListener("click", () => {
+  document.getElementById("review-popup").style.display = "none";
+});
 
-  document.addEventListener('click', () => closeAll());
-}
-
-function createReviewPopup(en, jp) {
-  const popup = document.createElement('div');
-  popup.className = 'popup review-popup active';
-
-  const enBtn = document.createElement('button');
-  enBtn.textContent = 'EN';
-  enBtn.className = 'popup-toggle';
-  const jpBtn = document.createElement('button');
-  jpBtn.textContent = 'JP';
-  jpBtn.className = 'popup-toggle';
-
-  const contentDiv = document.createElement('div');
-  contentDiv.className = 'popup-content';
-  contentDiv.innerHTML = en || jp || 'No review available.';
-
-  enBtn.addEventListener('click', () => {
-    contentDiv.innerHTML = en || 'No English review.';
-  });
-  jpBtn.addEventListener('click', () => {
-    contentDiv.innerHTML = jp || '日本語レビューはありません。';
-  });
-
-  popup.appendChild(enBtn);
-  popup.appendChild(jpBtn);
-  popup.appendChild(contentDiv);
-  document.body.appendChild(popup);
-
-  return popup;
-}
 
