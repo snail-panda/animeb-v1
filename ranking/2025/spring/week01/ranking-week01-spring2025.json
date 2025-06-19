@@ -1,0 +1,145 @@
+{
+  "meta": {
+    "week": "week 01",
+    "season": "2025 Spring",
+    "ep_range": "ep.1-2"
+  },
+  "entries": [
+    {
+      "rank": 1,
+      "trend": "UP",
+      "title": "The Apothecary Diaries 2nd Season",
+      "episode": 37,
+      "wrp_score": 9.65,
+      "score": 10,
+      "review": "",
+      "wrp_breakdown": {
+        "base_score": 5,
+        "animation": 0.75,
+        "script": 0.75,
+        "direction": 0.75,
+        "charm": 0.7,
+        "overall": 1.7
+      }
+    },
+    {
+      "rank": 2,
+      "trend": "UP",
+      "title": "LAZARUS",
+      "episode": 1,
+      "wrp_score": 9.6,
+      "score": 10,
+      "review": "",
+      "wrp_breakdown": {
+        "base_score": 5,
+        "animation": 0.8,
+        "script": 0.75,
+        "direction": 0.75,
+        "charm": 0.65,
+        "overall": 1.65
+      }
+    },
+    {
+      "rank": 3,
+      "trend": "UP",
+      "title": "Once Upon a Witch's Death",
+      "episode": 2,
+      "wrp_score": 9.55,
+      "score": 10,
+      "review": "",
+      "wrp_breakdown": {
+        "base_score": 5,
+        "animation": 0.7,
+        "script": 0.75,
+        "direction": 0.8,
+        "charm": 0.65,
+        "overall": 1.65
+      }
+    },
+    {
+      "rank": 4,
+      "trend": "UP",
+      "title": "Shoshimin: How to Become Ordinary 2",
+      "episode": 1,
+      "wrp_score": 9.5,
+      "score": 10,
+      "review": "",
+      "wrp_breakdown": {
+        "base_score": 5,
+        "animation": 0.75,
+        "script": 0.75,
+        "direction": 0.75,
+        "charm": 0.6,
+        "overall": 1.65
+      }
+    },
+    {
+      "rank": 5,
+      "trend": "UP",
+      "title": "Uma Musume: Cinderella Grey",
+      "episode": 1,
+      "wrp_score": 9.45,
+      "score": 9,
+      "review": "",
+      "wrp_breakdown": {
+        "base_score": 5,
+        "animation": 0.7,
+        "script": 0.75,
+        "direction": 0.75,
+        "charm": 0.65,
+        "overall": 1.6
+      }
+    },
+    {
+      "rank": "spotlight",
+      "trend": "UP",
+      "title": "Kowloon Generic Romance",
+      "episode": 1,
+      "wrp_score": 9.3,
+      "score": 9,
+      "review": "",
+      "wrp_breakdown": {
+        "base_score": 5,
+        "animation": 0.75,
+        "script": 0.7,
+        "direction": 0.7,
+        "charm": 0.65,
+        "overall": 1.5
+      }
+    },
+    {
+      "rank": "editor's pick",
+      "trend": "UP",
+      "title": "Sword of the Demon Hunter",
+      "episode": 1,
+      "wrp_score": 9.4,
+      "score": 9,
+      "review": "",
+      "wrp_breakdown": {
+        "base_score": 5,
+        "animation": 0.7,
+        "script": 0.75,
+        "direction": 0.75,
+        "charm": 0.65,
+        "overall": 1.55
+      }
+    },
+    {
+      "rank": "dookie",
+      "trend": "UP",
+      "title": "Summer Pockets",
+      "episode": 1,
+      "wrp_score": 6.4,
+      "score": 6,
+      "review": "",
+      "wrp_breakdown": {
+        "base_score": 5,
+        "animation": 0.5,
+        "script": 0.4,
+        "direction": 0.45,
+        "charm": 0.25,
+        "overall": -0.2
+      }
+    }
+  ]
+}
