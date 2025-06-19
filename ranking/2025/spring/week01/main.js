@@ -68,12 +68,14 @@ if (jpTitleEl) {
 
         // Review挿入処理
         const reviewTag = titleEl.querySelector('.review-tag');
-        if (entryData.review && entryData.review.trim() !== '') {
-          reviewTag.dataset.review = entryData.review;
-          reviewTag.style.display = 'inline-block';
-        } else {
-          reviewTag.style.display = 'none';
-        }
+        if (entryData.review && (entryData.review.en || entryData.review.jp)) {
+  reviewTag.dataset.reviewEn = entryData.review.en || "";
+  reviewTag.dataset.reviewJp = entryData.review.jp || "";
+  reviewTag.style.display = 'inline-block';
+} else {
+  reviewTag.style.display = 'none';
+}
+
       }
 
       // トレンド情報更新
@@ -133,8 +135,11 @@ function setupPopups() {
     btn.addEventListener('click', function (e) {
       e.stopPropagation();
       closeAll();
-      const review = this.dataset.review;
-      const popup = createPopup(review, 'review-popup');
+
+      const en = this.dataset.reviewEn || "";
+      const jp = this.dataset.reviewJp || "";
+
+      const popup = createReviewPopup(en, jp);
       positionPopup(this, popup);
     });
   });
@@ -152,24 +157,33 @@ function setupPopups() {
   document.addEventListener('click', () => closeAll());
 }
 
-function closeAll() {
-  document.querySelectorAll('.popup').forEach(p => p.remove());
-}
-
-function createPopup(content, typeClass) {
+function createReviewPopup(en, jp) {
   const popup = document.createElement('div');
-  popup.className = `popup ${typeClass} active`;
-  popup.innerHTML = content;
+  popup.className = 'popup review-popup active';
+
+  const enBtn = document.createElement('button');
+  enBtn.textContent = 'EN';
+  enBtn.className = 'popup-toggle';
+  const jpBtn = document.createElement('button');
+  jpBtn.textContent = 'JP';
+  jpBtn.className = 'popup-toggle';
+
+  const contentDiv = document.createElement('div');
+  contentDiv.className = 'popup-content';
+  contentDiv.innerHTML = en || jp || 'No review available.';
+
+  enBtn.addEventListener('click', () => {
+    contentDiv.innerHTML = en || 'No English review.';
+  });
+  jpBtn.addEventListener('click', () => {
+    contentDiv.innerHTML = jp || '日本語レビューはありません。';
+  });
+
+  popup.appendChild(enBtn);
+  popup.appendChild(jpBtn);
+  popup.appendChild(contentDiv);
   document.body.appendChild(popup);
+
   return popup;
 }
 
-function positionPopup(button, popup) {
-  const rect = button.getBoundingClientRect();
-  popup.style.top = `${rect.bottom + window.scrollY + 5}px`;
-  popup.style.left = `${rect.left + window.scrollX}px`;
-}
-
-function capitalize(str) {
-  return str.charAt(0).toUpperCase() + str.slice(1);
-}

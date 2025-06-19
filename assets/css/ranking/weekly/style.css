@@ -400,6 +400,18 @@ body {
   opacity: 1;
 }
 
+.popup-toggle {
+  margin: 4px;
+  padding: 4px 8px;
+  font-size: 0.8em;
+  cursor: pointer;
+}
+.popup-content {
+  margin-top: 6px;
+  white-space: pre-wrap;
+}
+
+
 /* レビュー用 POPUP */
 .review-popup {
   font-size: 11px;
