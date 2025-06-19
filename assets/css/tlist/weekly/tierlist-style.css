@@ -349,7 +349,7 @@ body {
   .tierlist-titles {
     font-size: 0.9rem;
   }
-
+}
 
 @media (max-width: 480px) {
   .tierlist-image img {
