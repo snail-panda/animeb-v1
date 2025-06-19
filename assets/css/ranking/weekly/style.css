@@ -252,6 +252,17 @@ body {
       text-transform: none;
 }
 
+.jp-title {
+  font-size: 8px;
+  font-family: 'Yu Gothic UI', sans-serif;
+  font-weight: 500;
+  color: #666;
+  margin-top: 1px;
+  margin-left: 2px;
+  line-height: 1.2;
+}
+
+
 .bar-wrapper {
   display: flex;
   width: 100%;
