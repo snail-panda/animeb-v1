@@ -13,10 +13,7 @@
       "episode": 37,
       "wrp_score": 9.65,
       "score": 10,
-      "review": {
-        "en": "",
-        "jp": ""
-      },
+      "review": "",
       "wrp_breakdown": {
         "base_score": 5,
         "animation": 0.75,
@@ -34,10 +31,7 @@
       "episode": 1,
       "wrp_score": 9.6,
       "score": 10,
-      "review": {
-        "en": "",
-        "jp": ""
-      },
+      "review": "",
       "wrp_breakdown": {
         "base_score": 5,
         "animation": 0.8,
@@ -55,10 +49,7 @@
       "episode": 2,
       "wrp_score": 9.55,
       "score": 10,
-      "review": {
-        "en": "",
-        "jp": ""
-      },
+      "review": "",
       "wrp_breakdown": {
         "base_score": 5,
         "animation": 0.7,
@@ -76,10 +67,7 @@
       "episode": 1,
       "wrp_score": 9.5,
       "score": 10,
-      "review": {
-        "en": "",
-        "jp": ""
-      },
+      "review": "",
       "wrp_breakdown": {
         "base_score": 5,
         "animation": 0.75,
@@ -97,10 +85,7 @@
       "episode": 1,
       "wrp_score": 9.45,
       "score": 9,
-      "review": {
-        "en": "",
-        "jp": ""
-      },
+      "review": "",
       "wrp_breakdown": {
         "base_score": 5,
         "animation": 0.7,
@@ -118,10 +103,7 @@
       "episode": 1,
       "wrp_score": 9.3,
       "score": 9,
-      "review": {
-        "en": "",
-        "jp": ""
-      },
+      "review": "",
       "wrp_breakdown": {
         "base_score": 5,
         "animation": 0.75,
@@ -139,10 +121,7 @@
       "episode": 1,
       "wrp_score": 9.4,
       "score": 9,
-      "review": {
-        "en": "",
-        "jp": ""
-      },
+      "review": "",
       "wrp_breakdown": {
         "base_score": 5,
         "animation": 0.7,
@@ -160,10 +139,7 @@
       "episode": 1,
       "wrp_score": 6.4,
       "score": 6,
-      "review": {
-        "en": "",
-        "jp": ""
-      },
+      "review": "",
       "wrp_breakdown": {
         "base_score": 5,
         "animation": 0.5,
