@@ -64,14 +64,23 @@ if (jpTitleEl) {
   jpTitleEl.textContent = entryData.jpTitle || "";
 }
 
-        // Review挿入処理
+               // --- Review挿入処理 (EN/JPネスト対応版) ---
         const reviewTag = titleEl.querySelector('.review-tag');
-        if (entryData.review && entryData.review.trim() !== '') {
-          reviewTag.dataset.review = entryData.review;
+        const reviewData = entryData.review;
+        if (
+          reviewData &&
+          (reviewData.en?.trim() || reviewData.jp?.trim())
+        ) {
+          // デフォルトで英語レビュー表示
+          reviewTag.dataset.reviewEn = reviewData.en || '';
+          reviewTag.dataset.reviewJp = reviewData.jp || '';
+          reviewTag.dataset.lang = 'en';
+          reviewTag.textContent = 'Review';
           reviewTag.style.display = 'inline-block';
         } else {
           reviewTag.style.display = 'none';
         }
+
       }
 
       // トレンド情報更新
@@ -127,15 +136,45 @@ function titleCase(str) {
 
 // ========== ポップアップロジック ==========
 function setupPopups() {
-  document.querySelectorAll('.review-tag').forEach(btn => {
+    document.querySelectorAll('.review-tag').forEach(btn => {
     btn.addEventListener('click', function (e) {
       e.stopPropagation();
       closeAll();
-      const review = this.dataset.review;
-      const popup = createPopup(review, 'review-popup');
+
+      const reviewEn = this.dataset.reviewEn || '';
+      const reviewJp = this.dataset.reviewJp || '';
+      let lang = this.dataset.lang || 'en';
+
+      const popup = createPopup('', 'review-popup');
+
+      const contentEl = document.createElement('div');
+      contentEl.className = 'popup-review-text';
+      contentEl.textContent = lang === 'jp' ? reviewJp : reviewEn;
+
+      const switchBtn = document.createElement('button');
+      switchBtn.className = 'review-switch-btn';
+      switchBtn.textContent = lang === 'jp' ? 'Switch to English' : '日本語に切り替え';
+
+      const closeBtn = document.createElement('button');
+      closeBtn.className = 'popup-close-btn';
+      closeBtn.textContent = 'Close';
+
+      switchBtn.addEventListener('click', () => {
+        lang = lang === 'jp' ? 'en' : 'jp';
+        contentEl.textContent = lang === 'jp' ? reviewJp : reviewEn;
+        switchBtn.textContent = lang === 'jp' ? 'Switch to English' : '日本語に切り替え';
+        btn.dataset.lang = lang;
+      });
+
+      closeBtn.addEventListener('click', closeAll);
+
+      popup.appendChild(contentEl);
+      if (reviewEn && reviewJp) popup.appendChild(switchBtn);
+      popup.appendChild(closeBtn);
       positionPopup(this, popup);
     });
   });
+
 
   document.querySelectorAll('.wrp-detail-btn').forEach(btn => {
     btn.addEventListener('click', function (e) {

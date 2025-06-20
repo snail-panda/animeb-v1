@@ -13,7 +13,10 @@
       "episode": 37,
       "wrp_score": 9.65,
       "score": 10,
-      "review": "",
+      "review": {
+        "en": "The first half centers on Inori, the Sage of Wisdom; the latter half shifts to Sophie, the Genius Sage. These interactions are likely laying the groundwork for the finale. I appreciate how the episode carefully handles what could be a quiet or unremarkable story, while still keeping it engaging and steadily building up the protagonist’s appeal.The playful banter felt a little overdone at times, but I'm looking forward to seeing how Sophie fits into the picture. Just as the show's overall charm has been growing little by little, I hope its evaluation continues to rise the same way—gently and steadily. Also, no tearjerker moments this time—that’s actually a plus for me.",
+        "jp": "初回はとにかく謎の寿命1年を伝えたかったというのとちょっと感動しそうな話を盛り込むこと、主人公がまぁ気の抜けたところはあるが見込みと才能はありそうな実はいい奴というのを見せたかったんだろうなとは思うが全部が都合いいというか、もう「はい、そうですか。」って感じでした。"
+      },
       "wrp_breakdown": {
         "base_score": 5,
         "animation": 0.75,
@@ -31,7 +34,10 @@
       "episode": 1,
       "wrp_score": 9.6,
       "score": 10,
-      "review": "",
+      "review": {
+        "en": "",
+        "jp": ""
+      },
       "wrp_breakdown": {
         "base_score": 5,
         "animation": 0.8,
@@ -49,7 +55,10 @@
       "episode": 2,
       "wrp_score": 9.55,
       "score": 10,
-      "review": "While the specifics are still vague, the development with the two of the Seven Sages deserves credit for making ‘a sense of something’ feel worthwhile",
+      "review": {
+        "en": "While the specifics are still vague, the development with the two of the Seven Sages deserves credit for making ‘a sense of something’ feel worthwhile",
+        "jp": ""
+      },
       "wrp_breakdown": {
         "base_score": 5,
         "animation": 0.7,
@@ -67,7 +76,10 @@
       "episode": 1,
       "wrp_score": 9.5,
       "score": 10,
-      "review": "",
+      "review": {
+        "en": "",
+        "jp": "兎に角凄い!"
+      },
       "wrp_breakdown": {
         "base_score": 5,
         "animation": 0.75,
@@ -85,7 +97,10 @@
       "episode": 1,
       "wrp_score": 9.45,
       "score": 9,
-      "review": "",
+      "review": {
+        "en": "",
+        "jp": ""
+      },
       "wrp_breakdown": {
         "base_score": 5,
         "animation": 0.7,
@@ -103,7 +118,10 @@
       "episode": 1,
       "wrp_score": 9.3,
       "score": 9,
-      "review": "",
+      "review": {
+        "en": "",
+        "jp": ""
+      },
       "wrp_breakdown": {
         "base_score": 5,
         "animation": 0.75,
@@ -121,7 +139,10 @@
       "episode": 1,
       "wrp_score": 9.4,
       "score": 9,
-      "review": "",
+      "review": {
+        "en": "",
+        "jp": ""
+      },
       "wrp_breakdown": {
         "base_score": 5,
         "animation": 0.7,
@@ -139,7 +160,10 @@
       "episode": 1,
       "wrp_score": 6.4,
       "score": 6,
-      "review": "",
+      "review": {
+        "en": "",
+        "jp": ""
+      },
       "wrp_breakdown": {
         "base_score": 5,
         "animation": 0.5,
