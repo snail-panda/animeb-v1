@@ -174,17 +174,24 @@ function setupPopups() {
       closeBtn.textContent = 'Close';
 
       function updateContent() {
-        if (lang === 'en') {
-          contentEl.textContent = reviewEn || 'English review not available.';
-          switchBtn.textContent = 'Switch to Japanese';
-        } else {
-          contentEl.textContent = reviewJp || 'Japanese review not available.';
-          switchBtn.textContent = 'Switch to English';
-        }
+  // テキスト切り替え
+  if (lang === 'en') {
+    contentEl.textContent = reviewEn || 'English review not available.';
+    switchBtn.textContent = 'Switch to Japanese';
+  } else {
+    contentEl.textContent = reviewJp || 'Japanese review not available.';
+    switchBtn.textContent = 'Switch to English';
+  }
 
-        switchBtn.disabled = false; // 押せない状態は一切作らない
-        btn.dataset.lang = lang;
-      }
+  // 🔁 ここでフォント用クラスを切り替える
+  contentEl.classList.remove('lang-en', 'lang-jp');
+  contentEl.classList.add(lang === 'jp' ? 'lang-jp' : 'lang-en');
+
+  // その他
+  switchBtn.disabled = false;
+  btn.dataset.lang = lang;
+}
+
 
       updateContent();
 
