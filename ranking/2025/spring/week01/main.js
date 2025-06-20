@@ -59,6 +59,11 @@ fetch('ranking-week01-spring2025.json')
         titleEl.childNodes[0].textContent = entryData.title;
         if (epSpan) epSpan.textContent = ` — Ep.${entryData.episode}`;
 
+         const jpTitleEl = titleEl.querySelector('.jp-title');
+if (jpTitleEl) {
+  jpTitleEl.textContent = entryData.jpTitle || "";
+}
+
         // Review挿入処理
         const reviewTag = titleEl.querySelector('.review-tag');
         if (entryData.review && entryData.review.trim() !== '') {
