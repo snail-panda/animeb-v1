@@ -537,13 +537,15 @@ body {
 
 .nav-bar {
   display: flex;
-  width: 680px;
+  width: 100%;
+  max-width: 680px;
   justify-content: space-between;
   align-items: center;
   font-family: 'Abel', sans-serif;
   font-size: 0.8rem;
   margin: 0 auto 1rem auto;  /* ← ここ！中央寄せの核心 */
   padding: 0;
+  box-sizing: border-box;
   color: #444;
 }
 
