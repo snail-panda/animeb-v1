@@ -390,7 +390,7 @@ body {
   line-height: 1.4;
   color: #333;
   max-width: 260px;
-  z-index: 999;
+  z-index: 9999;
   opacity: 0;
   transition: opacity 0.3s ease;
 }
@@ -410,6 +410,7 @@ body {
   margin-top: 6px;
   white-space: pre-wrap;
 }
+
 
 
 /* レビュー用 POPUP */
