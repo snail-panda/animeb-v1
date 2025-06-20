@@ -67,15 +67,13 @@ if (jpTitleEl) {
 
       // Review挿入処理
         const reviewTag = titleEl.querySelector('.review-tag');
-        if (entryData.review && (entryData.review.en || entryData.review.jp)) {
-  reviewTag.dataset.reviewEn = entryData.review.en || "";
-  reviewTag.dataset.reviewJp = entryData.review.jp || "";
-  reviewTag.style.display = 'inline-block';
-} else {
-  reviewTag.style.display = 'none';
-}
+        if (entryData.review && entryData.review.trim() !== '') {
+          reviewTag.dataset.review = entryData.review;
+          reviewTag.style.display = 'inline-block';
+        } else {
+          reviewTag.style.display = 'none';
+        }
 
-  
 
       // トレンド情報更新
       const trendLabel = el.querySelector('.trend-label');
