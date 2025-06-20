@@ -146,17 +146,22 @@ function setupPopups() {
       const reviewJp = this.dataset.reviewJp?.trim() || '';
       let lang;
 
-      // 初期表示の言語決定ロジック
+      // 初期表示言語決定
       if (reviewEn) {
         lang = 'en';
       } else if (reviewJp) {
         lang = 'jp';
       } else {
-        return; // 両方ない場合は開かない（念のため）
+        return;
       }
 
       const popup = document.createElement('div');
       popup.className = 'popup review-popup active';
+
+      // popupクリック中は閉じないようにする
+      popup.addEventListener('click', function (e) {
+        e.stopPropagation();
+      });
 
       const contentEl = document.createElement('div');
       contentEl.className = 'popup-review-text';
@@ -169,7 +174,6 @@ function setupPopups() {
       closeBtn.textContent = 'Close';
 
       function updateContent() {
-        // 表示内容切替
         if (lang === 'en') {
           contentEl.textContent = reviewEn || 'English review not available.';
           switchBtn.textContent = 'Switch to Japanese';
@@ -178,21 +182,22 @@ function setupPopups() {
           switchBtn.textContent = 'Switch to English';
         }
 
-        // スイッチボタンは常に活性状態（押せなくしない）
-        switchBtn.disabled = false;
-
-        // dataset.lang更新
+        switchBtn.disabled = false; // 押せない状態は一切作らない
         btn.dataset.lang = lang;
       }
 
       updateContent();
 
-      switchBtn.addEventListener('click', () => {
+      switchBtn.addEventListener('click', function (e) {
+        e.stopPropagation();
         lang = lang === 'en' ? 'jp' : 'en';
         updateContent();
       });
 
-      closeBtn.addEventListener('click', closeAll);
+      closeBtn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        closeAll();
+      });
 
       popup.appendChild(contentEl);
       popup.appendChild(switchBtn);
@@ -213,11 +218,12 @@ function setupPopups() {
     });
   });
 
+  // documentクリック時にだけ閉じるように（popup内部のクリックでは閉じない）
   document.addEventListener('click', () => closeAll());
 }
 
 
-//ここから先は変えない
+//ここから先は変えない、必要だから取っておく
 
 function closeAll() {
   document.querySelectorAll('.popup').forEach(p => p.remove());
