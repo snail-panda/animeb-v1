@@ -59,7 +59,13 @@ fetch('ranking-week01-spring2025.json')
         titleEl.childNodes[0].textContent = entryData.title;
         if (epSpan) epSpan.textContent = ` — Ep.${entryData.episode}`;
 
-        // Review挿入処理
+       const jpTitleEl = titleEl.querySelector('.jp-title');
+if (jpTitleEl) {
+  jpTitleEl.textContent = entryData.jpTitle || "";
+}
+
+
+      // Review挿入処理
         const reviewTag = titleEl.querySelector('.review-tag');
         if (entryData.review && entryData.review.trim() !== '') {
           reviewTag.dataset.review = entryData.review;
@@ -67,7 +73,7 @@ fetch('ranking-week01-spring2025.json')
         } else {
           reviewTag.style.display = 'none';
         }
-      }
+
 
       // トレンド情報更新
       const trendLabel = el.querySelector('.trend-label');
@@ -166,3 +172,5 @@ function positionPopup(button, popup) {
 function capitalize(str) {
   return str.charAt(0).toUpperCase() + str.slice(1);
 }
+
+
