@@ -144,7 +144,16 @@ function setupPopups() {
 
       const reviewEn = this.dataset.reviewEn?.trim() || '';
       const reviewJp = this.dataset.reviewJp?.trim() || '';
-      let lang = this.dataset.lang || 'en';
+      let lang;
+
+      // 初期表示の言語決定ロジック
+      if (reviewEn) {
+        lang = 'en';
+      } else if (reviewJp) {
+        lang = 'jp';
+      } else {
+        return; // 両方ない場合は開かない（念のため）
+      }
 
       const popup = document.createElement('div');
       popup.className = 'popup review-popup active';
@@ -160,9 +169,7 @@ function setupPopups() {
       closeBtn.textContent = 'Close';
 
       function updateContent() {
-        const hasBoth = reviewEn && reviewJp;
-
-        // 表示内容更新
+        // 表示内容切替
         if (lang === 'en') {
           contentEl.textContent = reviewEn || 'English review not available.';
           switchBtn.textContent = 'Switch to Japanese';
@@ -171,18 +178,10 @@ function setupPopups() {
           switchBtn.textContent = 'Switch to English';
         }
 
-        // 無効化判定
-        if (!hasBoth) {
-          if ((lang === 'en' && !reviewJp) || (lang === 'jp' && !reviewEn)) {
-            switchBtn.disabled = true;
-          } else {
-            switchBtn.disabled = false;
-          }
-        } else {
-          switchBtn.disabled = false;
-        }
+        // スイッチボタンは常に活性状態（押せなくしない）
+        switchBtn.disabled = false;
 
-        // dataset.lang更新（元のタグの記録にも反映）
+        // dataset.lang更新
         btn.dataset.lang = lang;
       }
 
