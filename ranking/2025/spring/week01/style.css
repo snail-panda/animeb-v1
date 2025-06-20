@@ -485,7 +485,7 @@ body {
 .wrp-popup {
   font-size: 10.5px;
   line-height: 1.4;
-  letter-spacing: 0.0em;
+  letter-spacing: 0.005em;
   color: #555;
 }
 
