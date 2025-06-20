@@ -421,7 +421,7 @@ body {
   font-size: 10.5px;
   background-color: #f0f0f0;
   color: #444;
-  padding: 4px 8px;
+  padding: 4px 10px;
   border: none;
   border-radius: 6px;
   margin-right: 8px;
@@ -439,7 +439,7 @@ body {
   font-size: 10.5px;
   background-color: #f0f0f0;
   color: #444;
-  padding: 4px 8px;
+  padding: 4px 10px;
   border: none;
   border-radius: 6px;
   cursor: pointer;
