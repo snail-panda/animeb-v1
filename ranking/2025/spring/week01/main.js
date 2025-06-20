@@ -129,78 +129,50 @@ function titleCase(str) {
   });
 
 // ========== ポップアップロジック ==========
-// ================================
-// 🟡 レビューポップアップの処理
-// ================================
-
-// ボタンクリックでポップアップ表示
-document.querySelectorAll('.review-btn').forEach(btn => {
-  btn.addEventListener('click', event => {
-    const card = btn.closest('.anime-card');
-    const entryId = card.getAttribute('data-id'); // 例: "1", "2"
-    const entryData = animeData.find(e => e.id == entryId);
-
-    // データからレビュー情報を取り出す
-    const reviewData = entryData.review || {};
-    const reviewEN = (reviewData.en || "").trim();
-    const reviewJP = (reviewData.jp || "").trim();
-
-    const hasEN = reviewEN.length > 0;
-    const hasJP = reviewJP.length > 0;
-
-    const popup = document.getElementById('review-popup');
-    const popupContent = popup.querySelector('.popup-content');
-    const toggleButtons = popup.querySelectorAll('.popup-toggle');
-
-    // 両方レビューが空なら何もしない（ボタン自体が表示されてないはず）
-    if (!hasEN && !hasJP) return;
-
-    // 初期表示（英語優先）
-    popupContent.innerText = hasEN ? reviewEN : reviewJP;
-
-    // 切り替えボタンの状態設定（存在しない方は無効化）
-    toggleButtons.forEach(button => {
-      const lang = button.getAttribute("data-lang");
-      const isActive = (lang === "en" && hasEN) || (lang === "jp" && hasJP);
-
-      button.disabled = !isActive;
-      if (isActive) {
-        button.classList.remove("disabled");
-      } else {
-        button.classList.add("disabled");
-      }
-
-      button.classList.remove("active");
-    });
-
-    // デフォルトボタンをアクティブに（EN優先）
-    const defaultLang = hasEN ? "en" : "jp";
-    const defaultButton = popup.querySelector(`.popup-toggle[data-lang='${defaultLang}']`);
-    if (defaultButton) defaultButton.classList.add("active");
-
-    // 表示
-    popup.style.display = "flex";
-
-    // 切り替えボタンクリック処理
-    toggleButtons.forEach(button => {
-      button.addEventListener("click", () => {
-        const lang = button.getAttribute("data-lang");
-        const content = (lang === "en")
-          ? (hasEN ? reviewEN : "No English Review Available.")
-          : (hasJP ? reviewJP : "日本語のレビューはありません。");
-
-        popupContent.innerText = content;
-
-        toggleButtons.forEach(btn => btn.classList.remove("active"));
-        button.classList.add("active");
-      });
+function setupPopups() {
+  document.querySelectorAll('.review-tag').forEach(btn => {
+    btn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      closeAll();
+      const review = this.dataset.review;
+      const popup = createPopup(review, 'review-popup');
+      positionPopup(this, popup);
     });
   });
-});
 
-// ポップアップ閉じる処理（× ボタン）
-document.querySelector(".popup-close")?.addEventListener("click", () => {
-  document.getElementById("review-popup").style.display = "none";
-});
+  document.querySelectorAll('.wrp-detail-btn').forEach(btn => {
+    btn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      closeAll();
+      const breakdown = this.dataset.breakdown.replace(/,/g, '<br>');
+      const popup = createPopup('WRP Breakdown:<br>' + breakdown, 'wrp-popup');
+      positionPopup(this, popup);
+    });
+  });
+
+  document.addEventListener('click', () => closeAll());
+}
+
+function closeAll() {
+  document.querySelectorAll('.popup').forEach(p => p.remove());
+}
+
+function createPopup(content, typeClass) {
+  const popup = document.createElement('div');
+  popup.className = popup ${typeClass} active;
+  popup.innerHTML = content;
+  document.body.appendChild(popup);
+  return popup;
+}
+
+function positionPopup(button, popup) {
+  const rect = button.getBoundingClientRect();
+  popup.style.top = ${rect.bottom + window.scrollY + 5}px;
+  popup.style.left = ${rect.left + window.scrollX}px;
+}
+
+function capitalize(str) {
+  return str.charAt(0).toUpperCase() + str.slice(1);
+}
 
 
