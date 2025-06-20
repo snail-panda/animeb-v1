@@ -368,37 +368,6 @@
   </div>
 </div>
 
-<!-- ✅ ポップアップ本体 -->
-<div id="popup" class="popup" style="display: none;">
-  <div class="popup-content">
-    <span class="popup-close">&times;</span>
-    <p>これはポップアップです。</p>
-  </div>
-</div>
-
-<!-- ✅ テスト用トグルボタン（どこかに仮で設置） -->
-<button class="popup-toggle">ポップアップテスト</button>
-
-<!-- ✅ スクリプト（main.jsがまだ機能してない場合用の代替） -->
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    const popup = document.getElementById('popup');
-    const toggle = document.querySelector('.popup-toggle');
-    const close = document.querySelector('.popup-close');
-
-    toggle?.addEventListener('click', function () {
-      popup.style.display = 'block';
-    });
-
-    close?.addEventListener('click', function () {
-      popup.style.display = 'none';
-    });
-
-    window.addEventListener('click', function (e) {
-      if (e.target === popup) popup.style.display = 'none';
-    });
-  });
-</script>
 
 <script src="main.js"></script>
 </body>
