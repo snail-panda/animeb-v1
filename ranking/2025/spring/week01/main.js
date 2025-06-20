@@ -134,7 +134,6 @@ function titleCase(str) {
     setupPopups();
   });
 
-// ========== ポップアップロジック（EN/JP切り替え: 閉じずに切替） ==========
 
 // ========== ポップアップロジック（EN/JP切り替え: 閉じずに切替・ボタン制御追加） ==========
 function setupPopups() {
@@ -143,8 +142,8 @@ function setupPopups() {
       e.stopPropagation();
       closeAll();
 
-      const reviewEn = this.dataset.reviewEn || '';
-      const reviewJp = this.dataset.reviewJp || '';
+      const reviewEn = this.dataset.reviewEn?.trim() || '';
+      const reviewJp = this.dataset.reviewJp?.trim() || '';
       let lang = this.dataset.lang || 'en';
 
       const popup = document.createElement('div');
@@ -152,7 +151,6 @@ function setupPopups() {
 
       const contentEl = document.createElement('div');
       contentEl.className = 'popup-review-text';
-      contentEl.textContent = lang === 'jp' ? reviewJp : reviewEn;
 
       const switchBtn = document.createElement('button');
       switchBtn.className = 'review-switch-btn';
@@ -161,28 +159,39 @@ function setupPopups() {
       closeBtn.className = 'popup-close-btn';
       closeBtn.textContent = 'Close';
 
-      // 初回テキスト設定 + 無効化制御
-      const hasBoth = reviewEn && reviewJp;
-      if (!hasBoth) {
-        switchBtn.textContent = lang === 'jp'
-          ? 'English review not available'
-          : '日本語レビューなし';
-        switchBtn.disabled = true;
-      } else {
-        switchBtn.textContent = lang === 'jp'
-          ? 'Switch to English'
-          : '日本語に切り替え';
-        switchBtn.disabled = false;
+      function updateContent() {
+        const hasBoth = reviewEn && reviewJp;
 
-        switchBtn.addEventListener('click', () => {
-          lang = lang === 'jp' ? 'en' : 'jp';
-          contentEl.textContent = lang === 'jp' ? reviewJp : reviewEn;
-          switchBtn.textContent = lang === 'jp'
-            ? 'Switch to English'
-            : '日本語に切り替え';
-          btn.dataset.lang = lang;
-        });
+        // 表示内容更新
+        if (lang === 'en') {
+          contentEl.textContent = reviewEn || 'English review not available.';
+          switchBtn.textContent = 'Switch to Japanese';
+        } else {
+          contentEl.textContent = reviewJp || 'Japanese review not available.';
+          switchBtn.textContent = 'Switch to English';
+        }
+
+        // 無効化判定
+        if (!hasBoth) {
+          if ((lang === 'en' && !reviewJp) || (lang === 'jp' && !reviewEn)) {
+            switchBtn.disabled = true;
+          } else {
+            switchBtn.disabled = false;
+          }
+        } else {
+          switchBtn.disabled = false;
+        }
+
+        // dataset.lang更新（元のタグの記録にも反映）
+        btn.dataset.lang = lang;
       }
+
+      updateContent();
+
+      switchBtn.addEventListener('click', () => {
+        lang = lang === 'en' ? 'jp' : 'en';
+        updateContent();
+      });
 
       closeBtn.addEventListener('click', closeAll);
 
@@ -208,6 +217,8 @@ function setupPopups() {
   document.addEventListener('click', () => closeAll());
 }
 
+
+//ここから先は変えない
 
 function closeAll() {
   document.querySelectorAll('.popup').forEach(p => p.remove());
