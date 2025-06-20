@@ -16,7 +16,7 @@ body {
   padding: 30px;
   box-shadow: 0 0 12px rgba(0, 0, 0, 0.08);
   /*box-sizing: border-box; ← 一回消してみる*/
-  /* width: 100%; ← 一回消してみる */
+  width: 100%; 
 }
 
 /* =============================
