@@ -491,11 +491,10 @@ body {
   font-family: 'Fira Sans', 'sans-serif';
   font-size: 0.42rem;
   font-weight: 500;
-  padding-top: -2px;
   color: #b78e52;
   padding: 1.3px 6px;
   margin-left: 6px;
-  padding: 1.2px 4.7px;
+  padding: 1px 4.7px;
   border-radius: 5px;
   box-shadow: none;
   cursor: pointer;
