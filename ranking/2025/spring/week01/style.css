@@ -486,11 +486,12 @@ body {
 
 /* レビューバッジ */
 .review-tag {
-  border: 1px solid #b78e52;
+  border: 0.7px solid #b78e52;
   background: transparent;
   font-family: 'Fira Sans', 'sans-serif';
   font-size: 0.42rem;
   font-weight: 500;
+  top:0.1px;
   color: #b78e52;
   padding: 1.3px 6px;
   margin-left: 6px;
