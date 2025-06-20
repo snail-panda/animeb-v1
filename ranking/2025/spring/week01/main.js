@@ -135,8 +135,10 @@ function titleCase(str) {
   });
 
 // ========== ポップアップロジック ==========
+// ========== ポップアップロジック（EN/JP切り替え: 閉じずに切替） ==========
+
 function setupPopups() {
-    document.querySelectorAll('.review-tag').forEach(btn => {
+  document.querySelectorAll('.review-tag').forEach(btn => {
     btn.addEventListener('click', function (e) {
       e.stopPropagation();
       closeAll();
@@ -145,7 +147,8 @@ function setupPopups() {
       const reviewJp = this.dataset.reviewJp || '';
       let lang = this.dataset.lang || 'en';
 
-      const popup = createPopup('', 'review-popup');
+      const popup = document.createElement('div');
+      popup.className = 'popup review-popup active';
 
       const contentEl = document.createElement('div');
       contentEl.className = 'popup-review-text';
@@ -153,28 +156,38 @@ function setupPopups() {
 
       const switchBtn = document.createElement('button');
       switchBtn.className = 'review-switch-btn';
-      switchBtn.textContent = lang === 'jp' ? 'Switch to English' : '日本語に切り替え';
+
+      // 初回テキスト設定
+      if (reviewEn && reviewJp) {
+        switchBtn.textContent = lang === 'jp' ? 'Switch to English' : '日本語に切り替え';
+      } else {
+        switchBtn.textContent = lang === 'jp' ? 'English review not available' : '日本語レビューなし';
+        switchBtn.disabled = true;
+      }
 
       const closeBtn = document.createElement('button');
       closeBtn.className = 'popup-close-btn';
       closeBtn.textContent = 'Close';
 
       switchBtn.addEventListener('click', () => {
-        lang = lang === 'jp' ? 'en' : 'jp';
-        contentEl.textContent = lang === 'jp' ? reviewJp : reviewEn;
-        switchBtn.textContent = lang === 'jp' ? 'Switch to English' : '日本語に切り替え';
-        btn.dataset.lang = lang;
+        if (reviewEn && reviewJp) {
+          lang = lang === 'jp' ? 'en' : 'jp';
+          contentEl.textContent = lang === 'jp' ? reviewJp : reviewEn;
+          switchBtn.textContent = lang === 'jp' ? 'Switch to English' : '日本語に切り替え';
+          btn.dataset.lang = lang;
+        }
       });
 
       closeBtn.addEventListener('click', closeAll);
 
       popup.appendChild(contentEl);
-      if (reviewEn && reviewJp) popup.appendChild(switchBtn);
+      popup.appendChild(switchBtn);
       popup.appendChild(closeBtn);
+
+      document.body.appendChild(popup);
       positionPopup(this, popup);
     });
   });
-
 
   document.querySelectorAll('.wrp-detail-btn').forEach(btn => {
     btn.addEventListener('click', function (e) {
@@ -188,6 +201,7 @@ function setupPopups() {
 
   document.addEventListener('click', () => closeAll());
 }
+
 
 function closeAll() {
   document.querySelectorAll('.popup').forEach(p => p.remove());
