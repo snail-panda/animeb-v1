@@ -416,7 +416,7 @@ body {
 /* --- スイッチボタン（レビュー言語切替） --- */
 .review-switch-btn {
   font-family: 'Fira Sans', sans-serif;
-  font-size: 10px;
+  font-size: 10.5px;
   background-color: #f0f0f0;
   color: #444;
   padding: 4px 8px;
@@ -434,7 +434,7 @@ body {
 /* --- クローズボタン --- */
 .popup-close-btn {
   font-family: 'Fira Sans', sans-serif;
-  font-size: 10px;
+  font-size: 10.5px;
   background-color: #f0f0f0;
   color: #444;
   padding: 4px 8px;
