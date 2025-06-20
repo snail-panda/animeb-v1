@@ -445,7 +445,7 @@ body {
 }
 
 .lang-en {
-  font-family: 'Barlow Condensed', 'Fira Sans', sans-serif;
+  font-family: 'Fira Sans', 'Barlow Condensed', 'Fira Sans', sans-serif;
   letter-spacing: 0.02em;
 }
 
