@@ -242,6 +242,8 @@ body {
       font-family: 'Special Gothic Expanded One', 'sans-serif';
       font-size: 11px;
       color: #404040;
+      letter-spacing: 0.03em;
+      word-spacing: 0.13em;
       padding-top: 2px;
       padding-right: 18px;
     }
