@@ -503,6 +503,7 @@ body {
   border-radius: 5px;
   box-shadow: none;
   cursor: pointer;
+  transform: translateY(-1px);
 }
 
 .review-tag:hover {
@@ -586,6 +587,7 @@ body {
       margin-right: 6px;
     }
 
+
 /* 11. FONT FACE EMBEDDING */
 
 /* Google FontsはHTML <head>で読み込み済み
@@ -615,3 +617,12 @@ body {
   font-style: normal;
 }
 
+/*@メディアクエリ */
+
+@media screen and (max-width: 768px) {
+  .wrapper {
+    width: 100%;
+    padding: 0 10px; /* 余白確保のため */
+    box-sizing: border-box;
+  }
+}
