@@ -159,7 +159,7 @@ function closeAll() {
 
 function createPopup(content, typeClass) {
   const popup = document.createElement('div');
-  popup.className = popup ${typeClass} active;
+  popup.className = `popup ${typeClass} active`;
   popup.innerHTML = content;
   document.body.appendChild(popup);
   return popup;
@@ -167,8 +167,8 @@ function createPopup(content, typeClass) {
 
 function positionPopup(button, popup) {
   const rect = button.getBoundingClientRect();
-  popup.style.top = ${rect.bottom + window.scrollY + 5}px;
-  popup.style.left = ${rect.left + window.scrollX}px;
+  popup.style.top = `${rect.bottom + window.scrollY + 5}px`;
+  popup.style.left = `${rect.left + window.scrollX}px`;
 }
 
 function capitalize(str) {
