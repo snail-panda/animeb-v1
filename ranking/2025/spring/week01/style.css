@@ -464,7 +464,7 @@ body {
   font-family: 'Yu Gothic UI', 'Noto Sans JP', sans-serif;
   font-weight: 400;
   font-size: 12px;
-  letter-spacing: 0.03em; /* ←ちょっとゆったり */
+  letter-spacing: 0.04em; /* ←ちょっとゆったり */
   line-height: 1.75;      /* ←行間やや広めもアリ */
 }
 
