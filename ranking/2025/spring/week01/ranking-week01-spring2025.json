@@ -7,7 +7,7 @@
   "entries": [
     {
       "rank": 1,
-      "trend": "UP",
+      "trend": "re",
       "title": "The Apothecary Diaries 2nd Season",
       "jpTitle": "薬屋のひとりごと 第2期（第2クール）",
       "episode": 37,
@@ -28,7 +28,7 @@
     },
     {
       "rank": 2,
-      "trend": "UP",
+      "trend": "new",
       "title": "LAZARUS",
       "jpTitle": "ラザロ",
       "episode": 1,
@@ -49,7 +49,7 @@
     },
     {
       "rank": 3,
-      "trend": "UP",
+      "trend": "up",
       "title": "Once Upon a Witch's Death",
       "jpTitle": "ある魔女が死ぬまで",
       "episode": 2,
@@ -70,7 +70,7 @@
     },
     {
       "rank": 4,
-      "trend": "UP",
+      "trend": "re",
       "title": "Shoshimin: How to Become Ordinary 2",
       "jpTitle": "小市民シリーズ（第2期）",
       "episode": 1,
@@ -78,7 +78,7 @@
       "score": 10,
       "review": {
         "en": "",
-        "jp": "兎に角凄い"
+        "jp": "こいつはとんでもない。OPEDもやばい。OPの1コマ目から持っていかれた。そして全体の構成・クオリティ、何もかもが1,2ランク上で圧倒的な才能が溢れている。1期を知らない人やこれ系、またこの雰囲気、小佐内ちゃんが好みじゃない人には全然刺さらないだろうということも承知しているがそれでも!と言いたいくらいの2期目のスタート(第11話)として間違いなく『凄い』と言えるものを見せてくれた。今までのものが確実に深く積み重なり結びつきつつそれが更にもっと厄介で怖いというのもいい。まぁ一つ一つの描写などが半端なくて最良質のドラマや映画を見ている感覚。っていうか小佐内が強すぎる。強いて言うなら新聞部部長の彼ってあんなに切れ者だったっけ?ってくらい。覚えてないんですけどね。それにしてもすげーな。ヨルシカやばいし。羊宮妃那ちゃんは薬がはまってますねぇ。ただ刺さらない人には全然刺さらないのは間違いない。せいぜい8点でしょう。ただ自分としては「薬屋」と本作は現時点で圧倒的に他の作品から抜け出ているのは間違いないということでこの今クール第1話に9点は付けられませんってことです。"
       },
       "wrp_breakdown": {
         "base_score": 5,
@@ -91,7 +91,7 @@
     },
     {
       "rank": 5,
-      "trend": "UP",
+      "trend": "new",
       "title": "Uma Musume: Cinderella Grey",
       "jpTitle": "ウマ娘 シンデレラグレイ",
       "episode": 1,
@@ -112,7 +112,7 @@
     },
     {
       "rank": "spotlight",
-      "trend": "UP",
+      "trend": "new",
       "title": "Kowloon Generic Romance",
       "jpTitle": "九龍ジェネリックロマンス",
       "episode": 1,
@@ -133,7 +133,7 @@
     },
     {
       "rank": "editor's pick",
-      "trend": "UP",
+      "trend": "new",
       "title": "Sword of the Demon Hunter",
       "jpTitle": "鬼人幻燈抄",
       "episode": 1,
@@ -154,7 +154,7 @@
     },
     {
       "rank": "dookie",
-      "trend": "UP",
+      "trend": "new",
       "title": "Summer Pockets",
       "jpTitle": "サマーポケッツ",
       "episode": 1,
