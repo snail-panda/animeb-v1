@@ -570,17 +570,25 @@ body {
   text-decoration: underline;
 }
 
-.nav-link.center {
+.nav-link.lef
+.nav-link.center
+.nav-link.right  {
   text-align: center;
   flex: 1;
 }
 
 .nav-link.left {
-  margin-right: auto;
+  text-align: left;
 }
 
 .nav-link.right {
-  margin-left: auto;
+  text-align: right;
+}
+
+
+.nav-link.center a {
+  display: inline-block;
+  padding: 0.4em 0.8em;
 }
 
 /* 注意書きエリア */
