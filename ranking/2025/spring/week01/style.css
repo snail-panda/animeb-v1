@@ -227,6 +227,14 @@ body {
   height: 8px;
 }
 
+.trend-icon-new {
+  width: auto;
+  height: 10px;
+  object-fit: contain;
+  vertical-align: middle;
+}
+
+
 .trend-label {
   font-family: 'Agency FB', 'Pathway Gothic One', 'sans-serif';
   font-size: 0.55rem;
