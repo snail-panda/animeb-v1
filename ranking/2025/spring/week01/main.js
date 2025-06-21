@@ -91,6 +91,10 @@ if (jpTitleEl) {
         trendLabel.textContent = entryData.trend;
         trendIcon.src = `../../../../images/trends/${label}-arrow.png`;
         trendIcon.className = `trend-icon-${label}`;
+
+        // 🔽 この行を追加するだけでOK！
+trendIcon.onerror = () => trendIcon.style.display = 'none';
+
       }
 
      // WRPスコア更新完全統合 (titleCase版・最終確定版)
