@@ -554,7 +554,7 @@ body {
   align-items: center;
   font-family: 'Abel', sans-serif;
   font-size: 0.75rem;
-  margin: 0 auto 1rem auto;  /* ← ここ！中央寄せの核心 */
+  margin: 0 auto 0.5rem auto;  /* ← ここ！中央寄せの核心 */
   padding: 0;
   box-sizing: border-box;
   color: #444;
