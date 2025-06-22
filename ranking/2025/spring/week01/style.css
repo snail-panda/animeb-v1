@@ -512,7 +512,7 @@ body {
   background-size: inherit;
   background-repeat: inherit;
   background-position: inherit;
-  opacity: 0.01;
+  opacity: 0.1;
   z-index: 0;
   pointer-events: none;
 }
