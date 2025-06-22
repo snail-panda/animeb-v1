@@ -151,7 +151,11 @@ function titleCase(str) {
 
 // ========== ポップアップロジック（EN/JP切り替え: 閉じずに切替・ボタン制御追加） ==========
 function setupPopups() {
+  console.log("📌 setupPopups 実行開始");
+
   document.querySelectorAll('.review-tag').forEach(btn => {
+   console.log("🎯 review-tag ボタンが見つかりました！", btn);
+
     btn.addEventListener('click', function (e) {
       e.stopPropagation();
       closeAll();
