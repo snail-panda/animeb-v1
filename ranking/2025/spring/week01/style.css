@@ -497,6 +497,12 @@ body {
   background-color: transparent; /* 元のベージュ背景をなくす */
   border: none; /* 枠があれば外して様子見 */
   box-shadow: none; /* 影も一旦切って純粋な見た目をチェック */
+  background-color: #fffdec;
+  border: 1px solid #bbb;
+  padding: 10px 15px 15px 15px;
+  border-radius: 6px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+
 }
 
 
