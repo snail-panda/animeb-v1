@@ -40,7 +40,6 @@ function adjustScoreBars() {
 fetch('ranking-week01-spring2025.json')
   .then(response => response.json())
   .then(data => {
-
     // メタ情報更新
     document.querySelector('.week-title').textContent = data.meta.week;
     document.querySelector('.season-title').textContent = data.meta.season;
@@ -140,10 +139,6 @@ function titleCase(str) {
     // 全ての更新が終わったあとにバー描画
     adjustScoreBars();
 
-  console.log("✅ setupPopups を呼びます！");
-
-
-
     // イベントリスナー登録
     setupPopups();
   });
@@ -151,11 +146,7 @@ function titleCase(str) {
 
 // ========== ポップアップロジック（EN/JP切り替え: 閉じずに切替・ボタン制御追加） ==========
 function setupPopups() {
-  console.log("📌 setupPopups 実行開始");
-
   document.querySelectorAll('.review-tag').forEach(btn => {
-   console.log("🎯 review-tag ボタンが見つかりました！", btn);
-
     btn.addEventListener('click', function (e) {
       e.stopPropagation();
       closeAll();
@@ -173,36 +164,26 @@ function setupPopups() {
         return;
       }
 
-      // === ここから下が review-tag のクリックイベント内 ===
-const popup = document.createElement('div');
-popup.className = 'popup review-popup active';
+      const popup = document.createElement('div');
+      popup.className = 'popup review-popup active';
 
-// popupクリック中は閉じないようにする
-popup.addEventListener('click', function (e) {
-  e.stopPropagation();
-});
+      // popupクリック中は閉じないようにする
+      popup.addEventListener('click', function (e) {
+        e.stopPropagation();
+      });
 
-const contentEl = document.createElement('div');
-contentEl.className = 'popup-review-text';
+      const contentEl = document.createElement('div');
+      contentEl.className = 'popup-review-text';
 
-const switchBtn = document.createElement('button');
-switchBtn.className = 'review-switch-btn';
+      const switchBtn = document.createElement('button');
+      switchBtn.className = 'review-switch-btn';
 
-const closeBtn = document.createElement('button');
-closeBtn.className = 'popup-close-btn';
-closeBtn.textContent = 'Close';
+      const closeBtn = document.createElement('button');
+      closeBtn.className = 'popup-close-btn';
+      closeBtn.textContent = 'Close';
 
-// ✅🌸 花の画像をここで挿入
-const flowerTopLeft = document.createElement('img');
-flowerTopLeft.src = '../../../../images/popup/flowers_left01.png';
-flowerTopLeft.className = 'review-flower top-left';
-
-const flowerBottomRight = document.createElement('img');
-flowerBottomRight.src = '../../../../images/popup/flowers_right01.png';
-flowerBottomRight.className = 'review-flower bottom-right';
-
-// ⬇️ テキストとボタン設定
-function updateContent() {
+      function updateContent() {
+  // テキスト切り替え
   if (lang === 'en') {
     contentEl.textContent = reviewEn || 'English review not available.';
     switchBtn.textContent = 'Switch to Japanese';
@@ -210,36 +191,36 @@ function updateContent() {
     contentEl.textContent = reviewJp || 'Japanese review not available.';
     switchBtn.textContent = 'Switch to English';
   }
-// 🔁 ここでフォント用クラスを切り替える
+
+  // 🔁 ここでフォント用クラスを切り替える
   contentEl.classList.remove('lang-en', 'lang-jp');
   contentEl.classList.add(lang === 'jp' ? 'lang-jp' : 'lang-en');
+
+  // その他
   switchBtn.disabled = false;
   btn.dataset.lang = lang;
 }
 
-updateContent();
 
-switchBtn.addEventListener('click', function (e) {
-  e.stopPropagation();
-  lang = lang === 'en' ? 'jp' : 'en';
-  updateContent();
-});
+      updateContent();
 
-closeBtn.addEventListener('click', function (e) {
-  e.stopPropagation();
-  closeAll();
-});
+      switchBtn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        lang = lang === 'en' ? 'jp' : 'en';
+        updateContent();
+      });
 
-// ✅ Append順に注意（花 → content → ボタン）
-popup.appendChild(flowerTopLeft);
-popup.appendChild(flowerBottomRight);
-popup.appendChild(contentEl);
-popup.appendChild(switchBtn);
-popup.appendChild(closeBtn);
+      closeBtn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        closeAll();
+      });
 
-document.body.appendChild(popup);
-positionPopup(this, popup);
+      popup.appendChild(contentEl);
+      popup.appendChild(switchBtn);
+      popup.appendChild(closeBtn);
 
+      document.body.appendChild(popup);
+      positionPopup(this, popup);
     });
   });
 
