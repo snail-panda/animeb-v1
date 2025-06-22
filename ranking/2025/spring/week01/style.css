@@ -488,6 +488,18 @@ body {
   color: #333;
 }
 
+
+.popup.review-popup {
+  background-image: url('images/popup/aniquepaperbackground031.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-color: transparent; /* 元のベージュ背景をなくす */
+  border: none; /* 枠があれば外して様子見 */
+  box-shadow: none; /* 影も一旦切って純粋な見た目をチェック */
+}
+
+
 /* WRP Breakdown用 POPUP*/
 .wrp-popup {
   font-size: 10.5px;
