@@ -530,6 +530,73 @@ body {
 }
 
 
+/* ========= 基本レイヤー構成 ========= */
+.background-paper {
+  position: relative;
+  z-index: 1;
+}
+
+.floating-flower {
+  position: absolute;
+  z-index: 5;
+  pointer-events: none; /* マウス操作を邪魔しない */
+}
+
+.popup-window {
+  position: absolute;
+  z-index: 10;
+}
+
+.popup-close-button {
+  position: absolute;
+  z-index: 11;
+  cursor: pointer;
+}
+
+/* ========= 花の位置プリセット ========= */
+.flower-top-left {
+  top: 2%;
+  left: 2%;
+}
+
+.flower-top-right {
+  top: 2%;
+  right: 2%;
+}
+
+.flower-bottom-left {
+  bottom: 2%;
+  left: 2%;
+}
+
+.flower-bottom-right {
+  bottom: 2%;
+  right: 2%;
+}
+
+/* ========= サイズ & 表示調整 ========= */
+.flower-small {
+  width: 80px;
+  opacity: 0.75;
+}
+
+.flower-medium {
+  width: 120px;
+  opacity: 0.85;
+}
+
+.flower-large {
+  width: 180px;
+  opacity: 0.95;
+}
+
+.bg-cover-center {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+
+
 /* WRP Breakdown用 POPUP*/
 .wrp-popup {
   font-size: 10.5px;
