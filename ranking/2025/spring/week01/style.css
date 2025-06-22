@@ -495,14 +495,13 @@ body {
   /*background-position: center top;*/
   background-repeat: no-repeat;
   background-position: center center;
-  background-color: transparent; /* 元のベージュ背景をなくす */
-  box-shadow: none; /* 影も一旦切って純粋な見た目をチェック */
   background-color: #fffdec;
   border: 1px solid #bbb;
   padding: 10px 15px 15px 15px;
   border-radius: 6px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-
+  position: relative;
+  z-index: 10;
 }
 
 .popup.review-popup::before {
@@ -519,10 +518,9 @@ body {
 }
 .popup-review-text {
   position: relative;
-  z-index: 1;
+  z-index: 2;
 }
 
-.popup-review-text,
 .review-switch-btn,
 .popup-close-btn {
   position: relative;
@@ -530,66 +528,27 @@ body {
 }
 
 
-/* ========= 基本レイヤー構成 ========= */
-.background-paper {
-  position: relative;
-  z-index: 1;
-}
-
-.floating-flower {
+.review-flower {
   position: absolute;
-  z-index: 5;
-  pointer-events: none; /* マウス操作を邪魔しない */
+  pointer-events: none;
+  opacity: 0.7;
+  z-index: 2;
 }
 
-.popup-window {
-  position: absolute;
-  z-index: 10;
+.review-flower.top-left {
+  top: 4%;
+  left: 4%;
+  width: 60px;
 }
 
-.popup-close-button {
-  position: absolute;
-  z-index: 11;
-  cursor: pointer;
-}
-
-/* ========= 花の位置プリセット ========= */
-.flower-top-left {
-  top: 2%;
-  left: 2%;
-}
-
-.flower-top-right {
-  top: 2%;
-  right: 2%;
-}
-
-.flower-bottom-left {
-  bottom: 2%;
-  left: 2%;
-}
-
-.flower-bottom-right {
-  bottom: 2%;
-  right: 2%;
-}
-
-/* ========= サイズ & 表示調整 ========= */
-.flower-small {
+.review-flower.bottom-right {
+  bottom: 4%;
+  right: 4%;
   width: 80px;
-  opacity: 0.75;
 }
 
-.flower-medium {
-  width: 120px;
-  opacity: 0.85;
-}
 
-.flower-large {
-  width: 180px;
-  opacity: 0.95;
-}
-
+/*使えるらしいので一応取っておいている*/
 .bg-cover-center {
   background-repeat: no-repeat;
   background-size: cover;
