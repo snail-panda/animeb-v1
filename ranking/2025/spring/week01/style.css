@@ -523,13 +523,13 @@ body {
 
 .review-flower.top-left {
   top: 4%;
-  left: 4%;
-  width: 30px;
+  left: 2%;
+  width: 20px;
 }
 
 .review-flower.bottom-right {
   bottom: 4%;
-  right: 4%;
+  right: 2%;
   width: 80px;
 }
 
