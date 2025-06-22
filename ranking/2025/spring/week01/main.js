@@ -91,7 +91,7 @@ if (jpTitleEl) {
         "re": "Re-entry"
       };
       if (trendLabel && trendIcon) {
-        trendLabel.textContent = labelTextMap[label] || entryData.trend;;
+        trendLabel.textContent = labelTextMap[label] || entryData.trend;
         trendIcon.src = `../../../../images/trends/${label}-arrow.png`;
         trendIcon.className = `trend-icon-${label}`;
         trendIcon.alt = `${entryData.trend} icon`;
