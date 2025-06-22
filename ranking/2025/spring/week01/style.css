@@ -505,6 +505,23 @@ body {
 
 }
 
+.popup.review-popup::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: inherit;
+  background-size: inherit;
+  background-repeat: inherit;
+  background-position: inherit;
+  opacity: 0.5;
+  z-index: 0;
+  pointer-events: none;
+}
+.popup-review-text {
+  position: relative;
+  z-index: 1;
+}
+
 
 /* WRP Breakdown用 POPUP*/
 .wrp-popup {
