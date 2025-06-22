@@ -40,6 +40,11 @@ function adjustScoreBars() {
 fetch('ranking-week01-spring2025.json')
   .then(response => response.json())
   .then(data => {
+
+  console.log("✅ setupPopups を呼びます！");
+setupPopups();
+
+
     // メタ情報更新
     document.querySelector('.week-title').textContent = data.meta.week;
     document.querySelector('.season-title').textContent = data.meta.season;
