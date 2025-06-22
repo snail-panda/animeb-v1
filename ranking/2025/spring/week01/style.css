@@ -504,56 +504,6 @@ body {
   z-index: 10;
 }
 
-.popup.review-popup::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image: inherit;
-  background-size: inherit;
-  background-repeat: inherit;
-  background-position: inherit;
-  opacity: 0.1;
-  z-index: 0;
-  pointer-events: none;
-}
-.popup-review-text {
-  position: relative;
-  z-index: 2;
-}
-
-.review-switch-btn,
-.popup-close-btn {
-  position: relative;
-  z-index: 1; /* ボタン類は上に */
-}
-
-
-.review-flower {
-  position: absolute;
-  pointer-events: none;
-  opacity: 0.7;
-  z-index: 0;
-}
-
-.review-flower.top-left {
-  top: 4%;
-  left: 4%;
-  width: 60px;
-}
-
-.review-flower.bottom-right {
-  bottom: 4%;
-  right: 4%;
-  width: 80px;
-}
-
-
-/*使えるらしいので一応取っておいている*/
-.bg-cover-center {
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center center;
-}
 
 
 /* WRP Breakdown用 POPUP*/
