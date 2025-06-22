@@ -522,6 +522,13 @@ body {
   z-index: 1;
 }
 
+.popup-review-text,
+.review-switch-btn,
+.popup-close-btn {
+  position: relative;
+  z-index: 1; /* ボタン類は上に */
+}
+
 
 /* WRP Breakdown用 POPUP*/
 .wrp-popup {
