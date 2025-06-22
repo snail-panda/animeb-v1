@@ -201,7 +201,7 @@ function updateContent() {
     contentEl.textContent = reviewJp || 'Japanese review not available.';
     switchBtn.textContent = 'Switch to English';
   }
-
+// 🔁 ここでフォント用クラスを切り替える
   contentEl.classList.remove('lang-en', 'lang-jp');
   contentEl.classList.add(lang === 'jp' ? 'lang-jp' : 'lang-en');
   switchBtn.disabled = false;
