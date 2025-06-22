@@ -501,7 +501,17 @@ body {
   box-shadow: 0 4px 10px rgba(0,0,0,0.15);
 }
 
+.popup-review-text {
+  position: relative;
+  z-index: 1;
+}
 
+.popup-review-text,
+.review-switch-btn,
+.popup-close-btn {
+  position: relative;
+  z-index: 1; /* ボタン類は上に */
+}
 
 /* WRP Breakdown用 POPUP*/
 .wrp-popup {
