@@ -492,7 +492,6 @@ body {
 .popup.review-popup {
   background-image: url('../../../../images/popup/vintage_parchment_paper006.png');
   background-size: cover;
-  /*background-position: center top;*/
   background-repeat: no-repeat;
   background-position: center center;
   background-color: #fffdec;
@@ -500,8 +499,6 @@ body {
   padding: 10px 15px 15px 15px;
   border-radius: 6px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-  position: relative;
-  z-index: 10;
 }
 
 
