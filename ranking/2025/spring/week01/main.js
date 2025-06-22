@@ -185,11 +185,11 @@ closeBtn.textContent = 'Close';
 
 // ✅🌸 花の画像をここで挿入
 const flowerTopLeft = document.createElement('img');
-flowerTopLeft.src = 'images/popup/flowers_left01.png';
+flowerTopLeft.src = '../../../../images/popup/flowers_left01.png';
 flowerTopLeft.className = 'review-flower top-left';
 
 const flowerBottomRight = document.createElement('img');
-flowerBottomRight.src = 'images/popup/flowers_right01.png';
+flowerBottomRight.src = '../../../../images/popup/flowers_right01.png';
 flowerBottomRight.className = 'review-flower bottom-right';
 
 // ⬇️ テキストとボタン設定
