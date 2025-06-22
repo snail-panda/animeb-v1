@@ -490,7 +490,7 @@ body {
 
 
 .popup.review-popup {
-  background-image: url('../../../../images/popup/vintage_parchment_paper003.png');
+  background-image: url('../../../../images/popup/vintage_parchment_paper004.png');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
@@ -524,7 +524,7 @@ body {
 .review-flower.top-left {
   top: 4%;
   left: 2%;
-  width: 20px;
+  width: 30px;
 }
 
 .review-flower.bottom-right {
