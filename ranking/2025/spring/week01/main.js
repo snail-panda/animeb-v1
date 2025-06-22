@@ -185,7 +185,7 @@ closeBtn.textContent = 'Close';
 
 // ✅🌸 花の画像をここで挿入
 const flowerTopLeft = document.createElement('img');
-flowerTopLeft.src = '../../../../images/popup/flowers_left01.png';
+flowerTopLeft.src = '../../../../images/popup/flowers_left02.png';
 flowerTopLeft.className = 'review-flower top-left';
 
 const flowerBottomRight = document.createElement('img');
