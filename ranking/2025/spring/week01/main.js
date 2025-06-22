@@ -238,6 +238,10 @@ popup.appendChild(switchBtn);
 popup.appendChild(closeBtn);
 
 document.body.appendChild(popup);
+// 🌟 緊急表示テスト
+popup.style.top = '100px';
+popup.style.left = '100px';
+
 positionPopup(this, popup);
 
     });
