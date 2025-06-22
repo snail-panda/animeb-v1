@@ -490,8 +490,8 @@ body {
 
 
 .popup.review-popup {
-  background-image: url('../../../../images/popup/aniquepaperbackground019.png');
-  background-size: cover;
+  background-image: url('../../../../images/popup/aniquepaperbackground031.png');
+  background-size: auto 100%;
   background-repeat: no-repeat;
   background-position: center center;
   background-color: transparent; /* 元のベージュ背景をなくす */
