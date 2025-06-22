@@ -164,26 +164,36 @@ function setupPopups() {
         return;
       }
 
-      const popup = document.createElement('div');
-      popup.className = 'popup review-popup active';
+       // === ここから下が review-tag のクリックイベント内 ===
+const popup = document.createElement('div');
+popup.className = 'popup review-popup active';
 
-      // popupクリック中は閉じないようにする
-      popup.addEventListener('click', function (e) {
-        e.stopPropagation();
-      });
+// popupクリック中は閉じないようにする
+popup.addEventListener('click', function (e) {
+  e.stopPropagation();
+});
 
-      const contentEl = document.createElement('div');
-      contentEl.className = 'popup-review-text';
+const contentEl = document.createElement('div');
+contentEl.className = 'popup-review-text';
 
-      const switchBtn = document.createElement('button');
-      switchBtn.className = 'review-switch-btn';
+const switchBtn = document.createElement('button');
+switchBtn.className = 'review-switch-btn';
 
-      const closeBtn = document.createElement('button');
-      closeBtn.className = 'popup-close-btn';
-      closeBtn.textContent = 'Close';
+const closeBtn = document.createElement('button');
+closeBtn.className = 'popup-close-btn';
+closeBtn.textContent = 'Close';
 
-      function updateContent() {
-  // テキスト切り替え
+// ✅🌸 花の画像をここで挿入
+const flowerTopLeft = document.createElement('img');
+flowerTopLeft.src = '../../../../images/popup/flowers_left01.png';
+flowerTopLeft.className = 'review-flower top-left';
+
+const flowerBottomRight = document.createElement('img');
+flowerBottomRight.src = '../../../../images/popup/flowers_right01.png';
+flowerBottomRight.className = 'review-flower bottom-right';
+
+// ⬇️ テキストとボタン設定
+function updateContent() {
   if (lang === 'en') {
     contentEl.textContent = reviewEn || 'English review not available.';
     switchBtn.textContent = 'Switch to Japanese';
@@ -191,36 +201,36 @@ function setupPopups() {
     contentEl.textContent = reviewJp || 'Japanese review not available.';
     switchBtn.textContent = 'Switch to English';
   }
-
-  // 🔁 ここでフォント用クラスを切り替える
+// 🔁 ここでフォント用クラスを切り替える
   contentEl.classList.remove('lang-en', 'lang-jp');
   contentEl.classList.add(lang === 'jp' ? 'lang-jp' : 'lang-en');
-
-  // その他
   switchBtn.disabled = false;
   btn.dataset.lang = lang;
 }
 
+updateContent();
 
-      updateContent();
+switchBtn.addEventListener('click', function (e) {
+  e.stopPropagation();
+  lang = lang === 'en' ? 'jp' : 'en';
+  updateContent();
+});
 
-      switchBtn.addEventListener('click', function (e) {
-        e.stopPropagation();
-        lang = lang === 'en' ? 'jp' : 'en';
-        updateContent();
-      });
+closeBtn.addEventListener('click', function (e) {
+  e.stopPropagation();
+  closeAll();
+});
 
-      closeBtn.addEventListener('click', function (e) {
-        e.stopPropagation();
-        closeAll();
-      });
+// ✅ Append順に注意（花 → content → ボタン）
+popup.appendChild(flowerTopLeft);
+popup.appendChild(flowerBottomRight);
+popup.appendChild(contentEl);
+popup.appendChild(switchBtn);
+popup.appendChild(closeBtn);
 
-      popup.appendChild(contentEl);
-      popup.appendChild(switchBtn);
-      popup.appendChild(closeBtn);
+document.body.appendChild(popup);
+positionPopup(this, popup);
 
-      document.body.appendChild(popup);
-      positionPopup(this, popup);
     });
   });
 
@@ -233,6 +243,7 @@ function setupPopups() {
       positionPopup(this, popup);
     });
   });
+
 
   // documentクリック時にだけ閉じるように（popup内部のクリックでは閉じない）
   document.addEventListener('click', () => closeAll());
