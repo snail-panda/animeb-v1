@@ -295,7 +295,7 @@ function adjustFlowerSize() {
   let rightSize = 65;
 
   if (height < 100) {
-    leftSize = 25;
+    leftSize = 20;
     rightSize = 40;
   } else if (height > 200) {
     leftSize = 45;
