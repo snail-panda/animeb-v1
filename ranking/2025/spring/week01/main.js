@@ -274,27 +274,32 @@ function capitalize(str) {
   return str.charAt(0).toUpperCase() + str.slice(1);
 }
 
-// 🌸 花のサイズをレビューの長さに応じて調整する関数
-function adjustFlowerSizeByReviewLength() {
-  const popups = document.querySelectorAll('.popup.review-popup');
-  popups.forEach(popup => {
-    const content = popup.querySelector('.popup-review-text');
-    const leftFlower = popup.querySelector('.review-flower.top-left');
-    const rightFlower = popup.querySelector('.review-flower.bottom-right');
+// 🌸 花のサイズを高さベース(offsetHeight)で調整する関数
+window.addEventListener('DOMContentLoaded', () => {
+  const reviewText = document.querySelector('.popup-review-text');
+  const flowerLeft = document.querySelector('.review-flower.top-left');
+  const flowerRight = document.querySelector('.review-flower.bottom-right');
 
-    if (content && leftFlower && rightFlower) {
-      const textLength = content.textContent.length;
+  if (!reviewText || !flowerLeft || !flowerRight) return;
 
-      if (textLength < 80) {
-        leftFlower.style.width = '30px';
-        rightFlower.style.width = '50px';
-      } else if (textLength < 200) {
-        leftFlower.style.width = '40px';
-        rightFlower.style.width = '65px';
-      } else {
-        leftFlower.style.width = '50px';
-        rightFlower.style.width = '80px';
-      }
-    }
-  });
-}
+  const height = reviewText.clientHeight;
+
+  // デフォルトサイズ
+  let leftSize = 50;
+  let rightSize = 80;
+
+  // 小さめレビュー用（1～2行）
+  if (height < 100) {
+    leftSize = 25;
+    rightSize = 40;
+  }
+  // 長めレビュー用（7行以上など）
+  else if (height > 200) {
+    leftSize = 70;
+    rightSize = 110;
+  }
+
+  // 幅を直接適用
+  flowerLeft.style.width = `${leftSize}px`;
+  flowerRight.style.width = `${rightSize}px`;
+});
