@@ -445,10 +445,10 @@ body {
 /* --- クローズボタン --- */
 .popup-close-btn {
   font-family: 'Fira Sans', sans-serif;
-  font-size: 10.5px;
+  font-size: 10px;
   background-color: #f0f0f0;
   color: #444;
-  padding: 4px 10px;
+  padding: 3.5px 8px;
   border: none;
   border-radius: 6px;
   cursor: pointer;
