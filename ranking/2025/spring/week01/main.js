@@ -214,6 +214,7 @@ switchBtn.addEventListener('click', function (e) {
   e.stopPropagation();
   lang = lang === 'en' ? 'jp' : 'en';
   updateContent();
+  adjustFlowerSize(contentEl, flowerTopLeft, flowerBottomRight); // ←💡追加！
 });
 
 closeBtn.addEventListener('click', function (e) {
