@@ -192,6 +192,9 @@ const flowerBottomRight = document.createElement('img');
 flowerBottomRight.src = '../../../../images/popup/flowers_right01.png';
 flowerBottomRight.className = 'review-flower bottom-right';
 
+// ✅ ポップアップの基準位置を relative に変更（←これが重要！）
+popup.style.position = 'relative';
+
 // ⬇️ テキストとボタン設定
 function updateContent() {
   if (lang === 'en') {
