@@ -324,7 +324,7 @@ function adjustPopupPadding(popup) {
   const height = popup.offsetHeight;
 
   if (height < 120) {
-    popup.style.paddingBottom = '12px';
+    popup.style.paddingBottom = '10px';
   } else {
     popup.style.paddingBottom = '';
   }
