@@ -513,6 +513,12 @@ body {
   z-index: 2; /* ボタン類は上に */
 }
 
+.popup.review-popup {
+  min-height: 150px;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
 
 .review-flower {
   position: absolute;
