@@ -290,8 +290,8 @@ window.addEventListener('DOMContentLoaded', () => {
 
   // 小さめレビュー用（1～2行）
   if (height < 100) {
-    leftSize = 25;
-    rightSize = 40;
+    leftSize = 20;
+    rightSize = 35;
   }
   // 長めレビュー用（7行以上など）
   else if (height > 200) {
