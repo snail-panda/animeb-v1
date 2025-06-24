@@ -231,6 +231,9 @@ popup.appendChild(closeBtn);
 document.body.appendChild(popup);
 positionPopup(this, popup);
 
+// ✅🌸 ここで花サイズを調整する関数を呼び出す
+adjustFlowerSize(contentEl, flowerTopLeft, flowerBottomRight);
+
     });
   });
 
@@ -276,16 +279,10 @@ function capitalize(str) {
 
 
 // 🌸 花のサイズを高さベース(offsetHeight)で調整する関数（完全版）
-window.onload = () => {
-  console.log('[flower-resize.js] script started');
-
+function adjustFlowerSize() {
   const reviewText = document.querySelector('.popup-review-text');
   const flowerLeft = document.querySelector('.review-flower.top-left');
   const flowerRight = document.querySelector('.review-flower.bottom-right');
-
-  console.log('popup-review-text:', reviewText);
-  console.log('flowerLeft:', flowerLeft);
-  console.log('flowerRight:', flowerRight);
 
   if (!reviewText || !flowerLeft || !flowerRight) {
     console.warn('[flower-resize.js] One or more elements not found. Aborting resize.');
@@ -293,7 +290,6 @@ window.onload = () => {
   }
 
   const height = reviewText.clientHeight;
-  console.log('review height =', height);
 
   let leftSize = 40;
   let rightSize = 70;
@@ -310,4 +306,4 @@ window.onload = () => {
   flowerRight.style.width = `${rightSize}px`;
 
   console.log(`[flower-resize.js] Widths set to: ${leftSize}px / ${rightSize}px`);
-};
+}
