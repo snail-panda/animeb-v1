@@ -530,13 +530,13 @@ body {
 .review-flower.top-left {
   top: 4%;
   left: 1%;
-  width: 50px;
+  width: auto; /* これでJS側の制御に任せる */
 }
 
 .review-flower.bottom-right {
   bottom: 4%;
   right: 2%;
-  width: 80px;
+  width: auto; /* これでJS側の制御に任せる */
 }
 
 
