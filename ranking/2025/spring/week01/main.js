@@ -273,3 +273,28 @@ function positionPopup(button, popup) {
 function capitalize(str) {
   return str.charAt(0).toUpperCase() + str.slice(1);
 }
+
+// 🌸 花のサイズをレビューの長さに応じて調整する関数
+function adjustFlowerSizeByReviewLength() {
+  const popups = document.querySelectorAll('.popup.review-popup');
+  popups.forEach(popup => {
+    const content = popup.querySelector('.popup-review-text');
+    const leftFlower = popup.querySelector('.review-flower.top-left');
+    const rightFlower = popup.querySelector('.review-flower.bottom-right');
+
+    if (content && leftFlower && rightFlower) {
+      const textLength = content.textContent.length;
+
+      if (textLength < 80) {
+        leftFlower.style.width = '30px';
+        rightFlower.style.width = '50px';
+      } else if (textLength < 200) {
+        leftFlower.style.width = '40px';
+        rightFlower.style.width = '65px';
+      } else {
+        leftFlower.style.width = '50px';
+        rightFlower.style.width = '80px';
+      }
+    }
+  });
+}
