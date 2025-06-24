@@ -390,7 +390,7 @@ body {
 
 /* 9. REVIEW TAG + POPUP ZONE */
 .popup {
-  position: relative;
+  position: absolute;
   background: #fffdec;
   border: 1px solid #bbb;
   padding: 15px 20px 18px 18px;
