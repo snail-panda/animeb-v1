@@ -520,6 +520,9 @@ body {
   overflow-y: auto;
 }
 
+.review-popup-flower-wrapper {
+  position: relative;
+}
 
 .review-flower {
   position: absolute;
@@ -528,6 +531,9 @@ body {
   z-index: 0;
 }
 
+
+/* 花の位置・レイヤー制御 */
+
 .review-flower.top-left {
   top: 4%;
   left: 1%;
@@ -535,7 +541,7 @@ body {
 }
 
 .review-flower.bottom-right {
-  bottom: 4%;
+  bottom: 4%; /* 必要なら 0　もしくは　6px に変更可能 */
   right: 2%;
   width: auto; /* これでJS側の制御に任せる */
 }
