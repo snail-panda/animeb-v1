@@ -522,7 +522,7 @@ body {
 
 
 .review-flower {
-  position: fixed; /* ←ここを absolute から fixed に変更 */
+  position: absolute;
   pointer-events: none;
   opacity: 0.8;
   z-index: 0;
