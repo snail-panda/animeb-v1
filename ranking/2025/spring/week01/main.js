@@ -217,6 +217,7 @@ switchBtn.addEventListener('click', function (e) {
   setTimeout(() => {
   adjustFlowerSize(contentEl, flowerTopLeft, flowerBottomRight);
 }, 0); // ←💡追加！
+  adjustPopupPadding(popup); // ←💡追加！
 });
 
 closeBtn.addEventListener('click', function (e) {
@@ -236,6 +237,9 @@ positionPopup(this, popup);
 
 // ✅🌸 ここで花サイズを調整する関数を呼び出す
 adjustFlowerSize(contentEl, flowerTopLeft, flowerBottomRight);
+
+adjustPopupPadding(popup); // ←💡追加！
+
 
     });
   });
@@ -313,3 +317,16 @@ function adjustFlowerSize() {
 
   console.log(`[flower-resize.js] Widths set to: ${leftSize}px / ${rightSize}px`);
 }
+
+//=====PopupのPadding-bottomを縮める
+
+function adjustPopupPadding(popup) {
+  const height = popup.offsetHeight;
+
+  if (height < 120) {
+    popup.style.paddingBottom = '12px';
+  } else {
+    popup.style.paddingBottom = '';
+  }
+}
+
