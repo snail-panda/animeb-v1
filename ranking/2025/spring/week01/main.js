@@ -285,8 +285,8 @@ window.addEventListener('DOMContentLoaded', () => {
   const height = reviewText.clientHeight;
 
   // デフォルトサイズ
-  let leftSize = 50;
-  let rightSize = 80;
+  let leftSize = 40;
+  let rightSize = 70;
 
   // 小さめレビュー用（1～2行）
   if (height < 100) {
