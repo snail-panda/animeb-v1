@@ -309,7 +309,7 @@ function adjustFlowerSize() {
     rightSize = 70;
   } else if (height > 500) {
     leftSize = 55;
-    rightSize = 100;
+    rightSize = 90;
   }
 
   flowerLeft.style.width = `${leftSize}px`;
