@@ -514,8 +514,8 @@ body {
 }
 
 .popup.review-popup {
-  min-height: 75px;
-  min-width: 200px;
+  min-height: 50px;
+  min-width: 210px;
   max-height: 90vh;
   overflow-y: auto;
 }
