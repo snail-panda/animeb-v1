@@ -274,10 +274,11 @@ function capitalize(str) {
   return str.charAt(0).toUpperCase() + str.slice(1);
 }
 
-// 🌸 花のサイズを高さベース(offsetHeight)で調整する関数
-window.addEventListener('DOMContentLoaded', () => {
+
+// 🌸 花のサイズを高さベース(offsetHeight)で調整する関数（完全版）
+window.onload = () => {
   console.log('[flower-resize.js] script started');
-  
+
   const reviewText = document.querySelector('.popup-review-text');
   const flowerLeft = document.querySelector('.review-flower.top-left');
   const flowerRight = document.querySelector('.review-flower.bottom-right');
@@ -285,7 +286,7 @@ window.addEventListener('DOMContentLoaded', () => {
   console.log('popup-review-text:', reviewText);
   console.log('flowerLeft:', flowerLeft);
   console.log('flowerRight:', flowerRight);
-  
+
   if (!reviewText || !flowerLeft || !flowerRight) {
     console.warn('[flower-resize.js] One or more elements not found. Aborting resize.');
     return;
@@ -309,4 +310,4 @@ window.addEventListener('DOMContentLoaded', () => {
   flowerRight.style.width = `${rightSize}px`;
 
   console.log(`[flower-resize.js] Widths set to: ${leftSize}px / ${rightSize}px`);
-});
+};
