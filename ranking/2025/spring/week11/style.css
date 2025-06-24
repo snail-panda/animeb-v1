@@ -538,7 +538,7 @@ body {
   bottom: 4%;
   right: 2%;
   width: auto; /* これでJS側の制御に任せる */
-  position: fixed;
+  position: static;
 }
 
 
