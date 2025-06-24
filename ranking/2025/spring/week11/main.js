@@ -220,6 +220,13 @@ switchBtn.addEventListener('click', function (e) {
   adjustPopupPadding(popup); // ←💡追加！
 });
 
+// 🌟 ここにセットタイムアウトを追加！
+setTimeout(() => {
+  // 再度位置やサイズを微調整（delay後にDOMが安定するので）
+  adjustFlowerSize(contentEl, flowerTopLeft, flowerBottomRight);
+  adjustPopupPadding(popup);
+}, 0);
+
 closeBtn.addEventListener('click', function (e) {
   e.stopPropagation();
   closeAll();
