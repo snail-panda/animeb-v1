@@ -302,8 +302,8 @@ function adjustReviewFlowerSize() {
   let rightSize = 70;
 
   if (height < 100) {
-    leftSize = 20;
-    rightSize = 35;
+    leftSize = 30;
+    rightSize = 50;
   } else if (height > 200) {
     leftSize = 70;
     rightSize = 110;
