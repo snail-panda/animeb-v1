@@ -276,36 +276,37 @@ function capitalize(str) {
 
 // 🌸 花のサイズを高さベース(offsetHeight)で調整する関数
 window.addEventListener('DOMContentLoaded', () => {
+  console.log('[flower-resize.js] script started');
+  
   const reviewText = document.querySelector('.popup-review-text');
   const flowerLeft = document.querySelector('.review-flower.top-left');
   const flowerRight = document.querySelector('.review-flower.bottom-right');
 
-console.log("🌸 JS動いてるよ！"); // ←ここ！
-
-  if (!reviewText || !flowerLeft || !flowerRight) 
-
-  console.log("❌ 要素が見つからなかった");
-  return;
+  console.log('popup-review-text:', reviewText);
+  console.log('flowerLeft:', flowerLeft);
+  console.log('flowerRight:', flowerRight);
+  
+  if (!reviewText || !flowerLeft || !flowerRight) {
+    console.warn('[flower-resize.js] One or more elements not found. Aborting resize.');
+    return;
+  }
 
   const height = reviewText.clientHeight;
-  console.log("📏 レビュー高さ:", height);
+  console.log('review height =', height);
 
-  // デフォルトサイズ
   let leftSize = 40;
   let rightSize = 70;
 
-  // 小さめレビュー用（1～2行）
   if (height < 100) {
     leftSize = 20;
     rightSize = 35;
-  }
-  // 長めレビュー用（7行以上など）
-  else if (height > 200) {
+  } else if (height > 200) {
     leftSize = 70;
     rightSize = 110;
   }
 
-  // 幅を直接適用
   flowerLeft.style.width = `${leftSize}px`;
   flowerRight.style.width = `${rightSize}px`;
+
+  console.log(`[flower-resize.js] Widths set to: ${leftSize}px / ${rightSize}px`);
 });
