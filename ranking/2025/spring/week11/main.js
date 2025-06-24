@@ -192,7 +192,6 @@ const flowerBottomRight = document.createElement('img');
 flowerBottomRight.src = '../../../../images/popup/flowers_right01.png';
 flowerBottomRight.className = 'review-flower bottom-right';
 
-
 // ⬇️ テキストとボタン設定
 function updateContent() {
   if (lang === 'en') {
@@ -226,17 +225,12 @@ closeBtn.addEventListener('click', function (e) {
   closeAll();
 });
 
-// ✅ 花の画像ラッパーを作る
-const flowerWrapper = document.createElement('div');
-flowerWrapper.className = 'review-popup-flower-wrapper';
-flowerWrapper.appendChild(flowerTopLeft);
-flowerWrapper.appendChild(flowerBottomRight);
-
-// ✅ Append順に注意（wrapper → content → buttons）
-popup.appendChild(flowerWrapper);     // 🌸 花レイヤー
-popup.appendChild(contentEl);         // 📄 テキスト
-popup.appendChild(switchBtn);         // 🔁 言語切替
-popup.appendChild(closeBtn);          // ❌ 閉じる
+// ✅ Append順に注意（花 → content → ボタン）
+popup.appendChild(flowerTopLeft);
+popup.appendChild(flowerBottomRight);
+popup.appendChild(contentEl);
+popup.appendChild(switchBtn);
+popup.appendChild(closeBtn);
 
 document.body.appendChild(popup);
 positionPopup(this, popup);

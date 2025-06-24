@@ -520,12 +520,6 @@ body {
   overflow-y: auto;
 }
 
-.review-popup-flower-wrapper {
-   position: absolute;
-   inset: 0;
-   pointer-events: none;
-   z-index: 0;
-}
 
 .review-flower {
   position: absolute;
@@ -534,21 +528,15 @@ body {
   z-index: 0;
 }
 
-
-/* 花の位置・レイヤー制御 */
-
 .review-flower.top-left {
   top: 4%;
   left: 1%;
-  transform: translate(-4%, -2%); /* 微調整：左・上に気持ちだけ出す */
   width: auto; /* これでJS側の制御に任せる */
 }
 
 .review-flower.bottom-right {
-  position: absolute;
-  bottom: 0; /* 必要なら 0　もしくは 4% か 6px に変更可能 */
+  bottom: 4%;
   right: 2%;
-  transform: translate(4%, 4%); /* 外側にほんの少し出すことで自然に */
   width: auto; /* これでJS側の制御に任せる */
 }
 
