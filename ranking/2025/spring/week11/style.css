@@ -499,7 +499,6 @@ body {
   padding: 10px 15px 15px 15px;
   border-radius: 6px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-  position: relative;
 }
 
 .popup-review-text {
@@ -539,6 +538,7 @@ body {
   bottom: 4%;
   right: 2%;
   width: auto; /* これでJS側の制御に任せる */
+  position: absolute;
 }
 
 
