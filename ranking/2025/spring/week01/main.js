@@ -280,9 +280,15 @@ window.addEventListener('DOMContentLoaded', () => {
   const flowerLeft = document.querySelector('.review-flower.top-left');
   const flowerRight = document.querySelector('.review-flower.bottom-right');
 
-  if (!reviewText || !flowerLeft || !flowerRight) return;
+console.log("🌸 JS動いてるよ！"); // ←ここ！
+
+  if (!reviewText || !flowerLeft || !flowerRight) 
+
+  console.log("❌ 要素が見つからなかった");
+  return;
 
   const height = reviewText.clientHeight;
+  console.log("📏 レビュー高さ:", height);
 
   // デフォルトサイズ
   let leftSize = 40;
