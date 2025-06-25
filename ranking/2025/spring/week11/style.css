@@ -99,7 +99,7 @@ body {
   display: grid;
   grid-template-columns: 85px 1fr 1fr 70px;
   align-items: center;
-  min-height: 60px;  /* 仮、全体の高さ感調整 */
+  min-height: 65px;  /* 仮、全体の高さ感調整 */
   font-family: 'Agency FB', sans-serif;
   font-size: 10px;
   font-weight: bold;
