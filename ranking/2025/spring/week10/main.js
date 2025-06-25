@@ -64,25 +64,42 @@ if (jpTitleEl) {
   jpTitleEl.textContent = entryData.jpTitle || "";
 }
 
-
-        // Review挿入処理
+               // --- Review挿入処理 (EN/JPネスト対応版) ---
         const reviewTag = titleEl.querySelector('.review-tag');
-        if (entryData.review && entryData.review.trim() !== '') {
-          reviewTag.dataset.review = entryData.review;
+        const reviewData = entryData.review;
+        if (
+          reviewData &&
+          (reviewData.en?.trim() || reviewData.jp?.trim())
+        ) {
+          // デフォルトで英語レビュー表示
+          reviewTag.dataset.reviewEn = reviewData.en || '';
+          reviewTag.dataset.reviewJp = reviewData.jp || '';
+          reviewTag.dataset.lang = 'en';
+          reviewTag.textContent = 'Review';
           reviewTag.style.display = 'inline-block';
         } else {
           reviewTag.style.display = 'none';
         }
+
       }
 
       // トレンド情報更新
       const trendLabel = el.querySelector('.trend-label');
       const trendIcon = el.querySelector('.rank-trend img');
       const label = entryData.trend.toLowerCase();
+      const labelTextMap = {
+        "re": "Re-entry"
+      };
       if (trendLabel && trendIcon) {
-        trendLabel.textContent = entryData.trend;
+        trendLabel.textContent = labelTextMap[label] || entryData.trend;
         trendIcon.src = `../../../../images/trends/${label}-arrow.png`;
         trendIcon.className = `trend-icon-${label}`;
+        trendIcon.alt = `${entryData.trend} icon`;
+
+
+        // 🔽 この行を追加するだけでOK！
+trendIcon.onerror = () => trendIcon.style.display = 'none';
+
       }
 
      // WRPスコア更新完全統合 (titleCase版・最終確定版)
@@ -126,15 +143,111 @@ function titleCase(str) {
     setupPopups();
   });
 
-// ========== ポップアップロジック ==========
+
+// ========== ポップアップロジック（EN/JP切り替え: 閉じずに切替・ボタン制御追加） ==========
 function setupPopups() {
   document.querySelectorAll('.review-tag').forEach(btn => {
     btn.addEventListener('click', function (e) {
       e.stopPropagation();
       closeAll();
-      const review = this.dataset.review;
-      const popup = createPopup(review, 'review-popup');
-      positionPopup(this, popup);
+
+      const reviewEn = this.dataset.reviewEn?.trim() || '';
+      const reviewJp = this.dataset.reviewJp?.trim() || '';
+      let lang;
+
+      // 初期表示言語決定
+      if (reviewEn) {
+        lang = 'en';
+      } else if (reviewJp) {
+        lang = 'jp';
+      } else {
+        return;
+      }
+
+       // === ここから下が review-tag のクリックイベント内 ===
+const popup = document.createElement('div');
+popup.className = 'popup review-popup active';
+
+// popupクリック中は閉じないようにする
+popup.addEventListener('click', function (e) {
+  e.stopPropagation();
+});
+
+const contentEl = document.createElement('div');
+contentEl.className = 'popup-review-text';
+
+const switchBtn = document.createElement('button');
+switchBtn.className = 'review-switch-btn';
+
+const closeBtn = document.createElement('button');
+closeBtn.className = 'popup-close-btn';
+closeBtn.textContent = 'Close';
+
+// ✅🌸 花の画像をここで挿入
+const flowerTopLeft = document.createElement('img');
+flowerTopLeft.src = '../../../../images/popup/flowers_left02.png';
+flowerTopLeft.className = 'review-flower top-left';
+
+const flowerBottomRight = document.createElement('img');
+flowerBottomRight.src = '../../../../images/popup/flowers_right01.png';
+flowerBottomRight.className = 'review-flower bottom-right';
+
+// ⬇️ テキストとボタン設定
+function updateContent() {
+  if (lang === 'en') {
+    contentEl.textContent = reviewEn || 'English review not available.';
+    switchBtn.textContent = 'Switch to Japanese';
+  } else {
+    contentEl.textContent = reviewJp || 'Japanese review not available.';
+    switchBtn.textContent = 'Switch to English';
+  }
+// 🔁 ここでフォント用クラスを切り替える
+  contentEl.classList.remove('lang-en', 'lang-jp');
+  contentEl.classList.add(lang === 'jp' ? 'lang-jp' : 'lang-en');
+  switchBtn.disabled = false;
+  btn.dataset.lang = lang;
+}
+
+updateContent();
+
+switchBtn.addEventListener('click', function (e) {
+  e.stopPropagation();
+  lang = lang === 'en' ? 'jp' : 'en';
+  updateContent();
+  setTimeout(() => {
+  adjustFlowerSize(contentEl, flowerTopLeft, flowerBottomRight);
+}, 0); // ←💡追加！
+  adjustPopupPadding(popup); // ←💡追加！
+});
+
+// 🌟 ここにセットタイムアウトを追加！
+setTimeout(() => {
+  // 再度位置やサイズを微調整（delay後にDOMが安定するので）
+  adjustFlowerSize(contentEl, flowerTopLeft, flowerBottomRight);
+  adjustPopupPadding(popup);
+}, 0);
+
+closeBtn.addEventListener('click', function (e) {
+  e.stopPropagation();
+  closeAll();
+});
+
+// ✅ Append順に注意（花 → content → ボタン）
+popup.appendChild(flowerTopLeft);
+popup.appendChild(flowerBottomRight);
+popup.appendChild(contentEl);
+popup.appendChild(switchBtn);
+popup.appendChild(closeBtn);
+
+document.body.appendChild(popup);
+positionPopup(this, popup);
+
+// ✅🌸 ここで花サイズを調整する関数を呼び出す
+adjustFlowerSize(contentEl, flowerTopLeft, flowerBottomRight);
+
+adjustPopupPadding(popup); // ←💡追加！
+
+
     });
   });
 
@@ -148,8 +261,13 @@ function setupPopups() {
     });
   });
 
+
+  // documentクリック時にだけ閉じるように（popup内部のクリックでは閉じない）
   document.addEventListener('click', () => closeAll());
 }
+
+
+//ここから先は変えない、必要だから取っておく
 
 function closeAll() {
   document.querySelectorAll('.popup').forEach(p => p.remove());
@@ -172,3 +290,50 @@ function positionPopup(button, popup) {
 function capitalize(str) {
   return str.charAt(0).toUpperCase() + str.slice(1);
 }
+
+
+// 🌸 花のサイズを高さベース(offsetHeight)で調整する関数（完全版）
+function adjustFlowerSize() {
+  const reviewText = document.querySelector('.popup-review-text');
+  const flowerLeft = document.querySelector('.review-flower.top-left');
+  const flowerRight = document.querySelector('.review-flower.bottom-right');
+
+  if (!reviewText || !flowerLeft || !flowerRight) {
+    console.warn('[flower-resize.js] One or more elements not found. Aborting resize.');
+    return;
+  }
+
+  const height = reviewText.clientHeight;
+
+  let leftSize = 30;
+  let rightSize = 45;
+
+  if (height < 100) {
+    leftSize = 20;
+    rightSize = 35;
+  } else if (height > 200) {
+    leftSize = 35;
+    rightSize = 55;
+  } else if (height > 500) {
+    leftSize = 40;
+    rightSize = 70;
+  }
+
+  flowerLeft.style.width = `${leftSize}px`;
+  flowerRight.style.width = `${rightSize}px`;
+
+  console.log(`[flower-resize.js] Widths set to: ${leftSize}px / ${rightSize}px`);
+}
+
+//=====PopupのPadding-bottomを縮める
+
+function adjustPopupPadding(popup) {
+  const height = popup.offsetHeight;
+
+  if (height < 120) {
+    popup.style.paddingBottom = '10px';
+  } else {
+    popup.style.paddingBottom = '';
+  }
+}
+
