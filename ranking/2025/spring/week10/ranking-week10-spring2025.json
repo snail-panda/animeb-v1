@@ -1,18 +1,22 @@
 {
   "meta": {
-    "week": "week 10",
+    "week": "week 11",
     "season": "2025 Spring",
-    "ep_range": "ep.10-11"
+    "ep_range": "ep.11-12"
   },
   "entries": [
     {
       "rank": 1,
-      "trend": "UP",
+      "trend": "up",
       "title": "Shoshimin: How to Become Ordinary 2",
+      "jpTitle": "小市民シリーズ（第2期）",
       "episode": 11,
       "wrp_score": 9.75,
       "score": 10,
-      "review": "Absolutely mind-blowing.<br>Every element — the buildup, the puzzle pieces, the interwoven past and present cases, the subtle psychological moves by Kobato and Osanai — it all locked together into a masterclass of mystery storytelling.<br>The way even a so-called \"ordinary\" character casually stumbles upon a deduction that took Kobato and Osanai immense reasoning to reach — chilling, ironically. And the smallest details — like a simple discharge date quietly triggering Kobato's terrifying brilliance — show just how unthinkably sharp these two are. This isn't just mystery. It's on a level that honestly feels beyond what you'd expect from anime. Celestial.<br><br>Full Review: What's truly chilling is how all of these seemingly strange extensions of ordinary life quietly carry unsettling inconsistencies that piece by piece converge into something far more ominous and deeply unnerving beneath the surface.<br>Kobato's seemingly and weirdly uneventful hospital days, with Osanai never managing to meet him directly despite frequently visiting, serve as a slow-burning stage where every minor interaction, observation, and omission adds weight to the intricate mystery.<br>As the story masterfully weaves together the past accident, the unresolved threads of Hisaka's involvement, and the present investigation, every element locks precisely into place. The way both timelines intersect — with Osanai's discreet actions and Kobato's terrifyingly sharp deductions — pushes the tension into unsettling territory long before any big revelation hits.<br>The contrast between Kobato and Osanai's near inhuman brilliance, and the ironically simple, almost comical perspectives of ordinary bystanders — like the convenience store girl casually stumbling into conclusions that took the protagonists' painstaking efforts — adds a brilliantly layered irony unique to the series.<br>The intricate interplay between those striving to remain \"ordinary\" and the truly ordinary is anything but binary or straightforward — often ironic, subtly unsettling, and layered with a peculiar brilliance unique to this story.<br>The dread doesn't slam all at once; instead, it seeps in gradually, tightening with each step until you realize you're watching a mystery that operates on a level far beyond what most weekly anime ever attempt. This isn't just great — it's ascending into a rare echelon few series ever reach.<br>",
+      "review": {
+        "en": "Absolutely mind-blowing.<br>Every element — the buildup, the puzzle pieces, the interwoven past and present cases, the subtle psychological moves by Kobato and Osanai — it all locked together into a masterclass of mystery storytelling.<br>The way even a so-called \"ordinary\" character casually stumbles upon a deduction that took Kobato and Osanai immense reasoning to reach — chilling, ironically. And the smallest details — like a simple discharge date quietly triggering Kobato's terrifying brilliance — show just how unthinkably sharp these two are. This isn't just mystery. It's on a level that honestly feels beyond what you'd expect from anime. Celestial.<br><br>Full Review: What's truly chilling is how all of these seemingly strange extensions of ordinary life quietly carry unsettling inconsistencies that piece by piece converge into something far more ominous and deeply unnerving beneath the surface.<br>Kobato's seemingly and weirdly uneventful hospital days, with Osanai never managing to meet him directly despite frequently visiting, serve as a slow-burning stage where every minor interaction, observation, and omission adds weight to the intricate mystery.<br>As the story masterfully weaves together the past accident, the unresolved threads of Hisaka's involvement, and the present investigation, every element locks precisely into place. The way both timelines intersect — with Osanai's discreet actions and Kobato's terrifyingly sharp deductions — pushes the tension into unsettling territory long before any big revelation hits.<br>The contrast between Kobato and Osanai's near inhuman brilliance, and the ironically simple, almost comical perspectives of ordinary bystanders — like the convenience store girl casually stumbling into conclusions that took the protagonists' painstaking efforts — adds a brilliantly layered irony unique to the series.<br>The intricate interplay between those striving to remain \"ordinary\" and the truly ordinary is anything but binary or straightforward — often ironic, subtly unsettling, and layered with a peculiar brilliance unique to this story.<br>The dread doesn't slam all at once; instead, it seeps in gradually, tightening with each step until you realize you're watching a mystery that operates on a level far beyond what most weekly anime ever attempt. This isn't just great — it's ascending into a rare echelon few series ever reach.",
+        "jp": ""
+      },
       "wrp_breakdown": {
         "base_score": 5,
         "animation": 0.75,
@@ -24,12 +28,16 @@
     },
     {
       "rank": 2,
-      "trend": "DOWN",
+      "trend": "down",
       "title": "The Apothecary Diaries 2nd Season",
+      "jpTitle": "薬屋のひとりごと 第2期（第2クール）",
       "episode": 46,
       "wrp_score": 9.6,
       "score": 10,
-      "review": "",
+      "review": {
+        "en": "",
+        "jp": ""
+      },
       "wrp_breakdown": {
         "base_score": 5,
         "animation": 0.75,
@@ -41,12 +49,16 @@
     },
     {
       "rank": 3,
-      "trend": "DOWN",
+      "trend": "down",
       "title": "The Catcher in the Ballpark!",
+      "jpTitle": "ボールパークでつかまえて！",
       "episode": 11,
       "wrp_score": 9.5,
       "score": 10,
-      "review": "This episode is, in a way, the culmination of what it's been building up to. It beautifully depicted the bitter defeat, while revealing even more clearly how deeply connected everyone in the ballpark has become — the players, the fans, the beer girls, the staff, the security, and everyone whose lives have somehow become connected through this place — Continue Watching",
+      "review": {
+        "en": "This episode is, in a way, the culmination of what it's been building up to. It beautifully depicted the bitter defeat, while revealing even more clearly how deeply connected everyone in the ballpark has become — the players, the fans, the beer girls, the staff, the security, and everyone whose lives have somehow become connected through this place — Continue Watching.",
+        "jp": ""
+      },
       "wrp_breakdown": {
         "base_score": 5,
         "animation": 0.7,
@@ -58,12 +70,16 @@
     },
     {
       "rank": 4,
-      "trend": "STAY",
+      "trend": "stay",
       "title": "Mobile Suit Gundam GQuuuuuuX",
+      "jpTitle": "機動戦士Gundam GQuuuuuuX",
       "episode": 10,
       "wrp_score": 9.4,
       "score": 9,
-      "review": "This was one of the most epic episodes this season. It’s not just about nostalgia or meta/parallel possibilities—it's more about how creativity and imagination blend seamlessly with entertainment. It’s not only for longtime Gundam fans, but also surprisingly engaging for those unfamiliar with the series. While it’s still not for everyone, it resonated with more viewers than I initially expected. It was simply a (inter)stellar episode.",
+      "review": {
+        "en": "This was one of the most epic episodes this season. It’s not just about nostalgia or meta/parallel possibilities—it's more about how creativity and imagination blend seamlessly with entertainment. It’s not only for longtime Gundam fans, but also surprisingly engaging for those unfamiliar with the series. While it’s still not for everyone, it resonated with more viewers than I initially expected. It was simply a (inter)stellar episode.",
+        "jp": ""
+      },
       "wrp_breakdown": {
         "base_score": 5,
         "animation": 0.75,
@@ -75,12 +91,16 @@
     },
     {
       "rank": 5,
-      "trend": "UP",
+      "trend": "up",
       "title": "From Old Country Bumpkin to Master Swordsman",
+      "jpTitle": "片田舎のおっさん、剣聖になる",
       "episode": 11,
       "wrp_score": 9.3,
       "score": 9,
-      "review": "Wow, what just happened? The visuals, pacing, structure, and everything suddenly got to another level. It's not just about the fighting scenes — now it has everything: a fine script, well-crafted structure, strong character development, and superb action sequences. And all that in a single episode? Seriously impressive. Wish it had happened earlier — it easily could've earned A tier or even higher — Continue Watching.",
+      "review": {
+        "en": "Wow, what just happened? The visuals, pacing, structure, and everything suddenly got to another level. It's not just about the fighting scenes — now it has everything: a fine script, well-crafted structure, strong character development, and superb action sequences. And all that in a single episode? Seriously impressive. Wish it had happened earlier — it easily could've earned A tier or even higher — Continue Watching.",
+        "jp": ""
+      },
       "wrp_breakdown": {
         "base_score": 5,
         "animation": 0.75,
@@ -92,12 +112,16 @@
     },
     {
       "rank": "spotlight",
-      "trend": "DOWN",
+      "trend": "down",
       "title": "Sword of the Demon Hunter",
-      "episode": 10,
-      "wrp_score": 9,
+      "jpTitle": "鬼人幻燈抄",
+      "episode": 11,
+      "wrp_score": 9.05,
       "score": 9,
-      "review": "",
+      "review": {
+        "en": "",
+        "jp": ""
+      },
       "wrp_breakdown": {
         "base_score": 5,
         "animation": 0.7,
@@ -109,12 +133,16 @@
     },
     {
       "rank": "editor's pick",
-      "trend": "UP",
+      "trend": "down",
       "title": "Apocalypse Hotel",
+      "jpTitle": "アポカリプスホテル",
       "episode": 10,
-      "wrp_score": 8.5,
-      "score": 8,
-      "review": "I didn’t understand much in this episode, and honestly, it just didn’t click with me at all. Why did Yachiyo get so violent? Was that ceramic guy Ponko’s brother or something? And what did that final plate have to do with anything? Am I the only one who feels left behind? Or maybe I was just totally swamped.",
+      "wrp_score": 7.7,
+      "score": 7,
+      "review": {
+        "en": "I didn’t understand much in this episode, and honestly, it just didn’t click with me at all. Why did Yachiyo get so violent? Was that ceramic guy Ponko’s brother or something? And what did that final plate have to do with anything? Am I the only one who feels left behind? Or maybe I was just totally swamped.",
+        "jp": ""
+      },
       "wrp_breakdown": {
         "base_score": 5,
         "animation": 0.65,
@@ -126,12 +154,16 @@
     },
     {
       "rank": "dookie",
-      "trend": "STAY",
+      "trend": "stay",
       "title": "Can a Boy-Girl Friendship Survive?",
-      "episode": 10,
-      "wrp_score": 4.8,
-      "score": 4,
-      "review": "",
+      "jpTitle": "男女の友情は成立する？（いや、しないっ!!）",
+      "episode": 11,
+      "wrp_score": 6.6,
+      "score": 6,
+      "review": {
+        "en": "",
+        "jp": ""
+      },
       "wrp_breakdown": {
         "base_score": 5,
         "animation": 0.5,
