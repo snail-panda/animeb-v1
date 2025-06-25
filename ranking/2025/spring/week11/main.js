@@ -232,13 +232,12 @@ closeBtn.addEventListener('click', function (e) {
   closeAll();
 });
 
-// 🌸 Append 順序を変える
-contentEl.appendChild(flowerBottomRight);
+// ✅ Append順に注意（花 → content → ボタン）
 popup.appendChild(flowerTopLeft);
-popup.appendChild(contentEl);  // flowerBottomRightはここに含まれてる
+popup.appendChild(flowerBottomRight);
+popup.appendChild(contentEl);
 popup.appendChild(switchBtn);
 popup.appendChild(closeBtn);
-
 
 document.body.appendChild(popup);
 positionPopup(this, popup);
@@ -247,11 +246,6 @@ positionPopup(this, popup);
 adjustFlowerSize(contentEl, flowerTopLeft, flowerBottomRight);
 
 adjustPopupPadding(popup); // ←💡追加！
-
-// ✅🌸 右下花画像の位置を scrollHeight に基づいて動的調整
-setTimeout(() => {
-  positionFlowerBottomRight(popup, flowerBottomRight);
-}, 0);
 
 
     });
@@ -342,20 +336,4 @@ function adjustPopupPadding(popup) {
     popup.style.paddingBottom = '';
   }
 }
-
-// ✅🌸 flowerBottomRight を scrollHeight に合わせて配置する新関数
-
-function positionFlowerBottomRight(popup, flowerBottomRight) {
-  const scrollHeight = popup.scrollHeight;
-  const offset = 80; // 少し上に上げたい場合の余白（調整可）
- // flowerBottomRight に対するスタイル操作をこう変える
-flowerBottomRight.style.position = 'relative'; 
-flowerBottomRight.style.display = 'block';
-flowerBottomRight.style.marginBottom = '2%';
-flowerBottomRight.style.marginLeft = 'auto';
-flowerBottomRight.style.marginRight = '0';
-
-  flowerBottomRight.style.top = `${scrollHeight - offset}px`;
-}
-
 
