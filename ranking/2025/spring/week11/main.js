@@ -346,7 +346,7 @@ function adjustPopupPadding(popup) {
 
 function positionFlowerBottomRight(popup, flowerBottomRight) {
   const scrollHeight = popup.scrollHeight;
-  const offset = 60; // 少し上に上げたい場合の余白（調整可）
+  const offset = 80; // 少し上に上げたい場合の余白（調整可）
   flowerBottomRight.style.position = 'absolute';
   flowerBottomRight.style.top = `${scrollHeight - offset}px`;
 }
