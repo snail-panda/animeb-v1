@@ -2,17 +2,21 @@
   "meta": {
     "week": "week 7",
     "season": "2025 Spring",
-    "ep_range": "ep.7-8"
+    "ep_range": "ep.11-12"
   },
   "entries": [
     {
       "rank": 1,
-      "trend": "UP",
+      "trend": "up",
       "title": "A Ninja and an Assassin Under One Roof",
+      "jpTitle": "忍者と殺し屋のふたりぐらし",
       "episode": 7,
       "wrp_score": 10.3,
       "score": 11,
-      "review": "Four thumbs Up! Absolutely brilliant —exquisite even! One of the best episodes of this cour so far! I'm so glad that I didn't drop this. Satire of modern life. Light and shadow. Shadow and shadow. The self and the self. The self and the world. The individual and the collective. Konoha and Satoko. Aoko and Aoi—Continue to watch.",
+      "review": {
+        "en": "Four thumbs Up! Absolutely brilliant —exquisite even! One of the best episodes of this cour so far! I'm so glad that I didn't drop this. Satire of modern life. Light and shadow. Shadow and shadow. The self and the self. The self and the world. The individual and the collective. Konoha and Satoko. Aoko and Aoi—Continue to watch.",
+        "jp": ""
+      },
       "wrp_breakdown": {
         "base_score": 5,
         "animation": 0.85,
@@ -24,12 +28,16 @@
     },
     {
       "rank": 2,
-      "trend": "STAY",
+      "trend": "stay",
       "title": "Shoshimin: How to Become Ordinary 2",
+      "jpTitle": "小市民シリーズ（第2期）",
       "episode": 8,
       "wrp_score": 9.7,
       "score": 10,
-      "review": "Absolutely mind-blowing! Can't believe what I just watched. Even after such an extremely, intricately crafted master piece arc—Kurikinton Incident—, how can possibly someone expect something like this to come? After a year of separation, Kobato and Osanai are finally reconciled and officially in a relationship now. Jogoro's happiness has reached its culmination, but it suddenly turned into a tragedy by a catastorophic car accident.  Every detail is portrayed perfectly, and the structure, pacing, charactor development are also  impeccable. As the tilte says, thisi car accident must be deeply related to Osanai as another car accident occurred around them back in the middle school to a Jogoro's ex-class mate, who allegedly put an end to his life according to Dojima. This is easily one of the best beginnings of a new arc I could possibly imagine. Kudos to the brilliance and passion of the people who work for this anime and thier fantastic job. Let me just say it once more—Exquisit.",
+      "review": {
+        "en": "Absolutely mind-blowing! Can't believe what I just watched. Even after such an extremely, intricately crafted master piece arc—Kurikinton Incident—, how can possibly someone expect something like this to come? After a year of separation, Kobato and Osanai are finally reconciled and officially in a relationship now. Jogoro's happiness has reached its culmination, but it suddenly turned into a tragedy by a catastorophic car accident.  Every detail is portrayed perfectly, and the structure, pacing, charactor development are also  impeccable. As the tilte says, thisi car accident must be deeply related to Osanai as another car accident occurred around them back in the middle school to a Jogoro's ex-class mate, who allegedly put an end to his life according to Dojima. This is easily one of the best beginnings of a new arc I could possibly imagine. Kudos to the brilliance and passion of the people who work for this anime and thier fantastic job. Let me just say it once more—Exquisit.",
+        "jp": ""
+      },
       "wrp_breakdown": {
         "base_score": 5,
         "animation": 0.75,
@@ -41,12 +49,16 @@
     },
     {
       "rank": 3,
-      "trend": "UP",
+      "trend": "up",
       "title": "Apocalypse Hotel",
+      "jpTitle": "アポカリプスホテル",
       "episode": 7,
       "wrp_score": 9.5,
       "score": 10,
-      "review": "",
+      "review": {
+        "en": "",
+        "jp": ""
+      },
       "wrp_breakdown": {
         "base_score": 5,
         "animation": 0.75,
@@ -58,12 +70,16 @@
     },
     {
       "rank": 4,
-      "trend": "UP",
+      "trend": "up",
       "title": "Mobile Suit Gundam GQuuuuuuX",
+      "jpTitle": "機動戦士Gundam GQuuuuuuX",
       "episode": 7,
       "wrp_score": 9.3,
       "score": 9,
-      "review": "",
+      "review": {
+        "en": "",
+        "jp": ""
+      },
       "wrp_breakdown": {
         "base_score": 5,
         "animation": 0.75,
@@ -75,12 +91,16 @@
     },
     {
       "rank": 5,
-      "trend": "UP",
+      "trend": "up",
       "title": "The Apothecary Diaries 2nd Season",
+      "jpTitle": "薬屋のひとりごと 第2期（第2クール）",
       "episode": 43,
       "wrp_score": 9.2,
       "score": 9,
-      "review": "",
+      "review": {
+        "en": "",
+        "jp": ""
+      },
       "wrp_breakdown": {
         "base_score": 5,
         "animation": 0.75,
@@ -92,12 +112,16 @@
     },
     {
       "rank": "spotlight",
-      "trend": "DOWN",
+      "trend": "down",
       "title": "Sword of the Demon Hunter",
+      "jpTitle": "鬼人幻燈抄",
       "episode": 8,
       "wrp_score": 8.8,
       "score": 8,
-      "review": "This could easily be a 9. The intricately depicted storytelling is truly compelling—no shortcuts, no half-baked developments. Though it's just the beginning of a new arc, it already draws the viewer in completely. The only hesitation I have is with the onmyōji character, who feels a bit too stereotypical for this type of story—especially with Kōji Yusa voicing him. Still, perhaps not. He plays the role exactly as needed, and it’s far too soon to judge. I should give it the benefit of the doubt, especially since from the very beginning, I’ve felt nothing but full dedication and devotion from Yokohama Animation Lab. No worries.",
+      "review": {
+        "en": "This could easily be a 9. The intricately depicted storytelling is truly compelling—no shortcuts, no half-baked developments. Though it's just the beginning of a new arc, it already draws the viewer in completely. The only hesitation I have is with the onmyōji character, who feels a bit too stereotypical for this type of story—especially with Kōji Yusa voicing him. Still, perhaps not. He plays the role exactly as needed, and it’s far too soon to judge. I should give it the benefit of the doubt, especially since from the very beginning, I’ve felt nothing but full dedication and devotion from Yokohama Animation Lab. No worries.",
+        "jp": ""
+      },
       "wrp_breakdown": {
         "base_score": 5,
         "animation": 0.65,
@@ -109,12 +133,16 @@
     },
     {
       "rank": "editor's pick",
-      "trend": "UP",
+      "trend": "up",
       "title": "Kowloon Generic Romance",
+      "jpTitle": "九龍ジェネリックロマンス",
       "episode": 8,
       "wrp_score": 8.6,
       "score": 8,
-      "review": "The pacing feels off—like the story is finally starting to move, but it’s just too little, too late. Kudou finally gave in and spent the night with Kujirai, and while it should feel meaningful, I just kept thinking, Why now? Why not earlier? That goes not only for their relationship, but also for the central mystery. It was intriguing at first—layered, nostalgic, full of potential—but after eight episodes, we’ve learned almost nothing. They’ve kept everything shrouded, shifted focus to side characters at odd times, and rushed past important developments. The moment to truly enjoy this story has already passed. Despite this “progress,” we’re still swimming in unanswered questions, and the mystery just isn’t compelling anymore.",
+      "review": {
+        "en": "The pacing feels off—like the story is finally starting to move, but it’s just too little, too late. Kudou finally gave in and spent the night with Kujirai, and while it should feel meaningful, I just kept thinking, Why now? Why not earlier? That goes not only for their relationship, but also for the central mystery. It was intriguing at first—layered, nostalgic, full of potential—but after eight episodes, we’ve learned almost nothing. They’ve kept everything shrouded, shifted focus to side characters at odd times, and rushed past important developments. The moment to truly enjoy this story has already passed. Despite this “progress,” we’re still swimming in unanswered questions, and the mystery just isn’t compelling anymore.",
+        "jp": ""
+      },
       "wrp_breakdown": {
         "base_score": 5,
         "animation": 0.65,
@@ -126,19 +154,23 @@
     },
     {
       "rank": "dookie",
-      "trend": "DOWN",
+      "trend": "down",
       "title": "Once Upon a Witch's Death",
+      "jpTitle": "ある魔女が死ぬまで",
       "episode": 8,
       "wrp_score": 4.25,
       "score": 4,
-      "review": "Jaw Dropping in the Worst Way. Can't say a word.<br><br>1. Reckless Disregard for Mentor's Warnings<br>Meg, cursed to die within a year, decides to ignore every piece of advice from her all-powerful mentor. The classic “mentor sacrifices herself for a reckless apprentice” trope plays out—but in the most brainless way imaginable.<br>2. Time’s Ticking… Still No Tears<br>Despite the deadline on her life, Meg still hasn’t gathered the necessary “tears” to lift her curse. Instead of showing urgency, she drifts into yet another random crisis, as if time doesn’t exist.<br>3. Still Shocked by Her Own Special Powers?<br>For what feels like the tenth time, Meg acts surprised that she alone can see something others can’t. It’s an ability she’s used multiple times, acknowledged by her mentor, and yet... she just forgot? Again?<br>4. Demon Curse? Sure, Let’s Touch It<br>Her mentor panics—literally trembles—at the mention of a demonic curse that’s even more lethal than the one already killing Meg. What does Meg do? Touches it. No plan. No hesitation. Just raw stupidity.<br>5. Secret Altar Found in Seconds<br>She waltzes into a suspicious home, glances around, and instantly finds a hidden passage to a demonic altar. It’s meant to be secret. It takes her a seconds. Peak immersion: gone.<br>6. Mentor Loses a Thumb. Nobody Cares.The mentor miraculously shows up (convenient timing!), defeats the demon with surprising ease, but loses her thumb in the process. Meg shows zero remorse. No apology. Just blank stares. Then she declares her dream to be a “great witch.”...How about some self-awareness first?<br>7. Even the Art Gave Up<br>By the end, even the animation quality nosedives. Faces morph between cuts, proportions collapse—it’s like the animators themselves wanted out. Storytelling, direction, tension—all abandoned. And now, visuals too.<br>Final Thought<br>It’s not just a weak episode—it’s an insult to its own setup. Bad choices, poor pacing, and total emotional detachment.—Every red flag was waved—and she charged right in.",
+      "review": {
+        "en": "Jaw Dropping in the Worst Way. Can't say a word.<br><br>1. Reckless Disregard for Mentor's Warnings<br>Meg, cursed to die within a year, decides to ignore every piece of advice from her all-powerful mentor. The classic “mentor sacrifices herself for a reckless apprentice” trope plays out—but in the most brainless way imaginable.<br>2. Time’s Ticking… Still No Tears<br>Despite the deadline on her life, Meg still hasn’t gathered the necessary “tears” to lift her curse. Instead of showing urgency, she drifts into yet another random crisis, as if time doesn’t exist.<br>3. Still Shocked by Her Own Special Powers?<br>For what feels like the tenth time, Meg acts surprised that she alone can see something others can’t. It’s an ability she’s used multiple times, acknowledged by her mentor, and yet... she just forgot? Again?<br>4. Demon Curse? Sure, Let’s Touch It<br>Her mentor panics—literally trembles—at the mention of a demonic curse that’s even more lethal than the one already killing Meg. What does Meg do? Touches it. No plan. No hesitation. Just raw stupidity.<br>5. Secret Altar Found in Seconds<br>She waltzes into a suspicious home, glances around, and instantly finds a hidden passage to a demonic altar. It’s meant to be secret. It takes her a seconds. Peak immersion: gone.<br>6. Mentor Loses a Thumb. Nobody Cares. The mentor miraculously shows up (convenient timing!), defeats the demon with surprising ease, but loses her thumb in the process. Meg shows zero remorse. No apology. Just blank stares. Then she declares her dream to be a “great witch.”...How about some self-awareness first?<br>7. Even the Art Gave Up<br>By the end, even the animation quality nosedives. Faces morph between cuts, proportions collapse—it’s like the animators themselves wanted out. Storytelling, direction, tension—all abandoned. And now, visuals too.<br>Final Thought<br>It’s not just a weak episode—it’s an insult to its own setup. Bad choices, poor pacing, and total emotional detachment.—Every red flag was waved—and she charged right in.",
+        "jp": ""
+      },
       "wrp_breakdown": {
         "base_score": 5,
-        "animation": 0.4,
+        "animation": 0.5,
         "script": 0.3,
-        "direction": 0.2,
-        "charm": 0.1,
-        "overall": -1.75
+        "direction": 0.3,
+        "charm": 0.2,
+        "overall": -1.5
       }
     }
   ]
