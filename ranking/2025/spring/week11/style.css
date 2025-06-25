@@ -414,7 +414,7 @@ body {
 
 /* --- ポップアップ本文 --- */
 .popup-review-text {
-  font-family: 'Fira Sans', 'Barlow Condensed', 'Fira Sans', sans-serif;
+  font-family: 'Barlow Condensed', 'Fira Sans', sans-serif;
   font-size: 13.5px;
   font-weight: 500;
   color: #333;
