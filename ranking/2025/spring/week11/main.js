@@ -351,7 +351,7 @@ function positionFlowerBottomRight(popup, flowerBottomRight) {
  // flowerBottomRight に対するスタイル操作をこう変える
 flowerBottomRight.style.position = 'relative'; 
 flowerBottomRight.style.display = 'block';
-flowerBottomRight.style.marginTop = '20px';
+flowerBottomRight.style.marginBottom = '2%';
 flowerBottomRight.style.marginLeft = 'auto';
 flowerBottomRight.style.marginRight = '0';
 
