@@ -232,12 +232,13 @@ closeBtn.addEventListener('click', function (e) {
   closeAll();
 });
 
-// ✅ Append順に注意（花 → content → ボタン）
+// 🌸 Append 順序を変える
+contentEl.appendChild(flowerBottomRight);
 popup.appendChild(flowerTopLeft);
-popup.appendChild(flowerBottomRight);
-popup.appendChild(contentEl);
+popup.appendChild(contentEl);  // flowerBottomRightはここに含まれてる
 popup.appendChild(switchBtn);
 popup.appendChild(closeBtn);
+
 
 document.body.appendChild(popup);
 positionPopup(this, popup);
@@ -347,7 +348,13 @@ function adjustPopupPadding(popup) {
 function positionFlowerBottomRight(popup, flowerBottomRight) {
   const scrollHeight = popup.scrollHeight;
   const offset = 80; // 少し上に上げたい場合の余白（調整可）
-  flowerBottomRight.style.position = 'absolute';
+ // flowerBottomRight に対するスタイル操作をこう変える
+flowerBottomRight.style.position = 'relative'; 
+flowerBottomRight.style.display = 'block';
+flowerBottomRight.style.marginTop = '20px';
+flowerBottomRight.style.marginLeft = 'auto';
+flowerBottomRight.style.marginRight = '0';
+
   flowerBottomRight.style.top = `${scrollHeight - offset}px`;
 }
 
