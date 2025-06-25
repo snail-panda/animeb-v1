@@ -247,6 +247,11 @@ adjustFlowerSize(contentEl, flowerTopLeft, flowerBottomRight);
 
 adjustPopupPadding(popup); // ←💡追加！
 
+// ✅🌸 右下花画像の位置を scrollHeight に基づいて動的調整
+setTimeout(() => {
+  positionFlowerBottomRight(popup, flowerBottomRight);
+}, 0);
+
 
     });
   });
@@ -336,4 +341,14 @@ function adjustPopupPadding(popup) {
     popup.style.paddingBottom = '';
   }
 }
+
+// ✅🌸 flowerBottomRight を scrollHeight に合わせて配置する新関数
+
+function positionFlowerBottomRight(popup, flowerBottomRight) {
+  const scrollHeight = popup.scrollHeight;
+  const offset = 20; // 少し上に上げたい場合の余白（調整可）
+  flowerBottomRight.style.position = 'absolute';
+  flowerBottomRight.style.top = `${scrollHeight - offset}px`;
+}
+
 
