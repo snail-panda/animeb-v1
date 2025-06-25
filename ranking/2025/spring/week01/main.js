@@ -37,7 +37,7 @@ function adjustScoreBars() {
 }
 
 // ========== JSON読み込み & DOM更新 ==========
-fetch('ranking-week01-spring2025.json')
+fetch('ranking-week11-spring2025.json')
   .then(response => response.json())
   .then(data => {
     // メタ情報更新
@@ -220,6 +220,13 @@ switchBtn.addEventListener('click', function (e) {
   adjustPopupPadding(popup); // ←💡追加！
 });
 
+// 🌟 ここにセットタイムアウトを追加！
+setTimeout(() => {
+  // 再度位置やサイズを微調整（delay後にDOMが安定するので）
+  adjustFlowerSize(contentEl, flowerTopLeft, flowerBottomRight);
+  adjustPopupPadding(popup);
+}, 0);
+
 closeBtn.addEventListener('click', function (e) {
   e.stopPropagation();
   closeAll();
@@ -299,17 +306,17 @@ function adjustFlowerSize() {
   const height = reviewText.clientHeight;
 
   let leftSize = 30;
-  let rightSize = 60;
+  let rightSize = 45;
 
   if (height < 100) {
     leftSize = 20;
-    rightSize = 40;
+    rightSize = 35;
   } else if (height > 200) {
-    leftSize = 40;
-    rightSize = 75;
+    leftSize = 35;
+    rightSize = 55;
   } else if (height > 500) {
-    leftSize = 55;
-    rightSize = 100;
+    leftSize = 40;
+    rightSize = 70;
   }
 
   flowerLeft.style.width = `${leftSize}px`;
