@@ -74,6 +74,10 @@ body {
   margin-left: 5px;
 }
 
+.season-title {
+   margin-right: 0.5rem;
+}
+
 .ep-range {
   font-family: 'Special Gothic Condensed One', 'Bebas Neue', sans-serif;
   font-size: 13px;
