@@ -258,8 +258,16 @@ flowerBottomRight.className = 'review-flower bottom-right';
 // ⬇️ テキストとボタン設定
 function updateContent() {
   if (lang === 'en') {
-    contentEl.textContent = reviewEn || 'English review not available.';
+
+console.log("📦 reviewEn =", reviewEn);
+
+    contentEl.innerHTML = reviewEn || 'English review not available.';
     switchBtn.textContent = 'Switch to Japanese';
+
+ console.log("🌸 contentEl.innerHTML after setting:", contentEl.innerHTML);
+  console.log("🧱 DOM:", contentEl);
+
+
   } else {
     contentEl.textContent = reviewJp || 'Japanese review not available.';
     switchBtn.textContent = 'Switch to English';
