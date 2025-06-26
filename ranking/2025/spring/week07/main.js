@@ -54,10 +54,32 @@ if (weekEl && data.meta.week) {
 
     // ========== PATCH: duration and ep_range display ==========
 
+// （どこか上の方に）関数定義を追加
+function formatDuration(durationStr) {
+  const p = durationStr.split(/[-\s]+/);
+  return `${p[0]}/${p[1]}/${p[2]}–${p[3]}/${p[4]}/${p[5]}`;
+}
+
+
 // Duration を <span class="duration"> に挿入（Jsonで括弧なし前提）
 const durationEl = document.querySelector('.duration');
 if (durationEl && data.meta.duration) {
-  // 最初の「MM-DD」部分だけ `/` に直し、曜日範囲部分はそのまま残す
+  const rawDuration = data.meta.duration;
+
+  // ↓ここで formatDuration 関数を使って整形
+  const formattedDuration = formatDuration(rawDuration);
+
+  // 表示に反映
+  durationCell.textContent = `(${formattedDuration})`;
+}
+
+/*元の初心者向けバージョン(duration部分）
+// ========== PATCH: duration and ep_range display ==========
+
+// Duration を <span class="duration"> に挿入（Jsonで括弧なし前提）
+const durationEl = document.querySelector('.duration');
+if (durationEl && data.meta.duration) {
+  // 最初の「MM-DD」部分だけ / に直し、曜日範囲部分はそのまま残す
   const durationRaw = data.meta.duration;
 
   // 例: "05-18/Sun–05/24/Sat"
@@ -68,10 +90,13 @@ const rawDuration = entry.duration;
 const parts = rawDuration.split(/[-\s]+/); 
 
 // 組み立てる：05/18/Sat–05/24/Fri
-const formattedDuration = `${parts[0]}/${parts[1]}/${parts[2]}–${parts[3]}/${parts[4]}/${parts[5]}`;
+const formattedDuration = ${parts[0]}/${parts[1]}/${parts[2]}–${parts[3]}/${parts[4]}/${parts[5]};
 
 // 表示に反映
-durationCell.textContent = `(${formattedDuration})`;
+durationCell.textContent = (${formattedDuration});
+
+//=============ここまで
+*/
 
 
 
