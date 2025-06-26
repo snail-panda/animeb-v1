@@ -70,7 +70,7 @@ if (durationEl && data.meta.duration) {
   const formattedDuration = formatDuration(rawDuration);
 
   // 表示に反映
-  durationCell.textContent = `(${formattedDuration})`;
+  durationEl.textContent = `(${formattedDuration})`;
 }
 
 /*元の初心者向けバージョン(duration部分）
