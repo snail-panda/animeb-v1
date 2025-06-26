@@ -63,7 +63,7 @@ body {
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  max-width: 194px;
+  max-width: 195px;
   font-family: 'Special Gothic Condensed One', 'Bebas Neue', 'sans-serif';
   color: #999999;
   font-weight: 500;
@@ -75,7 +75,7 @@ body {
 }
 
 .season-title {
-   margin-right: 0.05rem;
+   margin-right: 0.08rem;
 }
 
 .ep-range {
