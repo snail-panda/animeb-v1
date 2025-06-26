@@ -61,9 +61,9 @@ body {
 
 .sub-header {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
-  max-width: 196px;
+  max-width: 194px;
   font-family: 'Special Gothic Condensed One', 'Bebas Neue', 'sans-serif';
   color: #999999;
   font-weight: 500;
