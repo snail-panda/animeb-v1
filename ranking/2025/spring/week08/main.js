@@ -258,10 +258,10 @@ flowerBottomRight.className = 'review-flower bottom-right';
 // ⬇️ テキストとボタン設定
 function updateContent() {
   if (lang === 'en') {
-    contentEl.textContent = reviewEn || 'English review not available.';
+    contentEl.innerHTML = reviewEn || 'English review not available.';
     switchBtn.textContent = 'Switch to Japanese';
   } else {
-    contentEl.textContent = reviewJp || 'Japanese review not available.';
+    contentEl.innerHTML = reviewJp || 'Japanese review not available.';
     switchBtn.textContent = 'Switch to English';
   }
 // 🔁 ここでフォント用クラスを切り替える
