@@ -47,11 +47,19 @@ fetch('ranking-week07-spring2025.json')
 
     // ========== PATCH: duration and ep_range display ==========
 
-// Duration を <span class="duration"> に挿入（括弧込み前提）
+// Duration を <span class="duration"> に挿入（Jsonで括弧なし前提）
 const durationEl = document.querySelector('.duration');
 if (durationEl && data.meta.duration) {
-  durationEl.textContent = ` (${data.meta.duration})`;
+  // 最初の「MM-DD」部分だけ `/` に直し、曜日範囲部分はそのまま残す
+  const durationRaw = data.meta.duration;
+
+  // 例: "05-18/Sun–24/Sat"
+  // 先頭部分の「MM-DD」を変換し、以降はそのまま
+  const formatted = durationRaw.replace(/^(\d{2})-(\d{2})/, '$1/$2');
+
+  durationEl.textContent = ` (${formatted})`;
 }
+
 
 // Ep Range を <span class="ep-range"> に挿入（Ep の E は大文字化）
 const epRangeEl = document.querySelector('.ep-range');
