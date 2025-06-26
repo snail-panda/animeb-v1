@@ -36,14 +36,14 @@ body {
   letter-spacing: -0.2px;
   transform: scale(0.75, 1.1);
   margin: 0;
-  margin-right: -0.5rem;
+  margin-right: -0.8rem;
   margin-left: -0.5rem;
 }
 
 .header .week-title {
   font-family: 'Anton', sans-serif;
   font-size: 18px;
-  letter-spacing: -0.04rem;
+  letter-spacing: -0.02rem;
   word-spacing: -0.13rem;
   transform: scale(0.8, 1.1);
   color: #8E0000;
