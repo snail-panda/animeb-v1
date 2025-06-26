@@ -60,12 +60,19 @@ if (durationEl && data.meta.duration) {
   // 最初の「MM-DD」部分だけ `/` に直し、曜日範囲部分はそのまま残す
   const durationRaw = data.meta.duration;
 
-  // 例: "05-18/Sun–24/Sat"
-  // 先頭部分の「MM-DD」を変換し、以降はそのまま
-  const formatted = durationRaw.replace(/^(\d{2})-(\d{2})/, '$1/$2');
+  // 例: "05-18/Sun–05/24/Sat"
+  // --- 修正された duration 表示処理 ---
+const rawDuration = entry.duration;
 
-  durationEl.textContent = ` (${formatted})`;
-}
+// 正規表現で分割： ["05", "18", "Sun", "05", "24", "Sat"]
+const parts = rawDuration.split(/[-\s]+/); 
+
+// 組み立てる：05/18/Sat–05/24/Fri
+const formattedDuration = `${parts[0]}/${parts[1]}/${parts[2]}–${parts[3]}/${parts[4]}/${parts[5]}`;
+
+// 表示に反映
+durationCell.textContent = `(${formattedDuration})`;
+
 
 
 // Ep Range を <span class="ep-range"> に挿入（Ep の E は大文字化）
