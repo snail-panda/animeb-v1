@@ -63,6 +63,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  max-width: 200px;
   font-family: 'Special Gothic Condensed One', 'Bebas Neue', 'sans-serif';
   color: #999999;
   font-weight: 500;
@@ -83,7 +84,6 @@ body {
   letter-spacing: 0.01rem;
   margin-left: 0;
   text-align: right;
-  max-width: 120px;
     
 }
 
