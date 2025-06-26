@@ -45,6 +45,22 @@ fetch('ranking-week07-spring2025.json')
     document.querySelector('.season-title').textContent = data.meta.season;
     document.title = `Anime Weekly Ranking - ${data.meta.week}`;
 
+    // ========== PATCH: duration and ep_range display ==========
+
+// Duration を <span class="duration"> に挿入（括弧込み前提）
+const durationEl = document.querySelector('.duration');
+if (durationEl && data.meta.duration) {
+  durationEl.textContent = ` (${data.meta.duration})`;
+}
+
+// Ep Range を <span class="ep-range"> に挿入（Ep の E は大文字化）
+const epRangeEl = document.querySelector('.ep-range');
+if (epRangeEl && data.meta.ep_range) {
+  const formatted = data.meta.ep_range.replace(/^ep/i, 'Ep'); // Epだけ大文字化
+  epRangeEl.textContent = `[${formatted}]`;
+}
+
+
     // エントリー取得
     const entryElements = document.querySelectorAll('.entry');
 
