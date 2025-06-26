@@ -45,6 +45,13 @@ fetch('ranking-week07-spring2025.json')
     document.querySelector('.season-title').textContent = data.meta.season;
     document.title = `Anime Weekly Ranking - ${data.meta.week}`;
 
+　　// ✅ WEEK を全大文字表示に変更
+　　const weekEl = document.querySelector('.week-title');
+if (weekEl && data.meta.week) {
+  weekEl.textContent = data.meta.week.toUpperCase();  // 🔁 完全に全大文字化
+}
+
+
     // ========== PATCH: duration and ep_range display ==========
 
 // Duration を <span class="duration"> に挿入（Jsonで括弧なし前提）
