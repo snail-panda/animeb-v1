@@ -269,7 +269,7 @@ console.log("📦 reviewEn =", reviewEn);
 
 
   } else {
-    contentEl.textContent = reviewJp || 'Japanese review not available.';
+    contentEl.innerHTML = reviewJp || 'Japanese review not available.';
     switchBtn.textContent = 'Switch to English';
   }
 // 🔁 ここでフォント用クラスを切り替える
