@@ -90,6 +90,53 @@ body {
     
 }
 
+/*=============================
+2.1 OVERVIEW ZONE
+==============================*/
+
+.overview-section {
+  margin: 20px auto;
+  max-width: 800px;
+  padding: 0 16px;
+}
+
+#overview-toggle-btn {
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+  padding: 8px 12px;
+  cursor: pointer;
+  border: none;
+  background-color: #f0f0f0;
+  transition: background-color 0.3s;
+}
+
+#overview-toggle-btn:hover {
+  background-color: #e0e0e0;
+}
+
+.triangle-icon {
+  margin-right: 8px;
+  transition: transform 0.3s ease;
+}
+
+.triangle-icon.rotate {
+  transform: rotate(90deg);
+}
+
+#overview-container {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.5s ease;
+}
+
+#overview-container.expanded {
+  max-height: 2000px; /* 任意で調整可能 */
+  transition: max-height 0.8s ease;
+}
+
+
+
 /* =============================
    3. TABLE HEADER ZONE 
    ============================= */

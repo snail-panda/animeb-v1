@@ -400,3 +400,29 @@ function adjustPopupPadding(popup) {
   }
 }
 
+// ============Overview Section
+
+document.addEventListener("DOMContentLoaded", () => {
+  const btn = document.getElementById("overview-toggle-btn");
+  const container = document.getElementById("overview-container");
+  const triangle = btn.querySelector(".triangle-icon");
+
+  // 外部HTML読み込み
+  fetch("2025spring-week11-overview.html")
+    .then(response => response.text())
+    .then(html => {
+      container.innerHTML = html;
+    })
+    .catch(err => {
+      container.innerHTML = "<p>読み込みに失敗しました。</p>";
+    });
+
+  // トグル動作
+  btn.addEventListener("click", () => {
+    container.classList.toggle("expanded");
+    triangle.classList.toggle("rotate");
+    btn.innerHTML = container.classList.contains("expanded")
+      ? '<span class="triangle-icon rotate">&#9654;</span> Overviewを閉じる'
+      : '<span class="triangle-icon">&#9654;</span> Overviewを表示';
+  });
+});
