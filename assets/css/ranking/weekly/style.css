@@ -46,7 +46,7 @@ body {
   letter-spacing: -0.03rem;
   word-spacing: -0.13rem;
   color: #8E0000;
-  padding-right: 0.5px;
+  padding-right: 0.6px;
 }
 
 .duration {
@@ -56,14 +56,14 @@ body {
   color: #a04343;
   letter-spacing: -0.03rem;
   word-spacing: -0.12rem;
-  margin-left: 1px;
+  margin-left: 1.1px;
 }
 
 .sub-header {
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  max-width: 196px;
+  max-width: 198px;
   font-family: 'Special Gothic Condensed One', 'Bebas Neue', 'sans-serif';
   color: #999999;
   font-weight: 500;
