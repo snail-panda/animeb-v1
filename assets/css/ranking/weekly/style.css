@@ -95,33 +95,44 @@ body {
 ==============================*/
 
 .overview-section {
-  margin: 20px auto;
+  margin: 0px auto;
   max-width: 800px;
   padding: 0 16px;
 }
 
 #overview-toggle-btn {
   display: flex;
+  justify-content: center;
+  margin: 0.01rem auto;
   align-items: center;
-  font-size: 1rem;
-  padding: 8px 12px;
+  font-size:0.5rem;
+  font-family: 'Fira Sans', sans-serif;
+  color: #405040;
+  font-weight: 300;
+  padding: 3px 8px 3.5px 8px;
   cursor: pointer;
   border: none;
-  background-color: #f0f0f0;
+  border-radius: 8px;
+  background-color: transparent;
   transition: background-color 0.3s;
 }
 
 #overview-toggle-btn:hover {
-  background-color: #e0e0e0;
+  background-color: #f3f4ef;
 }
 
 .triangle-icon {
-  margin-right: 8px;
+  display: inline-block;
+  margin-right: 2px;
   transition: transform 0.3s ease;
+  font-size: 0.6rem;
+  position: relative;
+  top: -0.1px;
+  transform: rotate(0deg); /* ▼：初期はそのまま */
 }
 
 .triangle-icon.rotate {
-  transform: rotate(90deg);
+  transform: rotate(180deg);
 }
 
 #overview-container {

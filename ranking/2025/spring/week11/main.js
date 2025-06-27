@@ -408,21 +408,31 @@ document.addEventListener("DOMContentLoaded", () => {
   const triangle = btn.querySelector(".triangle-icon");
 
   // 外部HTML読み込み
-  fetch("2025spring-week11-overview.html")
-    .then(response => response.text())
-    .then(html => {
-      container.innerHTML = html;
-    })
-    .catch(err => {
-      container.innerHTML = "<p>読み込みに失敗しました。</p>";
-    });
+  fetch('https://snail-panda.github.io/animeb-v1/ranking/2025/spring/week11/2025spring-week11-overview.html')
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Overview not found');
+    }
+    return response.text();
+  })
+  .then(html => {
+    document.getElementById('overview-container').innerHTML = html;
+  })
+  .catch(error => {
+    // overview.html が存在しない場合は、何も表示しない
+    console.log('No overview found for this week. Skipping...');
+    const overviewSection = document.querySelector('.overview-section');
+    if (overviewSection) {
+      overviewSection.style.display = 'none';
+    }
+  });
 
-  // トグル動作
+
+ // トグル動作（innerHTML を使わない！）
   btn.addEventListener("click", () => {
-    container.classList.toggle("expanded");
-    triangle.classList.toggle("rotate");
-    btn.innerHTML = container.classList.contains("expanded")
-      ? '<span class="triangle-icon rotate">&#9654;</span> Overviewを閉じる'
-      : '<span class="triangle-icon">&#9654;</span> Overviewを表示';
+    const isOpen = container.classList.toggle("expanded");
+
+    triangle.classList.toggle("rotate", isOpen); // 回転切り替え
+    btn.childNodes[1].nodeValue = isOpen ? " CLOSE" : " OVERVIEW"; // テキストのみ変更
   });
 });
