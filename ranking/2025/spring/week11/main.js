@@ -429,10 +429,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
  // トグル動作（innerHTML を使わない！）
-  btn.addEventListener("click", () => {
-    const isOpen = container.classList.toggle("expanded");
+ btn.addEventListener("click", () => {
+  container.classList.toggle("expanded");
+  triangle.classList.toggle("rotate");
 
-    triangle.classList.toggle("rotate", isOpen); // 回転切り替え
-    btn.childNodes[1].nodeValue = isOpen ? " CLOSE" : " OVERVIEW"; // テキストのみ変更
-  });
+  if (container.classList.contains("expanded")) {
+    btn.innerHTML = '<span class="triangle-icon rotate">&#9660;</span> CLOSE';
+  } else {
+    btn.innerHTML = '<span class="triangle-icon">&#9660;</span> OVERVIEW';
+  }
+});
+
 });
