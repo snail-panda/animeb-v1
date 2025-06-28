@@ -368,7 +368,7 @@ function adjustFlowerSize() {
 
   const height = reviewText.clientHeight;
 
-  let leftSize = 30;
+  let leftSize = 25;
   let rightSize = 45;
 
   if (height < 100) {
