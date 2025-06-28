@@ -194,9 +194,13 @@ function titleCase(str) {
 
       // Totalスコア更新
       const scoreEl = el.querySelector('.score');
-      if (scoreEl) {
-        scoreEl.innerHTML = `${entryData.score}<span class="score-unit">pt</span>`;
-      }
+if (scoreEl) {
+  const scoreNumberEl = scoreEl.querySelector('.score-number');
+  const scoreUnitEl = scoreEl.querySelector('.score-unit');
+
+  if (scoreNumberEl) scoreNumberEl.textContent = entryData.score;
+  if (scoreUnitEl) scoreUnitEl.textContent = 'pt';  // ptは固定
+}
     });
 
     // 全ての更新が終わったあとにバー描画
