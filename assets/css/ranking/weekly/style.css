@@ -407,7 +407,7 @@ body {
 
 .bar-track {
   width: 100%;
-  max-width: 220px;
+  max-width: 180px;
   background: #dceccb;
   height: 11px;
   flex: 1;
