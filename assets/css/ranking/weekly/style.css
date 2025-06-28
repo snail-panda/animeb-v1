@@ -524,10 +524,10 @@ body {
   font-size: 10px;
   background-color: #f0f0f0;
   color: #444;
-  padding: 3.5px 8px;
+  padding: 3.5px 7px;
   border: none;
   border-radius: 6px;
-  margin-right: 8px;
+  margin-right: 6px;
   cursor: pointer;
   transition: background-color 0.2s ease;
 }
@@ -542,7 +542,7 @@ body {
   font-size: 10px;
   background-color: #f0f0f0;
   color: #444;
-  padding: 3.5px 8px;
+  padding: 3.5px 7px;
   border: none;
   border-radius: 6px;
   cursor: pointer;
