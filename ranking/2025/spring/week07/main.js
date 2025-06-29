@@ -117,9 +117,9 @@ if (epRangeEl && data.meta.ep_range) {
 
     // タイトル更新
 const infoTopEl = el.querySelector('.info-top');
-if (infoTopEl) {
-  // 中身を一度クリア
-  infoTopEl.textContent = "";
+if (infoTopEl && infoTopEl.firstChild.nodeType === Node.TEXT_NODE) {
+  infoTopEl.firstChild.textContent = entryData.title;
+}
 
   // 英語タイトル
   const enTitle = document.createTextNode(entryData.title || "");
