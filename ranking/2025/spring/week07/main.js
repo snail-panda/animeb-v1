@@ -439,7 +439,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const triangle = btn.querySelector(".triangle-icon");
 
   // 外部HTML読み込み
-  fetch('https://snail-panda.github.io/animeb-v1/ranking/2025/spring/week11/2025spring-week11-overview.html')
+  fetch('https://snail-panda.github.io/animeb-v1/ranking/2025/spring/week07/2025spring-week07-overview.html')
   .then(response => {
     if (!response.ok) {
       throw new Error('Overview not found');
