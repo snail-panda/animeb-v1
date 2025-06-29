@@ -131,11 +131,11 @@ if (infoTopEl) {
   epSpan.textContent = ` — Ep.${entryData.episode || ""}`;
   infoTopEl.appendChild(epSpan);
 
-  // 日本語タイトル
-  const jpTitle = document.createElement("div");
-  jpTitle.className = "jp-title";
-  jpTitle.textContent = entryData.jpTitle || "";
-  infoTopEl.appendChild(jpTitle);
+  // 日本語タイトル 既存の日本語タイトルを上書き
+ const jpTitleEl = el.querySelector('.jp-title');
+  if (jpTitleEl) {
+    jpTitleEl.textContent = entryData.jpTitle || "";
+  }
 
   // Reviewボタン
   const reviewTag = document.createElement("span");
