@@ -118,18 +118,18 @@ if (epRangeEl && data.meta.ep_range) {
     // タイトル更新
 const infoTopEl = el.querySelector('.info-top');
 if (infoTopEl) {
-  const epSpan = infoTopEl.querySelector('.title-ep');
+  // 中身を一度クリア
+  infoTopEl.textContent = "";
 
-  // 英語タイトル（info-top の最初のテキストノードだけ上書き）
-  if (infoTopEl.firstChild && infoTopEl.firstChild.nodeType === Node.TEXT_NODE) {
-    infoTopEl.firstChild.textContent = entryData.title || "";
-  }
+  // 英語タイトル
+  const enTitle = document.createTextNode(entryData.title || "");
+  infoTopEl.appendChild(enTitle);
 
-// エピソード
-  if (epSpan) {
-    epSpan.textContent = ` — Ep.${entryData.episode || ""}`;
-  }
-
+  // エピソード
+  const epSpan = document.createElement("span");
+  epSpan.className = "title-ep";
+  epSpan.textContent = ` — Ep.${entryData.episode || ""}`;
+  infoTopEl.appendChild(epSpan);
 
   // 日本語タイトル 既存の日本語タイトルを上書き
  const jpTitleEl = el.querySelector('.jp-title');
