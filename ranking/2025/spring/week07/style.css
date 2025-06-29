@@ -490,6 +490,14 @@ body {
 
 .synopsis {
   /* 将来的に必要になったらここにスタイル追加 */
+   font-family: 'Abel', sans-serif;
+  font-weight: 500;
+  color: #686868;
+  text-shadow: 0 -0.3px #686868;
+  margin: 0;
+  text-align: left;
+  padding-left: 4px;
+  word-break: break-word;
 }
 
 /* WEEKLY RANKING POINT BAR CHART AREA*/
