@@ -137,6 +137,17 @@ if (infoTopEl) {
     jpTitleEl.textContent = entryData.jpTitle || "";
   }
 
+
+// ========== KV画像更新 ==========
+
+const kvThumbEl = el.querySelector('.kv-thumb img');
+if (kvThumbEl && entryData.kv) {
+  kvThumbEl.src = `../../../../images/key-visuals/2025/spring/${entryData.kv}.webp`;
+  kvThumbEl.alt = `${entryData.title} key visual`;
+}
+
+
+
   // Reviewボタン
   const reviewTag = document.createElement("span");
   reviewTag.className = "review-tag";
