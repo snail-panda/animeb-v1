@@ -125,11 +125,11 @@ if (infoTopEl) {
     infoTopEl.firstChild.textContent = entryData.title || "";
   }
 
-  // エピソード
+// エピソード
   if (epSpan) {
     epSpan.textContent = ` — Ep.${entryData.episode || ""}`;
   }
-}
+
 
   // 日本語タイトル 既存の日本語タイトルを上書き
  const jpTitleEl = el.querySelector('.jp-title');
