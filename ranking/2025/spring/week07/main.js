@@ -412,3 +412,62 @@ function adjustPopupPadding(popup) {
   }
 }
 
+// ============Overview Section
+
+document.addEventListener("DOMContentLoaded", () => {
+  const btn = document.getElementById("overview-toggle-btn");
+  const container = document.getElementById("overview-container");
+  const triangle = btn.querySelector(".triangle-icon");
+
+  // 外部HTML読み込み
+  fetch('https://snail-panda.github.io/animeb-v1/ranking/2025/spring/week11/2025spring-week11-overview.html')
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Overview not found');
+    }
+    return response.text();
+  })
+  .then(html => {
+    document.getElementById('overview-container').innerHTML = html;
+  })
+  .catch(error => {
+    // overview.html が存在しない場合は、何も表示しない
+    console.log('No overview found for this week. Skipping...');
+    const overviewSection = document.querySelector('.overview-section');
+    if (overviewSection) {
+      overviewSection.style.display = 'none';
+    }
+  });
+
+
+ // トグル動作（innerHTML を使わない！）
+ btn.addEventListener("click", () => {
+  container.classList.toggle("expanded");
+  triangle.classList.toggle("rotate");
+
+  if (container.classList.contains("expanded")) {
+    btn.innerHTML = '<span class="triangle-icon rotate">&#9660;</span> CLOSE';
+  } else {
+    btn.innerHTML = '<span class="triangle-icon">&#9660;</span> OVERVIEW';
+  }
+});
+
+});
+
+
+// 展開ボタン制御
+document.addEventListener('click', (e) => {
+  const btn = e.target.closest('.collapse-btn');
+  if (!btn) return;
+
+  const entry = btn.closest('.entry');
+  const moreInfo = entry.querySelector('.more-info');
+
+  if (moreInfo) {
+    moreInfo.classList.toggle('active');
+    btn.setAttribute(
+      'aria-expanded',
+      moreInfo.classList.contains('active') ? 'true' : 'false'
+    );
+  }
+});
