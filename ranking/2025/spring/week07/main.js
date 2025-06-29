@@ -115,40 +115,44 @@ if (epRangeEl && data.meta.ep_range) {
       const el = entryElements[index];
       if (!el) return;
 
-      // タイトル更新
+    // タイトル更新
 const infoTopEl = el.querySelector('.info-top');
 if (infoTopEl) {
-  const epSpan = infoTopEl.querySelector('.title-ep');
+  // 中身を一度クリア
+  infoTopEl.textContent = "";
 
-       // 英語タイトル部分
-  // （info-top の最初のテキストノードを更新）
-  infoTopEl.childNodes[0].textContent = entryData.title;
-  if (epSpan) epSpan.textContent = ` — Ep.${entryData.episode}`;
+  // 英語タイトル
+  const enTitle = document.createTextNode(entryData.title || "");
+  infoTopEl.appendChild(enTitle);
 
-      // 日本語タイトル
-         const jpTitleEl = l.querySelector('.jp-title');
-if (jpTitleEl) {
-  jpTitleEl.textContent = entryData.jpTitle || "";
+  // エピソード
+  const epSpan = document.createElement("span");
+  epSpan.className = "title-ep";
+  epSpan.textContent = ` — Ep.${entryData.episode || ""}`;
+  infoTopEl.appendChild(epSpan);
+
+  // 日本語タイトル
+  const jpTitle = document.createElement("div");
+  jpTitle.className = "jp-title";
+  jpTitle.textContent = entryData.jpTitle || "";
+  infoTopEl.appendChild(jpTitle);
+
+  // Reviewボタン
+  const reviewTag = document.createElement("span");
+  reviewTag.className = "review-tag";
+  const reviewData = entryData.review;
+  if (reviewData && (reviewData.en?.trim() || reviewData.jp?.trim())) {
+    reviewTag.dataset.reviewEn = reviewData.en || "";
+    reviewTag.dataset.reviewJp = reviewData.jp || "";
+    reviewTag.dataset.lang = "en";
+    reviewTag.textContent = "Review";
+    reviewTag.style.display = "inline-block";
+  } else {
+    reviewTag.style.display = "none";
+  }
+  infoTopEl.appendChild(reviewTag);
 }
 
-               // --- Review挿入処理 (EN/JPネスト対応版) ---
-        const reviewTag = titleEl.querySelector('.review-tag');
-        const reviewData = entryData.review;
-        if (
-          reviewData &&
-          (reviewData.en?.trim() || reviewData.jp?.trim())
-        ) {
-          // デフォルトで英語レビュー表示
-          reviewTag.dataset.reviewEn = reviewData.en || '';
-          reviewTag.dataset.reviewJp = reviewData.jp || '';
-          reviewTag.dataset.lang = 'en';
-          reviewTag.textContent = 'Review';
-          reviewTag.style.display = 'inline-block';
-        } else {
-          reviewTag.style.display = 'none';
-        }
-
-      }
 
       // トレンド情報更新
       const trendLabel = el.querySelector('.trend-label');
