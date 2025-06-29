@@ -130,7 +130,7 @@ if (infoTopEl) {
     epSpan.textContent = ` — Ep.${entryData.episode || ""}`;
   }
 }
-✅ どうしてこうするの？
+
   // 日本語タイトル 既存の日本語タイトルを上書き
  const jpTitleEl = el.querySelector('.jp-title');
   if (jpTitleEl) {
