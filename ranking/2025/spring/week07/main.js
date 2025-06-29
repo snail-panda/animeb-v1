@@ -116,13 +116,17 @@ if (epRangeEl && data.meta.ep_range) {
       if (!el) return;
 
       // タイトル更新
-      const titleEl = el.querySelector('.title');
-      if (titleEl) {
-        const epSpan = titleEl.querySelector('.title-ep');
-        titleEl.childNodes[0].textContent = entryData.title;
-        if (epSpan) epSpan.textContent = ` — Ep.${entryData.episode}`;
+const infoTopEl = el.querySelector('.info-top');
+if (infoTopEl) {
+  const epSpan = infoTopEl.querySelector('.title-ep');
 
-         const jpTitleEl = titleEl.querySelector('.jp-title');
+       // 英語タイトル部分
+  // （info-top の最初のテキストノードを更新）
+  infoTopEl.childNodes[0].textContent = entryData.title;
+  if (epSpan) epSpan.textContent = ` — Ep.${entryData.episode}`;
+
+      // 日本語タイトル
+         const jpTitleEl = l.querySelector('.jp-title');
 if (jpTitleEl) {
   jpTitleEl.textContent = entryData.jpTitle || "";
 }
