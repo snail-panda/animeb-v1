@@ -550,9 +550,12 @@ document.addEventListener('click', (e) => {
 
   const entry = btn.closest('.entry');
   const moreInfo = entry.querySelector('.more-info');
+  const synopsisBox = entry.querySelector('.synopsis');
 
   if (moreInfo) {
+    // まずmore-infoをトグル
     moreInfo.classList.toggle('active');
+    // ボタンのaria属性も更新
     btn.setAttribute(
       'aria-expanded',
       moreInfo.classList.contains('active') ? 'true' : 'false'
@@ -560,9 +563,14 @@ document.addEventListener('click', (e) => {
   }
 
  if (synopsisBox) {
-    synopsisBox.classList.toggle('active');
-  }
+  //カクン問題解消用-ブラウザに 一度 高さ、サイズを確定させてから transition を適用
+synopsisBox.offsetHeight; // reflow
 
+    // 次のフレームでトグルすることで揃えて動く
+    requestAnimationFrame(() => {
+      synopsisBox.classList.toggle('active');
+    });
+  }
 });
 
 // 最終版 synopsis を読み込んで書き込む
@@ -592,9 +600,6 @@ document.addEventListener("DOMContentLoaded", async () => {
       if (synopsisBox) {
         synopsisBox.textContent = synopsis;
       }
-
-//カクン問題解消用-ブラウザに 一度 サイズを確定させてから transition を適用
-synopsisBox.offsetHeight; // reflow
 
 
     });
