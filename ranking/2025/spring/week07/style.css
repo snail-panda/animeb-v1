@@ -446,6 +446,9 @@ body {
 /* More info collapsible エリア*/
 
 .more-info {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.6s ease;
   background: transparent; /*色つけるなら　#faf8f0*/
   padding: 0 0.5rem;
   font-size: 0.6rem;        /* 少し小さめで情報密度を高める */
@@ -453,6 +456,11 @@ body {
   margin-bottom: 0.5rem;
 }
 
+.more-info.active {
+  max-height: 1500px; /* 適宜調整 */
+  /*border-top: 1px solid #ddd;*/
+  padding: 0.5rem;
+}
 
 .more-info dl {
   display: grid;
@@ -490,20 +498,19 @@ body {
   text-align: left;
   padding-left: 4px;
   word-break: break-word;
-}
-
-/* entry-details共通制御 */
-.entry-details {
-  max-height: 0;
   overflow: hidden;
-  transition: max-height 0.5s ease;
+  max-height: 0;
+  transition: max-height 2s ease;
 }
 
-/* アクティブになったら */
-.entry-details.active {
-  max-height: 1200px;  /* 作品数により調整可 */
+.synopsis {
+  display: none;
 }
 
+.synopsis.active {
+  display: block;
+  max-height: 1000px;
+}
 
 
 /* WEEKLY RANKING POINT BAR CHART AREA*/
