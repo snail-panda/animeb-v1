@@ -549,13 +549,13 @@ document.addEventListener('click', (e) => {
   if (!btn) return;
 
   const entry = btn.closest('.entry');
-  const moreInfo = entry.querySelector('.more-info');
+  const entryDetails = entry.querySelector('.entry-details');
 
-  if (moreInfo) {
-    moreInfo.classList.toggle('active');
+  if (entryDetails) {
+    entryDetails.classList.toggle('active');
     btn.setAttribute(
       'aria-expanded',
-      moreInfo.classList.contains('active') ? 'true' : 'false'
+      entryDetails.classList.contains('active') ? 'true' : 'false'
     );
   }
 });
