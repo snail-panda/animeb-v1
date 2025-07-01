@@ -684,6 +684,8 @@ body {
   margin-bottom: 12px;
   line-height: 1.6;
   padding-right: 5px;
+  padding-left: 10px;
+  padding-top: 10px;
 }
 
 /* --- スイッチボタン（レビュー言語切替） --- */
