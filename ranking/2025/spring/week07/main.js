@@ -577,37 +577,36 @@ synopsisBox.offsetHeight; // reflow
 });
 
 // 最終版 synopsis を読み込んで書き込む
-document.addEventListener("DOMContentLoaded", async () => {
+window.addEventListener("load", async () => {
   try {
-    // synopsis JSONを先に読み込む
-    const synopsisData = await fetch("../../../../assets/json/synopsis/2025/spring/synopsis2025spring.json")
-      .then(res => res.json());
+    const response = await fetch("../../../../assets/json/synopsis/2025/spring/synopsis2025spring.json");
+    const synopsisData = await response.json();
 
-    // 全エントリーをループ
     document.querySelectorAll(".entry").forEach(entry => {
-      // kv-thumb の中のimgから src を読む
       const kvImg = entry.querySelector(".kv-thumb img");
       if (!kvImg) return;
 
-      // 例: "nincoro.webp" → "nincoro"
+      // 画像のsrcを取得
       const src = kvImg.getAttribute("src");
+      if (!src) return;
+
+      // ファイル名部分だけ抜き出す
       const match = src.match(/([^\/]+)\.(png|jpg|jpeg|webp)$/i);
       if (!match) return;
+
       const id = match[1];
 
-      // synopsis JSONから取り出し
+      // JSONからsynopsisを取り出す
       const synopsis = synopsisData[id] || "";
 
-      // .more-info の下に synopsis を入れる
+      // synopsisをDOMに反映
       const synopsisBox = entry.querySelector(".synopsis");
       if (synopsisBox) {
         synopsisBox.textContent = synopsis;
       }
-
-
     });
-  } catch (e) {
-    console.error("Synopsis JSON読み込み失敗", e);
+  } catch (error) {
+    console.error("Synopsis JSONの読み込み失敗:", error);
   }
 });
 
