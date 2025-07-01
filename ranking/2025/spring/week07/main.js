@@ -45,6 +45,34 @@ fetch('ranking-week07-spring2025.json')
     document.querySelector('.season-title').textContent = data.meta.season;
     document.title = `Anime Weekly Ranking - ${data.meta.week}`;
 
+// ✅ ここにフォーマット関数を置くのがベスト
+function formatReleaseDates(start, end) {
+  if (!start) return "";
+  const startParts = start.split('/');
+  const startStr = formatDateString(startParts);
+
+  if (!end) {
+    return startStr;
+  } else {
+    const endParts = end.split('/');
+    const endStr = formatDateString(endParts);
+    return `${startStr} to ${endStr}`;
+  }
+}
+
+function formatDateString(parts) {
+  if (parts.length < 3) return "";
+  const monthMap = [
+    "", "January", "February", "March", "April", "May", "June",
+    "July", "August", "September", "October", "November", "December"
+  ];
+  const month = parseInt(parts[0], 10);
+  const day = parseInt(parts[1], 10);
+  const year = parseInt(parts[2], 10);
+  return `${monthMap[month]} ${day}, ${year}`;
+}
+
+
 　　// ✅ WEEK を全大文字表示に変更
 　　const weekEl = document.querySelector('.week-title');
 if (weekEl && data.meta.week) {
@@ -220,6 +248,35 @@ if (scoreEl) {
   if (scoreNumberEl) scoreNumberEl.textContent = entryData.score;
   if (scoreUnitEl) scoreUnitEl.textContent = 'pt';  // ptは固定
 }
+
+
+// more-info <dl> の更新
+const moreInfoDl = el.querySelector('.more-info dl');
+if (moreInfoDl) {
+  moreInfoDl.innerHTML = `
+    <dt>Romanized Title</dt><dd>${entryData.romanized_title || ""}</dd>
+    <dt>Release Date</dt><dd>${formatReleaseDates(entryData.release_date, entryData.end_date)}</dd>
+    <dt>Based On</dt><dd>${entryData.based_on || ""}</dd>
+    <dt>Studios</dt><dd>${entryData.studios || ""}</dd>
+    <dt>Creators</dt><dd>${entryData.creators || ""}</dd>
+    <dt>External Scores</dt><dd>${entryData.external_scores || ""}</dd>
+    <dt>Streaming Services</dt><dd>${entryData.streaming_services || ""}</dd>
+  `;
+}
+
+// ジャンラーの更新
+const genreTagsEl = el.querySelector('.genre-tags');
+if (genreTagsEl && entryData.genre) {
+  genreTagsEl.innerHTML = "";  // 既存タグをクリア
+  entryData.genre.forEach(g => {
+    const tag = document.createElement('span');
+    tag.className = 'genre-tag';
+    tag.textContent = g;
+    genreTagsEl.appendChild(tag);
+  });
+}
+
+
     });
 
     // 全ての更新が終わったあとにバー描画
