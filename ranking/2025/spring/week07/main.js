@@ -559,6 +559,10 @@ document.addEventListener('click', (e) => {
     );
   }
 
+ if (synopsisBox) {
+    synopsisBox.classList.toggle('active');
+  }
+
 });
 
 // 最終版 synopsis を読み込んで書き込む
