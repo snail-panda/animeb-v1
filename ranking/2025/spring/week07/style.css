@@ -511,6 +511,7 @@ body {
   margin: 0;
   text-align: left;
   padding-left: 4px;
+  padding bottom: 8px;
   word-break: break-word;
   overflow: hidden;
   max-height: 0;
