@@ -502,7 +502,7 @@ body {
 .synopsis {
   /* 将来的に必要になったらここにスタイル追加 */
   font-family: 'Barlow Condensed', 'Abel', sans-serif;
-  font-weight: 600;
+  font-weight: 500;
   font-size: 11px;
   color: #565656;
   line-height: 1.6;
