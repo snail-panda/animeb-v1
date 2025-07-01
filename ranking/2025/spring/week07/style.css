@@ -683,21 +683,20 @@ body {
   margin-top: 2px;
   margin-bottom: 12px;
   line-height: 1.6;
-  padding-right: 5px;
-  padding-left: 10px;
-  padding-top: 10px;
+  paddingt: 10px 5px 10px 10px;
 }
 
 /* --- スイッチボタン（レビュー言語切替） --- */
 .review-switch-btn {
   font-family: 'Fira Sans', sans-serif;
-  font-size: 10px;
+  font-size: 9.5px;
   background-color: #f0f0f0;
   color: #444;
-  padding: 3.5px 8px;
+  padding: 3px 7px;
   border: none;
   border-radius: 6px;
   margin-right: 8px;
+  margin-left: 10px
   cursor: pointer;
   transition: background-color 0.2s ease;
 }
@@ -709,10 +708,10 @@ body {
 /* --- クローズボタン --- */
 .popup-close-btn {
   font-family: 'Fira Sans', sans-serif;
-  font-size: 10px;
+  font-size: 9.5px;
   background-color: #f0f0f0;
   color: #444;
-  padding: 3.5px 8px;
+  padding: 3px 7px;
   border: none;
   border-radius: 6px;
   cursor: pointer;
