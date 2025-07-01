@@ -510,8 +510,10 @@ body {
   word-spacing: 0.25px;
   margin: 0;
   text-align: left;
+  vertical-align: top;
+  padding-top: 0;
   padding-left: 4px;
-  padding bottom: 8px;
+  padding-bottom: 0.5rem;
   word-break: break-word;
   overflow: hidden;
   max-height: 0;
