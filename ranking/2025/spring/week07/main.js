@@ -490,3 +490,37 @@ document.addEventListener('click', (e) => {
     );
   }
 });
+
+// 最終版 synopsis を読み込んで書き込む
+document.addEventListener("DOMContentLoaded", async () => {
+  try {
+    // synopsis JSONを先に読み込む
+    const synopsisData = await fetch("../../../../assets/json/synopsis/2025/spring/synopsis2025spring.json")
+      .then(res => res.json());
+
+    // 全エントリーをループ
+    document.querySelectorAll(".entry").forEach(entry => {
+      // kv-thumb の中のimgから src を読む
+      const kvImg = entry.querySelector(".kv-thumb img");
+      if (!kvImg) return;
+
+      // 例: "nincoro.webp" → "nincoro"
+      const src = kvImg.getAttribute("src");
+      const match = src.match(/([^\/]+)\.(png|jpg|jpeg|webp)$/i);
+      if (!match) return;
+      const id = match[1];
+
+      // synopsis JSONから取り出し
+      const synopsis = synopsisData[id] || "";
+
+      // .more-info の下に synopsis を入れる
+      const synopsisBox = entry.querySelector(".synopsis");
+      if (synopsisBox) {
+        synopsisBox.textContent = synopsis;
+      }
+    });
+  } catch (e) {
+    console.error("Synopsis JSON読み込み失敗", e);
+  }
+});
+
