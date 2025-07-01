@@ -553,9 +553,7 @@ document.addEventListener('click', (e) => {
   const synopsisBox = entry.querySelector('.synopsis');
 
   if (moreInfo) {
-    // まずmore-infoをトグル
     moreInfo.classList.toggle('active');
-    // ボタンのaria属性も更新
     btn.setAttribute(
       'aria-expanded',
       moreInfo.classList.contains('active') ? 'true' : 'false'
@@ -563,50 +561,46 @@ document.addEventListener('click', (e) => {
   }
 
  if (synopsisBox) {
-  //カクン問題解消用-ブラウザに 一度 高さ、サイズを確定させてから transition を適用
-synopsisBox.offsetHeight; // reflow
-
-    // 次のフレームでトグルすることで揃えて動く
-    requestAnimationFrame(() => {
-      // 中身が空だったら何もしない
-      if (synopsisBox.textContent.trim() === "") return;
-
-      synopsisBox.classList.toggle('active');
-    });
+    synopsisBox.classList.toggle('active');
   }
+
 });
 
 // 最終版 synopsis を読み込んで書き込む
-window.addEventListener("load", async () => {
+document.addEventListener("DOMContentLoaded", async () => {
   try {
-    const response = await fetch("../../../../assets/json/synopsis/2025/spring/synopsis2025spring.json");
-    const synopsisData = await response.json();
+    // synopsis JSONを先に読み込む
+    const synopsisData = await fetch("../../../../assets/json/synopsis/2025/spring/synopsis2025spring.json")
+      .then(res => res.json());
 
+    // 全エントリーをループ
     document.querySelectorAll(".entry").forEach(entry => {
+      // kv-thumb の中のimgから src を読む
       const kvImg = entry.querySelector(".kv-thumb img");
       if (!kvImg) return;
 
-      // 画像のsrcを取得
+      // 例: "nincoro.webp" → "nincoro"
       const src = kvImg.getAttribute("src");
-      if (!src) return;
-
-      // ファイル名部分だけ抜き出す
       const match = src.match(/([^\/]+)\.(png|jpg|jpeg|webp)$/i);
       if (!match) return;
-
       const id = match[1];
 
-      // JSONからsynopsisを取り出す
+      // synopsis JSONから取り出し
       const synopsis = synopsisData[id] || "";
 
-      // synopsisをDOMに反映
+      // .more-info の下に synopsis を入れる
       const synopsisBox = entry.querySelector(".synopsis");
       if (synopsisBox) {
         synopsisBox.textContent = synopsis;
       }
+
+//カクン問題解消用-ブラウザに 一度 サイズを確定させてから transition を適用
+synopsisBox.offsetHeight; // reflow
+
+
     });
-  } catch (error) {
-    console.error("Synopsis JSONの読み込み失敗:", error);
+  } catch (e) {
+    console.error("Synopsis JSON読み込み失敗", e);
   }
 });
 
