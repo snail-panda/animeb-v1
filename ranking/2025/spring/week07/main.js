@@ -568,6 +568,9 @@ synopsisBox.offsetHeight; // reflow
 
     // 次のフレームでトグルすることで揃えて動く
     requestAnimationFrame(() => {
+      // 中身が空だったら何もしない
+      if (synopsisBox.textContent.trim() === "") return;
+
       synopsisBox.classList.toggle('active');
     });
   }
