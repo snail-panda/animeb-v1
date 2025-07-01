@@ -406,10 +406,14 @@ body {
   border-radius: 2px;
   border-top-left-radius: 40%;
   box-shadow: 1px 1.2px 2px rgba(0, 0, 0, 0.35);
+  /* Initial state */
+  transform: scale(1); 
+  /* Defines the transition for the transform property over 0.4 seconds with ease timing */
+  transition: transform 0.4s ease;
 }
 
 .kv-thumb img:hover {
-  transform: scale(1.5);
+  transform: scale(1.3);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   z-index: 10;
   position: relative;
