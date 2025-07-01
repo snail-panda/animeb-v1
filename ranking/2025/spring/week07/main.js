@@ -264,6 +264,18 @@ if (moreInfoDl) {
   `;
 }
 
+// synopsis の開閉も一緒に制御するために
+const collapseBtn = el.querySelector(".collapse-btn");
+if (collapseBtn) {
+  collapseBtn.addEventListener("click", () => {
+    const synopsisBox = el.querySelector(".synopsis");
+    if (synopsisBox) {
+      synopsisBox.classList.toggle("active");
+    }
+  });
+}
+
+
 // ジャンラーの更新
 const genreTagsEl = el.querySelector('.genre-tags');
 if (genreTagsEl && entryData.genre) {
