@@ -498,6 +498,9 @@ body {
   text-align: left;
   padding-left: 4px;
   word-break: break-word;
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.4s ease;
 }
 
 .synopsis {
@@ -506,6 +509,7 @@ body {
 
 .synopsis.active {
   display: block;
+  max-height: 1000px;
 }
 
 
