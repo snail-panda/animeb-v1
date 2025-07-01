@@ -500,6 +500,15 @@ body {
   word-break: break-word;
 }
 
+.synopsis {
+  display: none;
+}
+
+.synopsis.active {
+  display: block;
+}
+
+
 /* WEEKLY RANKING POINT BAR CHART AREA*/
 
 .bar-wrapper {
