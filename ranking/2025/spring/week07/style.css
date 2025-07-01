@@ -510,8 +510,7 @@ body {
   word-spacing: 0.25px;
   margin: 0;
   text-align: left;
-  padding-left: 4px;
-  padding-bottom: 0.5rem;
+  padding-left: 0;
   word-break: break-word;
   overflow: hidden;
   max-height: 0;
@@ -520,7 +519,7 @@ body {
 
 .synopsis.active {
   max-height: 1500px;
-  padding: 0.5rem;
+  padding: 0.5rem 0.5rem;
 }
 
 
