@@ -592,6 +592,11 @@ document.addEventListener("DOMContentLoaded", async () => {
       if (synopsisBox) {
         synopsisBox.textContent = synopsis;
       }
+
+//カクン問題解消用-ブラウザに 一度 サイズを確定させてから transition を適用
+synopsisBox.offsetHeight; // reflow
+
+
     });
   } catch (e) {
     console.error("Synopsis JSON読み込み失敗", e);
