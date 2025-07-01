@@ -203,7 +203,7 @@ body {
     ". moreinfo synopsis .";
   gap: 0.5rem;
   align-items: center;
-  min-height: 65px;  /* 仮、全体の高さ感調整 */
+ 
   font-family: 'Agency FB', sans-serif;
   font-size: 10px;
   font-weight: bold;
