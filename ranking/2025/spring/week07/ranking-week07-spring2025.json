@@ -13,6 +13,10 @@
       "jpTitle": "忍者と殺し屋のふたりぐらし",
       "kv": "nincoro",
       "episode": 7,
+      "genre": [
+        "Comedy",
+        "Slice of Life"
+      ],
       "wrp_score": 10.3,
       "score": 11,
       "review": {
@@ -26,7 +30,15 @@
         "direction": 0.9,
         "charm": 0.85,
         "overall": 1.85
-      }
+      },
+      "romanized_title": "Ninja to Koroshiya no Futarigurashi",
+      "release_date": "4/10/2025",
+      "end_date": "6/26/2025",
+      "based_on": "Manga",
+      "studios": "SHAFT",
+      "creators": "Yukihiro Miyamoto",
+      "external_scores": "7.59 (MAL)",
+      "streaming_services": ""
     },
     {
       "rank": 2,
@@ -35,6 +47,11 @@
       "jpTitle": "小市民シリーズ（第2期）",
       "kv": "shoshimin",
       "episode": 8,
+      "genre": [
+        "Mystery",
+        "School",
+        "Slice of Life"
+      ],
       "wrp_score": 9.7,
       "score": 10,
       "review": {
@@ -48,7 +65,15 @@
         "direction": 0.75,
         "charm": 0.7,
         "overall": 1.7
-      }
+      },
+      "romanized_title": "Shoushimin Series 2nd Season",
+      "release_date": "4/5/2025",
+      "end_date": "6/22/2025",
+      "based_on": "Novels",
+      "studios": "Lapin Track",
+      "creators": "Mamoru Kanbe",
+      "external_scores": "8.03 (MAL)",
+      "streaming_services": ""
     },
     {
       "rank": 3,
@@ -57,6 +82,12 @@
       "jpTitle": "アポカリプスホテル",
       "kv": "apocalypse",
       "episode": 7,
+      "genre": [
+        "Sci-Fi",
+        "Drama",
+        "Slice of Lice",
+        "Comedy"
+      ],
       "wrp_score": 9.5,
       "score": 10,
       "review": {
@@ -70,7 +101,15 @@
         "direction": 0.75,
         "charm": 0.65,
         "overall": 1.65
-      }
+      },
+      "romanized_title": "Apocalypse Hotel",
+      "release_date": "4/8/2025",
+      "end_date": "6/25/2025",
+      "based_on": "Originals",
+      "studios": "Cygames Pictures",
+      "creators": "kana Shundou",
+      "external_scores": "7.88 (MAL)",
+      "streaming_services": ""
     },
     {
       "rank": 4,
@@ -79,6 +118,12 @@
       "jpTitle": "機動戦士Gundam GQuuuuuuX",
       "kv": "gquuuuuux",
       "episode": 7,
+      "genre": [
+        "Action",
+        "Drama",
+        "Mecha",
+        "Sci-Fi"
+      ],
       "wrp_score": 9.3,
       "score": 9,
       "review": {
@@ -92,7 +137,15 @@
         "direction": 0.7,
         "charm": 0.55,
         "overall": 1.6
-      }
+      },
+      "romanized_title": "Kidou Senshi Gundam GQuuuuuuX",
+      "release_date": "4/8/2025",
+      "end_date": "6/25/2025",
+      "based_on": "Original",
+      "studios": "Khara",
+      "creators": "Kazuya Tsurumaki",
+      "external_scores": "7.24 (MAL)",
+      "streaming_services": ""
     },
     {
       "rank": 5,
@@ -101,6 +154,11 @@
       "jpTitle": "薬屋のひとりごと 第2期（第2クール）",
       "kv": "kusuriya",
       "episode": 43,
+      "genre": [
+        "Historical",
+        "Mystery",
+        "Drama"
+      ],
       "wrp_score": 9.2,
       "score": 9,
       "review": {
@@ -114,7 +172,15 @@
         "direction": 0.75,
         "charm": 0.55,
         "overall": 1.45
-      }
+      },
+      "romanized_title": "Kusuriya no Hitorigoto 2nd Season",
+      "release_date": "4/4/2025",
+      "end_date": "",
+      "based_on": "Naro",
+      "studios": "TOHO animation STUDIO✕OLM",
+      "creators": "Norihiro Naganuma",
+      "external_scores": "",
+      "streaming_services": ""
     },
     {
       "rank": "spotlight",
@@ -123,6 +189,11 @@
       "jpTitle": "鬼人幻燈抄",
       "kv": "kijin",
       "episode": 8,
+      "genre": [
+        "Action",
+        "Historical",
+        "Drama"
+      ],
       "wrp_score": 8.8,
       "score": 8,
       "review": {
@@ -136,7 +207,15 @@
         "direction": 0.65,
         "charm": 0.55,
         "overall": 1.3
-      }
+      },
+      "romanized_title": "KIJIN GENTOUSHOU",
+      "release_date": "3/31/2025",
+      "end_date": "",
+      "based_on": "Naro",
+      "studios": "Yokohama Animation Laboratory",
+      "creators": "Kazuya Aiura",
+      "external_scores": "",
+      "streaming_services": ""
     },
     {
       "rank": "editor's pick",
@@ -145,6 +224,12 @@
       "jpTitle": "九龍ジェネリックロマンス",
       "kv": "kowloon",
       "episode": 8,
+      "genre": [
+        "Mystery",
+        "Drama",
+        "Sice of Life",
+        "Sci-Fi"
+      ],
       "wrp_score": 8.6,
       "score": 8,
       "review": {
@@ -158,7 +243,15 @@
         "direction": 0.6,
         "charm": 0.5,
         "overall": 1.25
-      }
+      },
+      "romanized_title": "Kowloon Generic Romance",
+      "release_date": "4/5/2025",
+      "end_date": "6/28/2025",
+      "based_on": "Manga",
+      "studios": "ARVO ANIMATION",
+      "creators": "yoshiaki Iwasaki",
+      "external_scores": "7.47 (MAL)",
+      "streaming_services": ""
     },
     {
       "rank": "dookie",
@@ -167,6 +260,11 @@
       "jpTitle": "ある魔女が死ぬまで",
       "kv": "arumajo",
       "episode": 8,
+      "genre": [
+        "Adventure",
+        "Drama",
+        "Fantasy"
+      ],
       "wrp_score": 4.25,
       "score": 4,
       "review": {
@@ -180,7 +278,15 @@
         "direction": 0.3,
         "charm": 0.2,
         "overall": -1.5
-      }
+      },
+      "romanized_title": "Aru Majo ga Shinu Made",
+      "release_date": "4/1/2025",
+      "end_date": "",
+      "based_on": "Web Novel",
+      "studios": "EMT Squared",
+      "creators": "Atsushi Nigorikawa",
+      "external_scores": "",
+      "streaming_services": ""
     }
   ]
 }
