@@ -23,7 +23,7 @@ function adjustScoreBars() {
     if (score > 11) {
       wrpScore.style.marginLeft = '60px';
     } else if (score > 10.8) {
-      wrpScore.style.marginLeft = '40px';
+      wrpScore.style.marginLeft = '35px';
     } else if (score > 10.5) {
       wrpScore.style.marginLeft = '34px';
     } else if (score > 10.3) {
