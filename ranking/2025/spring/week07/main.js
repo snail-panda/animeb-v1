@@ -47,31 +47,30 @@ fetch('ranking-week07-spring2025.json')
     document.title = `Anime Weekly Ranking - ${data.meta.week}`;
 
 // ✅ ここにフォーマット関数を置くのがベスト
-function formatReleaseDates(start, end) {
-  if (!start) return "";
-  const startParts = start.split('/');
-  const startStr = formatDateString(startParts);
+function formatReleaseDates(dateStr) {
+  if (!dateStr) return "";
 
-  if (!end) {
-    return startStr;
+  // "4/10/2025" or "4/10/2025 to 6/26/2025"
+  const parts = dateStr.split(" to ");
+
+  function convert(d) {
+    const [m, day, y] = d.split("/");
+    const monthMap = [
+      "", "January", "February", "March", "April", "May", "June",
+      "July", "August", "September", "October", "November", "December"
+    ];
+    return `${monthMap[parseInt(m, 10)]} ${parseInt(day, 10)}, ${y}`;
+  }
+
+  if (parts.length === 2) {
+    // 両方ある場合
+    return `${convert(parts[0])} to ${convert(parts[1])}`;
   } else {
-    const endParts = end.split('/');
-    const endStr = formatDateString(endParts);
-    return `${startStr} to ${endStr}`;
+    // 開始日だけの場合
+    return convert(parts[0]);
   }
 }
 
-function formatDateString(parts) {
-  if (parts.length < 3) return "";
-  const monthMap = [
-    "", "January", "February", "March", "April", "May", "June",
-    "July", "August", "September", "October", "November", "December"
-  ];
-  const month = parseInt(parts[0], 10);
-  const day = parseInt(parts[1], 10);
-  const year = parseInt(parts[2], 10);
-  return `${monthMap[month]} ${day}, ${year}`;
-}
 
 
 　　// ✅ WEEK を全大文字表示に変更
@@ -230,7 +229,7 @@ const moreInfoDl = el.querySelector('.more-info dl');
 if (moreInfoDl) {
   moreInfoDl.innerHTML = `
     <dt>Romanized Title</dt><dd>${entryData.romanized_title || ""}</dd>
-    <dt>Release Date</dt><dd>${formatReleaseDates(entryData.release_date, entryData.end_date)}</dd>
+    <dt>Release Date</dt><dd>${formatReleaseDates(entryData.release_date || "")}</dd>
     <dt>Based On</dt><dd>${entryData.based_on || ""}</dd>
     <dt>Studios</dt><dd>${entryData.studios || ""}</dd>
     <dt>Creators</dt><dd>${entryData.creators || ""}</dd>
