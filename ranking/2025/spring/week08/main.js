@@ -23,16 +23,17 @@ function adjustScoreBars() {
     if (score > 11) {
       wrpScore.style.marginLeft = '45px';
     } else if (score > 10.8) {
-      wrpScore.style.marginLeft = '30px';
+      wrpScore.style.marginLeft = '35px';
     } else if (score > 10.5) {
-      wrpScore.style.marginLeft = '24px';
+      wrpScore.style.marginLeft = '28px';
     } else if (score > 10.3) {
-      wrpScore.style.marginLeft = '14px';
+      wrpScore.style.marginLeft = '18px';
     } else if (score > 10) {
-      wrpScore.style.marginLeft = '10px';
+      wrpScore.style.marginLeft = '12px';
     } else {
       wrpScore.style.marginLeft = '6px';
     }
+
   });
 }
 
