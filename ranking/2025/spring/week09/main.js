@@ -19,7 +19,7 @@ function adjustScoreBars() {
     main.style.width = `${percentMain}%`;
     overflow.style.width = `${percentOverflow}%`;
 
-    const wrpScore = bar.querySelector('.wrp-score');
+     const wrpScore = bar.querySelector('.wrp-score');
     if (score > 11) {
       wrpScore.style.marginLeft = '45px';
     } else if (score > 10.8) {
@@ -38,7 +38,7 @@ function adjustScoreBars() {
 }
 
 // ========== JSON読み込み & DOM更新 ==========
-fetch('ranking-week09-spring2025.json')
+fetch('ranking-week07-spring2025.json')
   .then(response => response.json())
   .then(data => {
     // メタ情報更新
@@ -101,32 +101,6 @@ if (durationEl && data.meta.duration) {
   // 表示に反映
   durationEl.textContent = `(${formattedDuration})`;
 }
-
-/*元の初心者向けバージョン(duration部分）
-// ========== PATCH: duration and ep_range display ==========
-
-// Duration を <span class="duration"> に挿入（Jsonで括弧なし前提）
-const durationEl = document.querySelector('.duration');
-if (durationEl && data.meta.duration) {
-  // 最初の「MM-DD」部分だけ / に直し、曜日範囲部分はそのまま残す
-  const durationRaw = data.meta.duration;
-
-  // 例: "05-18/Sun–05/24/Sat"
-  // --- 修正された duration 表示処理 ---
-const rawDuration = entry.duration;
-
-// 正規表現で分割： ["05", "18", "Sun", "05", "24", "Sat"]
-const parts = rawDuration.split(/[-\s]+/); 
-
-// 組み立てる：05/18/Sat–05/24/Fri
-const formattedDuration = ${parts[0]}/${parts[1]}/${parts[2]}–${parts[3]}/${parts[4]}/${parts[5]};
-
-// 表示に反映
-durationCell.textContent = (${formattedDuration});
-
-//=============ここまで
-*/
-
 
 
 // Ep Range を <span class="ep-range"> に挿入（Ep の E は大文字化）
@@ -275,6 +249,13 @@ if (collapseBtn) {
     }
   });
 }
+
+// 👇ここに追加
+const synopsisBox = el.querySelector(".synopsis");
+if (synopsisBox) {
+  synopsisBox.textContent = entryData.synopsis || "";
+}
+
 
 
 // ジャンラーの更新
@@ -509,7 +490,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const triangle = btn.querySelector(".triangle-icon");
 
   // 外部HTML読み込み
-  fetch('https://snail-panda.github.io/animeb-v1/ranking/2025/spring/week09/2025spring-week09-overview.html')
+  fetch('https://snail-panda.github.io/animeb-v1/ranking/2025/spring/week07/2025spring-week07-overview.html')
   .then(response => {
     if (!response.ok) {
       throw new Error('Overview not found');
@@ -566,41 +547,4 @@ document.addEventListener('click', (e) => {
 
 });
 
-// 最終版 synopsis を読み込んで書き込む
-document.addEventListener("DOMContentLoaded", async () => {
-  try {
-    // synopsis JSONを先に読み込む
-    const synopsisData = await fetch("../../../../assets/json/synopsis/2025/spring/synopsis2025spring.json")
-      .then(res => res.json());
-
-    // 全エントリーをループ
-    document.querySelectorAll(".entry").forEach(entry => {
-      // kv-thumb の中のimgから src を読む
-      const kvImg = entry.querySelector(".kv-thumb img");
-      if (!kvImg) return;
-
-      // 例: "nincoro.webp" → "nincoro"
-      const src = kvImg.getAttribute("src");
-      const match = src.match(/([^\/]+)\.(png|jpg|jpeg|webp)$/i);
-      if (!match) return;
-      const id = match[1];
-
-      // synopsis JSONから取り出し
-      const synopsis = synopsisData[id] || "";
-
-      // .more-info の下に synopsis を入れる
-      const synopsisBox = entry.querySelector(".synopsis");
-      if (synopsisBox) {
-        synopsisBox.textContent = synopsis;
-      }
-
-//カクン問題解消用-ブラウザに 一度 サイズを確定させてから transition を適用
-synopsisBox.offsetHeight; // reflow
-
-
-    });
-  } catch (e) {
-    console.error("Synopsis JSON読み込み失敗", e);
-  }
-});
 
