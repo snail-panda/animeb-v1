@@ -553,6 +553,7 @@ document.addEventListener('click', (e) => {
 
   if (moreInfo) {
     moreInfo.classList.toggle('active');
+    entry.classList.toggle("moreinfo-active");
     btn.setAttribute(
       'aria-expanded',
       moreInfo.classList.contains('active') ? 'true' : 'false'
