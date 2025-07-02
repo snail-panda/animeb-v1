@@ -699,7 +699,7 @@ body {
   border: none;
   border-radius: 6px;
   margin-right: 8px;
-  margin-left: 10px
+  margin-left: 20px
   cursor: pointer;
   transition: background-color 0.2s ease;
 }
