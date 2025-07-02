@@ -154,7 +154,7 @@ body {
 
 .table {
   display: grid;
-  grid-template-columns: 70px 1fr 0.75fr 50px;
+  grid-template-columns: 85px 1fr 1fr 70px;
   border-bottom: 2px solid #aaa;
   margin: 0;
 }
@@ -167,27 +167,21 @@ body {
   text-transform: uppercase;
   align-items: center;
   justify-content: center;
-  padding: 8px 0 5px 0;
+  padding: 8px 0 3px 0;
 }
 
 .table-header .rank {
   text-align: right;
-  padding-right: 28px;
+  padding-right: 38px;
 }
 
 .table-header .title {
   text-align: left;
-  padding-left: 8px/* もともとコメントアウト */ ;
-}
-
-.table-header .wrp {
-  text-align: left;
-  padding-left: 2px;
+  padding-left: /* もともとコメントアウト */ ;
 }
 
 .table-header .totalscore {
-  text-align: left;
-  margin-left: -3px;
+  padding-left: 9px;
 }
 
 /* =============================
@@ -196,12 +190,7 @@ body {
 
 .entry {
   display: grid;
-  grid-template-columns: 70px 1fr 0.75fr 50px;
-  grid-template-rows: auto auto;
-  grid-template-areas:
-    "rank title bar score"
-    ". moreinfo synopsis .";
-  gap: 0.5rem;
+  grid-template-columns: 85px 1fr 1fr 70px;
   align-items: center;
   min-height: 65px;  /* 仮、全体の高さ感調整 */
   font-family: 'Agency FB', sans-serif;
@@ -210,7 +199,7 @@ body {
   color: #595959;
   text-transform: uppercase;
   border-bottom: 1px solid #ccc; /* 細めの内枠線 */
-  padding: 8px 0 1px 0;
+  padding: 0;
 }
 
 .entry-list .entry:last-of-type {
@@ -226,7 +215,7 @@ body {
   flex-direction: column;
   align-items: flex-end;
   justify-content: center;
-  margin-right: 30px; /* adjustable per alignment needs */  
+  margin-right: 40px; /* adjustable per alignment needs */  
   padding-top: 4px;
 }
 
@@ -366,7 +355,6 @@ body {
       position: relative;
   top: -1.5px; /* or tweak it like -2px, -1.5px etc. */
       text-transform: none;
-      margin-right: 6px;
 }
 
 .jp-title {
@@ -374,158 +362,13 @@ body {
   font-family: 'Yu Gothic UI', sans-serif;
   font-weight: 500;
   color: #666;
-  margin-top: -1px;
+  margin-top: 1px;
   margin-left: 0;
   line-height: 1.2;
   padding-left: 0;
   display: block;
 }
 
-/* Key Visual, Genre Tags, Collapse Area*/
-
-.title-container {
-  display: flex;
-  flex-direction: row;
-  gap: 8px; /* 余白 */
-  align-items: flex-start;
-  position: relative;
-}
-
-.info-box {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-.kv-thumb img {
-  width: 48px;
-  height: auto;
-  aspect-ratio: 4/5;
-  object-fit: cover;
-  margin-right: 3px;
-  border-radius: 2px;
-  border-top-left-radius: 40%;
-  box-shadow: 1px 1.2px 2px rgba(0, 0, 0, 0.35);
-  /* Initial state */
-  transform: scale(1); 
-  /* Defines the transition for the transform property over 0.4 seconds with ease timing */
-  transition: transform 0.4s ease;
-}
-
-.kv-thumb img:hover {
-  transform: scale(1.5);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  z-index: 10;
-  position: relative;
-}
-
-.info-bottom {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.genre-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 4px;
-}
-
-.genre-tag {
-  background: #f0f0f0;
-  font-family: 'Abel', sans-serif;
-  font-size: 0.45rem;
-  font-weight: 300;
-  text-shadow: 0.1px 0.1px #686868;
-  color: #686868;
-  padding: 1.5px 3px;
-  border-radius: 3px;
-  margin-top: 2px;
-}
-
-.collapse-btn {
-  background: none;
-  border: none;
-  cursor: pointer;
-  font-size: 0.45rem;
-  color: #686868;
-  position: absolute;
-  right: 0;
-  bottom: 1;
-}
-
-/* More info collapsible エリア*/
-
-.more-info {
-  overflow: hidden;
-  max-height: 0;
-  transition: max-height 0.6s ease;
-  background: transparent; /*色つけるなら　#faf8f0*/
-  padding: 0 0.5rem;
-  font-size: 0.6rem;        /* 少し小さめで情報密度を高める */
-  line-height: 1.3;/* 行間は読みやすさ優先 */
-  margin-bottom: 0.5rem;
-  align-self: start;
-}
-
-.more-info.active {
-  max-height: 1500px; /* 適宜調整 */
-  /*border-top: 1px solid #ddd;*/
-  padding: 0.5rem;
-}
-
-.more-info dl {
-  display: grid;
-  grid-template-columns: 1fr 2fr;  /* 左：項目、右：値 */
-  row-gap: 6px;
-  column-gap: 10px;
-  margin: 0;
-}
-.more-info dt {
-  font-weight: bold;
-  text-align: left;
-  white-space: nowrap;
-  border-left: 3px solid #dec99a;  /* 軽い強調 */
-  padding-left: 6px;
-}
-.more-info dd {
-  font-family: 'Abel', sans-serif;
-  font-weight: 500;
-  color: #686868;
-  text-shadow: 0 -0.3px #686868;
-  margin: 0;
-  text-align: left;
-  padding-left: 4px;
-  word-break: break-word;
-}
-
-
-.synopsis {
-  /* 将来的に必要になったらここにスタイル追加 */
-  font-family: 'Barlow Condensed', 'Abel', sans-serif;
-  font-weight: 500;
-  font-size: 10.5px;
-  color: #515151;
-  line-height: 1.6;
-  letter-spacing: 0.2px;
-  word-spacing: 0.25px;
-  margin: 0;
-  text-align: left;
-  padding-left: 0;
-  word-break: break-word;
-  overflow: hidden;
-  max-height: 0;
-  transition: max-height 0.6s ease;
-  align-self: start;
-}
-
-.synopsis.active {
-  max-height: 1500px;
-  padding: 0.3rem 0.5rem 0.5rem 0.5rem;
-}
-
-
-/* WEEKLY RANKING POINT BAR CHART AREA*/
 
 .bar-wrapper {
   display: flex;
@@ -564,7 +407,7 @@ body {
 
 .bar-track {
   width: 100%;
-  max-width: 180px;
+  max-width: 220px;
   background: #dceccb;
   height: 11px;
   flex: 1;
@@ -623,34 +466,19 @@ body {
   letter-spacing: -0.02em;
   transform: scaleY(1.2);
 }
-
-.score {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 48px;
-  aspect-ratio: 4/5;
-  /*border-bottom-right-radius: 40%;
-  box-shadow: 1.5px 1.5px 2px rgba(0, 0, 0, 0.1);*/
-  font-family: 'Barlow Condensed', 'Agency FB', 'Pathway Gothic One', sans-serif;
-  font-size: 18px;
-  font-weight: 400;
-  text-transform: lowercase;
-}
-
-.score-number {
-  position: relative;
-  z-index: 1;
-}
+    .score {
+      display: block;
+      align-items: center;
+      font-family: 'Barlow Condensed', 'Agency FB', 'Pathway Gothic One', 'sans-serif';
+      font-size: 18px;
+      font-weight: 400;
+      text-transform: lowercase;
+      text-align: center;
+    }
 
 .score-unit {
-  position: relative;
-  top: 4px;   /* 下にズラす量を調整してOK */
-  font-size: 10px;
-  margin-left: 0px;  /* 数字との間の微調整 */
+      font-size: 10px;
 }
-
 
 
 /* 9. REVIEW TAG + POPUP ZONE */
@@ -658,7 +486,7 @@ body {
   position: absolute;
   background: #fffdec;
   border: 1px solid #bbb;
-  padding: 20px 22px 18px 30px;
+  padding: 18px 20px 18px 20px;
   border-radius: 6px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.15);
   font-family: 'Barlow Condensed', 'sans-serif';
@@ -686,20 +514,20 @@ body {
   margin-top: 2px;
   margin-bottom: 12px;
   line-height: 1.6;
-  padding: 10px 5px 10px 10px;
+  padding-right: 5px;
+  padding-left: 6px;
 }
 
 /* --- スイッチボタン（レビュー言語切替） --- */
 .review-switch-btn {
   font-family: 'Fira Sans', sans-serif;
-  font-size: 9.5px;
+  font-size: 10px;
   background-color: #f0f0f0;
   color: #444;
-  padding: 3px 7px;
+  padding: 3.5px 7px;
   border: none;
   border-radius: 6px;
   margin-right: 6px;
-  margin-left: 30px
   cursor: pointer;
   transition: background-color 0.2s ease;
 }
@@ -711,10 +539,10 @@ body {
 /* --- クローズボタン --- */
 .popup-close-btn {
   font-family: 'Fira Sans', sans-serif;
-  font-size: 9.5px;
+  font-size: 10px;
   background-color: #f0f0f0;
   color: #444;
-  padding: 3px 7px;
+  padding: 3.5px 7px;
   border: none;
   border-radius: 6px;
   cursor: pointer;
@@ -734,7 +562,7 @@ body {
   font-weight: 400;
   font-size: 11.5px;
   letter-spacing: 0.04em; /* ←ちょっとゆったり */
-  line-height: 1.8;      /* ←行間やや広めもアリ */
+  line-height: 1.85;      /* ←行間やや広めもアリ */
 }
 
 
@@ -805,7 +633,7 @@ body {
 }
 
 .review-flower.bottom-right {
-  bottom: 4%;
+  bottom: 6%;
   right: 2%;
   opacity: 0.7;
   width: auto; /* これでJS側の制御に任せる */
@@ -834,7 +662,7 @@ body {
   font-size: 0.42rem;
   font-weight: 500;
   color: #b78e52;
-  margin-left: 0px;
+  margin-left: 6px;
   padding: 1.2px 4.7px;
   border-radius: 5px;
   box-shadow: none;
