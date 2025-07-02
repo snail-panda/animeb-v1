@@ -197,7 +197,7 @@ body {
 .entry {
   display: grid;
   grid-template-columns: 70px 1fr 0.75fr 50px;
-  grid-template-rows: auto 0fr;
+  grid-template-rows: auto auto;
   grid-template-areas:
     "rank title bar score"
     ". moreinfo synopsis .";
@@ -211,10 +211,6 @@ body {
   text-transform: uppercase;
   border-bottom: 1px solid #ccc; /* 細めの内枠線 */
   padding: 8px 0 1px 0;
-}
-
-.entry.moreinfo-active {
-  grid-template-rows: auto auto; /* activeのときだけ2段目開く */
 }
 
 .entry-list .entry:last-of-type {
