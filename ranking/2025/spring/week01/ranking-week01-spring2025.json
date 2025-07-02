@@ -77,7 +77,7 @@
     },
     {
       "rank": 4,
-      "trend": "down",
+      "trend": "re",
       "title": "Shoshimin: How to Become Ordinary 2",
       "jpTitle": "小市民シリーズ（第2期）",
       "kv": "shoshimin",
@@ -146,7 +146,7 @@
     },
     {
       "rank": "spotlight",
-      "trend": "down",
+      "trend": "new",
       "title": "Kowloon Generic Romance",
       "jpTitle": "九龍ジェネリックロマンス",
       "kv": "kowloon",
@@ -182,7 +182,7 @@
     },
     {
       "rank": "editor's pick",
-      "trend": "down",
+      "trend": "new",
       "title": "Sword of the Demon Hunter",
       "jpTitle": "鬼人幻燈抄",
       "kv": "kijin",
