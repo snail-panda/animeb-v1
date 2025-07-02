@@ -11,7 +11,13 @@
       "trend": "up",
       "title": "Sword of the Demon Hunter",
       "jpTitle": "鬼人幻燈抄",
+      "kv": "kijin",
       "episode": 9,
+      "genre": [
+        "Action",
+        "Historical",
+        "Drama"
+      ],
       "wrp_score": 10.9,
       "score": 11,
       "review": {
@@ -25,14 +31,28 @@
         "direction": 1,
         "charm": 1,
         "overall": 2
-      }
+      },
+      "romanized_title": "KIJIN GENTOUSHOU",
+      "release_date": "3/31/2025",
+      "end_date": "",
+      "based_on": "Naro",
+      "studios": "Yokohama Animation Laboratory",
+      "creators": "Kazuya Aiura",
+      "external_scores": "",
+      "streaming_services": ""
     },
     {
       "rank": 2,
       "trend": "up",
       "title": "The Apothecary Diaries 2nd Season",
       "jpTitle": "薬屋のひとりごと 第2期（第2クール）",
+      "kv": "kusuriya",
       "episode": 44,
+      "genre": [
+        "Historical",
+        "Mystery",
+        "Drama"
+      ],
       "wrp_score": 9.7,
       "score": 10,
       "review": {
@@ -46,14 +66,29 @@
         "direction": 0.75,
         "charm": 0.7,
         "overall": 1.7
-      }
+      },
+      "romanized_title": "Kusuriya no Hitorigoto 2nd Season",
+      "release_date": "4/4/2025",
+      "end_date": "",
+      "based_on": "Naro",
+      "studios": "TOHO animation STUDIO✕OLM",
+      "creators": "Norihiro Naganuma",
+      "external_scores": "",
+      "streaming_services": ""
     },
     {
       "rank": 3,
       "trend": "up",
       "title": "Mobile Suit Gundam GQuuuuuuX",
       "jpTitle": "機動戦士Gundam GQuuuuuuX",
+      "kv": "gquuuuuux",
       "episode": 8,
+      "genre": [
+        "Action",
+        "Drama",
+        "Mecha",
+        "Sci-Fi"
+      ],
       "wrp_score": 9.3,
       "score": 9,
       "review": {
@@ -67,14 +102,28 @@
         "direction": 0.75,
         "charm": 0.55,
         "overall": 1.55
-      }
+      },
+      "romanized_title": "Kidou Senshi Gundam GQuuuuuuX",
+      "release_date": "4/8/2025",
+      "end_date": "6/25/2025",
+      "based_on": "Original",
+      "studios": "Khara",
+      "creators": "Kazuya Tsurumaki",
+      "external_scores": "7.24 (MAL)",
+      "streaming_services": ""
     },
     {
       "rank": 4,
       "trend": "down",
       "title": "Shoshimin: How to Become Ordinary 2",
       "jpTitle": "小市民シリーズ（第2期）",
-      "episode": 9,
+      "kv": "shoshimin",
+      "episode": 19,
+      "genre": [
+        "Mystery",
+        "School",
+        "Slice of Life"
+      ],
       "wrp_score": 8.7,
       "score": 8,
       "review": {
@@ -88,14 +137,26 @@
         "direction": 0.6,
         "charm": 0.5,
         "overall": 1.3
-      }
+      },
+      "romanized_title": "Shoushimin Series 2nd Season",
+      "release_date": "4/5/2025",
+      "end_date": "6/22/2025",
+      "based_on": "Novels",
+      "studios": "Lapin Track",
+      "creators": "Mamoru Kanbe",
+      "external_scores": "8.03 (MAL)",
+      "streaming_services": ""
     },
     {
       "rank": 5,
       "trend": "up",
       "title": "From Old Country Bumpkin to Master Swordsman",
       "jpTitle": "片田舎のおっさん、剣聖になる",
+      "kv": "katainaka",
       "episode": 9,
+      "genre": [
+        "Kensei ni Naru\""
+      ],
       "wrp_score": 8.4,
       "score": 8,
       "review": {
@@ -109,14 +170,29 @@
         "direction": 0.55,
         "charm": 0.4,
         "overall": 1.25
-      }
+      },
+      "romanized_title": "\"Katainaka no Ossan",
+      "release_date": "Action|Adventure|Fantasy",
+      "end_date": "4/5/2025",
+      "based_on": "6/21/2025",
+      "studios": "Naro",
+      "creators": "PASSIONE|HAYABUSA FILM",
+      "external_scores": "Akio Kazumi",
+      "streaming_services": "7.03 (MAL)"
     },
     {
       "rank": "spotlight",
       "trend": "down",
       "title": "Apocalypse Hotel",
       "jpTitle": "アポカリプスホテル",
+      "kv": "apocalypse",
       "episode": 8,
+      "genre": [
+        "Sci-Fi",
+        "Drama",
+        "Slice of Lice",
+        "Comedy"
+      ],
       "wrp_score": 8.2,
       "score": 8,
       "review": {
@@ -130,14 +206,27 @@
         "direction": 0.55,
         "charm": 0.5,
         "overall": 0.9
-      }
+      },
+      "romanized_title": "Apocalypse Hotel",
+      "release_date": "4/8/2025",
+      "end_date": "6/25/2025",
+      "based_on": "Original",
+      "studios": "Cygames Pictures",
+      "creators": "kana Shundou",
+      "external_scores": "7.88 (MAL)",
+      "streaming_services": ""
     },
     {
       "rank": "editor's pick",
       "trend": "down",
       "title": "A Ninja and an Assassin Under One Roof",
       "jpTitle": "忍者と殺し屋のふたりぐらし",
+      "kv": "nincoro",
       "episode": 8,
+      "genre": [
+        "Comedy",
+        "Slice of Life"
+      ],
       "wrp_score": 7.9,
       "score": 7,
       "review": {
@@ -151,14 +240,26 @@
         "direction": 0.55,
         "charm": 0.45,
         "overall": 0.7
-      }
+      },
+      "romanized_title": "Ninja to Koroshiya no Futarigurashi",
+      "release_date": "4/10/2025",
+      "end_date": "6/26/2025",
+      "based_on": "Manga",
+      "studios": "SHAFT",
+      "creators": "Yukihiro Miyamoto",
+      "external_scores": "7.59 (MAL)",
+      "streaming_services": ""
     },
     {
       "rank": "dookie",
       "trend": "up",
       "title": "Can a Boy-Girl Friendship Survive?",
       "jpTitle": "男女の友情は成立する？（いや、しないっ!!）",
+      "kv": "danjoru",
       "episode": 9,
+      "genre": [
+        "Shinai!!)\""
+      ],
       "wrp_score": 5.5,
       "score": 5,
       "review": {
@@ -172,7 +273,15 @@
         "direction": 0.3,
         "charm": 0.2,
         "overall": -1.5
-      }
+      },
+      "romanized_title": "\"Danjo no Yuujou wa Seiritsu suru? (Iya",
+      "release_date": "Rom-Com|School",
+      "end_date": "4/4/2025",
+      "based_on": "6/20/2025",
+      "studios": "Light Novel",
+      "creators": "J.C.STAFF",
+      "external_scores": "Yohei Suzuki",
+      "streaming_services": "6.75 (MAL)"
     }
   ]
 }
