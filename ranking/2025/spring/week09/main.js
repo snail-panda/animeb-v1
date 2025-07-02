@@ -38,7 +38,7 @@ function adjustScoreBars() {
 }
 
 // ========== JSON読み込み & DOM更新 ==========
-fetch('ranking-week07-spring2025.json')
+fetch('ranking-week09-spring2025.json')
   .then(response => response.json())
   .then(data => {
     // メタ情報更新
@@ -490,7 +490,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const triangle = btn.querySelector(".triangle-icon");
 
   // 外部HTML読み込み
-  fetch('https://snail-panda.github.io/animeb-v1/ranking/2025/spring/week07/2025spring-week07-overview.html')
+  fetch('https://snail-panda.github.io/animeb-v1/ranking/2025/spring/week09/2025spring-week09-overview.html')
   .then(response => {
     if (!response.ok) {
       throw new Error('Overview not found');

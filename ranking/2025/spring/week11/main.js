@@ -19,20 +19,21 @@ function adjustScoreBars() {
     main.style.width = `${percentMain}%`;
     overflow.style.width = `${percentOverflow}%`;
 
-    const wrpScore = bar.querySelector('.wrp-score');
+     const wrpScore = bar.querySelector('.wrp-score');
     if (score > 11) {
-      wrpScore.style.marginLeft = '60px';
+      wrpScore.style.marginLeft = '45px';
     } else if (score > 10.8) {
-      wrpScore.style.marginLeft = '44px';
+      wrpScore.style.marginLeft = '35px';
     } else if (score > 10.5) {
-      wrpScore.style.marginLeft = '34px';
+      wrpScore.style.marginLeft = '28px';
     } else if (score > 10.3) {
-      wrpScore.style.marginLeft = '21px';
+      wrpScore.style.marginLeft = '18px';
     } else if (score > 10) {
-      wrpScore.style.marginLeft = '14px';
+      wrpScore.style.marginLeft = '12px';
     } else {
       wrpScore.style.marginLeft = '6px';
     }
+
   });
 }
 
@@ -44,6 +45,34 @@ fetch('ranking-week11-spring2025.json')
     document.querySelector('.week-title').textContent = data.meta.week;
     document.querySelector('.season-title').textContent = data.meta.season;
     document.title = `Anime Weekly Ranking - ${data.meta.week}`;
+
+// ✅ ここにフォーマット関数を置くのがベスト
+function formatReleaseDates(start, end) {
+  if (!start) return "";
+  const startParts = start.split('/');
+  const startStr = formatDateString(startParts);
+
+  if (!end) {
+    return startStr;
+  } else {
+    const endParts = end.split('/');
+    const endStr = formatDateString(endParts);
+    return `${startStr} to ${endStr}`;
+  }
+}
+
+function formatDateString(parts) {
+  if (parts.length < 3) return "";
+  const monthMap = [
+    "", "January", "February", "March", "April", "May", "June",
+    "July", "August", "September", "October", "November", "December"
+  ];
+  const month = parseInt(parts[0], 10);
+  const day = parseInt(parts[1], 10);
+  const year = parseInt(parts[2], 10);
+  return `${monthMap[month]} ${day}, ${year}`;
+}
+
 
 　　// ✅ WEEK を全大文字表示に変更
 　　const weekEl = document.querySelector('.week-title');
@@ -73,32 +102,6 @@ if (durationEl && data.meta.duration) {
   durationEl.textContent = `(${formattedDuration})`;
 }
 
-/*元の初心者向けバージョン(duration部分）
-// ========== PATCH: duration and ep_range display ==========
-
-// Duration を <span class="duration"> に挿入（Jsonで括弧なし前提）
-const durationEl = document.querySelector('.duration');
-if (durationEl && data.meta.duration) {
-  // 最初の「MM-DD」部分だけ / に直し、曜日範囲部分はそのまま残す
-  const durationRaw = data.meta.duration;
-
-  // 例: "05-18/Sun–05/24/Sat"
-  // --- 修正された duration 表示処理 ---
-const rawDuration = entry.duration;
-
-// 正規表現で分割： ["05", "18", "Sun", "05", "24", "Sat"]
-const parts = rawDuration.split(/[-\s]+/); 
-
-// 組み立てる：05/18/Sat–05/24/Fri
-const formattedDuration = ${parts[0]}/${parts[1]}/${parts[2]}–${parts[3]}/${parts[4]}/${parts[5]};
-
-// 表示に反映
-durationCell.textContent = (${formattedDuration});
-
-//=============ここまで
-*/
-
-
 
 // Ep Range を <span class="ep-range"> に挿入（Ep の E は大文字化）
 const epRangeEl = document.querySelector('.ep-range');
@@ -115,36 +118,55 @@ if (epRangeEl && data.meta.ep_range) {
       const el = entryElements[index];
       if (!el) return;
 
-      // タイトル更新
-      const titleEl = el.querySelector('.title');
-      if (titleEl) {
-        const epSpan = titleEl.querySelector('.title-ep');
-        titleEl.childNodes[0].textContent = entryData.title;
-        if (epSpan) epSpan.textContent = ` — Ep.${entryData.episode}`;
+    // タイトル更新
+const infoTopEl = el.querySelector('.info-top');
+if (infoTopEl) {
+  // 中身を一度クリア
+  infoTopEl.textContent = "";
 
-         const jpTitleEl = titleEl.querySelector('.jp-title');
-if (jpTitleEl) {
-  jpTitleEl.textContent = entryData.jpTitle || "";
+  // 英語タイトル
+  const enTitle = document.createTextNode(entryData.title || "");
+  infoTopEl.appendChild(enTitle);
+
+  // エピソード
+  const epSpan = document.createElement("span");
+  epSpan.className = "title-ep";
+  epSpan.textContent = ` — Ep.${entryData.episode || ""}`;
+  infoTopEl.appendChild(epSpan);
+
+  // 日本語タイトル 既存の日本語タイトルを上書き
+ const jpTitleEl = el.querySelector('.jp-title');
+  if (jpTitleEl) {
+    jpTitleEl.textContent = entryData.jpTitle || "";
+  }
+
+
+// ========== KV画像更新 ==========
+
+const kvThumbEl = el.querySelector('.kv-thumb img');
+if (kvThumbEl && entryData.kv) {
+  kvThumbEl.src = `../../../../images/key-visuals/2025/spring/${entryData.kv}.webp`;
+  kvThumbEl.alt = `${entryData.title} key visual`;
 }
 
-               // --- Review挿入処理 (EN/JPネスト対応版) ---
-        const reviewTag = titleEl.querySelector('.review-tag');
-        const reviewData = entryData.review;
-        if (
-          reviewData &&
-          (reviewData.en?.trim() || reviewData.jp?.trim())
-        ) {
-          // デフォルトで英語レビュー表示
-          reviewTag.dataset.reviewEn = reviewData.en || '';
-          reviewTag.dataset.reviewJp = reviewData.jp || '';
-          reviewTag.dataset.lang = 'en';
-          reviewTag.textContent = 'Review';
-          reviewTag.style.display = 'inline-block';
-        } else {
-          reviewTag.style.display = 'none';
-        }
 
-      }
+
+  // Reviewボタン
+  const reviewTag = document.createElement("span");
+  reviewTag.className = "review-tag";
+  const reviewData = entryData.review;
+  if (reviewData && (reviewData.en?.trim() || reviewData.jp?.trim())) {
+    reviewTag.dataset.reviewEn = reviewData.en || "";
+    reviewTag.dataset.reviewJp = reviewData.jp || "";
+    reviewTag.dataset.lang = "en";
+    reviewTag.textContent = "Review";
+    reviewTag.style.display = "inline-block";
+  } else {
+    reviewTag.style.display = "none";
+  }
+  infoTopEl.appendChild(reviewTag);
+}
+
 
       // トレンド情報更新
       const trendLabel = el.querySelector('.trend-label');
@@ -194,9 +216,61 @@ function titleCase(str) {
 
       // Totalスコア更新
       const scoreEl = el.querySelector('.score');
-      if (scoreEl) {
-        scoreEl.innerHTML = `${entryData.score}<span class="score-unit">pt</span>`;
-      }
+if (scoreEl) {
+  const scoreNumberEl = scoreEl.querySelector('.score-number');
+  const scoreUnitEl = scoreEl.querySelector('.score-unit');
+
+  if (scoreNumberEl) scoreNumberEl.textContent = entryData.score;
+  if (scoreUnitEl) scoreUnitEl.textContent = 'pt';  // ptは固定
+}
+
+
+// more-info <dl> の更新
+const moreInfoDl = el.querySelector('.more-info dl');
+if (moreInfoDl) {
+  moreInfoDl.innerHTML = `
+    <dt>Romanized Title</dt><dd>${entryData.romanized_title || ""}</dd>
+    <dt>Release Date</dt><dd>${formatReleaseDates(entryData.release_date, entryData.end_date)}</dd>
+    <dt>Based On</dt><dd>${entryData.based_on || ""}</dd>
+    <dt>Studios</dt><dd>${entryData.studios || ""}</dd>
+    <dt>Creators</dt><dd>${entryData.creators || ""}</dd>
+    <dt>External Scores</dt><dd>${entryData.external_scores || ""}</dd>
+    <dt>Streaming Services</dt><dd>${entryData.streaming_services || ""}</dd>
+  `;
+}
+
+// synopsis の開閉も一緒に制御するために
+const collapseBtn = el.querySelector(".collapse-btn");
+if (collapseBtn) {
+  collapseBtn.addEventListener("click", () => {
+    const synopsisBox = el.querySelector(".synopsis");
+    if (synopsisBox) {
+      synopsisBox.classList.toggle("active");
+    }
+  });
+}
+
+// 👇ここに追加
+const synopsisBox = el.querySelector(".synopsis");
+if (synopsisBox) {
+  synopsisBox.textContent = entryData.synopsis || "";
+}
+
+
+
+// ジャンラーの更新
+const genreTagsEl = el.querySelector('.genre-tags');
+if (genreTagsEl && entryData.genre) {
+  genreTagsEl.innerHTML = "";  // 既存タグをクリア
+  entryData.genre.forEach(g => {
+    const tag = document.createElement('span');
+    tag.className = 'genre-tag';
+    tag.textContent = g;
+    genreTagsEl.appendChild(tag);
+  });
+}
+
+
     });
 
     // 全ての更新が終わったあとにバー描画
@@ -258,8 +332,16 @@ flowerBottomRight.className = 'review-flower bottom-right';
 // ⬇️ テキストとボタン設定
 function updateContent() {
   if (lang === 'en') {
+
+console.log("📦 reviewEn =", reviewEn);
+
     contentEl.innerHTML = reviewEn || 'English review not available.';
     switchBtn.textContent = 'Switch to Japanese';
+
+ console.log("🌸 contentEl.innerHTML after setting:", contentEl.innerHTML);
+  console.log("🧱 DOM:", contentEl);
+
+
   } else {
     contentEl.innerHTML = reviewJp || 'Japanese review not available.';
     switchBtn.textContent = 'Switch to English';
@@ -441,3 +523,28 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 });
+
+
+// 展開ボタン制御
+document.addEventListener('click', (e) => {
+  const btn = e.target.closest('.collapse-btn');
+  if (!btn) return;
+
+  const entry = btn.closest('.entry');
+  const moreInfo = entry.querySelector('.more-info');
+
+  if (moreInfo) {
+    moreInfo.classList.toggle('active');
+    btn.setAttribute(
+      'aria-expanded',
+      moreInfo.classList.contains('active') ? 'true' : 'false'
+    );
+  }
+
+ if (synopsisBox) {
+    synopsisBox.classList.toggle('active');
+  }
+
+});
+
+
