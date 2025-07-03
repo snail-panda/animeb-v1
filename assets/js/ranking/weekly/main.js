@@ -508,10 +508,6 @@ document.addEventListener("DOMContentLoaded", () => {
         const langBtn = document.createElement("button");
         langBtn.id = "lang-toggle";
         langBtn.textContent = "EN ⇄ JP";
-        langBtn.style.display = "block";
-        langBtn.style.margin = "0 auto 8px auto";
-        langBtn.style.fontSize = "0.75rem";
-        langBtn.style.cursor = "pointer";
 
         langBtn.addEventListener("click", () => {
           currentLang = currentLang === "EN" ? "JP" : "EN";
@@ -541,10 +537,6 @@ document.addEventListener("DOMContentLoaded", () => {
           const langBtn = document.createElement("button");
           langBtn.id = "lang-toggle";
           langBtn.textContent = "EN ⇄ JP";
-          langBtn.style.display = "block";
-          langBtn.style.margin = "0 auto 8px auto";
-          langBtn.style.fontSize = "0.75rem";
-          langBtn.style.cursor = "pointer";
 
           langBtn.addEventListener("click", () => {
             currentLang = "EN";
