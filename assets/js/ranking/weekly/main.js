@@ -524,10 +524,22 @@ document.addEventListener("DOMContentLoaded", () => {
       })
       .catch(() => {
         if (lang === "EN") {
-          console.log("English overview missing, trying Japanese");
-          currentLang = "JP";
-          loadOverview("JP");
-        } else if (lang === "JP") {
+  console.log("English overview missing");
+  container.innerHTML = `
+    <p class="overview-notice" style="text-align:center; margin:1em 0;">
+      English Overview not available.
+    </p>
+  `;
+  const langBtn = document.createElement("button");
+  langBtn.id = "lang-toggle";
+  langBtn.textContent = "EN ⇄ JP";
+  langBtn.addEventListener("click", () => {
+    currentLang = "JP";
+    loadOverview("JP");
+  });
+  container.prepend(langBtn);
+}
+ else if (lang === "JP") {
           console.log("Japanese overview missing");
           container.innerHTML = `
             <p class="overview-notice" style="text-align:center; margin:1em 0;">
