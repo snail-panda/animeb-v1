@@ -560,8 +560,9 @@ document.addEventListener("DOMContentLoaded", () => {
           container.prepend(langBtn);
         }
       });
-  }
-
+    }
+  
+  // トグル動作 ボタンクリックでアコーディオン開閉（innerHTML を使わない！）
   btn.addEventListener("click", () => {
     container.classList.toggle("expanded");
     triangle.classList.toggle("rotate");
@@ -572,7 +573,7 @@ document.addEventListener("DOMContentLoaded", () => {
       loadOverview(currentLang);
     } else {
       btn.innerHTML = '<span class="triangle-icon">&#9660;</span> OVERVIEW';
-      container.innerHTML = "";
+      container.innerHTML = ""; //閉じたとき中身クリア
     }
   });
 
@@ -599,24 +600,6 @@ document.addEventListener("DOMContentLoaded", () => {
         overviewSection.style.display = "none";
       }
     });
-});
-
-
- // トグル動作（innerHTML を使わない！）
- // ボタンクリックでアコーディオン開閉
-  btn.addEventListener("click", () => {
-    container.classList.toggle("expanded");
-    triangle.classList.toggle("rotate");
-
-    if (container.classList.contains("expanded")) {
-      btn.innerHTML =
-        '<span class="triangle-icon rotate">&#9660;</span> CLOSE';
-      loadOverview(currentLang);
-    } else {
-      btn.innerHTML = '<span class="triangle-icon">&#9660;</span> OVERVIEW';
-      container.innerHTML = ""; //閉じたとき中身クリア
-    }
-  });
 });
 
 
