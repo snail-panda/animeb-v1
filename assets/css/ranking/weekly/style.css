@@ -157,6 +157,11 @@ body {
       cursor: pointer;
 }
 
+#lang-toggle:focus {
+  outline: 1px dotted #999;
+}
+
+
 /* =============================
    3. TABLE HEADER ZONE 
    ============================= */
