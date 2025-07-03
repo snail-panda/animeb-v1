@@ -555,6 +555,7 @@ document.addEventListener("DOMContentLoaded", () => {
             loadOverview("EN");
           });
           container.prepend(langBtn);
+		  langBtn.blur();  // ← これを入れるだけ
         }
       });
   }
