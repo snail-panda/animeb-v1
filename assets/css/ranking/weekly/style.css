@@ -158,10 +158,6 @@ body {
       cursor: pointer;
 }
 
-#lang-toggle:focus {
-  outline: 0 !important;
-  box-shadow: none !important;
-}
 
 .overview-notice {
   color: #6e6e6e;
