@@ -148,10 +148,11 @@ body {
 
 #lang-toggle {
       display: block;
-      margin: 0 auto 8px auto;
-      padding: 4px 8px;
-      font-size: 0.75rem;
+      margin: 0 auto 4px auto;
+      padding: 3px 6px;
+      font-size: 0.55rem;
       cursor: pointer;
+}
 
 /* =============================
    3. TABLE HEADER ZONE 
