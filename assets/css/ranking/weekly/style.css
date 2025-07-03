@@ -163,7 +163,8 @@ body {
 }
 
 .overview-notice {
-  color: #333;
+  color: #6e6e6e;
+  marging-top: 30px;
   font-size: 0.5rem;
   font-style: italic;
   text-align: center;
