@@ -161,6 +161,11 @@ body {
   outline: none !important;
 }
 
+#overview-container p {
+  color: #333;
+  font-style: italic;
+  text-align: center;
+}
 
 /* =============================
    3. TABLE HEADER ZONE 
