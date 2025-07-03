@@ -492,16 +492,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // 最初は overview.html を読み込む
   function loadOverview(lang) {
-    const file =
-      lang === "EN"
-        ? `2025spring-${currentWeek}-overview.html`
-        : `2025spring-${currentWeek}-overview-ja.html`;
+    const file = lang === "EN"
+      ? `2025spring-${currentWeek}-overview.html`
+      : `2025spring-${currentWeek}-overview-ja.html`;
 
     fetch(file)
       .then((response) => {
-        if (!response.ok) {
-          throw new Error("not found");
-        }
+        if (!response.ok) throw new Error("not found");
         return response.text();
       })
       .then((html) => {
@@ -526,25 +523,21 @@ document.addEventListener("DOMContentLoaded", () => {
         if (weeklyOverview) {
           weeklyOverview.prepend(langBtn);
         } else {
-          // もし .weekly-overview がなければとりあえず container の先頭
           container.prepend(langBtn);
         }
       })
-  .catch(() => {
+      .catch(() => {
         if (lang === "EN") {
-          // 英語がない場合は日本語を試す
           console.log("English overview missing, trying Japanese");
           currentLang = "JP";
           loadOverview("JP");
         } else if (lang === "JP") {
-          // 日本語がない場合
           console.log("Japanese overview missing");
           container.innerHTML = `
             <p style="text-align:center; margin:1em 0;">
               Japanese Overview not available.
             </p>
           `;
-          // 切り替えボタンだけ残す
           const langBtn = document.createElement("button");
           langBtn.id = "lang-toggle";
           langBtn.textContent = "EN ⇄ JP";
@@ -560,16 +553,15 @@ document.addEventListener("DOMContentLoaded", () => {
           container.prepend(langBtn);
         }
       });
-    }
-  
+  }
+
   // トグル動作 ボタンクリックでアコーディオン開閉（innerHTML を使わない！）
   btn.addEventListener("click", () => {
     container.classList.toggle("expanded");
     triangle.classList.toggle("rotate");
 
     if (container.classList.contains("expanded")) {
-      btn.innerHTML =
-        '<span class="triangle-icon rotate">&#9660;</span> CLOSE';
+      btn.innerHTML = '<span class="triangle-icon rotate">&#9660;</span> CLOSE';
       loadOverview(currentLang);
     } else {
       btn.innerHTML = '<span class="triangle-icon">&#9660;</span> OVERVIEW';
@@ -579,7 +571,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // overview.html も overview-ja.html も存在しない場合は
   // ボタンごと非表示にする
-  // →最初からトライ
   fetch(`2025spring-${currentWeek}-overview.html`)
     .then((res) => {
       if (!res.ok) {
@@ -601,6 +592,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
 });
+
 
 
 // 展開ボタン制御
