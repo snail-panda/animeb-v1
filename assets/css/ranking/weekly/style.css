@@ -148,6 +148,8 @@ body {
 
 #lang-toggle {
       display: block;
+	  font-family: 'Abel', sans-serif;
+	  color: #9e9b9b;
       margin: 0 auto 4px auto;
       padding: 3px 6px;
       font-size: 0.55rem;
