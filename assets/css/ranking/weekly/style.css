@@ -163,6 +163,7 @@ body {
 
 #overview-container p {
   color: #333;
+  font-size: 5rem;
   font-style: italic;
   text-align: center;
 }
