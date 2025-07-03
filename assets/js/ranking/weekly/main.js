@@ -488,39 +488,74 @@ document.addEventListener("DOMContentLoaded", () => {
   const container = document.getElementById("overview-container");
   const triangle = btn.querySelector(".triangle-icon");
 
-  // 外部HTML読み込み
-  fetch(`2025spring-${currentWeek}-overview.html`)
-  .then(response => {
-    if (!response.ok) {
-      throw new Error('Overview not found');
-    }
-    return response.text();
-  })
-  .then(html => {
-    document.getElementById('overview-container').innerHTML = html;
-  })
+  let currentLang = "EN";
+
+  // 最初は overview.html を読み込む
+  function loadOverview(lang) {
+    const file =
+      lang === "EN"
+        ? `2025spring-${currentWeek}-overview.html`
+        : `2025spring-${currentWeek}-overview-ja.html`;
+
+    fetch(file)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Overview not found");
+        }
+        return response.text();
+      })
+      .then((html) => {
+        container.innerHTML = html;
+
+        // 言語切り替えボタンを作成
+        const langBtn = document.createElement("button");
+        langBtn.id = "lang-toggle";
+        langBtn.textContent = "EN ⇄ JP";
+        langBtn.style.display = "block";
+        langBtn.style.margin = "0 auto 8px auto";
+        langBtn.style.fontSize = "0.75rem";
+        langBtn.style.cursor = "pointer";
+
+        langBtn.addEventListener("click", () => {
+          currentLang = currentLang === "EN" ? "JP" : "EN";
+          loadOverview(currentLang);
+        });
+
+        // ボタンを overview の先頭に差し込む
+        const weeklyOverview = container.querySelector(".weekly-overview");
+        if (weeklyOverview) {
+          weeklyOverview.prepend(langBtn);
+        } else {
+          // もし .weekly-overview がなければとりあえず container の先頭
+          container.prepend(langBtn);
+        }
+      })
   .catch(error => {
     // overview.html が存在しない場合は、何も表示しない
-    console.log('No overview found for this week. Skipping...');
-    const overviewSection = document.querySelector('.overview-section');
-    if (overviewSection) {
-      overviewSection.style.display = 'none';
-    }
-  });
+    console.log("No overview found for this week. Skipping...");
+        const overviewSection = document.querySelector(".overview-section");
+        if (overviewSection) {
+          overviewSection.style.display = "none";
+        }
+      });
+  }
 
 
  // トグル動作（innerHTML を使わない！）
- btn.addEventListener("click", () => {
-  container.classList.toggle("expanded");
-  triangle.classList.toggle("rotate");
+ // ボタンクリックでアコーディオン開閉
+  btn.addEventListener("click", () => {
+    container.classList.toggle("expanded");
+    triangle.classList.toggle("rotate");
 
-  if (container.classList.contains("expanded")) {
-    btn.innerHTML = '<span class="triangle-icon rotate">&#9660;</span> CLOSE';
-  } else {
-    btn.innerHTML = '<span class="triangle-icon">&#9660;</span> OVERVIEW';
-  }
-});
-
+    if (container.classList.contains("expanded")) {
+      btn.innerHTML =
+        '<span class="triangle-icon rotate">&#9660;</span> CLOSE';
+      loadOverview(currentLang);
+    } else {
+      btn.innerHTML = '<span class="triangle-icon">&#9660;</span> OVERVIEW';
+      container.innerHTML = ""; //閉じたとき中身クリア
+    }
+  });
 });
 
 
