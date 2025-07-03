@@ -530,7 +530,7 @@ document.addEventListener("DOMContentLoaded", () => {
         } else if (lang === "JP") {
           console.log("Japanese overview missing");
           container.innerHTML = `
-            <p style="text-align:center; margin:1em 0;">
+            <p class="overview-notice" style="text-align:center; margin:1em 0;">
               Japanese Overview not available.
             </p>
           `;

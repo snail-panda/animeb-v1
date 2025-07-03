@@ -159,11 +159,12 @@ body {
 
 #lang-toggle:focus {
   outline: none !important;
+  box-shadow: none !important;
 }
 
-#overview-container p {
+.overview-notice {
   color: #333;
-  font-size: 5rem;
+  font-size: 0.5rem;
   font-style: italic;
   text-align: center;
 }
