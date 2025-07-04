@@ -70,7 +70,7 @@ body {
 } 
 
 #introText::first-letter {
-  font-size: 200%;
+  font-size: 170%;
   font-weight: bold;
   color: #333;
 }
@@ -80,7 +80,7 @@ body {
 }
 
 #contentText::first-letter {
-  font-size: 200%;
+  font-size: 170%;
   font-weight: bold;
   color: #333;
 }
@@ -97,7 +97,7 @@ body {
 }
 
 #conclusionText::first-letter {
-  font-size: 200%;
+  font-size: 170%;
   font-weight: bold;
   color: #333;
 }
