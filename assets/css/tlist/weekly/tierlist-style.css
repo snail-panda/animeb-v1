@@ -173,6 +173,9 @@ body {
   background-color: #555;
 }
 
+.hidden {
+  display: none;
+}
 
 .disclaimer {
   font-size: 0.75em;
