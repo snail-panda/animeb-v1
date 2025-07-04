@@ -4,10 +4,11 @@ const tierlistData = {
   intro: "We’re already halfway through the season! Here’s my updated tier list after Episode 8. Some shows continue to shine, others fell off, and a few... I had to drop.",
   content: "The mid-season tier highlight definitely revolves around the sub-top tiers like A, B, and C.<br>While SS, S, and D are pretty much locked in — with  <span class=\"anime-title\">The Apothecary Diaries Second Season</span>,  <span class=\"anime-title\">Sword of the Demon Hunter</span>, and  <span class=\"anime-title\">Shoshimin: How to Become Ordinary 2</span> absolutely dominating the top, and certain bottom-tier shows still proudly claiming their D-tier status —the real action lies in the middle.<br>Mid-tier titles such as  <span class=\"anime-title\">Mobile Suit Gundam GQuuuuuuX</span>,  <span class=\"anime-title\">Kowloon Generic Romance</span>, and  <span class=\"anime-title\">From the Old Country Bumpkin to Master Swordsman... </span>are still holding some potential to rise — though honestly, they're quite wobbly. From my personal view, Gundam and From the Old... have finally started showing some of their own charm, though not fully baked yet. And the thing is — back in Episode 1, these were among the shows I was really excited about.<br>I hope the next few episodes will give them the push they need to live up to that early promise.",
   conclusion: "That wraps up my Ep. 7–8 impressions. Thanks for reading! I'll see you again for the 2025 Spring Final Tier List.  (And hey—don't forget to let me know where your favorites landed!)",
-  tierImage: "https://i.postimg.cc/CK5DYTZ7/2025midspring-tier-list-ep7-8.png",
+  tierImage: "../../../../images/tier-lists/2025/spring/2025springfinal_tierlist_ep12-13.png",
   tierGuide: `
     <h4 class="criteria-title">Tier Guide</h4>
     <ul class="criteria-list">
+	  <li><span class="sss">🔴 SSS – CELESTIAL</span> Crème de la crème. Absolute must-watch.</li>
       <li><span class="ss">🔴 SS – CELESTIAL</span> Crème de la crème. Absolute must-watch.</li>
       <li><span class="s">🟠 S – GREAT</span> Strong execution and great energy, just shy of that tiny spark of god-tier brilliance. This is where recommendations really start.</li>
       <li><span class="a">🟡 A – GOOD</span> Solid work, still holding attention. Definitely enjoyable, but started wobbling, or vice versa.</li>
