@@ -49,7 +49,7 @@ body {
   margin-top: 3rem;
   margin-bottom: 4rem;
   line-height: 1.75;
-  letter-spacing: 0.2px;
+  letter-spacing: 0.15px;
   word-spacing: 0.1em;
 } 
 
@@ -60,7 +60,7 @@ body {
   padding: 20px 0;
   line-height: 1.75;
   border-bottom: 1px solid #ddd;
-  letter-spacing: 0.2px;
+  letter-spacing: 0.15px;
   word-spacing: 0.13em;
 } 
 
@@ -68,7 +68,7 @@ body {
   font-size: 0.9rem;
   margin-top: 2.5rem;
   line-height: 1.75;
-  letter-spacing: 0.2px;
+  letter-spacing: 0.15px;
   word-spacing: 0.1em;
 } 
 
