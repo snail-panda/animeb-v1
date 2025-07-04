@@ -70,6 +70,9 @@ body {
   font-size: 200%;
   font-weight: bold;
   color: #333;
+}
+
+#introText { 
   text-indent: 1.5em;
 }
 
@@ -77,8 +80,11 @@ body {
   font-size: 200%;
   font-weight: bold;
   color: #333;
-  text-indent: 1.5em;
 }
+
+#contentText {
+  text-indent: 1.5em;
+}	
 
 .anime-title {
   font-style: italic;
@@ -91,6 +97,9 @@ body {
   font-size: 200%;
   font-weight: bold;
   color: #333;
+}
+
+#conclusionText {
   text-indent: 1.5em;
 }
 
