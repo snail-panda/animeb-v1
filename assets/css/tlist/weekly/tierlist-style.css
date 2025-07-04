@@ -50,6 +50,7 @@ body {
   margin-bottom: 4rem;
   line-height: 1.75;
   letter-spacing: 0.2px;
+  word-spacing: 0.15em;
 } 
 
 .post-content {
@@ -68,6 +69,7 @@ body {
   margin-top: 2.5rem;
   line-height: 1.75;
   letter-spacing: 0.2px;
+  word-spacing: 0.15em;
 } 
 
 #introText::first-letter {
