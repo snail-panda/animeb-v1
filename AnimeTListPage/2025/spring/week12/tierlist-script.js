@@ -32,15 +32,30 @@ document.getElementById("conclusionText").innerHTML = safeConclusion;
   document.getElementById("tierImage").src = data.tierImage;
 
   // Tier Guide
+  // 最初に詳細版を読み込む
   document.getElementById("tierGuide").innerHTML = data.tierGuide;
 
- // そのあと確実に criteria-list を探して隠す
-  const criteriaList = document.querySelector(".criteria-list");
-  if (criteriaList) {
-    criteriaList.classList.add("hidden");
- }
+  // criteria-listのliから簡易版を生成
+const simpleList = document.createElement("ul");
+simpleList.className = "criteria-simple";
 
-  //🔽 ここに追記show details button and function added
+document.querySelectorAll(".criteria-list li").forEach(li => {
+  const simpleLi = document.createElement("li");
+  const span = li.querySelector("span");
+  if (span) {
+    simpleLi.textContent = span.textContent;
+    simpleList.appendChild(simpleLi);
+  }
+});
+
+// 最初はcriteria-listを非表示
+document.querySelector(".criteria-list").classList.add("hidden");
+
+// 最初は簡易版だけ見せる
+document.getElementById("tierGuide").appendChild(simpleList);
+
+
+  //🔽 ここに追記 トグルボタン show details button and function added
   const toggleButton = document.createElement('button');
   toggleButton.id = "toggleTierGuide";
   toggleButton.textContent = "Show details";
@@ -55,6 +70,8 @@ document.getElementById("conclusionText").innerHTML = safeConclusion;
     } else {
       toggleButton.textContent = "Show details";
     }
+    // 再度ボタンを復活させるためにもう一度appendChild
+  tg.appendChild(toggleButton);
   });
 
   // Disclaimer
