@@ -34,6 +34,22 @@ document.getElementById("conclusionText").innerHTML = safeConclusion;
   // Tier Guide
   document.getElementById("tierGuide").innerHTML = data.tierGuide;
 
+  //🔽 ここに追記show details button and function added
+  const toggleButton = document.createElement('button');
+  toggleButton.id = "toggleTierGuide";
+  toggleButton.textContent = "Show details";
+  toggleButton.classList.add("tier-guide-toggle");
+  document.getElementById("tier-guide").appendChild(toggleButton);
+
+    toggleButton.addEventListener("click", function() {
+    document.querySelector(".criteria-list").classList.toggle("hidden");
+    if (toggleButton.textContent === "Show details") {
+      toggleButton.textContent = "Hide details";
+    } else {
+      toggleButton.textContent = "Show details";
+    }
+  });
+
   // Disclaimer
   document.getElementById("disclaimer").innerHTML = data.disclaimer;
 
