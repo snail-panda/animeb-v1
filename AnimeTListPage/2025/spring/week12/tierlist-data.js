@@ -23,36 +23,44 @@ const tierlistData = {
   Most titles in the N/A Disqualified tier were dropped or excluded from my watch pool after the first few episodes or even during it. Some didn’t last more than a few minutes, while others were ruled out at a glance—or not even. That doesn’t mean they’re all “absolute trash.” Most just weren’t my cup of tea or didn’t suit the ranking format. Some shows—even if good or fun in their own way—just don’t fit the structure or vibe of my weekly list. That said, yeah, a few were truly dookie.`,
   
   tiers: {
-     "SS": [
-      "The Apothecary Diaries 2nd Season",
+     "SSS": [
+	  "The Apothecary Diaries 2nd Season",
+	  "Shoshimin: How to Become Ordinary 2"
+	],  
+    "SS": [
       "Sword of the Demon Hunter",
-      "Shoshimin: How to Become Ordinary 2"
+      "Apocalypse Hotel"
     ],
     "S": [
-      "Apocalypse Hotel",
+      "The Catcher in the Ballpark!"
+    ],
+    "A": [
       "A Ninja and an Assassin Under One Roof",
       "Me and the Alien MuMu"
     ],
-    "A": [
-      "Mobile Suit Gundam GQuuuuuuX",
-      "The Catcher in the Ballpark!"
-    ],
     "B": [
-      "Please Put Them On",
-      "Kowloon Generic Romance"
+      "Mobile Suit Gundam GQuuuuuuX",
+      "Witch Watch"
     ],
     "C": [
-      "From Old Country Bumpkin to Master Swordsman: My Hotshot Disciples Are All Grown Up Now",
-      "Your Forma",
+      "Please Put Them On, Takamine-san!",
+      "Kowloon Generic Romance",
+      "From Old Country Bumpkin to Master Swordsman: My Hotshot Disciples Are All Grown Up Now, and They Won’t Leave Me Alone",
+      "Uma Musume: Cinderella Grey",
+      "I’m the Evil Lord of an Intergalactic Empire!",
       "Miru: Paths to My Future"
     ],
     "D": [
       "Can a Boy-Girl Friendship Survive?",
-      "Once Upon a Witch's Death"
+      "Once Upon a Witch's Death",
+      "Summer Pockets",
+      "The Unaware Atelier Master",
+      "The Beginning After the End",
+      "The Brilliant Healer's New Life in the Shadows",
+      "Lycoris Recoil: Friends are thieves of time"
     ],
     "Dropped": [
       "LAZARUS",
-      "Uma Musume: Cinderella Grey",
       "The Dinner Table Detective",
       "Mono",
       "Anne Shirley",
@@ -61,19 +69,28 @@ const tierlistData = {
       "Food For the Soul",
       "The Shiunji Family Children",
       "The Too-Perfect Saint: Tossed Aside by My Fiancé and Sold to Another Kingdom",
-      "Summer Pockets"
+      "The Gorilla God’s Go-To Girl",
+      "Your Forma",
+      "Maebashi Witches"
     ],
     "N/A": [
       "The Mononoke Lecture Logs of Chuzenji-sensei",
-      "The Brilliant Healer's New Life in the Shadows",
-      "Maebashi Witches",
+      "Yandere Dark Elf: She Chased Me All the Way From Another World!",
+      "Moonrise",
       "Aharen Is Indecipherable 2nd Season",
       "Moonrise",
       "Yandere Dark Elf: She Chased Me All the Way From Another World!",
-      "The Beginning After the End",
-      "Witch Watch"
-],
-    "RecentlyDropped": ["Your Forma", "Uma Musume: Cinderella Grey", "Summer Pockets", "LAZARUS"
+      "Makina-san's a Love Bot?!",
+      "#Compass2.0: Combat Providence Analysis System",
+      "Go! Go! Loser Ranger! 2nd season",
+      "I’ve Been Killing Slimes for 300 Years and Maxed Out My Level 2nd Season",
+      "YAIBA: Samurai Legend",
+      "Bye Bye, Earth 2nd Season",
+      "Teogonia"
+    ],
+    "RecentlyDropped": [
+      "Your Forma",
+      "LAZARUS"
 ]
   }
 }
