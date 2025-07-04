@@ -34,8 +34,11 @@ document.getElementById("conclusionText").innerHTML = safeConclusion;
   // Tier Guide
   document.getElementById("tierGuide").innerHTML = data.tierGuide;
 
-  // 最初から隠す
-  document.querySelector(".criteria-list").classList.add("hidden");
+ // そのあと確実に criteria-list を探して隠す
+  const criteriaList = document.querySelector(".criteria-list");
+  if (criteriaList) {
+    criteriaList.classList.add("hidden");
+ }
 
   //🔽 ここに追記show details button and function added
   const toggleButton = document.createElement('button');
@@ -44,6 +47,7 @@ document.getElementById("conclusionText").innerHTML = safeConclusion;
   toggleButton.classList.add("tier-guide-toggle");
   document.getElementById("tier-guide").appendChild(toggleButton);
 
+   // ボタンクリックで切替
     toggleButton.addEventListener("click", function() {
     document.querySelector(".criteria-list").classList.toggle("hidden");
     if (toggleButton.textContent === "Show details") {
