@@ -49,6 +49,7 @@ body {
   margin-top: 3rem;
   margin-bottom: 4rem;
   line-height: 1.75;
+  letter-spacing: 0.2px;
 } 
 
 .post-content {
@@ -58,12 +59,14 @@ body {
   padding: 20px 0;
   line-height: 1.75;
   border-bottom: 1px solid #ddd;
+  letter-spacing: 0.2px;
 } 
 
 .post-conclusion  {
   font-size: 0.9rem;
   margin-top: 2.5rem;
   line-height: 1.75;
+  letter-spacing: 0.2px;
 } 
 
 #introText::first-letter {
