@@ -228,6 +228,11 @@ body {
   margin-bottom: 0.3rem;
 }
 
+.sss-button {
+  background-color: #eac9dd;
+  color: #505f42;
+}
+
 .ss-button {
   background-color: #e8b4a4;
   color: #505f42;
