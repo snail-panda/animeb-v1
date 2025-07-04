@@ -66,14 +66,18 @@ body {
   line-height: 1.75;
 } 
 
-#introText {
+#introText::first-letter {
+  font-size: 200%;
+  font-weight: bold;
+  color: #333;
   text-indent: 1.5em;
 }
 
 #contentText::first-letter {
-  font-size: 150%;
+  font-size: 200%;
   font-weight: bold;
   color: #333;
+  text-indent: 1.5em;
 }
 
 .anime-title {
@@ -83,7 +87,10 @@ body {
   color: #444;
 }
 
-#conclusionText {
+#conclusionText::first-letter {
+  font-size: 200%;
+  font-weight: bold;
+  color: #333;
   text-indent: 1.5em;
 }
 
