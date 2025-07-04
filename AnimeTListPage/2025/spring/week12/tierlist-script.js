@@ -45,7 +45,7 @@ document.getElementById("conclusionText").innerHTML = safeConclusion;
   toggleButton.id = "toggleTierGuide";
   toggleButton.textContent = "Show details";
   toggleButton.classList.add("tier-guide-toggle");
-  document.getElementById("tier-guide").appendChild(toggleButton);
+  document.getElementById("tierGuide").appendChild(toggleButton);
 
    // ボタンクリックで切替
     toggleButton.addEventListener("click", function() {

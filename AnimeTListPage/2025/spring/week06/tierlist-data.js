@@ -14,7 +14,7 @@ const tierlistData = {
       <li><span class="b">⚪ B – DECENT</span> Not essential, but fully watchable. Perfectly fine for light watching. You won't miss much if you skip it.</li>
       <li><span class="c">🟢 C – BAD / ABYSMAL</span> As most things fail to click, but faint hope still lingers if a few pieces finally fall into place.</li>
       <li><span class="d">🔻 D – TRASH</span> Pure trash barely justifying watch time. But sometimes bad enough for fun, creating twisted flashes of charm. Falling apart — yet weirdly still a part of what makes the full anime season complete.</li>
-      <li><span class="dropped">🔵 DROPPED / PICKING BACK UP</span> Dropped for now or possibly permanently. Some might get another shot to win me back. We’ll see.</li>
+      <li><span class="dropped">🔵 DROPPED / PICKING BACK UP</span> Dropped for now. Some might get another shot to win me back. We’ll see.</li>
       <li><span class="na">⚫ N/A – Disqualified</span> Judgement made. In the void.</li>
     </ul>
   `,
