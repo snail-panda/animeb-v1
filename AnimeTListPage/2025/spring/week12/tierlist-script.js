@@ -65,20 +65,19 @@ document.getElementById("tierGuide").appendChild(simpleList);
    // ボタンクリックで切替
     toggleButton.addEventListener("click", function() {
   const detailed = document.querySelector(".criteria-list");
+  const simple = document.querySelector(".criteria-simple");
   if (detailed.classList.contains("hidden")) {
     // 詳細版を出す→簡易版を隠す
     detailed.classList.remove("hidden");
-    simplList.classList.add("hidden");
+    simple.classList.add("hidden");
     toggleButton.textContent = "Hide details";
   } else {
     // 簡易版に戻す
     detailed.classList.add("hidden");
-    simplList.classList.remove("hidden");
+    simple.classList.remove("hidden");
     toggleButton.textContent = "Show details";
   }
-    // 再度ボタンを復活させるためにもう一度appendChild
-  tg.appendChild(toggleButton);
-  });
+});
 
   // Disclaimer
   document.getElementById("disclaimer").innerHTML = data.disclaimer;
