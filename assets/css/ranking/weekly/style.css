@@ -161,7 +161,7 @@ body {
 
 .overview-notice {
   color: #6e6e6e;
-  marging-top: 30px;
+  margin-top: 30px;
   font-size: 0.55rem;
   font-style: italic;
   text-align: center;
@@ -368,7 +368,7 @@ body {
 /* 8. ENTRY MAIN AREA 〜 Title + Bar + Score */
 
     .entry .title {
-      disply: flex;
+      display: flex;
       align-items: center;
       font-family: 'Special Gothic Expanded One', 'sans-serif';
       font-size: 12px;
@@ -633,7 +633,7 @@ body {
   text-transform: none !important;
   margin-left: 4px;
   position: relative;
-  z-index; 1;
+  z-index: 1;
   white-space: nowrap;
   top: -1px;
 }
