@@ -64,12 +64,18 @@ document.getElementById("tierGuide").appendChild(simpleList);
 
    // ボタンクリックで切替
     toggleButton.addEventListener("click", function() {
-    document.querySelector(".criteria-list").classList.toggle("hidden");
-    if (toggleButton.textContent === "Show details") {
-      toggleButton.textContent = "Hide details";
-    } else {
-      toggleButton.textContent = "Show details";
-    }
+  const detailed = document.querySelector(".criteria-list");
+  if (detailed.classList.contains("hidden")) {
+    // 詳細版を出す→簡易版を隠す
+    detailed.classList.remove("hidden");
+    simplList.classList.add("hidden");
+    toggleButton.textContent = "Hide details";
+  } else {
+    // 簡易版に戻す
+    detailed.classList.add("hidden");
+    simplList.classList.remove("hidden");
+    toggleButton.textContent = "Show details";
+  }
     // 再度ボタンを復活させるためにもう一度appendChild
   tg.appendChild(toggleButton);
   });
