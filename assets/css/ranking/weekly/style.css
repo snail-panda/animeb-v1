@@ -588,7 +588,7 @@ body {
   width: 100%;
   max-width: 170px;
   background: #dceccb;
-  height: 15px;
+  height: 13px;
   flex: 1;
   position: relative;
   margin-right: 2px;
@@ -626,7 +626,7 @@ body {
 .wrp-score {
   font-family: 'Roboto Condensed Medium','Tuffy', 'sans-serif';
   font-weight: 500;
-  font-size: 0.8em;
+  font-size: 0.75em;
   letter-spacing: -0.05em;
   transform: scaleY(1.2);
   display: inline-block; /* これ重要！transformが効くようにする */
