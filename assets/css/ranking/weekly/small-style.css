@@ -10,7 +10,7 @@ body {
 }
 
 .wrapper {
-  max-width: 740px;
+  max-width: 680px;
   margin: 0 auto;
   background: #fffff0;
   padding: 30px;
@@ -51,7 +51,7 @@ body {
 
 .duration {
   font-family: 'Antonio', 'Special Gothic Condensed One', 'Bebas Neue', sans-serif;
-  font-size: 11px;
+  font-size: 10.5px;
   font-weight: 400;
   color: #a04343;
   letter-spacing: -0.03rem;
@@ -105,7 +105,7 @@ body {
   justify-content: center;
   margin: 0.01rem auto;
   align-items: center;
-  font-size:0.55rem;
+  font-size:0.5rem;
   font-family: 'Fira Sans', sans-serif;
   color: #405040;
   font-weight: 300;
@@ -173,7 +173,7 @@ body {
 
 .table {
   display: grid;
-  grid-template-columns: 70px 1fr 0.7fr 50px;
+  grid-template-columns: 70px 1fr 0.75fr 50px;
   border-bottom: 2px solid #aaa;
   margin: 0;
 }
@@ -182,7 +182,7 @@ body {
   font-family: 'Agency FB', 'Barlow Condensed', 'Pathway Gothic One', 'sans-serif';
   font-size: 10px;
   font-weight: 600;
-  color: #6f6c6c;
+  color: #595959;
   text-transform: uppercase;
   align-items: center;
   justify-content: center;
@@ -215,7 +215,7 @@ body {
 
 .entry {
   display: grid;
-  grid-template-columns: 70px 1fr 0.7fr 50px;
+  grid-template-columns: 70px 1fr 0.75fr 50px;
   grid-template-rows: auto auto;
   grid-template-areas:
     "rank title bar score"
@@ -252,7 +252,7 @@ body {
 .rank-top {
   display: flex;
   align-items: center;
-  gap: 4px; /* tweak as needed for spacing between crown and rank number */
+  gap: 3px; /* tweak as needed for spacing between crown and rank number */
 }
 
 /* Crowns, Icons for Rank Top */
@@ -294,7 +294,7 @@ body {
 /* === 6. RANK NUMBER STYLE === */
 
      .rank-number {
-  font-size: 1.3rem;
+  font-size: 1.1rem;
   font-family: 'Barlow Condensed', 'Agency FB', 'Pathway Gothic One', 'sans-serif';
   font-weight: 600;
   letter-spacing: 0.1px;
@@ -304,7 +304,7 @@ body {
 
 .rank-number .label-big {
   font-family: 'Agency FB', 'Pathway Gothic One', 'Barlow Condensed Light', 'sans-serif';
-  font-size: 1.3rem;
+  font-size: 1rem;
   font-weight: 500;
   letter-spacing: 0;
   text-shadow: 0.1px 0.1px #333;
@@ -360,7 +360,7 @@ body {
 
 .trend-label {
   font-family: 'Pathway Gothic One', 'Agency FB', 'sans-serif';
-  font-size: 0.6rem;
+  font-size: 0.55rem;
   font-weight: 500;
   text-align: right;
 }
@@ -371,7 +371,7 @@ body {
       disply: flex;
       align-items: center;
       font-family: 'Special Gothic Expanded One', 'sans-serif';
-      font-size: 12px;
+      font-size: 11px;
       color: #404040;
       letter-spacing: 0.03em;
       word-spacing: 0.13em;
@@ -380,7 +380,7 @@ body {
     }
 
 .title-ep {
-      font-size: 9.5px;
+      font-size: 8.5px;
       color: #4f4f4f;
       position: relative;
   top: -1.5px; /* or tweak it like -2px, -1.5px etc. */
@@ -389,10 +389,10 @@ body {
 }
 
 .jp-title {
-  font-size: 9px;
+  font-size: 8px;
   font-family: 'Yu Gothic UI', sans-serif;
   font-weight: 500;
-  color: #6a6a6a;
+  color: #666;
   margin-top: -1px;
   margin-left: 0;
   line-height: 1.2;
@@ -417,11 +417,11 @@ body {
 }
 
 .kv-thumb img {
-  width: 62px;
+  width: 48px;
   height: auto;
   aspect-ratio: 4/5;
   object-fit: cover;
-  margin-right: 5px;
+  margin-right: 3px;
   border-radius: 2px;
   border-top-left-radius: 40%;
   box-shadow: 1px 1.2px 2px rgba(0, 0, 0, 0.35);
@@ -447,20 +447,18 @@ body {
 .genre-tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 3px;
+  gap: 4px;
 }
 
 .genre-tag {
-  /*background: #e39fb6;*/
-  font-family: 'Fira Sans', sans-serif;
+  background: #f0f0f0;
+  font-family: 'Abel', sans-serif;
   font-size: 0.45rem;
-  font-weight: 500;
-  /*text-shadow: 0.1px 0.1px #686868;*/
-  color: #bd8397;
-  word-spacing: -0.3px;
-  padding: 1.5px 5px;
-  border-radius: 6px;
-  border: solid 1px #bd8397;
+  font-weight: 300;
+  text-shadow: 0.1px 0.1px #686868;
+  color: #686868;
+  padding: 1.5px 3px;
+  border-radius: 3px;
   margin-top: 2px;
 }
 
@@ -468,7 +466,7 @@ body {
   background: none;
   border: none;
   cursor: pointer;
-  font-size: 0.5rem;
+  font-size: 0.45rem;
   color: #686868;
   position: absolute;
   right: 0;
@@ -577,8 +575,7 @@ body {
 
 .bar-label {
   margin-left: 1px;
-  padding-bottom: 1px;
-  font-size: 10.5px;
+  font-size: 9.5px;
   letter-spacing: 0.3px;
   text-transform: none;
   color: #5D7430;
@@ -588,7 +585,7 @@ body {
   width: 100%;
   max-width: 170px;
   background: #dceccb;
-  height: 15px;
+  height: 11px;
   flex: 1;
   position: relative;
   margin-right: 2px;
@@ -626,7 +623,7 @@ body {
 .wrp-score {
   font-family: 'Roboto Condensed Medium','Tuffy', 'sans-serif';
   font-weight: 500;
-  font-size: 0.8em;
+  font-size: 0.7em;
   letter-spacing: -0.05em;
   transform: scaleY(1.2);
   display: inline-block; /* これ重要！transformが効くようにする */
@@ -850,22 +847,22 @@ body {
   justify-content: center;
   vertical-align: middle;
   line-height: 1;
-  border: 1px solid #bb9054;
+  border: 0.7px solid #b78e52;
   background: transparent;
   font-family: 'Fira Sans', 'sans-serif';
-  font-size: 0.5rem;
-  font-weight: 600;
+  font-size: 0.42rem;
+  font-weight: 500;
   color: #b78e52;
   margin-left: 0px;
-  padding: 2px 5px 0.3px 5px;
+  padding: 1.2px 4.7px;
   border-radius: 5px;
   box-shadow: none;
   cursor: pointer;
-  transform: translateY(0px);
+  transform: translateY(-1px);
 }
 
 .review-tag:hover {
-  background-color: rgba(222, 183, 126, 0.15);
+  background-color: rgba(183, 142, 82, 0.15);
 }
 
 
@@ -910,7 +907,7 @@ body {
 .nav-link {
   flex: 1;
   text-align: center;
-  color: #444141;
+  color: #555;
 }
 
 .nav-link a {
