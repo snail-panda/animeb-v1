@@ -147,6 +147,11 @@ body {
   margin-right: 0.3rem;
 }
 
+.criteria-simple {
+  list-style: none;
+  padding-left: 0;
+}
+
 .disclaimer-title {
   font-size: 0.8rem;
   color: #555;

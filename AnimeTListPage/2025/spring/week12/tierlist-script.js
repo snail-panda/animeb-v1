@@ -48,7 +48,7 @@ document.querySelectorAll(".criteria-list li").forEach(li => {
   }
 });
 
-// 最初はcriteria-listを非表示
+// 最初はcriteria-list(詳細版)を非表示
 document.querySelector(".criteria-list").classList.add("hidden");
 
 // 最初は簡易版だけ見せる
