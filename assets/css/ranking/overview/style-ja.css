@@ -47,6 +47,7 @@
     .weekly-overview p {
       font-size: 0.7rem;
       color: #3d3d3d;
+      width: 92ch;
       margin-bottom: 8px;
       text-align: justify;
       line-height: 1.8;
