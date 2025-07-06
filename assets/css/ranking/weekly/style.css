@@ -857,11 +857,11 @@ body {
   font-weight: 600;
   color: #b78e52;
   margin-left: 0px;
-  padding: 1.5px 5px 0.8px 5px;
+  padding: 1.5px 5px 1.2px 5px;
   border-radius: 5px;
   box-shadow: none;
   cursor: pointer;
-  transform: translateY(-1px);
+  transform: translateY(-1.2px);
 }
 
 .review-tag:hover {
