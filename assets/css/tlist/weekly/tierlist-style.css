@@ -96,6 +96,12 @@ body {
 }	
 
 .anime-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #444;
+
+}
+.jp-title {
   font-style: italic;
   font-size: 1.05em;
   font-weight: 500;
