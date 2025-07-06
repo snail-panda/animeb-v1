@@ -861,7 +861,7 @@ body {
   border-radius: 5px;
   box-shadow: none;
   cursor: pointer;
-  transform: translateY(0px);
+  transform: translateY(-0.1px);
 }
 
 .review-tag:hover {
