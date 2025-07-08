@@ -403,13 +403,6 @@ body {
   html {
   font-size: 14px;
   }
-  /* .post-intro,
-  .tier-criteria,
-  .disclaimer,
-  .post-content,
-  .post-conclusion {
-    font-size: 0.75rem;
-    line-height: 1.6; */
 }
 
 @media (max-width: 480px) {
