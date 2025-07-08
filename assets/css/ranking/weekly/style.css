@@ -445,7 +445,7 @@ body {
 .info-bottom {
   display: flex;
   flex-direction: column;
-  gap: 4px; /* タグとボタンの間に余白 */
+  gap: 0; /* タグとボタンの間に余白 */
 }
 
 .genre-tags {
