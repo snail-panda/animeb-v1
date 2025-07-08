@@ -1005,7 +1005,7 @@ body {
 
 @media screen and (max-width: 480px) {
   .html {
-    font-size: 12px; /* スマホ用の基本フォントサイズ */
+    font-size: 11px; /* スマホ用の基本フォントサイズ */
   }
   .wrapper {
     padding: 0.5rem; /* スマホ用のパディング */
