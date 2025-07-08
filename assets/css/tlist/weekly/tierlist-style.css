@@ -84,7 +84,7 @@ body {
 .post-content,
 .post-conclusion {
   max-width: 90ch;
-  width: 85%;
+  width: 90%;
 }
 
 #introText::first-letter {
@@ -421,6 +421,6 @@ body {
   }
   
   html {
-    font-size: 11px;
+    font-size: 12px;
   }
 }
