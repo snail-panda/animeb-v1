@@ -1,3 +1,7 @@
+html {
+  font-size: 16px; /* デフォルトのフォントサイズ */
+}
+
 .weekly-overview {
       font-family: 'Oxygen', 'Nunito', 'Segoe UI', sans-serif;
       max-width: 680px;
