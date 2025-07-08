@@ -1,3 +1,8 @@
+
+html {
+  font-size: 16px;
+}
+
 /* ====================================================
   Global Styles
 ==================================================== */
@@ -58,11 +63,11 @@ body {
   font-size: 0.95rem;
   margin-top: 0.9rem;
   margin-bottom: 0.9rem;
-  padding: 20px 0;
+  padding: 1.25rem 0; /* 20px */
   line-height: 1.75;
   border-bottom: 1px solid #ddd;
   letter-spacing: 0.05px;
-  word-spacing: 0.13em;
+  word-spacing: 0.13rem;
   width: 90ch;
 } 
 
@@ -71,7 +76,7 @@ body {
   margin-top: 2.5rem;
   line-height: 1.7;
   letter-spacing: 0.05px;
-  word-spacing: 0.1em;
+  word-spacing: 0.1rem;
   width: 90ch;
 } 
 
@@ -82,7 +87,7 @@ body {
 }
 
 #introText { 
-  text-indent: 1.5em;
+  text-indent: 1.5rem;
 }
 
 #contentText::first-letter {
@@ -92,7 +97,7 @@ body {
 }
 
 #contentText {
-  text-indent: 1.5em;
+  text-indent: 1.5rem;
 }	
 
 .anime-title {
@@ -115,7 +120,7 @@ body {
 }
 
 #conclusionText {
-  text-indent: 1.5em;
+  text-indent: 1.5rem;
 }
 
 /* ====================================================
@@ -168,11 +173,11 @@ body {
   font-weight: 600;
   margin-top: 0px;
   line-height: 1.4;
-  padding-bottom: 4px;
+  padding-bottom: 0.25rem;
 }
 
 .disclaimer {
-  font-size: 0.85em;
+  font-size: 0.85rem;
   color: #555;
   margin: 0;
   line-height: 1.3;
@@ -183,8 +188,8 @@ body {
   
 .tier-guide-toggle {
   display: inline-block;
-  margin-top: 8px;
-  padding: 5px 8px;
+  margin-top: 0.5rem;
+  padding: 0.3rem 0.5rem;
   background-color: #6f6f6f;
   color: #fff;
   border: none;
@@ -211,7 +216,7 @@ body {
 .tierlist-wrapper {
   display: flex;
   align-items: flex-start;
-  gap: 20px;
+  gap: 1.25rem;
   margin: 2rem 0;
 }
 
@@ -241,10 +246,10 @@ body {
   flex: 2 0 0; /* grow 2, don't shrink */
   max-width: 300px;
   font-family: 'Abel', 'sans-serif';
-  font-size: 0.75rem;
+  font-size: 0.8rem;
   font-weight: normal;
   color: #364c30;
-  padding: 0px 10px 5px 10px;
+  padding: 0px 0.6rem 0.3rem 0.6rem;
   border: 0px solid #ddd;
   border-radius: 6px;
   background-color: #fcfdea;
@@ -360,8 +365,8 @@ body {
   align-items: center;
   max-width: 800px;
   margin: 1rem auto 0.5rem auto;
-  padding: 0 1em;
-  gap: 10px;
+  padding: 0 1rem;
+  gap: 0.625rem;
 }
 
 .tierlist-nav a {
@@ -395,26 +400,16 @@ body {
   Mobile Fix — Disable Hover Zoom on Small Devices
 ==================================================== */
 @media (max-width: 800px) and (orientation: landscape) {
-  .post-intro,
+  html {
+  font-size: 14px;
+  }
+  /* .post-intro,
   .tier-criteria,
   .disclaimer,
   .post-content,
   .post-conclusion {
     font-size: 0.75rem;
-    line-height: 1.6;
-  }
-
-#contentText::first-letter {
-  font-size: 150%;
-  font-weight: bold;
-  color: #333;
-}
-
-  .criteria-title,
-  .tierlist-titles-header
-  .tierlist-titles {
-    font-size: 0.9rem;
-  }
+    line-height: 1.6; */
 }
 
 @media (max-width: 480px) {
@@ -422,19 +417,8 @@ body {
     max-width: 100%;
     cursor: default;
   }
-
-  .post-intro,
-  .tier-criteria,
-  .disclaimer,
-  .post-content,
-  .post-conclusion {
-    font-size: 0.65rem;
-    line-height: 1.5;
-  }
-
-  .criteria-title,
-  .tierlist-titles-header 
-  .tierlist-titles {
-    font-size: 0.65rem;
+  
+  html {
+    font-size: 10px;
   }
 }
