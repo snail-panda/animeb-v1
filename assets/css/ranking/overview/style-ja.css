@@ -51,11 +51,13 @@
     .weekly-overview p {
       font-size: 0.7rem;
       color: #3d3d3d;
-      width: 92ch;
+      max-width: 92ch;
+      width: 90%;
       margin-bottom: 0.5rem;
       text-align: justify;
       line-height: 1.8;
     }
+
 /* Responsive Design */
     @media screen and (max-width: 768px) {
       .html {
