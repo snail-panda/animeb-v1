@@ -479,6 +479,12 @@ body {
   cursor: pointer;
   font-size: 0.45rem;
   color: #686868;
+    /* ↓これを削除またはコメントアウト */
+  /* position: absolute;
+  left: 0;
+  bottom: 1; */
+  margin-left: 0;
+  padding-left: 0;
 }
 
 /* More info collapsible エリア*/
