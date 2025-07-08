@@ -51,7 +51,8 @@
     .weekly-overview p {
       font-size: 0.82rem;
       color: #3d3d3d;
-      width: 75ch;
+      max-width: 75ch;
+      width: 90%;
       margin-top: 0.625rem;
       margin-bottom: 0.875rem;
       text-align: justify;
@@ -68,4 +69,8 @@
       .html {
         font-size: 8px; /* スマホ用のフォントサイズ */ 
       }
+      .weekly-overview p {
+      max-width: 70ch;
+      width: 95%;
+    }  
     }    
