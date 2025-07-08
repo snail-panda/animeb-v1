@@ -630,7 +630,7 @@ body {
 .wrp-score {
   font-family: 'Roboto Condensed Medium','Tuffy', 'sans-serif';
   font-weight: 500;
-  font-size: 0.62rem;
+  font-size: 0.6rem;
   letter-spacing: -0.05em;
   transform: scaleY(1.2);
   display: inline-block; /* これ重要！transformが効くようにする */
@@ -645,7 +645,7 @@ body {
 .wrp-score-unit {
   font-family: 'Roboto Condensed Medium','Tuffy', 'sans-serif';
   font-weight: 500;
-  font-size: 0.48rem;
+  font-size: 0.45rem;
   letter-spacing: -0.02rem;
   transform: scaleY(1.2);
 }
