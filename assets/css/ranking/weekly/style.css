@@ -446,8 +446,6 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100%;
-  position: relative;
 }
 
 .genre-tags {
@@ -468,6 +466,10 @@ body {
   border-radius: 0.375rem; /* 6px */
   border: solid 1px #bd8397;
   margin-top: 0.125rem; /* 2px */
+}
+
+.title-container {
+  position: relative;  /* 明示する（念押し） */
 }
 
 .collapse-btn {
