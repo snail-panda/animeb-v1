@@ -479,9 +479,6 @@ body {
   cursor: pointer;
   font-size: 0.45rem;
   color: #686868;
-  position: absolute;
-  left: 0;
-  bottom: 1;
 }
 
 /* More info collapsible エリア*/
