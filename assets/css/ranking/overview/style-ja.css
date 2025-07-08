@@ -52,3 +52,15 @@
       text-align: justify;
       line-height: 1.8;
     }
+/* Responsive Design */
+    @media screen and (max-width: 768px) {
+      .html {
+        font-size: 14px; /* スマホ用のフォントサイズ */
+      }
+    }
+
+    @media screen and (max-width: 480px) {
+      .html {
+        font-size: 12px; /* スマホ用のフォントサイズ */ 
+      }
+    }   
