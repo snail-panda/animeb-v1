@@ -60,12 +60,12 @@ html {
 
     @media screen and (max-width: 800px) {
       .html {
-        font-size: 14px; /* スマホ用のフォントサイズ */
+        font-size: 12px; /* スマホ用のフォントサイズ */
       }
     }
 
     @media screen and (max-width: 480px) {
       .html {
-        font-size: 10px; /* スマホ用のフォントサイズ */ 
+        font-size: 8px; /* スマホ用のフォントサイズ */ 
       }
     }    
