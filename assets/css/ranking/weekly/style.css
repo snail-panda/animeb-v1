@@ -1,10 +1,14 @@
+html {
+  font-size: 16px; /* 基本フォントサイズ */
+  }
+
 /* =========================
    1. Global Reset & Base
 ========================= */
 
 body {
   margin: 0;
-  padding: 20px;
+  padding: 1.25rem;
   font-family: 'Arial Nova Cond Light', sans-serif;
   background: #ffffed;
 }
@@ -13,7 +17,7 @@ body {
   max-width: 740px;
   margin: 0 auto;
   background: #fffff0;
-  padding: 30px;
+  padding: 1.875rem;
   box-shadow: 0 0 12px rgba(0, 0, 0, 0.08);
   /*box-sizing: border-box; ← 一回消してみる*/
   width: 100%; 
@@ -26,12 +30,12 @@ body {
 .header {
   display: flex;
   align-items: baseline;
-  gap: 0px;
+  gap: 0;
 }
 
 .header h1 {
   font-family: 'Alfa Slab One', serif;
-  font-size: 32px;
+  font-size: 2rem;
   color: #404040;
   letter-spacing: -0.2px;
   transform: scale(0.75, 1.1);
@@ -42,7 +46,7 @@ body {
 
 .header .week-title {
   font-family: 'Anton', sans-serif;
-  font-size: 19px;
+  font-size: 1.19rem;
   letter-spacing: -0.03rem;
   word-spacing: -0.13rem;
   color: #8E2222;
@@ -51,7 +55,7 @@ body {
 
 .duration {
   font-family: 'Antonio', 'Special Gothic Condensed One', 'Bebas Neue', sans-serif;
-  font-size: 11px;
+  font-size: 0.69rem;
   font-weight: 400;
   color: #a04343;
   letter-spacing: -0.03rem;
@@ -69,9 +73,9 @@ body {
   font-weight: 500;
   letter-spacing: -0.03rem;
   word-spacing: -0.08rem;
-  font-size: 18px;
-  margin-top: -5px;
-  margin-left: 5px;
+  font-size: 1.125rem;
+  margin-top: -0.31rem;
+  margin-left: 0.31rem;
 }
 
 .season-title {
@@ -80,7 +84,7 @@ body {
 
 .ep-range {
   font-family: 'Special Gothic Condensed One', 'Bebas Neue', sans-serif;
-  font-size: 13px;
+  font-size: 0.81rem;
   font-weight: 500;
   color: #749277;
   vertical-align: 0.8px;
@@ -97,7 +101,7 @@ body {
 .overview-section {
   margin: 0px auto;
   max-width: 800px;
-  padding: 0 16px;
+  padding: 0 1rem;
 }
 
 #overview-toggle-btn {
@@ -109,7 +113,7 @@ body {
   font-family: 'Fira Sans', sans-serif;
   color: #405040;
   font-weight: 300;
-  padding: 3px 8px 3.5px 8px;
+  padding: 0.188rem 0.5rem 0.22rem 0.5rem;
   cursor: pointer;
   border: none;
   border-radius: 8px;
@@ -123,7 +127,7 @@ body {
 
 .triangle-icon {
   display: inline-block;
-  margin-right: 2px;
+  margin-right: 0.125rem;
   transition: transform 0.3s ease;
   font-size: 0.6rem;
   position: relative;
@@ -152,8 +156,8 @@ body {
 	  color: #726f6f;
 	  background-color: #f5f5f5;
 	  border: 0px;
-      margin: 4px auto 2px auto;
-      padding: 3px 6px;
+      margin: 0.25rem auto 0.125rem auto;
+      padding: 0.188rem 0.375rem;
       font-size: 0.55rem;
       cursor: pointer;
 }
@@ -161,7 +165,7 @@ body {
 
 .overview-notice {
   color: #6e6e6e;
-  margin-top: 30px;
+  margin-top: 1.875rem;
   font-size: 0.55rem;
   font-style: italic;
   text-align: center;
@@ -180,33 +184,33 @@ body {
 
 .table-header {
   font-family: 'Agency FB', 'Barlow Condensed', 'Pathway Gothic One', 'sans-serif';
-  font-size: 10px;
+  font-size: 0.625rem; /* 10px */
   font-weight: 600;
   color: #6f6c6c;
   text-transform: uppercase;
   align-items: center;
   justify-content: center;
-  padding: 8px 0 5px 0;
+  padding: 0.5rem 0 0.313rem 0;
 }
 
 .table-header .rank {
   text-align: right;
-  padding-right: 28px;
+  padding-right: 1.75rem; /* 28px */
 }
 
 .table-header .title {
   text-align: left;
-  padding-left: 8px/* もともとコメントアウト */ ;
+  padding-left: 0.5rem/* もともとコメントアウト */ ;
 }
 
 .table-header .wrp {
   text-align: left;
-  padding-left: 2px;
+  padding-left: 0.125rem; /* 2px */
 }
 
 .table-header .totalscore {
   text-align: left;
-  margin-left: -3px;
+  margin-left: -0.188;
 }
 
 /* =============================
@@ -224,12 +228,12 @@ body {
   align-items: center;
   min-height: 65px;  /* 仮、全体の高さ感調整 */
   font-family: 'Agency FB', sans-serif;
-  font-size: 10px;
+  font-size: 0.625rem; /* 10px */
   font-weight: bold;
   color: #595959;
   text-transform: uppercase;
   border-bottom: 1px solid #ccc; /* 細めの内枠線 */
-  padding: 8px 0 1px 0;
+  padding: 0.5rem 0 0.063rem 0;
 }
 
 .entry-list .entry:last-of-type {
@@ -245,14 +249,14 @@ body {
   flex-direction: column;
   align-items: flex-end;
   justify-content: center;
-  margin-right: 30px; /* adjustable per alignment needs */  
-  padding-top: 4px;
+  margin-right: 1.875rem; /* adjustable per alignment needs */  
+  padding-top: 0.25rem; /* 4px */
 }
 
 .rank-top {
   display: flex;
   align-items: center;
-  gap: 4px; /* tweak as needed for spacing between crown and rank number */
+  gap: 0.25rem; /* tweak as needed for spacing between crown and rank number */
 }
 
 /* Crowns, Icons for Rank Top */
@@ -260,7 +264,7 @@ body {
      .crown-gold {
   width: 14px;
   height: auto;
-  margin-top: 2px; /* adjust to align vertically with other crowns */     
+  margin-top: 0.125rem; /* adjust to align vertically with other crowns */     
 }
 
  .crown-silver {
@@ -329,10 +333,10 @@ body {
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  gap: 2px;
+  gap: 0.125rem; /* 2px */
   text-transform: uppercase;
-  margin-top: 2px;
-  margin-bottom: 4px;
+  margin-top: 0.125rem; /* 2px */
+  margin-bottom: 0.25rem; /* 4px */
 }
 
 .trend-icon-up {
@@ -371,25 +375,25 @@ body {
       display: flex;
       align-items: center;
       font-family: 'Special Gothic Expanded One', 'sans-serif';
-      font-size: 12px;
+      font-size: 0.75rem; /* 12px */
       color: #404040;
       letter-spacing: 0.03em;
       word-spacing: 0.13em;
-      padding-top: 2px;
-      padding-right: 18px;
+      padding-top: 0.125rem; /* 2px */
+      padding-right: 1.125rem; /* 18px */
     }
 
 .title-ep {
-      font-size: 9.5px;
+      font-size: 0.6rem; /* 9.6px */
       color: #4f4f4f;
       position: relative;
   top: -1.5px; /* or tweak it like -2px, -1.5px etc. */
       text-transform: none;
-      margin-right: 6px;
+      margin-right: 0.375rem; /* 6px */
 }
 
 .jp-title {
-  font-size: 9px;
+  font-size: 0.563rem; /* 9px */
   font-family: 'Yu Gothic UI', sans-serif;
   font-weight: 500;
   color: #6a6a6a;
@@ -405,7 +409,7 @@ body {
 .title-container {
   display: flex;
   flex-direction: row;
-  gap: 8px; /* 余白 */
+  gap: 0.5rem; /* 余白 */
   align-items: flex-start;
   position: relative;
 }
@@ -413,7 +417,7 @@ body {
 .info-box {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 0.25rem;
 }
 
 .kv-thumb img {
@@ -421,8 +425,8 @@ body {
   height: auto;
   aspect-ratio: 4/5;
   object-fit: cover;
-  margin-right: 5px;
-  border-radius: 2px;
+  margin-right: 0.313rem; /* 5px */
+  border-radius: 0.125rem; /* 2px */
   border-top-left-radius: 40%;
   box-shadow: 1px 1.2px 2px rgba(0, 0, 0, 0.35);
   /* Initial state */
@@ -447,7 +451,7 @@ body {
 .genre-tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 3px;
+  gap: 0.188rem; /* 3px */
 }
 
 .genre-tag {
@@ -458,10 +462,10 @@ body {
   /*text-shadow: 0.1px 0.1px #686868;*/
   color: #bd8397;
   word-spacing: -0.3px;
-  padding: 1.5px 5px;
-  border-radius: 6px;
+  padding: 0.094rem 0.313rem;
+  border-radius: 0.375rem; /* 6px */
   border: solid 1px #bd8397;
-  margin-top: 2px;
+  margin-top: 0.125rem; /* 2px */
 }
 
 .collapse-btn {
@@ -498,8 +502,8 @@ body {
 .more-info dl {
   display: grid;
   grid-template-columns: 1fr 2fr;  /* 左：項目、右：値 */
-  row-gap: 6px;
-  column-gap: 10px;
+  row-gap: 0.375rem; /* 6px */
+  column-gap: 0.625rem; /* 10px */
   margin: 0;
 }
 .more-info dt {
@@ -507,7 +511,7 @@ body {
   text-align: left;
   white-space: nowrap;
   border-left: 3px solid #dec99a;  /* 軽い強調 */
-  padding-left: 6px;
+  padding-left: 0.375rem; /* 6px */
 }
 .more-info dd {
   font-family: 'Abel', sans-serif;
@@ -516,7 +520,7 @@ body {
   text-shadow: 0 -0.3px #686868;
   margin: 0;
   text-align: left;
-  padding-left: 4px;
+  padding-left: 0.25rem; /* 4px */
   word-break: break-word;
 }
 
@@ -525,7 +529,7 @@ body {
   /* 将来的に必要になったらここにスタイル追加 */
   font-family: 'Barlow Condensed', 'Abel', sans-serif;
   font-weight: 500;
-  font-size: 10.5px;
+  font-size: 0.656rem; /* 10.5px */
   color: #404040;
   line-height: 1.6;
   letter-spacing: 0.2px;
@@ -553,7 +557,7 @@ body {
   width: 100%;
   align-items: center; /* 🔥縦方向中央揃え */
   height: 100%; /* 親に依存するので必要なら明示 */
-  margin-bottom: 1px;
+  margin-bottom: 0.063rem; /* 1px */
 }
 
     .bar {
@@ -563,7 +567,7 @@ body {
   justify-content: flex-start;/* same with or without this*/
   gap: 1px;
   font-family: 'Bebas Neue', sans-serif;
-  font-size: 12px;
+  font-size: 0.75rem; /* 12px */
   font-weight: normal;
   text-transform: uppercase;
   color: #5D7430;
@@ -576,9 +580,9 @@ body {
 }
 
 .bar-label {
-  margin-left: 1px;
-  padding-bottom: 1px;
-  font-size: 10.5px;
+  margin-left: 0.063rem; /* 1px */
+  padding-bottom: 0.063rem; /* 1px */
+  font-size: 0.656rem; /* 10.5px */
   letter-spacing: 0.3px;
   text-transform: none;
   color: #5D7430;
@@ -591,7 +595,7 @@ body {
   height: 13px;
   flex: 1;
   position: relative;
-  margin-right: 2px;
+  margin-right: 0.125rem; /* 2px */
   overflow: visible; /* ⬅️ Crucial: let it spill */
  
 }
@@ -626,12 +630,12 @@ body {
 .wrp-score {
   font-family: 'Roboto Condensed Medium','Tuffy', 'sans-serif';
   font-weight: 500;
-  font-size: 0.75em;
+  font-size: 0.75rem;
   letter-spacing: -0.05em;
   transform: scaleY(1.2);
   display: inline-block; /* これ重要！transformが効くようにする */
   text-transform: none !important;
-  margin-left: 4px;
+  margin-left: 0.25rem; /* 4px */
   position: relative;
   z-index: 1;
   white-space: nowrap;
@@ -641,8 +645,8 @@ body {
 .wrp-score-unit {
   font-family: 'Roboto Condensed Medium','Tuffy', 'sans-serif';
   font-weight: 500;
-  font-size: 0.7em;
-  letter-spacing: -0.02em;
+  font-size: 0.7rem;
+  letter-spacing: -0.02rem;
   transform: scaleY(1.2);
 }
 
@@ -656,7 +660,7 @@ body {
   /*border-bottom-right-radius: 40%;
   box-shadow: 1.5px 1.5px 2px rgba(0, 0, 0, 0.1);*/
   font-family: 'Barlow Condensed', 'Agency FB', 'Pathway Gothic One', sans-serif;
-  font-size: 18px;
+  font-size: 1.125rem; /* 18px */
   font-weight: 400;
   text-transform: lowercase;
 }
@@ -668,9 +672,9 @@ body {
 
 .score-unit {
   position: relative;
-  top: 4px;   /* 下にズラす量を調整してOK */
-  font-size: 10px;
-  margin-left: 0px;  /* 数字との間の微調整 */
+  top: 0.25rem;   /* 下にズラす量を調整してOK */
+  font-size: 0.625rem; /* 10px */
+  margin-left: 0;  /* 数字との間の微調整 */
 }
 
 
@@ -680,11 +684,11 @@ body {
   position: absolute;
   background: #fffdec;
   border: 1px solid #bbb;
-  padding: 20px 22px 18px 30px;
+  padding: 1.25rem 1.375rem 1.125rem 1.875rem;
   border-radius: 6px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.15);
   font-family: 'Barlow Condensed', 'sans-serif';
-  font-size: 11px;
+  font-size: 0.688;
   font-weight: 500;
   line-height: 1.4;
   color: #333;
@@ -702,26 +706,26 @@ body {
 /* --- ポップアップ本文 --- */
 .popup-review-text {
   font-family: 'Barlow Condensed', 'Fira Sans', sans-serif;
-  font-size: 13.5px;
+  font-size: 0.85rem; /* 13.6px */
   font-weight: 500;
   color: #333;
-  margin-top: 2px;
-  margin-bottom: 12px;
+  margin-top: 0.125rem; /* 2px */
+  margin-bottom: 0.75rem; /* 12px */
   line-height: 1.6;
-  padding: 10px 5px 10px 10px;
+  padding: 0.625rem 0.313rem 0.625rem 0.625rem;
 }
 
 /* --- スイッチボタン（レビュー言語切替） --- */
 .review-switch-btn {
   font-family: 'Fira Sans', sans-serif;
-  font-size: 9.5px;
+  font-size: 0.594rem; /* 9.5px */
   background-color: #f0f0f0;
   color: #444;
-  padding: 3px 7px;
+  padding: 0.188rem 0.438rem; /* 3px 7px */
   border: none;
-  border-radius: 6px;
-  margin-right: 6px;
-  margin-left: 30px
+  border-radius: 0.375rem; /* 6px */
+  margin-right: 0.375rem; /* 6px */
+  margin-left: 1.875rem; /* 30px */
   cursor: pointer;
   transition: background-color 0.2s ease;
 }
@@ -733,19 +737,19 @@ body {
 /* --- クローズボタン --- */
 .popup-close-btn {
   font-family: 'Fira Sans', sans-serif;
-  font-size: 9.5px;
+  font-size: 0.594rem; /* 9.5px */
   background-color: #f0f0f0;
   color: #444;
-  padding: 3px 7px;
+  padding: 0.188rem 0.438rem; /* 3px 7px */
   border: none;
-  border-radius: 6px;
+  border-radius: 0.375rem; /* 6px */
   cursor: pointer;
   transition: background-color 0.2s ease;
 }
 
 .lang-en {
   font-family: 'Fira Sans, ''Barlow Condensed', 'Fira Sans', sans-serif;
-  font-size: 13px;
+  font-size: 0.813rem; /* 13px */
   color: #333;
   font-weight: 500;
   letter-spacing: 0.015em;
@@ -754,7 +758,7 @@ body {
 .lang-jp {
   font-family: 'Yu Gothic UI', 'Noto Sans JP', sans-serif;
   font-weight: 400;
-  font-size: 11.5px;
+  font-size: 0.719rem; /* 11.5px */
   letter-spacing: 0.04em; /* ←ちょっとゆったり */
   line-height: 1.8;      /* ←行間やや広めもアリ */
 }
@@ -766,7 +770,7 @@ body {
 
 @media screen and (max-width: 480px) {
   .popup-review-text {
-    font-size: 11.5px;
+    font-size: 0.719rem; /* 11.5px */
     line-height: 1.5;
   }
 }
@@ -774,7 +778,7 @@ body {
 
 /* レビュー用 POPUP */
 .review-popup {
-  font-size: 11px;
+  font-size: 0.688rem; /* 11px */
   line-height: 1.4;
   color: #333;
 }
@@ -787,7 +791,7 @@ body {
   background-position: center center;
   background-color: #fffdec;
   border: 1px solid #bbb;
-  padding: 10px 15px 15px 15px;
+  padding: 0.625rem 0.938rem 0.938rem 0.938rem;
   border-radius: 6px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.15);
 }
@@ -836,11 +840,11 @@ body {
 
 /* WRP Breakdown用 POPUP*/
 .wrp-popup {
-  font-size: 10.5px;
+  font-size: 0.656rem; /* 10.5px */
   line-height: 1.4;
   letter-spacing: 0.008em;
   color: #555;
-  padding: 10px 12px;
+  padding: 0.625rem 0.75rem;
 }
 
 /* レビューバッジ */
@@ -857,7 +861,7 @@ body {
   font-weight: 600;
   color: #b78e52;
   margin-left: 0px;
-  padding: 1.2px 5px 1.2px 5px;
+  padding: 0.075rem 0.313rem 0.075rem 0.313rem;
   border-radius: 5px;
   box-shadow: none;
   cursor: pointer;
@@ -942,9 +946,9 @@ body {
     .note {
       font-family: 'Barlow Condensed', sans-serif;
       font-weight: 300;
-      font-size: 12px;
+      font-size: 0.75rem; /* 12px */
       color: #333;
-      margin-top: 20px;
+      margin-top: 1.25rem; /* 20px */
     }
 
 /* 汎用アイコン（現状未使用領域） */
@@ -990,7 +994,19 @@ body {
 @media screen and (max-width: 768px) {
   .wrapper {
     width: 100%;
-    padding: 0 10px; /* 余白確保のため */
+    padding: 0 0.625rem; /* 余白確保のため */
     box-sizing: border-box;
   }
+
+  .html {
+    font-size: 14px; /* スマホ用の基本フォントサイズ */
+  }
 }
+
+@media screen and (max-width: 480px) {
+  .html {
+    font-size: 12px; /* スマホ用の基本フォントサイズ */
+  }
+  .wrapper {
+    padding: 0.5rem; /* スマホ用のパディング */
+  } 
