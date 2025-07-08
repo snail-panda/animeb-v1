@@ -446,6 +446,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 4px; /* タグとボタンの間に余白 */
+  width: 100%;
 }
 
 .genre-tags {
@@ -471,7 +472,6 @@ body {
 .collapse-wrapper {
   display: flex;
   justify-content: flex-end;
-  width: 100%;
 }
 
 .collapse-btn {
