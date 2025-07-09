@@ -1,5 +1,5 @@
 // ========== バー描画ロジック ==========
-function adjustScoreBars() {
+function adjust｀Bars() {
   document.querySelectorAll('.bar').forEach(bar => {
     const scoreText = bar.querySelector('.wrp-score')?.textContent || '0';
     const score = parseFloat(scoreText);
@@ -192,7 +192,7 @@ if (wrpScoreEl) {
   wrpScoreEl.innerHTML = `${entryData.wrp_score}<span class="wrp-score-unit">pt</span> <img src="../../../../images/badges/info-green.svg" width="8px">`;
 
   // Breakdown内容も事前加工
-  const breakdown = Object.entries(entryData.wrp_breakdown)
+  const breakdown = Object.entries(entryData.key_elements_breakdown)
     .map(([key, val]) => `${titleCase(key.replace(/_/g, ' '))}: ${val}`)
     .join('<br>');
 
