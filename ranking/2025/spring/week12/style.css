@@ -49,7 +49,7 @@ body {
   font-size: 1.19rem;
   letter-spacing: -0.03rem;
   word-spacing: -0.13rem;
-  color: #8E2222;
+  color: #8e2274;
   padding-right: 0.6px;
 }
 
@@ -67,7 +67,7 @@ body {
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  max-width: 197px;
+  max-width: 250px;
   font-family: 'Special Gothic Condensed One', 'Bebas Neue', 'sans-serif';
   color: #999999;
   font-weight: 500;
