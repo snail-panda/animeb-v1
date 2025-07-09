@@ -206,10 +206,13 @@ if (wrpScoreEl) {
 
 // titleCase関数（新規追加分・これをJSの関数群に加える）
 function titleCase(str) {
-  return str.split(' ')
-    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-    .join(' ');
+  if (!str || typeof str !== 'string') return '';
+  return str
+    .split(/([\/\-\s])/g)  // スラッシュ・ハイフン・スペースを保持しながら分割
+    .map(part => /^[a-zA-Z]/.test(part) ? part.charAt(0).toUpperCase() + part.slice(1) : part)
+    .join('');
 }
+
 
 
 
@@ -219,7 +222,7 @@ if (scoreEl) {
   const scoreNumberEl = scoreEl.querySelector('.score-number');
   const scoreUnitEl = scoreEl.querySelector('.score-unit');
 
-  if (scoreNumberEl) scoreNumberEl.textContent = entryData.score;
+ if (scoreNumberEl) scoreNumberEl.textContent = entryData.overall_rating ?? "";
   if (scoreUnitEl) scoreUnitEl.textContent = 'pt';  // ptは固定
 }
 
