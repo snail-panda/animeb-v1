@@ -1,0 +1,1021 @@
+html {
+  font-size: 16px; /* 基本フォントサイズ */
+  }
+
+/* =========================
+   1. Global Reset & Base
+========================= */
+
+body {
+  margin: 0;
+  padding: 1.25rem;
+  font-family: 'Arial Nova Cond Light', sans-serif;
+  background: #ffffed;
+}
+
+.wrapper {
+  max-width: 740px;
+  margin: 0 auto;
+  background: #fffff0;
+  padding: 1.875rem;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.08);
+  /*box-sizing: border-box; ← 一回消してみる*/
+  width: 100%; 
+}
+
+/* =============================
+   2. HEADER & SUB-HEADER STYLING 
+   ============================= */
+
+.header {
+  display: flex;
+  align-items: baseline;
+  gap: 0;
+}
+
+.header h1 {
+  font-family: 'Alfa Slab One', serif;
+  font-size: 2rem;
+  color: #404040;
+  letter-spacing: -0.2px;
+  transform: scale(0.75, 1.1);
+  margin: 0;
+  margin-right: -0.6rem;
+  margin-left: -0.5rem;
+}
+
+.header .week-title {
+  font-family: 'Anton', sans-serif;
+  font-size: 1.19rem;
+  letter-spacing: -0.03rem;
+  word-spacing: -0.13rem;
+  color: #8E2222;
+  padding-right: 0.6px;
+}
+
+.duration {
+  font-family: 'Antonio', 'Special Gothic Condensed One', 'Bebas Neue', sans-serif;
+  font-size: 0.69rem;
+  font-weight: 400;
+  color: #a04343;
+  letter-spacing: -0.03rem;
+  word-spacing: -0.12rem;
+  margin-left: 1.1px;
+}
+
+.sub-header {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  max-width: 197px;
+  font-family: 'Special Gothic Condensed One', 'Bebas Neue', 'sans-serif';
+  color: #999999;
+  font-weight: 500;
+  letter-spacing: -0.03rem;
+  word-spacing: -0.08rem;
+  font-size: 1.125rem;
+  margin-top: -0.31rem;
+  margin-left: 0.31rem;
+}
+
+.season-title {
+   margin-right: 0.08rem;
+}
+
+.ep-range {
+  font-family: 'Special Gothic Condensed One', 'Bebas Neue', sans-serif;
+  font-size: 0.81rem;
+  font-weight: 500;
+  color: #749277;
+  vertical-align: 0.8px;
+  letter-spacing: 0.01rem;
+  margin-left: auto;
+  text-align: right;
+    
+}
+
+/*=============================
+2.1 OVERVIEW ZONE
+==============================*/
+
+.overview-section {
+  margin: 0px auto;
+  max-width: 800px;
+  padding: 0 1rem;
+}
+
+#overview-toggle-btn {
+  display: flex;
+  justify-content: center;
+  margin: 0.01rem auto;
+  align-items: center;
+  font-size:0.55rem;
+  font-family: 'Fira Sans', sans-serif;
+  color: #405040;
+  font-weight: 300;
+  padding: 0.188rem 0.5rem 0.22rem 0.5rem;
+  cursor: pointer;
+  border: none;
+  border-radius: 8px;
+  background-color: transparent;
+  transition: background-color 0.3s;
+}
+
+#overview-toggle-btn:hover {
+  background-color: #f3f4ef;
+}
+
+.triangle-icon {
+  display: inline-block;
+  margin-right: 0.125rem;
+  transition: transform 0.3s ease;
+  font-size: 0.6rem;
+  position: relative;
+  top: -0.1px;
+  transform: rotate(0deg); /* ▼：初期はそのまま */
+}
+
+.triangle-icon.rotate {
+  transform: rotate(180deg);
+}
+
+#overview-container {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.5s ease;
+}
+
+#overview-container.expanded {
+  max-height: 2000px; /* 任意で調整可能 */
+  transition: max-height 0.8s ease;
+}
+
+#lang-toggle {
+      display: block;
+	  font-family: 'Abel', sans-serif;
+	  color: #696666;
+	  background-color: #f5f5f5;
+	  border: 0px;
+      margin: 0.25rem auto 0.125rem auto;
+      padding: 0.188rem 0.375rem;
+      font-size: 0.55rem;
+      cursor: pointer;
+}
+
+
+.overview-notice {
+  color: #6e6e6e;
+  margin-top: 1.875rem;
+  font-size: 0.55rem;
+  font-style: italic;
+  text-align: center;
+}
+
+/* =============================
+   3. TABLE HEADER ZONE 
+   ============================= */
+
+.table {
+  display: grid;
+  grid-template-columns: 70px 1fr 0.7fr 50px;
+  border-bottom: 2px solid #aaa;
+  margin: 0;
+}
+
+.table-header {
+  font-family: 'Agency FB', 'Barlow Condensed', 'Pathway Gothic One', 'sans-serif';
+  font-size: 0.625rem; /* 10px */
+  font-weight: 600;
+  color: #6f6c6c;
+  text-transform: uppercase;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 0 0.313rem 0;
+}
+
+.table-header .rank {
+  text-align: right;
+  padding-right: 1.75rem; /* 28px */
+}
+
+.table-header .title {
+  text-align: left;
+  padding-left: 0.5rem/* もともとコメントアウト */ ;
+}
+
+.table-header .wrp {
+  text-align: left;
+  padding-left: 0.125rem; /* 2px */
+}
+
+.table-header .totalscore {
+  text-align: left;
+  margin-left: -0.188;
+}
+
+/* =============================
+   4. ENTRY MAIN AREA 
+   ============================= */
+
+.entry {
+  display: grid;
+  grid-template-columns: 70px 1fr 0.7fr 50px;
+  grid-template-rows: auto auto;
+  grid-template-areas:
+    "rank title bar score"
+    ". moreinfo synopsis .";
+  gap: 0.5rem;
+  align-items: center;
+  min-height: 65px;  /* 仮、全体の高さ感調整 */
+  font-family: 'Agency FB', sans-serif;
+  font-size: 0.625rem; /* 10px */
+  font-weight: bold;
+  color: #595959;
+  text-transform: uppercase;
+  border-bottom: 1px solid #ccc; /* 細めの内枠線 */
+  padding: 0.5rem 0 0.063rem 0;
+}
+
+.entry-list .entry:last-of-type {
+  border-bottom: 2px solid #999;
+}
+
+/* =============================
+   5. RANK AREA (LEFT COLUMN)
+   ============================= */
+
+    .rank-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+  margin-right: 1.875rem; /* adjustable per alignment needs */  
+  padding-top: 0.25rem; /* 4px */
+}
+
+.rank-top {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem; /* tweak as needed for spacing between crown and rank number */
+}
+
+/* Crowns, Icons for Rank Top */
+
+     .crown-gold {
+  width: 14px;
+  height: auto;
+  margin-top: 0.125rem; /* adjust to align vertically with other crowns */     
+}
+
+ .crown-silver {
+  width: auto;
+  height: 16px;
+  margin-top: 2px; /* adjust to align vertically with other crowns */     
+}
+
+ .crown-bronze {
+  width: auto;
+  height: 13px;
+  margin-top: 2px; /* adjust to align vertically with other crowns */     
+}
+
+.light {
+  width: 42px;
+  height: auto;
+}
+
+.editor-pick {
+  width: 42px;
+  height: auto;
+}
+
+.dookie-skull {
+  width: 42px;
+  height: auto;
+  margin-top: 1.5px;
+}
+
+/* === 6. RANK NUMBER STYLE === */
+
+     .rank-number {
+  font-size: 1.3rem;
+  font-family: 'Barlow Condensed', 'Agency FB', 'Pathway Gothic One', 'sans-serif';
+  font-weight: 600;
+  letter-spacing: 0.1px;
+  text-transform: none;
+  text-shadow: 0.1px 0.1px #333;     
+}
+
+.rank-number .label-big {
+  font-family: 'Agency FB', 'Pathway Gothic One', 'Barlow Condensed Light', 'sans-serif';
+  font-size: 1.3rem;
+  font-weight: 500;
+  letter-spacing: 0;
+  text-shadow: 0.1px 0.1px #333;
+}
+
+.rank-number .label-rest {
+  font-family: 'Pathway Gothic One', 'Agency FB','Barlow Condensed Light', 'Oswald Light', 'sans-serif';
+  font-size: 1rem;
+  font-weight: 400;
+  letter-spacing: -0.5px;
+  position: relative;;
+  top: px; /* 必要なら微調整 */
+}
+
+.pick {
+  text-align: right;
+}
+
+/* === 7. TREND LABELS === */
+
+.rank-trend {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.125rem; /* 2px */
+  text-transform: uppercase;
+  margin-top: 0.125rem; /* 2px */
+  margin-bottom: 0.25rem; /* 4px */
+}
+
+.trend-icon-up {
+  width: auto;
+  height: 7px;
+}
+
+.trend-icon-stay {
+  width: auto;
+  height: 7px;
+}
+
+.trend-icon-down {
+  width: auto;
+  height: 7px;
+}
+
+.trend-icon-new {
+  width: auto;
+  height: 12px;
+  object-fit: contain;
+  vertical-align: middle;
+}
+
+
+.trend-label {
+  font-family: 'Pathway Gothic One', 'Agency FB', 'sans-serif';
+  font-size: 0.6rem;
+  font-weight: 500;
+  text-align: right;
+}
+
+/* 8. ENTRY MAIN AREA 〜 Title + Bar + Score */
+
+    .entry .title {
+      display: flex;
+      align-items: center;
+      font-family: 'Special Gothic Expanded One', 'sans-serif';
+      font-size: 0.75rem; /* 12px */
+      color: #404040;
+      letter-spacing: 0.03em;
+      word-spacing: 0.13em;
+      padding-top: 0.125rem; /* 2px */
+      padding-right: 1.125rem; /* 18px */
+    }
+
+.title-ep {
+      font-size: 0.6rem; /* 9.6px */
+      color: #4f4f4f;
+      position: relative;
+  top: -1.5px; /* or tweak it like -2px, -1.5px etc. */
+      text-transform: none;
+      margin-right: 0.375rem; /* 6px */
+}
+
+.jp-title {
+  font-size: 0.563rem; /* 9px */
+  font-family: 'Yu Gothic UI', sans-serif;
+  font-weight: 500;
+  color: #6a6a6a;
+  margin-top: -1px;
+  margin-left: 0;
+  line-height: 1.2;
+  padding-left: 0;
+  display: block;
+}
+
+/* Key Visual, Genre Tags, Collapse Area*/
+
+.title-container {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem; /* 余白 */
+  align-items: flex-start;
+  position: relative;
+}
+
+.info-box {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.kv-thumb img {
+  width: 62px;
+  height: auto;
+  aspect-ratio: 4/5;
+  object-fit: cover;
+  margin-right: 0.313rem; /* 5px */
+  border-radius: 0.125rem; /* 2px */
+  border-top-left-radius: 40%;
+  box-shadow: 1px 1.2px 2px rgba(0, 0, 0, 0.35);
+  /* Initial state */
+  transform: scale(1); 
+  /* Defines the transition for the transform property over 0.4 seconds with ease timing */
+  transition: transform 0.4s ease;
+}
+
+.kv-thumb img:hover {
+  transform: scale(1.5);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  z-index: 10;
+  position: relative;
+}
+
+.info-bottom {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem; /* タグとボタンの間に余白 */
+}
+
+.genre-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.188rem; /* 3px */
+}
+
+.genre-tag {
+  /*background: #e39fb6;*/
+  font-family: 'Fira Sans', sans-serif;
+  font-size: 0.45rem;
+  font-weight: 500;
+  /*text-shadow: 0.1px 0.1px #686868;*/
+  color: #bd8397;
+  word-spacing: -0.3px;
+  padding: 0.094rem 0.313rem;
+  border-radius: 0.375rem; /* 6px */
+  border: solid 1px #bd8397;
+  margin-top: 0.125rem; /* 2px */
+}
+
+.collapse-wrapper {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.collapse-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 0.45rem;
+  color: #686868;
+    /* ↓これを削除またはコメントアウト */
+  /* position: absolute;
+  left: 0;
+  bottom: 1; */
+  margin-left: 0;
+  padding-left: 0;
+}
+
+/* More info collapsible エリア*/
+
+.more-info {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.6s ease;
+  background: transparent; /*色つけるなら　#faf8f0*/
+  padding: 0 0.5rem;
+  font-size: 0.6rem;        /* 少し小さめで情報密度を高める */
+  line-height: 1.3;/* 行間は読みやすさ優先 */
+  margin-bottom: 0.5rem;
+  align-self: start;
+}
+
+.more-info.active {
+  max-height: 1500px; /* 適宜調整 */
+  /*border-top: 1px solid #ddd;*/
+  padding: 0.5rem;
+}
+
+.more-info dl {
+  display: grid;
+  grid-template-columns: 1fr 2fr;  /* 左：項目、右：値 */
+  row-gap: 0.375rem; /* 6px */
+  column-gap: 0.625rem; /* 10px */
+  margin: 0;
+}
+.more-info dt {
+  font-weight: bold;
+  text-align: left;
+  white-space: nowrap;
+  border-left: 3px solid #dec99a;  /* 軽い強調 */
+  padding-left: 0.375rem; /* 6px */
+}
+.more-info dd {
+  font-family: 'Abel', sans-serif;
+  font-weight: 500;
+  color: #686868;
+  text-shadow: 0 -0.3px #686868;
+  margin: 0;
+  text-align: left;
+  padding-left: 0.25rem; /* 4px */
+  word-break: break-word;
+}
+
+
+.synopsis {
+  /* 将来的に必要になったらここにスタイル追加 */
+  font-family: 'Barlow Condensed', 'Abel', sans-serif;
+  font-weight: 500;
+  font-size: 0.656rem; /* 10.5px */
+  color: #404040;
+  line-height: 1.6;
+  letter-spacing: 0.2px;
+  word-spacing: 0.25px;
+  margin: 0;
+  text-align: left;
+  padding-left: 0;
+  word-break: break-word;
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.6s ease;
+  align-self: start;
+}
+
+.synopsis.active {
+  max-height: 1500px;
+  padding: 0.3rem 0.5rem 0.5rem 0;
+}
+
+
+/* WEEKLY RANKING POINT BAR CHART AREA*/
+
+.bar-wrapper {
+  display: flex;
+  width: 100%;
+  align-items: center; /* 🔥縦方向中央揃え */
+  height: 100%; /* 親に依存するので必要なら明示 */
+  margin-bottom: 0.063rem; /* 1px */
+}
+
+    .bar {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  justify-content: flex-start;/* same with or without this*/
+  gap: 1px;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 0.75rem; /* 12px */
+  font-weight: normal;
+  text-transform: uppercase;
+  color: #5D7430;
+}
+
+.bar-inner {
+  display: flex;
+  align-items: center;       /* 縦だけ中央揃え */
+  position: relative;
+}
+
+.bar-label {
+  margin-left: 0.063rem; /* 1px */
+  padding-bottom: 0.063rem; /* 1px */
+  font-size: 0.656rem; /* 10.5px */
+  letter-spacing: 0.3px;
+  text-transform: none;
+  color: #5D7430;
+}
+
+.bar-track {
+  width: 100%;
+  max-width: 170px;
+  background: #dceccb;
+  height: 13px;
+  flex: 1;
+  position: relative;
+  margin-right: 0.125rem; /* 2px */
+  overflow: visible; /* ⬅️ Crucial: let it spill */
+ 
+}
+
+.bar-fill {
+  position: relative;
+  height: 100%;
+  display: flex; /* or block if needed */
+  width: 100%;
+  left: 0;
+  top: 0;
+}
+
+.bar-main,
+.bar-overflow {
+  width: 0%; /* default fallback */
+}
+
+.bar-main {
+  background-color: #b8d9a7; /* Your regular green */
+  height: 100%;
+}
+
+.bar-overflow {
+  background-color: #f7dfa4;  /* Overflow part */
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 100%;
+}
+
+.wrp-score {
+  font-family: 'Roboto Condensed Medium','Tuffy', 'sans-serif';
+  font-weight: 500;
+  font-size: 0.6rem;
+  letter-spacing: -0.05em;
+  transform: scaleY(1.2);
+  display: inline-block; /* これ重要！transformが効くようにする */
+  text-transform: none !important;
+  margin-left: 0.25rem; /* 4px */
+  position: relative;
+  z-index: 1;
+  white-space: nowrap;
+  top: -1px;
+}
+
+.wrp-score-unit {
+  font-family: 'Roboto Condensed Medium','Tuffy', 'sans-serif';
+  font-weight: 500;
+  font-size: 0.45rem;
+  letter-spacing: -0.02rem;
+  transform: scaleY(1.2);
+}
+
+.score {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 48px;
+  aspect-ratio: 4/5;
+  /*border-bottom-right-radius: 40%;
+  box-shadow: 1.5px 1.5px 2px rgba(0, 0, 0, 0.1);*/
+  font-family: 'Barlow Condensed', 'Agency FB', 'Pathway Gothic One', sans-serif;
+  font-size: 1.125rem; /* 18px */
+  font-weight: 400;
+  text-transform: lowercase;
+}
+
+.score-number {
+  position: relative;
+  z-index: 1;
+}
+
+.score-unit {
+  position: relative;
+  top: 0.25rem;   /* 下にズラす量を調整してOK */
+  font-size: 0.625rem; /* 10px */
+  margin-left: 0;  /* 数字との間の微調整 */
+}
+
+
+
+/* 9. REVIEW TAG + POPUP ZONE */
+.popup {
+  position: absolute;
+  background: #fffdec;
+  border: 1px solid #bbb;
+  padding: 1.25rem 1.375rem 1.125rem 1.875rem;
+  border-radius: 6px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  font-family: 'Barlow Condensed', 'sans-serif';
+  font-size: 0.688;
+  font-weight: 500;
+  line-height: 1.4;
+  color: #333;
+  max-width: 260px;
+  z-index: 9999;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.popup.active {
+  display: block;
+  opacity: 1;
+}
+
+/* --- ポップアップ本文 --- */
+.popup-review-text {
+  font-family: 'Barlow Condensed', 'Fira Sans', sans-serif;
+  font-size: 0.85rem; /* 13.6px */
+  font-weight: 500;
+  color: #333;
+  margin-top: 0.125rem; /* 2px */
+  margin-bottom: 0.75rem; /* 12px */
+  line-height: 1.6;
+  padding: 0.625rem 0.313rem 0.625rem 0.625rem;
+}
+
+/* --- スイッチボタン（レビュー言語切替） --- */
+.review-switch-btn {
+  font-family: 'Fira Sans', sans-serif;
+  font-size: 0.594rem; /* 9.5px */
+  background-color: #f0f0f0;
+  color: #444;
+  padding: 0.188rem 0.438rem; /* 3px 7px */
+  border: none;
+  border-radius: 0.375rem; /* 6px */
+  margin-right: 0.375rem; /* 6px */
+  margin-left: 1.875rem; /* 30px */
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.review-switch-btn:hover {
+  background-color: #ddd;
+}
+
+/* --- クローズボタン --- */
+.popup-close-btn {
+  font-family: 'Fira Sans', sans-serif;
+  font-size: 0.594rem; /* 9.5px */
+  background-color: #f0f0f0;
+  color: #444;
+  padding: 0.188rem 0.438rem; /* 3px 7px */
+  border: none;
+  border-radius: 0.375rem; /* 6px */
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.lang-en {
+  font-family: 'Fira Sans, ''Barlow Condensed', 'Fira Sans', sans-serif;
+  font-size: 0.813rem; /* 13px */
+  color: #333;
+  font-weight: 500;
+  letter-spacing: 0.015em;
+}
+
+.lang-jp {
+  font-family: 'Yu Gothic UI', 'Noto Sans JP', sans-serif;
+  font-weight: 400;
+  font-size: 0.719rem; /* 11.5px */
+  letter-spacing: 0.04em; /* ←ちょっとゆったり */
+  line-height: 1.8;      /* ←行間やや広めもアリ */
+}
+
+
+.popup-close-btn:hover {
+  background-color: #ddd;
+}
+
+@media screen and (max-width: 480px) {
+  .popup-review-text {
+    font-size: 0.719rem; /* 11.5px */
+    line-height: 1.5;
+  }
+}
+
+
+/* レビュー用 POPUP */
+.review-popup {
+  font-size: 0.688rem; /* 11px */
+  line-height: 1.4;
+  color: #333;
+}
+
+
+.popup.review-popup {
+  background-image: url('../../../../images/popup/vintage_parchment_paper009.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-color: #fffdec;
+  border: 1px solid #bbb;
+  padding: 0.625rem 0.938rem 0.938rem 0.938rem;
+  border-radius: 6px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+.popup-review-text {
+  position: relative;
+  z-index: 1;
+}
+
+.popup-review-text,
+.review-switch-btn,
+.popup-close-btn {
+  position: relative;
+  z-index: 2; /* ボタン類は上に */
+}
+
+.popup.review-popup {
+  min-height: 50px;
+  min-width: 210px;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+
+.review-flower {
+  position: absolute;
+  pointer-events: none;
+  opacity: 0.8;
+  z-index: 0;
+}
+
+.review-flower.top-left {
+  top: 4%;
+  left: 1%;
+  opacity: 0.5;
+  width: auto; /* これでJS側の制御に任せる */
+}
+
+.review-flower.bottom-right {
+  bottom: 4%;
+  right: 2%;
+  opacity: 0.7;
+  width: auto; /* これでJS側の制御に任せる */
+}
+
+
+/* WRP Breakdown用 POPUP*/
+.wrp-popup {
+  font-size: 0.656rem; /* 10.5px */
+  line-height: 1.4;
+  letter-spacing: 0.008rem;
+  color: #555;
+  padding: 0.625rem 0.75rem;
+}
+
+/* レビューバッジ */
+.review-tag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+  line-height: 1;
+  border: 1px solid #bb9054;
+  background: transparent;
+  font-family: 'Fira Sans', 'sans-serif';
+  font-size: 0.5rem;
+  font-weight: 600;
+  color: #b78e52;
+  margin-left: 0px;
+  padding: 0.075rem 0.313rem 0.075rem 0.313rem;
+  border-radius: 5px;
+  box-shadow: none;
+  cursor: pointer;
+  transform: translateY(-1.5px);
+}
+
+.review-tag:hover {
+  background-color: rgba(222, 183, 126, 0.15);
+}
+
+
+/* WRP詳細アイコン   background: url('../../../../images/badges/info-green.svg') no-repeat center;
+  background-size: contain;*/
+ .wrp-detail-btn {
+  position: absolute
+  top: 0.07rem;
+  right: -15px;
+  width: 8px;
+  height: 8px;
+  cursor: pointer;
+  border: none;
+}
+
+.wrp-score img {
+  vertical-align: -1.5px;  /* 上下微調整 */
+  margin-left: 2px;        /* 数字とアイコンの間隔調整 */
+  height: 8px;          /* サイズは現行維持 */
+  cursor: pointer;
+}
+
+
+/* 10. NAVIGATION & NOTE ZONE */
+
+/* ナビゲーションバー */
+
+.nav-bar {
+  display: flex;
+  width: 100%;
+  max-width: 680px;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'Abel', sans-serif;
+  font-size: 0.75rem;
+  margin: 0 auto 0.5rem auto;
+  padding: 0;
+  box-sizing: border-box;
+  color: #444;
+}
+
+.nav-link {
+  flex: 1;
+  text-align: center;
+  color: #444141;
+}
+
+.nav-link a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.nav-link a:hover {
+  text-decoration: none;
+}
+
+.nav-link.left {
+  text-align: left;
+  padding-left: 1px;
+}
+
+.nav-link.right {
+  text-align: right;
+  padding-right: 1px;
+}
+
+.nav-link.center a {
+  display: inline-block;
+  padding: 0.4em 0.8em;
+}
+
+/* 注意書きエリア */
+
+    .note {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 300;
+      font-size: 0.75rem; /* 12px */
+      color: #333;
+      margin-top: 1.25rem; /* 20px */
+    }
+
+/* 汎用アイコン（現状未使用領域） */
+
+    .icon {
+      width: 18px;
+      height: 18px;
+      margin-right: 6px;
+    }
+
+
+/* 11. FONT FACE EMBEDDING */
+
+/* Google FontsはHTML <head>で読み込み済み
+   - Alfa Slab One
+   - Special Gothic Expanded One
+   - Agency FB
+   - Roboto Condensed Medium
+   - Special Gothic
+   - Oswald
+   - Tuffy
+   - Pathway Gothic One
+   - Barlow Condensed Medium
+   - Bebas Neue
+   - Anton
+   - Abel
+   - Fira Sans
+   - Barlow Condensed
+   - Special Elite
+*/
+
+/* ローカル埋め込みフォント (Bahnschrift Semibold Condensed) */
+
+@font-face {
+  font-family: 'Bahnschrift Semibold Condensed';
+  src: url('https://snail-panda.github.io/animeb-v1/Fonts/bahnschrift.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/*@メディアクエリ */
+
+@media screen and (max-width: 768px) {
+  .wrapper {
+    width: 100%;
+    padding: 0 0.625rem; /* 余白確保のため */
+    box-sizing: border-box;
+  }
+
+  .html {
+    font-size: 14px; /* スマホ用の基本フォントサイズ */
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .html {
+    font-size: 11px; /* スマホ用の基本フォントサイズ */
+  }
+  .wrapper {
+    padding: 0.5rem; /* スマホ用のパディング */
+  } 
+}
