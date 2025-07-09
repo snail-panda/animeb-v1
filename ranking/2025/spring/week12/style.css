@@ -82,6 +82,10 @@ body {
    margin-right: 0.08rem;
 }
 
+.final {
+	color: #404040;
+}
+
 .ep-range {
   font-family: 'Special Gothic Condensed One', 'Bebas Neue', sans-serif;
   font-size: 0.81rem;
