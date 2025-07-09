@@ -19,12 +19,12 @@
         "Drama"
       ],
       "wrp_score": 91.35,
-      "score": 89,
+      "overall_rating": 89,
       "review": {
         "en": "",
         "jp": ""
       },
-      "wrp_breakdown": {
+      "key_elements_breakdown": {
         "op": 1.1,
         "ed": 1.05,
         "acting": 0.45,
