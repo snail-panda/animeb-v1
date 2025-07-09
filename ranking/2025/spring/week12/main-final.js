@@ -199,7 +199,7 @@ if (wrpScoreEl) {
   wrpScoreEl.querySelector('img').addEventListener('click', function(e) {
     e.stopPropagation();
     closeAll();
-    const popup = createPopup('Key elements:<br>' + breakdown, 'wrp-popup');
+    const popup = createPopup('Key elements breakdown:<br>' + breakdown, 'wrp-popup');
     positionPopup(this, popup);
   });
 }
