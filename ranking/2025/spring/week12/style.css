@@ -58,8 +58,8 @@ body {
   font-size: 0.69rem;
   font-weight: 400;
   color: #a04343;
-  letter-spacing: -0.03rem;
-  word-spacing: -0.12rem;
+  letter-spacing: -0.02rem;
+  word-spacing: -0.1rem;
   margin-left: 1.1px;
 }
 
@@ -67,7 +67,7 @@ body {
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  max-width: 240px;
+  max-width: 245px;
   font-family: 'Special Gothic Condensed One', 'Bebas Neue', 'sans-serif';
   color: #999999;
   font-weight: 500;
