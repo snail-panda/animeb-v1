@@ -6,8 +6,8 @@ function adjustScoreBars() {
     const main = bar.querySelector('.bar-main');
     const overflow = bar.querySelector('.bar-overflow');
 
-    const min = 4;
-    const max = 10;
+    const min = 40;
+    const max = 100;
     const unit = max - min;
 
     const baseWidth = Math.min(score, max);
@@ -20,15 +20,15 @@ function adjustScoreBars() {
     overflow.style.width = `${percentOverflow}%`;
 
      const wrpScore = bar.querySelector('.wrp-score');
-    if (score > 11) {
+    if (score > 110) {
       wrpScore.style.marginLeft = '45px';
-    } else if (score > 10.8) {
+    } else if (score > 108) {
       wrpScore.style.marginLeft = '35px';
-    } else if (score > 10.5) {
+    } else if (score > 105) {
       wrpScore.style.marginLeft = '28px';
-    } else if (score > 10.3) {
+    } else if (score > 103) {
       wrpScore.style.marginLeft = '18px';
-    } else if (score > 10) {
+    } else if (score > 100) {
       wrpScore.style.marginLeft = '12px';
     } else {
       wrpScore.style.marginLeft = '6px';
