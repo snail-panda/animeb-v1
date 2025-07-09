@@ -192,9 +192,9 @@ if (wrpScoreEl) {
   wrpScoreEl.innerHTML = `${entryData.wrp_score}<span class="wrp-score-unit">pt</span> <img src="../../../../images/badges/info-green.svg" width="8px">`;
 
   // Breakdown内容も事前加工
-  const breakdown = Object.entries(entryData.key_elements_breakdown)
-    .map(([key, val]) => `${titleCase(key.replace(/_/g, ' '))}: ${val}`)
-    .join('<br>');
+  const breakdown = Object.entries(entryData.key_elements_breakdown || {})
+  .map(([key, val]) => `${titleCase(key.replace(/_/g, ' '))}: ${val}`)
+  .join('<br>');
 
   wrpScoreEl.querySelector('img').addEventListener('click', function(e) {
     e.stopPropagation();
