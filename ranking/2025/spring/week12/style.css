@@ -67,7 +67,7 @@ body {
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  max-width: 250px;
+  max-width: 240px;
   font-family: 'Special Gothic Condensed One', 'Bebas Neue', 'sans-serif';
   color: #999999;
   font-weight: 500;
