@@ -619,7 +619,7 @@ document.addEventListener('click', (e) => {
     );
   }
 
-const synopsisBox = entry.querySelector('.synopsis');
+
  if (synopsisBox) {
     synopsisBox.classList.toggle('active');
   }
