@@ -1,5 +1,5 @@
 // ========== バー描画ロジック ==========
-function adjust｀Bars() {
+function adjustScoreBars() {
   document.querySelectorAll('.bar').forEach(bar => {
     const scoreText = bar.querySelector('.wrp-score')?.textContent || '0';
     const score = parseFloat(scoreText);
