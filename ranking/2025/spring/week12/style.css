@@ -83,7 +83,7 @@ body {
 }
 
 .final {
-	color: #51a1b1;
+	color: #1d447b;
 }
 
 .ep-range {
@@ -214,7 +214,7 @@ body {
 
 .table-header .totalscore {
   text-align: left;
-  margin-left: -0.1;
+  margin-left: 0.4rem;
 }
 
 /* =============================
