@@ -49,7 +49,7 @@ body {
   font-size: 1.19rem;
   letter-spacing: -0.03rem;
   word-spacing: -0.13rem;
-  color: #882d6b;
+  color: #a67d23;
   padding-right: 0.6px;
 }
 
@@ -959,9 +959,40 @@ body {
       font-family: 'Barlow Condensed', sans-serif;
       font-weight: 300;
       font-size: 0.75rem; /* 12px */
-      color: #333;
+      color: #474747;
+      line-height: 1.6;
       margin-top: 1.25rem; /* 20px */
     }
+
+.note-jp {
+  font-family: 'Noto Sans JP', 'Yu Gothic UI', sans-serif;
+  font-size: 0.65rem;
+    
+}
+
+.note-title {
+  font-weight: 500;
+  color: #716f6f;
+}
+
+
+.note ul {
+  margin-left: -1rem;
+  margin-bottom: 1.5rem;
+}
+
+.note li {
+  line-height: 1.5;
+}
+
+.note code {
+  font-family: monospace;
+  font-size: 0.67rem;
+  background-color: #f6f6f6;
+  padding: 0.1rem 0.4rem;
+  border-radius: 3px;
+}
+
 
 /* 汎用アイコン（現状未使用領域） */
 
