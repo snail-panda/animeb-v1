@@ -43,10 +43,7 @@ fetch(`ranking-${currentWeek}-spring2025.json`)
   .then(data => {
     // メタ情報更新
     document.querySelector('.week-title').textContent = data.meta.week;
-    const [year, seasonWord] = meta.season.split(' ');
-document.querySelector('.season-title').innerHTML =
-  `<span class="year">${year}</span> <span class="season">${seasonWord}</span>`;
-
+    document.querySelector('.season-title').textContent = data.meta.season;
     document.title = `Anime Weekly Ranking - ${data.meta.week}`;
 
 // ✅ ここにフォーマット関数を置くのがベスト

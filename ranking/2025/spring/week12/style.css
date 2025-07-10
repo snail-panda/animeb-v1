@@ -80,10 +80,11 @@ body {
 
 .season-title {
    margin-right: 0.08rem;
+   color: #a67d23;
 }
 
 .season {
-  color: #a67d23 !important;
+  color: #a67d23;
 }
 
 .final {
