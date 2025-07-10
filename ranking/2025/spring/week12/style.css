@@ -981,13 +981,24 @@ body {
 }
 
 
-.note ul {
-  margin-left: -1rem;
-  margin-bottom: 1.5rem;
+
+.about-vax,
+.six-element-summary {
+  list-style-type: circle;
 }
 
 .note li {
-  line-height: 1.5;
+  line-height: 1.8;
+}
+
+.six-element-detail {
+  margin-left: 2rem;
+  margin-bottom: -0.5rem;
+}
+
+.total {
+  margin-left: 1.5rem;
+  margin-bottom: 1.5rem;
 }
 
 .note code {
