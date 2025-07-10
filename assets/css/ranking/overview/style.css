@@ -59,6 +59,17 @@
       line-height: 1.8;
     }
 
+    ul {
+      font-size: 0.8rem;
+      color: #3d3d3d;
+      max-width: 75ch;
+      width: 90%;
+      margin-top: 0.625rem;
+      margin-bottom: 2rem;
+      text-align: justify;
+      line-height: 2;
+}
+
     @media screen and (max-width: 800px) {
       .html {
         font-size: 12px; /* スマホ用のフォントサイズ */
