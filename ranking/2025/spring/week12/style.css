@@ -155,7 +155,7 @@ body {
 }
 
 #overview-container.expanded {
-  max-height: 2000px; /* 任意で調整可能 */
+  max-height: 4000px; /* 任意で調整可能 */
   transition: max-height 0.8s ease;
 }
 
