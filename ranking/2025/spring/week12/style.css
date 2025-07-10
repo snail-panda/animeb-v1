@@ -83,7 +83,7 @@ body {
 }
 
 .season {
-  color: #a67d23;
+  color: #a67d23 !important;
 }
 
 .final {
