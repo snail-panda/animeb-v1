@@ -195,7 +195,7 @@ if (wrpScoreEl) {
   const keyLabelMap = {
   op: 'Opening',
   ed: 'Ending',
-  acting: 'Acting',
+  acting: 'Voice Acting',
   'sound/music': 'Sound / Music',
   'consistency/impact': 'Consistency / Impact',
   overall: 'Overall',
