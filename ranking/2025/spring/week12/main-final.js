@@ -640,4 +640,9 @@ document.addEventListener('click', (e) => {
 
 });
 
-
+// Noteのdetailsの開閉トグル
+document.querySelectorAll('.detail-toggle').forEach(el => {
+  el.addEventListener('click', () => {
+    el.nextElementSibling.classList.toggle('open');
+  });
+});

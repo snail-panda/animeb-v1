@@ -998,6 +998,25 @@ body {
   border-radius: 3px;
 }
 
+/* detail-content 開閉トグル*/
+
+.detail-content {
+  display: none;
+  margin-top: 5px;
+}
+
+.detail-content.open{
+  display: block;
+}
+
+.detail-toggle {
+  cursor: pointer;
+  color: #747070;
+  font-weight: 500;
+  text-decoration: none;
+  margin-bottom: 0.25rem;
+}
+
 
 /* 汎用アイコン（現状未使用領域） */
 
