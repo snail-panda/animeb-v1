@@ -93,7 +93,7 @@
       "score": 10,
       "review": {
         "en": "Nobody should watch anime while mulitasking on something that demands full attention. I totally forgot about Yoshida-san and her father. After rewatching Episodes 1 and 3, I completely changed my mind - this episode definitely deserves a much higher score/much more credit for its great script, pacing, structure, jokes, and more. (+2.6pt, from 6.9pt.) / Score upgradede to 10pt (from 6.9pt).",
-        "jp": ""
+        "jp": "【修正】第1話と第3話を見直した。吉田さんの存在と吉田さんのお父さんをこのはちゃんが第1話で殺していること→お金が必要で犬の散歩のバイトとか刺客がスタバのバイト出来ずティッシュ詰め、配りのバイトして殺されたからいなくなっても何も変わらないとか、死体沈めのバイトも枯れ葉に変えれるからとか、先輩が男のヒモホストであるとか色々本当に面白くって、ひとえにエクセルの作業をしながら1.25倍で見てしまったこと、吉田さんのことをすっかり忘れていたことがつまらなく感じた原因と素直に認められたので大幅に上方点数修正をすることにした。6点→10点。オリジナルの感想: 何一つ面白くなかった。退屈で寝た。バイトネネタにしてもLGBTQも絵も今ひとつ、もういいかな『寝た、飽きてきた。書くこと無い』6点・切り検討"
       },
       "wrp_breakdown": {
         "base_score": 5,
@@ -155,9 +155,9 @@
       "kv": "forma",
       "episode": 4,
       "genre": [
-        "Sci-Fi", 
-		"Detective", 
-		"Romance"
+        "Sci-Fi",
+        "Detective",
+        "Romance"
       ],
       "wrp_score": 9.3,
       "score": 9,
