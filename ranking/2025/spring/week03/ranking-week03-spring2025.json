@@ -155,7 +155,9 @@
       "kv": "forma",
       "episode": 4,
       "genre": [
-        "Sci-Fi/Detective/Romance"
+        "Sci-Fi", 
+		"Detective", 
+		"Romance"
       ],
       "wrp_score": 9.3,
       "score": 9,
