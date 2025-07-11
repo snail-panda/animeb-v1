@@ -473,6 +473,10 @@ body {
   color: #333;
 }
 
+.title-season {
+  color: #4f804c;
+}
+
 .post-date {
   font-size: 0.6rem;
   color: #888;
