@@ -715,7 +715,7 @@ body {
 .popup-review-text {
   font-family: 'Barlow Condensed', 'Fira Sans', sans-serif;
   font-size: 0.85rem; /* 13.6px */
-  font-weight: 500;
+  font-weight: 400;
   color: #333;
   margin-top: 0.125rem; /* 2px */
   margin-bottom: 0.75rem; /* 12px */
@@ -759,7 +759,7 @@ body {
   font-family: 'Fira Sans, ''Barlow Condensed', 'Fira Sans', sans-serif;
   font-size: 0.813rem; /* 13px */
   color: #333;
-  font-weight: 500;
+  font-weight: 400;
   letter-spacing: 0.015em;
 }
 
