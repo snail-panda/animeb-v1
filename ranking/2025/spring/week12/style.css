@@ -998,6 +998,11 @@ body {
   margin-left: 2rem;
 }
 
+.six-element-detail strong {
+  font-weight: 600;
+  color: #404040;
+}
+
 .total {
   margin-left: 2.6rem;
   margin-bottom: 1.5rem;
