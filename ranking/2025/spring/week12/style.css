@@ -980,7 +980,10 @@ body {
   color: #716f6f;
 }
 
-
+.disclosure-reason {
+  margin-left: 1.5rem;
+  margin-bottom: 1.5rem;
+}
 
 .about-vax,
 .six-element-summary {
