@@ -198,13 +198,13 @@ body {
 
 .table-header {
   font-family: 'Agency FB', 'Barlow Condensed', 'Pathway Gothic One', 'sans-serif';
-  font-size: 0.625rem; /* 10px */
+  font-size: 0.56rem; /* 10px */
   font-weight: 600;
   color: #6f6c6c;
   text-transform: uppercase;
   align-items: center;
   justify-content: center;
-  padding: 0rem 0 0.1rem 0;
+  padding: 0rem 0 0.25rem 0;
 }
 
 .table-header .rank {
@@ -277,20 +277,20 @@ body {
 /* Crowns, Icons for Rank Top */
 
      .crown-gold {
-  width: 14px;
+  width: 12px;
   height: auto;
   margin-top: 0.125rem; /* adjust to align vertically with other crowns */     
 }
 
  .crown-silver {
   width: auto;
-  height: 16px;
+  height: 14px;
   margin-top: 2px; /* adjust to align vertically with other crowns */     
 }
 
  .crown-bronze {
   width: auto;
-  height: 13px;
+  height: 11.5px;
   margin-top: 2px; /* adjust to align vertically with other crowns */     
 }
 
@@ -313,7 +313,7 @@ body {
 /* === 6. RANK NUMBER STYLE === */
 
      .rank-number {
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   font-family: 'Barlow Condensed', 'Agency FB', 'Pathway Gothic One', 'sans-serif';
   font-weight: 600;
   letter-spacing: 0.1px;
@@ -356,17 +356,17 @@ body {
 
 .trend-icon-up {
   width: auto;
-  height: 7px;
+  height: 6px;
 }
 
 .trend-icon-stay {
   width: auto;
-  height: 7px;
+  height: 6px;
 }
 
 .trend-icon-down {
   width: auto;
-  height: 7px;
+  height: 6px;
 }
 
 .trend-icon-new {
