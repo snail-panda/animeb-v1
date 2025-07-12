@@ -602,18 +602,20 @@ body {
 
 .bar-label {
   margin-left: 0.063rem; /* 1px */
+  margin-bottom: -0.12rem;
   padding-bottom: 0.063rem; /* 1px */
-  font-size: 0.656rem; /* 10.5px */
+  font-size: 0.578rem; /* 10.5px */
   letter-spacing: 0.3px;
   text-transform: none;
   color: #5D7430;
 }
 
+
 .bar-track {
   width: 100%;
   max-width: 170px;
   background: #dceccb;
-  height: 13px;
+  height: 12px;
   flex: 1;
   position: relative;
   margin-right: 0.125rem; /* 2px */
