@@ -388,7 +388,7 @@ body {
       display: flex;
       align-items: center;
       font-family: 'Special Gothic Expanded One', 'sans-serif';
-      font-size: 0.75rem; /* 12px */
+      font-size: 0.6rem;
       color: #404040;
       letter-spacing: 0.03em;
       word-spacing: 0.13em;
@@ -397,7 +397,7 @@ body {
     }
 
 .title-ep {
-      font-size: 0.6rem; /* 9.6px */
+      font-size: 0.5rem;
       color: #4f4f4f;
       position: relative;
   top: -1.5px; /* or tweak it like -2px, -1.5px etc. */
