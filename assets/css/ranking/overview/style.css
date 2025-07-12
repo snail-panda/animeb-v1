@@ -72,7 +72,7 @@
 
     @media screen and (max-width: 800px) {
       .html {
-        font-size: 12px; /* スマホ用のフォントサイズ */
+        font-size: 11px; /* スマホ用のフォントサイズ */
       }
     }
 
