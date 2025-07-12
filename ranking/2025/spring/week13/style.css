@@ -190,7 +190,7 @@ body {
 
 .table {
   display: grid;
-  grid-template-columns: 40px 1fr 40px;
+  grid-template-columns: 40px 1fr 30px;
   border-bottom: 2px solid #aaa;
   margin: 0;
 }
@@ -232,7 +232,7 @@ body {
 
 .entry {
   display: grid;
-  grid-template-columns: 40px 1fr 40px;
+  grid-template-columns: 40px 1fr 30px;
   grid-template-rows: auto auto;
   grid-template-areas:
     "rank title bar score"
