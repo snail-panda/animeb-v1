@@ -190,7 +190,7 @@ body {
 
 .table {
   display: grid;
-  grid-template-columns: 40px 1fr 50px;
+  grid-template-columns: 40px 1fr 40px;
   border-bottom: 2px solid #aaa;
   margin: 0;
 }
@@ -232,7 +232,7 @@ body {
 
 .entry {
   display: grid;
-  grid-template-columns: 40px 1fr 50px;
+  grid-template-columns: 40px 1fr 40px;
   grid-template-rows: auto auto;
   grid-template-areas:
     "rank title bar score"
@@ -676,7 +676,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 48px;
+  width: 40px;
   aspect-ratio: 4/5;
   /*border-bottom-right-radius: 40%;
   box-shadow: 1.5px 1.5px 2px rgba(0, 0, 0, 0.1);*/
