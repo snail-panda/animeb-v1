@@ -223,7 +223,7 @@ body {
 
 .table-header .totalscore {
   text-align: left;
-  margin-left: 0.4rem;
+  margin-left: -1rem;
 }
 
 /* =============================
