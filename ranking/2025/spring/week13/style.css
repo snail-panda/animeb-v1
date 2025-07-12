@@ -209,6 +209,7 @@ body {
 
 .table-header .rank {
   text-align: right;
+  font-size: 0.53rem;
   padding-right: 0.6rem;
 }
 
