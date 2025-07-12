@@ -78,7 +78,7 @@
 
     @media screen and (max-width: 480px) {
       .html {
-        font-size: 8px; /* スマホ用のフォントサイズ */ 
+        font-size: 9px; /* スマホ用のフォントサイズ */ 
       }
       .weekly-overview p {
       max-width: 70ch;
