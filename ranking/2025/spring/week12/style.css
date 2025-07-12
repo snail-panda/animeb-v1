@@ -1020,6 +1020,10 @@ body {
   border-radius: 3px;
 }
 
+.note-jp ul, li {
+  font-size: 0.65rem
+}
+
 /* detail-content 開閉トグル*/
 
 .detail-content {
