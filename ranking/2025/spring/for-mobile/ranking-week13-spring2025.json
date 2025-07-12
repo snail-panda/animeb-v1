@@ -1,0 +1,444 @@
+{
+  "meta": {
+    "week": "week final",
+    "duration": "04-06-Sun-07-04-Fri",
+    "season": "2025 Spring",
+    "ep_range": "ep.1-13"
+  },
+  "entries": [
+    {
+      "rank": 1,
+      "trend": "",
+      "title": "The Apothecary Diaries 2nd Season",
+      "jpTitle": "薬屋のひとりごと 第2期（第2クール）",
+      "kv": "kusuriya",
+      "episode": "37-48",
+      "genre": [
+        "Historical",
+        "Mystery",
+        "Drama"
+      ],
+      "wrp_score": 91.35,
+      "overall_rating": 89,
+      "review": {
+        "en": "",
+        "jp": ""
+      },
+      "key_elements_breakdown": {
+        "op": 1.1,
+        "ed": 1.05,
+        "acting": 0.45,
+        "sound/music": 0.4,
+        "consistency/impact": 1,
+        "overall": 2,
+        "total": 6
+      },
+      "romanized_title": "Kusuriya no Hitorigoto 2nd Season",
+      "release_date": "4/4/2025 to 7/4/2025",
+      "based_on": "Naro",
+      "studios": "TOHO animation STUDIO✕OLM",
+      "creators": "Norihiro Naganuma",
+      "external_scores": "8.93 (MAL)",
+      "streaming_services": "",
+      "synopsis": "Maomao lived a peaceful life with her apothecary father. Until one day, she’s sold as a lowly servant to the emperor’s palace. But she wasn’t meant for a compliant life among royalty. So when imperial heirs fall ill, she decides to step in and find a cure! This catches the eye of Jinshi, a handsome palace official who promotes her. Now, she’s making a name for herself solving medical mysteries!"
+    },
+    {
+      "rank": 2,
+      "trend": "",
+      "title": "Shoshimin: How to Become Ordinary 2",
+      "jpTitle": "小市民シリーズ（第2期）",
+      "kv": "shoshimin",
+      "episode": "11-22",
+      "genre": [
+        "Mystery",
+        "School",
+        "Slice of Life"
+      ],
+      "wrp_score": 91.34,
+      "overall_rating": 88,
+      "review": {
+        "en": "",
+        "jp": ""
+      },
+      "key_elements_breakdown": {
+        "op": 1.25,
+        "ed": 1.25,
+        "acting": 0.4,
+        "sound/music": 0.4,
+        "consistency/impact": 0.95,
+        "overall": 2,
+        "total": 6.25
+      },
+      "romanized_title": "Shoushimin Series 2nd Season",
+      "release_date": "4/5/2025 to 6/22/2025",
+      "based_on": "Novels",
+      "studios": "Lapin Track",
+      "creators": "Mamoru Kanbe",
+      "external_scores": "8.03 (MAL)",
+      "streaming_services": "",
+      "synopsis": "The second season will focus on two new cases from the novel series, adapting the two-part third volume Shuuki Gentei Kuri Kinton Jiken (The Autumn-Exclusive Kuri Kinton Case) and the fifth volume Touki Gentei Bonbon Chocolat Jiken (The Winter-Exclusive Chocolate Bonbons Case)."
+    },
+    {
+      "rank": 3,
+      "trend": "",
+      "title": "Apocalypse Hotel",
+      "jpTitle": "アポカリプスホテル",
+      "kv": "apocalypse",
+      "episode": "1-12",
+      "genre": [
+        "Sci-Fi",
+        "Drama",
+        "Comedy",
+        "Slice of Life"
+      ],
+      "wrp_score": 89.11,
+      "overall_rating": 85,
+      "review": {
+        "en": "",
+        "jp": ""
+      },
+      "key_elements_breakdown": {
+        "op": 1.16,
+        "ed": 1.15,
+        "acting": 0.4,
+        "sound/music": 0.4,
+        "consistency/impact": 0.8,
+        "overall": 1.7,
+        "total": 5.61
+      },
+      "romanized_title": "Apocalypse Hotel",
+      "release_date": "4/8/2025 to 6/25/2025",
+      "based_on": "Original",
+      "studios": "Cygames Pictures",
+      "creators": "kana Shundou",
+      "external_scores": "7.88 (MAL)",
+      "streaming_services": "",
+      "synopsis": "Following the collapse of civilization, one storied hotel stands among the ruins of Tokyo’s Ginza district. Overrun by nature, this lone hotel continues to defy humanity’s collapse. Current guests: zero. Check-ins scheduled today: zero. Yesterday’s website traffic: zero. Enter with caution in this story of survival and mystery in a world where the memory of humanity begins to fade."
+    },
+    {
+      "rank": 4,
+      "trend": "",
+      "title": "Sword of the Demon Hunter",
+      "jpTitle": "鬼人幻燈抄",
+      "kv": "kijin",
+      "episode": "1-13",
+      "genre": [
+        "Action",
+        "Historical",
+        "Drama"
+      ],
+      "wrp_score": 89.1,
+      "overall_rating": 83,
+      "review": {
+        "en": "",
+        "jp": ""
+      },
+      "key_elements_breakdown": {
+        "op": 1.1,
+        "ed": 1.2,
+        "acting": 0.45,
+        "sound/music": 0.4,
+        "consistency/impact": 0.85,
+        "overall": 1.8,
+        "total": 5.8
+      },
+      "romanized_title": "KIJIN GENTOUSHOU",
+      "release_date": "3/31/2025",
+      "based_on": "Naro",
+      "studios": "Yokohama Animation Laboratory",
+      "creators": "Kazuya Aiura",
+      "external_scores": "",
+      "streaming_services": "",
+      "synopsis": "In the Edo period, there was a shrine maiden called \"Itsukihime\" in the mountain village of Kadono. Jinta, a young man who acts as the shrine maiden's guardian despite being a stranger, encounters a mysterious demon who speaks of the far future in the forest where he went to defeat it. From Edo to the Heisei era, this huge Japanese fantasy series follows a demon man who travels through time while continuously questioning the meaning of wielding a sword."
+    },
+    {
+      "rank": 5,
+      "trend": "",
+      "title": "Mobile Suit Gundam GQuuuuuuX",
+      "jpTitle": "機動戦士Gundam GQuuuuuuX",
+      "kv": "gquuuuuux",
+      "episode": "1-12",
+      "genre": [
+        "Action",
+        "Drama",
+        "Mecha",
+        "Sci-Fi"
+      ],
+      "wrp_score": 84.1,
+      "overall_rating": 80,
+      "review": {
+        "en": "",
+        "jp": ""
+      },
+      "key_elements_breakdown": {
+        "op": 1.05,
+        "ed": 1.26,
+        "acting": 0.35,
+        "sound/music": 0.4,
+        "consistency/impact": 0.7,
+        "overall": 1.4,
+        "total": 5.16
+      },
+      "romanized_title": "Kidou Senshi Gundam GQuuuuuuX",
+      "release_date": "4/8/2025 to 6/25/2025",
+      "based_on": "Original",
+      "studios": "Khara",
+      "creators": "Kazuya Tsurumaki",
+      "external_scores": "7.24 (MAL)",
+      "streaming_services": "",
+      "synopsis": "Amate Yuzuriha is a high-school student living peacefully in a space colony floating in outer space. When she meets a war refugee named Nyaan, Amate is drawn into the illegal mobile suit dueling sport known as Clan Battle. Under the entry name \"Machu,\" she throws herself into fierce battle day after day, piloting the GQuuuuuuX. Then an unidentified Gundam mobile suit pursued by both the space force and the police appears before her, along with its pilot, a boy named Shuji. Now their world is about to enter a new era."
+    },
+    {
+      "rank": 6,
+      "trend": "",
+      "title": "Me and the Alien MuMu",
+      "jpTitle": "宇宙人ムームー",
+      "kv": "muumuu",
+      "episode": "1-12",
+      "genre": [
+        "Comedy",
+        "Sci-Fi",
+        "Slice of Life",
+        "School"
+      ],
+      "wrp_score": 83.09,
+      "overall_rating": 71,
+      "review": {
+        "en": "",
+        "jp": ""
+      },
+      "key_elements_breakdown": {
+        "op": 1.15,
+        "ed": 1.15,
+        "acting": 0.35,
+        "sound/music": 0.35,
+        "consistency/impact": 0.7,
+        "overall": 1.3,
+        "total": 5
+      },
+      "romanized_title": "Uchuujin MuuMuu",
+      "release_date": "4/9/2025",
+      "based_on": "Manga",
+      "studios": "OLM",
+      "creators": "Tomoya Takahashi",
+      "external_scores": "",
+      "streaming_services": "",
+      "synopsis": "A cat-like alien from a distant galaxy, MuMu, arrives on Earth. His goal is to learn about home appliance technology on Earth to recover the technology his species has lost. The protagonist, Sakurako, has a typical university life, but everything changes with MuMu's arrival! What begins as an unexpected cohabitation quickly turns into a whirlwind of chaotic events. The chemistry between Sakurako and MuMu leads to a super-spectacular, appliance-filled, and cat comedy adventure."
+    },
+    {
+      "rank": 7,
+      "trend": "",
+      "title": "A Ninja and an Assassin Under One Roof",
+      "jpTitle": "忍者と殺し屋のふたりぐらし",
+      "kv": "nincoro",
+      "episode": "1-12",
+      "genre": [
+        "Comedy",
+        "Slice of Life"
+      ],
+      "wrp_score": 81.79,
+      "overall_rating": 73,
+      "review": {
+        "en": "",
+        "jp": ""
+      },
+      "key_elements_breakdown": {
+        "op": 1,
+        "ed": 0.95,
+        "acting": 0.3,
+        "sound/music": 0.35,
+        "consistency/impact": 0.6,
+        "overall": 1.2,
+        "total": 4.4
+      },
+      "romanized_title": "Ninja to Koroshiya no Futarigurashi",
+      "release_date": "4/10/2025 to 6/26/2025",
+      "based_on": "Manga",
+      "studios": "SHAFT",
+      "creators": "Yukihiro Miyamoto",
+      "external_scores": "7.59 (MAL)",
+      "streaming_services": "",
+      "synopsis": "On the way home from school one day, Konoha Koga rescues Satoko Kusagakure, a ninja who escaped her village. Soon, pursuers from the village show up in search of Satoko only to be deftly dealt with by Konoha. As it turns out, the unassuming high schooler is actually an assassin. Thus, the potentially cutthroat cohabitation of a ninja and an assassin begins!"
+    },
+    {
+      "rank": 8,
+      "trend": "",
+      "title": "The Catcher in the Ballpark!",
+      "jpTitle": "ボールパークでつかまえて！",
+      "kv": "ballpark",
+      "episode": "1-12",
+      "genre": [
+        "Sports",
+        "Comedy",
+        "Romance",
+        "Slice of Life"
+      ],
+      "wrp_score": 81.72,
+      "overall_rating": 73,
+      "review": {
+        "en": "",
+        "jp": ""
+      },
+      "key_elements_breakdown": {
+        "op": 1.05,
+        "ed": 1.1,
+        "acting": 0.3,
+        "sound/music": 0.35,
+        "consistency/impact": 0.75,
+        "overall": 1.35,
+        "total": 4.9
+      },
+      "romanized_title": "Ballpark de Tsukamaete!",
+      "release_date": "4/1/2025 to 6/18/2025",
+      "based_on": "Manga",
+      "studios": "EMT Squared",
+      "creators": "Junichi Kitamura",
+      "external_scores": "7.14 (MAL)",
+      "streaming_services": "",
+      "synopsis": "To escape his tiring job, weary Murata finds escape at a nearby baseball stadium. While the games are thrilling, it’s Ruriko, the gyaru as cold as the beer she serves but secretly a sweetheart, who keeps him coming back. As her first regular, Murata discovers the warmth behind her frosty demeanor, and their hilarious, heartwarming encounters light up the ballpark and maybe even their hearts."
+    },
+    {
+      "rank": 9,
+      "trend": "",
+      "title": "Kowloon Generic Romance",
+      "jpTitle": "九龍ジェネリックロマンス",
+      "kv": "kowloon",
+      "episode": "1-13",
+      "genre": [
+        "Mystery",
+        "Drama",
+        "Sci-Fi"
+      ],
+      "wrp_score": 79.21,
+      "overall_rating": 64,
+      "review": {
+        "en": "",
+        "jp": ""
+      },
+      "key_elements_breakdown": {
+        "op": 1.1,
+        "ed": 1.05,
+        "acting": 0.3,
+        "sound/music": 0.3,
+        "consistency/impact": 0.4,
+        "overall": 0.55,
+        "total": 3.7
+      },
+      "romanized_title": "Kowloon Generic Romance",
+      "release_date": "4/5/2025 to 6/28/2025",
+      "based_on": "Manga",
+      "studios": "ARVO ANIMATION",
+      "creators": "yoshiaki Iwasaki",
+      "external_scores": "7.47 (MAL)",
+      "streaming_services": "",
+      "synopsis": "Welcome to Kowloon Walled City: a dystopian townscape where the people are brimming with nostalgia, and where the past, present, and future converge. Amid the hidden emotions and extraordinary daily lives of the men and women working in its confines, a tale of romance begins to unfold for real estate agent Reiko Kujirai—one that feels as familiar as Kowloon itself…"
+    },
+    {
+      "rank": 10,
+      "trend": "",
+      "title": "From Old Country Bumpkin to Master Swordsman",
+      "jpTitle": "片田舎のおっさん、剣聖になる",
+      "kv": "katainaka",
+      "episode": "1-12",
+      "genre": [
+        "Action",
+        "Adventure",
+        "Fantasy"
+      ],
+      "wrp_score": 76.66,
+      "overall_rating": 68,
+      "review": {
+        "en": "",
+        "jp": ""
+      },
+      "key_elements_breakdown": {
+        "op": 0.85,
+        "ed": 0.75,
+        "acting": 0.3,
+        "sound/music": 0.25,
+        "consistency/impact": 0.55,
+        "overall": 0.85,
+        "total": 3.55
+      },
+      "romanized_title": "Katainaka no Ossan, Kensei ni Naru",
+      "release_date": "4/5/2025 to 6/21/2025",
+      "based_on": "Naro",
+      "studios": "PASSIONE|HAYABUSA FILM",
+      "creators": "Akio Kazumi",
+      "external_scores": "7.03 (MAL)",
+      "streaming_services": "",
+      "synopsis": "Beryl Gardinant, a self-proclaimed “humble old man,” is a sword instructor at his dojo in a rural, backwater village. In his younger years, he dreamed of glory as a master swordsman, but those days are long behind him. Out of the blue, he receives a visit from a famous former pupil who brings him world-shattering news—he's been appointed as special instructor for the knights of the Liberion Order! With his life now turned upside down, Beryl travels to the capital and reunites with some of his former students: elite knights, an ace wizard, and even an adventurer who's attained the highest guild rank possible. But why do they all want his tutelage?! As far as he's concerned, they clearly don't need him anymore."
+    },
+    {
+      "rank": 11,
+      "trend": "",
+      "title": "Once Upon a Witch's Death",
+      "jpTitle": "ある魔女が死ぬまで",
+      "kv": "arumajo",
+      "episode": "1-12",
+      "genre": [
+        "Adventure",
+        "Drama",
+        "Fantasy"
+      ],
+      "wrp_score": 61.67,
+      "overall_rating": 56,
+      "review": {
+        "en": "",
+        "jp": ""
+      },
+      "key_elements_breakdown": {
+        "op": 0.85,
+        "ed": 1.05,
+        "acting": 0.3,
+        "sound/music": 0.3,
+        "consistency/impact": 0.15,
+        "overall": 0.15,
+        "total": 2.8
+      },
+      "romanized_title": "Aru Majo ga Shinu Made",
+      "release_date": "4/1/2025",
+      "based_on": "Web Novel",
+      "studios": "EMT Squared",
+      "creators": "Atsushi Nigorikawa",
+      "external_scores": "",
+      "streaming_services": "",
+      "synopsis": "On Meg’s seventeenth birthday, she learns that she only has one year left to live. Her mentor—the Eternal Witch, Faust—explains that she is cursed and the only way to save herself is to grow a seed of life using one thousand tears of joy. Of course, such tears aren’t easy to come by. As Meg begins her quest, she finds herself drawn into the lives of her friends and neighbors in ways she never imagined. By sharing their burdens and using her magic to comfort them, she learns how precious those moments of connection can be even in the face of death."
+    },
+    {
+      "rank": 12,
+      "trend": "",
+      "title": "Can a Boy-Girl Friendship Survive?",
+      "jpTitle": "男女の友情は成立する？（いや、しないっ!!）",
+      "kv": "danjoru",
+      "episode": "1-12",
+      "genre": [
+        "Rom-Com",
+        "School"
+      ],
+      "wrp_score": 59.86,
+      "overall_rating": 52,
+      "review": {
+        "en": "",
+        "jp": ""
+      },
+      "key_elements_breakdown": {
+        "op": 0.9,
+        "ed": 0.75,
+        "acting": 0.25,
+        "sound/music": 0.2,
+        "consistency/impact": 0.1,
+        "overall": 0.1,
+        "total": 2.3
+      },
+      "romanized_title": "Danjo no Yuujou wa Seiritsu suru? (Iya, Shinai!!)",
+      "release_date": "4/4/2025 to 6/20/2025",
+      "based_on": "Light Novel",
+      "studios": "J.C.STAFF",
+      "creators": "Yohei Suzuki",
+      "external_scores": "6.75 (MAL)",
+      "streaming_services": "",
+      "synopsis": "Childhood BFFs Himari and Yuu’s vow of friendship hits turbulence when Yuu reunites with his first crush in high school. Himari, who’s never known the fuzzy warmth of a crush, now must confront her feelings. Their shared dreams and peaceful days as a twosome gardening club are tested in this tale of love, flowers, and growing pains!"
+    }
+  ]
+}
