@@ -156,31 +156,33 @@ if (kvThumbEl && entryData.kv) {
 
 
   // Reviewボタン
-  const reviewTag = document.createElement("span");
-  reviewTag.className = "review-tag";
-  const reviewData = entryData.review;
+const reviewTag = document.createElement("span");
+reviewTag.className = "review-tag";
+const reviewData = entryData.review;
 
+// jp-title の取得（1回だけでOK）
+const jpTitleEl = entryEl.querySelector(".jp-title");
 
-// 追加：見つかったかどうかログで確認
-console.log("jpTitleEl:", jpTitleEl); // null だったら見つかっていません
+// 見つかったかどうかログで確認
+console.log("jpTitleEl:", jpTitleEl);
 
-  if (reviewData && (reviewData.en?.trim() || reviewData.jp?.trim())) {
-    reviewTag.dataset.reviewEn = reviewData.en || "";
-    reviewTag.dataset.reviewJp = reviewData.jp || "";
-    reviewTag.dataset.lang = "en";
-    reviewTag.textContent = "Review";
-    reviewTag.style.display = "inline-block";
+if (reviewData && (reviewData.en?.trim() || reviewData.jp?.trim())) {
+  reviewTag.dataset.reviewEn = reviewData.en || "";
+  reviewTag.dataset.reviewJp = reviewData.jp || "";
+  reviewTag.dataset.lang = "en";
+  reviewTag.textContent = "Review";
+  reviewTag.style.display = "inline-block";
 
-   // 追加：存在チェックして appendChild
   if (jpTitleEl) {
     jpTitleEl.appendChild(reviewTag);
   } else {
     console.warn("jp-title が見つかりませんでした！");
   }
-    
-  } else {
-    reviewTag.style.display = "none";
-  }
+
+} else {
+  reviewTag.style.display = "none";
+}
+
 
 
 
