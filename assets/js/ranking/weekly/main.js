@@ -160,8 +160,8 @@ const reviewTag = document.createElement("span");
 reviewTag.className = "review-tag";
 const reviewData = entryData.review;
 
-// jp-title の取得（1回だけでOK）
-const jpTitleEl = entryEl.querySelector(".jp-title");
+/// 再宣言ではなく再代入！
+jpTitleEl = entryEl.querySelector(".jp-title");
 
 // 見つかったかどうかログで確認
 console.log("jpTitleEl:", jpTitleEl);
@@ -182,8 +182,6 @@ if (reviewData && (reviewData.en?.trim() || reviewData.jp?.trim())) {
 } else {
   reviewTag.style.display = "none";
 }
-
-
 
 
       // トレンド情報更新
