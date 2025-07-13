@@ -208,24 +208,20 @@ body {
   padding: 0rem 0 0.2rem 0;
 }
 
-.table-header .rank {
+.table-header .header-rank {
   text-align: right;
   font-size: 0.53rem;
   padding-right: 0.6rem;
 }
 
-.table-header .title {
+.table-header .header-title {
   text-align: left;
   padding-left: 0.5rem;
 }
 
-.table-header .wrp {
-  text-align: left;
-  padding-left: 0.125rem; /* 2px */
-}
 
-.table-header .totalscore {
-  text-align: left;
+.table-header .header-totalscore {
+  text-align: right;
   margin-left: -1.2rem;
   font-size: 0.52rem;
 }
@@ -241,7 +237,7 @@ body {
   grid-template-areas:
     "rank title score"
     ". synopsis ."
-    ". more-info .";
+    ". moreinfo .";
   gap: 0.5rem;
   align-items: center;
   min-height: 65px;  /* 仮、全体の高さ感調整 */
