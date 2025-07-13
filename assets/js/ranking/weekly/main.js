@@ -42,13 +42,11 @@ function adjustScoreBars() {
 const currentWeek = "week11"; //追加した。後で削除
 
 fetch(`ranking-${currentWeek}-spring2025.json`)
-  .then(response => response.json())
-
-  console.log(`🔍 Response status: ${response.status}`);
+  .then(response => {
+    console.log(`🔍 Response status: ${response.status}`);
     if (!response.ok) throw new Error("Fetch failed");
     return response.json();
   })
-
   .then(data => {
 
 console.log(`✅ Successfully fetched: ranking-${currentWeek}-spring2025.json`);
