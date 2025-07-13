@@ -565,7 +565,7 @@ body {
   font-weight: bold;
   text-align: left;
   white-space: nowrap;
-  border-left: 3px solid #dec99a;  /* 軽い強調 */
+  border-left: 3px solid #e1c179;  /* 軽い強調 */
   padding-left: 0.375rem; /* 6px */
 }
 .more-info dd {
