@@ -430,12 +430,12 @@ body {
 
 .kv-thumb {
   position: relative; /* ← imgとoverlayをレイヤーに */
-  width: 74px; /* imgサイズと一致 */
+  width: 70px; /* imgサイズと一致 */
   aspect-ratio: 4/5; /* 縦横比が一致するなら */
 }
 
 .kv-thumb img {
-  width: 74px;
+  width: 70px;
   height: auto;
   display: block;
   object-fit: cover;
