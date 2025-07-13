@@ -1,0 +1,292 @@
+{
+  "meta": {
+    "week": "week 9",
+    "duration": "06-01-Sun-06-07-Sat",
+    "season": "2025 Spring",
+    "ep_range": "ep.9-10"
+  },
+  "entries": [
+    {
+      "rank": 1,
+      "trend": "up",
+      "title": "The Apothecary Diaries 2nd Season",
+      "jpTitle": "薬屋のひとりごと 第2期（第2クール）",
+      "kv": "kusuriya",
+      "episode": 45,
+      "genre": [
+        "Historical",
+        "Mystery",
+        "Drama"
+      ],
+      "wrp_score": 10.2,
+      "score": 11,
+      "review": {
+        "en": "\"From ghost stories and bug obsession to color blindness?every odd piece from earlier episodes, and everything else we've seen so far, was part of this devastating build-up. The storyline involving western bloodlines, nobles, and royalty ran so deep, it was overwhelming. I'm sorry?I'm at a loss for words. But what I can say is, it was so profound, so powerful, so heartbreaking... it brought me to tears. Absolutely stunning...\"",
+        "jp": ""
+      },
+      "wrp_breakdown": {
+        "base_score": 5,
+        "animation": 0.8,
+        "script": 0.9,
+        "direction": 0.9,
+        "charm": 0.8,
+        "overall": 1.8
+      },
+      "romanized_title": "Kusuriya no Hitorigoto 2nd Season",
+      "release_date": "4/4/2025",
+      "based_on": "Naro",
+      "studios": "TOHO animation STUDIO?OLM",
+      "creators": "Norihiro Naganuma",
+      "external_scores": "",
+      "streaming_services": "",
+      "synopsis": "\"Maomao lived a peaceful life with her apothecary father. Until one day, she’s sold as a lowly servant to the emperor’s palace. But she wasn’t meant for a compliant life among royalty. So when imperial heirs fall ill, she decides to step in and find a cure! This catches the eye of Jinshi, a handsome palace official who promotes her. Now, she’s making a name for herself solving medical mysteries!\""
+    },
+    {
+      "rank": 2,
+      "trend": "up",
+      "title": "The Catcher in the Ballpark!",
+      "jpTitle": "ボールパークでつかまえて！",
+      "kv": "ballpark",
+      "episode": 10,
+      "genre": [
+        "Sports",
+        "Comedy",
+        "Romance",
+        "Slice of Life"
+      ],
+      "wrp_score": 9.9,
+      "score": 10,
+      "review": {
+        "en": "\"Simply a perfect episode. Every part was tightly woven together?even with episodes from the past?and the emotional payoff was overwhelming. While keeping its light-hearted charm, all three segments truly hit home. The Kojiro and Tsubaki story? Cheat-level excellence. (Tsubaki and Sanshiro, by the way, are classically linked names in Japanese pop culture?think Tsubaki Sanjuro.) Who could watch that arc without tearing up? And the ending? That special ED song and animation crafted specifically for this episode?too much. It paired so perfectly with everything we’d just seen. Sorry, I can’t even see the screen anymore...\"",
+        "jp": ""
+      },
+      "wrp_breakdown": {
+        "base_score": 5,
+        "animation": 0.65,
+        "script": 0.85,
+        "direction": 0.85,
+        "charm": 0.8,
+        "overall": 1.75
+      },
+      "romanized_title": "Ballpark de Tsukamaete!",
+      "release_date": "4/1/2025 to 6/18/2025",
+      "based_on": "Manga",
+      "studios": "EMT Squared",
+      "creators": "Junichi Kitamura",
+      "external_scores": "7.14 (MAL)",
+      "streaming_services": "",
+      "synopsis": "\"To escape his tiring job, weary Murata finds escape at a nearby baseball stadium. While the games are thrilling, it’s Ruriko, the gyaru as cold as the beer she serves but secretly a sweetheart, who keeps him coming back. As her first regular, Murata discovers the warmth behind her frosty demeanor, and their hilarious, heartwarming encounters light up the ballpark and maybe even their hearts.\""
+    },
+    {
+      "rank": 3,
+      "trend": "down",
+      "title": "Sword of the Demon Hunter",
+      "jpTitle": "鬼人幻燈抄",
+      "kv": "kijin",
+      "episode": 10,
+      "genre": [
+        "Action",
+        "Historical",
+        "Drama"
+      ],
+      "wrp_score": 9.55,
+      "score": 10,
+      "review": {
+        "en": "\"I didn’t expect the transition from Edo to Heisei to hit this hard?it was subtle, but so cleverly done it caught me off guard. The play, written by Yotaka (yep, the prostitute from the Edo arc), nailed the essence of the story and its characters. And the fact that the Heisei students were watching it, commenting on it?cracking up over how uncool Jinya’s role was?just made it all land even harder. <br>There was this quiet sense of nostalgia layered under the humor, like you’re laughing but also feeling the weight of everything that’s been lost. And the way they used traditional theater pacing and structure? Absolutely nailed it. It was tight, emotional, and totally immersive. No question?solid 10\"",
+        "jp": ""
+      },
+      "wrp_breakdown": {
+        "base_score": 5,
+        "animation": 0.7,
+        "script": 0.8,
+        "direction": 0.75,
+        "charm": 0.7,
+        "overall": 1.6
+      },
+      "romanized_title": "KIJIN GENTOUSHOU",
+      "release_date": "3/31/2025",
+      "based_on": "Naro",
+      "studios": "Yokohama Animation Laboratory",
+      "creators": "Kazuya Aiura",
+      "external_scores": "",
+      "streaming_services": "",
+      "synopsis": "\"In the Edo period, there was a shrine maiden called \"\"Itsukihime\"\" in the mountain village of Kadono. Jinta, a young man who acts as the shrine maiden's guardian despite being a stranger, encounters a mysterious demon who speaks of the far future in the forest where he went to defeat it. From Edo to the Heisei era, this huge Japanese fantasy series follows a demon man who travels through time while continuously questioning the meaning of wielding a sword.\""
+    },
+    {
+      "rank": 4,
+      "trend": "down",
+      "title": "Mobile Suit Gundam GQuuuuuuX",
+      "jpTitle": "機動戦士Gundam GQuuuuuuX",
+      "kv": "gquuuuuux",
+      "episode": 9,
+      "genre": [
+        "Action",
+        "Drama",
+        "Mecha",
+        "Sci-Fi"
+      ],
+      "wrp_score": 9.25,
+      "score": 9,
+      "review": {
+        "en": "\"Wow… Elmes. A vessel of timeless, transcendental beauty ? serene, sacred, and strangely universal… no ? <i>multi</i>-universal ? which stretches across dimensions.This isn’t something that can or should be evaluated by the same standards as other shows this season.It was a brilliant and enigmatic encounter ? a true <i>Meguriai Sora</i> moment.\"",
+        "jp": ""
+      },
+      "wrp_breakdown": {
+        "base_score": 5,
+        "animation": 0.75,
+        "script": 0.7,
+        "direction": 0.65,
+        "charm": 0.65,
+        "overall": 1.5
+      },
+      "romanized_title": "Kidou Senshi Gundam GQuuuuuuX",
+      "release_date": "4/8/2025 to 6/25/2025",
+      "based_on": "Original",
+      "studios": "Khara",
+      "creators": "Kazuya Tsurumaki",
+      "external_scores": "7.24 (MAL)",
+      "streaming_services": "",
+      "synopsis": "\"Amate Yuzuriha is a high-school student living peacefully in a space colony floating in outer space. When she meets a war refugee named Nyaan, Amate is drawn into the illegal mobile suit dueling sport known as Clan Battle. Under the entry name \"\"Machu,\"\" she throws herself into fierce battle day after day, piloting the GQuuuuuuX. Then an unidentified Gundam mobile suit pursued by both the space force and the police appears before her, along with its pilot, a boy named Shuji. Now their world is about to enter a new era.\""
+    },
+    {
+      "rank": 5,
+      "trend": "down",
+      "title": "Shoshimin: How to Become Ordinary 2",
+      "jpTitle": "小市民シリーズ（第2期）",
+      "kv": "shoshimin",
+      "episode": 20,
+      "genre": [
+        "Mystery",
+        "School",
+        "Slice of Life"
+      ],
+      "wrp_score": 9.1,
+      "score": 9,
+      "review": {
+        "en": "\"Details, details... what a beautifully crafted episode. The juxtaposition of past and present, and all the leading and misleading elements are meticulously assembled like a piece of art. That nurse ? is she the reason Osanai never shows up when Kobato’s awake? Is she deliberately avoiding her? The way the story reveals the uniform ? through Kobato, Osanai, and the junior witness ? is a quintessential portrayal of intricate storytelling?painstakingly detailed, quiet, yet viscerally powerful, and overwhelming awe.. Anyway, there’s no way I could give this an 8. Thumbs up.\"",
+        "jp": ""
+      },
+      "wrp_breakdown": {
+        "base_score": 5,
+        "animation": 0.7,
+        "script": 0.65,
+        "direction": 0.7,
+        "charm": 0.6,
+        "overall": 1.45
+      },
+      "romanized_title": "Shoushimin Series 2nd Season",
+      "release_date": "4/5/2025 to 6/22/2025",
+      "based_on": "Novels",
+      "studios": "Lapin Track",
+      "creators": "Mamoru Kanbe",
+      "external_scores": "8.03 (MAL)",
+      "streaming_services": "",
+      "synopsis": "\"The second season will focus on two new cases from the novel series, adapting the two-part third volume Shuuki Gentei Kuri Kinton Jiken (The Autumn-Exclusive Kuri Kinton Case) and the fifth volume Touki Gentei Bonbon Chocolat Jiken (The Winter-Exclusive Chocolate Bonbons Case).\""
+    },
+    {
+      "rank": "spotlight",
+      "trend": "down",
+      "title": "From Old Country Bumpkin to Master Swordsman",
+      "jpTitle": "片田舎のおっさん、剣聖になる",
+      "kv": "katainaka",
+      "episode": 10,
+      "genre": [
+        "Action",
+        "Adventure",
+        "Fantasy"
+      ],
+      "wrp_score": 9,
+      "score": 9,
+      "review": {
+        "en": "\"Old bumpkin oddly looked so young (in the battle scenes)? just like someone else in his early 20s (and even good looking!). Otherwise, it was a good episode with solid battle scenes, and of course, our idol Myui delivered.\"",
+        "jp": ""
+      },
+      "wrp_breakdown": {
+        "base_score": 5,
+        "animation": 0.65,
+        "script": 0.7,
+        "direction": 0.7,
+        "charm": 0.5,
+        "overall": 1.45
+      },
+      "romanized_title": "\"Katainaka no Ossan, Kensei ni Naru\"",
+      "release_date": "4/5/2025 to 6/21/2025",
+      "based_on": "Naro",
+      "studios": "PASSIONE|HAYABUSA FILM",
+      "creators": "Akio Kazumi",
+      "external_scores": "7.03 (MAL)",
+      "streaming_services": "",
+      "synopsis": "\"Beryl Gardinant, a self-proclaimed “humble old man,” is a sword instructor at his dojo in a rural, backwater village. In his younger years, he dreamed of glory as a master swordsman, but those days are long behind him. Out of the blue, he receives a visit from a famous former pupil who brings him world-shattering news?he's been appointed as special instructor for the knights of the Liberion Order! With his life now turned upside down, Beryl travels to the capital and reunites with some of his former students: elite knights, an ace wizard, and even an adventurer who's attained the highest guild rank possible. But why do they all want his tutelage?! As far as he's concerned, they clearly don't need him anymore.\""
+    },
+    {
+      "rank": "editor's pick",
+      "trend": "up",
+      "title": "Kowloon Generic Romance",
+      "jpTitle": "九龍ジェネリックロマンス",
+      "kv": "kowloon",
+      "episode": 10,
+      "genre": [
+        "Mystery",
+        "Drama",
+        "Sice of Life",
+        "Sci-Fi"
+      ],
+      "wrp_score": 8.5,
+      "score": 8,
+      "review": {
+        "en": "\"Finally back to the beauty of ordinary life in extraordinary Kowloon. Without it, the show loses interest ? regardless of how intriguing the mystery is. And honestly, the story should really be moving forward by now ? not just circling around the edges. It still feels like it's stalling.\"",
+        "jp": ""
+      },
+      "wrp_breakdown": {
+        "base_score": 5,
+        "animation": 0.65,
+        "script": 0.6,
+        "direction": 0.6,
+        "charm": 0.45,
+        "overall": 1.2
+      },
+      "romanized_title": "Kowloon Generic Romance",
+      "release_date": "4/5/2025 to 6/28/2025",
+      "based_on": "Manga",
+      "studios": "ARVO ANIMATION",
+      "creators": "yoshiaki Iwasaki",
+      "external_scores": "7.47 (MAL)",
+      "streaming_services": "",
+      "synopsis": "\"Welcome to Kowloon Walled City: a dystopian townscape where the people are brimming with nostalgia, and where the past, present, and future converge. Amid the hidden emotions and extraordinary daily lives of the men and women working in its confines, a tale of romance begins to unfold for real estate agent Reiko Kujirai?one that feels as familiar as Kowloon itself…\""
+    },
+    {
+      "rank": "dookie",
+      "trend": "stay",
+      "title": "Can a Boy-Girl Friendship Survive?",
+      "jpTitle": "男女の友情は成立する？（いや、しないっ!!）",
+      "kv": "danjoru",
+      "episode": 10,
+      "genre": [
+        "Rom-Com",
+        "School"
+      ],
+      "wrp_score": 4.8,
+      "score": 4,
+      "review": {
+        "en": "",
+        "jp": ""
+      },
+      "wrp_breakdown": {
+        "base_score": 5,
+        "animation": 0.5,
+        "script": 0.3,
+        "direction": 0.3,
+        "charm": 0.2,
+        "overall": -1.5
+      },
+      "romanized_title": "\"Danjo no Yuujou wa Seiritsu suru? (Iya, Shinai!!)\"",
+      "release_date": "4/4/2025 to 6/20/2025",
+      "based_on": "Light Novel",
+      "studios": "J.C.STAFF",
+      "creators": "Yohei Suzuki",
+      "external_scores": "6.75 (MAL)",
+      "streaming_services": "",
+      "synopsis": "\"Childhood BFFs Himari and Yuu’s vow of friendship hits turbulence when Yuu reunites with his first crush in high school. Himari, who’s never known the fuzzy warmth of a crush, now must confront her feelings. Their shared dreams and peaceful days as a twosome gardening club are tested in this tale of love, flowers, and growing pains!\""
+    }
+  ]
+}
