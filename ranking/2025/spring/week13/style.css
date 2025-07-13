@@ -237,10 +237,11 @@ body {
 .entry {
   display: grid;
   grid-template-columns: 40px 1fr 30px;
-  grid-template-rows: auto auto;
+  grid-template-rows: auto auto auto;
   grid-template-areas:
-    "rank title bar score"
-    ". moreinfo synopsis .";
+    "rank title score"
+    ". synopsis ."
+    ". more-info .";
   gap: 0.5rem;
   align-items: center;
   min-height: 65px;  /* 仮、全体の高さ感調整 */
@@ -256,6 +257,23 @@ body {
 .entry-list .entry:last-of-type {
   border-bottom: 2px solid #999;
 }
+
+.rank-wrapper {
+  grid-area: rank;
+}
+.title {
+  grid-area: title;
+}
+.score {
+  grid-area: score;
+}
+.synopsis {
+  grid-area: synopsis;
+}
+.more-info {
+  grid-area: moreinfo;
+}
+
 
 /* =============================
    5. RANK AREA (LEFT COLUMN)
@@ -460,7 +478,7 @@ body {
       position: absolute;
       bottom: 0;
       right: 0;
-      background-color: #116d0d; /* 116d0d 緑1 #3d6f15 緑2, #2a2926 黒っぽい*/
+      background-color: #116d0d; /* #3d6f15 緑1, #2a2926 黒っぽい*/
       font-size: 0.55rem;
       font-family: 'Antonio', sans-serif;
       color: #e6e0d3; /* #e6e0d3 赤っぽい白？ */
