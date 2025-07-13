@@ -16,10 +16,9 @@ body {
 .wrapper {
   max-width: 740px;
   margin: 0 auto;
-  background: #ffffed;
+  background: #fffff0;
   padding: 1.875rem;
-  border: solid 0.5px #d4ddd0;
-  /*box-shadow: 0 0 12px rgba(0, 0, 0, 0.08);*/
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.08);
   /*box-sizing: border-box; ← 一回消してみる*/
   width: 100%; 
 }
@@ -41,7 +40,6 @@ body {
   letter-spacing: -0.2px;
   transform: scale(0.75, 1.1);
   margin: 0;
-  margin-top: 1rem;
   margin-right: -0.6rem;
   margin-left: -0.5rem;
 }
@@ -61,7 +59,7 @@ body {
   font-weight: 400;
   color: #a04343;
   letter-spacing: -0.02rem;
-  word-spacing: -0.1rem;
+  word-spacing: -0.08rem;
   margin-left: 1.1px;
 }
 
@@ -78,11 +76,11 @@ body {
   font-size: 1.125rem;
   margin-top: -0.31rem;
   margin-left: 0.31rem;
-  margin-bottom: 1rem;
 }
 
 .season-title {
    margin-right: 0.08rem;
+   color: #a67d23;
 }
 
 .season {
@@ -94,7 +92,7 @@ body {
 }
 
 .title-ranking {
-  color: #bb6c94;
+	color: #bb6c94;
 }
 
 .ep-range {
@@ -123,7 +121,6 @@ body {
   display: flex;
   justify-content: center;
   margin: 0.01rem auto;
-  margin-bottom: 0.5rem;
   align-items: center;
   font-size:0.55rem;
   font-family: 'Fira Sans', sans-serif;
@@ -193,38 +190,40 @@ body {
 
 .table {
   display: grid;
-  grid-template-columns: 40px 1fr 30px;
+  grid-template-columns: 70px 1fr 0.7fr 50px;
   border-bottom: 2px solid #aaa;
   margin: 0;
 }
 
 .table-header {
   font-family: 'Agency FB', 'Barlow Condensed', 'Pathway Gothic One', 'sans-serif';
-  font-size: 0.53rem;
+  font-size: 0.625rem; /* 10px */
   font-weight: 600;
   color: #6f6c6c;
   text-transform: uppercase;
   align-items: center;
   justify-content: center;
-  padding: 0rem 0 0.2rem 0;
+  padding: 0.5rem 0 0.313rem 0;
 }
 
-.table-header .header-rank {
+.table-header .rank {
   text-align: right;
-  font-size: 0.53rem;
-  padding-right: 0.6rem;
+  padding-right: 1.75rem; /* 28px */
 }
 
-.table-header .header-title {
+.table-header .title {
   text-align: left;
-  padding-left: 0.5rem;
+  padding-left: 0.5rem/* もともとコメントアウト */ ;
 }
 
+.table-header .wrp {
+  text-align: left;
+  padding-left: 0.125rem; /* 2px */
+}
 
-.table-header .header-totalscore {
-  text-align: right;
-  margin-left: -1.2rem;
-  font-size: 0.52rem;
+.table-header .totalscore {
+  text-align: left;
+  margin-left: 0.4rem;
 }
 
 /* =============================
@@ -233,12 +232,11 @@ body {
 
 .entry {
   display: grid;
-  grid-template-columns: 40px 1fr 30px;
-  grid-template-rows: auto auto auto;
+  grid-template-columns: 70px 1fr 0.7fr 50px;
+  grid-template-rows: auto auto;
   grid-template-areas:
-    "rank title score"
-    ". synopsis ."
-    ". moreinfo .";
+    "rank title bar score"
+    ". moreinfo synopsis .";
   gap: 0.5rem;
   align-items: center;
   min-height: 65px;  /* 仮、全体の高さ感調整 */
@@ -255,23 +253,6 @@ body {
   border-bottom: 2px solid #999;
 }
 
-.rank-wrapper {
-  grid-area: rank;
-}
-.title {
-  grid-area: title;
-}
-.score {
-  grid-area: score;
-}
-.synopsis {
-  grid-area: synopsis;
-}
-.more-info {
-  grid-area: moreinfo;
-}
-
-
 /* =============================
    5. RANK AREA (LEFT COLUMN)
    ============================= */
@@ -281,33 +262,33 @@ body {
   flex-direction: column;
   align-items: flex-end;
   justify-content: center;
-  margin-right: 0.8rem; /* adjustable per alignment needs */  
+  margin-right: 1.875rem; /* adjustable per alignment needs */  
   padding-top: 0.25rem; /* 4px */
 }
 
 .rank-top {
   display: flex;
   align-items: center;
-  gap: 0.2rem; /* tweak as needed for spacing between crown and rank number */
+  gap: 0.25rem; /* tweak as needed for spacing between crown and rank number */
 }
 
 /* Crowns, Icons for Rank Top */
 
      .crown-gold {
-  width: 12px;
+  width: 14px;
   height: auto;
   margin-top: 0.125rem; /* adjust to align vertically with other crowns */     
 }
 
  .crown-silver {
   width: auto;
-  height: 14px;
+  height: 16px;
   margin-top: 2px; /* adjust to align vertically with other crowns */     
 }
 
  .crown-bronze {
   width: auto;
-  height: 11.5px;
+  height: 13px;
   margin-top: 2px; /* adjust to align vertically with other crowns */     
 }
 
@@ -330,7 +311,7 @@ body {
 /* === 6. RANK NUMBER STYLE === */
 
      .rank-number {
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   font-family: 'Barlow Condensed', 'Agency FB', 'Pathway Gothic One', 'sans-serif';
   font-weight: 600;
   letter-spacing: 0.1px;
@@ -373,17 +354,17 @@ body {
 
 .trend-icon-up {
   width: auto;
-  height: 6px;
+  height: 7px;
 }
 
 .trend-icon-stay {
   width: auto;
-  height: 6px;
+  height: 7px;
 }
 
 .trend-icon-down {
   width: auto;
-  height: 6px;
+  height: 7px;
 }
 
 .trend-icon-new {
@@ -407,7 +388,7 @@ body {
       display: flex;
       align-items: center;
       font-family: 'Special Gothic Expanded One', 'sans-serif';
-      font-size: 0.6rem;
+      font-size: 0.75rem; /* 12px */
       color: #404040;
       letter-spacing: 0.03em;
       word-spacing: 0.13em;
@@ -415,8 +396,17 @@ body {
       padding-right: 1.125rem; /* 18px */
     }
 
+.title-ep {
+      font-size: 0.6rem; /* 9.6px */
+      color: #4f4f4f;
+      position: relative;
+  top: -1.5px; /* or tweak it like -2px, -1.5px etc. */
+      text-transform: none;
+      margin-right: 0.375rem; /* 6px */
+}
+
 .jp-title {
-  font-size: 0.5rem; /* 8px */
+  font-size: 0.563rem; /* 9px */
   font-family: 'Yu Gothic UI', sans-serif;
   font-weight: 500;
   color: #6a6a6a;
@@ -443,16 +433,10 @@ body {
   gap: 0.25rem;
 }
 
-.kv-thumb {
-  position: relative; /* ← imgとoverlayをレイヤーに */
-  width: 70px; /* imgサイズと一致 */
-  aspect-ratio: 4/5; /* 縦横比が一致するなら */
-}
-
 .kv-thumb img {
-  width: 70px;
+  width: 62px;
   height: auto;
-  display: block;
+  aspect-ratio: 4/5;
   object-fit: cover;
   margin-right: 0.313rem; /* 5px */
   border-radius: 0.125rem; /* 2px */
@@ -471,24 +455,6 @@ body {
   position: relative;
 }
 
-.title-ep {
-      position: absolute;
-      bottom: 0;
-      right: 0;
-      background-color: #116d0d; /* #3d6f15 緑1, #2a2926 黒っぽい*/
-      font-size: 0.55rem;
-      font-family: 'Antonio', sans-serif;
-      color: #e6e0d3; /* #e6e0d3 赤っぽい白？ */
-      font-weight: 500;
-      padding: 0.125rem 0.18rem 0.18rem 0.43rem;
-      border-top-left-radius: 9px;
-      display: flex;
-      align-items: center;
-      gap: 2px;
-      pointer-events: none; /* ホバー邪魔しない */
-      z-index: 2;
-}
-
 .info-bottom {
   display: flex;
   flex-direction: column;
@@ -504,12 +470,12 @@ body {
 .genre-tag {
   /*background: #e39fb6;*/
   font-family: 'Fira Sans', sans-serif;
-  font-size: 0.43rem;
+  font-size: 0.45rem;
   font-weight: 500;
   /*text-shadow: 0.1px 0.1px #686868;*/
   color: #bd8397;
   word-spacing: -0.3px;
-  padding: 0.05rem 0.29rem;
+  padding: 0.094rem 0.313rem;
   border-radius: 0.375rem; /* 6px */
   border: solid 1px #bd8397;
   margin-top: 0.125rem; /* 2px */
@@ -551,7 +517,7 @@ body {
 .more-info.active {
   max-height: 1500px; /* 適宜調整 */
   /*border-top: 1px solid #ddd;*/
-  padding: 0.5rem 0;
+  padding: 0.5rem;
 }
 
 .more-info dl {
@@ -562,11 +528,10 @@ body {
   margin: 0;
 }
 .more-info dt {
-  font-size: 0.58rem;
   font-weight: bold;
   text-align: left;
   white-space: nowrap;
-  border-left: 3px solid #e1c179;  /* 軽い強調 */
+  border-left: 3px solid #dec99a;  /* 軽い強調 */
   padding-left: 0.375rem; /* 6px */
 }
 .more-info dd {
@@ -576,7 +541,7 @@ body {
   text-shadow: 0 -0.3px #686868;
   margin: 0;
   text-align: left;
-  padding-left: 0.5rem; /* 4px */
+  padding-left: 0.25rem; /* 4px */
   word-break: break-word;
 }
 
@@ -585,7 +550,7 @@ body {
   /* 将来的に必要になったらここにスタイル追加 */
   font-family: 'Barlow Condensed', 'Abel', sans-serif;
   font-weight: 500;
-  font-size: 0.719rem; /* 11.5px */
+  font-size: 0.656rem; /* 10.5px */
   color: #404040;
   line-height: 1.6;
   letter-spacing: 0.2px;
@@ -598,7 +563,6 @@ body {
   max-height: 0;
   transition: max-height 0.6s ease;
   align-self: start;
-  text-transform: none;
 }
 
 .synopsis.active {
@@ -638,20 +602,18 @@ body {
 
 .bar-label {
   margin-left: 0.063rem; /* 1px */
-  margin-bottom: -0.12rem;
   padding-bottom: 0.063rem; /* 1px */
-  font-size: 0.531rem; /* 8.5px */
+  font-size: 0.656rem; /* 10.5px */
   letter-spacing: 0.3px;
   text-transform: none;
   color: #5D7430;
 }
 
-
 .bar-track {
   width: 100%;
   max-width: 170px;
   background: #dceccb;
-  height: 11px;
+  height: 13px;
   flex: 1;
   position: relative;
   margin-right: 0.125rem; /* 2px */
@@ -689,7 +651,7 @@ body {
 .wrp-score {
   font-family: 'Roboto Condensed Medium','Tuffy', 'sans-serif';
   font-weight: 500;
-  font-size: 0.52rem;
+  font-size: 0.6rem;
   letter-spacing: -0.05em;
   transform: scaleY(1.2);
   display: inline-block; /* これ重要！transformが効くようにする */
@@ -714,7 +676,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 30px;
+  width: 48px;
   aspect-ratio: 4/5;
   /*border-bottom-right-radius: 40%;
   box-shadow: 1.5px 1.5px 2px rgba(0, 0, 0, 0.1);*/
@@ -916,11 +878,11 @@ body {
   border: 1px solid #bb9054;
   background: transparent;
   font-family: 'Fira Sans', 'sans-serif';
-  font-size: 0.48rem;
+  font-size: 0.5rem;
   font-weight: 600;
   color: #b78e52;
   margin-left: 0px;
-  padding: 0.075rem 0.3rem 0.075rem 0.3rem;
+  padding: 0.075rem 0.313rem 0.075rem 0.313rem;
   border-radius: 5px;
   box-shadow: none;
   cursor: pointer;
@@ -959,22 +921,21 @@ body {
 .nav-bar {
   display: flex;
   width: 100%;
-  max-width: 800px;
+  max-width: 680px;
   justify-content: space-between;
   align-items: center;
   font-family: 'Abel', sans-serif;
   font-size: 0.75rem;
-  margin: 0 auto 0 auto;
+  margin: 0 auto 0.5rem auto;
   padding: 0;
   box-sizing: border-box;
   color: #444;
-  background-color: #6b896b;
 }
 
 .nav-link {
   flex: 1;
   text-align: center;
-  color: #ffffed;
+  color: #444141;
 }
 
 .nav-link a {
@@ -988,17 +949,17 @@ body {
 
 .nav-link.left {
   text-align: left;
-  padding-left: 8px;
+  padding-left: 1px;
 }
 
 .nav-link.right {
   text-align: right;
-  padding-right: 8px;
+  padding-right: 1px;
 }
 
 .nav-link.center a {
   display: inline-block;
-  padding: 0.35rem 0.8rem;
+  padding: 0.4em 0.8em;
 }
 
 /* 注意書きエリア */
@@ -1019,13 +980,12 @@ body {
 }
 
 .note-title {
-  font-weight: 500;
+  font-weight: 400;
   color: #716f6f;
 }
 
-
-.note ul {
-  margin-left: -1rem;
+.disclosure-reason {
+  margin-left: 1.5rem;
   margin-bottom: 1.5rem;
 }
 
@@ -1042,8 +1002,13 @@ body {
   margin-left: 2rem;
 }
 
+.six-element-detail strong {
+  font-weight: 500;
+  color: #444343;
+}
+
 .total {
-  margin-left: 1.8rem;
+  margin-left: 2.6rem;
   margin-bottom: 1.5rem;
 }
 
@@ -1053,6 +1018,10 @@ body {
   background-color: #f6f6f6;
   padding: 0.1rem 0.4rem;
   border-radius: 3px;
+}
+
+.note-jp ul li {
+  font-size: 0.65rem
 }
 
 /* detail-content 開閉トグル*/
@@ -1073,7 +1042,6 @@ body {
   text-decoration: none;
   margin-bottom: 0.25rem;
 }
-
 
 
 /* 汎用アイコン（現状未使用領域） */
