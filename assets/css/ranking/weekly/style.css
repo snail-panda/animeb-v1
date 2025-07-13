@@ -415,6 +415,7 @@ body {
   font-weight: 500;
   color: #6a6a6a;
   margin-top: -1px;
+  margin-right: 0.125rem; /* 2px */
   margin-left: 0;
   line-height: 1.2;
   padding-left: 0;
@@ -914,6 +915,7 @@ body {
   font-size: 0.48rem;
   font-weight: 600;
   color: #b78e52;
+  margin-top: 2px;
   margin-left: 0px;
   padding: 0.075rem 0.3rem 0.075rem 0.3rem;
   border-radius: 5px;
