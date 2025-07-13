@@ -460,7 +460,7 @@ body {
       position: absolute;
       bottom: 0;
       right: 0;
-      background-color: #116d0d; /* #3d6f15 緑1, #2a2926 黒っぽい*/
+      background-color: #2a2926; /* 116d0d 緑1 #3d6f15 緑2, #2a2926 黒っぽい*/
       font-size: 0.55rem;
       font-family: 'Antonio', sans-serif;
       color: #e6e0d3; /* #e6e0d3 赤っぽい白？ */
