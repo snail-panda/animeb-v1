@@ -159,22 +159,31 @@ if (kvThumbEl && entryData.kv) {
   const reviewTag = document.createElement("span");
   reviewTag.className = "review-tag";
   const reviewData = entryData.review;
+
+  // ここで jp-title の取得
+const jpTitleEl = entryEl.querySelector(".jp-title");
+
+// 追加：見つかったかどうかログで確認
+console.log("jpTitleEl:", jpTitleEl); // null だったら見つかっていません
+
   if (reviewData && (reviewData.en?.trim() || reviewData.jp?.trim())) {
     reviewTag.dataset.reviewEn = reviewData.en || "";
     reviewTag.dataset.reviewJp = reviewData.jp || "";
     reviewTag.dataset.lang = "en";
     reviewTag.textContent = "Review";
     reviewTag.style.display = "inline-block";
+
+   // 追加：存在チェックして appendChild
+  if (jpTitleEl) {
+    jpTitleEl.appendChild(reviewTag);
+  } else {
+    console.warn("jp-title が見つかりませんでした！");
+  }
+    
   } else {
     reviewTag.style.display = "none";
   }
 
-  // ★ jp-title に追加するよう修正
-const jpTitleEl = entryEl.querySelector(".jp-title");
-if (jpTitleEl) {
-  jpTitleEl.appendChild(reviewTag);
-  }
-}
 
 
       // トレンド情報更新
