@@ -168,7 +168,12 @@ if (kvThumbEl && entryData.kv) {
   } else {
     reviewTag.style.display = "none";
   }
-  infoTopEl.appendChild(reviewTag);
+
+  // ★ jp-title に追加するよう修正
+const jpTitleEl = entryEl.querySelector(".jp-title");
+if (jpTitleEl) {
+  jpTitleEl.appendChild(reviewTag);
+  }
 }
 
 
