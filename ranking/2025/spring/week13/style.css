@@ -583,7 +583,7 @@ body {
   /* 将来的に必要になったらここにスタイル追加 */
   font-family: 'Barlow Condensed', 'Abel', sans-serif;
   font-weight: 500;
-  font-size: 0.7rem; /* 10.5px */
+  font-size: 0.7rem; /* originally 0.656rem 10.5px */
   color: #404040;
   line-height: 1.6;
   letter-spacing: 0.2px;
