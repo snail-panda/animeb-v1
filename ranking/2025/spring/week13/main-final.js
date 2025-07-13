@@ -128,10 +128,14 @@ if (infoTopEl) {
   infoTopEl.appendChild(enTitle);
 
   // エピソード
-  const epSpan = document.createElement("span");
-  epSpan.className = "title-ep";
-  epSpan.textContent = ` — Ep.${entryData.episode || ""}`;
-  infoTopEl.appendChild(epSpan);
+  const kvThumbBox = el.querySelector('.kv-thumb');
+if (kvThumbBox) {
+  const epBox = document.createElement("div");
+  epBox.className = "title-ep";  // ← 既存のclassをそのまま使う場合
+  epBox.textContent = `Ep.${entryData.episode || ""}`;
+  kvThumbBox.appendChild(epBox);
+}
+
 
   // 日本語タイトル 既存の日本語タイトルを上書き
  const jpTitleEl = el.querySelector('.jp-title');
