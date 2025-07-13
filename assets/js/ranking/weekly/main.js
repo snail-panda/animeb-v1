@@ -281,6 +281,8 @@ if (genreTagsEl && entryData.genre) {
 
     }
 
+    }); // ← ここでforEachの閉じカッコ
+
     // 全ての更新が終わったあとにバー描画
     adjustScoreBars();
 
