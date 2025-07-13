@@ -128,10 +128,11 @@ if (infoTopEl) {
   infoTopEl.appendChild(enTitle);
 
   // エピソード
-  const epSpan = document.createElement("span");
-  epSpan.className = "title-ep";
-  epSpan.textContent = ` — Ep.${entryData.episode || ""}`;
-  infoTopEl.appendChild(epSpan);
+ const epSpan = document.createElement("span");
+epSpan.className = "title-ep";
+epSpan.textContent = ` — Ep.${entryData.episode || ""}`;
+infoTopEl.appendChild(epSpan);
+
 
   // 日本語タイトル 既存の日本語タイトルを上書き
  const jpTitleEl = el.querySelector('.jp-title');
