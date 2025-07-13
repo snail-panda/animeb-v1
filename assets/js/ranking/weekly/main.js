@@ -41,6 +41,10 @@ function adjustScoreBars() {
 fetch(`ranking-${currentWeek}-spring2025.json`)
   .then(response => response.json())
   .then(data => {
+
+console.log(`Fetching data from: ranking-${currentWeek}-spring2025.json`);
+
+
     // メタ情報更新
     document.querySelector('.week-title').textContent = data.meta.week;
     document.querySelector('.season-title').textContent = data.meta.season;
