@@ -156,31 +156,19 @@ if (kvThumbEl && entryData.kv) {
 
 
   // Reviewボタン
-const reviewTag = document.createElement("span");
-reviewTag.className = "review-tag";
-const reviewData = entryData.review;
-
-/// 再宣言ではなく再代入！
-jpTitleEl = entryEl.querySelector(".jp-title");
-
-// 見つかったかどうかログで確認
-console.log("jpTitleEl:", jpTitleEl);
-
-if (reviewData && (reviewData.en?.trim() || reviewData.jp?.trim())) {
-  reviewTag.dataset.reviewEn = reviewData.en || "";
-  reviewTag.dataset.reviewJp = reviewData.jp || "";
-  reviewTag.dataset.lang = "en";
-  reviewTag.textContent = "Review";
-  reviewTag.style.display = "inline-block";
-
-  if (jpTitleEl) {
-    jpTitleEl.appendChild(reviewTag);
+ const reviewTag = document.createElement("span");
+  reviewTag.className = "review-tag";
+  const reviewData = entryData.review;
+  if (reviewData && (reviewData.en?.trim() || reviewData.jp?.trim())) {
+    reviewTag.dataset.reviewEn = reviewData.en || "";
+    reviewTag.dataset.reviewJp = reviewData.jp || "";
+    reviewTag.dataset.lang = "en";
+    reviewTag.textContent = "Review";
+    reviewTag.style.display = "inline-block";
   } else {
-    console.warn("jp-title が見つかりませんでした！");
+    reviewTag.style.display = "none";
   }
-
-} else {
-  reviewTag.style.display = "none";
+  jpTitleEl.appendChild(reviewTag);
 }
 
 
