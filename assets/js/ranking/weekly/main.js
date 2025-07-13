@@ -38,9 +38,6 @@ function adjustScoreBars() {
 }
 
 // ========== JSON読み込み & DOM更新 ==========
-
-const currentWeek = "week11"; //追加した。後で削除
-
 fetch(`ranking-${currentWeek}-spring2025.json`)
   .then(response => {
     console.log(`🔍 Response status: ${response.status}`);
