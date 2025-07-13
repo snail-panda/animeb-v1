@@ -47,260 +47,234 @@ fetch(`ranking-${currentWeek}-spring2025.json`)
     if (!response.ok) throw new Error("Fetch failed");
     return response.json();
   })
-  .then(data => {
+.then(data => {
 
-console.log(`✅ Successfully fetched: ranking-${currentWeek}-spring2025.json`);
-    // ここから通常処理
-  })
-  .catch(error => {
-    console.error(`❌ Fetch failed: ${error.message}`);
-  });
+  console.log(`✅ Successfully fetched: ranking-${currentWeek}-spring2025.json`);
+  // ここから通常処理
 
+  // メタ情報更新
+  document.querySelector('.week-title').textContent = data.meta.week;
+  document.querySelector('.season-title').textContent = data.meta.season;
+  document.title = `Anime Weekly Ranking - ${data.meta.week}`;
 
-    // メタ情報更新
-    document.querySelector('.week-title').textContent = data.meta.week;
-    document.querySelector('.season-title').textContent = data.meta.season;
-    document.title = `Anime Weekly Ranking - ${data.meta.week}`;
+  // ✅ ここにフォーマット関数を置くのがベスト
+  function formatReleaseDates(dateStr) {
+    if (!dateStr) return "";
 
-// ✅ ここにフォーマット関数を置くのがベスト
-function formatReleaseDates(dateStr) {
-  if (!dateStr) return "";
+    // "4/10/2025" or "4/10/2025 to 6/26/2025"
+    const parts = dateStr.split(" to ");
 
-  // "4/10/2025" or "4/10/2025 to 6/26/2025"
-  const parts = dateStr.split(" to ");
+    function convert(d) {
+      const [m, day, y] = d.split("/");
+      const monthMap = [
+        "", "January", "February", "March", "April", "May", "June",
+        "July", "August", "September", "October", "November", "December"
+      ];
+      return `${monthMap[parseInt(m, 10)]} ${parseInt(day, 10)}, ${y}`;
+    }
 
-  function convert(d) {
-    const [m, day, y] = d.split("/");
-    const monthMap = [
-      "", "January", "February", "March", "April", "May", "June",
-      "July", "August", "September", "October", "November", "December"
-    ];
-    return `${monthMap[parseInt(m, 10)]} ${parseInt(day, 10)}, ${y}`;
+    if (parts.length === 2) {
+      // 両方ある場合
+      return `${convert(parts[0])} to ${convert(parts[1])}`;
+    } else {
+      // 開始日だけの場合
+      return convert(parts[0]);
+    }
   }
 
-  if (parts.length === 2) {
-    // 両方ある場合
-    return `${convert(parts[0])} to ${convert(parts[1])}`;
-  } else {
-    // 開始日だけの場合
-    return convert(parts[0]);
+  // ✅ WEEK を全大文字表示に変更
+  const weekEl = document.querySelector('.week-title');
+  if (weekEl && data.meta.week) {
+    weekEl.textContent = data.meta.week.toUpperCase();  // 🔁 完全に全大文字化
   }
-}
 
+  // ========== PATCH: duration and ep_range display ==========
 
+  // （どこか上の方に）関数定義を追加
+  function formatDuration(durationStr) {
+    const p = durationStr.split(/[-\s]+/);
+    return `${p[0]}/${p[1]}/${p[2]}–${p[3]}/${p[4]}/${p[5]}`;
+  }
 
-// ✅ WEEK を全大文字表示に変更
-const weekEl = document.querySelector('.week-title');
-if (weekEl && data.meta.week) {
-  weekEl.textContent = data.meta.week.toUpperCase();  // 🔁 完全に全大文字化
-}
+  // Duration を <span class="duration"> に挿入（Jsonで括弧なし前提）
+  const durationEl = document.querySelector('.duration');
+  if (durationEl && data.meta.duration) {
+    const rawDuration = data.meta.duration;
 
+    // ↓ここで formatDuration 関数を使って整形
+    const formattedDuration = formatDuration(rawDuration);
 
-    // ========== PATCH: duration and ep_range display ==========
+    // 表示に反映
+    durationEl.textContent = `(${formattedDuration})`;
+  }
 
-// （どこか上の方に）関数定義を追加
-function formatDuration(durationStr) {
-  const p = durationStr.split(/[-\s]+/);
-  return `${p[0]}/${p[1]}/${p[2]}–${p[3]}/${p[4]}/${p[5]}`;
-}
+  // Ep Range を <span class="ep-range"> に挿入（Ep の E は大文字化）
+  const epRangeEl = document.querySelector('.ep-range');
+  if (epRangeEl && data.meta.ep_range) {
+    const formatted = data.meta.ep_range.replace(/^ep/i, 'Ep'); // Epだけ大文字化
+    epRangeEl.textContent = `[${formatted}]`;
+  }
 
+  // エントリー取得
+  const entryElements = document.querySelectorAll('.entry');
 
-// Duration を <span class="duration"> に挿入（Jsonで括弧なし前提）
-const durationEl = document.querySelector('.duration');
-if (durationEl && data.meta.duration) {
-  const rawDuration = data.meta.duration;
-
-  // ↓ここで formatDuration 関数を使って整形
-  const formattedDuration = formatDuration(rawDuration);
-
-  // 表示に反映
-  durationEl.textContent = `(${formattedDuration})`;
-}
-
-
-// Ep Range を <span class="ep-range"> に挿入（Ep の E は大文字化）
-const epRangeEl = document.querySelector('.ep-range');
-if (epRangeEl && data.meta.ep_range) {
-  const formatted = data.meta.ep_range.replace(/^ep/i, 'Ep'); // Epだけ大文字化
-  epRangeEl.textContent = `[${formatted}]`;
-}
-
-
-    // エントリー取得
-    const entryElements = document.querySelectorAll('.entry');
-
-    data.entries.forEach((entryData, index) => {
-      const el = entryElements[index];
-      if (!el) return;
+  data.entries.forEach((entryData, index) => {
+    const el = entryElements[index];
+    if (!el) return;
 
     // タイトル更新
-const infoTopEl = el.querySelector('.info-top');
-if (infoTopEl) {
-  // 中身を一度クリア
-  infoTopEl.textContent = "";
+    const infoTopEl = el.querySelector('.info-top');
+    if (infoTopEl) {
+      // 中身を一度クリア
+      infoTopEl.textContent = "";
 
-  // 英語タイトル
-  const enTitle = document.createTextNode(entryData.title || "");
-  infoTopEl.appendChild(enTitle);
+      // 英語タイトル
+      const enTitle = document.createTextNode(entryData.title || "");
+      infoTopEl.appendChild(enTitle);
 
-  // エピソード
- const kvThumbBox = el.querySelector('.kv-thumb');
-if (kvThumbBox) {
-  const epBox = document.createElement("div");
-  epBox.className = "title-ep";  // ← 既存のclassをそのまま使う場合
-  epBox.textContent = `Ep.${entryData.episode || ""}`;
-  kvThumbBox.appendChild(epBox);
-}
-
-
-
-  // 日本語タイトル 既存の日本語タイトルを上書き
- const jpTitleEl = el.querySelector('.jp-title');
-  if (jpTitleEl) {
-    jpTitleEl.textContent = entryData.jpTitle || "";
-  }
-
-
-// ========== KV画像更新 ==========
-
-const kvThumbEl = el.querySelector('.kv-thumb img');
-if (kvThumbEl && entryData.kv) {
-  kvThumbEl.src = `../../../../images/key-visuals/2025/spring/${entryData.kv}.webp`;
-  kvThumbEl.alt = `${entryData.title} key visual`;
-}
-
-
-
-  // Reviewボタン
- const reviewTag = document.createElement("span");
-  reviewTag.className = "review-tag";
-  const reviewData = entryData.review;
-  if (reviewData && (reviewData.en?.trim() || reviewData.jp?.trim())) {
-    reviewTag.dataset.reviewEn = reviewData.en || "";
-    reviewTag.dataset.reviewJp = reviewData.jp || "";
-    reviewTag.dataset.lang = "en";
-    reviewTag.textContent = "Review";
-    reviewTag.style.display = "inline-block";
-  } else {
-    reviewTag.style.display = "none";
-  }
-  jpTitleEl.appendChild(reviewTag);
-}
-
-
-      // トレンド情報更新
-      const trendLabel = el.querySelector('.trend-label');
-      const trendIcon = el.querySelector('.rank-trend img');
-      const label = entryData.trend.toLowerCase();
-      const labelTextMap = {
-        "re": "Re-entry"
-      };
-      if (trendLabel && trendIcon) {
-        trendLabel.textContent = labelTextMap[label] || entryData.trend;
-        trendIcon.src = `../../../../images/trends/${label}-arrow.png`;
-        trendIcon.className = `trend-icon-${label}`;
-        trendIcon.alt = `${entryData.trend} icon`;
-
-
-        // 🔽 この行を追加するだけでOK！
-trendIcon.onerror = () => trendIcon.style.display = 'none';
-
+      // エピソード
+      const kvThumbBox = el.querySelector('.kv-thumb');
+      if (kvThumbBox) {
+        const epBox = document.createElement("div");
+        epBox.className = "title-ep";  // ← 既存のclassをそのまま使う場合
+        epBox.textContent = `Ep.${entryData.episode || ""}`;
+        kvThumbBox.appendChild(epBox);
       }
 
-     // WRPスコア更新完全統合 (titleCase版・最終確定版)
-const wrpScoreEl = el.querySelector('.wrp-score');
-if (wrpScoreEl) {
-  wrpScoreEl.innerHTML = `${entryData.wrp_score}<span class="wrp-score-unit">pt</span> <img src="../../../../images/badges/info-green.svg" width="8px">`;
+      // 日本語タイトル 既存の日本語タイトルを上書き
+      const jpTitleEl = el.querySelector('.jp-title');
+      if (jpTitleEl) {
+        jpTitleEl.textContent = entryData.jpTitle || "";
+      }
 
-  // Breakdown内容も事前加工
-  const breakdown = Object.entries(entryData.wrp_breakdown)
-    .map(([key, val]) => `${titleCase(key.replace(/_/g, ' '))}: ${val}`)
-    .join('<br>');
+      // ========== KV画像更新 ==========
+      const kvThumbEl = el.querySelector('.kv-thumb img');
+      if (kvThumbEl && entryData.kv) {
+        kvThumbEl.src = `../../../../images/key-visuals/2025/spring/${entryData.kv}.webp`;
+        kvThumbEl.alt = `${entryData.title} key visual`;
+      }
 
-  wrpScoreEl.querySelector('img').addEventListener('click', function(e) {
-    e.stopPropagation();
-    closeAll();
-    const popup = createPopup('WRP Breakdown:<br>' + breakdown, 'wrp-popup');
-    positionPopup(this, popup);
-  });
-}
+      // Reviewボタン
+      const reviewTag = document.createElement("span");
+      reviewTag.className = "review-tag";
+      const reviewData = entryData.review;
+      if (reviewData && (reviewData.en?.trim() || reviewData.jp?.trim())) {
+        reviewTag.dataset.reviewEn = reviewData.en || "";
+        reviewTag.dataset.reviewJp = reviewData.jp || "";
+        reviewTag.dataset.lang = "en";
+        reviewTag.textContent = "Review";
+        reviewTag.style.display = "inline-block";
+      } else {
+        reviewTag.style.display = "none";
+      }
+      jpTitleEl.appendChild(reviewTag);
+    }
 
-// titleCase関数（新規追加分・これをJSの関数群に加える）
-function titleCase(str) {
-  return str.split(' ')
-    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-    .join(' ');
-}
+    // トレンド情報更新
+    const trendLabel = el.querySelector('.trend-label');
+    const trendIcon = el.querySelector('.rank-trend img');
+    const label = entryData.trend.toLowerCase();
+    const labelTextMap = {
+      "re": "Re-entry"
+    };
+    if (trendLabel && trendIcon) {
+      trendLabel.textContent = labelTextMap[label] || entryData.trend;
+      trendIcon.src = `../../../../images/trends/${label}-arrow.png`;
+      trendIcon.className = `trend-icon-${label}`;
+      trendIcon.alt = `${entryData.trend} icon`;
 
+      // 🔽 この行を追加するだけでOK！
+      trendIcon.onerror = () => trendIcon.style.display = 'none';
+    }
 
+    // WRPスコア更新完全統合 (titleCase版・最終確定版)
+    const wrpScoreEl = el.querySelector('.wrp-score');
+    if (wrpScoreEl) {
+      wrpScoreEl.innerHTML = `${entryData.wrp_score}<span class="wrp-score-unit">pt</span> <img src="../../../../images/badges/info-green.svg" width="8px">`;
 
-      // Totalスコア更新
-      const scoreEl = el.querySelector('.score');
-if (scoreEl) {
-  const scoreNumberEl = scoreEl.querySelector('.score-number');
-  const scoreUnitEl = scoreEl.querySelector('.score-unit');
+      // Breakdown内容も事前加工
+      const breakdown = Object.entries(entryData.wrp_breakdown)
+        .map(([key, val]) => `${titleCase(key.replace(/_/g, ' '))}: ${val}`)
+        .join('<br>');
 
-  if (scoreNumberEl) scoreNumberEl.textContent = entryData.score;
-  if (scoreUnitEl) scoreUnitEl.textContent = 'pt';  // ptは固定
-}
+      wrpScoreEl.querySelector('img').addEventListener('click', function(e) {
+        e.stopPropagation();
+        closeAll();
+        const popup = createPopup('WRP Breakdown:<br>' + breakdown, 'wrp-popup');
+        positionPopup(this, popup);
+      });
+    }
 
+    // titleCase関数（新規追加分・これをJSの関数群に加える）
+    function titleCase(str) {
+      return str.split(' ')
+        .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+        .join(' ');
+    }
 
-// more-info <dl> の更新
-const moreInfoDl = el.querySelector('.more-info dl');
-if (moreInfoDl) {
-  moreInfoDl.innerHTML = `
-    <dt>Romanized Title</dt><dd>${entryData.romanized_title || ""}</dd>
-    <dt>Release Date</dt><dd>${formatReleaseDates(entryData.release_date || "")}</dd>
-    <dt>Based On</dt><dd>${entryData.based_on || ""}</dd>
-    <dt>Studios</dt><dd>${entryData.studios || ""}</dd>
-    <dt>Creators</dt><dd>${entryData.creators || ""}</dd>
-    <dt>External Scores</dt><dd>${entryData.external_scores || ""}</dd>
-    <dt>Streaming Services</dt><dd>${entryData.streaming_services || ""}</dd>
-  `;
-}
+    // Totalスコア更新
+    const scoreEl = el.querySelector('.score');
+    if (scoreEl) {
+      const scoreNumberEl = scoreEl.querySelector('.score-number');
+      const scoreUnitEl = scoreEl.querySelector('.score-unit');
 
-// synopsis の開閉も一緒に制御するために
-const collapseBtn = el.querySelector(".collapse-btn");
-if (collapseBtn) {
-  collapseBtn.addEventListener("click", () => {
+      if (scoreNumberEl) scoreNumberEl.textContent = entryData.score;
+      if (scoreUnitEl) scoreUnitEl.textContent = 'pt';  // ptは固定
+    }
+
+    // more-info <dl> の更新
+    const moreInfoDl = el.querySelector('.more-info dl');
+    if (moreInfoDl) {
+      moreInfoDl.innerHTML = `
+        <dt>Romanized Title</dt><dd>${entryData.romanized_title || ""}</dd>
+        <dt>Release Date</dt><dd>${formatReleaseDates(entryData.release_date || "")}</dd>
+        <dt>Based On</dt><dd>${entryData.based_on || ""}</dd>
+        <dt>Studios</dt><dd>${entryData.studios || ""}</dd>
+        <dt>Creators</dt><dd>${entryData.creators || ""}</dd>
+        <dt>External Scores</dt><dd>${entryData.external_scores || ""}</dd>
+        <dt>Streaming Services</dt><dd>${entryData.streaming_services || ""}</dd>
+      `;
+    }
+
+    // synopsis の開閉も一緒に制御するために
+    const collapseBtn = el.querySelector(".collapse-btn");
+    if (collapseBtn) {
+      collapseBtn.addEventListener("click", () => {
+        const synopsisBox = el.querySelector(".synopsis");
+        if (synopsisBox) {
+          synopsisBox.classList.toggle("active");
+        }
+      });
+    }
+
+    // 👇ここに追加
     const synopsisBox = el.querySelector(".synopsis");
     if (synopsisBox) {
-      synopsisBox.classList.toggle("active");
-    }
-  });
-}
-
-// 👇ここに追加
-const synopsisBox = el.querySelector(".synopsis");
-if (synopsisBox) {
-  synopsisBox.textContent = entryData.synopsis || "";
-}
-
-
-
-// ジャンラーの更新
-const genreTagsEl = el.querySelector('.genre-tags');
-if (genreTagsEl && entryData.genre) {
-  genreTagsEl.innerHTML = "";  // 既存タグをクリア
-  entryData.genre.forEach(g => {
-    const tag = document.createElement('span');
-    tag.className = 'genre-tag';
-    tag.textContent = g;
-    genreTagsEl.appendChild(tag);
-  });
-}
-
-
+      synopsisBox.textContent = entryData.synopsis || "";
     }
 
-    }); // ← ここでforEachの閉じカッコ
+    // ジャンラーの更新
+    const genreTagsEl = el.querySelector('.genre-tags');
+    if (genreTagsEl && entryData.genre) {
+      genreTagsEl.innerHTML = "";  // 既存タグをクリア
+      entryData.genre.forEach(g => {
+        const tag = document.createElement('span');
+        tag.className = 'genre-tag';
+        tag.textContent = g;
+        genreTagsEl.appendChild(tag);
+      });
+    }
+  }); // ← ここでforEachの閉じカッコ
 
-    // 全ての更新が終わったあとにバー描画
-    adjustScoreBars();
+  // 全ての更新が終わったあとにバー描画
+  adjustScoreBars();
 
-    // イベントリスナー登録
-    setupPopups();
-  });
+  // イベントリスナー登録
+  setupPopups();
+})
+.catch(error => {
+  console.error(`❌ Fetch failed: ${error.message}`);
+});
 
 
 // ========== ポップアップロジック（EN/JP切り替え: 閉じずに切替・ボタン制御追加） ==========
