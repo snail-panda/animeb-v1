@@ -287,7 +287,7 @@ if (genreTagsEl && entryData.genre) {
 }
 
 
-    });
+    }
 
     // 全ての更新が終わったあとにバー描画
     adjustScoreBars();
