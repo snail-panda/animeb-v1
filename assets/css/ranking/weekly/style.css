@@ -417,6 +417,7 @@ body {
   margin-top: -1px;
   margin-right: 0.125rem; /* 2px */
   margin-left: 0;
+  margin-bottom: 0.125rem; /* 2px */
   line-height: 1.2;
   padding-left: 0;
   display: block;
