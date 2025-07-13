@@ -160,8 +160,6 @@ if (kvThumbEl && entryData.kv) {
   reviewTag.className = "review-tag";
   const reviewData = entryData.review;
 
-  // ここで jp-title の取得
-const jpTitleEl = entryEl.querySelector(".jp-title");
 
 // 追加：見つかったかどうかログで確認
 console.log("jpTitleEl:", jpTitleEl); // null だったら見つかっていません
