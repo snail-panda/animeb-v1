@@ -458,14 +458,18 @@ body {
 
 .title-ep {
       position: absolute;
-      bottom: 0.2rem;
-      right: 0.2rem;
-      backgroung-color: rgba(0, 0, 0, 0.55); /* 透明黒 */
-      font-size: 0.48rem;
-      color: #fff;
+      bottom: 0;
+      right: 0;
+      background-color: #2a2926; /* 黒っぽい*/
+      font-size: 0.6rem;
+      font-family: 'Antonio', sans-serif;
+      color: #e6e0d3;
       font-weight: 500;
-      padding: 0.125rem 0.35rem;
-      border-radius: 4px;
+      padding: 0.125rem 0.18rem 0.18rem 0.43rem;
+      border-top-left-radius: 9px;
+      display: flex;
+      align-items: center;
+      gap: 2px;
       pointer-events: none; /* ホバー邪魔しない */
       z-index: 2;
 }
