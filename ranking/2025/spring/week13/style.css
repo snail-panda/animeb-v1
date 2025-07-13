@@ -576,7 +576,7 @@ body {
   text-shadow: 0 -0.3px #686868;
   margin: 0;
   text-align: left;
-  padding-left: 0.25rem; /* 4px */
+  padding-left: 0.5rem; /* 4px */
   word-break: break-word;
 }
 
@@ -585,7 +585,7 @@ body {
   /* 将来的に必要になったらここにスタイル追加 */
   font-family: 'Barlow Condensed', 'Abel', sans-serif;
   font-weight: 500;
-  font-size: 0.7rem; /* originally 0.656rem 10.5px */
+  font-size: 0.688rem; /* 11px */
   color: #404040;
   line-height: 1.6;
   letter-spacing: 0.2px;
@@ -598,6 +598,7 @@ body {
   max-height: 0;
   transition: max-height 0.6s ease;
   align-self: start;
+  text-transform: none;
 }
 
 .synopsis.active {
