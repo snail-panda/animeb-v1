@@ -919,7 +919,7 @@ body {
   border-radius: 5px;
   box-shadow: none;
   cursor: pointer;
-  transform: translateY(-1.5px);
+  transform: translateY(-0.5px);
 }
 
 .review-tag:hover {
