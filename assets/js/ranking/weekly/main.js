@@ -636,3 +636,4 @@ document.addEventListener('click', (e) => {
  if (synopsisBox) {
     synopsisBox.classList.toggle('active');
   }
+});  
