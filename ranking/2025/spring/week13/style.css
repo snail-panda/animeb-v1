@@ -585,7 +585,7 @@ body {
   /* 将来的に必要になったらここにスタイル追加 */
   font-family: 'Barlow Condensed', 'Abel', sans-serif;
   font-weight: 500;
-  font-size: 0.688rem; /* 11px */
+  font-size: 0.7rem; /* 11.2px */
   color: #404040;
   line-height: 1.6;
   letter-spacing: 0.2px;
