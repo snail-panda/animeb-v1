@@ -123,6 +123,7 @@ body {
   display: flex;
   justify-content: center;
   margin: 0.01rem auto;
+  margin-bottom: 0.5rem;
   align-items: center;
   font-size:0.55rem;
   font-family: 'Fira Sans', sans-serif;
