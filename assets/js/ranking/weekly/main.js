@@ -77,8 +77,8 @@ function formatReleaseDates(dateStr) {
 
 
 
-　　// ✅ WEEK を全大文字表示に変更
-　　const weekEl = document.querySelector('.week-title');
+// ✅ WEEK を全大文字表示に変更
+const weekEl = document.querySelector('.week-title');
 if (weekEl && data.meta.week) {
   weekEl.textContent = data.meta.week.toUpperCase();  // 🔁 完全に全大文字化
 }
