@@ -467,6 +467,11 @@ body {
   position: relative;
 }
 
+.info-top {
+  min-width: 240px;  /* ← ここでバーがまともに描画される最低限の幅を確保 */
+}
+
+
 .title-ep {
       position: absolute;
       bottom: 0;
