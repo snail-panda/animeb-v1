@@ -442,16 +442,7 @@ body {
   gap: 0.25rem;
 }
 
-@media (max-width: 390px) {
-  .info-box {
-    max-width: 140px;
-  }
-}
-@media (min-width: 430px) {
-  .info-box {
-    max-width: 180px;
-  }
-}
+
 
 
 .kv-thumb {
