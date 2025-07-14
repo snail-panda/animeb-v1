@@ -467,11 +467,6 @@ body {
   position: relative;
 }
 
-.info-top {
-  width: 100%;
-  flex 1 1 0;
-}
-
 
 .title-ep {
       position: absolute;
@@ -651,7 +646,7 @@ body {
 
 .bar-track {
   width: 100%;
-  /*max-width: 170px; */ 最大幅を設定する場合はここで調整 */
+  max-width: 170px; */ 最大幅を設定する場合はここで調整 */
   background: #dceccb;
   height: 11px;
   flex: 1;
