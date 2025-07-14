@@ -469,7 +469,7 @@ body {
 
 .info-top {
   width: 100%;
-  display: flex;
+  flex 1 1 0;
 }
 
 
