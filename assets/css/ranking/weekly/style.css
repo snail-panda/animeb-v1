@@ -435,6 +435,8 @@ body {
 
 .info-box {
   display: flex;
+  width: 150.67px;
+  min-width: 136px;
   flex-direction: column;
   gap: 0.25rem;
 }
@@ -646,7 +648,7 @@ body {
 
 .bar-track {
   width: 100%;
-  max-width: 170px; */ 最大幅を設定する場合はここで調整 */
+  /*max-width: 170px; */ 
   background: #dceccb;
   height: 11px;
   flex: 1;
