@@ -435,7 +435,8 @@ body {
 
 .info-box {
   display: flex;
-  width: 150.67px;
+  width: 100%;
+  max-width: 170px;
   min-width: 136px;
   flex-direction: column;
   gap: 0.25rem;
