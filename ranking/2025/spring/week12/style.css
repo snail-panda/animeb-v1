@@ -440,6 +440,8 @@ body {
 
 .info-box {
   display: flex;
+  width: 150.67px;
+  min-width: 136px;
   flex-direction: column;
   gap: 0.25rem;
 }
@@ -650,7 +652,7 @@ body {
 
 .bar-track {
   width: 100%;
-  max-width: 170px;
+  /*max-width: 170px;*/
   background: #dceccb;
   height: 11px;
   flex: 1;
