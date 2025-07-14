@@ -651,7 +651,7 @@ body {
 
 .bar-track {
   width: 100%;
-  max-width: 170px;
+  /*max-width: 170px; */ 最大幅を設定する場合はここで調整 */
   background: #dceccb;
   height: 11px;
   flex: 1;
