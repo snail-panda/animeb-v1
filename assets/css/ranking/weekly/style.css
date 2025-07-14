@@ -468,7 +468,8 @@ body {
 }
 
 .info-top {
-  min-width: 150.67px;  /* ← ここでバーがまともに描画される最低限の幅を確保 */
+  width: 100%;
+  display: flex;
 }
 
 
