@@ -96,7 +96,13 @@ a
   color: #333;
   margin-right: 0.05rem;
   padding-top: 0.1rem;
-  line-height: 1;
+  line-height: 1.7;
+}
+
+.post-intro,
+.post-content,
+.post-conclusion {
+  line-height: 1.7;
 }
 
 #introText,
