@@ -154,26 +154,6 @@ if (kvThumbEl && entryData.kv) {
 
 
 
-  // Reviewボタン
-  const reviewTag = document.createElement("span");
-  reviewTag.className = "review-tag";
-  const reviewData = entryData.review;
-  if (reviewData && (reviewData.en?.trim() || reviewData.jp?.trim())) {
-    reviewTag.dataset.reviewEn = reviewData.en || "";
-    reviewTag.dataset.reviewJp = reviewData.jp || "";
-    reviewTag.dataset.lang = "en";
-    reviewTag.textContent = "Review";
-    reviewTag.style.display = "inline-block";
-  } else {
-    reviewTag.style.display = "none";
-  }
-  // MORE INFOボタンの右横にくっつける
-const collapseBtn = entryEl.querySelector(".collapse-btn");
-if (collapseBtn) {
-  collapseBtn.parentElement.appendChild(reviewTag);
-}
-
-
       // トレンド情報更新
       const trendLabel = el.querySelector('.trend-label');
       const trendIcon = el.querySelector('.rank-trend img');
@@ -271,7 +251,31 @@ if (collapseBtn) {
       synopsisBox.classList.toggle("active");
     }
   });
+
+// 既存の review-tag を削除しておく（念のため）
+  const existingReviewTag = el.querySelector('.review-tag');
+  if (existingReviewTag) {
+    existingReviewTag.remove();
+  }
+
+      // Review ボタン ✅ collapseBtn が使える状態で Review ボタンを追加
+  const reviewTag = document.createElement("span");
+  reviewTag.className = "review-tag";
+  const reviewData = entryData.review;
+  if (reviewData && (reviewData.en?.trim() || reviewData.jp?.trim())) {
+    reviewTag.dataset.reviewEn = reviewData.en || "";
+    reviewTag.dataset.reviewJp = reviewData.jp || "";
+    reviewTag.dataset.lang = "en";
+    reviewTag.textContent = "Review";
+    reviewTag.style.display = "inline-block";
+  } else {
+    reviewTag.style.display = "none";
+  }
+
+  collapseBtn.parentElement.appendChild(reviewTag);
 }
+
+    }
 
 // 👇ここに追加
 const synopsisBox = el.querySelector(".synopsis");
@@ -300,8 +304,13 @@ if (genreTagsEl && entryData.genre) {
     adjustScoreBars();
 
     // イベントリスナー登録
+  setTimeout(() => {
     setupPopups();
-  });
+  }, 0);  // 🔁 DOMが確実に構築されてからイベントをバインド
+})
+.catch(error => {
+  console.error(`❌ Fetch failed: ${error.message}`);
+});
 
 
 // ========== ポップアップロジック（EN/JP切り替え: 閉じずに切替・ボタン制御追加） ==========
