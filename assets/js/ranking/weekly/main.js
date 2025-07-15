@@ -164,8 +164,11 @@ fetch(`ranking-${currentWeek}-spring2025.json`)
       } else {
         reviewTag.style.display = "none";
       }
-      jpTitleEl.appendChild(reviewTag);
-    }
+      // MORE INFOボタンの右横にくっつける
+const collapseBtn = entryEl.querySelector(".collapse-btn");
+if (collapseBtn) {
+  collapseBtn.parentElement.appendChild(reviewTag);
+}
 
     // トレンド情報更新
     const trendLabel = el.querySelector('.trend-label');
