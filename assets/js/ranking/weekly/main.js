@@ -236,22 +236,25 @@ fetch(`ranking-${currentWeek}-spring2025.json`)
     }
 
     // Reviewボタン
-      const reviewTag = document.createElement("span");
-      reviewTag.className = "review-tag";
-      const reviewData = entryData.review;
-      if (reviewData && (reviewData.en?.trim() || reviewData.jp?.trim())) {
-        reviewTag.dataset.reviewEn = reviewData.en || "";
-        reviewTag.dataset.reviewJp = reviewData.jp || "";
-        reviewTag.dataset.lang = "en";
-        reviewTag.textContent = "Review";
-        reviewTag.style.display = "inline-block";
-      } else {
-        reviewTag.style.display = "none";
-      }
-      // MORE INFOボタンの右横にくっつける
-if (collapseBtn) {
-  collapseBtn.parentElement.appendChild(reviewTag);
+    // すでに存在しているreviewタグを取得
+const reviewTag = el.querySelector(".review-tag");
+
+if (reviewTag) {
+  const reviewData = entryData.review;
+
+  // 日本語 or 英語のレビューがある場合 → 上書き＆表示
+  if (reviewData && (reviewData.en?.trim() || reviewData.jp?.trim())) {
+    reviewTag.dataset.reviewEn = reviewData.en || "";
+    reviewTag.dataset.reviewJp = reviewData.jp || "";
+    reviewTag.dataset.lang = "en";
+    reviewTag.textContent = "Review";
+    reviewTag.style.display = "inline-block";
+  } else {
+    // どっちも空なら非表示
+    reviewTag.style.display = "none";
+  }
 }
+
 
 
     // ジャンラーの更新
