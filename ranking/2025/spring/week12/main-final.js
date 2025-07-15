@@ -167,7 +167,10 @@ if (kvThumbEl && entryData.kv) {
   } else {
     reviewTag.style.display = "none";
   }
-  infoTopEl.appendChild(reviewTag);
+  // MORE INFOボタンの右横にくっつける
+const collapseBtn = entryEl.querySelector(".collapse-btn");
+if (collapseBtn) {
+  collapseBtn.parentElement.appendChild(reviewTag);
 }
 
 
