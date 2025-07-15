@@ -231,7 +231,6 @@ fetch(`ranking-${currentWeek}-spring2025.json`)
     }
 
     // Reviewボタン collapseBtn が null じゃなければ reviewTag を追加
-    if (collapseBtn) {
       const reviewTag = document.createElement("span");
       reviewTag.className = "review-tag";
       const reviewData = entryData.review;
@@ -248,7 +247,7 @@ fetch(`ranking-${currentWeek}-spring2025.json`)
 if (collapseBtn) {
   collapseBtn.parentElement.appendChild(reviewTag);
 }
-    }
+    
 
     // 👇ここに追加
     const synopsisBox = el.querySelector(".synopsis");
