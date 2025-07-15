@@ -151,7 +151,21 @@ fetch(`ranking-${currentWeek}-spring2025.json`)
         kvThumbEl.alt = `${entryData.title} key visual`;
       }
 
-      
+      // Reviewボタン
+      const reviewTag = document.createElement("span");
+      reviewTag.className = "review-tag";
+      const reviewData = entryData.review;
+      if (reviewData && (reviewData.en?.trim() || reviewData.jp?.trim())) {
+        reviewTag.dataset.reviewEn = reviewData.en || "";
+        reviewTag.dataset.reviewJp = reviewData.jp || "";
+        reviewTag.dataset.lang = "en";
+        reviewTag.textContent = "Review";
+        reviewTag.style.display = "inline-block";
+      } else {
+        reviewTag.style.display = "none";
+      }
+      jpTitleEl.appendChild(reviewTag);
+    }
 
     // トレンド情報更新
     const trendLabel = el.querySelector('.trend-label');
@@ -230,25 +244,6 @@ fetch(`ranking-${currentWeek}-spring2025.json`)
       });
     }
 
-    // Reviewボタン collapseBtn が null じゃなければ reviewTag を追加
-      const reviewTag = document.createElement("span");
-      reviewTag.className = "review-tag";
-      const reviewData = entryData.review;
-      if (reviewData && (reviewData.en?.trim() || reviewData.jp?.trim())) {
-        reviewTag.dataset.reviewEn = reviewData.en || "";
-        reviewTag.dataset.reviewJp = reviewData.jp || "";
-        reviewTag.dataset.lang = "en";
-        reviewTag.textContent = "Review";
-        reviewTag.style.display = "inline-block";
-      } else {
-        reviewTag.style.display = "none";
-      }
-      // MORE INFOボタンの右横にくっつける
-if (collapseBtn) {
-  collapseBtn.parentElement.appendChild(reviewTag);
-}
-    
-
     // 👇ここに追加
     const synopsisBox = el.querySelector(".synopsis");
     if (synopsisBox) {
@@ -266,7 +261,6 @@ if (collapseBtn) {
         genreTagsEl.appendChild(tag);
       });
     }
-    } // ← forEachのfunctionの閉じカッコ
   }); // ← ここでforEachの閉じカッコ
 
   // 全ての更新が終わったあとにバー描画
