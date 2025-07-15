@@ -44,13 +44,13 @@ body {
 }
 
 .post-date {
-  font-size: 0.75rem;
+  font-size: 0.8rem;
   color: #707070;
   margin-bottom: 2rem;
 }
 
 .post-intro {
-  font-size: 0.95rem;
+  font-size: 1rem;
   margin-top: 3rem;
   margin-bottom: 4rem;
   line-height: 1.7;
@@ -60,7 +60,7 @@ body {
 } 
 
 .post-content {
-  font-size: 0.95rem;
+  font-size: 1rem;
   margin-top: 0.9rem;
   margin-bottom: 0.9rem;
   padding: 1.25rem 0; /* 20px */
@@ -72,7 +72,7 @@ body {
 } 
 
 .post-conclusion  {
-  font-size: 0.95rem;
+  font-size: 1rem;
   margin-top: 2.5rem;
   line-height: 1.7;
   letter-spacing: 0.05px;
@@ -88,7 +88,7 @@ body {
 }
 
 #introText::first-letter {
-  font-size: 180%;
+  font-size: 150%;
   font-weight: bold;
   color: #333;
 }
@@ -98,7 +98,7 @@ body {
 }
 
 #contentText::first-letter {
-  font-size: 180%;
+  font-size: 160%;
   font-weight: bold;
   color: #333;
 }
@@ -108,20 +108,20 @@ body {
 }	
 
 .anime-title {
-  font-size: 1.05rem;
+  font-size: 1rem;
   font-weight: 600;
   color: #5a5454;
 
 }
 .jp-title {
   font-style: italic;
-  font-size: 1.05em;
+  font-size: 1rem;
   font-weight: 500;
   color: #444;
 }
 
 #conclusionText::first-letter {
-  font-size: 180%;
+  font-size: 160%;
   font-weight: bold;
   color: #333;
 }
@@ -141,7 +141,7 @@ body {
   color: #555;
   border-top: 1px solid #ddd;
   border-bottom: 0px solid #ddd;
-  line-height: 1.85;
+  line-height: 1.7;
   max-width: 100ch;
   width: 80%;
 }
@@ -176,7 +176,7 @@ body {
 }
 
 .disclaimer-title {
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   color: #555;
   font-weight: 600;
   margin-top: 0px;
@@ -255,7 +255,7 @@ body {
   flex: 2 0 0; /* grow 2, don't shrink */
   max-width: 300px;
   font-family: 'Abel', 'sans-serif';
-  font-size: 0.8rem;
+  font-size: 0.85rem;
   font-weight: normal;
   color: #364c30;
   padding: 0px 0.6rem 0.3rem 0.6rem;
@@ -382,7 +382,7 @@ body {
   flex: 1;
   text-align: center;
   text-decoration: none;
-  font-size: 0.75rem;
+  font-size: 0.8rem;
   font-weight: normal;
   color: #333;
 }
