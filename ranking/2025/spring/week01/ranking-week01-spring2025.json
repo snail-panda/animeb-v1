@@ -8,7 +8,7 @@
   "entries": [
     {
       "rank": 1,
-      "trend": "down",
+      "trend": "re",
       "title": "The Apothecary Diaries 2nd Season",
       "jpTitle": "薬屋のひとりごと 第2期（第2クール）",
       "kv": "kusuriya",
@@ -112,7 +112,7 @@
     },
     {
       "rank": 4,
-      "trend": "down",
+      "trend": "re",
       "title": "Shoshimin: How to Become Ordinary 2",
       "jpTitle": "小市民シリーズ（第2期）",
       "kv": "shoshimin",
@@ -181,7 +181,7 @@
     },
     {
       "rank": 6,
-      "trend": "down",
+      "trend": "new",
       "title": "Sword of the Demon Hunter",
       "jpTitle": "鬼人幻燈抄",
       "kv": "kijin",
@@ -216,7 +216,7 @@
     },
     {
       "rank": 7,
-      "trend": "down",
+      "trend": "new",
       "title": "Can a Boy-Girl Friendship Survive?",
       "jpTitle": "男女の友情は成立する？（いや、しないっ!!）",
       "kv": "danjoru",
@@ -250,7 +250,7 @@
     },
     {
       "rank": 8,
-      "trend": "down",
+      "trend": "new",
       "title": "Kowloon Generic Romance",
       "jpTitle": "九龍ジェネリックロマンス",
       "kv": "kowloon",
@@ -357,7 +357,7 @@
     },
     {
       "rank": 11,
-      "trend": "stay",
+      "trend": "new",
       "title": "The Catcher in the Ballpark!",
       "jpTitle": "ボールパークでつかまえて！",
       "kv": "ballpark",
@@ -499,7 +499,7 @@
     },
     {
       "rank": 15,
-      "trend": "down",
+      "trend": "new",
       "title": "Rock Is a Lady's Modesty",
       "jpTitle": "ロックは淑女の嗜みでして",
       "kv": "rockwa",
@@ -948,7 +948,7 @@
     },
     {
       "rank": "spotlight",
-      "trend": "down",
+      "trend": "new",
       "title": "Kowloon Generic Romance",
       "jpTitle": "九龍ジェネリックロマンス",
       "kv": "kowloon",
@@ -983,7 +983,7 @@
     },
     {
       "rank": "editor's pick",
-      "trend": "down",
+      "trend": "new",
       "title": "Sword of the Demon Hunter",
       "jpTitle": "鬼人幻燈抄",
       "kv": "kijin",
