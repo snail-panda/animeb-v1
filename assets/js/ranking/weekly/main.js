@@ -229,9 +229,7 @@ fetch(`ranking-${currentWeek}-spring2025.json`)
         }
       });
 
-      //「最初にHTMLにある review-tag は削除してしまう
-const existing = entryEl.querySelector(".review-tag");
-if (existing) existing.remove();
+
 
       // Review ボタン ✅ collapseBtn が使える状態で Review ボタンを追加
   const reviewTag = document.createElement("span");
