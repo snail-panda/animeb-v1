@@ -56,7 +56,7 @@ a
   line-height: 1.7;
   letter-spacing: 0.05px;
   word-spacing: 0.1em;
-  width: 80ch;
+  width: 75ch;
 } 
 
 .post-content {
@@ -68,7 +68,7 @@ a
   border-bottom: 1px solid #ddd;
   letter-spacing: 0.05px;
   word-spacing: 0.13rem;
-  width: 80ch;
+  width: 75ch;
 } 
 
 .post-conclusion  {
@@ -78,13 +78,13 @@ a
   line-height: 1.7;
   letter-spacing: 0.05px;
   word-spacing: 0.1rem;
-  width: 80ch;
+  width: 75ch;
 } 
 
 .post-intro,
 .post-content,
 .post-conclusion {
-  max-width: 90ch;
+  max-width: 75ch;
   width: 90%;
 }
 
