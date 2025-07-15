@@ -48,36 +48,37 @@ body {
   color: #707070;
   margin-bottom: 2rem;
 }
-
+a
 .post-intro {
   font-size: 1rem;
-  margin-top: 3rem;
-  margin-bottom: 4rem;
+  margin-top: 4rem;
+  margin-bottom: 5rem;
   line-height: 1.7;
   letter-spacing: 0.05px;
   word-spacing: 0.1em;
-  width: 90ch;
+  width: 80ch;
 } 
 
 .post-content {
   font-size: 1rem;
   margin-top: 0.9rem;
-  margin-bottom: 0.9rem;
-  padding: 1.25rem 0; /* 20px */
+  margin-bottom: 1.5rem;
+  padding: 2.5rem 0; /* 20px */
   line-height: 1.75;
   border-bottom: 1px solid #ddd;
   letter-spacing: 0.05px;
   word-spacing: 0.13rem;
-  width: 90ch;
+  width: 80ch;
 } 
 
 .post-conclusion  {
   font-size: 1rem;
   margin-top: 2.5rem;
+  margin-bottom: 5rem;
   line-height: 1.7;
   letter-spacing: 0.05px;
   word-spacing: 0.1rem;
-  width: 90ch;
+  width: 80ch;
 } 
 
 .post-intro,
@@ -87,24 +88,21 @@ body {
   width: 90%;
 }
 
-#introText::first-letter {
-  font-size: 150%;
+#introText::first-letter,
+#contentText::first-letter,
+#conclusionText::first-letter {
+  font-size: 170%;
   font-weight: bold;
   color: #333;
+  margin-right: 0.05rem;
+  padding-top: 0.1rem;
+  line-height: 1;
 }
 
-#introText { 
-  text-indent: 1.5rem;
-}
-
-#contentText::first-letter {
-  font-size: 160%;
-  font-weight: bold;
-  color: #333;
-}
-
-#contentText {
-  text-indent: 1.5rem;
+#introText,
+#contentText,
+#conclusionText {
+  text-indent: 0;
 }	
 
 .anime-title {
@@ -120,15 +118,6 @@ body {
   color: #444;
 }
 
-#conclusionText::first-letter {
-  font-size: 160%;
-  font-weight: bold;
-  color: #333;
-}
-
-#conclusionText {
-  text-indent: 1.5rem;
-}
 
 /* ====================================================
   Tier Criteria Block
