@@ -267,6 +267,7 @@ if (collapseBtn) {
         genreTagsEl.appendChild(tag);
       });
     }
+    } // ← forEachのfunctionの閉じカッコ
   }); // ← ここでforEachの閉じカッコ
 
   // 全ての更新が終わったあとにバー描画
