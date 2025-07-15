@@ -151,19 +151,7 @@ fetch(`ranking-${currentWeek}-spring2025.json`)
         kvThumbEl.alt = `${entryData.title} key visual`;
       }
 
-// Reviewボタン
-const reviewTag = document.createElement("span");
-reviewTag.className = "review-tag";
-const reviewData = entryData.review;
-if (reviewData && (reviewData.en?.trim() || reviewData.jp?.trim())) {
-  reviewTag.dataset.reviewEn = reviewData.en || "";
-  reviewTag.dataset.reviewJp = reviewData.jp || "";
-  reviewTag.dataset.lang = "en";
-  reviewTag.textContent = "Review";
-  reviewTag.style.display = "inline-block";
-} else {
-  reviewTag.style.display = "none";
-}
+      
 
     // トレンド情報更新
     const trendLabel = el.querySelector('.trend-label');
@@ -235,18 +223,36 @@ if (reviewData && (reviewData.en?.trim() || reviewData.jp?.trim())) {
     const collapseBtn = el.querySelector(".collapse-btn");
     if (collapseBtn) {
       collapseBtn.addEventListener("click", () => {
-    // synopsis の開閉も一緒に制御するために
-    const collapseBtn = el.querySelector(".collapse-btn");
-    if (collapseBtn) {
-      collapseBtn.addEventListener("click", () => {
         const synopsisBox = el.querySelector(".synopsis");
         if (synopsisBox) {
           synopsisBox.classList.toggle("active");
         }
       });
-      // MORE INFOボタンの右横にくっつける
-      collapseBtn.parentElement.appendChild(reviewTag);
     }
+
+    // Reviewボタン collapseBtn が null じゃなければ reviewTag を追加
+    if (collapseBtn) {
+      const reviewTag = document.createElement("span");
+      reviewTag.className = "review-tag";
+      const reviewData = entryData.review;
+      if (reviewData && (reviewData.en?.trim() || reviewData.jp?.trim())) {
+        reviewTag.dataset.reviewEn = reviewData.en || "";
+        reviewTag.dataset.reviewJp = reviewData.jp || "";
+        reviewTag.dataset.lang = "en";
+        reviewTag.textContent = "Review";
+        reviewTag.style.display = "inline-block";
+      } else {
+        reviewTag.style.display = "none";
+      }
+      // MORE INFOボタンの右横にくっつける
+if (collapseBtn) {
+  collapseBtn.parentElement.appendChild(reviewTag);
+}
+    }
+
+    // 👇ここに追加
+    const synopsisBox = el.querySelector(".synopsis");
+    if (synopsisBox) {
       synopsisBox.textContent = entryData.synopsis || "";
     }
 
