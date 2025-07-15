@@ -165,7 +165,6 @@ fetch(`ranking-${currentWeek}-spring2025.json`)
         reviewTag.style.display = "none";
       }
       // MORE INFOボタンの右横にくっつける
-const collapseBtn = entryEl.querySelector(".collapse-btn");
 if (collapseBtn) {
   collapseBtn.parentElement.appendChild(reviewTag);
 }
