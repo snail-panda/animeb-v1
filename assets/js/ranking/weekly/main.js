@@ -229,7 +229,11 @@ fetch(`ranking-${currentWeek}-spring2025.json`)
         }
       });
 
-
+       // 既存の review-tag を削除しておく（念のため）
+  const existingReviewTag = el.querySelector('.review-tag');
+  if (existingReviewTag) {
+    existingReviewTag.remove();
+  }
 
       // Review ボタン ✅ collapseBtn が使える状態で Review ボタンを追加
   const reviewTag = document.createElement("span");
@@ -273,8 +277,9 @@ fetch(`ranking-${currentWeek}-spring2025.json`)
   adjustScoreBars();
 
   // イベントリスナー登録
+setTimeout(() => {
   setupPopups();
-})
+}, 0);  // 🔁 DOMが確実に構築されてからイベントをバインド
 .catch(error => {
   console.error(`❌ Fetch failed: ${error.message}`);
 });
