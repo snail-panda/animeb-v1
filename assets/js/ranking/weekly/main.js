@@ -277,9 +277,10 @@ fetch(`ranking-${currentWeek}-spring2025.json`)
   adjustScoreBars();
 
   // イベントリスナー登録
-setTimeout(() => {
-  setupPopups();
-}, 0);  // 🔁 DOMが確実に構築されてからイベントをバインド
+  setTimeout(() => {
+    setupPopups();
+  }, 0);  // 🔁 DOMが確実に構築されてからイベントをバインド
+})
 .catch(error => {
   console.error(`❌ Fetch failed: ${error.message}`);
 });
