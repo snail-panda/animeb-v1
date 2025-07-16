@@ -627,3 +627,23 @@ document.addEventListener('click', (e) => {
     synopsisBox.classList.toggle('active');
   }
 });  
+
+// ==============================
+// Info-trigger hover/tap popups
+// ==============================
+
+const infoMap = {
+  wrp: "WRP (Weekly Ranking Point) is a personal metric for assessing each episode's quality and impact during the week it aired. See full explanation below.",
+  scale: "The bar represents scores from 4 to 11, reflecting weekly performance relative to other shows."
+};
+
+document.querySelectorAll('.info-trigger').forEach(el => {
+  el.addEventListener('click', (e) => {
+    const key = el.dataset.key;
+    const content = infoMap[key];
+    if (!content) return;
+
+    // Show your tooltip logic here
+    showTooltip(e, content);
+  });
+});
