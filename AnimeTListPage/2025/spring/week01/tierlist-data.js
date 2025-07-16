@@ -30,21 +30,20 @@ const tierlistData = {
     "S": [
       "Sword of the Demon Hunter",
       "Apocalypse Hotel",
-      "The Catcher in the Ballpark!",
       "LAZARUS",
       "Uma Musume: Cinderella Grey"
     ],
     "A": [
       "Me and the Alien MuMu",
       "A Ninja and an Assassin Under One Roof",
-      "Witch Watch",
       "Kowloon Generic Romance",
       "The Catcher in the Ballpark!",
       "Rock Is a Lady's Modesy",
+      "Witch Watch",
       "Mobile Suit Gundam GQuuuuuuX"
     ],
     "B": [
-      "From Old Country Bumpkin to Master Swordsman: My Hotshot Disciples Are All Grown Up Now, and They Won’t Leave Me Alone",
+      "From Old Country Bumpkin to Master Swordsman",
       "Can a Boy-Girl Friendship Survive?",
       "Mono",
       "The Shiunji Family Children",
