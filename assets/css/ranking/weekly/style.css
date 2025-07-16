@@ -1028,8 +1028,8 @@ body {
 /* ツールチップ*/	
 	.tooltip {
   position: absolute;
-  background-color: rgba(255, 255, 240, 1.0);
-  color: #66664a;
+  background-color: rgba(244, 244, 205, 0.85);
+  color: #4d4d32;
   padding: 6px 10px;
   font-size: 0.688rem;
   font-family: 'Abel', 'sans-serf';
