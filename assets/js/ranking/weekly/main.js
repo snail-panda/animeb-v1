@@ -633,7 +633,7 @@ document.addEventListener('click', (e) => {
 // ==============================
 
 const infoMap = {
-  wrp: wrp: `
+  wrp: `
     <strong>What’s WRP?</strong>
     <ul style="margin-top: 4px; padding-left: 18px;">
       <li><strong>WRP</strong> (Weekly Ranking Point) is a combined score reflecting how satisfying and well-executed an anime episode was <em>within its week</em>.</li>
