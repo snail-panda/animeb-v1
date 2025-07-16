@@ -633,8 +633,16 @@ document.addEventListener('click', (e) => {
 // ==============================
 
 const infoMap = {
-  wrp: "WRP (Weekly Ranking Point) is a personal metric for assessing each episode's quality and impact during the week it aired. See full explanation below.",
-  scale: "The bar represents scores from 4 to 11, reflecting weekly performance relative to other shows."
+  wrp: wrp: `
+    <strong>What’s WRP?</strong>
+    <ul style="margin-top: 4px; padding-left: 18px;">
+      <li><strong>WRP</strong> (Weekly Ranking Point) is a combined score reflecting how satisfying and well-executed an anime episode was <em>within its week</em>.</li>
+      <li>It balances technical quality (like animation, script, direction) with overall enjoyment.</li>
+      <li>It shows how well the episode performed both <em>on its own terms</em> and <em>compared to others airing that week</em>.</li>
+    </ul>
+    <p style="margin-top: 6px;"><strong>Note:</strong> It’s not an absolute score, but a contextual evaluation — it shifts based on the week’s landscape and relative enjoyment.</p>
+    <p style="margin-top: 4px; font-style: italic;">For more, scroll to the bottom.</p>
+  `
 };
 
 document.querySelectorAll('.info-trigger').forEach(el => {
