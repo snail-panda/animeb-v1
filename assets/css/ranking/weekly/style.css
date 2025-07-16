@@ -1025,6 +1025,23 @@ body {
       margin-top: 1.25rem; /* 20px */
     }
 
+/* ツールチップ*/	
+	.tooltip {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.85);
+  color: #fff;
+  padding: 6px 10px;
+  font-size: 12px;
+  border-radius: 4px;
+  display: none;
+  z-index: 9999;
+  pointer-events: none;
+  max-width: 280px;
+  line-height: 1.4;
+}
+
+	
+
 /* 汎用アイコン（現状未使用領域） */
 
     .icon {
