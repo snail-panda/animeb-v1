@@ -638,12 +638,45 @@ const infoMap = {
 };
 
 document.querySelectorAll('.info-trigger').forEach(el => {
-  el.addEventListener('click', (e) => {
-    const key = el.dataset.key;
-    const content = infoMap[key];
-    if (!content) return;
+  const key = el.dataset.key;
+  const content = infoMap[key];
+  if (!content) return;
 
-    // Show your tooltip logic here
+  // Hover for desktop
+  el.addEventListener('mouseenter', (e) => {
+    showTooltip(e, content);
+  });
+
+  el.addEventListener('mousemove', (e) => {
+    moveTooltip(e);  // ← 追従させたい場合（定義が必要）
+  });
+
+  el.addEventListener('mouseleave', () => {
+    hideTooltip();
+  });
+
+  // Tap / Click for mobile
+  el.addEventListener('click', (e) => {
     showTooltip(e, content);
   });
 });
+
+function showTooltip(event, text) {
+  const tooltip = document.getElementById('tooltip');
+  tooltip.innerText = text;
+  tooltip.style.display = 'block';
+  tooltip.style.left = (event.pageX + 12) + 'px';
+  tooltip.style.top = (event.pageY + 12) + 'px';
+}
+
+function moveTooltip(event) {
+  const tooltip = document.getElementById('tooltip');
+  tooltip.style.left = (event.pageX + 12) + 'px';
+  tooltip.style.top = (event.pageY + 12) + 'px';
+}
+
+function hideTooltip() {
+  const tooltip = document.getElementById('tooltip');
+  tooltip.style.display = 'none';
+}
+
