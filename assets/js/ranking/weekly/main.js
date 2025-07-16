@@ -671,7 +671,7 @@ document.querySelectorAll('.info-trigger').forEach(el => {
 
 function showTooltip(event, text) {
   const tooltip = document.getElementById('tooltip');
-  tooltip.innerText = text;
+  tooltip.innerHTML = text;
   tooltip.style.display = 'block';
   tooltip.style.left = (event.pageX + 12) + 'px';
   tooltip.style.top = (event.pageY + 12) + 'px';
