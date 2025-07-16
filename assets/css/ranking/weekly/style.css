@@ -1041,7 +1041,9 @@ body {
   line-height: 1.4;
 }
 
-	
+.trigger-icon {
+   item-align: center;
+   }   
 
 /* 汎用アイコン（現状未使用領域） */
 
