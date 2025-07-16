@@ -643,6 +643,16 @@ const infoMap = {
     <p style="margin-top: 6px;"><strong>Note:</strong> It’s not an absolute score, but a contextual evaluation — it shifts based on the week’s landscape and relative enjoyment.</p>
     <p style="margin-top: 4px; font-style: italic;">For more, scroll to the bottom.</p>
   `
+   total: `
+  <strong>What’s the Total Score?</strong>
+  <ul style="margin-top: 4px; padding-left: 18px;">
+    <li>Total Score is a simplified, rounded version of the weekly WRP values.</li>
+    <li>Each week’s WRP is typically rounded <strong>down</strong> to the nearest integer.</li>
+    <li><strong>Exception:</strong> Scores from <strong>9.50 to 9.99</strong> are treated as <strong>10</strong>, and <strong>10.00+</strong> becomes <strong>11</strong>.</li>
+  </ul>
+  <p style="margin-top: 6px;"><strong>Note:</strong> While useful for seasonal ranking, this score is also a simplified reflection of the overall impression—both practical and intuitive.</p>
+`
+  
 };
 
 document.querySelectorAll('.info-trigger').forEach(el => {
