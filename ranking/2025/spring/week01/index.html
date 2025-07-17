@@ -2787,7 +2787,7 @@ synopsisの真下の段) -->
   fetch('/animeb-v1/weekly-rankings.json')
     .then(res => res.json())
     .then(data => {
-      const availableWeeks = data?.[year]?.[season];
+      const availableWeeks = data?.weeklyRankings?.[year]?.[season];
 
       console.log("year:", year);
       console.log("season:", season);
