@@ -692,17 +692,21 @@ function showTooltip(event, text) {
   const pageY = event.pageY + window.scrollY;
   const padding = 12;
 
-  let left = pageX + padding;
-  let top = pageY + padding;
+  const screenMid = window.innerWidth / 2;
+  let left, top;
 
-  // 右端からはみ出す場合 → 左に出す
-  if (pageX + tooltipWidth + padding > window.innerWidth) {
+  // 左右自動判定（中心より左なら右側に出す）
+  if (pageX < screenMid) {
+    left = pageX + padding;
+  } else {
     left = pageX - tooltipWidth - padding;
   }
 
-  // 下端からはみ出す場合上に（必要なら）
+  // 下端からはみ出す場合上に（必要なら）現状維持
   if (pageY + tooltipHeight + padding > window.innerHeight + window.scrollY) {
     top = pageY - tooltipHeight - padding;
+  } else {
+    top = pageY + padding;
   }
 
   tooltip.style.left = `${left}px`;
@@ -712,30 +716,8 @@ function showTooltip(event, text) {
 
 
 function moveTooltip(event) {
-  const tooltip = document.getElementById('tooltip');
-  const tooltipWidth = tooltip.offsetWidth;
-  const tooltipHeight = tooltip.offsetHeight;
-  const pageX = event.pageX;
-  const pageY = event.pageY + window.scrollY;
-  const padding = 12;
-
-  let left = pageX + padding;
-  let top = pageY + padding;
-
-  // 右端はみ出し → 左に出す
-  if (pageX + tooltipWidth + padding > window.innerWidth) {
-    left = pageX - tooltipWidth - padding;
-  }
-
-  // 下端はみ出し → 上に出す（任意）
-  if (pageY + tooltipHeight + padding > window.innerHeight + window.scrollY) {
-    top = pageY - tooltipHeight - padding;
-  }
-
-  tooltip.style.left = `${left}px`;
-  tooltip.style.top = `${top}px`;
+  showTooltip(event, document.getElementById('tooltip').innerHTML);
 }
-
 
 function hideTooltip() {
   const tooltip = document.getElementById('tooltip');
