@@ -709,7 +709,6 @@ function showTooltip(event, text) {
   tooltip.style.visibility = 'visible';
 }
 
-}
 
 function moveTooltip(event) {
   const tooltip = document.getElementById('tooltip');
