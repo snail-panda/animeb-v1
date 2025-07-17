@@ -2784,14 +2784,19 @@ synopsisの真下の段) -->
   const prevLink = document.querySelector('.nav-link.left a');
   const nextLink = document.querySelector('.nav-link.right a');
 
-  fetch('../../../../weekly-rankings.json')
+  fetch('/animeb-v1/weekly-rankings.json')
     .then(res => res.json())
     .then(data => {
       const availableWeeks = data?.[year]?.[season];
+
+      console.log("year:", year);
+      console.log("season:", season);
+      console.log("availableWeeks:", availableWeeks);
+
       if (!availableWeeks || !Array.isArray(availableWeeks)) {
-        console.error('No availableWeeks data found');
-        prevLink.href = "#"; // 前週なし（例: week01）
-        nextLink.href = "#"; // 次週なし（例: week12）
+        console.error('No available weeks found for', year, season);
+        prevLink.href = "#";
+        nextLink.href = "#";
         return;
       }
 
@@ -2800,20 +2805,20 @@ synopsisの真下の段) -->
       const prevWeek = weekNum > 1 ? `week${String(weekNum - 1).padStart(2, '0')}` : null;
       const nextWeek = weekNum < maxWeek ? `week${String(weekNum + 1).padStart(2, '0')}` : null;
 
-      if (prevWeek) {
+      if (prevWeek && availableWeeks.includes(prevWeek)) {
         prevLink.href = `${basePath}${prevWeek}/index.html`;
       } else {
         prevLink.href = "#";
       }
 
-      if (nextWeek) {
+      if (nextWeek && availableWeeks.includes(nextWeek)) {
         nextLink.href = `${basePath}${nextWeek}/index.html`;
       } else {
         nextLink.href = "#";
       }
     })
     .catch(err => {
-      console.error('Failed to load weekly-rankings.json:', err);
+      console.error('Error fetching weekly-rankings.json:', err);
       prevLink.href = "#";
       nextLink.href = "#";
     });
