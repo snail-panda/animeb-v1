@@ -1024,7 +1024,7 @@ body {
       color: #333;
       letter-spacing: 0.13px;
       line-height: 1.6;
-      width: 75ch;
+      max-width: 75ch;
       margin-top: 1.25rem; /* 20px */
     }
 

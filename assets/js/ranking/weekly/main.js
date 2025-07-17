@@ -682,9 +682,33 @@ document.querySelectorAll('.info-trigger').forEach(el => {
 function showTooltip(event, text) {
   const tooltip = document.getElementById('tooltip');
   tooltip.innerHTML = text;
-  tooltip.style.display = 'block';
-  tooltip.style.left = (event.pageX + 12) + 'px';
-  tooltip.style.top = (event.pageY + 12) + 'px';
+  tooltip.style.display = 'block'; // まず表示して幅を測れるようにする
+  tooltip.style.visibility = 'hidden'; // 一瞬消す（ちらつき防止）
+
+  const tooltipWidth = tooltip.offsetWidth;
+  const tooltipHeight = tooltip.offsetHeight;
+  const pageX = event.pageX;
+  const pageY = event.pageY;
+  const padding = 12;
+
+  let left = pageX + padding;
+  let top = pageY + padding;
+
+  // 右端からはみ出す場合 → 左に出す
+  if (pageX + tooltipWidth + padding > window.innerWidth) {
+    left = pageX - tooltipWidth - padding;
+  }
+
+  // 下端からはみ出す場合（必要なら）
+  if (pageY + tooltipHeight + padding > window.innerHeight + window.scrollY) {
+    top = pageY - tooltipHeight - padding;
+  }
+
+  tooltip.style.left = `${left}px`;
+  tooltip.style.top = `${top}px`;
+  tooltip.style.visibility = 'visible';
+}
+
 }
 
 function moveTooltip(event) {
