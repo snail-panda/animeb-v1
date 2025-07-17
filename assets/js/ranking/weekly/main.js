@@ -642,7 +642,7 @@ const infoMap = {
     </ul>
     <p style="margin-top: 6px;"><strong>Note:</strong> It’s not an absolute score, but a contextual evaluation — it shifts based on the week’s landscape and relative enjoyment.</p>
     <p style="margin-top: 4px; font-style: italic;">For more, scroll to the bottom.</p>
-  `
+  `,
    total: `
   <strong>What’s the Total Score?</strong>
   <ul style="margin-top: 4px; padding-left: 18px;">
