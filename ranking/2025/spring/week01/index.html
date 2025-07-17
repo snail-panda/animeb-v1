@@ -2774,30 +2774,49 @@ synopsisの真下の段) -->
 
 <script>
   const pathSegments = window.location.pathname.split('/');
-  const currentWeek = pathSegments[pathSegments.length - 2]; // 例: /ranking/week01/index.html → "week01" 入っているフォルダ名で自動的にcurrent weekを取得
-  const season = pathSegments[pathSegments.length - 3];      // 例: "spring"
-  const year = pathSegments[pathSegments.length - 4];        // 例: "2025"
+  const currentWeek = pathSegments[pathSegments.length - 2]; // e.g. "week01" /ranking/week01/index.html → "week01" 入っているフォルダ名で自動的にcurrent weekを取得
+  const season = pathSegments[pathSegments.length - 3];      // e.g. "spring"
+  const year = pathSegments[pathSegments.length - 4];        // e.g. "2025"
   const weekNum = parseInt(currentWeek.replace("week", ""), 10);
-
-  const prevWeek = weekNum > 1 ? `week${String(weekNum - 1).padStart(2, '0')}` : null;
-  const nextWeek = weekNum < 12 ? `week${String(weekNum + 1).padStart(2, '0')}` : null;
 
   const basePath = `/animeb-v1/ranking/${year}/${season}/`;
 
   const prevLink = document.querySelector('.nav-link.left a');
   const nextLink = document.querySelector('.nav-link.right a');
 
-  if (prevWeek) {
-    prevLink.href = `${basePath}${prevWeek}/index.html`;
-  } else {
-    prevLink.href = "#"; // 前週なし（例: week01）
-  }
+  fetch('../../../../weekly-rankings.json')
+    .then(res => res.json())
+    .then(data => {
+      const availableWeeks = data?.[year]?.[season];
+      if (!availableWeeks || !Array.isArray(availableWeeks)) {
+        console.error('No availableWeeks data found');
+        prevLink.href = "#"; // 前週なし（例: week01）
+        nextLink.href = "#"; // 次週なし（例: week12）
+        return;
+      }
 
-  if (nextWeek) {
-    nextLink.href = `${basePath}${nextWeek}/index.html`;
-  } else {
-    nextLink.href = "#"; // 次週なし（例: week12）
-  }
+      const maxWeek = availableWeeks.length;
+
+      const prevWeek = weekNum > 1 ? `week${String(weekNum - 1).padStart(2, '0')}` : null;
+      const nextWeek = weekNum < maxWeek ? `week${String(weekNum + 1).padStart(2, '0')}` : null;
+
+      if (prevWeek) {
+        prevLink.href = `${basePath}${prevWeek}/index.html`;
+      } else {
+        prevLink.href = "#";
+      }
+
+      if (nextWeek) {
+        nextLink.href = `${basePath}${nextWeek}/index.html`;
+      } else {
+        nextLink.href = "#";
+      }
+    })
+    .catch(err => {
+      console.error('Failed to load weekly-rankings.json:', err);
+      prevLink.href = "#";
+      nextLink.href = "#";
+    });
 </script>
 <script src="../../../../assets/js/ranking/weekly/main.js"></script>
 </body>
