@@ -2726,6 +2726,18 @@ synopsisの真下の段) -->
   <div class="note">
     *Note: This ranking is absolutely subjective and personal, while striving to remain as objective as possible. There is genuinely no intent to humiliate, belittle, or undermine any creators or their work. The scoring is based on a personal set of criteria, refined over time and shaped by both relative and absolute evaluation. These criteria focus on key elements such as animation, script, structure, direction, pacing, overall appeal, charm, and the degree of satisfaction the work delivers as a complete piece.
   </div>
+  <div class="note">
+	<p><strong>Note (continued):</strong></p>
+
+<p>While WRP attempts to evaluate each episode using consistent criteria, it does not function as a static or absolute metric—let alone its scores are.</p>
+
+<p>Each week’s unique landscape—not just about a show’s own performance, but also lineups of different mixes of genres, strengths, and expectations—means the same numerical score may carry different weight from one week to another.<br>
+<em>(e.g., a 9-point episode one week is not necessarily equal to a 9-point episode in another.)</em></p>
+
+<p>The ranking embraces both relative and absolute values, adjusting for genre diversity, production scale, and context-specific charm. In this way, it aims to reflect how each show performs not in isolation, but within its temporal and creative surroundings.</p>
+
+<p>And most importantly, that’s part of what makes weekly rankings dynamic and interesting.</p>
+  </div>
 </div>
 
   <!-- ポップアップ用のツールチップボックスを追加 -->
@@ -2733,7 +2745,8 @@ synopsisの真下の段) -->
 
 
 <script>
-  const currentWeek = "week01"; // ←ここだけ weekごとに変える
+  const pathSegments = window.location.pathname.split('/');
+  const currentWeek = pathSegments[pathSegments.length - 2]; // 例: /ranking/week01/index.html → "week01" 入っているフォルダ名で自動的にcurrent weekを取得
 </script>
 <script src="../../../../assets/js/ranking/weekly/main.js"></script>
 </body>
