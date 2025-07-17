@@ -2773,51 +2773,55 @@ synopsisの真下の段) -->
 
 
 <script>
-const pathSegments = window.location.pathname.split('/');
-const currentWeek = pathSegments[pathSegments.length - 2];
-const season = String(pathSegments[pathSegments.length - 3]);
-const year = String(pathSegments[pathSegments.length - 4]);
-const weekNum = parseInt(currentWeek.replace("week", ""), 10);
+  const pathSegments = window.location.pathname.split('/');
+  const currentWeek = pathSegments[pathSegments.length - 2]; // e.g. "week01" /ranking/week01/index.html → "week01" 入っているフォルダ名で自動的にcurrent weekを取得
+  const season = pathSegments[pathSegments.length - 3];      // e.g. "spring"
+  const year = pathSegments[pathSegments.length - 4];        // e.g. "2025"
+  const weekNum = parseInt(currentWeek.replace("week", ""), 10);
 
-console.log("year:", year);
-console.log("season:", season);
+  const basePath = `/animeb-v1/ranking/${year}/${season}/`;
 
-fetch('../../../../weekly-rankings.json')
-  .then((response) => response.json())
-  .then((data) => {
-    const availableWeeks = data?.[year]?.[season];
-    console.log("availableWeeks:", availableWeeks);
+  const prevLink = document.querySelector('.nav-link.left a');
+  const nextLink = document.querySelector('.nav-link.right a');
 
-    if (!availableWeeks) {
-      console.log(`No available weeks found for ${year} ${season}`);
-      return;
-    }
+  fetch('/animeb-v1/weekly-rankings.json')
+    .then(res => res.json())
+    .then(data => {
+      const availableWeeks = data?.weeklyRankings?.[year]?.[season];
 
-    const weekIndex = availableWeeks.indexOf(currentWeek);
+      console.log("year:", year);
+      console.log("season:", season);
+      console.log("availableWeeks:", availableWeeks);
 
-    const prevWeek = weekIndex > 0 ? availableWeeks[weekIndex - 1] : null;
-    const nextWeek = weekIndex >= 0 && weekIndex < availableWeeks.length - 1 ? availableWeeks[weekIndex + 1] : null;
+      if (!availableWeeks || !Array.isArray(availableWeeks)) {
+        console.error('No available weeks found for', year, season);
+        prevLink.href = "#";
+        nextLink.href = "#";
+        return;
+      }
 
-    const basePath = `/animeb-v1/ranking/${year}/${season}/`;
+      const maxWeek = availableWeeks.length;
 
-    const prevLink = document.querySelector('.nav-link.left a');
-    const nextLink = document.querySelector('.nav-link.right a');
+      const prevWeek = weekNum > 1 ? `week${String(weekNum - 1).padStart(2, '0')}` : null;
+      const nextWeek = weekNum < maxWeek ? `week${String(weekNum + 1).padStart(2, '0')}` : null;
 
-    if (prevWeek) {
-      prevLink.href = `${basePath}${prevWeek}/index.html`;
-    } else {
+      if (prevWeek && availableWeeks.includes(prevWeek)) {
+        prevLink.href = `${basePath}${prevWeek}/index.html`;
+      } else {
+        prevLink.href = "#";
+      }
+
+      if (nextWeek && availableWeeks.includes(nextWeek)) {
+        nextLink.href = `${basePath}${nextWeek}/index.html`;
+      } else {
+        nextLink.href = "#";
+      }
+    })
+    .catch(err => {
+      console.error('Error fetching weekly-rankings.json:', err);
       prevLink.href = "#";
-    }
-
-    if (nextWeek) {
-      nextLink.href = `${basePath}${nextWeek}/index.html`;
-    } else {
       nextLink.href = "#";
-    }
-  })
-  .catch((error) => {
-    console.error("Error loading available weeks JSON:", error);
-  });
+    });
 </script>
 <script src="../../../../assets/js/ranking/weekly/main.js"></script>
 </body>
