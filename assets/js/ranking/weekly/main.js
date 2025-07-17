@@ -688,7 +688,7 @@ function showTooltip(event, text) {
   const tooltipWidth = tooltip.offsetWidth;
   const tooltipHeight = tooltip.offsetHeight;
   const pageX = event.pageX;
-  const pageY = event.pageY;
+  const pageY = event.pageY + window.scrollY;
   const padding = 12;
 
   let left = pageX + padding;
