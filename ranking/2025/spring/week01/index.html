@@ -2775,12 +2775,14 @@ synopsisの真下の段) -->
 <script>
   const pathSegments = window.location.pathname.split('/');
   const currentWeek = pathSegments[pathSegments.length - 2]; // 例: /ranking/week01/index.html → "week01" 入っているフォルダ名で自動的にcurrent weekを取得
+  const season = pathSegments[pathSegments.length - 3];      // 例: "spring"
+  const year = pathSegments[pathSegments.length - 4];        // 例: "2025"
   const weekNum = parseInt(currentWeek.replace("week", ""), 10);
 
   const prevWeek = weekNum > 1 ? `week${String(weekNum - 1).padStart(2, '0')}` : null;
   const nextWeek = weekNum < 12 ? `week${String(weekNum + 1).padStart(2, '0')}` : null;
 
-  const basePath = "/animeb-v1/ranking/2025/spring/";
+  const basePath = `/animeb-v1/ranking/${year}/${season}/`;
 
   const prevLink = document.querySelector('.nav-link.left a');
   const nextLink = document.querySelector('.nav-link.right a');
