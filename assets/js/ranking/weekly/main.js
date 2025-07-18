@@ -49,6 +49,31 @@ fetch(`ranking-${currentWeek}-spring2025.json`)
   console.log(`✅ Successfully fetched: ranking-${currentWeek}-spring2025.json`);
   // ここから通常処理
 
+  // ✅ ← この位置のすぐ下に追加してOK！
+
+    // ========== WATCH STATUS を反映 ==========
+    function updateWatchStatus(metaStatus) {
+      if (!metaStatus) return;
+
+      const labelMap = {
+        watching: 'W',
+        droppedThisWeek: 'D',
+        droppedTotal: 'DT',
+        skipped: 'S'
+      };
+
+      document.querySelectorAll('.watch-status .ws-item').forEach(item => {
+        const key = item.dataset.tooltip;
+        const label = labelMap[key];
+        if (metaStatus.hasOwnProperty(key)) {
+          const count = metaStatus[key];
+          const span = item.querySelector('span');
+          if (span) span.textContent = `${label}:${count}`;
+        }
+      });
+    }
+
+
   // メタ情報更新
   document.querySelector('.week-title').textContent = data.meta.week;
   document.querySelector('.season-title').textContent = data.meta.season;
@@ -272,6 +297,9 @@ fetch(`ranking-${currentWeek}-spring2025.json`)
       });
     }
   }); // ← ここでforEachの閉じカッコ
+
+  // 👇 ここに追加していい！！
+updateWatchStatus(data.meta.status);
 
   // 全ての更新が終わったあとにバー描画
   adjustScoreBars();
