@@ -111,7 +111,7 @@ body {
 
 .watch-status {
   display: flex;
-  gap: 10px;
+  gap: 8px;
   align-items: center;
   justify-content: flex-end;
   font-size: 0.55rem;
