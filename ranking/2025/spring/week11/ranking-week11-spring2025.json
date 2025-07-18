@@ -3,7 +3,14 @@
     "week": "week 11",
     "duration": "06-15-Sun-06-21-Sat",
     "season": "2025 Spring",
-    "ep_range": "ep.11-12"
+    "ep_range": "ep.11-12",
+    "status": {
+      "watching": 12,
+      "droppedThisWeek": 0,
+      "droppedTotal": 15,
+      "skipped": 1
+    }  
+  
   },
   "entries": [
     {
