@@ -1037,6 +1037,11 @@ body {
   margin: 0.5rem 0;
 }
 
+.note-continued {
+  font-size: 0.7rem;
+  opacity: 0.8;
+}
+
     /* detail-content 開閉トグル*/
 
 .detail-content {
