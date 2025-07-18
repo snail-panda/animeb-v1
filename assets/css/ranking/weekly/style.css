@@ -1042,8 +1042,10 @@ body {
 .detail-toggle {
   cursor: pointer;
   color: #747070;
-  font-weight: 500;
+  font-weight: 400;
+  font-size: 0.75rem; /* 12px */
   text-decoration: none;
+  margin-top: 0.125rem;
   margin-bottom: 0.25rem;
 }
 
