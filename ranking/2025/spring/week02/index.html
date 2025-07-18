@@ -822,6 +822,13 @@ synopsisの真下の段) -->
   const prevLink = document.querySelector('.nav-link.left a');
   const nextLink = document.querySelector('.nav-link.right a');
 
+  // 🔠 頭文字だけ大文字に変換
+  function capitalizeFirstLetter(str) {
+    return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
+  }
+
+  const correctedSeason = capitalizeFirstLetter(season);
+
   // JSONから利用可能な週情報を取得
   fetch('../../../../weekly-rankings.json')
     .then(response => {
@@ -829,17 +836,16 @@ synopsisの真下の段) -->
       return response.json();
     })
     .then(data => {
-      const weeksRaw = data?.[parseInt(year, 10)]?.[season];  // ← ここが修正ポイント
+      const weeksRaw = data?.[year]?.[correctedSeason];
       console.log("year:", year);
-      console.log("season:", season);
+      console.log("season:", correctedSeason);
       console.log("availableWeeks (raw):", weeksRaw);
 
       if (!weeksRaw || !Array.isArray(weeksRaw)) {
-        console.log("🚫 No available weeks found for", year, season);
+        console.log("🚫 No available weeks found for", year, correctedSeason);
         return;
       }
 
-      // normalize（小文字化＋スペース削除）して内部比較用リストに変換
       const availableWeeks = weeksRaw.map(w => w.toLowerCase().replace(/\s+/g, ''));
       console.log("✅ availableWeeks (normalized):", availableWeeks);
 
