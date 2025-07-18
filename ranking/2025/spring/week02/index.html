@@ -829,7 +829,7 @@ synopsisの真下の段) -->
       return response.json();
     })
     .then(data => {
-      const weeksRaw = data?.[year]?.[season];
+      const weeksRaw = data?.[parseInt(year, 10)]?.[season];  // ← ここが修正ポイント
       console.log("year:", year);
       console.log("season:", season);
       console.log("availableWeeks (raw):", weeksRaw);
