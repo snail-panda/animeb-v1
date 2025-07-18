@@ -1028,6 +1028,25 @@ body {
       margin-top: 1.25rem; /* 20px */
     }
 
+    /* detail-content 開閉トグル*/
+
+.detail-content {
+  display: none;
+  margin-top: 5px;
+}
+
+.detail-content.open{
+  display: block;
+}
+
+.detail-toggle {
+  cursor: pointer;
+  color: #747070;
+  font-weight: 500;
+  text-decoration: none;
+  margin-bottom: 0.25rem;
+}
+
 /* ツールチップ*/	
 	.tooltip {
   position: absolute;
