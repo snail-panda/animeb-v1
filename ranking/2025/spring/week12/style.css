@@ -1029,7 +1029,7 @@ body {
 
 .note-jp {
   font-family: 'Noto Sans JP', 'Yu Gothic UI', sans-serif;
-  font-size: 0.65rem;
+  font-size: 0.63rem;
     
 }
 
@@ -1064,7 +1064,7 @@ body {
 
 .note code {
   font-family: monospace;
-  font-size: 0.67rem;
+  font-size: 0.63rem;
   background-color: #f6f6f6;
   padding: 0.1rem 0.4rem;
   border-radius: 3px;
