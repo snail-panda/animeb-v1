@@ -3,7 +3,14 @@
     "week": "week 10",
     "duration": "06-08-Sun-06-14-Sat",
     "season": "2025 Spring",
-    "ep_range": "ep.10-11"
+    "ep_range": "ep.10-11",
+    "status": {
+      "watching": 12,
+      "droppedThisWeek": 0,
+      "droppedTotal": 15,
+      "skipped": 0
+    }  
+  
   },
   "entries": [
     {

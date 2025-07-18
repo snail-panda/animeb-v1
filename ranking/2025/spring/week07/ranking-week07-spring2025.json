@@ -3,7 +3,14 @@
     "week": "week 7",
     "duration": "05-18-Sun-05-24-Sat",
     "season": "2025 Spring",
-    "ep_range": "ep.7-8"
+    "ep_range": "ep.7-8",
+    "status": {
+      "watching": 13,
+      "droppedThisWeek": 2,
+      "droppedTotal": 14,
+      "skipped": 0
+    }  
+  
   },
   "entries": [
     {

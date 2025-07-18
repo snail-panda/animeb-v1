@@ -3,7 +3,14 @@
     "week": "week 4",
     "duration": "04-27-Sun-05-03-Sat",
     "season": "2025 Spring",
-    "ep_range": "ep.4-5"
+    "ep_range": "ep.4-5",
+    "status": {
+      "watching": 18,
+      "droppedThisWeek": 1,
+      "droppedTotal": 9,
+      "skipped": 0
+    }  
+  
   },
   "entries": [
     {
