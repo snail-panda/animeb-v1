@@ -1089,7 +1089,25 @@ body {
   margin-bottom: 0.25rem;
 }
 
+/* ツールチップ*/	
+	.tooltip {
+  position: absolute;
+  background-color: rgba(248, 248, 227, 0.95);
+  color: #606035;
+  padding: 6px 10px;
+  font-size: 0.688rem;
+  font-family: 'Abel', 'sans-serf';
+  border-radius: 4px;
+  display: none;
+  z-index: 9999;
+  pointer-events: none;
+  max-width: 280px;
+  line-height: 1.4;
+}
 
+.trigger-icon {
+   align-items: center;
+   }   
 
 /* 汎用アイコン（現状未使用領域） */
 

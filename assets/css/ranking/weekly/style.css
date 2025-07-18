@@ -1080,7 +1080,7 @@ body {
 }
 
 .trigger-icon {
-   item-align: center;
+   align-items: center;
    }   
 
 /* 汎用アイコン（現状未使用領域） */
