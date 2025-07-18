@@ -111,7 +111,7 @@ body {
 
 .watch-status {
   display: flex;
-  gap: 8px;
+  gap: 7px;
   align-items: center;
   justify-content: flex-end;
   font-size: 0.55rem;
@@ -128,7 +128,7 @@ body {
 
 .ws-item img {
   width: auto;
-  height: 14px;
+  height: 12px;
 }
 
 .ws-item span {
