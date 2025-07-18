@@ -1029,8 +1029,7 @@ body {
       padding-bottom: 8px;
     }
 
-.note-border {
-  border: none;
+.hairline {
   height: 0.5px;
   border-width:100%;
   background-color: #cbcbc3;
