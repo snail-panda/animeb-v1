@@ -1026,13 +1026,22 @@ body {
       line-height: 1.6;
       max-width: 75ch;
       margin-top: 1.25rem; /* 20px */
+      padding-bottom: 8px;
     }
+
+.note-border {
+  border: none;
+  height: 0.5px;
+  border-width:100%;
+  background-color: #cbcbc3;
+  margin: 0.5rem 0;
+}
 
     /* detail-content 開閉トグル*/
 
 .detail-content {
   display: none;
-  margin-top: 5px;
+  margin-top: 10px;
 }
 
 .detail-content.open{
@@ -1046,7 +1055,7 @@ body {
   font-size: 0.75rem; /* 12px */
   text-decoration: none;
   margin-top: 0.125rem;
-  margin-bottom: 0.25rem;
+  margin-bottom: 1rem;
 }
 
 /* ツールチップ*/	
