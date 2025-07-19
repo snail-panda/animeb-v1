@@ -59,7 +59,7 @@ fetch(`ranking-${currentWeek}-spring2025.json`)
         watching: 'W',
         droppedThisWeek: 'D',
         droppedTotal: 'DT',
-        skipped: 'S'
+        noAir: 'NoAir'
       };
 
       document.querySelectorAll('.watch-status .ws-item').forEach(item => {
