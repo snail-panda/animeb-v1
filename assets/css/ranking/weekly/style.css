@@ -110,7 +110,8 @@ body {
 ================================*/
 
 .viewing-status-container {
-      width: 100px;
+      min-width: 100px;
+      width: 25vw;
       border: 0.25px solid #ccc;
       border-radius: 8px;
       padding: 8px 6px;
