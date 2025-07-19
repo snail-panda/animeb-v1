@@ -106,6 +106,91 @@ body {
 }
 
 /*==============================
+2.4 VIEWING STATUS
+================================*/
+
+.viewing-status-container {
+      width: 100px;
+      border: 0.25px solid #ccc;
+      border-radius: 8px;
+      padding: 8px 6px;
+      font-family: 'Abel', 'Orbitron', 'sans-serif';
+      font-size: 0.9rem;
+      background-color: #ffffed;
+      position: absolute;
+      top: 100px;
+      right: 20px;
+      z-index: 1000;
+      margin-right: 8px;
+    }
+
+    .viewing-status-header {
+      font-weight: 500;
+      font-size: 0.6rem;
+    }
+
+    .viewing-status-main {
+      margin-top: 5px;
+      margin-left: 4px;
+      margin-bottom: 4px;
+      font-size: 0.6rem;
+      display: flex;
+      justify-content: flex-start;
+      gap: 4px;
+      align-items: center;
+    }
+
+    .view-watching {
+      display: flex;
+      width: 12px;
+      height: auto;
+      align-items: center;
+    }
+
+    .status-details {
+      margin-top: 3px;
+      margin-left: 4px;
+      display: none;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .status-details.active {
+      display: flex;
+    }
+
+    .status-details .ws-item {
+      display: flex;
+      align-items: center;
+      font-family: 'Abel', 'Orbitron', 'sans-serif';
+      font-size: 0.6rem;
+      font-weight: 400;
+      gap: 6px;
+    }
+
+    .status-details .ws-item img {
+      height: 10px;
+      width: auto;
+    }
+
+.status-number {
+  font-family: 'Agency FB', 'Abel', sans-serif;
+  font-size: 0.6rem;
+  font-weight: 600;
+  color: #4f5261;
+}
+
+    .toggle-btn {
+      background: none;
+      border: none;
+      font-size: 8px;
+      cursor: pointer;
+      padding: 0;
+      color: #00a08b;
+      margin-left: 3px;
+    }
+
+/*==============================
   2.01 WATCH STATUS ZONE
 ================================*/
 
