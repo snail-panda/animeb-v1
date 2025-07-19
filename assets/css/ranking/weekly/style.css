@@ -112,7 +112,7 @@ body {
 .viewing-status-container {
       min-width: 100px;
       width: 25vw;
-      border: 0.25px solid #ccc;
+      border: 0.25px solid #d4ddd0;
       border-radius: 8px;
       padding: 8px 6px;
       font-family: 'Abel', 'Orbitron', 'sans-serif';
