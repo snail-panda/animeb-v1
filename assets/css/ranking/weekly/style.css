@@ -119,6 +119,7 @@ viewing status (pending)
   font-size: 0.9rem; }
 
 .ws-title {
+  align-self: flex-start; /* タイトルを左寄せ */
   position: static; /* ← 絶対配置を解除 */
   text-align: left; /* タイトルを左寄せ */
   font-family: 'Abel', 'Orbitron', 'sans-serif';
@@ -143,6 +144,7 @@ viewing status (pending)
 .ws-caret { 
   display: inline-block;
   height: 0.65em;
+  position: relative;
   vertical-align: middle;
   top: -1px; /* 微調整 */
   transition: transform .25s;
