@@ -124,7 +124,6 @@ viewing status (pending)
   font-family: 'Abel', 'Orbitron', 'sans-serif';
   font-size: 0.6rem;          /* 小さく控えめに */
   color: #666;
-  margin-bottom: 0.25rem;
 }
 
 .ws-toggle {
@@ -161,7 +160,7 @@ viewing status (pending)
   top: calc(100% + .25rem);
   background: #ffffed; 
   color: #4f5261; 
-  padding: .5rem .75rem;
+  padding: .3rem .5rem;
   border-radius: .5rem; 
   box-shadow: 0 4px 12px rgba(0,0,0,.25);
   width: max-content; /* コンテンツの幅に合わせる */
