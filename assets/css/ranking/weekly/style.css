@@ -144,6 +144,7 @@ viewing status (pending)
   display: inline-block;
   height: 0.65em;
   vertical-align: middle;
+  top: -1px; /* 微調整 */
   transition: transform .25s;
 }
 
