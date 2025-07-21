@@ -73,6 +73,20 @@ fetch(`ranking-${currentWeek}-spring2025.json`)
       });
     }
 
+    // ========== パネル開閉トグル ==========
+(function initWatchPanel(){            // IIFEで1回だけ実行
+  const toggle = document.querySelector('.ws-toggle');
+  const panel  = document.querySelector('.ws-panel');
+  if (!toggle || !panel) return;
+
+  toggle.addEventListener('click', () => {
+    const open = toggle.getAttribute('aria-expanded') === 'true';
+    toggle.setAttribute('aria-expanded', !open);
+    panel.hidden = open;               // true→非表示
+    panel.classList.toggle('open', !open);
+  });
+})();
+
 
   // メタ情報更新
   document.querySelector('.week-title').textContent = data.meta.week;
