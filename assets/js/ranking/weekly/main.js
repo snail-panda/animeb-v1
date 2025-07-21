@@ -63,14 +63,14 @@ fetch(`ranking-${currentWeek}-spring2025.json`)
       };
 
       document.querySelectorAll('.watch-status .ws-item').forEach(item => {
-        const key = item.dataset.tooltip;
-        const label = labelMap[key];
-        if (metaStatus.hasOwnProperty(key)) {
-          const count = metaStatus[key];
-          const span = item.querySelector('span');
-          if (span) span.textContent = `${label}:${count}`;
-        }
-      });
+  const key = item.dataset.tooltip;
+  const label = labelMap[key];
+  const count = metaStatus[key];
+  const target = item.querySelector('.view-count'); // ← 明示的にここだけ書き換える
+  if (target && count !== undefined) {
+    target.textContent = `${label}:${count}`;
+  }
+});
     }
 
     // ========== パネル開閉トグル ==========
