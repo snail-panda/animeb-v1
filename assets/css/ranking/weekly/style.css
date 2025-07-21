@@ -175,6 +175,9 @@ viewing status (pending)
   gap: 0.25rem;
   white-space: nowrap; /* 折り返させない（必要なら） */
   margin-bottom: 0.25rem;
+  line-height: 1;
+  font-size: 0.6rem;
+  font-family: 'Abel', 'Orbitron', sans-serif;
 }
 
 .view-count {
