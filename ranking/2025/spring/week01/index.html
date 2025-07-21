@@ -24,8 +24,41 @@
   </div>
   <div class="sub-header"><span class="season-title">2025 <span class="season">SPRING</span></span> ANIME <span class="title-ranking">RANKING</span> <span class="ep-range">[Ep.7–8]</span></div>
 
+ <!-- watch status 2 pending-->
+  <div class="watch-status">
 
-  <!-- Viewing Status Block -->
+  <!-- ★タイトル行：ただの見出し -->
+  <div class="ws-title">Viewing Status</div>
+
+  <!-- ★トグル行：アイコン＋数字＋▼ -->
+  <button class="ws-toggle" aria-expanded="false">
+    <div class="ws-item" data-tooltip="watching">
+      <span class="icon-tv"></span>
+      <span class="view-count" data-key="watching">--</span>
+    </div>
+    <svg class="ws-caret" viewBox="0 0 10 10"><path d="M1 3l4 4 4-4"/></svg>
+  </button>
+
+  <!-- ★展開パネル（残り3項目） -->
+  <div class="ws-panel" hidden>
+    <div class="ws-item" data-tooltip="droppedThisWeek">
+      <span class="icon-drop"></span>
+      <span data-key="droppedThisWeek">--</span>
+    </div>
+    <div class="ws-item" data-tooltip="droppedTotal">
+      <span class="icon-trash"></span>
+      <span data-key="droppedTotal">--</span>
+    </div>
+    <div class="ws-item" data-tooltip="noAir">
+      <span class="icon-noair"></span>
+      <span data-key="noAir">--</span>
+    </div>
+  </div>
+
+</div>
+
+
+  <!-- Viewing Status Block
     <div class="viewing-status-container">
       <div class="viewing-status-header">VIEWING STATUS</div>
       <div class="viewing-status-main">
@@ -48,6 +81,8 @@
         </div>
       </div>
     </div>
+
+  -->
 
 <!--
 <div class="watch-status">
