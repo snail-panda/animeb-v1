@@ -141,6 +141,7 @@ viewing status (pending)
 }
 
 .ws-caret { 
+  display: inline-block;
   width: 8px;
   vertical-align: middle;
   transition: transform .25s;
