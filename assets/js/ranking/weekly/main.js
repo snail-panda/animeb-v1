@@ -57,7 +57,7 @@ fetch(`ranking-${currentWeek}-spring2025.json`)
 
       const labelMap = {
         watching: 'Watching',
-        droppedThisWeek: 'Dropped this week',
+        droppedThisWeek: 'Dropped',
         droppedTotal: 'Total dropped',
         noAir: 'NoAir'
       };
