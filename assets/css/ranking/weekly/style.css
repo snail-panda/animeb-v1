@@ -115,11 +115,13 @@ viewing status (pending)
   align-items: flex-end; /* ←ここがキモ*/
   gap: 0.25rem; /* タイトルとボタンの間にスペース */
   position: relative; 
+  font-family: 'Abel', 'Orbitron', 'sans-serif';
   font-size: 0.9rem; }
 
 .ws-title {
   position: static; /* ← 絶対配置を解除 */
-  font-size: 0.75rem;          /* 小さく控えめに */
+  font-family: 'Abel', 'Orbitron', 'sans-serif';
+  font-size: 0.6rem;          /* 小さく控えめに */
   color: #666;
   margin-bottom: 0.25rem;
 }
