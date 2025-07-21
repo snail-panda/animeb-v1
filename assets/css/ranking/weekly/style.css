@@ -199,7 +199,7 @@ viewing status (pending)
 
 /* 🎯 個別の画像だけ分ける */
 .icon-tv {
-  background-image: url(../../../../images/icons/tv.svg); /* ←自分の画像に差し替え */
+  background-image: url(../../../../images/icons/watch.svg); /* ←自分の画像に差し替え */
 }
 
 .icon-drop {
