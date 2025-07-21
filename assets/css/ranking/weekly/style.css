@@ -161,7 +161,7 @@ viewing status (pending)
   position: absolute;
   right: 0; 
   left: auto; 
-  top: calc(100% + .25rem);
+  top: 100%;
   background: #ffffed; 
   color: #4f5261; 
   padding: .5rem .5rem;
