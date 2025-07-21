@@ -189,12 +189,12 @@ viewing status (pending)
 
 /* ✅ 共通ルール：すべてのアイコンに共通の見た目 */
 [class^="icon-"] {
-  display: inline-block;
+  display: block;
   width: 1rem;
   height: 1rem;
   background-size: contain;
   background-repeat: no-repeat;
-  vertical-align: middle;
+  flex-shrink: 0; /* ← 縮まないように */
 }
 
 /* 🎯 個別の画像だけ分ける */
