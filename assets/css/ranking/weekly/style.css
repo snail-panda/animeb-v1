@@ -119,8 +119,8 @@ viewing status (pending)
   font-size: 0.9rem; }
 
 .ws-title {
-  align-self: flex-start; /* タイトルを左寄せ */
   position: static; /* ← 絶対配置を解除 */
+  margin-right: auto;
   text-align: left; /* タイトルを左寄せ */
   font-family: 'Abel', 'Orbitron', 'sans-serif';
   font-size: 0.6rem;          /* 小さく控えめに */
