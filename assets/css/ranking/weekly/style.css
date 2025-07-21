@@ -177,7 +177,12 @@ viewing status (pending)
   margin-bottom: 0.25rem;
 }
 
-
+.view-count {
+  font-family: 'Agency FB', 'Abel', sans-serif;
+  font-size: 0.6rem;
+  font-weight: 500;
+  color: #4f5261;
+}
 .ws-panel.open { 
   max-height: 200px;
 } /* 中身に合わせて調整 */
