@@ -161,7 +161,7 @@ viewing status (pending)
   top: calc(100% + .25rem);
   background: #ffffed; 
   color: #4f5261; 
-  padding: .3rem .5rem;
+  padding: .5rem .5rem;
   border-radius: .5rem; 
   box-shadow: 0 4px 12px rgba(0,0,0,.25);
   width: max-content; /* コンテンツの幅に合わせる */
