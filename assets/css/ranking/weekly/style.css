@@ -193,8 +193,8 @@ viewing status (pending)
 /* ✅ 共通ルール：すべてのアイコンに共通の見た目 */
 [class^="icon-"] {
   display: block;
-  width: 0.8rem;
-  height: 0.8rem;
+  width: 0.6rem;
+  height: 0.6rem;
   background-size: contain;
   background-repeat: no-repeat;
   flex-shrink: 0; /* ← 縮まないように */
