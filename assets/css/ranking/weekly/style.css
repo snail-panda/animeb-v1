@@ -112,7 +112,7 @@ viewing status (pending)
 .watch-status { 
   display: flex;
   flex-direction: column;
-  align-items: flex-end; /* ←ここがキモ*/
+  align-items: flex-start; /* ←ここがキモ*/
   gap: 0.25rem; /* タイトルとボタンの間にスペース */
   position: relative; 
   font-family: 'Abel', 'Orbitron', 'sans-serif';
