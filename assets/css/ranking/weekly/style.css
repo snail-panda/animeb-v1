@@ -120,6 +120,7 @@ viewing status (pending)
 
 .ws-title {
   position: static; /* ← 絶対配置を解除 */
+  text-align: left; /* タイトルを左寄せ */
   font-family: 'Abel', 'Orbitron', 'sans-serif';
   font-size: 0.6rem;          /* 小さく控えめに */
   color: #666;
