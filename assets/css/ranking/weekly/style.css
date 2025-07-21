@@ -176,7 +176,7 @@ viewing status (pending)
   gap: 0.25rem;
   white-space: nowrap; /* 折り返させない（必要なら） */
   margin-bottom: 0.25rem;
-  line-height: 1.4;
+  line-height: 1.2;
   font-size: 0.7rem;
   font-family: 'Abel', 'Orbitron', sans-serif;
 }
