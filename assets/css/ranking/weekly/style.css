@@ -170,6 +170,15 @@ viewing status (pending)
   transition: max-height .25s ease;
 }
 
+.ws-item {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  white-space: nowrap; /* 折り返させない（必要なら） */
+  margin-bottom: 0.25rem;
+}
+
+
 .ws-panel.open { 
   max-height: 200px;
 } /* 中身に合わせて調整 */
