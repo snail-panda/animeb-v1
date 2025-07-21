@@ -147,15 +147,7 @@ viewing status (pending)
 
 .ws-toggle:hover { background: rgba(0,0,0,.05); }
 
-.ws-title {
-  display: flex; 
-  position: absolute;
-  right: 0;
-  align-items: center;
-  font-size: 0.75rem;          /* 小さく控えめに */
-  color: #666;
-  margin-bottom: 0.25rem;
-}
+
 
 /* 展開パネル */
 .ws-panel {
