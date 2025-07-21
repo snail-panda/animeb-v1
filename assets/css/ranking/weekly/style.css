@@ -179,37 +179,29 @@ viewing status (pending)
   max-height: 200px;
 } /* 中身に合わせて調整 */
 
-.icon-tv {
+/* ✅ 共通ルール：すべてのアイコンに共通の見た目 */
+[class^="icon-"] {
   display: inline-block;
   width: 1rem;
   height: 1rem;
-  background-image: url(../../../../images/icons/tv.svg); /* ←自分の画像に差し替え */
   background-size: contain;
   background-repeat: no-repeat;
+  vertical-align: middle;
 }
+
+/* 🎯 個別の画像だけ分ける */
+.icon-tv {
+  background-image: url(../../../../images/icons/tv.svg); /* ←自分の画像に差し替え */
+}
+
 .icon-drop {
-  display: inline-block;
-  width: 1rem;
-  height: 1rem;
   background-image: url(../images/icons/drop.svg); /* ←自分の画像に差し替え */
-  background-size: contain;
-  background-repeat: no-repeat;
 }
 .icon-trash {
-  display: inline-block;
-  width: 1rem;
-  height: 1rem;
   background-image: url(../../../../images/icons/droptotal.svg); /* ←自分の画像に差し替え */
-  background-size: contain;
-  background-repeat: no-repeat;
 }
 .icon-noair {
-  display: inline-block;
-  width: 1rem;
-  height: 1rem;
   background-image: url(../../../../images/icons/noair.svg); /* ←自分の画像に差し替え */
-  background-size: contain;
-  background-repeat: no-repeat;
 }
 
 
