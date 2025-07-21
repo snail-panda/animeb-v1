@@ -774,10 +774,11 @@ document.querySelectorAll('.detail-toggle').forEach(el => {
 });
 
 // VIEWING STATUS
-
+/*
 const toggleBtn = document.getElementById('toggleBtn');
     const details = document.getElementById('details');
     toggleBtn.addEventListener('click', () => {
       const expanded = details.classList.toggle('active');
       toggleBtn.textContent = expanded ? '▲' : '▼';
     });
+*/
