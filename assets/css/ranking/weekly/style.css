@@ -203,7 +203,7 @@ viewing status (pending)
 }
 
 .icon-drop {
-  background-image: url(../images/icons/drop.svg); /* ←自分の画像に差し替え */
+  background-image: url(../../../../images/icons/drop.svg); /* ←自分の画像に差し替え */
 }
 .icon-trash {
   background-image: url(../../../../images/icons/droptotal.svg); /* ←自分の画像に差し替え */
