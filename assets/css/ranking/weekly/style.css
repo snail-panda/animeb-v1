@@ -129,7 +129,7 @@ viewing status (pending)
   margin-right: auto;
   text-align: left; /* タイトルを左寄せ */
   font-family: 'Abel', 'Orbitron', 'sans-serif';
-  font-size: 0.6rem;          /* 小さく控えめに */
+  font-size: 0.7rem;          /* 小さく控えめに */
   color: #666;
 }
 
@@ -149,7 +149,7 @@ viewing status (pending)
 
 .ws-caret { 
   display: inline-block;
-  height: 0.65em;
+  height: 0.7em;
   position: relative;
   vertical-align: middle;
   top: -1.5px; /* 微調整 */
