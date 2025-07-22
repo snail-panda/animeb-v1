@@ -138,7 +138,7 @@ viewing status (pending)
   position: static; /* ← 絶対配置を解除 */
   right: 0;
   align-items: center; 
-  gap: .25rem;
+  gap: .35rem;
   padding: .25rem .25rem ;
   border-radius: .25rem;
   transition: background .2s;
@@ -152,7 +152,7 @@ viewing status (pending)
   height: 0.65em;
   position: relative;
   vertical-align: middle;
-  top: -1px; /* 微調整 */
+  top: -1.5px; /* 微調整 */
   transition: transform .25s;
 }
 
