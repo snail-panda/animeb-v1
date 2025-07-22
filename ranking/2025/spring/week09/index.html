@@ -24,24 +24,39 @@
   </div>
   <div class="sub-header"><span class="season-title">2025 <span class="season">SPRING</span></span> ANIME <span class="title-ranking">RANKING</span> <span class="ep-range">[Ep.7–8]</span></div>
 
-<div class="watch-status">
-  <div class="ws-item" data-tooltip="watching">
-    <img src="https://snail-panda.github.io/animeb-v1/images/icons/tv.png" alt="watching" title="watching (視聴中)">
-    <span>W:20</span>
+ <!-- watch status -->
+  <div class="watch-status-wrapper">
+  <div class="watch-status">
+
+  <!-- ★タイトル行：ただの見出し -->
+  <div class="ws-title">VIEWING STATUS</div>
+
+  <!-- ★トグル行：アイコン＋数字＋▼ -->
+  <button class="ws-toggle" aria-expanded="false">
+    <div class="ws-item" data-tooltip="watching">
+      <span class="icon-tv"></span>
+      <span class="view-count" data-key="watching"></span>
+    </div>
+    <svg class="ws-caret" viewBox="0 0 10 10"><path d="M1 3l4 4 4-4"/></svg>
+  </button>
+
+  <!-- ★展開パネル（残り3項目） -->
+  <div class="ws-panel" hidden>
+    <div class="ws-item" data-tooltip="droppedThisWeek">
+      <span class="icon-drop"></span>
+      <span class="view-count" data-key="droppedThisWeek"></span>
+    </div>
+    <div class="ws-item" data-tooltip="droppedTotal">
+      <span class="icon-trash"></span>
+      <span class="view-count" data-key="droppedTotal"></span>
+    </div>
+    <div class="ws-item" data-tooltip="noAir">
+      <span class="icon-noair"></span>
+      <span class="view-count" data-key="noAir"></span>
+    </div>
   </div>
-  <div class="ws-item" data-tooltip="droppedThisWeek">
-    <img src="https://snail-panda.github.io/animeb-v1/images/icons/dropped06.png" alt="dropped this week" title="dropped this week (今週のドロップ数)">
-    <span>D:2</span>
-  </div>
-  <div class="ws-item" data-tooltip="droppedTotal">
-    <img src="https://snail-panda.github.io/animeb-v1/images/icons/droppedtotal03.png" alt="total dropped titles" title="total dropped titles (累計ドロップ数)">
-    <span>DT:5</span>
-  </div>
-  <div class="ws-item" data-tooltip="noAir">
-    <img src="https://snail-panda.github.io/animeb-v1/images/icons/skipped04.png" alt="no air this week" title="no air this week (今週お休み)">
-    <span>S:1</span>
-  </div>
-</div> 
+</div>
+</div>
 
 
 <section class="overview-section">
