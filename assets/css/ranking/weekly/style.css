@@ -119,7 +119,7 @@ viewing status (pending)
   display: flex;
   flex-direction: column;
   align-items: flex-start; /* 左寄せ */
-  gap: 0.25rem; /* タイトルとボタンの間にスペース */
+  
   position: relative; 
   font-family: 'Abel', 'Orbitron', 'sans-serif';
   font-size: 0.9rem; }
