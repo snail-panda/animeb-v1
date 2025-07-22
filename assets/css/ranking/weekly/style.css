@@ -108,13 +108,17 @@ body {
 /*============================
 viewing status (pending)
 ==============================*/
+.watch-status-wrapper {
+  display: flex;
+  justify-content: flex-end; /* 右寄せ */
+}
 
 .watch-status { 
-  max-width: 100px;
+  min-width: 100px;
   width: 25vw; /* 横幅を25vwに設定 */
   display: flex;
   flex-direction: column;
-  align-items: flex-end; /* ←ここがキモ*/
+  align-items: flex-start; /* 左寄せ */
   gap: 0.25rem; /* タイトルとボタンの間にスペース */
   position: relative; 
   font-family: 'Abel', 'Orbitron', 'sans-serif';
