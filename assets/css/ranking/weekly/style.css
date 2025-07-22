@@ -114,7 +114,7 @@ viewing status (pending)
 }
 
 .watch-status { 
-  max-width: 90px;
+  max-width: 95px;
   width: 20vw; /* 横幅を25vwに設定 */
   display: flex;
   flex-direction: column;
