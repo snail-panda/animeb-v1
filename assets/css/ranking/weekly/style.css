@@ -139,7 +139,7 @@ viewing status (pending)
   right: 0;
   align-items: center; 
   gap: .35rem;
-  padding: 0 0 0 .25rem ;
+  padding: 0 0.1rem 0 .25rem ;
   border-radius: .25rem;
   transition: background .2s;
   border: none; 
