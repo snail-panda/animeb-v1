@@ -131,6 +131,7 @@ viewing status (pending)
   font-family: 'Abel', 'Orbitron', 'sans-serif';
   font-size: 0.65rem;          /* 小さく控えめに */
   color: #666;
+  font-weight: 500;
 }
 
 .ws-toggle {
