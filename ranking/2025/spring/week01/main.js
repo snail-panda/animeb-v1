@@ -238,7 +238,9 @@ if (scoreEl) {
     <div class="score-number">${entryData.score ?? "-"}</div>
     <div class="score-unit">pt</div>
   `;
+  scoreEl.classList.add("score");  // 念のため保証（抜け防止）
 }
+
 
 
 
