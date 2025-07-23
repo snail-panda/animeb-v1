@@ -230,29 +230,15 @@ if (wrpScoreEl) {
     });
   }
 }
-	//トータルスコア左寄せ解決のため
-		const scoreEl = clone.querySelector(".score");
+	
+	//トータルスコア
+	const scoreEl = clone.querySelector(".score");
 if (scoreEl) {
-  scoreEl.innerHTML = ""; // ← 念のため空にしておく
-
-  const number = document.createElement("div");
-  number.className = "score-number";
-  number.textContent = entryData.score ?? "-";
-
-  const unit = document.createElement("div");
-  unit.className = "score-unit";
-  unit.textContent = "pt";
-
-  scoreEl.appendChild(number);
-  scoreEl.appendChild(unit);
+  scoreEl.innerHTML = `
+    <div class="score-number">${entryData.score ?? "-"}</div>
+    <div class="score-unit">pt</div>
+  `;
 }
-
-
-requestAnimationFrame(() => {
-  scoreEl.style.display = "none";
-  scoreEl.offsetHeight; // 強制リフロー
-  scoreEl.style.display = "";
-});
 
 
 
