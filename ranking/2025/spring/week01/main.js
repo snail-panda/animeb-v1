@@ -230,7 +230,7 @@ if (wrpScoreEl) {
     });
   }
 }
-
+	//トータルスコア左寄せ解決のため
 		const scoreEl = clone.querySelector(".score");
 if (scoreEl) {
   scoreEl.innerHTML = ""; // ← 念のため空にしておく
