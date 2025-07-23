@@ -157,19 +157,16 @@ fetch(jsonPath)
   }
 
   // ============= phase 1: 構造だけ複製 ==============
-  
-   const container = document.querySelector(".entry-list");
-const template = document.querySelector("#entry-template");
+const container = document.querySelector(".entry-list");
+const template = document.querySelector("#entry-template .entry"); // ← ここで .entry を取得
 const clones = [];
 
 data.entries.forEach(() => {
   const clone = template.cloneNode(true);
-  clone.id = "";
-  clone.style.display = "";
-  clone.classList.add("entry");
   container.appendChild(clone);
   clones.push(clone);
 });
+
 
 // ========== Phase 2: 情報だけ注入 ==========
 clones.forEach((clone, i) => {
