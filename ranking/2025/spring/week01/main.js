@@ -178,8 +178,9 @@ fetch(`ranking-${currentWeek}-spring2025.json`)
       clone.querySelector(".rank-number").textContent = entry.rank || "-";
 
       // トレンドアイコン
-      const trendLabel = entry.querySelector('.trend-label');
-const trendIcon = entry.querySelector('.rank-trend img');
+      const trendLabel = clone.querySelector('.trend-label');
+const trendIcon = clone.querySelector('.rank-trend img');
+
 const label = (entry.trend || "").toLowerCase();
 const labelTextMap = {
   "re": "Re-entry"
