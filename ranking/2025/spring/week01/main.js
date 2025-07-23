@@ -238,23 +238,19 @@ fetch(jsonPath)
       }
 
       // — 最後に DOM に挿入 —
-      container.appendChild(clone);
-    });
-  })
-  .catch((error) => console.error("JSON読み込みエラー:", error));
- // ← ここでforEachの閉じカッコだった場所。クローン作成埋め込みの最後
+      container.appendChild(clone); // 最後の1クローン
 
-  // 👇 ここに追加していい！！
-updateWatchStatus(data.meta.status);
+    }); // ← ここで entries.forEach 閉じる（OK）
+	
+	// ✅ 必ず `.then(data => { ... })` の中にある必要がある
+    updateWatchStatus(data.meta.status);
+    adjustScoreBars();
+    setTimeout(() => {
+      setupPopups();
+    }, 0); // 🔁 DOMが確実に構築されてからイベントをバインド
+	
+	 })  // ← fetch().then(data => { ... }) の閉じ
 
-  // 全ての更新が終わったあとにバー描画
-  adjustScoreBars();
-
-  // イベントリスナー登録
-  setTimeout(() => {
-    setupPopups();
-  }, 0);  // 🔁 DOMが確実に構築されてからイベントをバインド
-})
 .catch(error => {
   console.error(`❌ Fetch failed: ${error.message}`);
 });
