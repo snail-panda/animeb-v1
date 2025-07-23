@@ -37,8 +37,13 @@ function adjustScoreBars() {
   });
 }
 
+
+// ── 1. JSON ファイル名を動的に組み立て ──
+const jsonPath = `ranking-${window.currentWeek}-spring${window.year}.json`;
+
+
 // ========== JSON読み込み & DOM更新 ==========
-fetch(`ranking-${currentWeek}-spring2025.json`)
+fetch(jsonPath)
   .then(response => {
     console.log(`🔍 Response status: ${response.status}`);
     if (!response.ok) throw new Error("Fetch failed");
@@ -153,85 +158,86 @@ fetch(`ranking-${currentWeek}-spring2025.json`)
 
   // クローン作成埋込
   
-  const jsonPath = window.location.pathname.replace(/\/index\.html$/, `/ranking-${window.location.pathname.split('/')[window.location.pathname.split('/').length - 2]}-spring2025.json`);
-
-  
-  fetch(jsonPath)
-  .then((response) => response.json())
-  .then((data) => {
-    const entries = data.entries;
+   const entries = data.entries;
     const container = document.querySelector(".entry-container");
-    const template = document.querySelector("#entry-template");
-
-    if (!template || !container) {
-      console.error("Missing #entry-template or .entry-container");
+    const template  = document.querySelector("#entry-template");
+    if (!container || !template) {
+      console.error("Missing .entry-container or #entry-template");
       return;
     }
 
-    entries.forEach((entry, index) => {
+    // ── 3. 既存のテンプレートをクローンして上書き ──
+    entries.forEach((entryData, i) => {
       const clone = template.cloneNode(true);
-      clone.id = ""; // 重複IDを避ける
-      clone.style.display = ""; // 非表示解除
-      clone.classList.add("entry"); // 明示的にentryクラス追加（保険）
+      clone.id = "";
+      clone.style.display = "";
+      clone.classList.add("entry");
 
-      // ランク番号
-      clone.querySelector(".rank-number").textContent = entry.rank || "-";
+      // — ランク —
+      clone.querySelector(".rank-number")
+           .textContent = entryData.rank ?? "-";
 
-      // トレンドアイコン
-      const trendLabel = clone.querySelector('.trend-label');
-const trendIcon = clone.querySelector('.rank-trend img');
-
-const label = (entry.trend || "").toLowerCase();
-const labelTextMap = {
-  "re": "Re-entry"
-};
-
-if (trendLabel && trendIcon) {
-  trendLabel.textContent = labelTextMap[label] || entry.trend;
-  trendIcon.src = `../../../../images/trends/${label}-arrow.png`;
-  trendIcon.className = `trend-icon-${label}`;
-  trendIcon.alt = `${entry.trend} icon`;
-
-  trendIcon.onerror = () => trendIcon.style.display = 'none';
-}
-
-
-      // キービジュアル
-      const kvThumbEl = entry.querySelector('.kv-thumb img');
-if (kvThumbEl && entry.kv) {
-  kvThumbEl.src = `../../../../images/key-visuals/2025/spring/${entry.kv}.webp`;
-  kvThumbEl.alt = `${entry.title} key visual`;
-}
-
-
-      // タイトル（英語・日本語）
-      clone.querySelector(".info-top").textContent = entry.title || "";
-      clone.querySelector(".jp-title").textContent = entry.jpTitle || "";
-
-      // ジャンルタグ
-      const genreTagContainer = clone.querySelector(".genre-tags");
-      genreTagContainer.innerHTML = ""; // 既存削除
-      if (Array.isArray(entry.genre)) {
-        entry.genre.forEach((tag) => {
-          const span = document.createElement("span");
-          span.className = "genre-tag";
-          span.textContent = tag;
-          genreTagContainer.appendChild(span);
-        });
+      // — KV画像 —
+      const kvImg = clone.querySelector(".kv-thumb img");
+      if (kvImg && entryData.kv) {
+        kvImg.src = `../../../../images/key-visuals/2025/spring/${entryData.kv}.webp`;
+        kvImg.alt = `${entryData.title} key visual`;
       }
 
-      // WRPスコア
-      clone.querySelector(".wrp-score").innerHTML =
-        (entry.wrp_score ?? "–") + '<span class="wrp-score-unit">pt</span>';
+      // — トレンド —
+      const trendLabel = clone.querySelector(".trend-label");
+      const trendIcon  = clone.querySelector(".rank-trend img");
+      const lbl = (entryData.trend || "").toLowerCase();
+      const map = { re: "Re-entry" };
+      if (trendLabel && trendIcon) {
+        trendLabel.textContent = map[lbl] || entryData.trend;
+        trendIcon.src       = `../../../../images/trends/${lbl}-arrow.png`;
+        trendIcon.className = `trend-icon-${lbl}`;
+        trendIcon.alt       = `${entryData.trend} icon`;
+        trendIcon.onerror   = () => trendIcon.style.display = "none";
+      }
 
-      // スコア下部の大スコア
-      clone.querySelector(".score-number").textContent =
-        Math.floor(entry.wrp_score) || "–";
+      // — タイトル & 日本語タイトル —
+      clone.querySelector(".info-top").textContent   = entryData.title   || "";
+      clone.querySelector(".jp-title").textContent  = entryData.jpTitle || "";
 
-      // synopsis と more-info は空のままでOK
-      // もしくは後続で別JSが埋め込む
+      // — ジャンルタグ —
+      const genreBox = clone.querySelector(".genre-tags");
+      genreBox.innerHTML = "";
+      (entryData.genre || []).forEach(tag => {
+        const span = document.createElement("span");
+        span.className = "genre-tag";
+        span.textContent = tag;
+        genreBox.appendChild(span);
+      });
 
-      // 挿入
+      // — WRPスコア & スコア下部 —
+      const wrpEl = clone.querySelector(".wrp-score");
+      if (wrpEl) {
+        wrpEl.innerHTML = `${entryData.wrp_score}<span class="wrp-score-unit">pt</span>`;
+      }
+      clone.querySelector(".score-number")
+           .textContent = entryData.score ?? "-";
+
+      // — synopsis —
+      const synEl = clone.querySelector(".synopsis");
+      if (synEl) synEl.textContent = entryData.synopsis || "";
+
+      // — more-info —
+      const dl = clone.querySelector(".more-info dl");
+      if (dl) {
+        dl.innerHTML = `
+          <dt>Release Date</dt><dd>${entryData.release_date || ""}</dd>
+          <dt>Romanized Title</dt><dd>${entryData.romanized_title || ""}</dd>
+          <dt>Based On</dt><dd>${entryData.based_on || ""}</dd>
+          <dt>Studios</dt><dd>${entryData.studios || ""}</dd>
+          <dt>Creators</dt><dd>${entryData.creators || ""}</dd>
+          <dt>External Scores</dt><dd>${entryData.external_scores || ""}</dd>
+          <dt>Streaming Services</dt><dd>${entryData.streaming_services || ""}</dd>
+        `;
+      }
+
+      // — 最後に DOM に挿入 —
       container.appendChild(clone);
     });
   })
