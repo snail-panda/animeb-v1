@@ -231,15 +231,15 @@ if (wrpScoreEl) {
   }
 }
 
-		// — トータルスコア —
+		// — トータルスコア（構造完全再現）—
 const scoreEl = clone.querySelector(".score");
 if (scoreEl) {
-  const score = entryData.score ?? "-";
   scoreEl.innerHTML = `
-    <span class="score-number">${score}</span>
-    <span class="score-unit">pt</span>
+    <div class="score-number">${entryData.score ?? "-"}</div>
+    <div class="score-unit">pt</div>
   `;
 }
+
 
 
 
