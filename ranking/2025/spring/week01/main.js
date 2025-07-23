@@ -156,141 +156,126 @@ fetch(jsonPath)
     epRangeEl.textContent = `[${formatted}]`;
   }
 
-  // クローン作成埋込
+  // ============= phase 1: 構造だけ複製 ==============
   
-   const entries = data.entries;
-    const container = document.querySelector(".entry-container");
-    const template  = document.querySelector("#entry-template");
-    if (!container || !template) {
-      console.error("Missing .entry-container or #entry-template");
-      return;
-    }
+   const container = document.querySelector(".entry-container");
+const template = document.querySelector("#entry-template");
+const clones = [];
 
-    // ── 3. 既存のテンプレートをクローンして上書き ──
-    entries.forEach((entryData, i) => {
-      const clone = template.cloneNode(true);
-      clone.id = "";
-      clone.style.display = "";
-      clone.classList.add("entry");
+data.entries.forEach(() => {
+  const clone = template.cloneNode(true);
+  clone.id = "";
+  clone.style.display = "";
+  clone.classList.add("entry");
+  container.appendChild(clone);
+  clones.push(clone);
+});
 
-      // — ランク —
-      clone.querySelector(".rank-number")
-           .textContent = entryData.rank ?? "-";
+// ========== Phase 2: 情報だけ注入 ==========
+clones.forEach((clone, i) => {
+  const entryData = data.entries[i];
 
-      // — KV画像 —
-      const kvImg = clone.querySelector(".kv-thumb img");
-      if (kvImg && entryData.kv) {
-        kvImg.src = `../../../../images/key-visuals/2025/spring/${entryData.kv}.webp`;
-        kvImg.alt = `${entryData.title} key visual`;
-      }
+  // — ランク —
+  const rankEl = clone.querySelector(".rank-number");
+  if (rankEl) rankEl.textContent = entryData.rank ?? "-";
 
-      // — トレンド —
-      const trendLabel = clone.querySelector(".trend-label");
-      const trendIcon  = clone.querySelector(".rank-trend img");
-      const lbl = (entryData.trend || "").toLowerCase();
-      const map = { re: "Re-entry" };
-      if (trendLabel && trendIcon) {
-        trendLabel.textContent = map[lbl] || entryData.trend;
-        trendIcon.src       = `../../../../images/trends/${lbl}-arrow.png`;
-        trendIcon.className = `trend-icon-${lbl}`;
-        trendIcon.alt       = `${entryData.trend} icon`;
-        trendIcon.onerror   = () => trendIcon.style.display = "none";
-      }
+  // — KV画像 —
+  const kvImg = clone.querySelector(".kv-thumb img");
+  if (kvImg && entryData.kv) {
+    kvImg.src = `../../../../images/key-visuals/2025/spring/${entryData.kv}.webp`;
+    kvImg.alt = `${entryData.title} key visual`;
+  }
 
-      // — タイトル & 日本語タイトル —
-      clone.querySelector(".info-top").textContent   = entryData.title   || "";
-      clone.querySelector(".jp-title").textContent  = entryData.jpTitle || "";
+  // — トレンド —
+  const trendLabel = clone.querySelector(".trend-label");
+  const trendIcon = clone.querySelector(".rank-trend img");
+  const label = (entryData.trend || "").toLowerCase();
+  const labelMap = { re: "Re-entry" };
+  if (trendLabel && trendIcon) {
+    trendLabel.textContent = labelMap[label] || entryData.trend;
+    trendIcon.src = `../../../../images/trends/${label}-arrow.png`;
+    trendIcon.alt = `${entryData.trend} icon`;
+    trendIcon.onerror = () => trendIcon.style.display = "none";
+  }
 
-      // — ジャンルタグ —
-      const genreBox = clone.querySelector(".genre-tags");
-      genreBox.innerHTML = "";
-      (entryData.genre || []).forEach(tag => {
-        const span = document.createElement("span");
-        span.className = "genre-tag";
-        span.textContent = tag;
-        genreBox.appendChild(span);
-      });
-		   
-		// --- WRPスコアと Breakdown ポップアップ ---
-const wrpScoreEl = clone.querySelector(".wrp-score");
-if (wrpScoreEl) {
-  wrpScoreEl.innerHTML = `${entryData.wrp_score}<span class="wrp-score-unit">pt</span> <img src="../../../../images/badges/info-green.svg" width="8px">`;
+  // — タイトル＆日本語タイトル —
+  clone.querySelector(".info-top").textContent = entryData.title || "";
+  clone.querySelector(".jp-title").textContent = entryData.jpTitle || "";
 
-  const breakdown = Object.entries(entryData.wrp_breakdown || {})
-    .map(([key, val]) => `${titleCase(key.replace(/_/g, ' '))}: ${val}`)
-    .join('<br>');
+  // — ジャンルタグ —
+  const genreBox = clone.querySelector(".genre-tags");
+  genreBox.innerHTML = "";
+  (entryData.genre || []).forEach(tag => {
+    const span = document.createElement("span");
+    span.className = "genre-tag";
+    span.textContent = tag;
+    genreBox.appendChild(span);
+  });
 
-  const infoIcon = wrpScoreEl.querySelector("img");
-  if (infoIcon) {
-    infoIcon.addEventListener("click", function (e) {
+  // — WRPスコア & Breakdown —
+  const wrpEl = clone.querySelector(".wrp-score");
+  if (wrpEl) {
+    wrpEl.innerHTML = `${entryData.wrp_score}<span class="wrp-score-unit">pt</span> <img src="../../../../images/badges/info-green.svg" width="8px">`;
+
+    const breakdown = Object.entries(entryData.wrp_breakdown || {})
+      .map(([key, val]) => `${titleCase(key.replace(/_/g, " "))}: ${val}`)
+      .join("<br>");
+
+    wrpEl.querySelector("img").addEventListener("click", function (e) {
       e.stopPropagation();
       closeAll();
-      const popup = createPopup('WRP Breakdown:<br>' + breakdown, 'wrp-popup');
+      const popup = createPopup("WRP Breakdown:<br>" + breakdown, "wrp-popup");
       positionPopup(this, popup);
     });
   }
-}
-	
-	//トータルスコア
-	const scoreEl = clone.querySelector(".score");
-if (scoreEl) {
-  scoreEl.innerHTML = `
-    <div class="score-number">${entryData.score ?? "-"}</div>
-    <div class="score-unit">pt</div>
-  `;
-}
 
-
-
-
-      // — synopsis —
-      const synEl = clone.querySelector(".synopsis");
-      if (synEl) synEl.textContent = entryData.synopsis || "";
-
-      // — more-info —
-      const dl = clone.querySelector(".more-info dl");
-      if (dl) {
-        dl.innerHTML = `
-          <dt>Release Date</dt><dd>${entryData.release_date || ""}</dd>
-          <dt>Romanized Title</dt><dd>${entryData.romanized_title || ""}</dd>
-          <dt>Based On</dt><dd>${entryData.based_on || ""}</dd>
-          <dt>Studios</dt><dd>${entryData.studios || ""}</dd>
-          <dt>Creators</dt><dd>${entryData.creators || ""}</dd>
-          <dt>External Scores</dt><dd>${entryData.external_scores || ""}</dd>
-          <dt>Streaming Services</dt><dd>${entryData.streaming_services || ""}</dd>
-        `;
-      }
-
-		// --- REVIEW タグの追加処理 ---
-const collapseBtn = clone.querySelector(".collapse-btn");
-
-// 念のため既存 review-tag を削除（プレースホルダー残骸対応）
-const existingReview = clone.querySelector(".review-tag");
-if (existingReview) existingReview.remove();
-
-if (collapseBtn) {
-  const reviewTag = document.createElement("span");
-  reviewTag.className = "review-tag";
-
-  const reviewData = entryData.review;
-  if (reviewData && (reviewData.en?.trim() || reviewData.jp?.trim())) {
-    reviewTag.dataset.reviewEn = reviewData.en || "";
-    reviewTag.dataset.reviewJp = reviewData.jp || "";
-    reviewTag.dataset.lang = "en";
-    reviewTag.textContent = "Review";
-    reviewTag.style.display = "inline-block";
-  } else {
-    reviewTag.style.display = "none";
+  // — Totalスコア —
+  const scoreEl = clone.querySelector(".score");
+  if (scoreEl) {
+    scoreEl.innerHTML = `
+      <div class="score-number">${entryData.score ?? "-"}</div>
+      <div class="score-unit">pt</div>
+    `;
   }
 
-  collapseBtn.parentElement.appendChild(reviewTag);
-}
+  // — synopsis —
+  const synopsisBox = clone.querySelector(".synopsis");
+  if (synopsisBox) synopsisBox.textContent = entryData.synopsis || "";
 
+  // — More Info —
+  const dl = clone.querySelector(".more-info dl");
+  if (dl) {
+    dl.innerHTML = `
+      <dt>Release Date</dt><dd>${entryData.release_date || ""}</dd>
+      <dt>Romanized Title</dt><dd>${entryData.romanized_title || ""}</dd>
+      <dt>Based On</dt><dd>${entryData.based_on || ""}</dd>
+      <dt>Studios</dt><dd>${entryData.studios || ""}</dd>
+      <dt>Creators</dt><dd>${entryData.creators || ""}</dd>
+      <dt>External Scores</dt><dd>${entryData.external_scores || ""}</dd>
+      <dt>Streaming Services</dt><dd>${entryData.streaming_services || ""}</dd>
+    `;
+  }
 
-      // — 最後に DOM に挿入 —
-      container.appendChild(clone); // 最後の1クローン
+  // — Reviewボタン —
+  const collapseBtn = clone.querySelector(".collapse-btn");
+  if (collapseBtn) {
+    const reviewData = entryData.review;
+    const reviewTag = document.createElement("span");
+    reviewTag.className = "review-tag";
 
-    }); // ← ここで entries.forEach 閉じる（OK）
+    if (reviewData && (reviewData.en?.trim() || reviewData.jp?.trim())) {
+      reviewTag.dataset.reviewEn = reviewData.en || "";
+      reviewTag.dataset.reviewJp = reviewData.jp || "";
+      reviewTag.dataset.lang = "en";
+      reviewTag.textContent = "Review";
+      reviewTag.style.display = "inline-block";
+    } else {
+      reviewTag.style.display = "none";
+    }
+
+    collapseBtn.parentElement.appendChild(reviewTag);
+  }
+});
 	
 	// ✅ 必ず `.then(data => { ... })` の中にある必要がある
     updateWatchStatus(data.meta.status);
