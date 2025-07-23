@@ -210,14 +210,6 @@ fetch(jsonPath)
         span.textContent = tag;
         genreBox.appendChild(span);
       });
-
-      // — WRPスコア & スコア下部 —
-      const wrpEl = clone.querySelector(".wrp-score");
-      if (wrpEl) {
-        wrpEl.innerHTML = `${entryData.wrp_score}<span class="wrp-score-unit">pt</span>`;
-      }
-      clone.querySelector(".score-number")
-           .textContent = entryData.score ?? "-";
 		   
 		// --- WRPスコアと Breakdown ポップアップ ---
 const wrpScoreEl = clone.querySelector(".wrp-score");
