@@ -256,9 +256,13 @@ clones.forEach((clone, i) => {
     `;
   }
 
-  // — Reviewボタン —
+  // — Reviewボタン — 
   const collapseBtn = clone.querySelector(".collapse-btn");
   if (collapseBtn) {
+	  // ✅ 先に既存の review-tag を削除
+    const existingReview = clone.querySelector(".review-tag");
+    if (existingReview) existingReview.remove();
+	
     const reviewData = entryData.review;
     const reviewTag = document.createElement("span");
     reviewTag.className = "review-tag";
