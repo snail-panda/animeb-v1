@@ -631,6 +631,7 @@ document.addEventListener('click', (e) => {
 
   const entry = btn.closest('.entry');
   const moreInfo = entry.querySelector('.more-info');
+  const synopsisBox = entry.querySelector('.synopsis');  // ← ここ追加必要！
   //const synopsisBox = entry.querySelector('.synopsis-box'); // ← これを追加
 
   if (moreInfo) {
