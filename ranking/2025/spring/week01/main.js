@@ -234,6 +234,9 @@ if (wrpScoreEl) {
 		// — トータルスコア（構造完全再現）—
 const scoreEl = clone.querySelector(".score");
 if (scoreEl) {
+	 // 💡 リフロー強制（ここ！）
+  scoreEl.offsetHeight;
+  
   scoreEl.innerHTML = `
     <div class="score-number">${entryData.score ?? "-"}</div>
     <div class="score-unit">pt</div>
