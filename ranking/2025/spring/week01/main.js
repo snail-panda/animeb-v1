@@ -256,29 +256,30 @@ clones.forEach((clone, i) => {
     `;
   }
 
-  // — Reviewボタン — 
-  const collapseBtn = clone.querySelector(".collapse-btn");
-  if (collapseBtn) {
-	  // ✅ 先に既存の review-tag を削除
-    const existingReview = clone.querySelector(".review-tag");
-    if (existingReview) existingReview.remove();
-	
-    const reviewData = entryData.review;
-    const reviewTag = document.createElement("span");
-    reviewTag.className = "review-tag";
+  // — Reviewボタン —
+const reviewAnchor = clone.querySelector(".collapse-wrapper");
+if (reviewAnchor) {
+  // ✅ 既存の review-tag を削除（wrapper内から探す）
+  const existingReview = reviewAnchor.querySelector(".review-tag");
+  if (existingReview) existingReview.remove();
 
-    if (reviewData && (reviewData.en?.trim() || reviewData.jp?.trim())) {
-      reviewTag.dataset.reviewEn = reviewData.en || "";
-      reviewTag.dataset.reviewJp = reviewData.jp || "";
-      reviewTag.dataset.lang = "en";
-      reviewTag.textContent = "Review";
-      reviewTag.style.display = "inline-block";
-    } else {
-      reviewTag.style.display = "none";
-    }
+  const reviewData = entryData.review;
+  const reviewTag = document.createElement("span");
+  reviewTag.className = "review-tag";
 
-    collapseBtn.parentElement.appendChild(reviewTag);
+  if (reviewData && (reviewData.en?.trim() || reviewData.jp?.trim())) {
+    reviewTag.dataset.reviewEn = reviewData.en || "";
+    reviewTag.dataset.reviewJp = reviewData.jp || "";
+    reviewTag.dataset.lang = "en";
+    reviewTag.textContent = "Review";
+    reviewTag.style.display = "inline-block";
+  } else {
+    reviewTag.style.display = "none";
   }
+
+  reviewAnchor.appendChild(reviewTag);
+}
+
 });
 	
 	// ✅ 必ず `.then(data => { ... })` の中にある必要がある
