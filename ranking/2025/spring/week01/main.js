@@ -218,6 +218,27 @@ fetch(jsonPath)
       }
       clone.querySelector(".score-number")
            .textContent = entryData.score ?? "-";
+		   
+		// --- WRPスコアと Breakdown ポップアップ ---
+const wrpScoreEl = clone.querySelector(".wrp-score");
+if (wrpScoreEl) {
+  wrpScoreEl.innerHTML = `${entryData.wrp_score}<span class="wrp-score-unit">pt</span> <img src="../../../../images/badges/info-green.svg" width="8px">`;
+
+  const breakdown = Object.entries(entryData.wrp_breakdown || {})
+    .map(([key, val]) => `${titleCase(key.replace(/_/g, ' '))}: ${val}`)
+    .join('<br>');
+
+  const infoIcon = wrpScoreEl.querySelector("img");
+  if (infoIcon) {
+    infoIcon.addEventListener("click", function (e) {
+      e.stopPropagation();
+      closeAll();
+      const popup = createPopup('WRP Breakdown:<br>' + breakdown, 'wrp-popup');
+      positionPopup(this, popup);
+    });
+  }
+}
+
 
       // — synopsis —
       const synEl = clone.querySelector(".synopsis");
@@ -237,6 +258,32 @@ fetch(jsonPath)
         `;
       }
 
+		// --- REVIEW タグの追加処理 ---
+const collapseBtn = clone.querySelector(".collapse-btn");
+
+// 念のため既存 review-tag を削除（プレースホルダー残骸対応）
+const existingReview = clone.querySelector(".review-tag");
+if (existingReview) existingReview.remove();
+
+if (collapseBtn) {
+  const reviewTag = document.createElement("span");
+  reviewTag.className = "review-tag";
+
+  const reviewData = entryData.review;
+  if (reviewData && (reviewData.en?.trim() || reviewData.jp?.trim())) {
+    reviewTag.dataset.reviewEn = reviewData.en || "";
+    reviewTag.dataset.reviewJp = reviewData.jp || "";
+    reviewTag.dataset.lang = "en";
+    reviewTag.textContent = "Review";
+    reviewTag.style.display = "inline-block";
+  } else {
+    reviewTag.style.display = "none";
+  }
+
+  collapseBtn.parentElement.appendChild(reviewTag);
+}
+
+
       // — 最後に DOM に挿入 —
       container.appendChild(clone); // 最後の1クローン
 
@@ -254,6 +301,15 @@ fetch(jsonPath)
 .catch(error => {
   console.error(`❌ Fetch failed: ${error.message}`);
 });
+
+// 補助関数（forEach外に配置してOK）
+function titleCase(str) {
+  return str
+    .split(" ")
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(" ");
+}
+   
 
 
 // ========== ポップアップロジック（EN/JP切り替え: 閉じずに切替・ボタン制御追加） ==========
