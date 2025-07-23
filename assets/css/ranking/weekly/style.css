@@ -375,7 +375,7 @@ VIEWING STATUS ZONE
 
 /* とりあえず今はいらない */
 .entry-list .entry:last-of-type {
-  border-bottom: none !important; /*2px solid #999;8/* 最後のエントリーの下線を消す */
+  border-bottom: 1px solid #ccc; /* none !important; 2px #999; 最後のエントリーの下線を消す */
 }
 
 .rank-wrapper {
