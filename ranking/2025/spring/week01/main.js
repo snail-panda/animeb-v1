@@ -178,23 +178,30 @@ fetch(`ranking-${currentWeek}-spring2025.json`)
       clone.querySelector(".rank-number").textContent = entry.rank || "-";
 
       // トレンドアイコン
-      const trendImg = clone.querySelector(".trend-icon-up, .trend-icon-down");
-      const trendLabel = clone.querySelector(".trend-label");
-      if (entry.trend === "up") {
-        trendImg.src = "https://i.postimg.cc/x1bcfV04/trend-up-arrow01.png";
-        trendLabel.textContent = "UP";
-      } else if (entry.trend === "down") {
-        trendImg.src = "https://i.postimg.cc/x1bcfV04/trend-down-arrow01.png";
-        trendLabel.textContent = "DOWN";
-      } else {
-        trendImg.style.display = "none";
-        trendLabel.textContent = "";
-      }
+      const trendLabel = entry.querySelector('.trend-label');
+const trendIcon = entry.querySelector('.rank-trend img');
+const label = (entry.trend || "").toLowerCase();
+const labelTextMap = {
+  "re": "Re-entry"
+};
+
+if (trendLabel && trendIcon) {
+  trendLabel.textContent = labelTextMap[label] || entry.trend;
+  trendIcon.src = `../../../../images/trends/${label}-arrow.png`;
+  trendIcon.className = `trend-icon-${label}`;
+  trendIcon.alt = `${entry.trend} icon`;
+
+  trendIcon.onerror = () => trendIcon.style.display = 'none';
+}
+
 
       // キービジュアル
-      clone.querySelector(".kv-thumb img").src = entry.kv || "";
-      clone.querySelector(".kv-thumb img").alt = entry.title || "";
-      clone.querySelector(".title-ep").textContent = entry.episode || "";
+      const kvThumbEl = entry.querySelector('.kv-thumb img');
+if (kvThumbEl && entry.kv) {
+  kvThumbEl.src = `../../../../images/key-visuals/2025/spring/${entry.kv}.webp`;
+  kvThumbEl.alt = `${entry.title} key visual`;
+}
+
 
       // タイトル（英語・日本語）
       clone.querySelector(".info-top").textContent = entry.title || "";
