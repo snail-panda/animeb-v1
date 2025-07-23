@@ -231,6 +231,15 @@ if (wrpScoreEl) {
   }
 }
 
+		// — トータルスコア —
+const scoreEl = clone.querySelector(".score");
+if (scoreEl) {
+  scoreEl.innerHTML = `
+    <span class="score-number">${entryData.score ?? "-"}</span>
+    <span class="score-unit">pt</span>
+  `;
+}
+
 
       // — synopsis —
       const synEl = clone.querySelector(".synopsis");
