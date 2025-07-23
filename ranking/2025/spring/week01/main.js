@@ -231,15 +231,14 @@ if (wrpScoreEl) {
   }
 }
 
-		// Totalスコア更新
-    const scoreEl = el.querySelector('.score');
-    if (scoreEl) {
-      const scoreNumberEl = scoreEl.querySelector('.score-number');
-      const scoreUnitEl = scoreEl.querySelector('.score-unit');
-
-      if (scoreNumberEl) scoreNumberEl.textContent = entryData.score;
-      if (scoreUnitEl) scoreUnitEl.textContent = 'pt';  // ptは固定
-    }
+		// — トータルスコア —
+const scoreEl = clone.querySelector(".score");
+if (scoreEl) {
+  scoreEl.innerHTML = `
+    <span class="score-number">${entryData.score ?? "-"}</span>
+    <span class="score-unit">pt</span>
+  `;
+}
 
 
       // — synopsis —
