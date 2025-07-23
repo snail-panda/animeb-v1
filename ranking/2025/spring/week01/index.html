@@ -498,6 +498,11 @@ const pathSegments = window.location.pathname.split('/');
   const currentWeek = pathSegments[pathSegments.length - 2]; // e.g., "week01"
   const season = pathSegments[pathSegments.length - 3];      // e.g., "spring"
   const year = pathSegments[pathSegments.length - 4];        // e.g., "2025"
+  
+  window.currentWeek = currentWeek;
+  window.season = season;
+  window.year = year;
+  
   const weekNum = parseInt(currentWeek.replace("week", ""), 10);
 
   const prevWeek = weekNum > 1 ? `week${String(weekNum - 1).padStart(2, '0')}` : null;
