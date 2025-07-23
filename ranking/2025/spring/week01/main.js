@@ -158,7 +158,7 @@ fetch(jsonPath)
 
   // ============= phase 1: 構造だけ複製 ==============
   
-   const container = document.querySelector(".entry-container");
+   const container = document.querySelector(".entry-list");
 const template = document.querySelector("#entry-template");
 const clones = [];
 
