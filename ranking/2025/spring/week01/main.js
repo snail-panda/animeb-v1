@@ -175,6 +175,32 @@ clones.forEach((clone, i) => {
   // — ランク —
   const rankEl = clone.querySelector(".rank-number");
   if (rankEl) rankEl.textContent = entryData.rank ?? "-";
+  
+  // — ランク画像（1位〜3位） —
+const rankNum = Number(entryData.rank);
+const rankTop = clone.querySelector(".rank-top");
+
+if (rankTop) {
+  // すでに入ってる画像（仮の <img>）を削除
+  const oldImg = rankTop.querySelector("img");
+  if (oldImg) oldImg.remove();
+
+  // 1〜3位に応じた画像とクラス名を定義
+  const rankAssets = {
+    1: { src: "cupcake.png", class: "crown-gold" },
+    2: { src: "beer.png", class: "crown-silver" },
+    3: { src: "rose.png", class: "crown-bronze" }
+  };
+
+  if (rankAssets[rankNum]) {
+    const img = document.createElement("img");
+    img.className = rankAssets[rankNum].class;
+    img.src = `../../../../images/badges/${rankAssets[rankNum].src}`;
+    img.alt = `Rank ${rankNum}`;
+    rankTop.prepend(img); // imgを先頭に追加（rank-numberの前）
+  }
+}
+
 
   // — KV画像 —
   const kvImg = clone.querySelector(".kv-thumb img");
