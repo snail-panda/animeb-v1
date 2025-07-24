@@ -278,6 +278,35 @@ if (typeof rankVal === "number" && rankVal > 3) {
   if (wrpEl) {
     wrpEl.innerHTML = `${entryData.wrp_score}<span class="wrp-score-unit">pt</span> <img src="../../../../images/badges/info-green.svg" width="8px">`;
 
+  // Final Week 専用: key_elements_breakdown がある場合
+  const keyBreakdown = entryData.key_elements_breakdown;
+  if (keyBreakdown) {
+    const keyLabelMap = {
+      op: 'Opening',
+      ed: 'Ending',
+      acting: 'Voice Acting',
+      'sound/music': 'Sound / Music',
+      'consistency/impact': 'Consistency / Impact',
+      overall: 'Overall',
+      total: 'Total'
+    };
+
+    const breakdown = Object.entries(keyBreakdown).map(([key, val]) => {
+      const label = keyLabelMap[key] || titleCase(key.replace(/_/g, ' '));
+      return `${label}: ${val}`;
+    }).join('<br>');
+
+    wrpScoreEl.querySelector('img').addEventListener('click', function(e) {
+      e.stopPropagation();
+      closeAll();
+      const popup = createPopup('Key elements breakdown:<br>' + breakdown, 'wrp-popup');
+      positionPopup(this, popup);
+    });
+
+  
+  
+  } else if (entryData.wrp_breakdown) {
+  // 通常の WRP Breakdown をそのまま使う  
     const breakdown = Object.entries(entryData.wrp_breakdown || {})
       .map(([key, val]) => `${titleCase(key.replace(/_/g, " "))}: ${val}`)
       .join("<br>");
@@ -542,6 +571,18 @@ adjustPopupPadding(popup); // ←💡追加！
 
   // documentクリック時にだけ閉じるように（popup内部のクリックでは閉じない）
   document.addEventListener('click', () => closeAll());
+}
+
+// ========== Helper Functions ==========
+// titleCase関数（Final Weekのラベル整形に使用）
+function titleCase(str) {
+  if (!str || typeof str !== 'string') return '';
+  return str
+    .split(/([\/\-\s])/g)
+    .map(part => /^[a-zA-Z]/.test(part)
+      ? part.charAt(0).toUpperCase() + part.slice(1)
+      : part)
+    .join('');
 }
 
 
