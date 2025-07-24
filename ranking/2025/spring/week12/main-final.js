@@ -94,6 +94,8 @@ fetch(jsonPath)
     // メタ情報更新
     // ✅ WEEK を完全全大文字表示に変更
     const weekEl = document.querySelector('.week-title');
+    const subHeader = document.querySelector('.sub-header');
+
 
 if (weekEl && data.meta.week) {
   const weekText = data.meta.week.toUpperCase();
