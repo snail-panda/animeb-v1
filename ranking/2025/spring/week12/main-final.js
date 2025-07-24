@@ -320,13 +320,14 @@ if (typeof rankVal === "number" && rankVal > 3) {
   }
   }
   // — Totalスコア —
-  const scoreEl = clone.querySelector(".score");
-  if (scoreEl) {
-    scoreEl.innerHTML = `
-      <div class="score-number">${entryData.score ?? "-"}</div>
-      <div class="score-unit">pt</div>
-    `;
-  }
+const scoreEl = clone.querySelector(".score");
+if (scoreEl) {
+  const scoreValue = entryData.score ?? entryData.overall_rating ?? "-";
+  scoreEl.innerHTML = `
+    <div class="score-number">${scoreValue}</div>
+    <div class="score-unit">pt</div>
+  `;
+}
 
   // — synopsis —
   const synopsisBox = clone.querySelector(".synopsis");
