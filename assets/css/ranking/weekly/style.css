@@ -220,7 +220,7 @@ VIEWING STATUS ZONE
   width: auto;
   background-size: 100% 100%; /* or contain, cover */
   position: relative;
-  top: 0.5px;              /* 必要に応じて -1px 〜 0px の間で微調整 */
+  top: 0px;              /* 必要に応じて -1px 〜 0px の間で微調整 */
 }
 
 .icon-drop {
