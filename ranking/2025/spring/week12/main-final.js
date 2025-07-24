@@ -370,7 +370,7 @@ if (reviewAnchor) {
   reviewAnchor.appendChild(reviewTag);
 }
 
-}
+});  // ← ✅ ← ← ← これが `.forEach()` の閉じ（今 Missing です！）
 	
 	// ✅ 必ず `.then(data => { ... })` の中にある必要がある
     updateWatchStatus(data.meta.status);
@@ -393,7 +393,7 @@ if (topHeader && Array.isArray(data.entries)) {
 
 	
 	
-	 })  // ← fetch().then(data => { ... }) の閉じ
+  })  // ← fetch().then(data => { ... }) の閉じ
 
 .catch(error => {
   console.error(`❌ Fetch failed: ${error.message}`);
