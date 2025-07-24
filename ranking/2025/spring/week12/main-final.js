@@ -100,6 +100,10 @@ fetch(jsonPath)
 
 if (weekEl && data.meta.week) {
   const weekText = data.meta.week.toUpperCase();
+
+  // ✅ 👇 ここに追加すればバッチリ
+  console.log("🪪 Week text:", weekText);
+
   weekEl.textContent = weekText;
 
   // クラスのリセットと付け直し
