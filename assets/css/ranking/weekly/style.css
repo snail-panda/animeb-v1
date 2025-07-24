@@ -1269,3 +1269,13 @@ VIEWING STATUS ZONE
     padding: 0.5rem; /* スマホ用のパディング */
   } 
 }
+
+@media screen and (max-width: 480px) {
+  .popup {
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    right: auto !important;
+    max-width: 90vw;
+    box-sizing: border-box;
+  }
+}
