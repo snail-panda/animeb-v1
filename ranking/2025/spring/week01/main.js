@@ -177,6 +177,11 @@ const rankEl = clone.querySelector(".rank-number");
 const rankTop = clone.querySelector(".rank-top");
 const rankVal = entryData.rank;
 
+// すでに入ってる画像（仮の <img>）を削除
+  if (rankTop) {
+    const oldImg = rankTop.querySelector("img");
+    if (oldImg) oldImg.remove();
+
 // 数値ランク（1〜3）1〜3位に応じた画像とクラス名を定義
 if (typeof rankVal === "number" && [1, 2, 3].includes(rankVal)) {
   const badgeMap = {
@@ -187,10 +192,6 @@ if (typeof rankVal === "number" && [1, 2, 3].includes(rankVal)) {
   const badge = badgeMap[rankVal];
 
 
-// すでに入ってる画像（仮の <img>）を削除
-  if (rankTop) {
-    const oldImg = rankTop.querySelector("img");
-    if (oldImg) oldImg.remove();
 
     const img = document.createElement("img");
     img.src = `../../../../images/badges/${badge.src}`;
