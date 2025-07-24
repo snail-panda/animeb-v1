@@ -318,7 +318,7 @@ if (typeof rankVal === "number" && rankVal > 3) {
       positionPopup(this, popup);
     });
   }
-
+  }
   // — Totalスコア —
   const scoreEl = clone.querySelector(".score");
   if (scoreEl) {
@@ -370,9 +370,9 @@ if (reviewAnchor) {
   reviewAnchor.appendChild(reviewTag);
 }
 
-});  // ← ✅ ← ← ← これが `.forEach()` の閉じ（今 Missing です！）
-	
-	// ✅ 必ず `.then(data => { ... })` の中にある必要がある
+}); // ← ✅ ← ← ← これが `.forEach()` の閉じ
+
+  // ✅ 必ず `.then(data => { ... })` の中にある必要がある
     updateWatchStatus(data.meta.status);
     adjustScoreBars();
     setTimeout(() => {
