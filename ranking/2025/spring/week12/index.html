@@ -1231,8 +1231,14 @@ Therefore, certain scoring details and internal logic are intentionally withheld
   const pathSegments = window.location.pathname.split('/');
   const currentWeek = pathSegments[pathSegments.length - 2]; // e.g., "week01"
   const season = pathSegments[pathSegments.length - 3];      // e.g., "spring"
-  const year = pathSegments[pathSegments.length - 4];        // e.g., "2025"
+  const year = pathSegments[pathSegments.length - 4];        // e.g., "2025"  
   const weekNum = parseInt(currentWeek.replace("week", ""), 10);
+  
+  // ── 追加：main.js からも参照できるようグローバル公開 ──
+  window.currentWeek = currentWeek;
+  window.season      = season;
+  window.year        = year;
+  window.weekNum     = weekNum;
 
   const prevWeek = weekNum > 1 ? `week${String(weekNum - 1).padStart(2, '0')}` : null;
   const nextWeek = weekNum < 12 ? `week${String(weekNum + 1).padStart(2, '0')}` : null;
