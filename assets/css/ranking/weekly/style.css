@@ -1275,8 +1275,8 @@ VIEWING STATUS ZONE
     left: 50% !important;
     transform: translateX(-50%) !important;
     right: auto !important;
-    width: 96vw;
-    max-width: 96vw;
+    width: 80vw;
+    max-width: 90vw;
     box-sizing: border-box;
   }
 }
