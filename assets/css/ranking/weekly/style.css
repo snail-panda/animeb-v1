@@ -58,6 +58,11 @@ body {
 .week-title.final {
   color: #882D6B;
 }
+
+.week-title.mid {
+  color: #f39c12; /* 折り返し（橙） */
+}
+
 .week-title.normal {
   color: #8E2222;
 }
