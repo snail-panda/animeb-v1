@@ -376,7 +376,7 @@ function titleCase(str) {
 
 //  positionPopup()（スマホ右端補正つきバージョン）
 function positionPopup(trigger, popup) {
-  // 一時的に見える状態に（ただし画面外）
+  // 一時的に表示してサイズ測定
   popup.style.visibility = 'hidden';
   popup.style.display = 'block';
 
@@ -387,16 +387,17 @@ function positionPopup(trigger, popup) {
   const popupWidth = popup.offsetWidth;
   const screenWidth = window.innerWidth;
 
-  // はみ出しを防ぐ
-  const overflowRight = left + popupWidth - screenWidth;
-  if (overflowRight > 0) {
-    left = Math.max(10, left - overflowRight - 8);
+  // ✅ 右端から12px余白を設ける
+  const maxRight = screenWidth - 12;
+  const overflow = left + popupWidth - maxRight;
+  if (overflow > 0) {
+    left = Math.max(10, left - overflow);
   }
 
   popup.style.top = `${top}px`;
   popup.style.left = `${left}px`;
 
-  // 表示を戻す
+  // 元に戻す
   popup.style.display = '';
   popup.style.visibility = '';
 }
