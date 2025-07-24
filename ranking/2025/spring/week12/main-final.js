@@ -37,10 +37,60 @@ function adjustScoreBars() {
   });
 }
 
+// ── 1. JSON ファイル名を動的に組み立て ──
+const jsonPath = `ranking-${window.currentWeek}-spring${window.year}.json`;
+
+
 // ========== JSON読み込み & DOM更新 ==========
-fetch(`ranking-${currentWeek}-spring2025.json`)
-  .then(response => response.json())
-  .then(data => {
+fetch(jsonPath)
+  .then(response => {
+    console.log(`🔍 Response status: ${response.status}`);
+    if (!response.ok) throw new Error("Fetch failed");
+    return response.json();
+  })
+.then(data => {
+
+  console.log(`✅ Successfully fetched: ranking-${currentWeek}-spring2025.json`);
+  // ここから通常処理
+
+  // ✅ ← この位置のすぐ下に追加してOK！
+
+    // ========== WATCH STATUS を反映 ==========
+    function updateWatchStatus(metaStatus) {
+      if (!metaStatus) return;
+
+      const labelMap = {
+        watching: 'Watching',
+        droppedThisWeek: 'Dropped',
+        droppedTotal: 'Total dropped',
+        noAir: 'NoAir'
+      };
+
+      document.querySelectorAll('.watch-status .ws-item').forEach(item => {
+  const key = item.dataset.tooltip;
+  const label = labelMap[key];
+  const count = metaStatus[key];
+  const target = item.querySelector('.view-count'); // ← 明示的にここだけ書き換える
+  if (target && count !== undefined) {
+    target.textContent = `${label}:${count}`;
+  }
+});
+    }
+
+    // ========== パネル開閉トグル ==========
+(function initWatchPanel(){            // IIFEで1回だけ実行
+  const toggle = document.querySelector('.ws-toggle');
+  const panel  = document.querySelector('.ws-panel');
+  if (!toggle || !panel) return;
+
+  toggle.addEventListener('click', () => {
+    const open = toggle.getAttribute('aria-expanded') === 'true';
+    toggle.setAttribute('aria-expanded', !open);
+    panel.hidden = open;               // true→非表示
+    panel.classList.toggle('open', !open);
+  });
+})();
+
     // メタ情報更新
     document.querySelector('.week-title').textContent = data.meta.week;
     document.querySelector('.season-title').textContent = data.meta.season;
@@ -110,158 +160,174 @@ if (epRangeEl && data.meta.ep_range) {
 }
 
 
-    // エントリー取得
-    const entryElements = document.querySelectorAll('.entry');
+    // ============= phase 1: 構造だけ複製 ==============
+const container = document.querySelector(".entry-list");
+const template = document.querySelector("#entry-template .entry"); // ← ここで .entry を取得
+const clones = [];
 
-    data.entries.forEach((entryData, index) => {
-      const el = entryElements[index];
-      if (!el) return;
+data.entries.forEach(() => {
+  const clone = template.cloneNode(true);
+  container.appendChild(clone);
+  clones.push(clone);
+});
 
-    // タイトル更新
-const infoTopEl = el.querySelector('.info-top');
-if (infoTopEl) {
-  // 中身を一度クリア
-  infoTopEl.textContent = "";
 
-  // 英語タイトル
-  const enTitle = document.createTextNode(entryData.title || "");
-  infoTopEl.appendChild(enTitle);
+// ========== Phase 2: 情報だけ注入 ==========
+clones.forEach((clone, i) => {
+  const entryData = data.entries[i];
 
-  // エピソード
-  const kvThumbBox = el.querySelector('.kv-thumb');
-if (kvThumbBox) {
-  const epBox = document.createElement("div");
-  epBox.className = "title-ep";  // ← 既存のclassをそのまま使う場合
-  epBox.textContent = `Ep.${entryData.episode || ""}`;
-  kvThumbBox.appendChild(epBox);
+  // — ランク —
+const rankEl = clone.querySelector(".rank-number");
+const rankTop = clone.querySelector(".rank-top");
+const rankVal = entryData.rank;
+
+// 既に入っている画像の削除は rank-top / rank-number 両方試みる
+if (rankTop) {
+  const oldImgTop = rankTop.querySelector("img");
+  if (oldImgTop) oldImgTop.remove();
+}
+if (rankEl) {
+  const oldImgInNumber = rankEl.querySelector("img");
+  if (oldImgInNumber) oldImgInNumber.remove();
 }
 
+// 数値ランク（1〜3）1〜3位に応じた画像とクラス名を定義
+if (typeof rankVal === "number" && [1, 2, 3].includes(rankVal)) {
+  const badgeMap = {
+    1: { src: "cupcake.png", class: "crown-gold" },
+    2: { src: "beer.png", class: "crown-silver" },
+    3: { src: "rose.png", class: "crown-bronze" },
+  };
+  const badge = badgeMap[rankVal];
 
-  // 日本語タイトル 既存の日本語タイトルを上書き
- const jpTitleEl = el.querySelector('.jp-title');
-  if (jpTitleEl) {
-    jpTitleEl.textContent = entryData.jpTitle || "";
+
+if (rankTop) {
+    const img = document.createElement("img");
+    img.src = `../../../../images/badges/${badge.src}`;
+    img.className = badge.class;
+    img.alt = `Rank ${rankVal}`;
+    rankTop.prepend(img);
   }
 
+  if (rankEl) rankEl.textContent = String(rankVal);
+}
 
-// ========== KV画像更新 ==========
+// スペシャルランクバッジ（spotlight, editor's pick, dookie）
+if (typeof rankVal === "string") {
+  const key = rankVal.toLowerCase();
+  const specialMap = {
+    "spotlight":     { src: "spotlight.png",     class: "light" },
+    "editor's pick": { src: "editorspick.png",   class: "editor-pick" },
+    "dookie":        { src: "dookie.png",        class: "dookie-skull" },
+  };
 
-const kvThumbEl = el.querySelector('.kv-thumb img');
-if (kvThumbEl && entryData.kv) {
-  kvThumbEl.src = `../../../../images/key-visuals/2025/spring/${entryData.kv}.webp`;
-  kvThumbEl.alt = `${entryData.title} key visual`;
+  if (specialMap[key] && rankEl) {
+    const { src, class: cls } = specialMap[key];
+
+    const img = document.createElement("img");
+    img.src = `../../../../images/badges/${src}`;
+    img.className = cls;
+    img.alt = key;
+    rankEl.innerHTML = ""; // 数字を消す
+    rankEl.appendChild(img); // 画像は rank-number に入れる（数字の代替）
+  }
+}
+
+// 通常ランク（4位以降の数値）
+if (typeof rankVal === "number" && rankVal > 3) {
+  if (rankEl) rankEl.textContent = String(rankVal);
 }
 
 
 
-      // トレンド情報更新
-      const trendLabel = el.querySelector('.trend-label');
-      const trendIcon = el.querySelector('.rank-trend img');
-      const label = entryData.trend.toLowerCase();
-      const labelTextMap = {
-        "re": "Re-entry"
-      };
-      if (trendLabel && trendIcon) {
-        trendLabel.textContent = labelTextMap[label] || entryData.trend;
-        trendIcon.src = `../../../../images/trends/${label}-arrow.png`;
-        trendIcon.className = `trend-icon-${label}`;
-        trendIcon.alt = `${entryData.trend} icon`;
-
-
-        // 🔽 この行を追加するだけでOK！
-trendIcon.onerror = () => trendIcon.style.display = 'none';
-
-      }
-
-     // WRPスコア更新完全統合 (titleCase版・最終確定版)
-const wrpScoreEl = el.querySelector('.wrp-score');
-if (wrpScoreEl) {
-  wrpScoreEl.innerHTML = `${entryData.wrp_score}<span class="wrp-score-unit">pt</span> <img src="../../../../images/badges/info-green.svg" width="8px">`;
-
-  // Breakdown内容も事前加工
-  const keyLabelMap = {
-  op: 'Opening',
-  ed: 'Ending',
-  acting: 'Voice Acting',
-  'sound/music': 'Sound / Music',
-  'consistency/impact': 'Consistency / Impact',
-  overall: 'Overall',
-  total: 'Total'
-};
-
-const breakdown = Object.entries(entryData.key_elements_breakdown || {})
-  .map(([key, val]) => {
-    const label = keyLabelMap[key] || titleCase(key.replace(/_/g, ' '));
-    return `${label}: ${val}`;
-  })
-  .join('<br>');
-
-
-  wrpScoreEl.querySelector('img').addEventListener('click', function(e) {
-    e.stopPropagation();
-    closeAll();
-    const popup = createPopup('Key elements breakdown:<br>' + breakdown, 'wrp-popup');
-    positionPopup(this, popup);
-  });
-}
-
-// titleCase関数（新規追加分・これをJSの関数群に加える）
-function titleCase(str) {
-  if (!str || typeof str !== 'string') return '';
-  return str
-    .split(/([\/\-\s])/g)  // スラッシュ・ハイフン・スペースを保持しながら分割
-    .map(part => /^[a-zA-Z]/.test(part) ? part.charAt(0).toUpperCase() + part.slice(1) : part)
-    .join('');
-}
-
-
-
-
-      // Totalスコア更新
-      const scoreEl = el.querySelector('.score');
-if (scoreEl) {
-  const scoreNumberEl = scoreEl.querySelector('.score-number');
-  const scoreUnitEl = scoreEl.querySelector('.score-unit');
-
- if (scoreNumberEl) scoreNumberEl.textContent = entryData.overall_rating ?? "";
-  if (scoreUnitEl) scoreUnitEl.textContent = 'pt';  // ptは固定
-}
-
-
-// more-info <dl> の更新
-const moreInfoDl = el.querySelector('.more-info dl');
-if (moreInfoDl) {
-  moreInfoDl.innerHTML = `
-    <dt>Romanized Title</dt><dd>${entryData.romanized_title || ""}</dd>
-    <dt>Release Date</dt><dd>${formatReleaseDates(entryData.release_date || "")}</dd>
-    <dt>Based On</dt><dd>${entryData.based_on || ""}</dd>
-    <dt>Studios</dt><dd>${entryData.studios || ""}</dd>
-    <dt>Creators</dt><dd>${entryData.creators || ""}</dd>
-    <dt>External Scores</dt><dd>${entryData.external_scores || ""}</dd>
-    <dt>Streaming Services</dt><dd>${entryData.streaming_services || ""}</dd>
-  `;
-}
-
-// synopsis の開閉も一緒に制御するために
-const collapseBtn = el.querySelector(".collapse-btn");
-if (collapseBtn) {
-  collapseBtn.addEventListener("click", () => {
-    const synopsisBox = el.querySelector(".synopsis");
-    if (synopsisBox) {
-      synopsisBox.classList.toggle("active");
-    }
-  });
-
-// 既存の review-tag を削除しておく（念のため）
-  const existingReviewTag = el.querySelector('.review-tag');
-  if (existingReviewTag) {
-    existingReviewTag.remove();
+  // — KV画像 —
+  const kvImg = clone.querySelector(".kv-thumb img");
+  if (kvImg && entryData.kv) {
+    kvImg.src = `../../../../images/key-visuals/2025/spring/${entryData.kv}.webp`;
+    kvImg.alt = `${entryData.title} key visual`;
   }
 
-      // Review ボタン ✅ collapseBtn が使える状態で Review ボタンを追加
+  // — トレンド —
+  const trendLabel = clone.querySelector(".trend-label");
+  const trendIcon = clone.querySelector(".rank-trend img");
+  const label = (entryData.trend || "").toLowerCase();
+  const labelMap = { re: "Re-entry" };
+  if (trendLabel && trendIcon) {
+    trendLabel.textContent = labelMap[label] || entryData.trend;
+    trendIcon.src = `../../../../images/trends/${label}-arrow.png`;
+    trendIcon.alt = `${entryData.trend} icon`;
+    trendIcon.onerror = () => trendIcon.style.display = "none";
+  }
+
+  // — タイトル＆日本語タイトル —
+  clone.querySelector(".info-top").textContent = entryData.title || "";
+  clone.querySelector(".jp-title").textContent = entryData.jpTitle || "";
+
+  // — ジャンルタグ —
+  const genreBox = clone.querySelector(".genre-tags");
+  genreBox.innerHTML = "";
+  (entryData.genre || []).forEach(tag => {
+    const span = document.createElement("span");
+    span.className = "genre-tag";
+    span.textContent = tag;
+    genreBox.appendChild(span);
+  });
+
+  // — WRPスコア & Breakdown —
+  const wrpEl = clone.querySelector(".wrp-score");
+  if (wrpEl) {
+    wrpEl.innerHTML = `${entryData.wrp_score}<span class="wrp-score-unit">pt</span> <img src="../../../../images/badges/info-green.svg" width="8px">`;
+
+    const breakdown = Object.entries(entryData.wrp_breakdown || {})
+      .map(([key, val]) => `${titleCase(key.replace(/_/g, " "))}: ${val}`)
+      .join("<br>");
+
+    wrpEl.querySelector("img").addEventListener("click", function (e) {
+      e.stopPropagation();
+      closeAll();
+      const popup = createPopup("WRP Breakdown:<br>" + breakdown, "wrp-popup");
+      positionPopup(this, popup);
+    });
+  }
+
+  // — Totalスコア —
+  const scoreEl = clone.querySelector(".score");
+  if (scoreEl) {
+    scoreEl.innerHTML = `
+      <div class="score-number">${entryData.score ?? "-"}</div>
+      <div class="score-unit">pt</div>
+    `;
+  }
+
+  // — synopsis —
+  const synopsisBox = clone.querySelector(".synopsis");
+  if (synopsisBox) synopsisBox.textContent = entryData.synopsis || "";
+
+  // — More Info —
+  const dl = clone.querySelector(".more-info dl");
+  if (dl) {
+    dl.innerHTML = `
+      <dt>Release Date</dt><dd>${entryData.release_date || ""}</dd>
+      <dt>Romanized Title</dt><dd>${entryData.romanized_title || ""}</dd>
+      <dt>Based On</dt><dd>${entryData.based_on || ""}</dd>
+      <dt>Studios</dt><dd>${entryData.studios || ""}</dd>
+      <dt>Creators</dt><dd>${entryData.creators || ""}</dd>
+      <dt>External Scores</dt><dd>${entryData.external_scores || ""}</dd>
+      <dt>Streaming Services</dt><dd>${entryData.streaming_services || ""}</dd>
+    `;
+  }
+
+  // — Reviewボタン —
+const reviewAnchor = clone.querySelector(".collapse-wrapper");
+if (reviewAnchor) {
+  // ✅ 既存の review-tag を削除（wrapper内から探す）
+  const existingReview = reviewAnchor.querySelector(".review-tag");
+  if (existingReview) existingReview.remove();
+
+  const reviewData = entryData.review;
   const reviewTag = document.createElement("span");
   reviewTag.className = "review-tag";
-  const reviewData = entryData.review;
+
   if (reviewData && (reviewData.en?.trim() || reviewData.jp?.trim())) {
     reviewTag.dataset.reviewEn = reviewData.en || "";
     reviewTag.dataset.reviewJp = reviewData.jp || "";
@@ -272,45 +338,80 @@ if (collapseBtn) {
     reviewTag.style.display = "none";
   }
 
-  collapseBtn.parentElement.appendChild(reviewTag);
+  reviewAnchor.appendChild(reviewTag);
 }
 
-    }
-
-// 👇ここに追加
-const synopsisBox = el.querySelector(".synopsis");
-if (synopsisBox) {
-  synopsisBox.textContent = entryData.synopsis || "";
-}
-
-
-
-// ジャンラーの更新
-const genreTagsEl = el.querySelector('.genre-tags');
-if (genreTagsEl && entryData.genre) {
-  genreTagsEl.innerHTML = "";  // 既存タグをクリア
-  entryData.genre.forEach(g => {
-    const tag = document.createElement('span');
-    tag.className = 'genre-tag';
-    tag.textContent = g;
-    genreTagsEl.appendChild(tag);
-  });
-}
-
-
-    });
-
-    // 全ての更新が終わったあとにバー描画
+});
+	
+	// ✅ 必ず `.then(data => { ... })` の中にある必要がある
+    updateWatchStatus(data.meta.status);
     adjustScoreBars();
+    setTimeout(() => {
+      setupPopups();
+    }, 0); // 🔁 DOMが確実に構築されてからイベントをバインド
+	
+	// ✅ TOP 数字の書き換え処理
+const topHeader = document.querySelector(".header h1");
 
-    // イベントリスナー登録
-  setTimeout(() => {
-    setupPopups();
-  }, 0);  // 🔁 DOMが確実に構築されてからイベントをバインド
-})
+if (topHeader && Array.isArray(data.entries)) {
+  // 数値 rank だけを抽出・カウント
+  const numericRanks = data.entries.filter(e => typeof e.rank === "number");
+  const topCount = numericRanks.length;
+
+  // "TOP"の後ろに数字を差し込む形で置換
+  topHeader.textContent = `TOP${topCount}`;
+}
+
+	
+	
+	 })  // ← fetch().then(data => { ... }) の閉じ
+
 .catch(error => {
   console.error(`❌ Fetch failed: ${error.message}`);
 });
+
+// 補助関数（forEach外に配置してOK）
+function titleCase(str) {
+  return str
+    .split(" ")
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(" ");
+}
+
+//  positionPopup()（スマホ右端補正つきバージョン）
+function positionPopup(trigger, popup) {
+  // 一時的に表示してサイズ測定
+  popup.style.visibility = 'hidden';
+  popup.style.display = 'block';
+
+  const rect = trigger.getBoundingClientRect();
+  const top = rect.top + window.scrollY + 30;
+  const popupWidth = popup.offsetWidth;
+  const screenWidth = window.innerWidth;
+
+  let left;
+
+  if (screenWidth <= 480) {
+    // ✅ スマホだけ中央に表示（表示幅が480px以下）
+    left = window.scrollX + (screenWidth - popupWidth) / 2;
+  } else {
+    // 通常の表示（レビューボタンの横）
+    left = rect.left + window.scrollX;
+
+    // 画面右端を超えないように調整
+    const overflow = left + popupWidth - screenWidth;
+    if (overflow > 0) {
+      left = Math.max(10, left - overflow - 12);
+    }
+  }
+
+  popup.style.top = `${top}px`;
+  popup.style.left = `${left}px`;
+
+  // 表示復元
+  popup.style.display = '';
+  popup.style.visibility = '';
+}
 
 
 // ========== ポップアップロジック（EN/JP切り替え: 閉じずに切替・ボタン制御追加） ==========
@@ -640,6 +741,7 @@ document.addEventListener('click', (e) => {
 
   const entry = btn.closest('.entry');
   const moreInfo = entry.querySelector('.more-info');
+  const synopsisBox = entry.querySelector('.synopsis');  // ← ここ追加必要！
 
   if (moreInfo) {
     moreInfo.classList.toggle('active');
@@ -655,6 +757,104 @@ document.addEventListener('click', (e) => {
   }
 
 });
+
+// ==============================
+// Info-trigger hover/tap popups
+// ==============================
+
+const infoMap = {
+  wrp: `
+    <strong>What’s WRP?</strong>
+    <ul style="margin-top: 4px; padding-left: 18px;">
+      <li><strong>WRP</strong> (Weekly Ranking Point) is a combined score reflecting how satisfying and well-executed an anime episode was <em>within its week</em>.</li>
+      <li>It balances technical quality (like animation, script, direction) with overall enjoyment.</li>
+      <li>It shows how well the episode performed both <em>on its own terms</em> and <em>compared to others airing that week</em>.</li>
+    </ul>
+    <p style="margin-top: 6px;"><strong>Note:</strong> It’s not an absolute score, but a contextual evaluation — it shifts based on the week’s landscape and relative enjoyment.</p>
+    <p style="margin-top: 4px; font-style: italic;">For more, scroll to the bottom.</p>
+  `,
+   total: `
+  <strong>What’s the Total Score?</strong>
+  <ul style="margin-top: 4px; padding-left: 18px;">
+    <li>Total Score is a simplified, rounded version of the weekly WRP values.</li>
+    <li>Each week’s WRP is typically rounded <strong>down</strong> to the nearest integer.</li>
+    <li><strong>Exception:</strong> Scores from <strong>9.50 to 9.99</strong> are treated as <strong>10</strong>, and <strong>10.00+</strong> becomes <strong>11</strong>.</li>
+  </ul>
+  <p style="margin-top: 6px;"><strong>Note:</strong> While useful for seasonal ranking, this score is also a simplified reflection of the overall impression—both practical and intuitive.</p>
+`
+  
+};
+
+document.querySelectorAll('.info-trigger').forEach(el => {
+  const key = el.dataset.key;
+  const content = infoMap[key];
+  if (!content) return;
+
+  // Hover for desktop
+  el.addEventListener('mouseenter', (e) => {
+    showTooltip(e, content);
+  });
+
+  el.addEventListener('mousemove', (e) => {
+    moveTooltip(e);  // ← 追従させたい場合（定義が必要）
+  });
+
+  el.addEventListener('mouseleave', () => {
+    hideTooltip();
+  });
+
+  // Tap / Click for mobile
+  el.addEventListener('click', (e) => {
+    showTooltip(e, content);
+  });
+});
+
+function showTooltip(event, text) {
+  const tooltip = document.getElementById('tooltip');
+  tooltip.innerHTML = text;
+  tooltip.style.display = 'block'; // まず表示して幅を測れるようにする
+  tooltip.style.visibility = 'hidden'; // 一瞬消す（ちらつき防止）
+
+// 幅と高さを取得
+  const tooltipWidth = tooltip.offsetWidth;
+  const tooltipHeight = tooltip.offsetHeight;
+  const pageX = event.pageX;
+  const pageY = event.pageY + window.scrollY;
+  const padding = 12;
+
+  const screenMid = window.innerWidth / 2;
+  let left, top;
+
+  // 左右自動判定（中心より左なら右側に出す）
+  if (pageX < screenMid) {
+    left = pageX + padding;
+  } else {
+    left = pageX - tooltipWidth - padding;
+  }
+
+  // 下端からはみ出す場合上に（必要なら）現状維持
+  if (pageY + tooltipHeight + padding > window.innerHeight + window.scrollY) {
+    top = pageY - tooltipHeight - padding;
+  } else {
+    top = pageY + padding;
+  }
+
+  tooltip.style.left = `${left}px`;
+  tooltip.style.top = `${top}px`;
+  tooltip.style.visibility = 'visible';
+}
+
+
+function moveTooltip(event) {
+  showTooltip(event, document.getElementById('tooltip').innerHTML);
+}
+
+function hideTooltip() {
+  const tooltip = document.getElementById('tooltip');
+  tooltip.style.display = 'none';
+}
+
+
 
 // Noteのdetailsの開閉トグル
 document.querySelectorAll('.detail-toggle').forEach(el => {
