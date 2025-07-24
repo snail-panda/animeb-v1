@@ -81,7 +81,7 @@ body {
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  width: 247px;
+  width: 207px;
   max-width: 247px;
   font-family: 'Special Gothic Condensed One', 'Bebas Neue', 'sans-serif';
   color: #999999;
@@ -91,6 +91,14 @@ body {
   font-size: 1.125rem;
   margin-top: -0.31rem;
   margin-left: 0.31rem;
+}
+
+.sub-header.wide {
+  width: 247px;
+}
+
+.sub-header.normal {
+  width: 207px;
 }
 
 .season-title {
