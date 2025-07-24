@@ -109,6 +109,17 @@ if (weekEl && data.meta.week) {
   } else {
     weekEl.classList.add('normal');
   }
+
+  // ✅ ★ここで sub-header にクラスを付ける
+  if (subHeader) {
+    subHeader.classList.remove('wide', 'normal');
+    if (weekText === 'WEEK FINAL') {
+      subHeader.classList.add('wide');
+    } else {
+      subHeader.classList.add('normal');
+    }
+  }
+
 }
 
     document.querySelector('.season-title').textContent = data.meta.season;
