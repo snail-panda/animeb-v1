@@ -173,55 +173,66 @@ clones.forEach((clone, i) => {
   const entryData = data.entries[i];
 
   // — ランク —
-  const rankEl = clone.querySelector(".rank-number");
-  if (rankEl) rankEl.textContent = entryData.rank ?? "-";
-  
-  // — ランク画像（1位〜3位） —
-const rankNum = Number(entryData.rank);
+const rankEl = clone.querySelector(".rank-number");
 const rankTop = clone.querySelector(".rank-top");
+const rankVal = entryData.rank;
 
-if (rankTop) {
-  // すでに入ってる画像（仮の <img>）を削除
-  const oldImg = rankTop.querySelector("img");
-  if (oldImg) oldImg.remove();
-
-  // 1〜3位に応じた画像とクラス名を定義
-  const rankAssets = {
+// 数値ランク（1〜3）1〜3位に応じた画像とクラス名を定義
+if (typeof rankVal === "number" && [1, 2, 3].includes(rankVal)) {
+  const badgeMap = {
     1: { src: "cupcake.png", class: "crown-gold" },
     2: { src: "beer.png", class: "crown-silver" },
-    3: { src: "rose.png", class: "crown-bronze" }
+    3: { src: "rose.png", class: "crown-bronze" },
+  };
+  const badge = badgeMap[rankVal];
+
+
+// すでに入ってる画像（仮の <img>）を削除
+  if (rankTop) {
+    const oldImg = rankTop.querySelector("img");
+    if (oldImg) oldImg.remove();
+
+    const img = document.createElement("img");
+    img.src = `../../../../images/badges/${badge.src}`;
+    img.className = badge.class;
+    img.alt = `Rank ${rankVal}`;
+    rankTop.prepend(img);
+  }
+
+  if (rankEl) rankEl.textContent = String(rankVal);
+}
+
+// スペシャルランクバッジ（spotlight, editor's pick, dookie）
+if (typeof rankVal === "string") {
+  const key = rankVal.toLowerCase();
+  const specialMap = {
+    "spotlight":     { src: "spotlight.png",     class: "light" },
+    "editor's pick": { src: "editorspick.png",   class: "editor-pick" },
+    "dookie":        { src: "dookie.png",        class: "dookie-skull" },
   };
 
-  if (rankAssets[rankNum]) {
-    const img = document.createElement("img");
-    img.className = rankAssets[rankNum].class;
-    img.src = `../../../../images/badges/${rankAssets[rankNum].src}`;
-    img.alt = `Rank ${rankNum}`;
-    rankTop.prepend(img); // imgを先頭に追加（rank-numberの前）
+  if (specialMap[key]) {
+    const { src, class: cls } = specialMap[key];
+    if (rankTop) {
+      const oldImg = rankTop.querySelector("img");
+      if (oldImg) oldImg.remove();
+
+      const img = document.createElement("img");
+      img.src = `../../../../images/badges/${src}`;
+      img.className = cls;
+      img.alt = key;
+      rankTop.prepend(img);
+    }
+// 数字を非表示に
+    if (rankEl) rankEl.textContent = "";
   }
 }
 
-// ✅ スペシャルランクバッジ（spotlight, editor's pick, dookie）
-const specialRanks = {
-  "spotlight":     { src: "spotlight.png",     class: "light" },
-  "editor's pick": { src: "editorspick.png",   class: "editor-pick" },
-  "dookie":        { src: "dookie.png",        class: "dookie-skull" }
-};
-
-const specialKey = (entryData.rank || "").toLowerCase();
-if (specialRanks[specialKey] && rankTop) {
-  const oldImg = rankTop.querySelector("img");
-  if (oldImg) oldImg.remove();
-
-  const img = document.createElement("img");
-  img.src = `../../../../images/badges/${specialRanks[specialKey].src}`;
-  img.className = specialRanks[specialKey].class;
-  img.alt = specialKey;
-  rankTop.prepend(img);
-
-  // 数字を非表示に
-  if (rankEl) rankEl.textContent = "";
+// 通常ランク（4位以降の数値）
+if (typeof rankVal === "number" && rankVal > 3) {
+  if (rankEl) rankEl.textContent = String(rankVal);
 }
+
 
 
   // — KV画像 —
