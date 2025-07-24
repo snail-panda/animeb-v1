@@ -217,7 +217,6 @@ VIEWING STATUS ZONE
 .icon-tv {
   background-image: url(../../../../images/icons/watch.svg); /* ←自分の画像に差し替え */
   height: 1.5em !important;
-  width: auto;
   background-size: 100% 100%; /* or contain, cover */
   position: relative;
   top: 0px;              /* 必要に応じて -1px 〜 0px の間で微調整 */
