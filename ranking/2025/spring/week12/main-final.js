@@ -296,7 +296,7 @@ if (typeof rankVal === "number" && rankVal > 3) {
       return `${label}: ${val}`;
     }).join('<br>');
 
-    wrpScoreEl.querySelector('img').addEventListener('click', function(e) {
+    wrpEl.querySelector('img').addEventListener('click', function(e) {
       e.stopPropagation();
       closeAll();
       const popup = createPopup('Key elements breakdown:<br>' + breakdown, 'wrp-popup');
