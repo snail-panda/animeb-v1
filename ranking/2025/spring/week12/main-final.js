@@ -370,7 +370,7 @@ if (reviewAnchor) {
   reviewAnchor.appendChild(reviewTag);
 }
 
-});
+}
 	
 	// ✅ 必ず `.then(data => { ... })` の中にある必要がある
     updateWatchStatus(data.meta.status);
