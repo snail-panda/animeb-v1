@@ -216,7 +216,7 @@ VIEWING STATUS ZONE
 /* 🎯 個別の画像だけ分ける */
 .icon-tv {
   background-image: url(../../../../images/icons/watch.svg); /* ←自分の画像に差し替え */
-  height: 1em;
+  height: 1.2em;
 }
 
 .icon-drop {
