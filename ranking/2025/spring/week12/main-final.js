@@ -903,3 +903,5 @@ document.querySelectorAll('.detail-toggle').forEach(el => {
     el.nextElementSibling.classList.toggle('open');
   });
 });
+// ✅ これが必要！
+}); // ← .then(data => { の閉じ括弧＋セミコロン
