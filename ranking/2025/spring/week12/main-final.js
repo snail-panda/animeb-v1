@@ -92,7 +92,24 @@ fetch(jsonPath)
 })();
 
     // メタ情報更新
-    document.querySelector('.week-title').textContent = data.meta.week;
+    const weekEl = document.querySelector('.week-title');
+
+if (weekEl && data.meta.week) {
+  const weekText = data.meta.week.toUpperCase();
+  weekEl.textContent = weekText;
+
+  // クラスのリセットと付け直し
+  weekEl.classList.remove('final', 'mid', 'normal');
+
+  if (weekText === 'WEEK FINAL') {
+    weekEl.classList.add('final');
+  } else if (weekText === 'WEEK 6') {
+    weekEl.classList.add('mid');
+  } else {
+    weekEl.classList.add('normal');
+  }
+}
+
     document.querySelector('.season-title').textContent = data.meta.season;
     document.title = `Anime Weekly Ranking - ${data.meta.week}`;
 
