@@ -346,6 +346,20 @@ if (reviewAnchor) {
       setupPopups();
     }, 0); // 🔁 DOMが確実に構築されてからイベントをバインド
 	
+	// ✅ TOP 数字の書き換え処理
+const topHeader = document.querySelector(".header h1");
+
+if (topHeader && Array.isArray(data.entries)) {
+  // 数値 rank だけを抽出・カウント
+  const numericRanks = data.entries.filter(e => typeof e.rank === "number");
+  const topCount = numericRanks.length;
+
+  // "TOP"の後ろに数字を差し込む形で置換
+  topHeader.textContent = `TOP${topCount}`;
+}
+
+	
+	
 	 })  // ← fetch().then(data => { ... }) の閉じ
 
 .catch(error => {
