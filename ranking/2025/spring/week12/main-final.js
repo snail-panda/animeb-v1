@@ -92,6 +92,7 @@ fetch(jsonPath)
 })();
 
     // メタ情報更新
+    // ✅ WEEK を完全全大文字表示に変更
     const weekEl = document.querySelector('.week-title');
 
 if (weekEl && data.meta.week) {
@@ -136,14 +137,6 @@ function formatReleaseDates(dateStr) {
     // 開始日だけの場合
     return convert(parts[0]);
   }
-}
-
-
-
-　　// ✅ WEEK を全大文字表示に変更
-　　const weekEl = document.querySelector('.week-title');
-if (weekEl && data.meta.week) {
-  weekEl.textContent = data.meta.week.toUpperCase();  // 🔁 完全に全大文字化
 }
 
 
