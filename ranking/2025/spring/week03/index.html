@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Anime Weekly Ranking - Week 7</title>
   <link rel="stylesheet" href="../../../../assets/css/ranking/weekly/style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Special+Gothic+Expanded+One&family=Agency+FB&family=Roboto+Condensed+Medium&family=Special+Gothic&family=Oswald&family=Tuffy&family=Pathway+Gothic+One&family=Barlow+Condensed+Medium&family=Oxygen&family=Squada+One&family=Orbitron&family=Segoe+UI&family=Bebas+Neue&family=Anton&family=Abel&family=Fira+Sans&family=Barlow+Condensed:wght@300;400;700&&family=Barlow+Condensed:ital,wght@0,300&family=Special+Elite&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Special+Gothic+Expanded+One&family=Agency+FB&family=Roboto+Condensed+Medium&family=Special+Gothic&family=Oswald&family=Tuffy&family=Pathway+Gothic+One&family=Barlow+Condensed+Medium&family=Oxygen&family=Squada+One&family=Segoe+UI&family=Bebas+Neue&family=Anton&family=Abel&family=Fira+Sans&family=Orbitron&family=Barlow+Condensed:wght@300;400;700&&family=Barlow+Condensed:ital,wght@0,300&family=Special+Elite&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -74,14 +74,15 @@
     <div class="header-totalscore"><span class="info-trigger" data-key="total">TOTAL SCORE<img class="trigger-icon" src="../../../../images/badges/info-darkgrey2.png" width="8px"></span></span></div>
   </div>
 
-  <div class="entry-list">
+  
 
-  <!-- Entry 1 -->
+  <!-- Entry Template -->
+  <div id="entry-template" style="display: none;">
   <div class="entry">
     <div class="rank-wrapper">
       <div class="rank-top">
         <img class="crown-gold" src="https://i.postimg.cc/d336xV81/cupcake.png">
-        <div class="rank-number first">1</div>
+        <div class="rank-number">1</div>
       </div>
       <div class="rank-trend">
         <img class="trend-icon-up" src="https://i.postimg.cc/x1bcfV04/trend-up-arrow01.png">
@@ -164,636 +165,15 @@ synopsisの真下の段) -->
     </dl>
   </div>
   </div>
+     </div>
 
-  <!-- Entry 2 -->
-  <div class="entry">
-    <div class="rank-wrapper">
-      <div class="rank-top">
-        <img class="crown-silver" src="https://i.postimg.cc/026ZGrkX/beer.png">
-        <div class="rank-number first">2</div>
-      </div>
-      <div class="rank-trend">
-        <img class="trend-icon-down" src="https://i.postimg.cc/CL5R2f9Y/trend-down-03.png">
-        <div class="trend-label">DOWN</div>
-      </div>
-    </div>
+	<!-- ✅ Entryを複製して追加する親要素 -->
+<div class="entry-list">
+  <!-- JSがここに.entryを追加していく -->
+</div> <!-- entry-list 終了 -->
 
-    <div class="title">
-      <div class="title-container">
-        <!-- ← 既存 .title の中に入れる -->
-      <!-- 左: キービジュアル -->
-      <!-- キービジュアル -->
-        <div class="kv-thumb">
-    <img src="https://i.postimg.cc/QCgSVcGf/muumuu.jpg" alt="Key Visual">
-          <div class="title-ep">Ep.7</div>
-        </div>
-        <!-- 右: 情報ブロック -->
-        <div class="info-box">
-        <!-- 上段 -->
-        <div class="info-top">
-      Me And Alien MUUMUU
-          </div>
-            <!-- 中段 -->
-      <!-- 日本語タイトル -->
-       <div class="jp-title">宇宙人ムームー
-          </div>
-          <!-- ジャンル + コラップスボタン -->
-          <!-- 下段 -->
-    <div class="info-bottom">
-      <div class="genre-tags">
-        <span class="genre-tag">Sci-Fi</span>
-        <span class="genre-tag">Comedy</span>
-        <span class="genre-tag">Educational</span>
-      </div>
-      <div class="collapse-wrapper">
-      <button class="collapse-btn" aria-expanded="false">MORE INFO▼</button>
-      <span class="review-tag" data-review="">Review</span>
-      </div>
-	  <div class="bar-wrapper">
-      <div class="bar">
-        <div class="bar-label">Weekly Ranking Point</div>
-        <div class="bar-inner">
-          <div class="bar-track">
-            <div class="bar-fill">
-              <div class="bar-main"></div>
-              <div class="bar-overflow"></div>
-            </div>
-          </div>
-          <div class="wrp-score">
-            9.35<span class="wrp-score-unit">pt</span>
-            <button class="wrp-detail-btn" data-breakdown=""></button>
-          </div>
-        </div>
-      </div>
-    </div>
-    </div> 
-    </div>
-      </div>
-    </div>
 
-    
-
-    <div class="score"><span class="score-number">9</span><span class="score-unit">pt</span></div>
-
- <!-- ✅ synopsisは.entryの末尾に配置 -->
-    <!-- synopsis（タイトル下） -->
-  <div class="synopsis" style="grid-area: synopsis">
-    <!-- JSで埋まるので空でOK -->
-  </div> 
-    
-   <!-- more-info (entryのタイトルエリア,
-synopsisの真下の段) -->
-  <div class="more-info" style="grid-area: moreinfo">
-    <dl>
-      <dt>Release Date</dt><dd>April 10, 2025 to Jun 26, 2025</dd>
-      <dt>Romanized Title</dt><dd>Ninja to Koroshiya no Futarigurashi</dd>
-      <dt>Based On</dt><dd>Manga</dd>
-      <dt>Studios</dt><dd>SHAFT</dd>
-      <dt>Creators</dt><dd>Yukihiro Miyamoto</dd>
-      <dt>External Scores</dt><dd>7.59 (MAL)</dd>
-      <dt>Streaming Services</dt><dd>Crunchyroll, Apple TV+</dd>
-    </dl>
-  </div>
-  </div>
-
-  <!-- Entry 3 -->
-  <div class="entry">
-    <div class="rank-wrapper">
-      <div class="rank-top">
-        <img class="crown-bronze" src="https://i.postimg.cc/rpTJLJS7/rose.png">
-        <div class="rank-number first">3</div>
-      </div>
-      <div class="rank-trend">
-        <img class="trend-icon-stay" src="https://i.postimg.cc/ZnkwQS5z/arrow-right-2.png">
-        <div class="trend-label">STAY</div>
-      </div>
-    </div>
-
-    <div class="title">
-      <div class="title-container">
-        <!-- ← 既存 .title の中に入れる -->
-      <!-- 左: キービジュアル -->
-      <!-- キービジュアル -->
-        <div class="kv-thumb">
-    <img src="https://i.postimg.cc/7ZS9JQtV/kusuriya.webp">
-          <div class="title-ep">Ep.7</div>
-        </div>
-        <!-- 右: 情報ブロック -->
-        <div class="info-box">
-        <!-- 上段 -->
-        <div class="info-top">  
-      <!-- 英語タイトル -->
-      Apothecary Diaries 2nd Season
-          </div>
-            <!-- 中段 -->
-      <!-- 日本語タイトル -->
-      <div class="jp-title">薬屋のひとりごと 第2期　（第2クール）
-          </div>
-          <!-- ジャンル + コラップスボタン -->
-          <!-- 下段 -->
-    <div class="info-bottom">
-      <div class="genre-tags">
-        <span class="genre-tag">Mystery</span>
-        <span class="genre-tag">Historical</span>
-        <span class="genre-tag">Drama</span>
-      </div>
-      <div class="collapse-wrapper">
-      <button class="collapse-btn" aria-expanded="false">MORE INFO▼</button>
-      <span class="review-tag" data-review="">Review</span>
-      </div>
-	  <div class="bar-wrapper">
-      <div class="bar">
-        <div class="bar-label">Weekly Ranking Point</div>
-        <div class="bar-inner">
-          <div class="bar-track">
-            <div class="bar-fill">
-              <div class="bar-main"></div>
-              <div class="bar-overflow"></div>
-            </div>
-          </div>
-          <div class="wrp-score">
-            9.1<span class="wrp-score-unit">pt</span>
-            <button class="wrp-detail-btn" data-breakdown=""></button>
-          </div>
-        </div>
-      </div>
-    </div>
-    </div> 
-    </div>
-      </div>
-    </div>
-
-    <div class="score"><span class="score-number">9</span><span class="score-unit">pt</span></div>
-
- <!-- ✅ synopsisは.entryの末尾に配置 -->
-    <!-- synopsis（タイトル下） -->
-  <div class="synopsis" style="grid-area: synopsis">
-    <!-- JSで埋まるので空でOK -->
-  </div> 
-    
-   <!-- more-info (entryのタイトルエリア,
-synopsisの真下の段) -->
-  <div class="more-info" style="grid-area: moreinfo">
-    <dl>
-      <dt>Release Date</dt><dd>April 10, 2025 to Jun 26, 2025</dd>
-      <dt>Romanized Title</dt><dd>Ninja to Koroshiya no Futarigurashi</dd>
-      <dt>Based On</dt><dd>Manga</dd>
-      <dt>Studios</dt><dd>SHAFT</dd>
-      <dt>Creators</dt><dd>Yukihiro Miyamoto</dd>
-      <dt>External Scores</dt><dd>7.59 (MAL)</dd>
-      <dt>Streaming Services</dt><dd>Crunchyroll, Apple TV+</dd>
-    </dl>
-  </div>
-  </div>
-
-  <!-- Entry 4 -->
-  <div class="entry">
-    <div class="rank-wrapper">
-      <div class="rank-top">
-        <div class="rank-number first">4</div>
-      </div>
-      <div class="rank-trend">
-        <img class="trend-icon-up" src="https://i.postimg.cc/x1bcfV04/trend-up-arrow01.png">
-        <div class="trend-label">UP</div>
-      </div>
-    </div>
-
-    <div class="title">
-      <div class="title-container">
-        <!-- ← 既存 .title の中に入れる -->
-      <!-- 左: キービジュアル -->
-      <!-- キービジュアル -->
-        <div class="kv-thumb">
-    <img src="https://i.postimg.cc/0yQ2dYTr/from-old-country-bumpkin-to-master-swordsman-new-key-visual-v0-fd-HQj-E7s-FPf-ZRGHKyf-TJ8-ZQ5-BNAZELq-RNCcr.webp" alt="Key Visual">
-          <div class="title-ep">Ep.7</div>
-        </div>
-        <!-- 右: 情報ブロック -->
-        <div class="info-box">
-        <!-- 上段 -->
-        <div class="info-top">  
-      <!-- 英語タイトル -->
-      From Old Country Bumpkin to Master Swordsman
-          </div>
-            <!-- 中段 -->
-      <!-- 日本語タイトル -->
-      <div class="jp-title">片田舎のおっさん、剣聖になる
-          </div>
-          <!-- ジャンル + コラップスボタン -->
-          <!-- 下段 -->
-    <div class="info-bottom">
-      <div class="genre-tags">
-        <span class="genre-tag">Action</span>
-        <span class="genre-tag">Adventrue</span>
-        <span class="genre-tag">Fantasy</span>
-      </div>
-      <div class="collapse-wrapper">
-      <button class="collapse-btn" aria-expanded="false">MORE INFO▼</button>
-      <span class="review-tag" data-review="">Review</span>
-      </div>
-	  <div class="bar-wrapper">
-      <div class="bar">
-        <div class="bar-label">Weekly Ranking Point</div>
-        <div class="bar-inner">
-          <div class="bar-track">
-            <div class="bar-fill">
-              <div class="bar-main"></div>
-              <div class="bar-overflow"></div>
-            </div>
-          </div>
-          <div class="wrp-score">
-            8.75<span class="wrp-score-unit">pt</span>
-            <button class="wrp-detail-btn" data-breakdown=""></button>
-          </div>
-        </div>
-      </div>
-    </div>
-    </div> 
-    </div>
-      </div>
-    </div>
-
-    
-
-    <div class="score"><span class="score-number">8</span><span class="score-unit">pt</span></div>
-
- <!-- ✅ synopsisは.entryの末尾に配置 -->
-    <!-- synopsis（タイトル下） -->
-  <div class="synopsis" style="grid-area: synopsis">
-    <!-- JSで埋まるので空でOK -->
-  </div> 
-    
-   <!-- more-info (entryのタイトルエリア,
-synopsisの真下の段) -->
-  <div class="more-info" style="grid-area: moreinfo">
-    <dl>
-      <dt>Release Date</dt><dd>April 10, 2025 to Jun 26, 2025</dd>
-      <dt>Romanized Title</dt><dd>Ninja to Koroshiya no Futarigurashi</dd>
-      <dt>Based On</dt><dd>Manga</dd>
-      <dt>Studios</dt><dd>SHAFT</dd>
-      <dt>Creators</dt><dd>Yukihiro Miyamoto</dd>
-      <dt>External Scores</dt><dd>7.59 (MAL)</dd>
-      <dt>Streaming Services</dt><dd>Crunchyroll, Apple TV+</dd>
-    </dl>
-  </div>
-  </div>
-
-  <!-- Entry 5 -->
-  <div class="entry">
-    <div class="rank-wrapper">
-      <div class="rank-top">
-        <div class="rank-number first">5</div>
-      </div>
-      <div class="rank-trend">
-        <img class="trend-icon-down" src="https://i.postimg.cc/CL5R2f9Y/trend-down-03.png">
-        <div class="trend-label">DOWN</div>
-      </div>
-    </div>
-
-    <div class="title">
-      <div class="title-container">
-        <!-- ← 既存 .title の中に入れる -->
-      <!-- 左: キービジュアル -->
-      <!-- キービジュアル -->
-        <div class="kv-thumb">
-    <img src="https://i.postimg.cc/bNYzp0NL/catch-me-at-the-ballpark-key-visual-v0-h2-Mww5vv-G1-QZ-1d-Hs-VOBe-Rqp-GRWk-PGRUf-XXEia0-C8p-Y.webp" alt="Key Visual">
-       <div class="title-ep">Ep.7</div>
-        </div>
-        <!-- 右: 情報ブロック -->
-        <div class="info-box">
-        <!-- 上段 -->
-        <div class="info-top">  
-      <!-- 英語タイトル -->
-      The Catcher in the Ballpark
-          </div>
-            <!-- 中段 -->
-      <!-- 日本語タイトル -->
-      <div class="jp-title">ボールパークでつかまえて！
-          </div>
-          <!-- ジャンル + コラップスボタン -->
-          <!-- 下段 -->
-    <div class="info-bottom">
-      <div class="genre-tags">
-        <span class="genre-tag">Comedy</span>
-        <span class="genre-tag">Romance</span>
-        <span class="genre-tag">Sports</span>
-        <span class="genre-tag">Slice of Life</span>
-      </div>
-      <div class="collapse-wrapper">
-      <button class="collapse-btn" aria-expanded="false">MORE INFO▼</button>
-      <span class="review-tag" data-review="">Review</span>
-      </div>
-	  <div class="bar-wrapper">
-      <div class="bar">
-        <div class="bar-label">Weekly Ranking Point</div>
-        <div class="bar-inner">
-          <div class="bar-track">
-            <div class="bar-fill">
-              <div class="bar-main"></div>
-              <div class="bar-overflow"></div>
-            </div>
-          </div>
-          <div class="wrp-score">
-            8.5<span class="wrp-score-unit">pt</span>
-            <button class="wrp-detail-btn" data-breakdown=""></button>
-          </div>
-        </div>
-      </div>
-    </div>
-    </div> 
-    </div>
-      </div>
-    </div>
-
-    <div class="score"><span class="score-number">8</span><span class="score-unit">pt</span></div>
-
- <!-- ✅ synopsisは.entryの末尾に配置 -->
-    <!-- synopsis（タイトル下） -->
-  <div class="synopsis" style="grid-area: synopsis">
-    <!-- JSで埋まるので空でOK -->
-  </div> 
-    
-   <!-- more-info (entryのタイトルエリア,
-synopsisの真下の段) -->
-  <div class="more-info" style="grid-area: moreinfo">
-    <dl>
-      <dt>Release Date</dt><dd>April 10, 2025 to Jun 26, 2025</dd>
-      <dt>Romanized Title</dt><dd>Ninja to Koroshiya no Futarigurashi</dd>
-      <dt>Based On</dt><dd>Manga</dd>
-      <dt>Studios</dt><dd>SHAFT</dd>
-      <dt>Creators</dt><dd>Yukihiro Miyamoto</dd>
-      <dt>External Scores</dt><dd>7.59 (MAL)</dd>
-      <dt>Streaming Services</dt><dd>Crunchyroll, Apple TV+</dd>
-    </dl>
-  </div>
-  </div>
-
-  <!-- Entry Spotlight -->
-  <div class="entry">
-    <div class="rank-wrapper">
-      <div class="rank-top">
-        <div class="rank-number spotlight">
-          <img class="light" src="../../../../images/badges/spotlight04.png" alt="sptlight_img">
-        </div>
-      </div>
-      <div class="rank-trend">
-        <img class="trend-icon-down" src="https://i.postimg.cc/CL5R2f9Y/trend-down-03.png">
-        <div class="trend-label">DOWN</div>
-      </div>
-    </div>
-
-    <div class="title">
-      <div class="title-container">
-        <!-- ← 既存 .title の中に入れる -->
-      <!-- 左: キービジュアル -->
-      <!-- キービジュアル -->
-        <div class="kv-thumb">
-    <img src="https://i.postimg.cc/L6cgnVPm/ninkoro.jpg" alt="Key Visual">
-          <div class="title-ep">Ep.7</div>
-        </div>
-        <!-- 右: 情報ブロック -->
-        <div class="info-box">
-        <!-- 上段 -->
-        <div class="info-top">  
-      <!-- 英語タイトル -->
-      A Ninja and an Assassin Under One Roof
-    </div>
-            <!-- 中段 -->
-      <!-- 日本語タイトル -->
-      <div class="jp-title">忍者と殺し屋のふたりぐらし 
-          </div>
-  <!-- ジャンル + コラップスボタン -->
-          <!-- 下段 -->
-    <div class="info-bottom">
-      <div class="genre-tags">
-        <span class="genre-tag">Comedy</span>
-        <span class="genre-tag">Slice of Life</span>
-      </div>
-      <div class="collapse-wrapper">
-      <button class="collapse-btn" aria-expanded="false">MORE INFO▼</button>
-      <span class="review-tag" data-review="">Review</span>
-      </div>
-	  <div class="bar-wrapper">
-      <div class="bar">
-        <div class="bar-label">Weekly Ranking Point</div>
-        <div class="bar-inner">
-          <div class="bar-track">
-            <div class="bar-fill">
-              <div class="bar-main"></div>
-              <div class="bar-overflow"></div>
-            </div>
-          </div>
-          <div class="wrp-score">
-            7.8<span class="wrp-score-unit">pt</span>
-            <button class="wrp-detail-btn" data-breakdown=""></button>
-          </div>
-        </div>
-      </div>
-    </div>
-    </div> 
-    </div>
-      </div>
-    </div>
-
-    <div class="score"><span class="score-number">7</span><span class="score-unit">pt</span></div>
-
- <!-- ✅ synopsisは.entryの末尾に配置 -->
-    <!-- synopsis（タイトル下） -->
-  <div class="synopsis" style="grid-area: synopsis">
-    <!-- JSで埋まるので空でOK -->
-  </div> 
-    
-   <!-- more-info (entryのタイトルエリア,
-synopsisの真下の段) -->
-  <div class="more-info" style="grid-area: moreinfo">
-    <dl>
-      <dt>Release Date</dt><dd>April 10, 2025 to Jun 26, 2025</dd>
-      <dt>Romanized Title</dt><dd>Ninja to Koroshiya no Futarigurashi</dd>
-      <dt>Based On</dt><dd>Manga</dd>
-      <dt>Studios</dt><dd>SHAFT</dd>
-      <dt>Creators</dt><dd>Yukihiro Miyamoto</dd>
-      <dt>External Scores</dt><dd>7.59 (MAL)</dd>
-      <dt>Streaming Services</dt><dd>Crunchyroll, Apple TV+</dd>
-    </dl>
-  </div>
-  </div>
-
-  <!-- Entry Editor's Pick -->
-  <div class="entry">
-    <div class="rank-wrapper">
-      <div class="rank-top">
-        <div class="rank-number pick">
-          <img class="editor-pick" src="../../../../images/badges/editorspick02.png" alt="editors_img">
-        </div>
-      </div>
-      <div class="rank-trend">
-        <img class="trend-icon-down" src="https://i.postimg.cc/CL5R2f9Y/trend-down-03.png">
-        <div class="trend-label">DOWN</div>
-      </div>
-    </div>
-
-    <div class="title">
-      <div class="title-container">
-        <!-- ← 既存 .title の中に入れる -->
-      <!-- 左: キービジュアル -->
-      <!-- キービジュアル -->
-        <div class="kv-thumb">
-    <img src="https://i.postimg.cc/Bn3634t4/APO-KV2.jpg" alt="Key Visual">
-          <div class="title-ep">Ep.7</div>
-        </div>
-        <!-- 右: 情報ブロック -->
-        <div class="info-box">
-        <!-- 上段 -->
-        <div class="info-top">  
-      <!-- 英語タイトル -->The Apocalypse Hotel
-      </div>
-            <!-- 中段 -->
-      <!-- 日本語タイトル -->
-       <div class="jp-title">アポカリプスホテル </div>
-      <!-- ジャンル + コラップスボタン -->
-          <!-- 下段 -->
-    <div class="info-bottom">
-      <div class="genre-tags">
-        <span class="genre-tag">Drama</span>
-        <span class="genre-tag">Sci-Fi</span>
-        <span class="genre-tag">Slice of Life</span>
-      </div>
-      <div class="collapse-wrapper">
-      <button class="collapse-btn" aria-expanded="false">MORE INFO▼</button>
-      <span class="review-tag" data-review="">Review</span>
-      </div>
-	  <div class="bar-wrapper">
-      <div class="bar">
-        <div class="bar-label">Weekly Ranking Point</div>
-        <div class="bar-inner">
-          <div class="bar-track">
-            <div class="bar-fill">
-              <div class="bar-main"></div>
-              <div class="bar-overflow"></div>
-            </div>
-          </div>
-          <div class="wrp-score">
-            6.3<span class="wrp-score-unit">pt</span>
-            <button class="wrp-detail-btn" data-breakdown=""></button>
-          </div>
-        </div>
-      </div>
-    </div>
-    </div> 
-    </div>
-      </div>
-    </div>    
-
-    <div class="score"><span class="score-number">6</span><span class="score-unit">pt</span></div>
-
- <!-- ✅ synopsisは.entryの末尾に配置 -->
-    <!-- synopsis（タイトル下） -->
-  <div class="synopsis" style="grid-area: synopsis">
-    <!-- JSで埋まるので空でOK -->
-  </div> 
-    
-   <!-- more-info (entryのタイトルエリア,
-synopsisの真下の段) -->
-  <div class="more-info" style="grid-area: moreinfo">
-    <dl>
-      <dt>Release Date</dt><dd>April 10, 2025 to Jun 26, 2025</dd>
-      <dt>Romanized Title</dt><dd>Ninja to Koroshiya no Futarigurashi</dd>
-      <dt>Based On</dt><dd>Manga</dd>
-      <dt>Studios</dt><dd>SHAFT</dd>
-      <dt>Creators</dt><dd>Yukihiro Miyamoto</dd>
-      <dt>External Scores</dt><dd>7.59 (MAL)</dd>
-      <dt>Streaming Services</dt><dd>Crunchyroll, Apple TV+</dd>
-    </dl>
-  </div>
-  </div>
-
-  <!-- Entry Dookie -->
-  <div class="entry">
-    <div class="rank-wrapper">
-      <div class="rank-top">
-        <div class="rank-number dookie">
-          <img class="dookie-skull" src="../../../../images/badges/dookie02.png" alt="dookie_img">
-        </div>
-      </div>
-      <div class="rank-trend">
-        <img class="trend-icon-down" src="https://i.postimg.cc/CL5R2f9Y/trend-down-03.png">
-        <div class="trend-label">DOWN</div>
-      </div>
-    </div>
-
-    <div class="title">
-      <div class="title-container">
-        <!-- ← 既存 .title の中に入れる -->
-      <!-- 左: キービジュアル -->
-      <!-- キービジュアル -->
-        <div class="kv-thumb">
-    <img src="https://i.postimg.cc/FK6Zsx4S/20250305danjoru.png" alt="Key Visual">
-          <div class="title-ep">Ep.7</div>
-        </div>
-        <!-- 右: 情報ブロック -->
-        <div class="info-box">
-        <!-- 上段 -->
-        <div class="info-top">  
-      <!-- 英語タイトル・エピソード番号・レビュ -->
-      Can a Boy-Girl Friendship Survive?
-      </div>
-            <!-- 中段 -->
-      <!-- 日本語タイトル -->
-      <div class="jp-title">男女の友情は成立する？（いや、しないっ!!）</div>
-          <!-- ジャンル + コラップスボタン -->
-          <!-- 下段 -->
-    <div class="info-bottom">
-      <div class="genre-tags">
-        <span class="genre-tag">Rom-Com</span>
-        <span class="genre-tag">School</span>
-      </div>
-      <div class="collapse-wrapper">
-      <button class="collapse-btn" aria-expanded="false">MORE INFO▼</button>
-      <span class="review-tag" data-review="">Review</span>
-      </div>
-	  <div class="bar-wrapper">
-      <div class="bar">
-        <div class="bar-label">Weekly Ranking Point</div>
-        <div class="bar-inner">
-          <div class="bar-track">
-            <div class="bar-fill">
-              <div class="bar-main"></div>
-              <div class="bar-overflow"></div>
-            </div>
-          </div>
-          <div class="wrp-score">
-            4.5<span class="wrp-score-unit">pt</span>
-            <button class="wrp-detail-btn" data-breakdown=""></button>
-          </div>
-        </div>
-      </div>
-    </div>
-    </div> 
-    </div>
-      </div>
-    </div>
-
-    <div class="score"><span class="score-number">4</span><span class="score-unit">pt</span></div>
-
- <!-- ✅ synopsisは.entryの末尾に配置 -->
-    <!-- synopsis（タイトル下） -->
-  <div class="synopsis" style="grid-area: synopsis">
-    <!-- JSで埋まるので空でOK -->
-  </div> 
-    
-   <!-- more-info (entryのタイトルエリア,
-synopsisの真下の段) -->
-  <div class="more-info" style="grid-area: moreinfo">
-    <dl>
-      <dt>Release Date</dt><dd>April 10, 2025 to Jun 26, 2025</dd>
-      <dt>Romanized Title</dt><dd>Ninja to Koroshiya no Futarigurashi</dd>
-      <dt>Based On</dt><dd>Manga</dd>
-      <dt>Studios</dt><dd>SHAFT</dd>
-      <dt>Creators</dt><dd>Yukihiro Miyamoto</dd>
-      <dt>External Scores</dt><dd>7.59 (MAL)</dd>
-      <dt>Streaming Services</dt><dd>Crunchyroll, Apple TV+</dd>
-    </dl>
-  </div>
-  </div>
+ 
 
   <div class="note">
     <strong>*Note 1: General Disclaimer</strong> 
@@ -807,7 +187,7 @@ synopsisの真下の段) -->
 
 	<p class="note-continued">(continued)</p>
 
-<p>While WRP attempts to evaluate each episode using consistent criteria, it does not function as a static or absolute metric—let alone its scores are.</p>
+<p>While <strong>WRP</strong> attempts to evaluate each episode using consistent criteria, it does not function as a static or absolute metric—let alone its scores are.</p>
 
 <p>Each week’s unique landscape—not just about a show’s own performance, but also lineups of different mixes of genres, strengths, and expectations—means the same numerical score may carry different weight from one week to another.<br>
 <em>(e.g., a 9-point episode one week is not necessarily equal to a 9-point episode in another.)</em></p>
@@ -824,10 +204,10 @@ synopsisの真下の段) -->
     
     <p><strong>*Note 2: What's WRP?*</strong></p>
   <p>
-  WRP stands for Weekly Ranking Point—a scoring system created to represent one's weekly viewing experience of a single anime episode as truthfully and purely as possible. It should never reflect only subjective values or emotional response, but rather structured thought, quiet and objective observation, and consistent standards—balancing personal sensibility with a solid foundation of carefully and passionately developed criteria.
+  <strong>WRP</strong> stands for <em>Weekly Ranking Point</em>—a scoring system created to represent one's weekly viewing experience of a single anime episode as truthfully and purely as possible. It should never reflect only subjective values or emotional response, but rather structured thought, quiet and objective observation, and consistent standards—balancing personal sensibility with a solid foundation of carefully and passionately developed criteria.
   </p>
   <p>
-  Rather than judging a show as a whole, WRP focuses on one episode—a single 23-minute weekly experience in the course of a 12-week season. It may appear to be a tiny and fleeting part of the entire series, but it is surely an irreplaceable part of one's viewing experience. WRP was born to capture that.
+  Rather than judging a show as a whole, <strong>WRP</strong> focuses on one episode—a single 23-minute weekly experience in the course of a 12-week season. It may appear to be a tiny and fleeting part of the entire series, but it is surely an irreplaceable part of one's viewing experience. <strong>WRP</strong> was born to capture that.
   </p>
 
   <div class="detail-toggle">
@@ -851,7 +231,7 @@ synopsisの真下の段) -->
   </ul>
 
 <p>
-  WRP is, at its core, a mere scoring system. But it's one built with care and purpose—so that even something as simple as evaluating an episode can become a way of spending time with anime more thoughtfully, more closely. It can turn those 23 minutes into more than just something “watched”—perhaps even into a moment shared with its creator.That’s what WRP hopes to make possible. And sometimes, that connection goes even deeper.
+  <strong>WRP</strong> is, at its core, a mere scoring system. But it's one built with care and purpose—so that even something as simple as evaluating an episode can become a way of spending time with anime more thoughtfully, more closely. It can turn those 23 minutes into more than just something “watched”—perhaps even into a moment shared with its creator.That’s what <strong>WRP</strong> hopes to make possible. And sometimes, that connection goes even deeper.
 </p>
   </div>  
 </div>
@@ -862,11 +242,17 @@ synopsisの真下の段) -->
 
 
 <script>
-  const pathSegments = window.location.pathname.split('/');
+const pathSegments = window.location.pathname.split('/');
   const currentWeek = pathSegments[pathSegments.length - 2]; // e.g., "week01"
   const season = pathSegments[pathSegments.length - 3];      // e.g., "spring"
-  const year = pathSegments[pathSegments.length - 4];        // e.g., "2025"
+  const year = pathSegments[pathSegments.length - 4];        // e.g., "2025"  
   const weekNum = parseInt(currentWeek.replace("week", ""), 10);
+  
+  // ── 追加：main.js からも参照できるようグローバル公開 ──
+  window.currentWeek = currentWeek;
+  window.season      = season;
+  window.year        = year;
+  window.weekNum     = weekNum;
 
   const prevWeek = weekNum > 1 ? `week${String(weekNum - 1).padStart(2, '0')}` : null;
   const nextWeek = weekNum < 12 ? `week${String(weekNum + 1).padStart(2, '0')}` : null;
@@ -922,3 +308,4 @@ synopsisの真下の段) -->
 <script src="../../../../assets/js/ranking/weekly/main.js"></script>
 </body>
 </html>
+
