@@ -376,6 +376,10 @@ function titleCase(str) {
 
 //  positionPopup()（スマホ右端補正つきバージョン）
 function positionPopup(trigger, popup) {
+  // 一時的に見える状態に（ただし画面外）
+  popup.style.visibility = 'hidden';
+  popup.style.display = 'block';
+
   const rect = trigger.getBoundingClientRect();
   const top = rect.top + window.scrollY + 30;
   let left = rect.left + window.scrollX;
@@ -383,15 +387,20 @@ function positionPopup(trigger, popup) {
   const popupWidth = popup.offsetWidth;
   const screenWidth = window.innerWidth;
 
-  // ✅ スマホや小さい画面で右端にハミ出す場合は調整
+  // はみ出しを防ぐ
   const overflowRight = left + popupWidth - screenWidth;
   if (overflowRight > 0) {
-    left = Math.max(10, left - overflowRight - 8); // 右8pxマージン、左も10pxよりは寄せない
+    left = Math.max(10, left - overflowRight - 8);
   }
 
   popup.style.top = `${top}px`;
   popup.style.left = `${left}px`;
+
+  // 表示を戻す
+  popup.style.display = '';
+  popup.style.visibility = '';
 }
+
 
  
 
