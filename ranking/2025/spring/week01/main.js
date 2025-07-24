@@ -201,6 +201,28 @@ if (rankTop) {
   }
 }
 
+// ✅ スペシャルランクバッジ（spotlight, editor's pick, dookie）
+const specialRanks = {
+  "spotlight":     { src: "spotlight.png",     class: "light" },
+  "editor's pick": { src: "editorspick.png",   class: "editor-pick" },
+  "dookie":        { src: "dookie.png",        class: "dookie-skull" }
+};
+
+const specialKey = (entryData.rank || "").toLowerCase();
+if (specialRanks[specialKey] && rankTop) {
+  const oldImg = rankTop.querySelector("img");
+  if (oldImg) oldImg.remove();
+
+  const img = document.createElement("img");
+  img.src = `../../../../images/badges/${specialRanks[specialKey].src}`;
+  img.className = specialRanks[specialKey].class;
+  img.alt = specialKey;
+  rankTop.prepend(img);
+
+  // 数字を非表示に
+  if (rankEl) rankEl.textContent = "";
+}
+
 
   // — KV画像 —
   const kvImg = clone.querySelector(".kv-thumb img");
