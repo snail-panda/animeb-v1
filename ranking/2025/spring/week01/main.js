@@ -382,28 +382,34 @@ function positionPopup(trigger, popup) {
 
   const rect = trigger.getBoundingClientRect();
   const top = rect.top + window.scrollY + 30;
-  let left = rect.left + window.scrollX;
-
   const popupWidth = popup.offsetWidth;
   const screenWidth = window.innerWidth;
 
-  // ✅ 右端から12px余白を設ける
-  const maxRight = screenWidth - 12;
-  const overflow = left + popupWidth - maxRight;
-  if (overflow > 0) {
-    left = Math.max(10, left - overflow);
+  let left;
+
+  if (screenWidth <= 480) {
+    // ✅ スマホだけ中央に表示（表示幅が480px以下）
+    left = window.scrollX + (screenWidth - popupWidth) / 2;
+  } else {
+    // 通常の表示（レビューボタンの横）
+    left = rect.left + window.scrollX;
+
+    // 画面右端を超えないように調整
+    const overflow = left + popupWidth - screenWidth;
+    if (overflow > 0) {
+      left = Math.max(10, left - overflow - 12);
+    }
   }
 
   popup.style.top = `${top}px`;
   popup.style.left = `${left}px`;
 
-  // 元に戻す
+  // 表示復元
   popup.style.display = '';
   popup.style.visibility = '';
 }
 
 
- 
 
 
 // ========== ポップアップロジック（EN/JP切り替え: 閉じずに切替・ボタン制御追加） ==========
