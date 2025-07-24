@@ -92,11 +92,11 @@ body {
   margin-top: -0.31rem;
   margin-left: 0.31rem;
 }
-
+/* 🛠️ TEMP: Used for Final week long header width (247px max) */
 .sub-header.wide {
   width: 247px;
 }
-
+/* 🛠️ TEMP: Used for regular week header width */
 .sub-header.normal {
   width: 207px;
 }

@@ -94,6 +94,7 @@ fetch(jsonPath)
     // メタ情報更新
     // ✅ WEEK を完全全大文字表示に変更
     const weekEl = document.querySelector('.week-title');
+    // 🛠️ TEMP FIX: Final week header width control (will be replaced by flex layout later)
     const subHeader = document.querySelector('.sub-header');
 
 
@@ -112,6 +113,7 @@ if (weekEl && data.meta.week) {
     weekEl.classList.add('normal');
   }
 
+  // === TEMPORARY WIDTH FIX START ===
   // ✅ ★ここで sub-header にクラスを付ける
   if (subHeader) {
     subHeader.classList.remove('wide', 'normal');
@@ -121,7 +123,7 @@ if (weekEl && data.meta.week) {
       subHeader.classList.add('normal');
     }
   }
-
+  // === TEMPORARY WIDTH FIX END ===
 }
 
     document.querySelector('.season-title').textContent = data.meta.season;
