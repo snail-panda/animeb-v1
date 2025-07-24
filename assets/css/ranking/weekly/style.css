@@ -55,6 +55,13 @@ body {
   padding-right: 0.6px;
 }
 
+.week-title.final {
+  color: #882D6B;
+}
+.week-title.normal {
+  color: #8E2222;
+}
+
 .duration {
   font-family: 'Antonio', 'Special Gothic Condensed One', 'Bebas Neue', sans-serif;
   font-size: 0.69rem;
@@ -87,6 +94,10 @@ body {
 
 .season {
   color: #a67d23;
+}
+
+.final {
+	color: #215973;
 }
 
 .title-ranking {
