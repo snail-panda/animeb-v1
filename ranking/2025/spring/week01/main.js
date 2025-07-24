@@ -373,7 +373,27 @@ function titleCase(str) {
     .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
     .join(" ");
 }
-   
+
+//  positionPopup()（スマホ右端補正つきバージョン）
+function positionPopup(trigger, popup) {
+  const rect = trigger.getBoundingClientRect();
+  const top = rect.top + window.scrollY + 30;
+  let left = rect.left + window.scrollX;
+
+  const popupWidth = popup.offsetWidth;
+  const screenWidth = window.innerWidth;
+
+  // ✅ スマホや小さい画面で右端にハミ出す場合は調整
+  const overflowRight = left + popupWidth - screenWidth;
+  if (overflowRight > 0) {
+    left = Math.max(10, left - overflowRight - 8); // 右8pxマージン、左も10pxよりは寄せない
+  }
+
+  popup.style.top = `${top}px`;
+  popup.style.left = `${left}px`;
+}
+
+ 
 
 
 // ========== ポップアップロジック（EN/JP切り替え: 閉じずに切替・ボタン制御追加） ==========
