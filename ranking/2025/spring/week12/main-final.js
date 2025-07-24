@@ -6,8 +6,12 @@ function adjustScoreBars() {
     const main = bar.querySelector('.bar-main');
     const overflow = bar.querySelector('.bar-overflow');
 
-    const min = 40;
-    const max = 100;
+    // === スコアタイプ判定 ===
+    const isFinalWeek = score >= 40; // Final Week はスコアが40〜110
+
+    // === スケーリング設定 ===
+    const min = isFinalWeek ? 40 : 4;
+    const max = isFinalWeek ? 100 : 10;
     const unit = max - min;
 
     const baseWidth = Math.min(score, max);
@@ -19,21 +23,25 @@ function adjustScoreBars() {
     main.style.width = `${percentMain}%`;
     overflow.style.width = `${percentOverflow}%`;
 
-     const wrpScore = bar.querySelector('.wrp-score');
-    if (score > 110) {
-      wrpScore.style.marginLeft = '45px';
-    } else if (score > 108) {
-      wrpScore.style.marginLeft = '35px';
-    } else if (score > 105) {
-      wrpScore.style.marginLeft = '28px';
-    } else if (score > 103) {
-      wrpScore.style.marginLeft = '18px';
-    } else if (score > 100) {
-      wrpScore.style.marginLeft = '12px';
-    } else {
-      wrpScore.style.marginLeft = '6px';
-    }
+     // === 共通：スコア表示のマージン調整 ===
+    const wrpScore = bar.querySelector('.wrp-score');
+    if (wrpScore) {
+      let scoreForMargin = isFinalWeek ? score / 10 : score;
 
+      if (scoreForMargin > 11.0) {
+        wrpScore.style.marginLeft = '45px';
+      } else if (scoreForMargin > 10.8) {
+        wrpScore.style.marginLeft = '35px';
+      } else if (scoreForMargin > 10.5) {
+        wrpScore.style.marginLeft = '28px';
+      } else if (scoreForMargin > 10.3) {
+        wrpScore.style.marginLeft = '18px';
+      } else if (scoreForMargin > 10.0) {
+        wrpScore.style.marginLeft = '12px';
+      } else {
+        wrpScore.style.marginLeft = '6px';
+      }
+    }
   });
 }
 
