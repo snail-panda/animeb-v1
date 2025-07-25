@@ -440,7 +440,8 @@ fetch(overviewFile)
     const container = document.getElementById("overview-container");
     if (container) {
       container.innerHTML = html;
-// ✅ ←この下に追加！！
+
+      // ✅ ←この下に追加！！
     const btn = document.getElementById("overview-toggle-btn");
     const triangle = btn?.querySelector(".triangle-icon");
 
@@ -452,7 +453,10 @@ fetch(overviewFile)
         btn.innerHTML = '<span class="triangle-icon rotate">&#9660;</span> CLOSE';
       } else {
         btn.innerHTML = '<span class="triangle-icon">&#9660;</span> OVERVIEW';
-        container.innerHTML = ""; // 閉じたとき中身クリア
+
+        // ✅ ← ボタン以外（weekly overview本体）だけを消す
+    const weekly = container.querySelector(".weekly-overview");
+    if (weekly) weekly.remove();
       }
     });
   }
