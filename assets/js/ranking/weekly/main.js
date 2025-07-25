@@ -723,8 +723,7 @@ window.loadOverview = function(lang) {
       return response.text();
     })
     .then((html) => {
-      const container = document.getElementById("overview-container");
-      container.innerHTML = html;
+	container.innerHTML = html;
 
       const langBtn = document.createElement("button");
       langBtn.id = "lang-toggle";
@@ -733,35 +732,8 @@ window.loadOverview = function(lang) {
         currentLang = currentLang === "EN" ? "JP" : "EN";
         loadOverview(currentLang);
       });
-
-      const weeklyOverview = container.querySelector(".weekly-overview");
-      if (weeklyOverview) {
-        weeklyOverview.prepend(langBtn);
-      } else {
-        container.prepend(langBtn);
-      }
-    })
-    .catch(() => {
-      const container = document.getElementById("overview-container");
-      const msg = lang === "EN"
-        ? "English Overview not available."
-        : "Japanese Overview not available.";
-
-      container.innerHTML = `<p class="overview-notice" style="text-align:center; margin:1em 0;">${msg}</p>`;
-
-      const langBtn = document.createElement("button");
-      langBtn.id = "lang-toggle";
-      langBtn.textContent = "EN ⇄ JP";
-      langBtn.addEventListener("click", () => {
-        currentLang = lang === "EN" ? "JP" : "EN";
-        loadOverview(currentLang);
-      });
-      container.prepend(langBtn);
-    });
-};
-
-
-        // ボタンを overview の先頭に差し込む
+	  
+	  // ボタンを overview の先頭に差し込む
         const weeklyOverview = container.querySelector(".weekly-overview");
         if (weeklyOverview) {
           weeklyOverview.prepend(langBtn);
@@ -805,9 +777,9 @@ window.loadOverview = function(lang) {
 		  langBtn.blur();  // ← これを入れるだけ
         }
       });
-  
-
-  // トグル動作 ボタンクリックでアコーディオン開閉（innerHTML を使わない！）
+	  }
+	  
+	// トグル動作 ボタンクリックでアコーディオン開閉（innerHTML を使わない！）
   btn.addEventListener("click", () => {
     container.classList.toggle("expanded");
     triangle.classList.toggle("rotate");
@@ -842,7 +814,7 @@ window.loadOverview = function(lang) {
       if (overviewSection) {
         overviewSection.style.display = "none";
       }
-    });
+    });  
 
 
 
