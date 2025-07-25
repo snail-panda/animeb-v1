@@ -438,9 +438,11 @@ fetch(overviewFile)
   })
   .then(html => {
     const container = document.getElementById("overview-container");
-    if (container) container.innerHTML = html;
+    if (container) {
+      container.innerHTML = html;
     container.classList.remove("collapsed");
       container.classList.add("expanded");
+    }
   })
   .catch(err => {
     console.error("Overview fetch error:", err);
