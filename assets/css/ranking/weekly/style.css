@@ -256,6 +256,12 @@ VIEWING STATUS ZONE
 .icon-noair {
   background-image: url(../../../../images/icons/noair.svg); /* ←自分の画像に差し替え */
 }
+.icon-completed {
+  background-image: url(../../../../images/icons/completed.svg); /* ←自分の画像に差し替え */
+}
+.icon-total {
+  background-image: url(../../../../images/icons/total.png); /* ←自分の画像に差し替え */
+}
 
 
 
