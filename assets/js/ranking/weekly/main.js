@@ -699,20 +699,18 @@ function adjustPopupPadding(popup) {
 
 // ============Overview Section
 
-let currentLang = "EN"; // ✅ グローバルにする
-
 document.addEventListener("DOMContentLoaded", () => {
   const btn = document.getElementById("overview-toggle-btn");
   const container = document.getElementById("overview-container");
   const triangle = btn.querySelector(".triangle-icon");
 
-  
+  let currentLang = "EN"; 
 
   // loadOverview を window に登録する
 window.loadOverview = function(lang) {
   const file = lang === "EN"
-    ? `2025spring-${currentWeek}-overview.html`
-    : `2025spring-${currentWeek}-overview-ja.html`;
+    ? `2025spring-${window.currentWeek}-overview.html`
+    : `2025spring-${window.currentWeek}-overview-ja.html`;
 
     fetch(file)
       .then((response) => {
