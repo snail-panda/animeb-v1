@@ -709,8 +709,8 @@ document.addEventListener("DOMContentLoaded", () => {
   // 最初は overview.html を読み込む
   function loadOverview(lang) {
     const file = lang === "EN"
-      ? `2025spring-${currentWeek}-overview.html`
-      : `2025spring-${currentWeek}-overview-ja.html`;
+      ? `${year}${season}-${currentWeek}-overview.html`
+      : `${year}${season}-${currentWeek}-overview-ja.html`;
 
     fetch(file)
       .then((response) => {
