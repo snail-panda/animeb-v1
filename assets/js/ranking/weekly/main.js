@@ -725,11 +725,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
   let currentLang = "EN";
 
-  // 最初は overview.html を読み込む
-  function loadOverview(lang) {
-    const file = lang === "EN"
-      ? `2025spring-${currentWeek}-overview.html`
-      : `2025spring-${currentWeek}-overview-ja.html`;
+  // loadOverview を window に登録する
+window.loadOverview = function(lang) {
+  const file = lang === "EN"
+    ? `2025spring-${currentWeek}-overview.html`
+    : `2025spring-${currentWeek}-overview-ja.html`;
 
     fetch(file)
       .then((response) => {
