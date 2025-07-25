@@ -81,7 +81,7 @@ fetch(jsonPath)
   const label = labelMap[key];
   const count = metaStatus[key];
   const target = item.querySelector('.view-count'); // ← 明示的にここだけ書き換える
-  // 空欄やnull/undefinedはスキップ（ただし0は表示）
+    // 空欄やnull/undefinedはスキップ（ただし0は表示）
     if (target && String(count).trim() !== "") {
       target.textContent = `${label}:${count}`;
   }
@@ -419,7 +419,8 @@ if (reviewAnchor) {
     setTimeout(() => {
       setupPopups();
     }, 0); // 🔁 DOMが確実に構築されてからイベントをバインド
-	
+  
+
 	// ✅ TOP 数字の書き換え処理
 const topHeader = document.querySelector(".header h1");
 
@@ -432,7 +433,6 @@ if (topHeader && Array.isArray(data.entries)) {
   topHeader.textContent = `TOP${topCount}`;
 }
 
-	
 	
   })  // ← fetch().then(data => { ... }) の閉じ
 
@@ -704,37 +704,36 @@ document.addEventListener("DOMContentLoaded", () => {
   const container = document.getElementById("overview-container");
   const triangle = btn.querySelector(".triangle-icon");
 
-  let currentLang = "EN";
+  let currentLang = "EN"; 
 
-  // 最初は overview.html を読み込む
-  function loadOverview(lang) {
-	const year = window.year;
-    const season = window.season;
-    const currentWeek = window.currentWeek;  
+  // loadOverview を window に登録する
+window.loadOverview = function(lang) {
+  const year = window.year;
+  const season = window.season;
+  const currentWeek = window.currentWeek;
+
+  const basePath = `/animeb-v1/ranking/${year}/${season}/${currentWeek}/`;
+  const file = lang === "EN"
+    ? `${basePath}${year}${season}-${currentWeek}-overview.html`
+    : `${basePath}${year}${season}-${currentWeek}-overview-ja.html`;
+
+  fetch(file)
+    .then((response) => {
+      if (!response.ok) throw new Error("not found");
+      return response.text();
+    })
+    .then((html) => {
+	container.innerHTML = html;
+
+      const langBtn = document.createElement("button");
+      langBtn.id = "lang-toggle";
+      langBtn.textContent = "EN ⇄ JP";
+      langBtn.addEventListener("click", () => {
+        currentLang = currentLang === "EN" ? "JP" : "EN";
+        loadOverview(currentLang);
+      });
 	  
-    const file = lang === "EN"
-      ? `${year}${season}-${currentWeek}-overview.html`
-      : `${year}${season}-${currentWeek}-overview-ja.html`;
-
-    fetch(file)
-      .then((response) => {
-        if (!response.ok) throw new Error("not found");
-        return response.text();
-      })
-      .then((html) => {
-        container.innerHTML = html;
-
-        // 言語切り替えボタンを作成
-        const langBtn = document.createElement("button");
-        langBtn.id = "lang-toggle";
-        langBtn.textContent = "EN ⇄ JP";
-
-        langBtn.addEventListener("click", () => {
-          currentLang = currentLang === "EN" ? "JP" : "EN";
-          loadOverview(currentLang);
-        });
-
-        // ボタンを overview の先頭に差し込む
+	  // ボタンを overview の先頭に差し込む
         const weeklyOverview = container.querySelector(".weekly-overview");
         if (weeklyOverview) {
           weeklyOverview.prepend(langBtn);
@@ -778,9 +777,9 @@ document.addEventListener("DOMContentLoaded", () => {
 		  langBtn.blur();  // ← これを入れるだけ
         }
       });
-  }
-
-  // トグル動作 ボタンクリックでアコーディオン開閉（innerHTML を使わない！）
+	  }
+	  
+	// トグル動作 ボタンクリックでアコーディオン開閉（innerHTML を使わない！）
   btn.addEventListener("click", () => {
     container.classList.toggle("expanded");
     triangle.classList.toggle("rotate");
@@ -815,8 +814,8 @@ document.addEventListener("DOMContentLoaded", () => {
       if (overviewSection) {
         overviewSection.style.display = "none";
       }
-    });
-});
+    });  
+
 
 
 
@@ -947,4 +946,6 @@ document.querySelectorAll('.detail-toggle').forEach(el => {
   el.addEventListener('click', () => {
     el.nextElementSibling.classList.toggle('open');
   });
+});
+
 });
