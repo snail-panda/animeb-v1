@@ -20,8 +20,8 @@ function adjustScoreBars() {
     const percentMain = ((baseWidth - min) / unit) * 100;
     const percentOverflow = (extraWidth / unit) * 100;
 
-    main.style.width = ${percentMain}%;
-    overflow.style.width = ${percentOverflow}%;
+    main.style.width = `${percentMain}%`;
+    overflow.style.width = `${percentOverflow}%`;
 
      // === 共通：スコア表示のマージン調整 ===
     const wrpScore = bar.querySelector('.wrp-score');
@@ -46,19 +46,19 @@ function adjustScoreBars() {
 }
 
 // ── 1. JSON ファイル名を動的に組み立て ──
-const jsonPath = ranking-${window.currentWeek}-spring${window.year}.json;
+const jsonPath = `ranking-${window.currentWeek}-spring${window.year}.json`;
 
 
 // ========== JSON読み込み & DOM更新 ==========
 fetch(jsonPath)
   .then(response => {
-    console.log(🔍 Response status: ${response.status});
+    console.log(`🔍 Response status: ${response.status}`);
     if (!response.ok) throw new Error("Fetch failed");
     return response.json();
   })
 .then(data => {
 
-  console.log(✅ Successfully fetched: ranking-${currentWeek}-spring2025.json);
+  console.log(`✅ Successfully fetched: ranking-${currentWeek}-spring2025.json`);
   // ここから通常処理
 
   // ✅ ← この位置のすぐ下に追加してOK！
@@ -81,9 +81,9 @@ fetch(jsonPath)
   const label = labelMap[key];
   const count = metaStatus[key];
   const target = item.querySelector('.view-count'); // ← 明示的にここだけ書き換える
-    // 空欄やnull/undefinedはスキップ（ただし0は表示）
+  // 空欄やnull/undefinedはスキップ（ただし0は表示）
     if (target && String(count).trim() !== "") {
-      target.textContent = ${label}:${count};
+      target.textContent = `${label}:${count}`;
   }
 });
     }
@@ -142,7 +142,7 @@ if (weekEl && data.meta.week) {
 }
 
     document.querySelector('.season-title').textContent = data.meta.season;
-    document.title = Anime Weekly Ranking - ${data.meta.week};
+    document.title = `Anime Weekly Ranking - ${data.meta.week}`;
 
 // ✅ ここにフォーマット関数を置くのがベスト
 function formatReleaseDates(dateStr) {
@@ -157,12 +157,12 @@ function formatReleaseDates(dateStr) {
       "", "January", "February", "March", "April", "May", "June",
       "July", "August", "September", "October", "November", "December"
     ];
-    return ${monthMap[parseInt(m, 10)]} ${parseInt(day, 10)}, ${y};
+    return `${monthMap[parseInt(m, 10)]} ${parseInt(day, 10)}, ${y}`;
   }
 
   if (parts.length === 2) {
     // 両方ある場合
-    return ${convert(parts[0])} to ${convert(parts[1])};
+    return `${convert(parts[0])} to ${convert(parts[1])}`;
   } else {
     // 開始日だけの場合
     return convert(parts[0]);
@@ -175,7 +175,7 @@ function formatReleaseDates(dateStr) {
 // （どこか上の方に）関数定義を追加
 function formatDuration(durationStr) {
   const p = durationStr.split(/[-\s]+/);
-  return ${p[0]}/${p[1]}/${p[2]}–${p[3]}/${p[4]}/${p[5]};
+  return `${p[0]}/${p[1]}/${p[2]}–${p[3]}/${p[4]}/${p[5]}`;
 }
 
 
@@ -188,7 +188,7 @@ if (durationEl && data.meta.duration) {
   const formattedDuration = formatDuration(rawDuration);
 
   // 表示に反映
-  durationEl.textContent = (${formattedDuration});
+  durationEl.textContent = `(${formattedDuration})`;
 }
 
 
@@ -196,7 +196,7 @@ if (durationEl && data.meta.duration) {
 const epRangeEl = document.querySelector('.ep-range');
 if (epRangeEl && data.meta.ep_range) {
   const formatted = data.meta.ep_range.replace(/^ep/i, 'Ep'); // Epだけ大文字化
-  epRangeEl.textContent = [${formatted}];
+  epRangeEl.textContent = `[${formatted}]`;
 }
 
 
@@ -243,9 +243,9 @@ if (typeof rankVal === "number" && [1, 2, 3].includes(rankVal)) {
 
 if (rankTop) {
     const img = document.createElement("img");
-    img.src = ../../../../images/badges/${badge.src};
+    img.src = `../../../../images/badges/${badge.src}`;
     img.className = badge.class;
-    img.alt = Rank ${rankVal};
+    img.alt = `Rank ${rankVal}`;
     rankTop.prepend(img);
   }
 
@@ -265,7 +265,7 @@ if (typeof rankVal === "string") {
     const { src, class: cls } = specialMap[key];
 
     const img = document.createElement("img");
-    img.src = ../../../../images/badges/${src};
+    img.src = `../../../../images/badges/${src}`;
     img.className = cls;
     img.alt = key;
     rankEl.innerHTML = ""; // 数字を消す
@@ -283,8 +283,8 @@ if (typeof rankVal === "number" && rankVal > 3) {
   // — KV画像 —
   const kvImg = clone.querySelector(".kv-thumb img");
   if (kvImg && entryData.kv) {
-    kvImg.src = ../../../../images/key-visuals/2025/spring/${entryData.kv}.webp;
-    kvImg.alt = ${entryData.title} key visual;
+    kvImg.src = `../../../../images/key-visuals/2025/spring/${entryData.kv}.webp`;
+    kvImg.alt = `${entryData.title} key visual`;
   }
 
   // — トレンド —
@@ -294,8 +294,8 @@ if (typeof rankVal === "number" && rankVal > 3) {
   const labelMap = { re: "Re-entry" };
   if (trendLabel && trendIcon) {
     trendLabel.textContent = labelMap[label] || entryData.trend;
-    trendIcon.src = ../../../../images/trends/${label}-arrow.png;
-    trendIcon.alt = ${entryData.trend} icon;
+    trendIcon.src = `../../../../images/trends/${label}-arrow.png`;
+    trendIcon.alt = `${entryData.trend} icon`;
     trendIcon.onerror = () => trendIcon.style.display = "none";
   }
 
@@ -316,7 +316,7 @@ if (typeof rankVal === "number" && rankVal > 3) {
   // — WRPスコア & Breakdown —
   const wrpEl = clone.querySelector(".wrp-score");
   if (wrpEl) {
-    wrpEl.innerHTML = ${entryData.wrp_score}<span class="wrp-score-unit">pt</span> <img src="../../../../images/badges/info-green.svg" width="8px">;
+    wrpEl.innerHTML = `${entryData.wrp_score}<span class="wrp-score-unit">pt</span> <img src="../../../../images/badges/info-green.svg" width="8px">`;
 
   // Final Week 専用: key_elements_breakdown がある場合
   const keyBreakdown = entryData.key_elements_breakdown;
@@ -333,7 +333,7 @@ if (typeof rankVal === "number" && rankVal > 3) {
 
     const breakdown = Object.entries(keyBreakdown).map(([key, val]) => {
       const label = keyLabelMap[key] || titleCase(key.replace(/_/g, ' '));
-      return ${label}: ${val};
+      return `${label}: ${val}`;
     }).join('<br>');
 
     wrpEl.querySelector('img').addEventListener('click', function(e) {
@@ -348,7 +348,7 @@ if (typeof rankVal === "number" && rankVal > 3) {
   } else if (entryData.wrp_breakdown) {
   // 通常の WRP Breakdown をそのまま使う  
     const breakdown = Object.entries(entryData.wrp_breakdown || {})
-      .map(([key, val]) => ${titleCase(key.replace(/_/g, " "))}: ${val})
+      .map(([key, val]) => `${titleCase(key.replace(/_/g, " "))}: ${val}`)
       .join("<br>");
 
     wrpEl.querySelector("img").addEventListener("click", function (e) {
@@ -363,10 +363,10 @@ if (typeof rankVal === "number" && rankVal > 3) {
 const scoreEl = clone.querySelector(".score");
 if (scoreEl) {
   const scoreValue = entryData.score ?? entryData.overall_rating ?? "-";
-  scoreEl.innerHTML = 
+  scoreEl.innerHTML = `
     <div class="score-number">${scoreValue}</div>
     <div class="score-unit">pt</div>
-  ;
+  `;
 }
 
   // — synopsis —
@@ -376,7 +376,7 @@ if (scoreEl) {
   // — More Info —
   const dl = clone.querySelector(".more-info dl");
   if (dl) {
-    dl.innerHTML = 
+    dl.innerHTML = `
       <dt>Release Date</dt><dd>${entryData.release_date || ""}</dd>
       <dt>Romanized Title</dt><dd>${entryData.romanized_title || ""}</dd>
       <dt>Based On</dt><dd>${entryData.based_on || ""}</dd>
@@ -384,7 +384,7 @@ if (scoreEl) {
       <dt>Creators</dt><dd>${entryData.creators || ""}</dd>
       <dt>External Scores</dt><dd>${entryData.external_scores || ""}</dd>
       <dt>Streaming Services</dt><dd>${entryData.streaming_services || ""}</dd>
-    ;
+    `;
   }
 
   // — Reviewボタン —
@@ -411,9 +411,9 @@ if (reviewAnchor) {
   reviewAnchor.appendChild(reviewTag);
 }
 
-}); // ← ✅ ← ← ← これが .forEach() の閉じ
+}); // ← ✅ ← ← ← これが `.forEach()` の閉じ
 
-  // ✅ 必ず .then(data => { ... }) の中にある必要がある
+  // ✅ 必ず `.then(data => { ... })` の中にある必要がある
     updateWatchStatus(data.meta.status);
     adjustScoreBars();
     setTimeout(() => {
@@ -429,7 +429,7 @@ if (topHeader && Array.isArray(data.entries)) {
   const topCount = numericRanks.length;
 
   // "TOP"の後ろに数字を差し込む形で置換
-  topHeader.textContent = TOP${topCount};
+  topHeader.textContent = `TOP${topCount}`;
 }
 
 	
@@ -437,7 +437,7 @@ if (topHeader && Array.isArray(data.entries)) {
   })  // ← fetch().then(data => { ... }) の閉じ
 
 .catch(error => {
-  console.error(❌ Fetch failed: ${error.message});
+  console.error(`❌ Fetch failed: ${error.message}`);
 });
 
 // 補助関数（forEach外に配置してOK）
@@ -475,8 +475,8 @@ function positionPopup(trigger, popup) {
     }
   }
 
-  popup.style.top = ${top}px;
-  popup.style.left = ${left}px;
+  popup.style.top = `${top}px`;
+  popup.style.left = `${left}px`;
 
   // 表示復元
   popup.style.display = '';
@@ -635,7 +635,7 @@ function closeAll() {
 
 function createPopup(content, typeClass) {
   const popup = document.createElement('div');
-  popup.className = popup ${typeClass} active;
+  popup.className = `popup ${typeClass} active`;
   popup.innerHTML = content;
   document.body.appendChild(popup);
   return popup;
@@ -643,8 +643,8 @@ function createPopup(content, typeClass) {
 
 function positionPopup(button, popup) {
   const rect = button.getBoundingClientRect();
-  popup.style.top = ${rect.bottom + window.scrollY + 5}px;
-  popup.style.left = ${rect.left + window.scrollX}px;
+  popup.style.top = `${rect.bottom + window.scrollY + 5}px`;
+  popup.style.left = `${rect.left + window.scrollX}px`;
 }
 
 function capitalize(str) {
@@ -679,10 +679,10 @@ function adjustFlowerSize() {
     rightSize = 65;
   }
 
-  flowerLeft.style.width = ${leftSize}px;
-  flowerRight.style.width = ${rightSize}px;
+  flowerLeft.style.width = `${leftSize}px`;
+  flowerRight.style.width = `${rightSize}px`;
 
-  console.log([flower-resize.js] Widths set to: ${leftSize}px / ${rightSize}px);
+  console.log(`[flower-resize.js] Widths set to: ${leftSize}px / ${rightSize}px`);
 }
 
 //=====PopupのPadding-bottomを縮める
@@ -709,8 +709,8 @@ document.addEventListener("DOMContentLoaded", () => {
   // 最初は overview.html を読み込む
   function loadOverview(lang) {
     const file = lang === "EN"
-      ? 2025spring-${currentWeek}-overview.html
-      : 2025spring-${currentWeek}-overview-ja.html;
+      ? `2025spring-${currentWeek}-overview.html`
+      : `2025spring-${currentWeek}-overview-ja.html`;
 
     fetch(file)
       .then((response) => {
@@ -741,11 +741,11 @@ document.addEventListener("DOMContentLoaded", () => {
       .catch(() => {
         if (lang === "EN") {
   console.log("English overview missing");
-  container.innerHTML = 
+  container.innerHTML = `
     <p class="overview-notice" style="text-align:center; margin:1em 0;">
       English Overview not available.
     </p>
-  ;
+  `;
   const langBtn = document.createElement("button");
   langBtn.id = "lang-toggle";
   langBtn.textContent = "EN ⇄ JP";
@@ -757,11 +757,11 @@ document.addEventListener("DOMContentLoaded", () => {
 }
  else if (lang === "JP") {
           console.log("Japanese overview missing");
-          container.innerHTML = 
+          container.innerHTML = `
             <p class="overview-notice" style="text-align:center; margin:1em 0;">
               Japanese Overview not available.
             </p>
-          ;
+          `;
           const langBtn = document.createElement("button");
           langBtn.id = "lang-toggle";
           langBtn.textContent = "EN ⇄ JP";
@@ -792,10 +792,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // overview.html も overview-ja.html も存在しない場合は
   // ボタンごと非表示にする
-  fetch(2025spring-${currentWeek}-overview.html)
+  fetch(`2025spring-${currentWeek}-overview.html`)
     .then((res) => {
       if (!res.ok) {
-        return fetch(2025spring-${currentWeek}-overview-ja.html);
+        return fetch(`2025spring-${currentWeek}-overview-ja.html`);
       } else {
         return res;
       }
@@ -845,7 +845,7 @@ document.addEventListener('click', (e) => {
 // ==============================
 
 const infoMap = {
-  wrp: 
+  wrp: `
     <strong>What’s WRP?</strong>
     <ul style="margin-top: 4px; padding-left: 18px;">
       <li><strong>WRP</strong> (Weekly Ranking Point) is a combined score reflecting how satisfying and well-executed an anime episode was <em>within its week</em>.</li>
@@ -854,8 +854,8 @@ const infoMap = {
     </ul>
     <p style="margin-top: 6px;"><strong>Note:</strong> It’s not an absolute score, but a contextual evaluation — it shifts based on the week’s landscape and relative enjoyment.</p>
     <p style="margin-top: 4px; font-style: italic;">For more, scroll to the bottom.</p>
-  ,
-   total: 
+  `,
+   total: `
   <strong>What’s the Total Score?</strong>
   <ul style="margin-top: 4px; padding-left: 18px;">
     <li>Total Score is a simplified, rounded version of the weekly WRP values.</li>
@@ -863,7 +863,7 @@ const infoMap = {
     <li><strong>Exception:</strong> Scores from <strong>9.50 to 9.99</strong> are treated as <strong>10</strong>, and <strong>10.00+</strong> becomes <strong>11</strong>.</li>
   </ul>
   <p style="margin-top: 6px;"><strong>Note:</strong> While useful for seasonal ranking, this score is also a simplified reflection of the overall impression—both practical and intuitive.</p>
-
+`
   
 };
 
@@ -921,8 +921,8 @@ function showTooltip(event, text) {
     top = pageY + padding;
   }
 
-  tooltip.style.left = ${left}px;
-  tooltip.style.top = ${top}px;
+  tooltip.style.left = `${left}px`;
+  tooltip.style.top = `${top}px`;
   tooltip.style.visibility = 'visible';
 }
 
