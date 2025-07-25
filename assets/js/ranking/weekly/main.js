@@ -947,3 +947,5 @@ document.querySelectorAll('.detail-toggle').forEach(el => {
     el.nextElementSibling.classList.toggle('open');
   });
 });
+
+});
