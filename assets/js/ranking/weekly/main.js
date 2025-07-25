@@ -420,7 +420,13 @@ if (reviewAnchor) {
       setupPopups();
     }, 0); // 🔁 DOMが確実に構築されてからイベントをバインド
 	
-  // overview.htmlをゲット ✅ ここに貼る！（TOP 数字の更新の前でも後でもOK）
+  // 🔍 確認コード（これでDOMが本当に見えてるか確認）
+const box = document.getElementById("overview-container");
+console.log("BOX:", box);
+if (box) box.innerHTML = "<p>💡 overview container 見つかったよ！</p>";  
+
+
+  // overview 読み込みフェッチ ✅ ここに貼る！（TOP 数字の更新の前でも後でもOK）
     const basePath = window.location.pathname.replace(/\/[^\/]+$/, "/");
 const fileName = `${window.year}${window.season.toLowerCase()}-${window.currentWeek}-overview.html`;
 const overviewFile = basePath + fileName;
