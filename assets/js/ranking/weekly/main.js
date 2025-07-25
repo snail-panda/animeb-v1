@@ -446,19 +446,34 @@ fetch(overviewFile)
     const triangle = btn?.querySelector(".triangle-icon");
 
     btn?.addEventListener("click", () => {
-      container.classList.toggle("expanded");
-      triangle?.classList.toggle("rotate");
+  const isExpanded = container.classList.contains("expanded");
 
-      if (container.classList.contains("expanded")) {
+  container.classList.toggle("expanded");
+  triangle?.classList.toggle("rotate");
+
+  if (!isExpanded) {
+    // 開く：再び fetch して読み込み
+    fetch(currentLang === "EN"
+      ? `2025spring-${window.currentWeek}-overview.html`
+      : `2025spring-${window.currentWeek}-overview-ja.html`)
+      .then(res => res.text())
+      .then(html => {
+        container.innerHTML = html;
+
+        // 言語切り替えボタン再挿入（省略可）
+
         btn.innerHTML = '<span class="triangle-icon rotate">&#9660;</span> CLOSE';
-      } else {
-        btn.innerHTML = '<span class="triangle-icon">&#9660;</span> OVERVIEW';
+      })
+      .catch(() => {
+        container.innerHTML = `<p style="text-align:center; margin:1em 0;">Overview not available.</p>`;
+      });
+  } else {
+    // 閉じる
+    container.innerHTML = "";
+    btn.innerHTML = '<span class="triangle-icon">&#9660;</span> OVERVIEW';
+  }
+});
 
-        // ✅ ← ボタン以外（weekly overview本体）だけを消す
-    const weekly = container.querySelector(".weekly-overview");
-    if (weekly) weekly.remove();
-      }
-    });
   }
 })
 
