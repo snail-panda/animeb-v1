@@ -843,7 +843,7 @@ window.loadOverview = function(lang) {
         overviewSection.style.display = "none";
       }
     });
-});
+;
 
 
 
