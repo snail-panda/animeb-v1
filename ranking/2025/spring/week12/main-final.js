@@ -71,7 +71,9 @@ fetch(jsonPath)
         watching: 'Watching',
         droppedThisWeek: 'Dropped',
         droppedTotal: 'Total dropped',
-        noAir: 'NoAir'
+        noAir: 'NoAir',
+        completed: 'Completed',
+        total: 'Total'
       };
 
       document.querySelectorAll('.watch-status .ws-item').forEach(item => {
