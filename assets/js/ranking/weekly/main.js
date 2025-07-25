@@ -440,10 +440,25 @@ fetch(overviewFile)
     const container = document.getElementById("overview-container");
     if (container) {
       container.innerHTML = html;
-    container.classList.remove("collapsed");
-      container.classList.add("expanded");
-    }
-  })
+// ✅ ←この下に追加！！
+    const btn = document.getElementById("overview-toggle-btn");
+    const triangle = btn?.querySelector(".triangle-icon");
+
+    btn?.addEventListener("click", () => {
+      container.classList.toggle("expanded");
+      triangle?.classList.toggle("rotate");
+
+      if (container.classList.contains("expanded")) {
+        btn.innerHTML = '<span class="triangle-icon rotate">&#9660;</span> CLOSE';
+      } else {
+        btn.innerHTML = '<span class="triangle-icon">&#9660;</span> OVERVIEW';
+        container.innerHTML = ""; // 閉じたとき中身クリア
+      }
+    });
+  }
+})
+
+
   .catch(err => {
     console.error("Overview fetch error:", err);
   });
