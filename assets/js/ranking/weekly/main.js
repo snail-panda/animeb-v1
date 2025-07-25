@@ -40,6 +40,7 @@ function adjustScoreBars() {
         wrpScore.style.marginLeft = '12px';
       } else {
         wrpScore.style.marginLeft = '6px';
+      }
     }
   });
 }
