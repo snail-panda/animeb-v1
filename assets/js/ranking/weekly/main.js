@@ -40,7 +40,6 @@ function adjustScoreBars() {
         wrpScore.style.marginLeft = '12px';
       } else {
         wrpScore.style.marginLeft = '6px';
-      }
     }
   });
 }
@@ -805,7 +804,7 @@ window.loadOverview = function(lang) {
 		  langBtn.blur();  // ← これを入れるだけ
         }
       });
-  }
+  
 
   // トグル動作 ボタンクリックでアコーディオン開閉（innerHTML を使わない！）
   btn.addEventListener("click", () => {
