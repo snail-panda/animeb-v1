@@ -708,6 +708,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // 最初は overview.html を読み込む
   function loadOverview(lang) {
+	const year = window.year;
+    const season = window.season;
+    const currentWeek = window.currentWeek;  
+	  
     const file = lang === "EN"
       ? `${year}${season}-${currentWeek}-overview.html`
       : `${year}${season}-${currentWeek}-overview-ja.html`;
