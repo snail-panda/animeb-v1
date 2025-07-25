@@ -81,8 +81,9 @@ fetch(jsonPath)
   const label = labelMap[key];
   const count = metaStatus[key];
   const target = item.querySelector('.view-count'); // ← 明示的にここだけ書き換える
-  if (target && count !== undefined) {
-    target.textContent = `${label}:${count}`;
+    // 空欄やnull/undefinedはスキップ（ただし0は表示）
+    if (target && String(count).trim() !== "") {
+      target.textContent = `${label}:${count}`;
   }
 });
     }
