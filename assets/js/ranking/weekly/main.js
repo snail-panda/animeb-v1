@@ -708,27 +708,58 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // loadOverview を window に登録する
 window.loadOverview = function(lang) {
+  const year = window.year;
+  const season = window.season;
+  const currentWeek = window.currentWeek;
+
+  const basePath = `/animeb-v1/ranking/${year}/${season}/${currentWeek}/`;
   const file = lang === "EN"
-    ? `2025spring-${currentWeek}-overview.html`
-    : `2025spring-${currentWeek}-overview-ja.html`;
+    ? `${basePath}${year}${season}-${currentWeek}-overview.html`
+    : `${basePath}${year}${season}-${currentWeek}-overview-ja.html`;
 
-    fetch(file)
-      .then((response) => {
-        if (!response.ok) throw new Error("not found");
-        return response.text();
-      })
-      .then((html) => {
-        container.innerHTML = html;
+  fetch(file)
+    .then((response) => {
+      if (!response.ok) throw new Error("not found");
+      return response.text();
+    })
+    .then((html) => {
+      const container = document.getElementById("overview-container");
+      container.innerHTML = html;
 
-        // 言語切り替えボタンを作成
-        const langBtn = document.createElement("button");
-        langBtn.id = "lang-toggle";
-        langBtn.textContent = "EN ⇄ JP";
+      const langBtn = document.createElement("button");
+      langBtn.id = "lang-toggle";
+      langBtn.textContent = "EN ⇄ JP";
+      langBtn.addEventListener("click", () => {
+        currentLang = currentLang === "EN" ? "JP" : "EN";
+        loadOverview(currentLang);
+      });
 
-        langBtn.addEventListener("click", () => {
-          currentLang = currentLang === "EN" ? "JP" : "EN";
-          loadOverview(currentLang);
-        });
+      const weeklyOverview = container.querySelector(".weekly-overview");
+      if (weeklyOverview) {
+        weeklyOverview.prepend(langBtn);
+      } else {
+        container.prepend(langBtn);
+      }
+    })
+    .catch(() => {
+      const container = document.getElementById("overview-container");
+      const msg = lang === "EN"
+        ? "English Overview not available."
+        : "Japanese Overview not available.";
+
+      container.innerHTML = `<p class="overview-notice" style="text-align:center; margin:1em 0;">${msg}</p>`;
+
+      const langBtn = document.createElement("button");
+      langBtn.id = "lang-toggle";
+      langBtn.textContent = "EN ⇄ JP";
+      langBtn.addEventListener("click", () => {
+        currentLang = lang === "EN" ? "JP" : "EN";
+        loadOverview(currentLang);
+      });
+      container.prepend(langBtn);
+    });
+};
+
 
         // ボタンを overview の先頭に差し込む
         const weeklyOverview = container.querySelector(".weekly-overview");
