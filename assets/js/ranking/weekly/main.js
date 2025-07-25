@@ -419,64 +419,7 @@ if (reviewAnchor) {
     setTimeout(() => {
       setupPopups();
     }, 0); // 🔁 DOMが確実に構築されてからイベントをバインド
-
-
-  // overview 読み込みフェッチ ✅ ここに貼る！（TOP 数字の更新の前でも後でもOK）
-    const basePath = window.location.pathname.replace(/\/[^\/]+$/, "/");
-const fileName = `${window.year}${window.season.toLowerCase()}-${window.currentWeek}-overview.html`;
-const overviewFile = basePath + fileName;
-
-fetch(overviewFile)
-  .then(res => {
-    if (!res.ok) throw new Error("Overview not found");
-    return res.text();
-  })
-  .then(html => {
-    const container = document.getElementById("overview-container");
-    if (container) {
-      container.innerHTML = html;
-
-      // ✅ ←この下に追加！！
-    const btn = document.getElementById("overview-toggle-btn");
-    const triangle = btn?.querySelector(".triangle-icon");
-
-    btn?.addEventListener("click", () => {
-  const isExpanded = container.classList.contains("expanded");
-
-  container.classList.toggle("expanded");
-  triangle?.classList.toggle("rotate");
-
-  if (!isExpanded) {
-    // 開く：再び fetch して読み込み
-    fetch(currentLang === "EN"
-      ? `2025spring-${window.currentWeek}-overview.html`
-      : `2025spring-${window.currentWeek}-overview-ja.html`)
-      .then(res => res.text())
-      .then(html => {
-        container.innerHTML = html;
-
-        // 言語切り替えボタン再挿入（省略可）
-
-        btn.innerHTML = '<span class="triangle-icon rotate">&#9660;</span> CLOSE';
-      })
-      .catch(() => {
-        container.innerHTML = `<p style="text-align:center; margin:1em 0;">Overview not available.</p>`;
-      });
-  } else {
-    // 閉じる
-    container.innerHTML = "";
-    btn.innerHTML = '<span class="triangle-icon">&#9660;</span> OVERVIEW';
-  }
-});
-
-  }
-})
-
-
-  .catch(err => {
-    console.error("Overview fetch error:", err);
-  });
-
+  
 
 	// ✅ TOP 数字の書き換え処理
 const topHeader = document.querySelector(".header h1");
@@ -490,7 +433,6 @@ if (topHeader && Array.isArray(data.entries)) {
   topHeader.textContent = `TOP${topCount}`;
 }
 
-	
 	
   })  // ← fetch().then(data => { ... }) の閉じ
 
@@ -757,12 +699,14 @@ function adjustPopupPadding(popup) {
 
 // ============Overview Section
 
+let currentLang = "EN"; // ✅ グローバルにする
+
 document.addEventListener("DOMContentLoaded", () => {
   const btn = document.getElementById("overview-toggle-btn");
   const container = document.getElementById("overview-container");
   const triangle = btn.querySelector(".triangle-icon");
 
-  let currentLang = "EN";
+  
 
   // loadOverview を window に登録する
 window.loadOverview = function(lang) {
