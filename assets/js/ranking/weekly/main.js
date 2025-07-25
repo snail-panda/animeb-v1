@@ -423,6 +423,21 @@ if (reviewAnchor) {
   // ✅ overview 自動読み込み
 document.getElementById("overview-toggle-btn")?.click();
 
+  // ✅ テスト用: パスやDOMが問題ないかチェック
+const currentPath = window.location.pathname.replace(/\/[^\/]+$/, "/");
+const overviewPath = currentPath + "overview.html";
+
+fetch(overviewPath)
+  .then(res => {
+    if (!res.ok) throw new Error("Failed to fetch overview.html");
+    return res.text();
+  })
+  .then(html => {
+    document.querySelector("#overview-box").innerHTML = html;
+  })
+  .catch(err => {
+    console.error("Overview load error:", err);
+  });
 
 	// ✅ TOP 数字の書き換え処理
 const topHeader = document.querySelector(".header h1");
