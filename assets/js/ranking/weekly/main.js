@@ -709,8 +709,8 @@ document.addEventListener("DOMContentLoaded", () => {
   // loadOverview を window に登録する
 window.loadOverview = function(lang) {
   const file = lang === "EN"
-    ? `2025spring-${window.currentWeek}-overview.html`
-    : `2025spring-${window.currentWeek}-overview-ja.html`;
+    ? `2025spring-${currentWeek}-overview.html`
+    : `2025spring-${currentWeek}-overview-ja.html`;
 
     fetch(file)
       .then((response) => {
