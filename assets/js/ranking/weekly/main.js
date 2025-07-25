@@ -420,6 +420,24 @@ if (reviewAnchor) {
       setupPopups();
     }, 0); // 🔁 DOMが確実に構築されてからイベントをバインド
 	
+  // overview.htmlをゲット ✅ ここに貼る！（TOP 数字の更新の前でも後でもOK）
+    const basePath = window.location.pathname.replace(/\/[^\/]+$/, "/");
+const fileName = `${window.year}${window.season.toLowerCase()}-${window.currentWeek}-overview.html`;
+const overviewFile = basePath + fileName;
+
+fetch(overviewFile)
+  .then(res => {
+    if (!res.ok) throw new Error("Overview not found");
+    return res.text();
+  })
+  .then(html => {
+    const container = document.getElementById("overview-container");
+    if (container) container.innerHTML = html;
+  })
+  .catch(err => {
+    console.error("Overview fetch error:", err);
+  });
+
 
 	// ✅ TOP 数字の書き換え処理
 const topHeader = document.querySelector(".header h1");
