@@ -420,6 +420,10 @@ if (reviewAnchor) {
       setupPopups();
     }, 0); // 🔁 DOMが確実に構築されてからイベントをバインド
 	
+  // ✅ overview 自動読み込み
+document.getElementById("overview-toggle-btn")?.click();
+
+
 	// ✅ TOP 数字の書き換え処理
 const topHeader = document.querySelector(".header h1");
 
