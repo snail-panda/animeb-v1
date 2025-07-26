@@ -1177,6 +1177,14 @@ VIEWING STATUS ZONE
   padding: 0.35rem 0.8rem;
 }
 
+.nav-link a.disabled {
+  color: #aaa;
+  pointer-events: none;
+  cursor: not-allowed;
+  text-decoration: none;
+}
+
+
 /* 注意書きエリア */
 
     .note {
