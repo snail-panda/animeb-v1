@@ -8,7 +8,7 @@ const season = pathSegments[pathSegments.length - 3];
 const year = pathSegments[pathSegments.length - 4];
 
 // JSONを読み込む
-fetch("../../../../tier-list.json")
+fetch("../../../../AnimeTListPage/tier-list.json")
   .then(response => response.json())
   .then(data => {
     const correctedSeason = season.charAt(0).toUpperCase() + season.slice(1).toLowerCase();
