@@ -362,6 +362,11 @@ fetch('../../../../weekly-rankings.json')
       const prevFinal = prevSeasonData?.final?.toLowerCase().replace(/\s+/g, '');
       if (prevFinal) {
         prevLink.href = `/animeb-v1/ranking/${prevInfo.year}/${prevInfo.season.toLowerCase()}/${prevFinal}/index.html`;
+      } else {
+        // 🔴 グレーアウト処理ここに貼る！
+    prevLink.href = "#";
+    prevLink.classList.add("disabled");
+    prevLink.setAttribute("title", "Coming soon");
       }
     }
 
@@ -374,6 +379,11 @@ fetch('../../../../weekly-rankings.json')
       const nextStart = nextSeasonData?.weeks?.[0]?.toLowerCase().replace(/\s+/g, '');
       if (nextStart) {
         nextLink.href = `/animeb-v1/ranking/${nextInfo.year}/${nextInfo.season.toLowerCase()}/${nextStart}/index.html`;
+      } else {
+        // 🔴 グレーアウト処理ここに貼る！
+    nextLink.href = "#";
+    nextLink.classList.add("disabled");
+    nextLink.setAttribute("title", "Coming soon");
       }
     }
   })
