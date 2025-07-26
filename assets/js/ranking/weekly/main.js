@@ -159,8 +159,12 @@ if (weekText === 'WEEK FINAL') {
   }
   // === TEMPORARY WIDTH FIX END ===
 }
+ // === Season-tile は個別に取得 ===
+    const yearEl = document.querySelector('.season-title .year');
+    const seasonEl = document.querySelector('.season-title .season');
 
-    document.querySelector('.season-title').textContent = data.meta.season;
+if (yearEl) yearEl.textContent = data.meta.year || "2025";
+if (seasonEl) seasonEl.textContent = data.meta.season || "SPRING";
     document.title = `Anime Weekly Ranking - ${data.meta.week}`;
 
 // ✅ ここにフォーマット関数を置くのがベスト
