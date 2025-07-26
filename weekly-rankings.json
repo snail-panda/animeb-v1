@@ -1,6 +1,10 @@
 {
   "2023": {
-    "Spring": {
+    "Winter": {
+      "weeks": ["Week 01"],
+      "final": "Week 01"
+    },
+	"Spring": {
       "weeks": ["Week 01", "Week 02", "Week 03"],
       "final": "Week 03"
     },
@@ -9,16 +13,16 @@
       "final": "Week 02"
     },
     "Fall": {
-      "weeks": ["Week 01"],
-      "final": "Week 01"
-    },
-    "Winter": {
       "weeks": ["Week 01"],
       "final": "Week 01"
     }
   },
   "2024": {
-    "Spring": {
+    "Winter": {
+      "weeks": ["Week 01"],
+      "final": "Week 01"
+    },
+	"Spring": {
       "weeks": ["Week 01", "Week 02", "Week 03"],
       "final": "Week 03"
     },
@@ -29,14 +33,14 @@
     "Fall": {
       "weeks": ["Week 01"],
       "final": "Week 01"
-    },
-    "Winter": {
-      "weeks": ["Week 01"],
-      "final": "Week 01"
     }
   },
   "2025": {
-    "Spring": {
+    "Winter": {
+      "weeks": [],
+      "final": null
+    },
+	"Spring": {
       "weeks": [
         "Week 01", "Week 02", "Week 03", "Week 04",
         "Week 05", "Week 06", "Week 07", "Week 08",
@@ -49,10 +53,6 @@
       "final": null
     },
     "Fall": {
-      "weeks": [],
-      "final": null
-    },
-    "Winter": {
       "weeks": [],
       "final": null
     }
