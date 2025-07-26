@@ -65,6 +65,23 @@ fetch(jsonPath)
   
   // ここから通常処理
 
+  const headerMountPoint = document.querySelector('.table-header-mount');
+const normalHeaderTemplate = document.getElementById('table-header-normal');
+const finalHeaderTemplate = document.getElementById('table-header-final');
+
+if (headerMountPoint) {
+  // 一旦中身クリア（※ mount先が空でない可能性がある場合）
+  headerMountPoint.innerHTML = '';
+
+  const selectedHeader = isFinalWeek
+    ? finalHeaderTemplate?.content.cloneNode(true)
+    : normalHeaderTemplate?.content.cloneNode(true);
+
+  if (selectedHeader) {
+    headerMountPoint.appendChild(selectedHeader);
+  }
+}
+
 
   // ✅ ← この位置のすぐ下に追加してOK！
 

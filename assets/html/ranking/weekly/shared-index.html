@@ -74,15 +74,26 @@
   <div id="overview-container" class="collapsed"></div>
 </section>
 
+<!-- ✅ mount先。ここに選ばれたヘッダーを挿入 -->
+<div class="table-header-mount"></div>
 
-
+<!-- ✅ 通常週用（非表示） -->
+<template id="table-header-normal">
   <div class="table table-header">
     <div class="header-rank">RANK (Δ)</div>
     <div class="header-title">TITLE / *WEEKLY RANKING POINT-WRP <span class="info-trigger" data-key="wrp"><img class="trigger-icon" src="../../../../images/badges/info-darkgrey2.png" width="8px"></span> (Bar Scale: 4-11)</div>
     <div class="header-totalscore"><span class="info-trigger" data-key="total">TOTAL SCORE<img class="trigger-icon" src="../../../../images/badges/info-darkgrey2.png" width="8px"></span></span></div>
   </div>
+</template>
 
-  
+  <!-- ✅ ファイナル週用（非表示） -->
+<template id="table-header-final">
+  <div class="table table-header">
+    <div class="header-rank">RANK (Δ)</div>
+    <div class="header-title">TITLE / *Final WRP<span class="info-trigger" data-key="f-wrp"><img class="trigger-icon" src="../../../../images/badges/info-darkgrey2.png" width="8px"></span> (Bar Scale: 40-100)</div>
+    <div class="header-totalscore">Overall Rating<span class="info-trigger" data-key="overall-rating"><img class="trigger-icon" src="../../../../images/badges/info-darkgrey2.png" width="8px"></span></div>
+  </div>
+</template>
 
   <!-- Entry Template -->
   <div id="entry-template" style="display: none;">
