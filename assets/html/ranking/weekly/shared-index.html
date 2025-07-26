@@ -192,8 +192,11 @@ synopsisの真下の段) -->
 </div> <!-- entry-list 終了 -->
 
 
- 
+ <!-- Note mount point -->
+<div class="note-mount"></div>
 
+<!-- ✅ 通常週用 note テンプレート -->
+<template id="note-normal">
   <div class="note">
     <strong>*Note 1: General Disclaimer</strong> 
     <p>
@@ -255,6 +258,118 @@ synopsisの真下の段) -->
   </div>  
 </div>
 <div class="hairline"></div>
+</template>
+
+<!-- ✅ ファイナル週用 note テンプレート -->
+<template id="note-final">
+  <div class="note">
+    <p class="note-title">
+      <strong>*Note 1: General disclaimer*</strong>
+    </p>
+    <p>
+      This ranking is absolutely subjective and personal, while striving to remain as objective as possible. There is genuinely no intent to humiliate, belittle, or undermine any creators or their work. The scoring is based on a personal set of criteria, refined over time and shaped by both relative and absolute evaluation. These criteria focus on key elements such as animation, script, structure, direction, pacing, overall appeal, charm, and the degree of satisfaction the work delivers as a complete piece.
+    </p>   
+  </div>
+  
+  <div class="note">
+   <p class="note-title"><strong>*Note 2: F.WRP (Final Weekly Ranking Point)*</strong></p>
+
+  <p>
+    FWRP is a unique metric designed to quantify the cumulative viewing experience over the course of a full cour.<br>  
+The calculation incorporates the total WRP (from episode 1 to the final episode), as well as a separately scored evaluation based on six core elements.
+  </p>
+
+  <p>
+    Formula:
+  </p>
+
+  <p>
+    <code>Total WRP (episode 1 to the final episode) ÷ Episode Count × 100 × Var(x) + 6 Element Point</code>
+  </p>
+
+  <div class="detail-toggle">
+    <strong>Details: &#9662;</strong>
+  </div>
+    <div class="detail-content">
+
+  <summary>About Var(x)</summary>
+  <ul class="about-vax">
+    <li>The value of a coefficient <strong>Var(x)</strong> varies depending on the total WRP score range, functioning as a multiplier to reflect ranking volatility or consistency.<br>
+    In short, <strong>Var(x)</strong> is a coefficient that  adjusts based on score range distribution, functioning as a compensatory factor to balance out ranking skew or inconsistency between titles.</li>
+  </ul>
+    
+  <summary>About the 6-Element Point and its breakdown</summary>
+  <ul class="six-element-summary">
+    <li><strong>The 6-Element Point</strong> is a score derived from evaluating the following six core aspects — each considered profoundly foundational and intricately influential, not just to every individual viewing but to the evolving, cumulative experience that defines a full-season anime journey:</li>
+  </ul>
+  <div class="six-element-detail">
+    <ul>
+      <li><strong>Opening Theme:</strong> Song (1.0 pt max) + Animation (0.5 pt max)</li>
+      <li><strong>Ending Theme:</strong> Song (1.0 pt max) + Animation (0.5 pt max</li>
+      <li><strong>Voice Acting / Performance:</strong> 0.5 pt max</li>
+      <li><strong>Music & Sound Design:</strong> 0.5 pt max </li>
+      <li><strong>Consistency / Coherence / Impact:</strong> 1.0 pt max</li>
+      <li><strong>Overall Harmony & Value:</strong> 2.0 pt max</li>
+    </ul>
+  </div>
+  <div class="total"><strong>Total: Maximum 7.0 points</strong></div>
+  <summary>💭 Why not disclose all item scores?</summary>
+  <div class="disclosure-reason">
+  <p>This system is the product of personal experience and long-term observation. It serves as a reference—never an absolute. Rather than reduce everything to raw data, it’s designed to help communicate nuance, emotional resonance, and the full texture of the viewing experience.<br>
+Therefore, certain scoring details and internal logic are intentionally withheld.
+</p>
+  </div>
+    </div>
+  <hr>
+
+  <div class="note-jp">
+    <p class="note-title"><strong>※注釈2：F.WRP（ファイナル・ウィークリー・ランキング・ポイント）について</strong></p>
+
+    <p>FWRPは、1クールを通して蓄積された視聴体験をスコア化するための独自指標です。<br>
+算出には、シリーズ全体のスコア（WRP）と、6つのコア要素を用いたポイント評価が含まれます。</p>
+    
+ <p>
+   算出式：
+  </p>
+
+  <p>
+    <code>総WRP（第1話〜最終話）÷ 話数 × 100 × Var(x) ＋ 6要素ポイント</code>
+  </p>
+
+  <div class="detail-toggle">
+    <strong>詳細：&#9662;</strong>
+  </div>
+    <div class="detail-content">
+      
+  <summary>Var(x)について</summary>   
+      
+  <ul class="about-vax">
+    <li>Var(x) は、総合WRPのスコア帯によって変化する係数であり、各スコア帯による偏りや不均衡を調整するためのものです。</li>
+  </ul>
+    
+ <summary>6要素ポイントについてとまたその内訳</summary>     
+  <ul class="six-element-summary">    
+    <li><strong>6要素ポイント</strong> は、個人が1クールを通してアニメ作品を享受するうえで最も基本的であり、またその満足感に間違いなく大きな影響力を持つであろう以下の6つの観点を評価して算出されます：</li>
+      </ul>
+  <div class="six-element-detail">  <ul>
+        <li><strong>オープニング：</strong> 楽曲 (1.0点満点) + アニメーション (0.5点満点)</li>
+  <li><strong>エンディング：</strong> 楽曲 (1.0点満点) + アニメーション (0.5点満点)</li>
+  <li><strong>声優・演技：</strong> 0.5点満点</li>
+  <li><strong>音楽・サウンドデザイン：</strong> 0.5点満点</li>
+  <li><strong>整合性・一貫性・インパクト：</strong> 1.0点満点</li>
+  <li><strong>総合的な調和・一体感・作品力：</strong> 2.0点満点</li>
+</ul>
+    </div>
+<div class="total"><strong>合計：最大7.0点</strong></div>
+  <summary>💭 なぜ全項目を公開しないのか</summary>
+<p>この評価システムは、個人的な視点と長年の経験に基づいて設計されています。<br>
+あくまで「指標」であって、「絶対的な真理」ではありません。すべてを数値化することが目的ではなく、感じた魅力や引っかかりを立体的に伝えるためのサポートとして機能しています。<br>
+そのため、一部の配点や内部ロジックについてはあえて非公開とさせていただいています。</p>
+    
+    </div>
+    </div>
+  </div>
+</template>
 
 </div>
 
