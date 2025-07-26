@@ -38,7 +38,7 @@
   "2025": {
     "Winter": {
       "weeks": [""],
-      "final": "Week 12"
+      "final": ""
     },
     "Spring": {
       "weeks": ["Week 01", "Week 06", "Week 12"],
@@ -46,7 +46,7 @@
     },
     "Summer": {
       "weeks": [""],
-      "final": "Week 12"
+      "final": ""
     },
     "Fall": {
       "weeks": ["Week 01"],
