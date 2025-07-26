@@ -159,12 +159,25 @@ if (weekText === 'WEEK FINAL') {
   }
   // === TEMPORARY WIDTH FIX END ===
 }
- // === Season-tile は個別に取得 ===
-    const yearEl = document.querySelector('.season-title .year');
-    const seasonEl = document.querySelector('.season-title .season');
+ // ✅ Season title 分解して挿入（"2025 Spring" → 2025, SPRING）
+const seasonRaw = data.meta.season || "";
+const [yearText, seasonRawText] = seasonRaw.trim().split(" "); // "2025", "Spring"
+const seasonText = seasonRawText?.toUpperCase?.() || "";       // "SPRING"
+const seasonLower = seasonRawText?.toLowerCase?.() || "";      // "spring", "summer", etc.
 
-if (yearEl) yearEl.textContent = data.meta.year || "2025";
-if (seasonEl) seasonEl.textContent = data.meta.season || "SPRING";
+const yearEl = document.querySelector('.season-title .year');
+const seasonEl = document.querySelector('.season-title .season');
+
+if (yearEl) yearEl.textContent = yearText;
+
+if (seasonEl) {
+  seasonEl.textContent = seasonText;
+
+  // 👇 クラスを完全に置き換え（"season" ＋ 季節名）
+  seasonEl.className = "season"; // 基本クラスでリセット
+  seasonEl.classList.add(`season-${seasonLower}`); // 追加で .season-spring など
+}
+
     document.title = `Anime Weekly Ranking - ${data.meta.week}`;
 
 // ✅ ここにフォーマット関数を置くのがベスト
