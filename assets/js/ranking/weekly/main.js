@@ -81,6 +81,7 @@ if (headerMountPoint) {
 
   if (selectedHeader) {
     headerMountPoint.appendChild(selectedHeader);
+    setupInfoTriggers(); // 🔁 ポップアップイベントを再バインドする関数
   }
 }
 
@@ -104,6 +105,7 @@ if (noteMountPoint) {
   // 最後に反映
   if (selectedNote) {
     noteMountPoint.appendChild(selectedNote);
+    setupInfoTriggers(); // 🔁 ポップアップイベントを再バインドする関数
   }
 }
 
@@ -798,6 +800,35 @@ function adjustPopupPadding(popup) {
     popup.style.paddingBottom = '';
   }
 }
+
+//==== Infotriger
+
+function setupInfoTriggers() {
+  document.querySelectorAll('.info-trigger').forEach(el => {
+    const key = el.dataset.key;
+    const content = infoMap[key];
+    if (!content) return;
+
+    el.addEventListener('mouseenter', (e) => {
+      showTooltip(e, content);
+    });
+
+    el.addEventListener('mousemove', (e) => {
+      moveTooltip(e);
+    });
+
+    el.addEventListener('mouseleave', () => {
+      hideTooltip();
+    });
+
+    el.addEventListener('click', (e) => {
+      showTooltip(e, content);
+    });
+  });
+}
+
+
+
 
 // ============Overview Section
 
