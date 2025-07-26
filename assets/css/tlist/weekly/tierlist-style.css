@@ -399,6 +399,13 @@ a
   color: #0066cc;
 }
 
+.tierlist-nav a.disabled {
+  color: #aaa;
+  cursor: default;
+  text-decoration: none;
+}
+
+
 /* ====================================================
   Mobile Fix — Disable Hover Zoom on Small Devices
 ==================================================== */
