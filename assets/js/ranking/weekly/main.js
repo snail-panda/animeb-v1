@@ -59,7 +59,12 @@ fetch(jsonPath)
 .then(data => {
 
   console.log(`✅ Successfully fetched: ranking-${currentWeek}-spring2025.json`);
+  
+  const isFinalWeek = (data.meta.week || "").toLowerCase().includes("final");
+
+  
   // ここから通常処理
+
 
   // ✅ ← この位置のすぐ下に追加してOK！
 
