@@ -949,3 +949,8 @@ document.querySelectorAll('.detail-toggle').forEach(el => {
     el.nextElementSibling.classList.toggle('open');
   });
 });
+
+//　通常のページ（入れ子にしていないWeek01など）では、DOMContentLoaded イベントが使うためにinitOverviewSection() を呼ぶ
+document.addEventListener("DOMContentLoaded", () => {
+  initOverviewSection();
+});
