@@ -117,6 +117,25 @@ if (weekEl && data.meta.week) {
 
   weekEl.textContent = weekText;
 
+  // ========== サブヘッダーに "FINAL" を追加 ==========
+if (weekText === 'WEEK FINAL') {
+  const subHeader = document.querySelector('.sub-header');
+
+  if (subHeader) {
+    const animeEl = subHeader.querySelector('.title-anime');
+    const rankingEl = subHeader.querySelector('.title-ranking');
+
+    // すでに存在していないかチェック（重複防止）
+    if (animeEl && rankingEl && !subHeader.querySelector('.final')) {
+      const finalSpan = document.createElement('span');
+      finalSpan.className = 'final';
+      finalSpan.textContent = 'FINAL';
+      subHeader.insertBefore(finalSpan, rankingEl);
+    }
+  }
+}
+
+
   // クラスのリセットと付け直し
   weekEl.classList.remove('final', 'mid', 'normal');
 
