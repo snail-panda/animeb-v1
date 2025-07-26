@@ -114,7 +114,13 @@ body {
 }
 
 .season-summer {
-  color: #f4a261;
+  color: #499bad;
+}
+.season-fall {
+  color: #c2572a;
+}
+.season-winter {
+  color: #cdd4db;
 }
 
 .final {
