@@ -801,7 +801,7 @@ function adjustPopupPadding(popup) {
   }
 }
 
-//==== Infotriger
+//==== Infotrigerのポップアップ？
 
 function setupInfoTriggers() {
   document.querySelectorAll('.info-trigger').forEach(el => {
