@@ -369,6 +369,16 @@ if (scoreEl) {
   `;
 }
 
+  // — エピソード番号を kv-thumb に追加 —
+const kvThumbBox = clone.querySelector('.kv-thumb');
+if (kvThumbBox && entryData.episode) {
+  const epBox = document.createElement("div");
+  epBox.className = "title-ep";
+  epBox.textContent = `Ep.${entryData.episode}`;
+  kvThumbBox.appendChild(epBox);
+}
+
+
   // — synopsis —
   const synopsisBox = clone.querySelector(".synopsis");
   if (synopsisBox) synopsisBox.textContent = entryData.synopsis || "";
