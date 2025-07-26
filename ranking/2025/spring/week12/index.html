@@ -390,6 +390,14 @@ fetch('../../../../weekly-rankings.json')
   .catch(error => {
     console.error("❌ Error loading available weeks:", error);
   });
+  
+  // prev, next linkがdisabledならクリックできないようにする
+  prevLink.addEventListener("click", (e) => {
+  if (prevLink.classList.contains("disabled")) e.preventDefault();
+});
+nextLink.addEventListener("click", (e) => {
+  if (nextLink.classList.contains("disabled")) e.preventDefault();
+});
 </script>
 <script src="../../../../assets/js/ranking/weekly/main.js"></script>
 </body>
