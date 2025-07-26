@@ -65,9 +65,11 @@ fetch(jsonPath)
   
   // ここから通常処理
 
+
+  // テーブルヘッダー出し分け
   const headerMountPoint = document.querySelector('.table-header-mount');
-const normalHeaderTemplate = document.getElementById('table-header-normal');
-const finalHeaderTemplate = document.getElementById('table-header-final');
+  const normalHeaderTemplate = document.getElementById('table-header-normal');
+  const finalHeaderTemplate = document.getElementById('table-header-final');
 
 if (headerMountPoint) {
   // 一旦中身クリア（※ mount先が空でない可能性がある場合）
@@ -79,6 +81,29 @@ if (headerMountPoint) {
 
   if (selectedHeader) {
     headerMountPoint.appendChild(selectedHeader);
+  }
+}
+
+  // note 出し分け（拡張性・安全性重視）
+const noteMountPoint = document.querySelector('.note-mount');
+const normalNoteTemplate = document.getElementById('note-normal');
+const finalNoteTemplate = document.getElementById('note-final');
+
+if (noteMountPoint) {
+  // 念のため mount point を初期化
+  noteMountPoint.innerHTML = '';
+
+  // 適切なテンプレートを選択
+  let selectedNote = null;
+  if (isFinalWeek && finalNoteTemplate) {
+    selectedNote = finalNoteTemplate.content.cloneNode(true);
+  } else if (normalNoteTemplate) {
+    selectedNote = normalNoteTemplate.content.cloneNode(true);
+  }
+
+  // 最後に反映
+  if (selectedNote) {
+    noteMountPoint.appendChild(selectedNote);
   }
 }
 
