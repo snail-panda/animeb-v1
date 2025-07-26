@@ -1213,6 +1213,47 @@ VIEWING STATUS ZONE
       padding-bottom: 8px;
     }
 
+    .note-jp {
+      font-family: 'Noto Sans JP', 'Yu Gothic UI', sans-serif;
+      font-size: 0.63rem;    
+    }
+ 
+    .note-title {
+      font-weight: 500;
+      color: #716f6f;
+    }
+
+    .note ul {
+  margin-left: -1rem;
+  margin-bottom: 1.5rem;
+}
+
+.about-vax,
+.six-element-summary {
+  list-style-type: circle;
+}
+
+.note li {
+  line-height: 1.8;
+}
+
+.six-element-detail {
+  margin-left: 2rem;
+}
+
+.total {
+  margin-left: 1.8rem;
+  margin-bottom: 1.5rem;
+}
+
+.note code {
+  font-family: monospace;
+  font-size: 0.63rem;
+  background-color: #f6f6f6;
+  padding: 0.1rem 0.4rem;
+  border-radius: 3px;
+}
+
 .hairline {
   height: 0.5px;
   border-width:100%;
@@ -1225,7 +1266,7 @@ VIEWING STATUS ZONE
   opacity: 0.7;
 }
 
-    /* detail-content 開閉トグル*/
+/* detail-content 開閉トグル*/
 
 .detail-content {
   display: none;
