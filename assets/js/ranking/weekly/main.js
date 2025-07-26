@@ -818,6 +818,7 @@ window.initOverviewSection = function() {
       }
     });
 });
+};
 
 
 
