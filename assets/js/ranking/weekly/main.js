@@ -817,7 +817,6 @@ window.initOverviewSection = function() {
         overviewSection.style.display = "none";
       }
     });
-});
 };
 
 
