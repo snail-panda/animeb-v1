@@ -17,13 +17,23 @@
         container.innerHTML = html;
         document.getElementById("app").appendChild(container);
 
-        // script タグを再実行する
+        // script タグを再実行する（読み込み完了を待つ）
+         const scriptPromises = [];
+
         container.querySelectorAll("script").forEach(oldScript => {
           const newScript = document.createElement("script");
 
           // src属性があればコピー（外部スクリプト）
           if (oldScript.src) {
             newScript.src = oldScript.src;
+			
+		  // 読み込み完了まで待つためのPromiseを追加
+        const promise = new Promise(resolve => {
+          newScript.onload = resolve;
+          newScript.onerror = resolve; // ←失敗しても resolve しとく（止まらないように）
+        });
+        scriptPromises.push(promise);	
+			
           } else {
             newScript.textContent = oldScript.textContent;
           }
@@ -36,14 +46,14 @@
           document.body.appendChild(newScript);
         });
 		
-		// 👉 この setTimeout の中で実行することで「確実にDOMが構築された後」に実行できる
-setTimeout(() => {
-  if (typeof initOverviewSection === "function") {
-    initOverviewSection();
-  } else {
-    console.warn("initOverviewSection is not defined yet");
-  }
-}, 0);
+		// 全スクリプトの読み込みが終わったあとに初期化
+    Promise.all(scriptPromises).then(() => {
+      if (typeof initOverviewSection === "function") {
+        initOverviewSection();
+      } else {
+        console.warn("initOverviewSection is not defined even after loading scripts");
+      }
+    });
 		
       })
       .catch(err => {
