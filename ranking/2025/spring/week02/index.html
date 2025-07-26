@@ -36,10 +36,14 @@
           document.body.appendChild(newScript);
         });
 		
-		// ★ここに書くのが正解！！ 全スクリプト再実行後に Overview を初期化
-      if (typeof initOverviewSection === "function") {
-        initOverviewSection();
-      }
+		// 👉 この setTimeout の中で実行することで「確実にDOMが構築された後」に実行できる
+setTimeout(() => {
+  if (typeof initOverviewSection === "function") {
+    initOverviewSection();
+  } else {
+    console.warn("initOverviewSection is not defined yet");
+  }
+}, 0);
 		
       })
       .catch(err => {
