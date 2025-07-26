@@ -106,8 +106,16 @@ body {
    color: #a67d23;
 }
 
-.season {
+.year {
+  color: #aaa;
+}
+
+.season-spring {
   color: #a67d23;
+}
+
+.season-summer {
+  color: #f4a261;
 }
 
 .final {
