@@ -16,6 +16,7 @@
         const container = document.createElement("div");
         container.innerHTML = html;
         document.getElementById("app").appendChild(container);
+		initOverviewSection(); // ←★これを追加！！
 
         // script タグを再実行する
         container.querySelectorAll("script").forEach(oldScript => {
