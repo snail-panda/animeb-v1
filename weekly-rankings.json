@@ -1,24 +1,60 @@
 {
   "2023": {
-    "Spring": ["Week 01", "Week 02", "Week 03"],
-    "Summer": ["Week 01", "Week 02"],
-    "Fall": ["Week 01"],
-    "Winter": ["Week 01"]
+    "Spring": {
+      "weeks": ["Week 01", "Week 02", "Week 03"],
+      "final": "Week 03"
+    },
+    "Summer": {
+      "weeks": ["Week 01", "Week 02"],
+      "final": "Week 02"
+    },
+    "Fall": {
+      "weeks": ["Week 01"],
+      "final": "Week 01"
+    },
+    "Winter": {
+      "weeks": ["Week 01"],
+      "final": "Week 01"
+    }
   },
   "2024": {
-    "Spring": ["Week 01", "Week 02", "Week 03"],
-    "Summer": ["Week 01", "Week 02"],
-    "Fall": ["Week 01"],
-    "Winter": ["Week 01"]
+    "Spring": {
+      "weeks": ["Week 01", "Week 02", "Week 03"],
+      "final": "Week 03"
+    },
+    "Summer": {
+      "weeks": ["Week 01", "Week 02"],
+      "final": "Week 02"
+    },
+    "Fall": {
+      "weeks": ["Week 01"],
+      "final": "Week 01"
+    },
+    "Winter": {
+      "weeks": ["Week 01"],
+      "final": "Week 01"
+    }
   },
   "2025": {
-    "Spring": [
-      "Week 01", "Week 02", "Week 03", "Week 04",
-      "Week 05", "Week 06", "Week 07", "Week 08",
-      "Week 09", "Week 10", "Week 11", "Week 12"
-    ],
-    "Summer": [],
-    "Fall": [],
-    "Winter": []
+    "Spring": {
+      "weeks": [
+        "Week 01", "Week 02", "Week 03", "Week 04",
+        "Week 05", "Week 06", "Week 07", "Week 08",
+        "Week 09", "Week 10", "Week 11", "Week 12"
+      ],
+      "final": "Week 12"
+    },
+    "Summer": {
+      "weeks": [],
+      "final": null
+    },
+    "Fall": {
+      "weeks": [],
+      "final": null
+    },
+    "Winter": {
+      "weeks": [],
+      "final": null
+    }
   }
 }
