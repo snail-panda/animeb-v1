@@ -354,6 +354,15 @@ if (typeof rankVal === "number" && rankVal > 3) {
   if (wrpEl) {
     wrpEl.innerHTML = `${entryData.wrp_score}<span class="wrp-score-unit">pt</span> <img src="../../../../images/badges/info-green.svg" width="8px">`;
 
+  // — バーラベル (Weekly Ranking Point 表示)
+const barLabel = clone.querySelector(".bar-label");
+if (barLabel) {
+  barLabel.textContent = isFinalWeek
+    ? "Final WRP w/6EP*"
+    : "Weekly Ranking Point*";
+}
+
+
   // Final Week 専用: key_elements_breakdown がある場合
   const keyBreakdown = entryData.key_elements_breakdown;
   if (keyBreakdown) {
