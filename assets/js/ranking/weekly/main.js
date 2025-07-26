@@ -699,7 +699,7 @@ function adjustPopupPadding(popup) {
 
 // ============Overview Section
 
-function initOverviewSection() {
+window.initOverviewSection = function() {
   const btn = document.getElementById("overview-toggle-btn");
   const container = document.getElementById("overview-container");
   const triangle = btn.querySelector(".triangle-icon");
