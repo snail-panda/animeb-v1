@@ -1179,9 +1179,10 @@ VIEWING STATUS ZONE
 
 .nav-link a.disabled {
   color: #aaa;
-  pointer-events: none;
   cursor: not-allowed;
   text-decoration: none;
+  /* pointer-events: none; ← コメントアウト */
+
 }
 
 
