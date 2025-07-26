@@ -296,14 +296,17 @@ fetch('../../../../weekly-rankings.json')
   })
   .then(data => {
     const seasonData = data?.[year]?.[correctedSeason];
-    if (!seasonData || !Array.isArray(seasonData.weeks)) {
-      console.log("🚫 No season data found for", year, correctedSeason);
+    const weeksRaw = seasonData?.weeks;
+
+    if (!weeksRaw || !Array.isArray(weeksRaw)) {
+      console.log("🚫 No available weeks found for", year, correctedSeason);
       return;
     }
 
-    const availableWeeks = seasonData.weeks.map(w => w.toLowerCase().replace(/\s+/g, ''));
+    const availableWeeks = weeksRaw.map(w => w.toLowerCase().replace(/\s+/g, ''));
     const finalWeek = seasonData.final?.toLowerCase().replace(/\s+/g, '');
     const normalizedCurrentWeek = currentWeek.toLowerCase().replace(/\s+/g, '');
+
 
     console.log("✅ availableWeeks:", availableWeeks);
     console.log("🏁 finalWeek:", finalWeek);
