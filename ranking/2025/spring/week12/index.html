@@ -289,67 +289,97 @@ Therefore, certain scoring details and internal logic are intentionally withheld
 
 <script>
   const pathSegments = window.location.pathname.split('/');
-  const currentWeek = pathSegments[pathSegments.length - 2]; // e.g., "week01"
-  const season = pathSegments[pathSegments.length - 3];      // e.g., "spring"
-  const year = pathSegments[pathSegments.length - 4];        // e.g., "2025"  
-  const weekNum = parseInt(currentWeek.replace("week", ""), 10);
-  
-  // ── 追加：main.js からも参照できるようグローバル公開 ──
-  window.currentWeek = currentWeek;
-  window.season      = season;
-  window.year        = year;
-  window.weekNum     = weekNum;
+const currentWeek = pathSegments[pathSegments.length - 2]; // e.g., "week12"
+const season = pathSegments[pathSegments.length - 3];      // e.g., "spring"
+const year = pathSegments[pathSegments.length - 4];        // e.g., "2025"
+const weekNum = parseInt(currentWeek.replace("week", ""), 10);
 
-  const prevWeek = weekNum > 1 ? `week${String(weekNum - 1).padStart(2, '0')}` : null;
-  const nextWeek = weekNum < 12 ? `week${String(weekNum + 1).padStart(2, '0')}` : null;
+window.currentWeek = currentWeek;
+window.season = season;
+window.year = year;
+window.weekNum = weekNum;
 
-  const basePath = `/animeb-v1/ranking/${year}/${season}/`;
+// 🔠 頭文字だけ大文字に変換
+function capitalizeFirstLetter(str) {
+  return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
+}
+const correctedSeason = capitalizeFirstLetter(season);
 
-  const prevLink = document.querySelector('.nav-link.left a');
-  const nextLink = document.querySelector('.nav-link.right a');
+// 🔄 次シーズン／前シーズン取得ヘルパー
+const seasonOrderMap = { "Winter": "Spring", "Spring": "Summer", "Summer": "Fall", "Fall": "Winter" };
+const seasonBackMap = { "Winter": "Fall", "Spring": "Winter", "Summer": "Spring", "Fall": "Summer" };
 
-  // 🔠 頭文字だけ大文字に変換
-  function capitalizeFirstLetter(str) {
-    return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
-  }
+function getNextSeason(year, season) {
+  if (season === "Fall") return { year: String(Number(year) + 1), season: "Winter" };
+  return { year, season: seasonOrderMap[season] };
+}
 
-  const correctedSeason = capitalizeFirstLetter(season);
+function getPrevSeason(year, season) {
+  if (season === "Winter") return { year: String(Number(year) - 1), season: "Fall" };
+  return { year, season: seasonBackMap[season] };
+}
 
-  // JSONから利用可能な週情報を取得
-  fetch('../../../../weekly-rankings.json')
-    .then(response => {
-      console.log("🔍 Response status:", response.status);
-      return response.json();
-    })
-    .then(data => {
-      const weeksRaw = data?.[year]?.[correctedSeason];
-      console.log("year:", year);
-      console.log("season:", correctedSeason);
-      console.log("availableWeeks (raw):", weeksRaw);
+const basePath = `/animeb-v1/ranking/${year}/${season}/`;
+const prevLink = document.querySelector('.nav-link.left a');
+const nextLink = document.querySelector('.nav-link.right a');
 
-      if (!weeksRaw || !Array.isArray(weeksRaw)) {
-        console.log("🚫 No available weeks found for", year, correctedSeason);
-        return;
+// 🔧 初期化（placeholder上書き防止）
+prevLink.href = "#";
+nextLink.href = "#";
+
+fetch('../../../../weekly-rankings.json')
+  .then(response => {
+    console.log("🔍 Response status:", response.status);
+    return response.json();
+  })
+  .then(data => {
+    const seasonData = data?.[year]?.[correctedSeason];
+    const weeksRaw = seasonData?.weeks;
+
+    if (!weeksRaw || !Array.isArray(weeksRaw)) {
+      console.log("🚫 No available weeks found for", year, correctedSeason);
+      return;
+    }
+
+    const availableWeeks = weeksRaw.map(w => w.toLowerCase().replace(/\s+/g, ''));
+    const finalWeek = seasonData.final?.toLowerCase().replace(/\s+/g, '');
+    const normalizedCurrentWeek = currentWeek.toLowerCase().replace(/\s+/g, '');
+
+
+    console.log("✅ availableWeeks:", availableWeeks);
+    console.log("🏁 finalWeek:", finalWeek);
+
+    const index = availableWeeks.indexOf(normalizedCurrentWeek);
+    const prevWeek = index > 0 ? availableWeeks[index - 1] : null;
+    const nextWeek = index >= 0 && index < availableWeeks.length - 1 ? availableWeeks[index + 1] : null;
+
+    // ⬅️ 前の週 or 前のシーズン
+    if (prevWeek) {
+      prevLink.href = `${basePath}${prevWeek}/index.html`;
+    } else {
+      const prevInfo = getPrevSeason(year, correctedSeason);
+      const prevSeasonData = data?.[prevInfo.year]?.[prevInfo.season];
+      const prevFinal = prevSeasonData?.final?.toLowerCase().replace(/\s+/g, '');
+      if (prevFinal) {
+        prevLink.href = `/animeb-v1/ranking/${prevInfo.year}/${prevInfo.season.toLowerCase()}/${prevFinal}/index.html`;
       }
+    }
 
-      const availableWeeks = weeksRaw.map(w => w.toLowerCase().replace(/\s+/g, ''));
-      console.log("✅ availableWeeks (normalized):", availableWeeks);
-
-      if (prevWeek && availableWeeks.includes(prevWeek)) {
-        prevLink.href = `${basePath}${prevWeek}/index.html`;
-      } else {
-        prevLink.href = "#";
+    // ➡️ 次の週 or 次のシーズン
+    if (nextWeek) {
+      nextLink.href = `${basePath}${nextWeek}/index.html`;
+    } else {
+      const nextInfo = getNextSeason(year, correctedSeason);
+      const nextSeasonData = data?.[nextInfo.year]?.[nextInfo.season];
+      const nextStart = nextSeasonData?.weeks?.[0]?.toLowerCase().replace(/\s+/g, '');
+      if (nextStart) {
+        nextLink.href = `/animeb-v1/ranking/${nextInfo.year}/${nextInfo.season.toLowerCase()}/${nextStart}/index.html`;
       }
-
-      if (nextWeek && availableWeeks.includes(nextWeek)) {
-        nextLink.href = `${basePath}${nextWeek}/index.html`;
-      } else {
-        nextLink.href = "#";
-      }
-    })
-    .catch(error => {
-      console.error("❌ Error loading available weeks:", error);
-    });
+    }
+  })
+  .catch(error => {
+    console.error("❌ Error loading available weeks:", error);
+  });
 </script>
 <script src="../../../../assets/js/ranking/weekly/main.js"></script>
 </body>
