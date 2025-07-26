@@ -16,7 +16,6 @@
         const container = document.createElement("div");
         container.innerHTML = html;
         document.getElementById("app").appendChild(container);
-		initOverviewSection(); // ←★これを追加！！
 
         // script タグを再実行する
         container.querySelectorAll("script").forEach(oldScript => {
@@ -36,6 +35,12 @@
 
           document.body.appendChild(newScript);
         });
+		
+		// ★ここに書くのが正解！！ 全スクリプト再実行後に Overview を初期化
+      if (typeof initOverviewSection === "function") {
+        initOverviewSection();
+      }
+		
       })
       .catch(err => {
         console.error("Failed to load shared-index.html:", err);
