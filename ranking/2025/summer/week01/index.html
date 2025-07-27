@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Week 02</title>
+</head>
+<body>
+  <div id="app"></div>
+
+  <script>
+    const targetPath = "../../../../assets/html/ranking/weekly/shared-index.html";
+
+    fetch(targetPath)
+      .then(res => res.text())
+      .then(html => {
+        const container = document.createElement("div");
+        container.innerHTML = html;
+        document.getElementById("app").appendChild(container);
+
+        // script タグを再実行する（読み込み完了を待つ）
+         const scriptPromises = [];
+
+        container.querySelectorAll("script").forEach(oldScript => {
+          const newScript = document.createElement("script");
+
+          // src属性があればコピー（外部スクリプト）
+          if (oldScript.src) {
+            newScript.src = oldScript.src;
+			
+		  // 読み込み完了まで待つためのPromiseを追加
+        const promise = new Promise(resolve => {
+          newScript.onload = resolve;
+          newScript.onerror = resolve; // ←失敗しても resolve しとく（止まらないように）
+        });
+        scriptPromises.push(promise);	
+			
+          } else {
+            newScript.textContent = oldScript.textContent;
+          }
+
+          // type, async, defer なども引き継ぎ（念のため）
+          [...oldScript.attributes].forEach(attr => {
+            newScript.setAttribute(attr.name, attr.value);
+          });
+
+          document.body.appendChild(newScript);
+        });
+		
+		// 全スクリプトの読み込みが終わったあとに初期化
+    Promise.all(scriptPromises).then(() => {
+      if (typeof initOverviewSection === "function") {
+        initOverviewSection();
+      } else {
+        console.warn("initOverviewSection is not defined even after loading scripts");
+      }
+    });
+		
+      })
+      .catch(err => {
+        console.error("Failed to load shared-index.html:", err);
+      });
+  </script>
+</body>
+</html>

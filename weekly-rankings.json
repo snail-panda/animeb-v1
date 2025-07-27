@@ -49,7 +49,7 @@
       "final": "Week 12"
     },
     "Summer": {
-      "weeks": [],
+      "weeks": ["Week 01"],
       "final": null
     },
     "Fall": {
