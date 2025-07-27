@@ -106,6 +106,7 @@ if (noteMountPoint) {
   if (selectedNote) {
     noteMountPoint.appendChild(selectedNote);
     setupInfoTriggers(); // 🔁 ポップアップイベントを再バインドする関数
+    setupDetailToggles();     // ←これ追加！
   }
 }
 
@@ -827,6 +828,14 @@ function setupInfoTriggers() {
   });
 }
 
+// ====DetailToggler のセットアップ
+function setupDetailToggles() {
+  document.querySelectorAll('.detail-toggle').forEach(el => {
+    el.addEventListener('click', () => {
+      el.nextElementSibling.classList.toggle('open');
+    });
+  });
+}
 
 
 
@@ -1075,13 +1084,15 @@ function hideTooltip() {
 }
 
 
-
+// ❌ 今では不要（消してもよし、念のためならコメントでもOK）
+/*
 // Noteのdetailsの開閉トグル
 document.querySelectorAll('.detail-toggle').forEach(el => {
   el.addEventListener('click', () => {
     el.nextElementSibling.classList.toggle('open');
   });
 });
+*/
 
 //　通常のページ（入れ子にしていないWeek01など）では、DOMContentLoaded イベントが使うためにinitOverviewSection() を呼ぶ
 document.addEventListener("DOMContentLoaded", () => {
