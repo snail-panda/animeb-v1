@@ -1294,16 +1294,18 @@ VIEWING STATUS ZONE
 /* ツールチップ*/	
 	.tooltip {
   position: absolute;
-  background-color: rgba(248, 248, 227, 0.95);
-  color: #606035;
-  padding: 6px 10px;
-  font-size: 0.688rem;
-  font-family: 'Abel', 'sans-serf';
+  background-color: #fbfbe9;
+  border: 0.5px solid #b8c6b7;
+  color: #757575;
+  padding: 10px 12px;
+  font-size: 0.719rem;
+  font-family: 'Agency FB', 'Abel', 'sans-serf';
   border-radius: 4px;
   display: none;
   z-index: 9999;
   pointer-events: none;
   max-width: 280px;
+  letter-spacing: 0.02rem;
   line-height: 1.4;
 }
 
