@@ -58,7 +58,7 @@ fetch(jsonPath)
   })
 .then(data => {
 
-  console.log(`✅ Successfully fetched: ranking-${currentWeek}-spring2025.json`);
+  console.log(`✅ Successfully fetched: ranking-${currentWeek}-${season}${year}.json`);
   
   const isFinalWeek = (data.meta.week || "").toLowerCase().includes("final");
 
@@ -367,9 +367,14 @@ if (typeof rankVal === "number" && rankVal > 3) {
 
 
   // — KV画像 —
+  // 動的に year / season を使ってパス生成
+const year = window.year;
+const season = window.season; // spring, summer, etc.
+
+
   const kvImg = clone.querySelector(".kv-thumb img");
   if (kvImg && entryData.kv) {
-    kvImg.src = `../../../../images/key-visuals/2025/spring/${entryData.kv}.webp`;
+    kvImg.src = `../../../../images/key-visuals/${year}/${season}/${entryData.kv}.webp`;
     kvImg.alt = `${entryData.title} key visual`;
   }
 
