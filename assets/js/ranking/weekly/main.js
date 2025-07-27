@@ -1010,7 +1010,18 @@ const infoMap = {
         <li><span class="key">Exception:</span> Scores from <span class="key">9.50 to 9.99</span> are treated as <span class="key">10</span>, and <span class="key">10.00+</span> becomes <span class="key">11</span>.</li>
       </ul>
       <p class="tooltip-note">Note: While useful for seasonal ranking, this score is also a simplified reflection of the overall impression—both practical and intuitive.</p>
-  `
+  `,
+  finalwrp: `
+  <span class="tooltip-heading">What’s FWRP?</span>
+  <ul class="tooltip-list">
+    <li><span class="key">FWRP</span> (Final Weekly Ranking Point) is a score representing the total viewing experience over the season.</li>
+    <li>It blends two components: <em>cumulative WRP</em> across all episodes and a <em>separately scored 6-Element Point</em>.</li>
+    <li>The formula adjusts based on overall balance and volatility — ensuring both emotional impact and structural integrity are captured.</li>
+  </ul>
+  <p class="tooltip-note">Note: FWRP is designed to reflect the unique, evolving texture of a full-cour anime — not just raw stats but the journey as a whole.</p>
+  <p class="tooltip-bottom-note">For full breakdown, see the note at the bottom.</p>
+`
+
 };
 
 document.querySelectorAll('.info-trigger').forEach(el => {
