@@ -2,235 +2,98 @@
   "meta": {
     "week": "week 1",
     "duration": "04-06-Sun-04-12-Sat",
-    "season": "2025 Spring",
+    "season": "2025 Summer",
     "ep_range": "ep.1-2",
     "status": {
-      "watching": 23,
-      "droppedThisWeek": 4,
-      "droppedTotal": 4,
+      "watching": 17,
+      "droppedThisWeek": 28,
+      "droppedTotal": 28,
       "noAir": 0,
       "completed": 0,
-      "total": 27
+      "total": 45
     }
   },
   "entries": [
     {
       "rank": 1,
-      "trend": "re",
-      "title": "The Apothecary Diaries 2nd Season",
-      "jpTitle": "薬屋のひとりごと 第2期（第2クール）",
-      "kv": "kusuriya",
-      "episode": 37,
-      "genre": [
-        "Historical",
-        "Mystery",
-        "Drama"
-      ],
-      "wrp_score": 9.65,
-      "score": 10,
-      "review": {
-        "en": "",
-        "jp": "やはり2クール目スタートの話としてこれ以上無い文句なしのものだったので10点に上方修正した。 ”2クール目もスタートの第13話。非常に面白かった。OPEDのアニメからも今クールの力の入れようが伝わってくる。前クールまでとちょっと違って3人娘の湯殿を絡めた立ち回りと展開、それに伴う上級妃絡みの話、またなにげに前皇帝も絡んでるし、前クールに続いて幽霊の話も絡んできてるしあらゆる意味でとにかく格の違いを見せつける素晴らしい回だった。まぁちょこちょこっとしたところの見せ方が本当に細やかで最高。個人的には壬氏が出てこない回が面白くて好き。あっぱれのスタート。”－9点・視聴継続"
-      },
-      "wrp_breakdown": {
-        "base_score": 5,
-        "animation": 0.75,
-        "script": 0.75,
-        "direction": 0.75,
-        "charm": 0.7,
-        "overall": 1.7
-      },
-      "romanized_title": "Kusuriya no Hitorigoto 2nd Season",
-      "release_date": "4/4/2025 to 7/4/2025",
-      "based_on": "Naro",
-      "studios": "TOHO animation STUDIO✕OLM",
-      "creators": "Norihiro Naganuma",
-      "external_scores": "8.93 (MAL)",
-      "streaming_services": "",
-      "synopsis": "Maomao lived a peaceful life with her apothecary father. Until one day, she’s sold as a lowly servant to the emperor’s palace. But she wasn’t meant for a compliant life among royalty. So when imperial heirs fall ill, she decides to step in and find a cure! This catches the eye of Jinshi, a handsome palace official who promotes her. Now, she’s making a name for herself solving medical mysteries!"
-    },
-    {
-      "rank": 2,
       "trend": "new",
-      "title": "LAZARUS",
-      "jpTitle": "ラザロ",
-      "kv": "lazarus",
+      "title": "Takopi's Original Sin",
+      "jpTitle": "タコピーの原罪",
+      "kv": "takopi",
       "episode": 1,
       "genre": [
-        "Action",
+        "Drama",
+        "Psychological",
         "Sci-Fi"
       ],
-      "wrp_score": 9.6,
+      "wrp_score": 9.7,
       "score": 10,
-      "review": {
-        "en": "",
-        "jp": "”あらゆる意味でちょっとレベルが違いすぎるし、またターゲットが明らかに前提として全世界、アニメファン世代問わず全対象的なものでリズム、音楽、アクション、構成、全ての見せ方が別次元だった。設定やテーマも非常に興味深くて第1話として申し分ないどころか実直にぶっ飛んでいて正攻法で叩きのめされた。主人公のアクション・パルクールでここまでずっとみさせられるとは・・。キャラデザ、キャラ、機械、乗り物、建物、あらゆるデザインも凄いものがあった。オリジナルだしこれから、とくに終盤や最後どうなっていくのかはわからないけど今のところは非常に楽しみ。やられたなー。”—10点"
-      },
-      "wrp_breakdown": {
-        "base_score": 5,
-        "animation": 0.8,
-        "script": 0.75,
-        "direction": 0.75,
-        "charm": 0.65,
-        "overall": 1.65
-      },
-      "romanized_title": "LAZARUS",
-      "release_date": "4/6/2025 to 6/29/2025",
-      "based_on": "Original",
-      "studios": "MAPPA",
-      "creators": "Shinichiro Watanabe",
-      "external_scores": "7.21 (MAL)",
-      "streaming_services": "",
-      "synopsis": "The year is 2052 — an era of unprecedented peace and prosperity prevails across the globe. The reason for this: mankind has been freed from sickness and pain. Nobel Prize winning neuroscientist Dr. Skinner has developed a miracle cure-all drug with no apparent drawbacks called Hapuna. Hapuna soon becomes ubiquitous… and essential. However, soon after Hapuna is officially introduced, Dr. Skinner vanishes.  Three years later, the world has moved on. But Dr. Skinner has returned — this time, as a harbinger of doom. Skinner announces that Hapuna has a short half-life. Everyone who has taken it will die approximately three years later. Death is coming for this sinful world — and coming soon."
-    },
-    {
-      "rank": 3,
-      "trend": "up",
-      "title": "Once Upon a Witch's Death",
-      "jpTitle": "ある魔女が死ぬまで",
-      "kv": "arumajo",
-      "episode": 2,
-      "genre": [
-        "Adventure",
-        "Drama",
-        "Fantasy"
-      ],
-      "wrp_score": 9.55,
-      "score": 10,
-      "review": {
-        "en": "",
-        "jp": "”1話目厳しくしすぎたかもだけどそれはそれでいい。またこの第2話も正直めちゃめちゃズルい。これで泣かない人いるか？ただ前半の親友？のおじいちゃんの時計の話と後半の話の繋がり、またお師匠さんとヒロインの関係と想いというもの、そして思い出の木とおばあちゃんの繋がり、全ての繋がりと描き方、演出が素晴らしかった。それでも多少の粗さというか大雑把さみたいなものを感じないわけではないが大きな想いを作品から感じることが出来るのでいいと思う。OPEDにもそれが十分に現れている気がする。第2話からしっかりとキャラや作品の魅力が出ているのも高得点の理由。今後に期待。毎回泣かされるのは勘弁してほしいけど。”－10点・CW"
-      },
-      "wrp_breakdown": {
-        "base_score": 5,
-        "animation": 0.7,
-        "script": 0.75,
-        "direction": 0.8,
-        "charm": 0.65,
-        "overall": 1.65
-      },
-      "romanized_title": "Aru Majo ga Shinu Made",
-      "release_date": "4/1/2025",
-      "based_on": "Web Novel",
-      "studios": "EMT Squared",
-      "creators": "Atsushi Nigorikawa",
-      "external_scores": "",
-      "streaming_services": "",
-      "synopsis": "On Meg’s seventeenth birthday, she learns that she only has one year left to live. Her mentor—the Eternal Witch, Faust—explains that she is cursed and the only way to save herself is to grow a seed of life using one thousand tears of joy. Of course, such tears aren’t easy to come by. As Meg begins her quest, she finds herself drawn into the lives of her friends and neighbors in ways she never imagined. By sharing their burdens and using her magic to comfort them, she learns how precious those moments of connection can be even in the face of death."
-    },
-    {
-      "rank": 4,
-      "trend": "re",
-      "title": "Shoshimin: How to Become Ordinary 2",
-      "jpTitle": "小市民シリーズ（第2期）",
-      "kv": "shoshimin",
-      "episode": 11,
-      "genre": [
-        "Mystery",
-        "School",
-        "Slice of Life"
-      ],
-      "wrp_score": 9.5,
-      "score": 10,
-      "review": {
-        "en": "",
-        "jp": "こいつはとんでもない。OPEDもやばい。OPの1コマ目から持っていかれた。そして全体の構成・クオリティ、何もかもが1,2ランク上で圧倒的な才能が溢れている。1期を知らない人やこれ系、またこの雰囲気、小佐内ちゃんが好みじゃない人には全然刺さらないだろうということも承知しているがそれでも!と言いたいくらいの2期目のスタート(第11話)として間違いなく『凄い』と言えるものを見せてくれた。今までのものが確実に深く積み重なり結びつきつつそれが更にもっと厄介で怖いというのもいい。まぁ一つ一つの描写などが半端なくて最良質のドラマや映画を見ている感覚。っていうか小佐内が強すぎる。強いて言うなら新聞部部長の彼ってあんなに切れ者だったっけ?ってくらい。覚えてないんですけどね。それにしてもすげーな。ヨルシカやばいし。羊宮妃那ちゃんは薬がはまってますねぇ。ただ刺さらない人には全然刺さらないのは間違いない。せいぜい8点でしょう。ただ自分としては「薬屋」と本作は現時点で圧倒的に他の作品から抜け出ているのは間違いないということでこの今クール第1話に9点は付けられませんってことです。"
-      },
-      "wrp_breakdown": {
-        "base_score": 5,
-        "animation": 0.75,
-        "script": 0.75,
-        "direction": 0.75,
-        "charm": 0.6,
-        "overall": 1.65
-      },
-      "romanized_title": "Shoushimin Series 2nd Season",
-      "release_date": "4/5/2025 to 6/22/2025",
-      "based_on": "Novels",
-      "studios": "Lapin Track",
-      "creators": "Mamoru Kanbe",
-      "external_scores": "8.03 (MAL)",
-      "streaming_services": "",
-      "synopsis": "The second season will focus on two new cases from the novel series, adapting the two-part third volume Shuuki Gentei Kuri Kinton Jiken (The Autumn-Exclusive Kuri Kinton Case) and the fifth volume Touki Gentei Bonbon Chocolat Jiken (The Winter-Exclusive Chocolate Bonbons Case)."
-    },
-    {
-      "rank": 5,
-      "trend": "new",
-      "title": "Uma Musume: Cinderella Grey",
-      "jpTitle": "ウマ娘 シンデレラグレイ",
-      "kv": "umamusume",
-      "episode": 1,
-      "genre": [
-        "Drama",
-        "Sports"
-      ],
-      "wrp_score": 9.45,
-      "score": 9,
-      "review": {
-        "en": "",
-        "jp": "”比較的地味なスタートが逆に最初からやりすぎずにちゃんと積み上げていく見せ方としてすごく良かった。その中に絶妙に凄さや格の違いが垣間見えるしバックグラウンドや地方競馬の現実の中出の・・・という環境などもしっかりと描いていたのがここしばらくの派生エンタメでしかなかった「ウマ娘」フランチャイズとの違いを決定的に見せてくれていたと感じたので高得点を付けざるを得なかった。間違いなく面白いでしょう。”－９点"
-      },
-      "wrp_breakdown": {
-        "base_score": 5,
-        "animation": 0.7,
-        "script": 0.75,
-        "direction": 0.75,
-        "charm": 0.65,
-        "overall": 1.6
-      },
-      "romanized_title": "Uma Musume: Cinderella Gray",
-      "release_date": "4/6/2025 to 6/29/2025",
-      "based_on": "Media Mix",
-      "studios": "Cygames Pictures",
-      "creators": "Yuuki Itou",
-      "external_scores": "8.47 (MAL)",
-      "streaming_services": "",
-      "synopsis": "Unbeknownst to those around her in the destitute countryside of Kasamatsu, the staggering potential of this ashen-haired \"Beast” will soon rock Japan with her feet and catapult her to the national stage—down the path of a legend.  Follow Oguri Cap and her insatiable appetite as the starting gates open on this Umamusume's hot-blooded Cinderella story!"
-    },
-    {
-      "rank": 6,
-      "trend": "new",
-      "title": "Sword of the Demon Hunter",
-      "jpTitle": "鬼人幻燈抄",
-      "kv": "kijin",
-      "episode": 1,
-      "genre": [
-        "Action",
-        "Historical",
-        "Drama"
-      ],
-      "wrp_score": 9.4,
-      "score": 9,
       "review": {
         "en": "",
         "jp": ""
       },
       "wrp_breakdown": {
         "base_score": 5,
-        "animation": 0.7,
+        "animation": 0.75,
+        "script": 0.75,
+        "direction": 0.8,
+        "charm": 0.7,
+        "overall": 1.7
+      },
+      "romanized_title": "Takopii no Genzai",
+      "release_date": "6/28/2025 to 8/2/2025",
+      "based_on": "Manga",
+      "studios": "ENISHIYA",
+      "creators": "shinya Iino",
+      "external_scores": "",
+      "streaming_services": "",
+      "synopsis": "A Happy alien, Takopi, lands on Earth with one mission: to spread happiness! When he meets Shizuka, a lonely fourth grader, he vows to bring back her smile using his magical Happy Gadgets. But as he uncovers the pain in her life, Takopi learns that true happiness may require more than gadgets."
+    },
+    {
+      "rank": 2,
+      "trend": "new",
+      "title": "Ruri Rocks",
+      "jpTitle": "瑠璃の宝石",
+      "kv": "ruri",
+      "episode": 1,
+      "genre": [
+        "Adventure",
+        "Slice of Life"
+      ],
+      "wrp_score": 9.6,
+      "score": 10,
+      "review": {
+        "en": "",
+        "jp": ""
+      },
+      "wrp_breakdown": {
+        "base_score": 5,
+        "animation": 0.75,
         "script": 0.75,
         "direction": 0.75,
         "charm": 0.65,
-        "overall": 1.55
+        "overall": 1.7
       },
-      "romanized_title": "KIJIN GENTOUSHOU",
-      "release_date": "3/31/2025",
-      "based_on": "Naro",
-      "studios": "Yokohama Animation Laboratory",
-      "creators": "Kazuya Aiura",
+      "romanized_title": "Ruri no Houseki",
+      "release_date": "7/6/2025 to 9/28/2025",
+      "based_on": "Manga",
+      "studios": "Studio Bind",
+      "creators": "Shingo Fujii",
       "external_scores": "",
       "streaming_services": "",
-      "synopsis": "In the Edo period, there was a shrine maiden called \"Itsukihime\" in the mountain village of Kadono. Jinta, a young man who acts as the shrine maiden's guardian despite being a stranger, encounters a mysterious demon who speaks of the far future in the forest where he went to defeat it. From Edo to the Heisei era, this huge Japanese fantasy series follows a demon man who travels through time while continuously questioning the meaning of wielding a sword."
+      "synopsis": "Mineral collecting is like a modern-day treasure hunt!  Ruri, a high school girl who loves jewelry and accessories, gets into the world of mineral collecting, venturing into mountains, rivers, and caves. The first volume features numerous minerals, including quartz, garnet, pyrite, gold sand, and fluorite. The manga is full of fascinating scenes focusing on specialized tools such as a panning dish, hammer, and topographical maps. An authentic scientific adventure based on the author's solid knowledge of mineralogy!"
     },
     {
-      "rank": 7,
-      "trend": "new",
-      "title": "Can a Boy-Girl Friendship Survive?",
-      "jpTitle": "男女の友情は成立する？（いや、しないっ!!）",
-      "kv": "danjoru",
-      "episode": 1,
+      "rank": 3,
+      "trend": "up",
+      "title": "Me and the Alien MuMu",
+      "jpTitle": "宇宙人ムームー",
+      "kv": "muumuu",
+      "episode": 14,
       "genre": [
-        "Rom-Com",
+        "Comedy",
+        "Sci-Fi",
+        "Slice of Life",
         "School"
       ],
       "wrp_score": 9.35,
@@ -241,224 +104,11 @@
       },
       "wrp_breakdown": {
         "base_score": 5,
-        "animation": 0.65,
-        "script": 0.7,
-        "direction": 0.75,
-        "charm": 0.7,
-        "overall": 1.55
-      },
-      "romanized_title": "Danjo no Yuujou wa Seiritsu suru? (Iya, Shinai!!)",
-      "release_date": "4/4/2025 to 6/20/2025",
-      "based_on": "Light Novel",
-      "studios": "J.C.STAFF",
-      "creators": "Yohei Suzuki",
-      "external_scores": "6.75 (MAL)",
-      "streaming_services": "",
-      "synopsis": "Childhood BFFs Himari and Yuu’s vow of friendship hits turbulence when Yuu reunites with his first crush in high school. Himari, who’s never known the fuzzy warmth of a crush, now must confront her feelings. Their shared dreams and peaceful days as a twosome gardening club are tested in this tale of love, flowers, and growing pains!"
-    },
-    {
-      "rank": 8,
-      "trend": "new",
-      "title": "Kowloon Generic Romance",
-      "jpTitle": "九龍ジェネリックロマンス",
-      "kv": "kowloon",
-      "episode": 1,
-      "genre": [
-        "Mystery",
-        "Drama",
-        "Sci-Fi"
-      ],
-      "wrp_score": 9.3,
-      "score": 9,
-      "review": {
-        "en": "",
-        "jp": ""
-      },
-      "wrp_breakdown": {
-        "base_score": 5,
-        "animation": 0.75,
-        "script": 0.7,
-        "direction": 0.7,
-        "charm": 0.65,
-        "overall": 1.5
-      },
-      "romanized_title": "Kowloon Generic Romance",
-      "release_date": "4/5/2025 to 6/28/2025",
-      "based_on": "Manga",
-      "studios": "ARVO ANIMATION",
-      "creators": "yoshiaki Iwasaki",
-      "external_scores": "7.47 (MAL)",
-      "streaming_services": "",
-      "synopsis": "Welcome to Kowloon Walled City: a dystopian townscape where the people are brimming with nostalgia, and where the past, present, and future converge. Amid the hidden emotions and extraordinary daily lives of the men and women working in its confines, a tale of romance begins to unfold for real estate agent Reiko Kujirai—one that feels as familiar as Kowloon itself…"
-    },
-    {
-      "rank": 9,
-      "trend": "new",
-      "title": "Apocalypse Hotel",
-      "jpTitle": "アポカリプスホテル",
-      "kv": "apocalypse",
-      "episode": 1,
-      "genre": [
-        "Sci-Fi",
-        "Drama",
-        "Comedy",
-        "Slice of Life"
-      ],
-      "wrp_score": 9.26,
-      "score": 9,
-      "review": {
-        "en": "",
-        "jp": ""
-      },
-      "wrp_breakdown": {
-        "base_score": 5.01,
-        "animation": 0.75,
-        "script": 0.7,
-        "direction": 0.7,
-        "charm": 0.6,
-        "overall": 1.5
-      },
-      "romanized_title": "Apocalypse Hotel",
-      "release_date": "4/8/2025 to 6/25/2025",
-      "based_on": "Original",
-      "studios": "Cygames Pictures",
-      "creators": "kana Shundou",
-      "external_scores": "7.88 (MAL)",
-      "streaming_services": "",
-      "synopsis": "Following the collapse of civilization, one storied hotel stands among the ruins of Tokyo’s Ginza district. Overrun by nature, this lone hotel continues to defy humanity’s collapse. Current guests: zero. Check-ins scheduled today: zero. Yesterday’s website traffic: zero. Enter with caution in this story of survival and mystery in a world where the memory of humanity begins to fade."
-    },
-    {
-      "rank": 10,
-      "trend": "new",
-      "title": "Witch Watch",
-      "jpTitle": "ウィッチウォッチ",
-      "kv": "witch",
-      "episode": 1,
-      "genre": [
-        "Comedy",
-        "Drama",
-        "Supernatural",
-        "Romance"
-      ],
-      "wrp_score": 9.25,
-      "score": 9,
-      "review": {
-        "en": "",
-        "jp": ""
-      },
-      "wrp_breakdown": {
-        "base_score": 5,
         "animation": 0.7,
-        "script": 0.7,
-        "direction": 0.7,
-        "charm": 0.65,
-        "overall": 1.5
-      },
-      "romanized_title": "Witch Watch",
-      "release_date": "4/6/2025",
-      "based_on": "Manga",
-      "studios": "Bibury Animation Studios G.K.",
-      "creators": "Hiroshi Ikehata",
-      "external_scores": "",
-      "streaming_services": "",
-      "synopsis": "Morihito Otogi, a high school student who comes from a lineage of ogres, enjoys a peaceful, ordinary life until his childhood friend, Nico, moves in with him. Nico is a witch-in-training, and chooses Morihito to be her familiar. While Nico is thrilled to reunite with her old friend and crush, Morihito is tasked with the perilous duty to protect her from a foretold calamity. Between the unpredictable chaos caused by Nico’s magic, and the awkwardness of sharing a home, their lives become a whirlwind of supernatural hijinks and threats."
-    },
-    {
-      "rank": 11,
-      "trend": "new",
-      "title": "The Catcher in the Ballpark!",
-      "jpTitle": "ボールパークでつかまえて！",
-      "kv": "ballpark",
-      "episode": 1,
-      "genre": [
-        "Sports",
-        "Comedy",
-        "Romance",
-        "Slice of Life"
-      ],
-      "wrp_score": 9.2,
-      "score": 9,
-      "review": {
-        "en": "",
-        "jp": ""
-      },
-      "wrp_breakdown": {
-        "base_score": 5,
-        "animation": 0.65,
-        "script": 0.65,
+        "script": 0.75,
         "direction": 0.7,
         "charm": 0.65,
         "overall": 1.55
-      },
-      "romanized_title": "Ballpark de Tsukamaete!",
-      "release_date": "4/1/2025 to 6/18/2025",
-      "based_on": "Manga",
-      "studios": "EMT Squared",
-      "creators": "Junichi Kitamura",
-      "external_scores": "7.14 (MAL)",
-      "streaming_services": "",
-      "synopsis": "To escape his tiring job, weary Murata finds escape at a nearby baseball stadium. While the games are thrilling, it’s Ruriko, the gyaru as cold as the beer she serves but secretly a sweetheart, who keeps him coming back. As her first regular, Murata discovers the warmth behind her frosty demeanor, and their hilarious, heartwarming encounters light up the ballpark and maybe even their hearts."
-    },
-    {
-      "rank": 12,
-      "trend": "new",
-      "title": "A Ninja and an Assassin Under One Roof",
-      "jpTitle": "忍者と殺し屋のふたりぐらし",
-      "kv": "nincoro",
-      "episode": 1,
-      "genre": [
-        "Comedy",
-        "Slice of Life"
-      ],
-      "wrp_score": 9.15,
-      "score": 9,
-      "review": {
-        "en": "",
-        "jp": ""
-      },
-      "wrp_breakdown": {
-        "base_score": 5,
-        "animation": 0.7,
-        "script": 0.7,
-        "direction": 0.7,
-        "charm": 0.65,
-        "overall": 1.4
-      },
-      "romanized_title": "Ninja to Koroshiya no Futarigurashi",
-      "release_date": "4/10/2025 to 6/26/2025",
-      "based_on": "Manga",
-      "studios": "SHAFT",
-      "creators": "Yukihiro Miyamoto",
-      "external_scores": "7.59 (MAL)",
-      "streaming_services": "",
-      "synopsis": "On the way home from school one day, Konoha Koga rescues Satoko Kusagakure, a ninja who escaped her village. Soon, pursuers from the village show up in search of Satoko only to be deftly dealt with by Konoha. As it turns out, the unassuming high schooler is actually an assassin. Thus, the potentially cutthroat cohabitation of a ninja and an assassin begins!"
-    },
-    {
-      "rank": 13,
-      "trend": "new",
-      "title": "Me and the Alien MuMu",
-      "jpTitle": "宇宙人ムームー",
-      "kv": "muumuu",
-      "episode": 1,
-      "genre": [
-        "Comedy",
-        "Sci-Fi",
-        "Slice of Life",
-        "School"
-      ],
-      "wrp_score": 9.1,
-      "score": 9,
-      "review": {
-        "en": "",
-        "jp": ""
-      },
-      "wrp_breakdown": {
-        "base_score": 5,
-        "animation": 0.7,
-        "script": 0.7,
-        "direction": 0.7,
-        "charm": 0.6,
-        "overall": 1.4
       },
       "romanized_title": "Uchuujin MuuMuu",
       "release_date": "4/9/2025",
@@ -470,17 +120,155 @@
       "synopsis": "A cat-like alien from a distant galaxy, MuMu, arrives on Earth. His goal is to learn about home appliance technology on Earth to recover the technology his species has lost. The protagonist, Sakurako, has a typical university life, but everything changes with MuMu's arrival! What begins as an unexpected cohabitation quickly turns into a whirlwind of chaotic events. The chemistry between Sakurako and MuMu leads to a super-spectacular, appliance-filled, and cat comedy adventure."
     },
     {
-      "rank": 14,
+      "rank": 4,
       "trend": "new",
-      "title": "Mobile Suit Gundam GQuuuuuuX",
-      "jpTitle": "機動戦士Gundam GQuuuuuuX",
-      "kv": "gquuuuuux",
+      "title": "CITY THE ANIMATION",
+      "jpTitle": "CITY THE ANIMATION",
+      "kv": "city",
+      "episode": 1,
+      "genre": [
+        "Comedy",
+        "Slice of Life"
+      ],
+      "wrp_score": 9.2,
+      "score": 9,
+      "review": {
+        "en": "",
+        "jp": ""
+      },
+      "wrp_breakdown": {
+        "base_score": 5,
+        "animation": 0.85,
+        "script": 0.7,
+        "direction": 0.7,
+        "charm": 0.55,
+        "overall": 1.4
+      },
+      "romanized_title": "CITY THE ANIMATION",
+      "release_date": "7/6/2025",
+      "based_on": "Manga",
+      "studios": "Kyoto Animation",
+      "creators": "Taichi Ishidate",
+      "external_scores": "",
+      "streaming_services": "",
+      "synopsis": "This town, is not just a normal town. There's laughter, love and emotional moments. An unpredictable ordinary life presented by the residents. Exciting stuffs come one after another. Welcome to CITY."
+    },
+    {
+      "rank": 5,
+      "trend": "re",
+      "title": "Dr. Stone: Science Future Part 2",
+      "jpTitle": "『Dr.STONE SCIENCE FUTURE』第4期最終シーズン第2クール",
+      "kv": "drstone",
+      "episode": 1,
+      "genre": [
+        "Action",
+        "Adventure",
+        "Comedy",
+        "Sci-Fi"
+      ],
+      "wrp_score": 9.15,
+      "score": 9,
+      "review": {
+        "en": "",
+        "jp": ""
+      },
+      "wrp_breakdown": {
+        "base_score": 5,
+        "animation": 0.7,
+        "script": 0.65,
+        "direction": 0.7,
+        "charm": 0.6,
+        "overall": 1.5
+      },
+      "romanized_title": "Dr. Stone: Science Future 4th Season 2nd Cour",
+      "release_date": "7/10/2025",
+      "based_on": "Manga",
+      "studios": "TMS Entertainment",
+      "creators": "Shuhei Matsushita",
+      "external_scores": "",
+      "streaming_services": "",
+      "synopsis": "The second cour of the fourth season of Dr.STONE."
+    },
+    {
+      "rank": 6,
+      "trend": "new",
+      "title": "Clevatess",
+      "jpTitle": "クレバテス-魔獣の王と赤子と屍の勇者-",
+      "kv": "cleatess",
       "episode": 1,
       "genre": [
         "Action",
         "Drama",
-        "Mecha",
-        "Sci-Fi"
+        "Fantasy"
+      ],
+      "wrp_score": 9.1,
+      "score": 9,
+      "review": {
+        "en": "",
+        "jp": ""
+      },
+      "wrp_breakdown": {
+        "base_score": 5,
+        "animation": 0.75,
+        "script": 0.65,
+        "direction": 0.7,
+        "charm": 0.55,
+        "overall": 1.45
+      },
+      "romanized_title": "Clevatess: Majuu no Ou to Akago to Kabane no Yuusha",
+      "release_date": "7/2/2025 to 9/17/2025",
+      "based_on": "Web Comics",
+      "studios": "Lay-duce",
+      "creators": "Kiyotaka Taguchi",
+      "external_scores": "",
+      "streaming_services": "",
+      "synopsis": "The story centers on the the titular Clevatess, the lord of Dark Beasts, who wields both uncanny intellect and destructive power. Frustrated by the 13 heroes tasked to destroy him, he has decided to be rid of humanity once and for all. However, he has been charged with one nuisance: he revived a hero he personally slayed and adopts an orphaned humanoid baby—the last hope to save a dying world. The world stands upon the brink of Armageddon, with the obligation of raising one child holding it all back. Now bound together, what fate awaits this unlikely trio?"
+    },
+    {
+      "rank": 7,
+      "trend": "up",
+      "title": "April Showers Bring May Flowers",
+      "jpTitle": "ブスに花束を。",
+      "kv": "busu",
+      "episode": 2,
+      "genre": [
+        "Comedy",
+        "Romance"
+      ],
+      "wrp_score": 9.1,
+      "score": 9,
+      "review": {
+        "en": "",
+        "jp": ""
+      },
+      "wrp_breakdown": {
+        "base_score": 5,
+        "animation": 0.65,
+        "script": 0.7,
+        "direction": 0.75,
+        "charm": 0.5,
+        "overall": 1.5
+      },
+      "romanized_title": "Busu ni Hanataba wo.",
+      "release_date": "7/4/2025 to 9/26/2025",
+      "based_on": "Manga",
+      "studios": "SILVER LINK.",
+      "creators": "Mirai Minato",
+      "external_scores": "",
+      "streaming_services": "",
+      "synopsis": "Hana Tabata is a lonely and unpopular high school girl with negative thoughts. Early morning in the classroom when she was pretending to be a manga heroine, the class's good looking Yosuke accidentally saw her...!? This love, you will definitely want to support it! Masochistic system unpopular girl comedy!"
+    },
+    {
+      "rank": 8,
+      "trend": "new",
+      "title": "Dekin no Mogura: The Earthbound Mole",
+      "jpTitle": "出禁のモグラ",
+      "kv": "mogura",
+      "episode": 1,
+      "genre": [
+        "Comedy",
+        "Mystery",
+        "Supernatural"
       ],
       "wrp_score": 9.05,
       "score": 9,
@@ -490,31 +278,31 @@
       },
       "wrp_breakdown": {
         "base_score": 5,
-        "animation": 0.8,
-        "script": 0.65,
+        "animation": 0.7,
+        "script": 0.7,
         "direction": 0.65,
         "charm": 0.55,
-        "overall": 1.4
+        "overall": 1.45
       },
-      "romanized_title": "Kidou Senshi Gundam GQuuuuuuX",
-      "release_date": "4/8/2025 to 6/25/2025",
-      "based_on": "Original",
-      "studios": "Khara",
-      "creators": "Kazuya Tsurumaki",
-      "external_scores": "7.24 (MAL)",
+      "romanized_title": "Dekin no Mogura",
+      "release_date": "7/7/2025 to 9/21/2025",
+      "based_on": "Manga",
+      "studios": "Brain's Base",
+      "creators": "Hiroshi Ishiodori",
+      "external_scores": "",
       "streaming_services": "",
-      "synopsis": "Amate Yuzuriha is a high-school student living peacefully in a space colony floating in outer space. When she meets a war refugee named Nyaan, Amate is drawn into the illegal mobile suit dueling sport known as Clan Battle. Under the entry name \"Machu,\" she throws herself into fierce battle day after day, piloting the GQuuuuuuX. Then an unidentified Gundam mobile suit pursued by both the space force and the police appears before her, along with its pilot, a boy named Shuji. Now their world is about to enter a new era."
+      "synopsis": "\"I won't die 'cause I was banned from the afterlife.\"  A shady self-proclaimed hermit named Momoyuki Mogura, AKA: Mogura, is banned from the afterlife due to an incident. Now he collects spirit possessed will-o'-wisps in his lantern, hoping to make a comeback.  It seems that those who encounter him begin to see peculiar things."
     },
     {
-      "rank": 15,
+      "rank": 9,
       "trend": "new",
-      "title": "Rock Is a Lady's Modesty",
-      "jpTitle": "ロックは淑女の嗜みでして",
-      "kv": "rockwa",
+      "title": "Fermat no Ryouri",
+      "jpTitle": "フェルマーの料理",
+      "kv": "fermat",
       "episode": 1,
       "genre": [
-        "Girl's Band",
-        "School"
+        "Drama",
+        "Slice of Life"
       ],
       "wrp_score": 9,
       "score": 9,
@@ -524,33 +312,34 @@
       },
       "wrp_breakdown": {
         "base_score": 5,
-        "animation": 0.8,
-        "script": 0.7,
-        "direction": 0.6,
-        "charm": 0.55,
-        "overall": 1.35
+        "animation": 0.6,
+        "script": 0.65,
+        "direction": 0.7,
+        "charm": 0.6,
+        "overall": 1.45
       },
-      "romanized_title": "Rock wa Lady no tashinami Deshite",
-      "release_date": "4/3/2025 to 6/26/2025",
+      "romanized_title": "Fermat no Ryouri",
+      "release_date": "7/5/2025 to 9/20/2025",
       "based_on": "Manga",
-      "studios": "BN Pictures",
-      "creators": "Shinya Watada",
-      "external_scores": "7.87 (MAL)",
+      "studios": "domerica",
+      "creators": "Kazuya Ichikawa",
+      "external_scores": "",
       "streaming_services": "",
-      "synopsis": "At an elite all-girls' academy where refined young ladies gather, Lilisa Suzunomiya, now the daughter of a real estate tycoon after her mother remarried, is forced to abandon her guitar and rock music to fit in. However, her passion is reignited by sounds from the old school building, where she meets a skilled drummer who shares her love for rock. Together, they embrace their inner rockstars, elegantly clashing and shouting their way through the academy in this captivating tale of grace and rebellion."
+      "synopsis": "Kitada Gaku is a prodigy in Mathematics and a scholarship holder at Wels Private Academy, a renowned institution with a long history in the International Mathematical Olympiad. After a series of unfortunate events, he meets Asakura Kai, a culinary prodigy with his own catering business. What does the future hold for these two geniuses, and how do their paths intertwine with each other's?"
     },
     {
-      "rank": 16,
-      "trend": "new",
-      "title": "Mono",
-      "jpTitle": "mono",
-      "kv": "mono",
-      "episode": 1,
+      "rank": 10,
+      "trend": "re",
+      "title": "My Dress-Up Darling Season 2",
+      "jpTitle": "その着せ替え人形は恋をする Season 2",
+      "kv": "bisque",
+      "episode": 13,
       "genre": [
         "Comedy",
-        "Slice of Life"
+        "Romance",
+        "Ecchi"
       ],
-      "wrp_score": 8.9,
+      "wrp_score": 8.95,
       "score": 8,
       "review": {
         "en": "",
@@ -561,27 +350,130 @@
         "animation": 0.7,
         "script": 0.65,
         "direction": 0.65,
-        "charm": 0.5,
+        "charm": 0.55,
         "overall": 1.4
       },
-      "romanized_title": "Mono",
-      "release_date": "4/12/2025 to 6/29/2025",
-      "based_on": "4-Panel Comics",
-      "studios": "Soigne",
-      "creators": "Ryouta Aikei",
-      "external_scores": "7.76 (MAL)",
+      "romanized_title": "Sono Bisque Doll wa Koi wo Suru Season 2",
+      "release_date": "7/5/2025 to 9/21/2025",
+      "based_on": "Manga",
+      "studios": "CLOVERWORKS",
+      "creators": "Keisuke Shinohara",
+      "external_scores": "",
       "streaming_services": "",
-      "synopsis": "Satsuki Amamiya was feeling down due to the graduation of the high school Photography Club’s president. However, her best friend and fellow member An Kiriyama encourages Satsuki to dedicate herself to the newly merged Cinephoto Club. Join Satsuki and An as they set out to track down a missing camera, meet new faces, and capture stunning photos and videos along the way."
+      "synopsis": "When Marin Kitagawa and Wakana Gojo met, they grew close over their love for cosplay. Through interacting with classmates and making new cosplay friends, Marin and Wakana’s world keeps growing. New developments arise as Marin’s love for Wakana continues to be filled with endless excitement. In their ever-expanding world, Marin and Wakana’s story of cosplay and thrills continues!"
     },
     {
-      "rank": 17,
-      "trend": "down",
-      "title": "From Old Country Bumpkin to Master Swordsman",
-      "jpTitle": "片田舎のおっさん、剣聖になる",
-      "kv": "katainaka",
+      "rank": 11,
+      "trend": "new",
+      "title": "Solo Camping for Two",
+      "jpTitle": "ふたりソロキャンプ",
+      "kv": "futari",
+      "episode": 1,
+      "genre": [
+        "Slice of Life",
+        "Outdoor"
+      ],
+      "wrp_score": 8.9,
+      "score": 8,
+      "review": {
+        "en": "",
+        "jp": ""
+      },
+      "wrp_breakdown": {
+        "base_score": 5,
+        "animation": 0.65,
+        "script": 0.65,
+        "direction": 0.65,
+        "charm": 0.5,
+        "overall": 1.45
+      },
+      "romanized_title": "Futari Solo Camp",
+      "release_date": "7/10/2025",
+      "based_on": "Manga",
+      "studios": "Synergy SP",
+      "creators": "Jun Hatori",
+      "external_scores": "",
+      "streaming_services": "",
+      "synopsis": "Gen Kinokura, 34 years old.  A solitary camper who cherishes his alone time in nature, Gen enjoys his usual solo camping trips. However, he unexpectedly encounters Shizuku Kusano, a complete beginner in camping. Reluctantly, Gen ends up camping with Shizuku, despite it being the last thing he wanted to do.  What will become of Gen’s peaceful camping life now that it’s turned upside down by this new companion?"
+    },
+    {
+      "rank": 12,
+      "trend": "up",
+      "title": "Call of the Night Season 2",
+      "jpTitle": "よふかしのうた Season2",
+      "kv": "yofukashi",
       "episode": 2,
       "genre": [
-        "Action",
+        "Comedy",
+        "Romance",
+        "Supernatural"
+      ],
+      "wrp_score": 8.8,
+      "score": 8,
+      "review": {
+        "en": "",
+        "jp": ""
+      },
+      "wrp_breakdown": {
+        "base_score": 5,
+        "animation": 0.7,
+        "script": 0.65,
+        "direction": 0.65,
+        "charm": 0.45,
+        "overall": 1.35
+      },
+      "romanized_title": "Yofukashi no Uta",
+      "release_date": "7/4/2025 to 9/19/2025",
+      "based_on": "Manga",
+      "studios": "Liden Films",
+      "creators": "Tomoyuki Itamura",
+      "external_scores": "",
+      "streaming_services": "",
+      "synopsis": "Ko overcomes his confusion about becoming a vampire and decides to \"like\" Nazuna, while Nazuna resolves to make Ko \"fall in love\" with her. Without understanding what \"love\" even is, the two of them spend their nights together in a frenzy. Meanwhile, Detective Uguisu Anko is closing in with her plot to kill vampires, not just Nazuna. A vampire's weakness is \"anything they were attached to when they were human\" and so they all try to get rid of this weakness before it's too late. But, Nazuna has no memory of her human life. What is Nazuna's hidden past? Why did Anko start killing vampires? And what is the \"secret\" that Nazuna and Anko share? For Ko, Nazuna, Anko, a fun \"late night\" doesn't end here... a new \"night\" begins!"
+    },
+    {
+      "rank": 13,
+      "trend": "new",
+      "title": "Rascal Does Not Dream of Santa Claus",
+      "jpTitle": "青春ブタ野郎はサンタクロースの夢を見ない",
+      "kv": "buta",
+      "episode": 1,
+      "genre": [
+        "Comedy",
+        "Romance",
+        "Supernatural"
+      ],
+      "wrp_score": 8.75,
+      "score": 8,
+      "review": {
+        "en": "",
+        "jp": ""
+      },
+      "wrp_breakdown": {
+        "base_score": 5,
+        "animation": 0.65,
+        "script": 0.65,
+        "direction": 0.65,
+        "charm": 0.45,
+        "overall": 1.35
+      },
+      "romanized_title": "Seishun Buta Yarou wa Santa Claus no Yume wo Minai",
+      "release_date": "7/5/2025 to 9/27/2025",
+      "based_on": "Naro",
+      "studios": "CLOVERWORKS",
+      "creators": "Souichi Masui",
+      "external_scores": "",
+      "streaming_services": "",
+      "synopsis": "After encountering various girls going through Puberty Syndrome, Sakuta Azusagawa's high school days have come to a close, and he is now a university student. He enrolls at a university in Kanazawa-hakkei alongside his girlfriend Mai Sakurajima, a nationally famed actress. Off campus, he stumbles upon an out-of-season miniskirt Santa. Precognitive dreams, an anonymous online singer, poltergeists buzzing on social media... A mysterious tale with enigmatic phenomenons surrounding girls with wavering hearts starts again. Puberty continues..."
+    },
+    {
+      "rank": 14,
+      "trend": "up",
+      "title": "Secrets of the Silent Witch",
+      "jpTitle": "サイレント・ウィッチ 沈黙の魔女の隠しごと",
+      "kv": "silent",
+      "episode": 2,
+      "genre": [
         "Adventure",
         "Fantasy"
       ],
@@ -592,34 +484,35 @@
         "jp": ""
       },
       "wrp_breakdown": {
-        "base_score": 5.01,
-        "animation": 0.6,
+        "base_score": 5,
+        "animation": 0.65,
         "script": 0.6,
         "direction": 0.6,
-        "charm": 0.55,
-        "overall": 1.35
+        "charm": 0.45,
+        "overall": 1.4
       },
-      "romanized_title": "Katainaka no Ossan, Kensei ni Naru",
-      "release_date": "4/5/2025 to 6/21/2025",
+      "romanized_title": "Silent Witch: Chinmoku no Majo no Kakushigoto",
+      "release_date": "7/4/2025 to 9/27/2025",
       "based_on": "Naro",
-      "studios": "PASSIONE|HAYABUSA FILM",
-      "creators": "Akio Kazumi",
-      "external_scores": "7.03 (MAL)",
+      "studios": "Studio五組",
+      "creators": "Takaomi Kanezaki/Yasuo Iwamoto",
+      "external_scores": "",
       "streaming_services": "",
-      "synopsis": "Beryl Gardinant, a self-proclaimed “humble old man,” is a sword instructor at his dojo in a rural, backwater village. In his younger years, he dreamed of glory as a master swordsman, but those days are long behind him. Out of the blue, he receives a visit from a famous former pupil who brings him world-shattering news—he's been appointed as special instructor for the knights of the Liberion Order! With his life now turned upside down, Beryl travels to the capital and reunites with some of his former students: elite knights, an ace wizard, and even an adventurer who's attained the highest guild rank possible. But why do they all want his tutelage?! As far as he's concerned, they clearly don't need him anymore."
+      "synopsis": "Monica Everett, the Silent Witch, is the world’s only practitioner of Voiceless Magic, a veritable heroine who single-handedly fended off the Black Dragon of legend. However, the young prodigy is actually…super-duper shy! Yup, turns out she only learned Voiceless Magic to avoid speaking in public. Ignorant of this, the Seven Sages have placed her on a top-secret mission to guard the Second Prince. Can Monica keep it together as she contends with both social interaction and the evils targeting the young royal?"
     },
     {
-      "rank": 18,
+      "rank": 15,
       "trend": "new",
-      "title": "The Shiunji Family Children",
-      "jpTitle": "紫雲寺家の子供たち",
-      "kv": "shiunji",
+      "title": "Welcome to the Outcast's Restaurant!",
+      "jpTitle": "追放者食堂へようこそ！",
+      "kv": "tsuihou",
       "episode": 1,
       "genre": [
+        "Adventure",
         "Comedy",
-        "Romance"
+        "Fantasy"
       ],
-      "wrp_score": 8.7,
+      "wrp_score": 8.65,
       "score": 8,
       "review": {
         "en": "",
@@ -627,31 +520,134 @@
       },
       "wrp_breakdown": {
         "base_score": 5,
-        "animation": 0.7,
+        "animation": 0.65,
         "script": 0.6,
         "direction": 0.6,
         "charm": 0.45,
         "overall": 1.35
       },
-      "romanized_title": "Shiunji-ke no Kodomotachi",
-      "release_date": "4/8/2025 to 6/24/2025",
-      "based_on": "Manga",
-      "studios": "Doga Kobo inc.",
-      "creators": "Ryouki Kamitsubo",
-      "external_scores": "7.13 (MAL)",
+      "romanized_title": "Tsuihou  Shokudou e Youkoso!",
+      "release_date": "7/3/2025 to 9/19/2025",
+      "based_on": "Web Novels",
+      "studios": "OLM Team Yoshioka",
+      "creators": "Jouji Shimura",
+      "external_scores": "",
       "streaming_services": "",
-      "synopsis": "The Shiunji family with their seven children reside in a mansion within Tokyo’s Setagaya ward. The eldest son, Arata, is tired of being pushed around by his five sisters and daydreams of a life without them. That is, until Arata’s father reveals a shocking truth—Arata isn’t biologically related to his sisters! The siblings’ relationships will be tested as they navigate life in this new light."
+      "synopsis": "When superstar adventurer Dennis gets booted from the world’s strongest party, he teams up with runaway Atelier to serve up his true passion—delicious cuisine. But this not-so-average eatery has not-so-average patrons. Dennis will battle his quirky customers’ troubles with his trusty butcher knife and wok. Visit Adventurer’s Restaurant and fill up your heart and stomach!"
     },
     {
-      "rank": 19,
+      "rank": 16,
       "trend": "new",
-      "title": "Food For the Soul",
-      "jpTitle": "日々は過ぎれど飯うまし",
-      "kv": "hibiuma",
+      "title": "Turkey!",
+      "jpTitle": "Turkey!",
+      "kv": "turkey",
+      "episode": 1,
+      "genre": [
+        "Adventure",
+        "Sports",
+        "Supernatural"
+      ],
+      "wrp_score": 8.6,
+      "score": 8,
+      "review": {
+        "en": "",
+        "jp": ""
+      },
+      "wrp_breakdown": {
+        "base_score": 5,
+        "animation": 0.6,
+        "script": 0.6,
+        "direction": 0.65,
+        "charm": 0.45,
+        "overall": 1.3
+      },
+      "romanized_title": "Turkey!",
+      "release_date": "7/8/2025",
+      "based_on": "Original",
+      "studios": "BAKKEN RECORD",
+      "creators": "Susumu Kudou",
+      "external_scores": "",
+      "streaming_services": "",
+      "synopsis": "\"Turkey\" is a bowling term for scoring three consecutive strikes.  Mai, a second-year student and captain of the Ikkokukan High School Bowling Club, is a genius who can't seem to win a match. Whenever she scores a Turkey, she mysteriously follows it up with an unyielding split—the Snake Eyes.  One day, Rina, the club’s only first-year member, confronts her \"You’re doing it on purpose, aren’t you?\"  \"You’re running away from winning. But I want to win. If you have no intention of winning, I’ll quit.\""
+    },
+    {
+      "rank": 17,
+      "trend": "new",
+      "title": "Bad Girl",
+      "jpTitle": "ばっどがーる",
+      "kv": "bad",
+      "episode": 1,
+      "genre": [
+        "Comedy",
+        "Romance"
+      ],
+      "wrp_score": 8.55,
+      "score": 8,
+      "review": {
+        "en": "",
+        "jp": ""
+      },
+      "wrp_breakdown": {
+        "base_score": 5,
+        "animation": 0.6,
+        "script": 0.6,
+        "direction": 0.6,
+        "charm": 0.5,
+        "overall": 1.25
+      },
+      "romanized_title": "Bad Girl",
+      "release_date": "7/5/2025 to 9/21/2025",
+      "based_on": "4-Panel Comics",
+      "studios": "Bridge",
+      "creators": "Jouji Furuta",
+      "external_scores": "",
+      "streaming_services": "",
+      "synopsis": "Yuu Yuutani is a first-year high school student with sharp eyes, large piercings and flashy two-tone hair. She's become notorious as a bad girl… but she's really not. At heart, Yuu is an incredibly good girl, but her mind is always full of thoughts of the beautiful and popular Atori Mizutori, the school’s Madonna and head of the student disciplinary committee. So, on her mission to attract the attention of Atori, Yuu decided to quit being an honor student and become a \"bad delinquent!”"
+    },
+    {
+      "rank": 18,
+      "trend": "new",
+      "title": "See You Tomorrow at the Food Court",
+      "jpTitle": "フードコートで、また明日。",
+      "kv": "food",
       "episode": 1,
       "genre": [
         "Comedy",
         "Slice of Life"
+      ],
+      "wrp_score": 8.5,
+      "score": 8,
+      "review": {
+        "en": "",
+        "jp": ""
+      },
+      "wrp_breakdown": {
+        "base_score": 5,
+        "animation": 0.6,
+        "script": 0.6,
+        "direction": 0.6,
+        "charm": 0.5,
+        "overall": 1.2
+      },
+      "romanized_title": "Food Court de, Mata Ashita",
+      "release_date": "7/7/2025",
+      "based_on": "Manga",
+      "studios": "Atelier Pontdarc",
+      "creators": "Kazuomi Koga",
+      "external_scores": "",
+      "streaming_services": "",
+      "synopsis": "Meet Wada, who gives off an unapproachable vibe, and Yamamoto, who strikes fear into those around her because of her looks. Though the two girls attend separate high schools, they meet up at a shopping center’s food court almost every day. Take a little peek at the laid-back afternoons Wada and Yamamoto share as they reflect on the ups and downs of high school life together."
+    },
+    {
+      "rank": 19,
+      "trend": "re",
+      "title": "Rent-a-Girlfriend Season 4",
+      "jpTitle": "彼女、お借りします 第4期",
+      "kv": "kanokari",
+      "episode": 37,
+      "genre": [
+        "Comedy",
+        "Romance"
       ],
       "wrp_score": 8.45,
       "score": 8,
@@ -661,35 +657,275 @@
       },
       "wrp_breakdown": {
         "base_score": 5,
-        "animation": 0.7,
+        "animation": 0.65,
         "script": 0.6,
-        "direction": 0.55,
+        "direction": 0.6,
         "charm": 0.4,
         "overall": 1.2
       },
-      "romanized_title": "Hibi wa Sugiredo Meshi Umashi",
-      "release_date": "4/12/2025 to 6/29/2025",
-      "based_on": "Original",
-      "studios": "P.A.WORKS",
-      "creators": "Shinya Kawatsura",
-      "external_scores": "7.79 (MAL)",
+      "romanized_title": "Kanojo, Okarishimasu 4th Season",
+      "release_date": "7/4/2025 to 9/16/2025",
+      "based_on": "Manga",
+      "studios": "TMS Entertainment",
+      "creators": "Kazuomi Koga",
+      "external_scores": "",
       "streaming_services": "",
-      "synopsis": "An original animation about the daily life of five girls who have just become university students.  They love delicious food, want to have lots of fun with everyone, and try their best to study, so they're enjoying university life to the fullest!"
+      "synopsis": "Kazuya’s ready to confess with the lush paradise of Hawaii as a backdrop. But renting Chizuru for the dream trip turns into a war zone of love due to Ruka’s aggressive advances and Mami’s scheming. Despite the chaos, this is Kazuya’s moment to bare his heart. Will his words reach Chizuru? And if they do, what will she even say?"
     },
     {
       "rank": 20,
+      "trend": "re",
+      "title": "Dan Da Dan Season 2",
+      "jpTitle": "ダンダダン 第2期",
+      "kv": "dandadan",
+      "episode": 2,
+      "genre": [
+        "Supernatural",
+        "Romance",
+        "Comedy"
+      ],
+      "wrp_score": 8.4,
+      "score": 8,
+      "review": {
+        "en": "",
+        "jp": ""
+      },
+      "wrp_breakdown": {
+        "base_score": 5,
+        "animation": 0.75,
+        "script": 0.7,
+        "direction": 0.65,
+        "charm": 0.45,
+        "overall": 0.85
+      },
+      "romanized_title": "Dan Da Dan 2nd Season",
+      "release_date": "7/3/2025 to 9/19/2025",
+      "based_on": "Manga",
+      "studios": "Science SARU",
+      "creators": "Fuuga Yamashiro、Abel Gongora",
+      "external_scores": "",
+      "streaming_services": "",
+      "synopsis": "Okarun and Jiji have made a strange discovery, while Momo finds herself under attack! What mysterious encounters await them next?!"
+    },
+    {
+      "rank": 21,
       "trend": "new",
-      "title": "The Dinner Table Detective",
-      "jpTitle": "謎解きはディナーのあとで",
-      "kv": "dinner",
+      "title": "Gachiakuta",
+      "jpTitle": "ガチアクタ",
+      "kv": "gachi",
       "episode": 1,
+      "genre": [
+        "Action",
+        "Drama",
+        "Fantasy"
+      ],
+      "wrp_score": 8.4,
+      "score": 8,
+      "review": {
+        "en": "",
+        "jp": ""
+      },
+      "wrp_breakdown": {
+        "base_score": 5,
+        "animation": 0.7,
+        "script": 0.6,
+        "direction": 0.6,
+        "charm": 0.4,
+        "overall": 1.1
+      },
+      "romanized_title": "Gachiakuta",
+      "release_date": "7/6/2025",
+      "based_on": "Manga",
+      "studios": "Bones",
+      "creators": "Fumihiko Suganuma",
+      "external_scores": "",
+      "streaming_services": "",
+      "synopsis": "A boy lives in a floating town, where the poor scrape by and the rich live a sumptuous life, simply casting their garbage off the side, into the abyss. When he’s falsely accused of murder, though, his wrongful conviction leads to an unimaginable punishment—exile off the edge, with the rest of the trash. Down on the surface, the cast-off waste of humanity has bred vicious monsters, and to travel the path to vengeance against those who cast him into Hell, a boy will have to become a warrior…"
+    },
+    {
+      "rank": 22,
+      "trend": "new",
+      "title": "Necronomico and the Cosmic Horror Show",
+      "jpTitle": "ネクロノミ子のコズミックホラーショウ",
+      "kv": "necro",
+      "episode": 1,
+      "genre": [
+        "0"
+      ],
+      "wrp_score": 8.3,
+      "score": 8,
+      "review": {
+        "en": "",
+        "jp": ""
+      },
+      "wrp_breakdown": {
+        "base_score": 5,
+        "animation": 0.65,
+        "script": 0.6,
+        "direction": 0.6,
+        "charm": 0.45,
+        "overall": 1
+      },
+      "romanized_title": "Necronomico and the Cosmic Horror Show",
+      "release_date": "7/1/2025",
+      "based_on": "Original",
+      "studios": "Studio Gokumi",
+      "creators": "Masato Matsune",
+      "external_scores": "",
+      "streaming_services": "",
+      "synopsis": "We all need a chance to change our lives! The story follows Miko Kurono, who began her dream career as a livestreamer under the name \"Necronomico\" after graduating middle school. Amidst spending her days with childhood friend Mayu Mayusaka and rival Kanna Kagurazaka, she's introduced to a new VR game project!?  Upon encountering the game, the girls start pursuing the 'irreplacable now'."
+    },
+    {
+      "rank": 23,
+      "trend": "new",
+      "title": "The Summer Hikaru Died",
+      "jpTitle": "光が死んだ夏",
+      "kv": "hikaru",
+      "episode": 2,
+      "genre": [
+        "Horror",
+        "Mystery",
+        "Supernatural",
+        "Thriller"
+      ],
+      "wrp_score": 8.25,
+      "score": 8,
+      "review": {
+        "en": "",
+        "jp": ""
+      },
+      "wrp_breakdown": {
+        "base_score": 5,
+        "animation": 0.7,
+        "script": 0.6,
+        "direction": 0.6,
+        "charm": 0.4,
+        "overall": 0.95
+      },
+      "romanized_title": "Hikaru ga Shinda Natsu",
+      "release_date": "7/5/2025 to 9/21/2025",
+      "based_on": "Web Comics",
+      "studios": "CygamesPictures",
+      "creators": "Ryouhei Takeshita",
+      "external_scores": "",
+      "streaming_services": "",
+      "synopsis": "Two best friends living in a rural Japanese village: Yoshiki and Hikaru. Growing up together, they were inseparable… until the day Hikaru came back from the mountains, and was no longer himself. “Something” has taken over Hikaru’s body, memories, feelings… and everything they know begins to unravel."
+    },
+    {
+      "rank": 24,
+      "trend": "new",
+      "title": "Uglymug, Epicfighter",
+      "jpTitle": "ブサメンガチファイター",
+      "kv": "busa",
+      "episode": 1,
+      "genre": [
+        "Adventure",
+        "Fantasy"
+      ],
+      "wrp_score": 8.05,
+      "score": 8,
+      "review": {
+        "en": "",
+        "jp": ""
+      },
+      "wrp_breakdown": {
+        "base_score": 5,
+        "animation": 0.55,
+        "script": 0.5,
+        "direction": 0.5,
+        "charm": 0.4,
+        "overall": 1.1
+      },
+      "romanized_title": "Busamen Gachi Fighter",
+      "release_date": "7/6/2025",
+      "based_on": "Naro",
+      "studios": "WHITE FOX",
+      "creators": "Toshiyuki Sone",
+      "external_scores": "",
+      "streaming_services": "",
+      "synopsis": "His looks are -255, touching girls causes him pain, and sexual acts will literally tear him apart. Just what can our ex-salesman Shigeru get in the other world in exchange for such inconveniences...? This is an epic tale of one very ugly, but ridiculously strong man!"
+    },
+    {
+      "rank": 25,
+      "trend": "new",
+      "title": "Nyaight of the Living Cat",
+      "jpTitle": "ニャイト・オブ・ザ・リビングキャット",
+      "kv": "nyaight",
+      "episode": 1,
+      "genre": [
+        "Horror"
+      ],
+      "wrp_score": 8,
+      "score": 8,
+      "review": {
+        "en": "",
+        "jp": ""
+      },
+      "wrp_breakdown": {
+        "base_score": 5,
+        "animation": 0.65,
+        "script": 0.6,
+        "direction": 0.55,
+        "charm": 0.4,
+        "overall": 0.8
+      },
+      "romanized_title": "Nyaight of the Living Cat",
+      "release_date": "7/7/2025",
+      "based_on": "Manga",
+      "studios": "OLM",
+      "creators": "Tomohiro Kamitani",
+      "external_scores": "",
+      "streaming_services": "",
+      "synopsis": "In the near future, a unique disease has swept across the planet: a virus that transforms humans into cats! And the horde is expanding, since if these adorable kitties snuggle with a human, the human is transformed into yet another cat. A small group of cat-loving survivors is trying to escape the madness, but how can you defend yourself against a threat you just want to cuddle and pet?! This wild new take on a post-apocalyptic survival tale will make you roll over and purr with delight!"
+    },
+    {
+      "rank": 26,
+      "trend": "up",
+      "title": "Watari-kun's ****** Is about to Collapse",
+      "jpTitle": "渡くんの××が崩壊寸前",
+      "kv": "watari",
+      "episode": 2,
       "genre": [
         "Comedy",
         "Drama",
+        "Romance"
+      ],
+      "wrp_score": 7.85,
+      "score": 7,
+      "review": {
+        "en": "",
+        "jp": ""
+      },
+      "wrp_breakdown": {
+        "base_score": 5,
+        "animation": 0.55,
+        "script": 0.6,
+        "direction": 0.6,
+        "charm": 0.35,
+        "overall": 0.75
+      },
+      "romanized_title": "Watari-kun no xx ga Houkai Sunzen",
+      "release_date": "7/4/2025",
+      "based_on": "Manga",
+      "studios": "Staple Entertainment",
+      "creators": "Takashi Naoya",
+      "external_scores": "",
+      "streaming_services": "",
+      "synopsis": "Naoto Watari lives solely for his little sister, Suzushiro, until his chaotic childhood friend, Satsuki, storms back into his life. Without uttering a single word, her very presence ignites buried memories and unravels his rigid routine. As tensions rise and secrets surface, Naoto’s devotion to Suzushiro clashes with unresolved pain, threatening to collapse his fragile world."
+    },
+    {
+      "rank": 27,
+      "trend": "new",
+      "title": "Detectives These Days Are Crazy!",
+      "jpTitle": "まったく最近の探偵ときたら",
+      "kv": "tantei",
+      "episode": 1,
+      "genre": [
+        "Comedy",
         "Mystery"
       ],
-      "wrp_score": 8.1,
-      "score": 8,
+      "wrp_score": 7.85,
+      "score": 7,
       "review": {
         "en": "",
         "jp": ""
@@ -700,27 +936,27 @@
         "script": 0.55,
         "direction": 0.55,
         "charm": 0.4,
-        "overall": 1
+        "overall": 0.75
       },
-      "romanized_title": "Nazotoki wa Dinner no Atode",
-      "release_date": "4/4/2025 to 6/20/2025",
-      "based_on": "Novels",
-      "studios": "MADHOUSE",
-      "creators": "Mitsuyuki Masuhara",
-      "external_scores": "6.50 (MAL)",
+      "romanized_title": "Mattaku Saikin no Tantei to Kitara",
+      "release_date": "7/1/2025 to 9/16/2025",
+      "based_on": "Manga",
+      "studios": "Liden Films",
+      "creators": "Rion Kugi",
+      "external_scores": "",
       "streaming_services": "",
-      "synopsis": "Rich heiress Reiko Hosho lives a double life as a novice detective, fighting crime under Inspector Kazamatsuri—also from a wealthy family. After work, Reiko sheds her pantsuit to don a lovely dress for dinner each day. Difficult cases force her to confide in her butler Kageyama, who proceeds to savagely ridicule her inability to solve mysteries, all while brilliantly unraveling each case himself."
+      "synopsis": "Nagumo Keiichirou was a genius high-school detective. No case was complex enough for him. But what happens to genius detectives when they get older?  Now 35, with bad hips, running a failing detective agency with no cases to solve and struggling to pay the rent, he's at a dead end.  In comes a high school girl in his office who says she wants to work with him. With her help, will the out-of-touch, old-fashioned Nagumo get back the fire of his youth?"
     },
     {
-      "rank": 21,
+      "rank": 28,
       "trend": "new",
-      "title": "Anne Shirley",
-      "jpTitle": "アン・シャーリー",
-      "kv": "anne",
+      "title": "New Saga",
+      "jpTitle": "強くてニューサーガ",
+      "kv": "saga",
       "episode": 1,
       "genre": [
-        "Drama",
-        "Slice of Life"
+        "Adventure",
+        "Fantasy"
       ],
       "wrp_score": 7.8,
       "score": 7,
@@ -730,31 +966,239 @@
       },
       "wrp_breakdown": {
         "base_score": 5,
-        "animation": 0.6,
-        "script": 0.5,
-        "direction": 0.45,
-        "charm": 0.5,
-        "overall": 0.75
+        "animation": 0.65,
+        "script": 0.55,
+        "direction": 0.55,
+        "charm": 0.35,
+        "overall": 0.7
       },
-      "romanized_title": "Anne Shirley",
-      "release_date": "4/5/2025",
-      "based_on": "Novels",
-      "studios": "The Answer Studio",
-      "creators": "Hiroshi Kawamata",
-      "external_scores": "7.79 (MAL)",
+      "romanized_title": "Tsuyokute New Saga",
+      "release_date": "7/2/2025 to 9/18/2025",
+      "based_on": "Naro",
+      "studios": "Sotsu X Studio Clutch",
+      "creators": "Naoki Mizusawa",
+      "external_scores": "",
       "streaming_services": "",
-      "synopsis": "On the beautiful Prince Edward Island in Canada, an orphan named Anne Shirley is mistakenly sent to Green Gables, the home of Matthew and Marilla Cuthbert. They choose to adopt her anyway, as Anne finds friendship, love, and happiness in her new home. Come along for the story of a purehearted and imaginative girl growing up, leaving for college, and returning home a changed woman."
+      "synopsis": "After a brutal war, magic swordsman Kyle defeats the Demon King but is left dying. A crimson crystal sends him four years into the past to his once-destroyed hometown where he finds his lost loved ones alive. Armed with future knowledge, Kyle vows to prevent the coming tragedy and rewrite fate."
     },
     {
-      "rank": 22,
-      "trend": "down",
-      "title": "Your Forma",
-      "jpTitle": "ユア・フォルマ",
-      "kv": "forma",
+      "rank": 29,
+      "trend": "up",
+      "title": "The Fragrant Flower Blooms with Dignity",
+      "jpTitle": "薫る花は凛と咲く",
+      "kv": "kaoru",
       "episode": 2,
       "genre": [
-        "Sci-Fi",
-        "Detective",
+        "Comedy",
+        "Drama",
+        "Romance"
+      ],
+      "wrp_score": 7.75,
+      "score": 7,
+      "review": {
+        "en": "",
+        "jp": ""
+      },
+      "wrp_breakdown": {
+        "base_score": 5,
+        "animation": 0.65,
+        "script": 0.55,
+        "direction": 0.5,
+        "charm": 0.4,
+        "overall": 0.65
+      },
+      "romanized_title": "Kaoru Hana wa Rin to Saku",
+      "release_date": "7/5/2025 to 9/28/2025",
+      "based_on": "Web Comics",
+      "studios": "CLOVERWORKS",
+      "creators": "Miyuki Kuroki",
+      "external_scores": "",
+      "streaming_services": "",
+      "synopsis": "Chidori High is a boys’ school that takes in the dregs of society with the lowest grades. Next door stands Kikyo Girls’ High, where the wealthy, high-class families send their precious daughters. Chidori second-year Rintaro, who has a fierce face but a gentle heart, is helping at his family’s patisserie when he meets a girl named Kaoruko. The two hit it off right away…but this blissful peace is quickly disturbed when Rintaro discovers that Kaoruko is actually a student at Kikyo. Worse, she doesn’t seem to realize what a huge problem this really is! Will these two be able to forge a path for themselves, and sidestep the traps (metaphorical and literal) laid by their classmates?"
+    },
+    {
+      "rank": 30,
+      "trend": "new",
+      "title": "Summer Pockets",
+      "jpTitle": "Summer Pockets",
+      "kv": "samapoke",
+      "episode": 1,
+      "genre": [
+        "Drrama",
+        "Romance",
+        "Supernatural"
+      ],
+      "wrp_score": 7.7,
+      "score": 7,
+      "review": {
+        "en": "",
+        "jp": ""
+      },
+      "wrp_breakdown": {
+        "base_score": 5,
+        "animation": 0.6,
+        "script": 0.55,
+        "direction": 0.55,
+        "charm": 0.4,
+        "overall": 0.6
+      },
+      "romanized_title": "Summer Pockets",
+      "release_date": "4/7/2025",
+      "based_on": "Light Novel",
+      "studios": "feel.",
+      "creators": "Tomoki Kobayashi",
+      "external_scores": "",
+      "streaming_services": "",
+      "synopsis": "Takahara Hairi never expected summer to feel like a dream. Sent to Torishirojima Island to sort through his late grandmother’s belongings, he’s met with endless sea, quiet nostalgia, and mysterious girls, each chasing something just out of reach. As he settles into island life, lost memories begin to surface and he finds what he never knew he’d lost."
+    },
+    {
+      "rank": 31,
+      "trend": "new",
+      "title": "New PANTY ＆ STOCKING with GARTERBELT",
+      "jpTitle": "New PANTY ＆ STOCKING with GARTERBELT",
+      "kv": "panty",
+      "episode": 1,
+      "genre": [
+        "Action",
+        "Comedy",
+        "Ecchi",
+        "Supernatural"
+      ],
+      "wrp_score": 7.65,
+      "score": 7,
+      "review": {
+        "en": "",
+        "jp": ""
+      },
+      "wrp_breakdown": {
+        "base_score": 5,
+        "animation": 0.75,
+        "script": 0.55,
+        "direction": 0.55,
+        "charm": 0.35,
+        "overall": 0.45
+      },
+      "romanized_title": "New PANTY ＆ STOCKING with GARTERBELT",
+      "release_date": "7/9/2025 to 10/2/2025",
+      "based_on": "Original",
+      "studios": "TRIGGER",
+      "creators": "Hiroyuki Imaishi",
+      "external_scores": "",
+      "streaming_services": "",
+      "synopsis": "The Bitches Are Back!!  In Daten City, a realm between heaven and hell, sinister spirits known as \"Ghosts\" prowl the streets, feeding on human desires and resentment. Yet, in the darkest moments, two figures emerge to obliterate these vengeful beings with a divine light beyond human understanding. Their names? Panty & Stocking! These fallen angel sisters have been tasked with purging the darkness engulfing the earth. But who are they, really? Are they truly messengers of God... or agents of the Devil?"
+    },
+    {
+      "rank": 32,
+      "trend": "new",
+      "title": "Onmyo Kaiten Re:Birth Verse",
+      "jpTitle": "陰陽廻天 Re:バース",
+      "kv": "onmyo",
+      "episode": 1,
+      "genre": [
+        "Action"
+      ],
+      "wrp_score": 7.6,
+      "score": 7,
+      "review": {
+        "en": "",
+        "jp": ""
+      },
+      "wrp_breakdown": {
+        "base_score": 5,
+        "animation": 0.6,
+        "script": 0.55,
+        "direction": 0.55,
+        "charm": 0.35,
+        "overall": 0.55
+      },
+      "romanized_title": "Onmyo Kaiten Re: verse",
+      "release_date": "7/2/2025",
+      "based_on": "Original",
+      "studios": "David Production",
+      "creators": "Hideya Takahashi",
+      "external_scores": "",
+      "streaming_services": "",
+      "synopsis": "The anime is set in an alternate version of Heian-kyou, the old name of Kyoto and the capital during Japan's Heian era. This alternate version of the city is named Denji Heian-kyou. A delinquent high schooler named Takeru Narehira resides in our world, but after an unfortunate accident, is transported to Denji Heian-kyou.  Here, he immediately meets Tsukimiya, a woman he has seen many times before in his dreams. Hardly a moment passes after that encounter when Takeru and Tsukimiya encounter an oni monster, and lose their lives.  Takeru awakens, stunned to find himself again at Denji Heian-kyou. He puts together that he has the power to go back in time. Now he resolves to learn this world's version of mystical onmyōjutsu techniques, and become an onmyōji sorcerer to save Tsukimiya."
+    },
+    {
+      "rank": 33,
+      "trend": "new",
+      "title": "Cultural Exchange With a Game Centre Girl",
+      "jpTitle": "ゲーセン少女と異文化交流",
+      "kv": "gacen",
+      "episode": 1,
+      "genre": [
+        "Comedy",
+        "Romance"
+      ],
+      "wrp_score": 7.55,
+      "score": 7,
+      "review": {
+        "en": "",
+        "jp": ""
+      },
+      "wrp_breakdown": {
+        "base_score": 5,
+        "animation": 0.6,
+        "script": 0.5,
+        "direction": 0.5,
+        "charm": 0.35,
+        "overall": 0.6
+      },
+      "romanized_title": "GaCen Shoujo to Ibunka Kouryuu",
+      "release_date": "7/6/2025 to 9/21/2025",
+      "based_on": "Web Comics",
+      "studios": "Nomad",
+      "creators": "Toshihiro Kikuchi",
+      "external_scores": "",
+      "streaming_services": "",
+      "synopsis": "Kusakabe Renji, a young man working at a game centre, sees an English girl named Lily Baker playing a crane game on Valentine’s Day. Seeing her fail repeatedly to win a prize, Renji can’t help but take action. The day after Lily finally gets her plushie, Renji receives an unexpected message from her that reads, “Be my valentine!” What started as a misunderstanding leads to cultural exchange!"
+    },
+    {
+      "rank": 34,
+      "trend": "new",
+      "title": "The Shy Hero and the Assassin Princesses",
+      "jpTitle": "気絶勇者と暗殺姫",
+      "kv": "kizetsu",
+      "episode": 1,
+      "genre": [
+        "Action",
+        "Comedy",
+        "Fantasy"
+      ],
+      "wrp_score": 7.5,
+      "score": 7,
+      "review": {
+        "en": "",
+        "jp": ""
+      },
+      "wrp_breakdown": {
+        "base_score": 5,
+        "animation": 0.55,
+        "script": 0.5,
+        "direction": 0.5,
+        "charm": 0.4,
+        "overall": 0.55
+      },
+      "romanized_title": "Kizetsu Yuusha to Ansatsu Hime",
+      "release_date": "7/12/2025 to 9/20/2025",
+      "based_on": "Manga",
+      "studios": "CONNECT",
+      "creators": "Noriaki Akitaya",
+      "external_scores": "",
+      "streaming_services": "",
+      "synopsis": "Hero Toto possesses great skills, but his extreme shyness has left him unable to form a party, causing him to remain stuck in the town where his journey began.  One day, he is suddenly invited to join a party by three beautiful women—Ciel, Anemone, and Gore. Overjoyed at finally setting off on an adventure, Toto is filled with excitement... but little does he know, these women are dead set on killing him!  A deathly harem romcom unfolds as the socially anxious hero, who faints from mere flustered excitement around women, finds himself the target of three deadly companions, each with their own reasons for wanting him gone!"
+    },
+    {
+      "rank": 35,
+      "trend": "new",
+      "title": "Private Tutor to the Duke's Daughter",
+      "jpTitle": "公女殿下の家庭教師",
+      "kv": "koujo",
+      "episode": 2,
+      "genre": [
+        "Drama",
+        "Fantasy",
         "Romance"
       ],
       "wrp_score": 7.5,
@@ -765,32 +1209,66 @@
       },
       "wrp_breakdown": {
         "base_score": 5,
-        "animation": 0.6,
-        "script": 0.5,
-        "direction": 0.5,
+        "animation": 0.55,
+        "script": 0.55,
+        "direction": 0.55,
         "charm": 0.35,
-        "overall": 0.55
+        "overall": 0.5
       },
-      "romanized_title": "Your Forma",
-      "release_date": "4/2/2025 to 6/25/2025",
-      "based_on": "Light Novel",
-      "studios": "Geno Studio",
-      "creators": "Takaharu Ozaki",
-      "external_scores": "6.25 (MAL)",
+      "romanized_title": "Koujo Denka no Katei Kyoushi",
+      "release_date": "7/5/2025 to 9/14/2025",
+      "based_on": "Web Novels",
+      "studios": "Studio Blanc.",
+      "creators": "Nobuyoshi Nagayama",
+      "external_scores": "",
       "streaming_services": "",
-      "synopsis": "In 1992, a pandemic of viral encephalitis shook the world. The medical technology that saved humanity evolved into “Your Forma”—an invasive information device implanted into the brain. In this world where every sight, sound, and even emotion is recorded, investigating major crimes means diving into the collective data, a job reserved for special detectives called “Electronic Investigator.”  Echika Hieda, a prodigious “Electronic Investigator” assigned at an astonishingly young age, stands isolated by her exceptional talent. Her newly assigned partner is Harold, a blonde, blue-eyed humanoid “Amicus.” Together, this unrivaled duo will expose every hidden secret."
+      "synopsis": "After Allen failed the court sorcerer exam, he couldn’t return home even if he wanted to. While searching for a job, an unexpected offer comes his way to be the private tutor of the duke’s daughter. Just as he lowers his guard, he faces a girl who can’t use magic at all! But what is preventing her magic from working? Allen’s unconventional lessons gently shine a light on the girl’s future."
     },
     {
-      "rank": 23,
+      "rank": 36,
       "trend": "new",
-      "title": "Zatsu Tabi: That's Journey",
-      "jpTitle": "ざつ旅-That's journery-",
-      "kv": "zatsu",
+      "title": "Tougen Anki",
+      "jpTitle": "桃源暗鬼",
+      "kv": "tougen",
       "episode": 1,
       "genre": [
-        "Adventure",
-        "Comedy",
-        "Slice of Life"
+        "Action",
+        "Mystery",
+        "Supernatural"
+      ],
+      "wrp_score": 7.45,
+      "score": 7,
+      "review": {
+        "en": "",
+        "jp": ""
+      },
+      "wrp_breakdown": {
+        "base_score": 5,
+        "animation": 0.65,
+        "script": 0.55,
+        "direction": 0.55,
+        "charm": 0.3,
+        "overall": 0.4
+      },
+      "romanized_title": "Tougen Anki",
+      "release_date": "7/11/2025",
+      "based_on": "Manga",
+      "studios": "Studio Suzaku",
+      "creators": "Ato Nonaka",
+      "external_scores": "",
+      "streaming_services": "",
+      "synopsis": "The bloodlines of “Oni” and “Momotarou” have been passed down among certain humans for generations.  Long ago, the Oni, aware of their own ferocity, lived in seclusion. However, their peace was shattered by an invasion led by Momotarou. Over thousands of years, these two factions formed the “Momotarou Agency” and the “Oni Agency,” respectively, and have been locked in conflict ever since.  The protagonist, Shiki Ichinose, suddenly learns of his Oni lineage following an unexpected attack by Momotarou. This revelation sets Shiki on a path to discover the destiny that lies within his blood — a meeting with the Oni dwelling within him.  —A new generation of dark heroics begins here in this tale of demons!"
+    },
+    {
+      "rank": 37,
+      "trend": "new",
+      "title": "Hotel Inhumans",
+      "jpTitle": "ホテル・インヒューマンズ",
+      "kv": "hotel",
+      "episode": 1,
+      "genre": [
+        "Action",
+        "Drama"
       ],
       "wrp_score": 7.4,
       "score": 7,
@@ -800,32 +1278,241 @@
       },
       "wrp_breakdown": {
         "base_score": 5,
-        "animation": 0.55,
+        "animation": 0.6,
         "script": 0.5,
         "direction": 0.5,
         "charm": 0.35,
-        "overall": 0.5
+        "overall": 0.45
       },
-      "romanized_title": "Zatsu Tabi-That's journery-",
-      "release_date": "4/7/2025 to 6/23/2025",
-      "based_on": "Manga",
-      "studios": "Makaria",
-      "creators": "Masaharu Watanabe",
-      "external_scores": "6.93 (MAL)",
+      "romanized_title": "Hotel Inhumans",
+      "release_date": "7/6/2025",
+      "based_on": "Web Comics",
+      "studios": "Bridge",
+      "creators": "Aminotetsuro",
+      "external_scores": "",
       "streaming_services": "",
-      "synopsis": "When aspiring manga artist Chika’s storyboards get rejected, she ditches her desk for an adventure! Armed with a quirky social media poll, she sets off on a spontaneous journey of random crowdsourced destinations. From hilarious mishaps to heartwarming encounters, Chika discovers inspiration, friendship, and herself, one unpredictable stop at a time."
+      "synopsis": "The best hotels must meet certain standards, including the finest cuisine, ways to relax, and entertainment. Of course, they also need the best selection of weapons, reliable ways to falsify one’s identity, and ways to dispose of evidence. In this hotel at the border of death stand two concierges, Ikuro Hoshi and Sara Haizaki. What kinds of requests will the assassins have for them next?"
     },
     {
-      "rank": 24,
+      "rank": 38,
       "trend": "new",
-      "title": "Please Put Them On, Takamine-san!",
-      "jpTitle": "履いてください、鷹峰さん",
-      "kv": "takamine",
+      "title": "With You and the Rain",
+      "jpTitle": "雨と君と",
+      "kv": "ame",
       "episode": 1,
       "genre": [
-        "Rom-Com",
-        "Ecchi",
-        "School"
+        "Comedy",
+        "Slice of Life"
+      ],
+      "wrp_score": 7.35,
+      "score": 7,
+      "review": {
+        "en": "",
+        "jp": ""
+      },
+      "wrp_breakdown": {
+        "base_score": 5,
+        "animation": 0.7,
+        "script": 0.5,
+        "direction": 0.5,
+        "charm": 0.3,
+        "overall": 0.35
+      },
+      "romanized_title": "Ame to Kimi to",
+      "release_date": "7/5/2025 to 9/21/2025",
+      "based_on": "Manga",
+      "studios": "Lesprit",
+      "creators": "Tomohiro Tsukimisato",
+      "external_scores": "",
+      "streaming_services": "",
+      "synopsis": "On a rainy day, Fuji meets a cute critter posing as a dog and offering an umbrella and a cue card that says, “Please take me home” and she can’t resist. With this dog-poster’s quirky charm and mysterious ways, life together becomes a heartwarming adventure of friendship and shared seasons."
+    },
+    {
+      "rank": 39,
+      "trend": "new",
+      "title": "Dealing with Mikadono Sisters Is a Breeze",
+      "jpTitle": "帝乃三姉妹は案外、チョロい。",
+      "kv": "mikado",
+      "episode": 1,
+      "genre": [
+        "Comedy",
+        "Romance"
+      ],
+      "wrp_score": 7.25,
+      "score": 7,
+      "review": {
+        "en": "",
+        "jp": ""
+      },
+      "wrp_breakdown": {
+        "base_score": 5,
+        "animation": 0.6,
+        "script": 0.5,
+        "direction": 0.5,
+        "charm": 0.25,
+        "overall": 0.4
+      },
+      "romanized_title": "Mikadono Sanshimai wa Angai, Choroi.",
+      "release_date": "7/9/2025 to 9/18/2025",
+      "based_on": "Manga",
+      "studios": "P.A.WORKS",
+      "creators": "Tadahito Matsubayashi",
+      "external_scores": "",
+      "streaming_services": "",
+      "synopsis": "Yuu Ayase, son of a late legendary actress, is overwhelmingly mediocre. When he’s invited to stay with his mother’s friend, Yuu is shocked to find out that he’ll be living with three prodigy sisters who possess both beauty and talent…and who rule his new school as the Three Emperors. Can Yuu manage to melt the sisters’ cold hearts and fulfill his mother’s last wish for him to build a happy family?"
+    },
+    {
+      "rank": 40,
+      "trend": "new",
+      "title": "The Water Magician",
+      "jpTitle": "水属性の魔法使い",
+      "kv": "mizu",
+      "episode": 1,
+      "genre": [
+        "Action",
+        "Adventure",
+        "Fantasy"
+      ],
+      "wrp_score": 7.2,
+      "score": 7,
+      "review": {
+        "en": "",
+        "jp": ""
+      },
+      "wrp_breakdown": {
+        "base_score": 5,
+        "animation": 0.65,
+        "script": 0.45,
+        "direction": 0.5,
+        "charm": 0.3,
+        "overall": 0.3
+      },
+      "romanized_title": "Mizu Zokusei no Maho Tsukai",
+      "release_date": "7/3/2025 to 9/19/2025",
+      "based_on": "Naro",
+      "studios": "Typhoon Graphics",
+      "creators": "Hedeyuki Satake",
+      "external_scores": "",
+      "streaming_services": "",
+      "synopsis": "Ryou is delighted to be reincarnated into the fantastical world of Phi, where he thinks he’ll get to live a quiet life learning to use his newfound water magic. Going with the flow here, however, means something very different. Ryou is immediately pitted against the wild lands he winds up in and the slew of deadly monsters that call the remote subcontinent home. You’d think he’d forget about taking it easy when he’s stuck fighting for his life, but lucky for Ryou, he’s naturally optimistic, clever, and blessed with the hidden “Eternal Youth” trait. Twenty years pass in the blink of an eye, and each encounter along the way pushes him one step closer to the pinnacle of human magic. Little does he realize that’s only the opening chapter of his tale. A fateful meeting soon thrusts Ryou to the forefront of history, forever changing the course of his life... Thus begins the adventures of the strongest water magician the world has ever seen—who also likes to do things at his own pace!"
+    },
+    {
+      "rank": 41,
+      "trend": "new",
+      "title": "Isekai Mokushiroku Mynoghra: Hametsu no Bunmei de Hajimeru Sekai Seifuku Apocalypse Bringer Mynoghra: World Conquest Starts with the Civilization of Ruin",
+      "jpTitle": "異世界黙示録マイノグーラ～破滅の文明で始める世界征服～",
+      "kv": "mynoghra",
+      "episode": 1,
+      "genre": [
+        "Action",
+        "Fantasy",
+        "comedy",
+        "Romance"
+      ],
+      "wrp_score": 7.15,
+      "score": 7,
+      "review": {
+        "en": "",
+        "jp": ""
+      },
+      "wrp_breakdown": {
+        "base_score": 5,
+        "animation": 0.55,
+        "script": 0.5,
+        "direction": 0.45,
+        "charm": 0.3,
+        "overall": 0.35
+      },
+      "romanized_title": "Isekai Mokushiroku Mynoghra: Hametsu no Bunmei de Hajimeru Sekai Seifuku Apocalypse Bringer Mynoghra: World Conquest Starts with the Civilization of Ruin",
+      "release_date": "7/6/2025",
+      "based_on": "Naro",
+      "studios": "MAHO FILM",
+      "creators": "Yuuji Yanase",
+      "external_scores": "",
+      "streaming_services": "",
+      "synopsis": "Takuto Ira succumbed to illness at a young age and ended up reincarnating in a world that resembles the fantasy turn-based strategy game Eternal Nations. Not only did he reincarnate into his favorite game, but as the god who commands the evil civilization Mynoghra. With Mynoghra's beautiful hero unit, Sludge Witch Atou by his side, not even legendarily difficult race traits will stand in the way of restarting their civilization! “Lord Takuto…won't you start over with me?” Explore, Expand, Exploit, Exterminate! A tactical fantasy world is waiting for heroes like you! Join Eternal Nations today!"
+    },
+    {
+      "rank": 42,
+      "trend": "new",
+      "title": "There's No Freaking Way I'll be Your Lover! Unless…",
+      "jpTitle": "わたしが恋人になれるわけないじゃん、ムリムリ！（※ムリじゃなかった!?）",
+      "kv": "murimuri",
+      "episode": 1,
+      "genre": [
+        "Comedy",
+        "Romance"
+      ],
+      "wrp_score": 6.9,
+      "score": 6,
+      "review": {
+        "en": "",
+        "jp": ""
+      },
+      "wrp_breakdown": {
+        "base_score": 5,
+        "animation": 0.55,
+        "script": 0.45,
+        "direction": 0.45,
+        "charm": 0.3,
+        "overall": 0.15
+      },
+      "romanized_title": "Watashi ga Koibito ni Nareru Wake Naijan, Murimuri! (※Muri ja Nakatta!?)",
+      "release_date": "7/7/2025 to 9/23/2025",
+      "based_on": "Light Novels",
+      "studios": "studio MOTHER",
+      "creators": "Natsumi Uchinuma",
+      "external_scores": "",
+      "streaming_services": "",
+      "synopsis": "Renako Amaori is leaving her awkward and lonely junior high school life behind, determined to become a normal girl with normal friends in high school. Glamorous, confident Mai Ouzuka is Renako’s total opposite: wealthy, outgoing, and a literal fashion model. Against the odds, the two girls form an immediate connection. Renako thinks she may have found the best friend of her dreams…until Mai’s romantic confession sends her into a tailspin. Renako wants to prove to Mai that being BFFs is better than being girlfriends, but Mai is dead set on convincing Renako that they’re destined to be lovers. Let the love games begin!"
+    },
+    {
+      "rank": 43,
+      "trend": "new",
+      "title": "Grand Blue Dreaming Season 2",
+      "jpTitle": "ぐらんぶる Season 2",
+      "kv": "guraburu",
+      "episode": 1,
+      "genre": [
+        "Comedy",
+        "Slice of Life",
+        "Sports"
+      ],
+      "wrp_score": 6.8,
+      "score": 6,
+      "review": {
+        "en": "",
+        "jp": ""
+      },
+      "wrp_breakdown": {
+        "base_score": 5,
+        "animation": 0.6,
+        "script": 0.4,
+        "direction": 0.4,
+        "charm": 0.3,
+        "overall": 0.1
+      },
+      "romanized_title": "Grand Blue 2nd Season",
+      "release_date": "7/7/2025 to 9/23/2025",
+      "based_on": "Manga",
+      "studios": "Zero-G X Liber",
+      "creators": "Shinji Takamatsu",
+      "external_scores": "",
+      "streaming_services": "",
+      "synopsis": "University is back in session for Iori, and so are the booze-fueled parties! Between diving club shenanigans, a surprise from his sister, and wild tests of courage, normal college life is anything but. Dive back into the madness with Iori and his beloved crew of lively splash artists."
+    },
+    {
+      "rank": 44,
+      "trend": "new",
+      "title": "Witch Watch",
+      "jpTitle": "ウィッチウォッチ",
+      "kv": "witch",
+      "episode": 1,
+      "genre": [
+        "Comedy",
+        "Drama",
+        "Supernatural",
+        "Romance"
       ],
       "wrp_score": 6.5,
       "score": 6,
@@ -835,137 +1522,68 @@
       },
       "wrp_breakdown": {
         "base_score": 5,
-        "animation": 0.55,
+        "animation": 0.65,
         "script": 0.4,
-        "direction": 0.45,
-        "charm": 0.35,
-        "overall": -0.25
-      },
-      "romanized_title": "Haitekudasai, Takamine-san",
-      "release_date": "4/2/2025 to 6/18/2025",
-      "based_on": "Manga",
-      "studios": "Liden Films",
-      "creators": "Tomoe Makino",
-      "external_scores": "6.27 (MAL)",
-      "streaming_services": "",
-      "synopsis": "Takane Takamine is the goddess of her high school. With perfect grades, athletic prowess, and unrivaled beauty, this student council president is the apple of everyone's eye-including Koushi Shirota, a below-average student with no friends or social prospects whatsoever. But he'll soon find out the secret behind Takamine's unbelievable success-her underwear! When she strips, she can undo any of her past actions, and now that Koushi knows, Takamine won't let him off so easy..."
-    },
-    {
-      "rank": 25,
-      "trend": "new",
-      "title": "The Too-Perfect Saint: Tossed Aside by My Fiancé and Sold to Another Kingdom",
-      "jpTitle": "完璧すぎて可愛げがないと婚約破棄された聖女は隣国に売られる",
-      "kv": "seijo",
-      "episode": 1,
-      "genre": [
-        "Fantasy",
-        "Romance"
-      ],
-      "wrp_score": 6.45,
-      "score": 6,
-      "review": {
-        "en": "",
-        "jp": ""
-      },
-      "wrp_breakdown": {
-        "base_score": 5,
-        "animation": 0.5,
-        "script": 0.45,
-        "direction": 0.45,
-        "charm": 0.3,
-        "overall": -0.25
-      },
-      "romanized_title": "Kanpekisugite Kawaige ga Nai to Konyaku Haki sareta Seijo wa Ringoku ni Urareru",
-      "release_date": "4/9/2025 to 6/27/2025",
-      "based_on": "Naro",
-      "studios": "TROYCA",
-      "creators": "渡部周",
-      "external_scores": "7.27 (MAL)",
-      "streaming_services": "",
-      "synopsis": "Philia’s family has produced saints for generations. It’s no surprise that she’s known as the greatest saint of all time—and set to marry the second prince, Julius. What no one expects is for Julius to call off the engagement, claiming that Philia’s perfection makes her charmless and unlikable. To add insult to injury, Philia is packed off to a neighboring country in exchange for gold and resources, forcing her to leave her homeland! Despite bracing herself for mistreatment, Philia finds a warm welcome in her new town, where she puts her saintly abilities to good use erecting barriers against monsters and curing epidemics. But even as she flourishes in her new life, her homeland is under threat of destruction!"
-    },
-    {
-      "rank": 26,
-      "trend": "new",
-      "title": "Summer Pockets",
-      "jpTitle": "サマーポケッツ",
-      "kv": "samapoke",
-      "episode": 1,
-      "genre": [
-        "Drrama",
-        "Romance",
-        "Supernatural"
-      ],
-      "wrp_score": 6.4,
-      "score": 6,
-      "review": {
-        "en": "",
-        "jp": ""
-      },
-      "wrp_breakdown": {
-        "base_score": 5,
-        "animation": 0.5,
-        "script": 0.4,
-        "direction": 0.45,
+        "direction": 0.4,
         "charm": 0.25,
         "overall": -0.2
       },
-      "romanized_title": "Summer Pockets",
-      "release_date": "4/7/2025",
-      "based_on": "Light Novel",
-      "studios": "feel.",
-      "creators": "Tomoki Kobayashi",
+      "romanized_title": "Witch Watch",
+      "release_date": "4/6/2025",
+      "based_on": "Manga",
+      "studios": "Bibury Animation Studios G.K.",
+      "creators": "Hiroshi Ikehata",
       "external_scores": "",
       "streaming_services": "",
-      "synopsis": "Takahara Hairi never expected summer to feel like a dream. Sent to Torishirojima Island to sort through his late grandmother’s belongings, he’s met with endless sea, quiet nostalgia, and mysterious girls, each chasing something just out of reach. As he settles into island life, lost memories begin to surface and he finds what he never knew he’d lost."
+      "synopsis": "Morihito Otogi, a high school student who comes from a lineage of ogres, enjoys a peaceful, ordinary life until his childhood friend, Nico, moves in with him. Nico is a witch-in-training, and chooses Morihito to be her familiar. While Nico is thrilled to reunite with her old friend and crush, Morihito is tasked with the perilous duty to protect her from a foretold calamity. Between the unpredictable chaos caused by Nico’s magic, and the awkwardness of sharing a home, their lives become a whirlwind of supernatural hijinks and threats."
     },
     {
-      "rank": 27,
+      "rank": 45,
       "trend": "new",
-      "title": "The Mononoke Lecture Logs of Chuzenji-sensei",
-      "jpTitle": "中禅寺先生物怪講義録 先生が謎を解いてしまうから。",
-      "kv": "chuzenji",
+      "title": "A Couple of Cuckoos Season 2",
+      "jpTitle": "カッコウの許嫁Season2",
+      "kv": "kakkou",
       "episode": 1,
       "genre": [
-        "Mystery",
-        "Supernatural"
+        "Comedy",
+        "Romance"
       ],
-      "wrp_score": 6,
-      "score": 6,
+      "wrp_score": 5.35,
+      "score": 5,
       "review": {
         "en": "",
         "jp": ""
       },
       "wrp_breakdown": {
         "base_score": 5,
-        "animation": 0.4,
-        "script": 0.4,
+        "animation": 0.5,
+        "script": 0.3,
         "direction": 0.4,
-        "charm": 0.2,
-        "overall": -0.4
+        "charm": 0.15,
+        "overall": -1
       },
-      "romanized_title": "Chuuzenji-sensei Mononoke Kougiroku: Sensei ga Nazo wo Hodoite Shimau kara.",
-      "release_date": "4/7/2025 to 6/23/2025",
-      "based_on": "Web Manga",
-      "studios": "100Studio",
-      "creators": "Chihiro Kumano",
-      "external_scores": "6.51 (MAL)",
+      "romanized_title": "Kakkou no Iinazuke 2nd Season",
+      "release_date": "7/8/2025 to 9/23/2025",
+      "based_on": "Manga",
+      "studios": "Okuruto Noboru",
+      "creators": "Masakazu Hishida",
+      "external_scores": "",
       "streaming_services": "",
-      "synopsis": "Our setting is in Tokyo in 1948, just right after the war. Kanna Our setting is in Tokyo in 1948, just right after the war. Kanna Kusakabe had just become a second-year at a high school when she meets the new language teacher, Akihiko Chuuzenji. Mysterious supernatural things keep happening around Kanna. Once again today, Kanna is going to open the doors to the library prep room to seek help from the surly Chuuzenji-sensei who is waiting inside. A high school supernatural mystery featuring the unlikely duo between a teacher and a high school girl is about to begin!"
+      "synopsis": "The second season of Kakkou no Iinazuke.  Umino Nagi and Amano Erika were born on the same day and swapped at birth. Nagi was raised as the son of a diner owner, and Erika the daughter of a hotel tycoon. Their parents encourage them to become engaged, and they begin life together. Soon though, infatuations arise as Nagi becomes stuck in a love quadrangle. Life and love are embroiled in epic turmoil as fate is set in motion once again!"
     },
     {
       "rank": "spotlight",
       "trend": "new",
-      "title": "Kowloon Generic Romance",
-      "jpTitle": "九龍ジェネリックロマンス",
-      "kv": "kowloon",
+      "title": "Clevatess",
+      "jpTitle": "クレバテス-魔獣の王と赤子と屍の勇者-",
+      "kv": "cleatess",
       "episode": 1,
       "genre": [
-        "Mystery",
+        "Action",
         "Drama",
-        "Sci-Fi"
+        "Fantasy"
       ],
-      "wrp_score": 9.3,
+      "wrp_score": 9.1,
       "score": 9,
       "review": {
         "en": "",
@@ -974,89 +1592,88 @@
       "wrp_breakdown": {
         "base_score": 5,
         "animation": 0.75,
-        "script": 0.7,
+        "script": 0.65,
         "direction": 0.7,
-        "charm": 0.65,
-        "overall": 1.5
+        "charm": 0.55,
+        "overall": 1.45
       },
-      "romanized_title": "Kowloon Generic Romance",
-      "release_date": "4/5/2025 to 6/28/2025",
-      "based_on": "Manga",
-      "studios": "ARVO ANIMATION",
-      "creators": "yoshiaki Iwasaki",
-      "external_scores": "7.47 (MAL)",
+      "romanized_title": "Clevatess: Majuu no Ou to Akago to Kabane no Yuusha",
+      "release_date": "7/2/2025 to 9/17/2025",
+      "based_on": "Web Comics",
+      "studios": "Lay-duce",
+      "creators": "Kiyotaka Taguchi",
+      "external_scores": "",
       "streaming_services": "",
-      "synopsis": "Welcome to Kowloon Walled City: a dystopian townscape where the people are brimming with nostalgia, and where the past, present, and future converge. Amid the hidden emotions and extraordinary daily lives of the men and women working in its confines, a tale of romance begins to unfold for real estate agent Reiko Kujirai—one that feels as familiar as Kowloon itself…"
+      "synopsis": "The story centers on the the titular Clevatess, the lord of Dark Beasts, who wields both uncanny intellect and destructive power. Frustrated by the 13 heroes tasked to destroy him, he has decided to be rid of humanity once and for all. However, he has been charged with one nuisance: he revived a hero he personally slayed and adopts an orphaned humanoid baby—the last hope to save a dying world. The world stands upon the brink of Armageddon, with the obligation of raising one child holding it all back. Now bound together, what fate awaits this unlikely trio?"
     },
     {
       "rank": "editor's pick",
       "trend": "new",
-      "title": "Sword of the Demon Hunter",
-      "jpTitle": "鬼人幻燈抄",
-      "kv": "kijin",
+      "title": "See You Tomorrow at the Food Court",
+      "jpTitle": "フードコートで、また明日。",
+      "kv": "food",
       "episode": 1,
       "genre": [
-        "Action",
-        "Historical",
-        "Drama"
+        "Comedy",
+        "Slice of Life"
       ],
-      "wrp_score": 9.4,
-      "score": 9,
+      "wrp_score": 8.5,
+      "score": 8,
       "review": {
         "en": "",
-        "jp": "雑な所、もっと時間をかけて描いてたら・・・と思う所、ご都合なところ、謎に誰も突っ込まないところ・・・などなどを考えるとすごく良かったので感情では10点だけど・・・って感じで9点にします。”予想外の事態、『横浜アニメーションラボ』だから2クール決定しているとはいえ「どうせ・・・・」と思っていたが初回1時間（これも知らなかった）をたっぷり使った素晴らしい出来を見せてくれた。基本2000年代を感じさせる絵柄、設定、演出、ストーリーだがいずれいしても1時間の間ずっと引き込み続ける熱さとロマンをもって描いてくれた。そりゃあ設定や展開などに多少の粗さとかあるけどそれでも・・・と思えるものを見せてくれたし、170年という時を超えてという意味もわかりその設定にも非常に興味が持てた。その期間果たしてどの様に過ごしてきて何があったのかなどもこれからじっくり見せてほしいと期待してやまない。それでもやっぱり多少の粗さと過度なアピールのための残酷さは気になるので今後もうちょっとなんとかなると良いな・・・と思う。取り敢えず嬉しい期待外れでした。”"
+        "jp": ""
       },
       "wrp_breakdown": {
         "base_score": 5,
-        "animation": 0.7,
-        "script": 0.75,
-        "direction": 0.75,
-        "charm": 0.65,
-        "overall": 1.55
+        "animation": 0.6,
+        "script": 0.6,
+        "direction": 0.6,
+        "charm": 0.5,
+        "overall": 1.2
       },
-      "romanized_title": "KIJIN GENTOUSHOU",
-      "release_date": "3/31/2025",
-      "based_on": "Naro",
-      "studios": "Yokohama Animation Laboratory",
-      "creators": "Kazuya Aiura",
+      "romanized_title": "Food Court de, Mata Ashita",
+      "release_date": "7/7/2025",
+      "based_on": "Manga",
+      "studios": "Atelier Pontdarc",
+      "creators": "Kazuomi Koga",
       "external_scores": "",
       "streaming_services": "",
-      "synopsis": "In the Edo period, there was a shrine maiden called \"Itsukihime\" in the mountain village of Kadono. Jinta, a young man who acts as the shrine maiden's guardian despite being a stranger, encounters a mysterious demon who speaks of the far future in the forest where he went to defeat it. From Edo to the Heisei era, this huge Japanese fantasy series follows a demon man who travels through time while continuously questioning the meaning of wielding a sword."
+      "synopsis": "Meet Wada, who gives off an unapproachable vibe, and Yamamoto, who strikes fear into those around her because of her looks. Though the two girls attend separate high schools, they meet up at a shopping center’s food court almost every day. Take a little peek at the laid-back afternoons Wada and Yamamoto share as they reflect on the ups and downs of high school life together."
     },
     {
       "rank": "dookie",
       "trend": "new",
-      "title": "Summer Pockets",
-      "jpTitle": "サマーポケッツ",
-      "kv": "samapoke",
+      "title": "Turkey!",
+      "jpTitle": "Turkey!",
+      "kv": "turkey",
       "episode": 1,
       "genre": [
-        "Drrama",
-        "Romance",
+        "Adventure",
+        "Sports",
         "Supernatural"
       ],
-      "wrp_score": 6.4,
-      "score": 6,
+      "wrp_score": 8.6,
+      "score": 8,
       "review": {
         "en": "",
-        "jp": "久しぶりのKEY作品だからキープするけど相当やばい。クオリティも作画も脚本も演出も全てがやばくて意味不明だしテンポ悪いし魅力ないし外してるし。スロウスタートだと信じて様子見ます。ナンノコッチャ？"
+        "jp": ""
       },
       "wrp_breakdown": {
         "base_score": 5,
-        "animation": 0.5,
-        "script": 0.3,
-        "direction": 0.3,
-        "charm": 0.2,
-        "overall": -1.5
+        "animation": 0.6,
+        "script": 0.6,
+        "direction": 0.65,
+        "charm": 0.45,
+        "overall": 1.3
       },
-      "romanized_title": "Summer Pockets",
-      "release_date": "4/7/2025",
-      "based_on": "Light Novel",
-      "studios": "feel.",
-      "creators": "Tomoki Kobayashi",
+      "romanized_title": "Turkey!",
+      "release_date": "7/8/2025",
+      "based_on": "Original",
+      "studios": "BAKKEN RECORD",
+      "creators": "Susumu Kudou",
       "external_scores": "",
       "streaming_services": "",
-      "synopsis": "Takahara Hairi never expected summer to feel like a dream. Sent to Torishirojima Island to sort through his late grandmother’s belongings, he’s met with endless sea, quiet nostalgia, and mysterious girls, each chasing something just out of reach. As he settles into island life, lost memories begin to surface and he finds what he never knew he’d lost."
+      "synopsis": "\"Turkey\" is a bowling term for scoring three consecutive strikes.  Mai, a second-year student and captain of the Ikkokukan High School Bowling Club, is a genius who can't seem to win a match. Whenever she scores a Turkey, she mysteriously follows it up with an unyielding split—the Snake Eyes.  One day, Rina, the club’s only first-year member, confronts her \"You’re doing it on purpose, aren’t you?\"  \"You’re running away from winning. But I want to win. If you have no intention of winning, I’ll quit.\""
     }
   ]
 }
