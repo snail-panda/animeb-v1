@@ -947,12 +947,15 @@ window.initOverviewSection = function() {
     }
   });
 
+  const year = window.year;
+  const season = window.season;
+
   // overview.html も overview-ja.html も存在しない場合は
   // ボタンごと非表示にする
-  fetch(`2025spring-${currentWeek}-overview.html`)
+  fetch(`${year}${season}-${currentWeek}-overview.html`)
     .then((res) => {
       if (!res.ok) {
-        return fetch(`2025spring-${currentWeek}-overview-ja.html`);
+        return fetch(`${year}${season}-${currentWeek}-overview-ja.html`);
       } else {
         return res;
       }
