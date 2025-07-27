@@ -993,7 +993,7 @@ document.addEventListener('click', (e) => {
 
 const infoMap = {
   wrp: `
-    <div class="tooltip-section">
+    <div class="tooltip">
       <div class="tooltip-heading">What’s WRP?</div>
       <ul class="tooltip-list">
         <li><span class="key">WRP</span> (Weekly Ranking Point) is a combined score reflecting how satisfying and well-executed an anime episode was <em>within its week</em>.</li>
@@ -1005,7 +1005,7 @@ const infoMap = {
     </div>
   `,
   total: `
-    <div class="tooltip-section">
+    <div class="tooltip">
       <div class="tooltip-heading">What’s the Total Score?</div>
       <ul class="tooltip-list">
         <li>Total Score is a simplified, rounded version of the weekly WRP values.</li>
