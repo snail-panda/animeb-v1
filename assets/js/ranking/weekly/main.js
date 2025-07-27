@@ -1011,7 +1011,7 @@ const infoMap = {
       </ul>
       <p class="tooltip-note">Note: While useful for seasonal ranking, this score is also a simplified reflection of the overall impression—both practical and intuitive.</p>
   `,
-  finalwrp: `
+  fwrp: `
   <span class="tooltip-heading">What’s FWRP?</span>
   <ul class="tooltip-list">
     <li><span class="key">FWRP</span> (Final Weekly Ranking Point) is a score representing the total viewing experience over the season.</li>
