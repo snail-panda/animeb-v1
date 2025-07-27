@@ -993,25 +993,28 @@ document.addEventListener('click', (e) => {
 
 const infoMap = {
   wrp: `
-    <strong>What’s WRP?</strong>
-    <ul style="margin-top: 4px; padding-left: 18px;">
-      <li><strong>WRP</strong> (Weekly Ranking Point) is a combined score reflecting how satisfying and well-executed an anime episode was <em>within its week</em>.</li>
-      <li>It balances technical quality (like animation, script, direction) with overall enjoyment.</li>
-      <li>It shows how well the episode performed both <em>on its own terms</em> and <em>compared to others airing that week</em>.</li>
-    </ul>
-    <p style="margin-top: 6px;"><strong>Note:</strong> It’s not an absolute score, but a contextual evaluation — it shifts based on the week’s landscape and relative enjoyment.</p>
-    <p style="margin-top: 4px; font-style: italic;">For more, scroll to the bottom.</p>
+    <div class="tooltip-section">
+      <div class="tooltip-heading">What’s WRP?</div>
+      <ul class="tooltip-list">
+        <li><span class="key">WRP</span> (Weekly Ranking Point) is a combined score reflecting how satisfying and well-executed an anime episode was <em>within its week</em>.</li>
+        <li>It balances technical quality (like animation, script, direction) with overall enjoyment.</li>
+        <li>It shows how well the episode performed both <em>on its own terms</em> and <em>compared to others airing that week</em>.</li>
+      </ul>
+      <p class="tooltip-note">Note: It’s not an absolute score, but a contextual evaluation — it shifts based on the week’s landscape and relative enjoyment.</p>
+      <p class="tooltip-bottom-note">For more, scroll to the bottom.</p>
+    </div>
   `,
-   total: `
-  <strong>What’s the Total Score?</strong>
-  <ul style="margin-top: 4px; padding-left: 18px;">
-    <li>Total Score is a simplified, rounded version of the weekly WRP values.</li>
-    <li>Each week’s WRP is typically rounded <strong>down</strong> to the nearest integer.</li>
-    <li><strong>Exception:</strong> Scores from <strong>9.50 to 9.99</strong> are treated as <strong>10</strong>, and <strong>10.00+</strong> becomes <strong>11</strong>.</li>
-  </ul>
-  <p style="margin-top: 6px;"><strong>Note:</strong> While useful for seasonal ranking, this score is also a simplified reflection of the overall impression—both practical and intuitive.</p>
-`
-  
+  total: `
+    <div class="tooltip-section">
+      <div class="tooltip-heading">What’s the Total Score?</div>
+      <ul class="tooltip-list">
+        <li>Total Score is a simplified, rounded version of the weekly WRP values.</li>
+        <li>Each week’s WRP is typically rounded <strong>down</strong> to the nearest integer.</li>
+        <li><span class="key">Exception:</span> Scores from <strong>9.50 to 9.99</strong> are treated as <strong>10</strong>, and <strong>10.00+</strong> becomes <strong>11</strong>.</li>
+      </ul>
+      <p class="tooltip-note">Note: While useful for seasonal ranking, this score is also a simplified reflection of the overall impression—both practical and intuitive.</p>
+    </div>
+  `
 };
 
 document.querySelectorAll('.info-trigger').forEach(el => {
