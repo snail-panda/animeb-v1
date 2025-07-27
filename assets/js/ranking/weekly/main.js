@@ -48,6 +48,10 @@ function adjustScoreBars() {
 // ── 1. JSON ファイル名を動的に組み立て ──
 const jsonPath = `ranking-${window.currentWeek}-${window.season}${window.year}.json`;
 
+console.log("🐛 main.js - year:", year);
+console.log("🐛 main.js - season:", season);
+
+
 
 // ========== JSON読み込み & DOM更新 ==========
 fetch(jsonPath)
