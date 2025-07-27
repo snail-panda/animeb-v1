@@ -1300,6 +1300,7 @@ VIEWING STATUS ZONE
   padding: 0.625rem 0.75rem;
   font-size: 0.719rem; /* 11.5px */
   font-family: 'Barlow Condensed', 'Abel', 'sans-serf';
+  font-weight: 300;
   border-radius: 4px;
   display: none;
   z-index: 9999;
