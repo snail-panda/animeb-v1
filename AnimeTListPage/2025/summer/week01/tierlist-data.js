@@ -23,67 +23,78 @@ const tierlistData = {
   Most titles in the N/A Disqualified tier were dropped or excluded from my watch pool after the first few episodes or even during it. Some didn’t last more than a few minutes, while others were ruled out at a glance—or not even. That doesn’t mean they’re all “absolute trash.” Most just weren’t my cup of tea or didn’t suit the ranking format. Some shows—even if good or fun in their own way—just don’t fit the structure or vibe of my weekly list. That said, yeah, a few were truly dookie.`,
   
   tiers: {
-    "SS": [
-      "The Apothecary Diaries 2nd Season",
-      "Shoshimin: How to Become Ordinary 2"
-    ],
     "S": [
-      "Sword of the Demon Hunter",
-      "Apocalypse Hotel",
-      "LAZARUS",
-      "Uma Musume: Cinderella Grey"
+      "Takopi's Original Sin"
     ],
     "A": [
-      "Me and the Alien MuMu",
-      "A Ninja and an Assassin Under One Roof",
-      "Kowloon Generic Romance",
-      "The Catcher in the Ballpark!",
-      "Rock Is a Lady's Modesy",
-      "Witch Watch",
-      "Mobile Suit Gundam GQuuuuuuX"
+      "Ruri Rocks",
+      "Dr. Stone: Science Future Part 2",
+      "Clevatess",
+      "Dekin no Mogura: The Earthbound Mole",
+      "My Dress-Up Darling Season 2",
+      "Secrets of the Silent Witch",
+      "Dan Da Dan Season 2"
     ],
     "B": [
-      "From Old Country Bumpkin to Master Swordsman",
-      "Can a Boy-Girl Friendship Survive?",
-      "Mono",
-      "The Shiunji Family Children",
-      "Food For the Soul",
-      "Miru: Paths to My Future"
+      "CITY THE ANIMATION",
+      "Call of the Night Season 2",
+      "Rascal Does Not Dream of Santa Claus",
+      "See You Tomorrow at the Food Court",
+      "Rent-a-Girlfriend Season 4"
     ],
     "C": [
-      "Once Upon a Witch's Death",
-      "I’m the Evil Lord of an Intergalactic Empire!",
-      "Zatsu Tabi: That's Journey",
-      "Dinner Table Detective",
-      "The Too-Perfect Saint: Tossed Aside by My Fiancé and Sold to Another Kingdom",
-      "Your Forma",
-      "Anne Shirley"
+      "April Showers Bring May Flowers",
+      "Fermat no Ryouri",
+      "Solo Camping for Two",
+      "Welcome to the Outcast's Restaurant!",
+      "Turkey!",
+      "The Summer Hikaru Died",
+      "Cultural Exchange With a Game Centre Girl"
     ],
     "D": [
-      "Summer Pockets",
-      "Please Put Them On, Takamine-san!",
-      "The Unaware Atelier Master",
-      "The Beginning After the End",
-      "The Brilliant Healer's New Life in the Shadows",
-      "Lycoris Recoil: Friends are thieves of time",
-      "The Mononoke Lecture Logs of Chuzenji-sensei"
+      "Bad Girl",
+      "Watari-kun's ****** Is about to Collapse",
+      "The Fragrant Flower Blooms with Dignity",
+      "The Shy Hero and the Assassin Princesses",
+      "Private Tutor to the Duke's Daughter",
+      "Hotel Inhumans",
+      "Dealing with Mikadono Sisters Is a Breeze",
+      "Grand Blue Dreaming Season 2"
     ],
     "Dropped": [
-      "The Gorilla God’s Go-To Girl",
-      "Maebashi Witches",
-      "#Compass2.0: Combat Providence Analysis System",
-      "Aharen Is Indecipherable 2nd Season",
-      "I’ve Been Killing Slimes for 300 Years and Maxed Out My Level 2nd Season"
+      "Gachiakuta",
+      "Necronomico and the Cosmic Horror Show",
+      "Uglymug, Epicfighter",
+      "Detectives These Days Are Crazy!",
+      "New Saga",
+      "Onmyo Kaiten Re:Birth Verse",
+      "Tougen Anki",
+      "With You and the Rain",
+      "The Water Magician",
+      "Isekai Mokushiroku Mynoghra: Hametsu no Bunmei de Hajimeru Sekai Seifuku",
+      "There's No Freaking Way I'll be Your Lover! Unless…",
+      "A Couple of Cuckoos Season 2",
+      "Reborn as a Vending Machine, I Now Wander the Dungeon Season 2",
+      "Kamitsubaki City Under Construction",
+      "9-nine- Ruler’s Crown"
     ],
     "N/A": [
-      "TO BE HERO X",
-      "Go! Go! Loser Ranger! 2nd season",
-      "Yandere Dark Elf: She Chased Me All the Way From Another World!",
-      "Makina-san's a Love Bot?!",
-      "YAIBA: Samurai Legend",
-      "Bye Bye, Earth 2nd Season",
-      "Teogonia",
-      "Moonrise"
+      "Nyaight of the Living Cat",
+      "Summer Pockets",
+      "New PANTY ＆ STOCKING with GARTERBELT",
+      "Ginga Tokkyuu Milky☆Subway",
+      "Chuhai Lips",
+      "The All-devouring Whale: Homecoming",
+      "Betrothed to My Sister's Ex",
+      "With Vengeance, Sincerely, Your Broken Saintess",
+      "The Rising of the Shield Hero Season 4 Season 4",
+      "I Was Reincarnated as the 7th Prince so I Can Take My Time Perfecting My Magical Ability Season 2",
+      "Harmony of Mille-Feuille",
+      "Kaiju No. 8 Season 2",
+      "Shirohiyo - Reincarnated as a Neglected Noble: Raising My Baby Brother With Memories From My Past Life",
+      "Arknights: Rise from Ember",
+      "SAKAMOTO DAYS Part 2",
+      "Toilet-Bound Hanako-kun Season 2"
     ]
   }
 }
