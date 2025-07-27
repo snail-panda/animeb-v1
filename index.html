@@ -757,24 +757,31 @@ document.addEventListener("DOMContentLoaded", () => {
   fetch("./weekly-rankings.json")
     .then(res => res.json())
     .then(data => {
-      Object.keys(data).forEach(year => {
-        const yearLi = document.createElement('li');
-        yearLi.classList.add('has-submenu');
+      const seasonOrder = ["Winter", "Spring", "Summer", "Fall"];
+
+      Object.keys(data).sort().forEach(year => {
+        const yearLi = document.createElement("li");
+        yearLi.classList.add("has-submenu");
         yearLi.innerHTML = `<a href="#">${year}</a>`;
 
-        const seasonMenu = document.createElement('ul');
-        seasonMenu.classList.add('season-menu');
+        const seasonMenu = document.createElement("ul");
+        seasonMenu.classList.add("season-menu");
 
-        Object.keys(data[year]).forEach(season => {
-          const seasonLi = document.createElement('li');
-          seasonLi.classList.add('has-submenu');
+        seasonOrder.forEach(season => {
+          if (!data[year][season]) return;
+
+          const { weeks } = data[year][season];
+          if (!Array.isArray(weeks) || weeks.length === 0) return;
+
+          const seasonLi = document.createElement("li");
+          seasonLi.classList.add("has-submenu");
           seasonLi.innerHTML = `<a href="#">${season}</a>`;
 
-          const weekMenu = document.createElement('ul');
-          weekMenu.classList.add('week-menu');
+          const weekMenu = document.createElement("ul");
+          weekMenu.classList.add("week-menu");
 
-          data[year][season].forEach(week => {
-            const weekLi = document.createElement('li');
+          weeks.forEach(week => {
+            const weekLi = document.createElement("li");
             const weekClean = week.toLowerCase().replace(/\s+/g, '');
             const seasonClean = season.toLowerCase();
             const link = `ranking/${year}/${seasonClean}/${weekClean}/index.html`;
@@ -782,9 +789,7 @@ document.addEventListener("DOMContentLoaded", () => {
             weekMenu.appendChild(weekLi);
           });
 
-          if (data[year][season].length > 0) {
-            seasonLi.appendChild(weekMenu);
-          }
+          seasonLi.appendChild(weekMenu);
           seasonMenu.appendChild(seasonLi);
         });
 
@@ -815,30 +820,38 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
+
 document.addEventListener("DOMContentLoaded", () => {
   const menuRoot = document.getElementById("tier-list-menu");
 
-  fetch("./AnimeTListPage/tier-list.json") // ここだけフェッチ先をTierList用に変更
+  fetch("./AnimeTListPage/tier-list.json")
     .then(res => res.json())
     .then(data => {
-      Object.keys(data).forEach(year => {
-        const yearLi = document.createElement('li');
-        yearLi.classList.add('has-submenu');
+      const seasonOrder = ["Winter", "Spring", "Summer", "Fall"];
+
+      Object.keys(data).sort().forEach(year => {
+        const yearLi = document.createElement("li");
+        yearLi.classList.add("has-submenu");
         yearLi.innerHTML = `<a href="#">${year}</a>`;
 
-        const seasonMenu = document.createElement('ul');
-        seasonMenu.classList.add('season-menu');
+        const seasonMenu = document.createElement("ul");
+        seasonMenu.classList.add("season-menu");
 
-        Object.keys(data[year]).forEach(season => {
-          const seasonLi = document.createElement('li');
-          seasonLi.classList.add('has-submenu');
+        seasonOrder.forEach(season => {
+          if (!data[year][season]) return;
+
+          const { weeks } = data[year][season];
+          if (!Array.isArray(weeks) || weeks.length === 0) return;
+
+          const seasonLi = document.createElement("li");
+          seasonLi.classList.add("has-submenu");
           seasonLi.innerHTML = `<a href="#">${season}</a>`;
 
-          const weekMenu = document.createElement('ul');
-          weekMenu.classList.add('week-menu');
+          const weekMenu = document.createElement("ul");
+          weekMenu.classList.add("week-menu");
 
-          data[year][season].forEach(week => {
-            const weekLi = document.createElement('li');
+          weeks.forEach(week => {
+            const weekLi = document.createElement("li");
             const weekClean = week.toLowerCase().replace(/\s+/g, '');
             const seasonClean = season.toLowerCase();
             const link = `AnimeTListPage/${year}/${seasonClean}/${weekClean}/tierlist.html`;
@@ -846,9 +859,7 @@ document.addEventListener("DOMContentLoaded", () => {
             weekMenu.appendChild(weekLi);
           });
 
-          if (data[year][season].length > 0) {
-            seasonLi.appendChild(weekMenu);
-          }
+          seasonLi.appendChild(weekMenu);
           seasonMenu.appendChild(seasonLi);
         });
 
@@ -878,6 +889,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+
 
 
 
