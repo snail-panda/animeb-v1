@@ -371,6 +371,9 @@ if (typeof rankVal === "number" && rankVal > 3) {
 const year = window.year;
 const season = window.season; // spring, summer, etc.
 
+console.log("📅 year:", year);
+console.log("🍃 season:", season); // ← ここにちゃんと "summer" と出てくるかチェック
+
 
   const kvImg = clone.querySelector(".kv-thumb img");
   if (kvImg && entryData.kv) {
