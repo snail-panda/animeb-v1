@@ -1254,6 +1254,10 @@ VIEWING STATUS ZONE
   border-radius: 3px;
 }
 
+.disclosure-reason {
+  margin-bottom: 2rem;
+}
+
 .hairline {
   height: 0.5px;
   border-width:100%;
