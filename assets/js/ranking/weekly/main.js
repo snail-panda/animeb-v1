@@ -862,6 +862,12 @@ window.initOverviewSection = function() {
 
   // 最初は overview.html を読み込む
   function loadOverview(lang) {
+    if (!window.season || !window.year || !window.currentWeek) {
+    console.warn("⚠️ loadOverview called too early! Missing season/year/week:");
+    console.warn("season:", window.season, "year:", window.year, "week:", window.currentWeek);
+    return;
+  }
+
   const year = window.year;
   const season = window.season;
   const currentWeek = window.currentWeek;
