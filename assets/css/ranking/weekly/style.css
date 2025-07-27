@@ -1309,6 +1309,22 @@ VIEWING STATUS ZONE
   line-height: 1.4;
 }
 
+.tooltip-heading {
+  font-weight: 500;
+  font-size: 0.719rem; /* 11.5px */
+  margin-bottom: 6px;
+}
+
+.tooltip-list {
+  margin-top: 6px;
+  padding-left: 20px;
+}
+
+.tooltip-list {
+  margin-top: 6px;
+  padding-left: 20px;
+}
+
 .trigger-icon {
    align-items: center;
    }   
