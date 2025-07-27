@@ -1020,7 +1020,19 @@ const infoMap = {
   </ul>
   <p class="tooltip-note">Note: FWRP is designed to reflect the unique, evolving texture of a full-cour anime — not just raw stats but the journey as a whole.</p>
   <p class="tooltip-bottom-note">For full breakdown, see the note at the bottom.</p>
-`
+  `,
+  orp: `<span class="tooltip-heading">What’s Overall Rating?</span>
+  <p>
+  <span class="key">Overall Rating</span> is a cumulative score that reflects how the show has performed as a complete work — not just based on the final episode, but as the sum of each episode’s evaluation throughout the series.
+  </p>
+  <p>
+  It's meant to show the show's total value as both a viewing experience and a completed piece of media. It often becomes a simple reference point to understand how highly regarded the work is, either for returning viewers or those considering watching.
+  </p>
+  <p class="tooltip-note">
+  Note: While this score is based on a personal framework, it strives for consistency and balance. It's not intended to unfairly praise or criticize any specific work. Interpretations of value will naturally vary from person to person.
+  </p>
+  <p class="tooltip-bottom-note">For more, scroll to the bottom.</p>
+  `
 
 };
 
