@@ -482,9 +482,14 @@ body {
   color: #333;
 }
 
-.title-season {
+.title-season spring{
   color: #4f804c;
 }
+
+.title-season summer{
+  color: #339cbb;
+}
+
 
 .title-final {
   color: #882d6b;
