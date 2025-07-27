@@ -1005,9 +1005,9 @@ const infoMap = {
   total: `
       <span class="tooltip-heading">What’s the Total Score?</span>
       <ul class="tooltip-list">
-        <li>Total Score is a simplified, rounded version of the weekly WRP values.</li>
-        <li>Each week’s WRP is typically rounded <strong>down</strong> to the nearest integer.</li>
-        <li><span class="key">Exception:</span> Scores from <strong>9.50 to 9.99</strong> are treated as <strong>10</strong>, and <strong>10.00+</strong> becomes <strong>11</strong>.</li>
+        <li>Total Score is a simplified, rounded version of the weekly <span class="key">WRP</span> values.</li>
+        <li>Each week’s WRP is typically rounded <span class="key">down</span> to the nearest integer.</li>
+        <li><span class="key">Exception:</span> Scores from <span class="key">9.50 to 9.99</span> are treated as <span class="key">10</span>, and <span class="key">10.00+</span> becomes <span class="key">11</span>.</li>
       </ul>
       <p class="tooltip-note">Note: While useful for seasonal ranking, this score is also a simplified reflection of the overall impression—both practical and intuitive.</p>
   `
