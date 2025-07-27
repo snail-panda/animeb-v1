@@ -1296,16 +1296,16 @@ VIEWING STATUS ZONE
   position: absolute;
   background-color: #fbfbe9;
   border: 0.5px solid #b8c6b7;
-  color: #757575;
-  padding: 10px 12px;
-  font-size: 0.719rem;
-  font-family: 'Agency FB', 'Abel', 'sans-serf';
+  color: #555;
+  padding: 0.625rem 0.75rem;
+  font-size: 0.719rem; /* 11.5px */
+  font-family: 'Barlow Condensed', 'Abel', 'sans-serf';
   border-radius: 4px;
   display: none;
   z-index: 9999;
   pointer-events: none;
   max-width: 280px;
-  letter-spacing: 0.02rem;
+  letter-spacing: 0.01rem;
   line-height: 1.4;
 }
 
