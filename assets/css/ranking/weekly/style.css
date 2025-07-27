@@ -1336,11 +1336,12 @@ VIEWING STATUS ZONE
   margin-top: 6px;
   font-size: 0.75rem; /* 12px */
   font-style: italic;
+  font-weight: 400;
   color: #999;
 }
 
 .key {
-  font-weight: 400;
+  font-weight: 500;
 }
 
 .trigger-icon {
