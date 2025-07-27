@@ -1333,7 +1333,7 @@ VIEWING STATUS ZONE
 
 .tooltip-bottom-note {
   margin-top: 6px;
-  font-size: 13px;
+  font-size: 0.75rem; /* 12px */
   font-style: italic;
   color: #999;
 }
