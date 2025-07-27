@@ -1320,9 +1320,26 @@ VIEWING STATUS ZONE
   padding-left: 20px;
 }
 
-.tooltip-list {
+.tooltip-list li {
+  margin-bottom: 4px;
+}
+
+.tooltip-note {
+  margin-top: 10px;
+  font-weight: 400;
+  font-style: italic;
+  color: #666;
+}
+
+.tooltip-bottom-note {
   margin-top: 6px;
-  padding-left: 20px;
+  font-size: 13px;
+  font-style: italic;
+  color: #999;
+}
+
+.key {
+  font-weight: 500;
 }
 
 .trigger-icon {
