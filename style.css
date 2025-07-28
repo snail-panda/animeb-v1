@@ -777,6 +777,11 @@ ul {
   height: auto;
 }
 
+.trend-new {
+  width: 10px;
+  height: auto;
+}
+
 .arrow-up img {
   transform: rotate(0deg);
 }
@@ -786,6 +791,16 @@ ul {
 .arrow-stay img {
   transform: rotate(90deg);
 }
+
+.trend-label {
+  font-size: 0.55rem;
+  font-weight: normal;
+  margin: 0 6px;
+  display: inline-block;
+  color: var(--trend-label-color, #555);
+  text-transform: none;
+}
+
 
 .trend.up {
   color: green;
