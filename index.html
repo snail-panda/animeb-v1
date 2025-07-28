@@ -800,11 +800,11 @@ console.log("trend raw value:", entry.trend);
       </span>
     `;
   } else if (trendRaw === "re") {
-    trendDisplay = "re:";
-    trendHTML = `<span class="trend-label">re</span>`;
+    trendDisplay = "re-entry";
+    trendHTML = `<span class="trend-label">re:</span>`;
   } else if (trendRaw === "new") {
-    trendDisplay = "new";
-    trendHTML = `<span class="trend-label">NEW</span>`;
+    trendDisplay = "NEW";
+    trendHTML = `<span class="trend-label">new</span>`;
   } else {
     // 空欄や想定外 → 表示なし（trendHTML = "" のまま）
   }
