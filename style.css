@@ -797,7 +797,7 @@ ul {
   font-weight: bold;
   margin-right: 6px;
   display: inline-block;
-  color: var(--trend-label-color, #555);
+  color: var(--trend-label-color, #577157);
   text-transform: none;
 }
 
