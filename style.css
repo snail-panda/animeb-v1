@@ -795,7 +795,7 @@ ul {
 .trend-label {
   font-size: 0.55rem;
   font-weight: meddium;
-  margin-right: 6px;
+  margin-right: 0.375rem;
   display: inline-block;
   color: var(--trend-label-color, #577157);
   text-transform: none;
