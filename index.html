@@ -698,11 +698,28 @@ document.addEventListener("DOMContentLoaded", function () {
 //For Latest Top5 in sidebar
 document.addEventListener("DOMContentLoaded", function () {
   // JSONファイルのパス（index.html からの相対パス）
-  const jsonPath = "ranking/2025/summer/week01/ranking-week01-summer2025.json";
+  let jsonPath = "";
 
-  fetch(jsonPath)
-    .then(response => response.json())
-    .then(data => {
+fetch("./weekly-rankings.json")
+  .then(res => res.json())
+  .then(data => {
+    const targetYear = "2025";
+    const targetSeason = "Summer";
+    const latestWeeks = data[targetYear][targetSeason].weeks;
+    const latestWeek = latestWeeks[latestWeeks.length - 1];
+
+    const seasonPath = targetSeason.toLowerCase();
+    const weekNumber = parseInt(latestWeek.replace(/[^\d]/g, ''), 10);
+    const weekPath = `week${weekNumber < 10 ? '0' + weekNumber : weekNumber}`;
+
+    jsonPath = `ranking/${targetYear}/${seasonPath}/${weekPath}/ranking-${weekPath}-${seasonPath}${targetYear}.json`;
+
+    // ✅ ここで jsonPath ができたので、通常どおり fetch(jsonPath) を続けてOK
+    return fetch(jsonPath);
+  })
+  .then(response => response.json())
+  .then(data => {
+    // ✅ ここ以降の処理は今まで使っていた処理のままでOK！
       const container = document.querySelector(".ranking-widget");
     
 
