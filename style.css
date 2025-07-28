@@ -777,7 +777,7 @@ ul {
   height: auto;
 }
 
-.trend-new {
+.arrow-new {
   width: 10px;
   height: auto;
 }
@@ -794,7 +794,7 @@ ul {
 
 .trend-label {
   font-size: 0.55rem;
-  font-weight: normal;
+  font-weight: bold;
   margin-right: 6px;
   display: inline-block;
   color: var(--trend-label-color, #555);

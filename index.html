@@ -787,11 +787,12 @@ console.log("trend raw value:", entry.trend);
   let trendDisplay = "";
   let trendHTML = "";
 
-  if (["up", "down", "stay"].includes(trendRaw)) {
+  if (["up", "down", "stay", "new"].includes(trendRaw)) {
     const trendIcon = {
       up: "arrow-up.png",
       down: "arrow-down.png",
-      stay: "arrow-stay.png"
+      stay: "arrow-stay.png",
+      new: "arrow-new.svg"
     }[trendRaw];
 
     trendHTML = `
@@ -802,9 +803,6 @@ console.log("trend raw value:", entry.trend);
   } else if (trendRaw === "re") {
     trendDisplay = "re-entry";
     trendHTML = `<span class="trend-label">re:</span>`;
-  } else if (trendRaw === "new") {
-    trendDisplay = "NEW";
-    trendHTML = `<span class="trend-label">new</span>`;
   } else {
     // 空欄や想定外 → 表示なし（trendHTML = "" のまま）
   }
