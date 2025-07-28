@@ -783,22 +783,41 @@ if (bottomLink) {
 console.log("trend raw value:", entry.trend);
 
 
-        const trend = entry.trend.toLowerCase();
-        const trendIcon = {
-          up: "arrow-up.png",
-          down: "arrow-down.png",
-          stay: "arrow-stay.png"
-        }[trend] || "arrow-stay.png";
+        const trendRaw = entry.trend?.toLowerCase() || "";
+  let trendDisplay = "";
+  let trendHTML = "";
 
-        entryDiv.innerHTML = `
-          <span class="rank">${entry.rank}</span>
-          <span class="trend ${trend}"><img src="images/trends/${trendIcon}" class="arrow-${trend}"></span>
-          <span class="title">${entry.title}</span>
-          <span class="ep">ep.${entry.episode}</span>
-          <span class="score">${entry.score}pt</span>
-        `;
+  if (["up", "down", "stay"].includes(trendRaw)) {
+    const trendIcon = {
+      up: "arrow-up.png",
+      down: "arrow-down.png",
+      stay: "arrow-stay.png"
+    }[trendRaw];
 
-        container.appendChild(entryDiv);
+    trendHTML = `
+      <span class="trend ${trendRaw}">
+        <img src="images/trends/${trendIcon}" class="arrow-${trendRaw}">
+      </span>
+    `;
+  } else if (trendRaw === "re") {
+    trendDisplay = "re";
+    trendHTML = `<span class="trend-label">re</span>`;
+  } else if (trendRaw === "new") {
+    trendDisplay = "NEW";
+    trendHTML = `<span class="trend-label">NEW</span>`;
+  } else {
+    // 空欄や想定外 → 表示なし（trendHTML = "" のまま）
+  }
+
+  entryDiv.innerHTML = `
+    <span class="rank">${entry.rank}</span>
+    ${trendHTML}
+    <span class="title">${entry.title}</span>
+    <span class="ep">ep.${entry.episode}</span>
+    <span class="score">${entry.score}pt</span>
+  `;
+
+  container.appendChild(entryDiv);
       });
     });
 });
