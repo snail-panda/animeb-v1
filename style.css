@@ -782,6 +782,11 @@ ul {
   height: auto;
 }
 
+.arrow-re {
+  width: 10px;
+  height: auto;
+}
+
 .arrow-up img {
   transform: rotate(0deg);
 }
