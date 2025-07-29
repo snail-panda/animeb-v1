@@ -1410,7 +1410,7 @@ VIEWING STATUS ZONE
 }
 
 @media screen and (max-width: 480px) {
-  .popup {
+  .popup.review-popup {
     left: 50% !important;
     transform: translateX(-50%) !important;
     right: auto !important;
