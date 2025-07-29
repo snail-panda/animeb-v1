@@ -787,12 +787,13 @@ console.log("trend raw value:", entry.trend);
   let trendDisplay = "";
   let trendHTML = "";
 
-  if (["up", "down", "stay", "new"].includes(trendRaw)) {
+  if (["up", "down", "stay", "new", "re"].includes(trendRaw)) {
     const trendIcon = {
       up: "arrow-up.png",
       down: "arrow-down.png",
       stay: "arrow-stay.png",
-      new: "arrow-new.png"
+      new: "arrow-new.png",
+      re: "arrow-re.png"
     }[trendRaw];
 
     trendHTML = `
