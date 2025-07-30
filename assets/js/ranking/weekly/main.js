@@ -1114,12 +1114,19 @@ function showTooltip(event, text) {
     left = pageX - tooltipWidth - padding;
   }
 
-  // 下端からはみ出す場合上に（必要なら）現状維持
-  if (pageY + tooltipHeight + padding > window.innerHeight + window.scrollY) {
-    top = pageY - tooltipHeight - padding;
+   // ★ 上下判定（はみ出し防止つき）
+  const spaceBelow = window.innerHeight + window.scrollY - pageY;
+  const spaceAbove = pageY - window.scrollY;
+
+  if (spaceBelow >= tooltipHeight + padding) {
+    top = pageY + padding; // 下に出す（余裕あり）
+  } else if (spaceAbove >= tooltipHeight + padding) {
+    top = pageY - tooltipHeight - padding; // 上に出す（余裕あり）
   } else {
-    top = pageY + padding;
+    // 上下どちらも足りない場合：なるべく収まる位置に
+    top = Math.max(padding, window.scrollY + 4);
   }
+
 
   tooltip.style.left = `${left}px`;
   tooltip.style.top = `${top}px`;
