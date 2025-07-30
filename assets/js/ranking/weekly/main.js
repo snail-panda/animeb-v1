@@ -45,6 +45,11 @@ function adjustScoreBars() {
   });
 }
 
+// 🔍 デバッグログを追加！
+console.log("🔍 currentWeek:", window.currentWeek);
+console.log("🔍 season:", window.season);
+console.log("🔍 year:", window.year);
+
 // ── 1. JSON ファイル名を動的に組み立て ──
 const jsonPath = `ranking-${window.currentWeek}-${window.season}${window.year}.json`;
 
