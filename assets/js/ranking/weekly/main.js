@@ -194,7 +194,7 @@ if (weekText === 'WEEK FINAL') {
     weekEl.classList.add('final');
   } else if (weekText === 'WEEK 6') {
     weekEl.classList.add('mid');
-  } else if (weekext === 'prelim') {
+  } else if (weekext === 'WEEK PRELIM') {
     weekEl.classList.add('prelim');
   } else {
     weekEl.classList.add('normal');
