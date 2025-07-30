@@ -188,12 +188,14 @@ if (weekText === 'WEEK FINAL') {
 
 
   // クラスのリセットと付け直し
-  weekEl.classList.remove('final', 'mid', 'normal');
+  weekEl.classList.remove('final', 'mid', 'prelim', 'normal');
 
   if (weekText === 'WEEK FINAL') {
     weekEl.classList.add('final');
   } else if (weekText === 'WEEK 6') {
     weekEl.classList.add('mid');
+  } else if (weekext === 'prelim') {
+    weekEl.classList.add('prelim');
   } else {
     weekEl.classList.add('normal');
   }
