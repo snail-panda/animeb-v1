@@ -63,6 +63,10 @@ body {
   color: #215973; /* f39c12; 折り返し（橙） */
 }
 
+.week-title.prelim {
+  color: #d9de2f;
+}
+
 .week-title.normal {
   color: #8E2222;
 }
