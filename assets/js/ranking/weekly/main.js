@@ -1057,10 +1057,10 @@ const infoMap = {
 <ul class="tooltip-list">
   <li><span class="key">Watching</span>: 今週視聴した全作品数（Dropped 含む）<br>
       <em>Titles watched this week, including dropped ones.</em></li>
-  <li><span class="key">Dropped total</span>: 今までに打ち切った作品数（今週含む）<br>
-      <em>Total titles dropped so far, including this week.</em></li>
-  <li><span class="key">Dropped this week</span>: 今週新たに切った作品数<br>
+  <li><span class="key">Dropped (this week)</span>: 今週新たに切った作品数<br>
       <em>Titles dropped this week.</em></li>
+  <li><span class="key">Total Dropped</span>: 今までに切った作品数（今週含む）<br>
+      <em>Total titles dropped so far, including this week.</em></li>    
   <li><span class="key">No Air</span>: 今週放送されなかった作品数（放送休止など）<br>
       <em>Titles with no episode aired this week.</em></li>
   <li><span class="key">Completed</span>: 先週までに全話放送した作品数<br>
