@@ -58,18 +58,6 @@
       text-align: justify;
       line-height: 1.8;
     }
-　　
-    .dropped-list {
-  font-size: 0.75rem;
-  color: #6b6565;
-  margin-top: 0.5em;
-  padding-left: 1.5em;
-  line-height: 1.5em;
-}
-.dropped-list li::marker {
-  color: #bbb;
-}
-
 
     ul {
       font-size: 0.8rem;
@@ -81,6 +69,18 @@
       text-align: justify;
       line-height: 2;
 }
+    
+    .dropped-list {
+      font-size: 0.75rem;
+      color: #6b6565;
+      margin-top: 0.5em;
+      padding-left: 1.5em;
+      line-height: 1.5em;
+}
+    .dropped-list li::marker {
+      color: #bbb;
+}
+
 
     @media screen and (max-width: 800px) {
       .html {
