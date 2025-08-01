@@ -504,8 +504,8 @@ VIEWING STATUS ZONE
 /* === 6. RANK NUMBER STYLE === */
 
      .rank-number {
-  font-size: 1.4rem;
-  font-family: 'Roboto Condensed', 'Barlow Condensed', 'Agency FB', 'Pathway Gothic One', 'sans-serif';
+  font-size: 1.2rem;
+  font-family: 'Barlow Condensed', 'Agency FB', 'Pathway Gothic One', 'sans-serif';
   font-weight: 600;
   letter-spacing: 0.1px;
   text-transform: none;
@@ -513,7 +513,7 @@ VIEWING STATUS ZONE
 }
 
 .rank-number-first {
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   font-weight: 700;
   font-style: normal;
   color: #9E8234;
