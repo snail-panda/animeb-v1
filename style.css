@@ -1183,6 +1183,11 @@ footer {
   display: block;
 }
 
+.post-image-takopi {
+  height: 200px;
+  overflow: hidden;
+}
+
   .sidebar {
     display: none;
   }
