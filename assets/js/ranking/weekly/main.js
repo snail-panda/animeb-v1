@@ -325,6 +325,28 @@ if (rankEl) {
   if (oldImgInNumber) oldImgInNumber.remove();
 }
 
+// 数値ランク（1〜3）1〜3位に色を付けるためクラス名を定義(rank-number)
+if (typeof rankVal === "number" && [1, 2, 3].includes(rankVal)) {
+  const classMap = {
+    1: "rank-number-first",
+    2: "rank-number-second",
+    3: "rank-number-third",
+  };
+  const className = classMap[rankVal];
+
+  // クラス名を付与（画像は削除）
+  if (rankEl) {
+    rankEl.textContent = String(rankVal);
+    rankEl.classList.add(className);  // ここで色付け用のクラス追加
+  }
+} else {
+  // 通常の数値ランク表示（4位以降）
+  if (rankEl) {
+    rankEl.textContent = String(rankVal);
+  }
+}
+
+/*
 // 数値ランク（1〜3）1〜3位に応じた画像とクラス名を定義
 if (typeof rankVal === "number" && [1, 2, 3].includes(rankVal)) {
   const badgeMap = {
@@ -345,7 +367,7 @@ if (rankTop) {
 
   if (rankEl) rankEl.textContent = String(rankVal);
 }
-
+*/
 // スペシャルランクバッジ（spotlight, editor's pick, dookie）
 if (typeof rankVal === "string") {
   const key = rankVal.toLowerCase();
