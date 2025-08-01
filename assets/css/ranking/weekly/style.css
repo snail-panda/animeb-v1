@@ -512,20 +512,20 @@ VIEWING STATUS ZONE
   text-shadow: 0.1px 0.1px #333;     
 }
 
-.rank-number.first {
+.rank-number-first {
   font-size: 1.4rem;
   font-weight: 700;
   font-style: normal;
   color: #9E8234;
 }
 
-.rank-number.second {
+.rank-number-second {
   font-size: 1.4rem;
   font-weight: 700;
   color: #A8A79D;
 }
 
-.rank-number.third {
+.rank-number-third {
   font-size: 1.4rem;
   font-weight: 700;
   color: #6E5915;
