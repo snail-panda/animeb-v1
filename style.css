@@ -1175,6 +1175,10 @@ footer {
   height: 220px;
 }
 
+.post-image-takopi {
+  background-position: center 70%;
+}
+
   .sidebar {
     display: none;
   }
