@@ -20,8 +20,22 @@ document.addEventListener("DOMContentLoaded", function() {
   
   document.getElementById("seasonTitle").textContent = data.seasonTitle;
   document.getElementById("seasonDate").textContent = data.seasonDate;
-  const safeIntro = data.intro.replace(/\n/g, "<br>");
-document.getElementById("introText").innerHTML = safeIntro;
+
+ // ✅ contentText用のsafeContent は削除！でもいまはコメントアウト
+  /* const safeIntro = data.intro.replace(/\n/g, "<br>"); */
+
+// ✅ introText を先に読みに行きなければdata.jsのcontentをfallbackで読みに行く
+
+fetch("intro.html")
+  .then(res => res.ok ? res.text() : null)
+  .then(html => {
+    const target = document.getElementById("introText");
+    if (html) {
+      target.innerHTML = html;
+    } else {
+      target.innerHTML = tierlistData.intro;
+    }
+});
 
 
 // ✅ contentText用のsafeContent は削除！でもいまはコメントアウト
@@ -40,9 +54,21 @@ fetch("content.html")
     }
 });
 
+// ✅ conclusionText用のsafeContent は削除！でもいまはコメントアウト
+/* const safeConclusion = data.conclusion.replace(/\n/g, "<br>"); */
 
-const safeConclusion = data.conclusion.replace(/\n/g, "<br>");
-document.getElementById("conclusionText").innerHTML = safeConclusion;
+// ✅ conclusionText を先に読みに行きなければdata.jsのcontentをfallbackで読みに行く
+
+fetch("conclusion.html")
+  .then(res => res.ok ? res.text() : null)
+  .then(html => {
+    const target = document.getElementById("conclusionText");
+    if (html) {
+      target.innerHTML = html;
+    } else {
+      target.innerHTML = tierlistData.conclusion;
+    }
+});
 
   
   document.getElementById("tierImage").src = data.tierImage;
