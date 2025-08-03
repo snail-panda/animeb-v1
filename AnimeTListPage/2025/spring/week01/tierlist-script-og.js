@@ -6,7 +6,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
  // --- 🔧 正規化マッピングここに追加 ---
   const classMap = {
-	"SSS": "sss",
     "SS": "ss",
     "S": "s",
     "A": "a",
@@ -31,7 +30,7 @@ document.getElementById("conclusionText").innerHTML = safeConclusion;
   
   document.getElementById("tierImage").src = data.tierImage;
 
-  // Tier Guide
+   // Tier Guide
   // 最初に詳細版を読み込む
   document.getElementById("tierGuide").innerHTML = data.tierGuide;
 
