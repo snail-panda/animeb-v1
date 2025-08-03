@@ -28,6 +28,15 @@ document.getElementById("contentText").innerHTML = safeContent;
 
 const safeConclusion = data.conclusion.replace(/\n/g, "<br>");
 document.getElementById("conclusionText").innerHTML = safeConclusion;
+
+// ← この下あたりに追加するのが自然
+  fetch("content.html")
+  .then(res => res.ok ? res.text() : null)
+  .then(html => {
+    if (html) {
+      document.getElementById("contentText").innerHTML = html;
+    }
+  });
   
   document.getElementById("tierImage").src = data.tierImage;
 
