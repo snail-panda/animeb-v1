@@ -31,10 +31,12 @@ document.getElementById("conclusionText").innerHTML = safeConclusion;
 
 // ← この下あたりに追加するのが自然
   fetch("content.html")
-    .then(res => res.text())
-    .then(html => {
+  .then(res => res.ok ? res.text() : null)
+  .then(html => {
+    if (html) {
       document.getElementById("contentText").innerHTML = html;
-    });
+    }
+  });
 
   
   document.getElementById("tierImage").src = data.tierImage;
