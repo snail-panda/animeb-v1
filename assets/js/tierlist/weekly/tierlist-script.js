@@ -23,20 +23,27 @@ document.addEventListener("DOMContentLoaded", function() {
   const safeIntro = data.intro.replace(/\n/g, "<br>");
 document.getElementById("introText").innerHTML = safeIntro;
 
-const safeContent = data.content.replace(/\n/g, "<br>");
-document.getElementById("contentText").innerHTML = safeContent;
+
+// ✅ contentText用のsafeContent は削除！でもいまはコメントアウト
+/* const safeContent = data.content.replace(/\n/g, "<br>"); */
+
+// ✅ contentText を先に読みに行きなければdata.jsのcontentをfallbackで読みに行く
+
+fetch("content.html")
+  .then(res => res.ok ? res.text() : null)
+  .then(html => {
+    const target = document.getElementById("contentText");
+    if (html) {
+      target.innerHTML = html;
+    } else {
+      target.innerHTML = tierlistData.content;
+    }
+});
+
 
 const safeConclusion = data.conclusion.replace(/\n/g, "<br>");
 document.getElementById("conclusionText").innerHTML = safeConclusion;
 
-// ← この下あたりに追加するのが自然
-  fetch("content.html")
-  .then(res => res.ok ? res.text() : null)
-  .then(html => {
-    if (html) {
-      document.getElementById("contentText").innerHTML = html;
-    }
-  });
   
   document.getElementById("tierImage").src = data.tierImage;
 
