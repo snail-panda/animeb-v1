@@ -4,7 +4,7 @@ const tierlistData = {
   intro: "We’re already halfway through the season! Here’s my updated tier list after Episode 8. Some shows continue to shine, others fell off, and a few... I had to drop.",
   content: "",
   conclusion: "That wraps up my Ep. 7–8 impressions. Thanks for reading! I'll see you again for the 2025 Spring Final Tier List.  (And hey—don't forget to let me know where your favorites landed!)",
-  tierImage: "../../../../images/tier-lists/2025/spring/2025midspring_tier_list_ep7-8.png",
+  tierImage: "../../../../images/tier-lists/2025/spring/tierlist-2025-spring-week06",
   tierGuide: `
     <h4 class="criteria-title">Tier Guide</h4>
     <ul class="criteria-list">

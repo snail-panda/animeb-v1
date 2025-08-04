@@ -4,7 +4,7 @@ const tierlistData = {
   intro: "",
   content: "",
   conclusion: "",
-  tierImage: "../../../../images/tier-lists/2025/summer/2025summer_first_tier_list_ep1.png",
+  tierImage: "../../../../images/tier-lists/2025/summer/tierlist-2025-summer-week01.png",
   tierGuide: `
     <h4 class="criteria-title">Tier Guide</h4>
     <ul class="criteria-list">
