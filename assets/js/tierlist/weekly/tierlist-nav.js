@@ -8,7 +8,7 @@ const season = pathSegments[pathSegments.length - 3];
 const year = pathSegments[pathSegments.length - 4];
 
 // JSONを読み込む
-fetch("../../../../AnimeTListPage/tier-list.json")
+fetch("../../../../tierlist/tier-list.json")
   .then(response => response.json())
   .then(data => {
     const correctedSeason = season.charAt(0).toUpperCase() + season.slice(1).toLowerCase();
@@ -30,7 +30,7 @@ fetch("../../../../AnimeTListPage/tier-list.json")
       ? availableWeeks[currentIndex + 1]
       : null;
 
-    const basePath = `/animeb-v1/AnimeTListPage/${year}/${correctedSeason.toLowerCase()}/`;
+    const basePath = `/animeb-v1/tierlist/${year}/${correctedSeason.toLowerCase()}/`;
 
     // 前のリンク
     if (prevWeek) {
@@ -40,7 +40,7 @@ fetch("../../../../AnimeTListPage/tier-list.json")
   const prevSeasonData = data?.[prevInfo.year]?.[prevInfo.season];
   const prevFinal = prevSeasonData?.final?.toLowerCase().replace(/\s+/g, '');
   if (prevFinal) {
-    prevLink.href = `/animeb-v1/AnimeTListPage/${prevInfo.year}/${prevInfo.season.toLowerCase()}/${prevFinal}/tierlist.html`;
+    prevLink.href = `/animeb-v1/tierlist/${prevInfo.year}/${prevInfo.season.toLowerCase()}/${prevFinal}/tierlist.html`;
   } else {
     prevLink.href = "#";
     prevLink.classList.add("disabled");
@@ -56,7 +56,7 @@ fetch("../../../../AnimeTListPage/tier-list.json")
   const nextSeasonData = data?.[nextInfo.year]?.[nextInfo.season];
   const nextStart = nextSeasonData?.weeks?.[0]?.toLowerCase().replace(/\s+/g, '');
   if (nextStart) {
-    nextLink.href = `/animeb-v1/AnimeTListPage/${nextInfo.year}/${nextInfo.season.toLowerCase()}/${nextStart}/tierlist.html`;
+    nextLink.href = `/animeb-v1/tierlist/${nextInfo.year}/${nextInfo.season.toLowerCase()}/${nextStart}/tierlist.html`;
   } else {
     nextLink.href = "#";
     nextLink.classList.add("disabled");
