@@ -1,13 +1,12 @@
 {
   "season": "2025 Spring",
-  "version": "Season Premiere / First impressions Tier List – Episodes 1",
+  "version": "Anime Season Premiere / First impressions Tier List – Episodes 1",
   "date": "April 14, 2025",
-  "intro": "We’re already halfway through the season! Here’s my updated tier list after Episode 8. Some shows continue to shine, others fell off, and a few... I had to drop.",
-  "mainContent": "Sample main content text for now.",
-  "conclusion": "That wraps up my Ep. 7–8 impressions. Thanks for reading! Let me know where your favorites landed.",
-  "recentlyDropped": ["Title A", "Title B", "Title C"],
+  "intro": "",
+  "mainContent": "",
+  "conclusion": "",
   "tiers": {
-  "tiers": {
+	"SSS": [""],  
     "SS": [
       "The Apothecary Diaries 2nd Season",
       "Shoshimin: How to Become Ordinary 2"
@@ -69,6 +68,9 @@
       "Bye Bye, Earth 2nd Season",
       "Teogonia",
       "Moonrise"
+    ],
+	"RecentlyDropped": [
+      ""
     ]
   }
 }
