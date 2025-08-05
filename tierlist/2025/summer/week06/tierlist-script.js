@@ -158,6 +158,7 @@ fetch("conclusion.html")
 
 loadTierGuide();
 setTierImage();
+loadTiersFromJSON();
 
 function setTierImage() {
   const pathParts = window.location.pathname.split("/");
@@ -174,12 +175,34 @@ function setTierImage() {
 
 
   // Titles by Tier
-  const tierSections = document.getElementById("tierSections");
-  const tiers = data.tiers;
+  function loadTiersFromJSON() {
+  const pathParts = window.location.pathname.split("/");
+  const year = pathParts[3];   // "2025"
+  const season = pathParts[4]; // "summer"
+  const week = pathParts[5];   // "week06"
 
-  for (const [tierName, titles] of Object.entries(tiers)) {
-    const section = document.createElement("div");
-    section.className = "tier-section";
+  // JSONファイル名はシンプルに：tierlist-${year}-${season}-${week}.json
+  const jsonPath = `tierlist-${year}-${season}-${week}.json`;
+
+  console.log("Loading tiers JSON from:", jsonPath);
+
+  fetch(jsonPath)
+    .then(res => {
+      if (!res.ok) throw new Error(`Failed to load JSON: ${jsonPath}`);
+      return res.json();
+    })
+    .then(jsonData => {
+      if (!jsonData.tiers) {
+        console.error("No 'tiers' key found in JSON");
+        return;
+      }
+
+      const tierSections = document.getElementById("tierSections");
+      tierSections.innerHTML = ""; // 初期化
+
+      for (const [tierName, titles] of Object.entries(jsonData.tiers)) {
+        const section = document.createElement("div");
+        section.className = "tier-section";
 
   // --- 🔧 ここでマッピングを適用 ---
     const normalizedClass = classMap[tierName.trim()] || tierName.trim().toLowerCase();
