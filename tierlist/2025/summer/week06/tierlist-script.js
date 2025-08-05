@@ -76,9 +76,25 @@ fetch("conclusion.html")
 
   // Tier Guide
    // Tier Guide（週別自動読み込みに変更）まず詳細版
+
+  function getWeekFolder() {
+  // 1. もしグローバル変数があればそれを使う
+  if (window.weekFolder) {
+    return window.weekFolder;
+  }
+
+  // 2. なければURLからweekXXを抽出
+  const match = window.location.pathname.match(/(week\d{2})/);
+  return match ? match[1] : null;
+}
+
+
   function loadTierGuide() {
-  const pathParts = window.location.pathname.split("/");
-  const week = pathParts[3]; // e.g. "week01"
+  const week = getWeekFolder();
+  if (!week) {
+    console.error("Week folder could not be determined.");
+    return;
+  }
 
   const tierGuidePath = `animeb-v1/assets/js/tierlist/weekly/tierguide-${week}.js`;
 
