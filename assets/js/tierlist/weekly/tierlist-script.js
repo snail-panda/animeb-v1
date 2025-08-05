@@ -197,7 +197,10 @@ function setTierImage() {
       tierSections.innerHTML = ""; // 初期化
 
       for (const [tierName, titles] of Object.entries(jsonData.tiers)) {
-        if (!titles || titles.length === 0) continue; // 完全空はスキップ
+        // 空配列または全要素が空文字/空白ならスキップ
+  if (!titles || titles.length === 0 || titles.every(t => t.trim() === "")) {
+    continue;
+  }
 
         const section = document.createElement("div");
         section.className = "tier-section";
@@ -216,12 +219,11 @@ function setTierImage() {
         list.className = "tier-list hidden";
 
         if (titles.length === 1 && titles[0].toLowerCase() === "no entry") {
-    // ●なしでテキストだけ表示
-    const p = document.createElement("p");
+    // No entry でもボタンは作成、クリック時に表示
+    const li = document.createElement("p");
     p.textContent = "No entry";
-    p.className = "no-entry-text"; // CSSで装飾用
-    section.appendChild(button);
-    section.appendChild(p);
+    p.className = "no-entry-text"; // CSSで装飾可能
+    list.appendChild(p);
   } else {
 
     // 通常のリスト表示
