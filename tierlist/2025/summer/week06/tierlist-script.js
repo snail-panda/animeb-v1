@@ -157,6 +157,8 @@ document.getElementById("tierGuide").appendChild(simpleList);
   document.body.appendChild(script);
 }
 
+loadTierGuide();
+
   // Titles by Tier
   const tierSections = document.getElementById("tierSections");
   const tiers = data.tiers;
