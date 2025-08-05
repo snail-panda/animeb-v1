@@ -1,10 +1,4 @@
-const tierlistData = {
-  seasonTitle: "2025 Summer Anime Season Premiere / First Impression Tier List – Episode 1",
-  seasonDate: "July 27, 2025",
-  intro: "",
-  content: "",
-  conclusion: "",
-  tierImage: "../../../../images/tier-lists/2025/summer/tierlist-2025-summer-week01.png",
+const tierGuideData = {
   tierGuide: `
     <h4 class="criteria-title">Tier Guide</h4>
     <ul class="criteria-list">
@@ -20,81 +14,5 @@ const tierlistData = {
   `,
   disclaimer: `
   <div class="disclaimer-title">*Note on N/A Disqualified Tier:</div>
-  Most titles in the N/A Disqualified tier were dropped or excluded from my watch pool after the first few episodes or even during it. Some didn’t last more than a few minutes, while others were ruled out at a glance—or not even. That doesn’t mean they’re all “absolute trash.” Most just weren’t my cup of tea or didn’t suit the ranking format. Some shows—even if good or fun in their own way—just don’t fit the structure or vibe of my weekly list. That said, yeah, a few were truly dookie.`,
-  
-  tiers: {
-    "S": [
-      "Takopi's Original Sin"
-    ],
-    "A": [
-      "Ruri Rocks",
-      "Dr. Stone: Science Future Part 2",
-      "Clevatess",
-      "Dekin no Mogura: The Earthbound Mole",
-      "My Dress-Up Darling Season 2",
-      "Secrets of the Silent Witch",
-      "Dan Da Dan Season 2"
-    ],
-    "B": [
-      "CITY THE ANIMATION",
-      "Call of the Night Season 2",
-      "Rascal Does Not Dream of Santa Claus",
-      "See You Tomorrow at the Food Court",
-      "Rent-a-Girlfriend Season 4"
-    ],
-    "C": [
-      "April Showers Bring May Flowers",
-      "Fermat no Ryouri",
-      "Solo Camping for Two",
-      "Welcome to the Outcast's Restaurant!",
-      "Turkey!",
-      "The Summer Hikaru Died",
-      "Cultural Exchange With a Game Centre Girl"
-    ],
-    "D": [
-      "Bad Girl",
-      "Watari-kun's ****** Is about to Collapse",
-      "The Fragrant Flower Blooms with Dignity",
-      "The Shy Hero and the Assassin Princesses",
-      "Private Tutor to the Duke's Daughter",
-      "Hotel Inhumans",
-      "Dealing with Mikadono Sisters Is a Breeze",
-      "Grand Blue Dreaming Season 2"
-    ],
-    "Dropped": [
-      "Gachiakuta",
-      "Necronomico and the Cosmic Horror Show",
-      "Uglymug, Epicfighter",
-      "Detectives These Days Are Crazy!",
-      "New Saga",
-      "Onmyo Kaiten Re:Birth Verse",
-      "Tougen Anki",
-      "With You and the Rain",
-      "The Water Magician",
-      "Isekai Mokushiroku Mynoghra: Hametsu no Bunmei de Hajimeru Sekai Seifuku",
-      "There's No Freaking Way I'll be Your Lover! Unless…",
-      "A Couple of Cuckoos Season 2",
-      "Reborn as a Vending Machine, I Now Wander the Dungeon Season 2",
-      "Kamitsubaki City Under Construction",
-      "9-nine- Ruler’s Crown"
-    ],
-    "N/A": [
-      "Nyaight of the Living Cat",
-      "Summer Pockets",
-      "New PANTY ＆ STOCKING with GARTERBELT",
-      "Ginga Tokkyuu Milky☆Subway",
-      "Chuhai Lips",
-      "The All-devouring Whale: Homecoming",
-      "Betrothed to My Sister's Ex",
-      "With Vengeance, Sincerely, Your Broken Saintess",
-      "The Rising of the Shield Hero Season 4 Season 4",
-      "I Was Reincarnated as the 7th Prince so I Can Take My Time Perfecting My Magical Ability Season 2",
-      "Harmony of Mille-Feuille",
-      "Kaiju No. 8 Season 2",
-      "Shirohiyo - Reincarnated as a Neglected Noble: Raising My Baby Brother With Memories From My Past Life",
-      "Arknights: Rise from Ember",
-      "SAKAMOTO DAYS Part 2",
-      "Toilet-Bound Hanako-kun Season 2"
-    ]
-  }
-}
+  Most titles in the N/A Disqualified tier were dropped or excluded from my watch pool after the first few episodes or even during it. Some didn’t last more than a few minutes, while others were ruled out at a glance—or not even. That doesn’t mean they’re all “absolute trash.” Most just weren’t my cup of tea or didn’t suit the ranking format. Some shows—even if good or fun in their own way—just don’t fit the structure or vibe of my weekly list. That said, yeah, a few were truly dookie.`
+};
