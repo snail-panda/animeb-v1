@@ -166,7 +166,7 @@ function setTierImage() {
   const week = pathParts[5];   // "week06"
 
   // ファイル名例: tierlist-2025-summer-week06.png
-  const imgPath = `/animeb-v1/images/tier-lists/${year}/${season}/tierlist-${year}-${season}-${week}.png`;
+  const imgPath = `/animeb-v1/images/tier-lists/${year}/${season}/${week}/tierlist-${year}-${season}-${week}.png`;
 
   console.log("Tier image path:", imgPath);
   document.getElementById("tierImage").src = imgPath;
