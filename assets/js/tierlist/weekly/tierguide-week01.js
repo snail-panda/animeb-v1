@@ -1,4 +1,4 @@
-const tierlistData = {
+const tierGuideData = {
   tierGuide: `
     <h4 class="criteria-title">Tier Guide</h4>
     <ul class="criteria-list">
