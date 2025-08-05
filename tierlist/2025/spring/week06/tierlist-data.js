@@ -1,10 +1,4 @@
-const tierlistData = {
-  seasonTitle: "2025 Spring Anime Mid-Season Tier List – Episodes 7–8",
-  seasonDate: "May 31, 2025",
-  intro: "We’re already halfway through the season! Here’s my updated tier list after Episode 8. Some shows continue to shine, others fell off, and a few... I had to drop.",
-  content: "<p>The mid-season tier highlight definitely revolves around the sub-top tiers like A, B, and C. While SS, S, and D are pretty much locked in — with  <span class=\"anime-title\">The Apothecary Diaries Second Season</span> <span class=\"jp-title\">(Kusuriya no Hitorigoto)</span>,  <span class=\"anime-title\">Sword of the Demon Hunter</span> <span class=\"jp-title\">(Kijin Gentoushou)</span>, and  <span class=\"anime-title\">Shoshimin: How to Become Ordinary 2</span> <span class=\"jp-title\">(Shoushimin Series 2nd Season)</span> absolutely dominating the top, and certain bottom-tier shows still proudly claiming their D-tier status —the real action lies in the middle.</p><p>Mid-tier titles such as  <span class=\"anime-title\">Mobile Suit Gundam GQuuuuuuX</span> <span class=\"jp-title\">(Kidou Senshi Gundam GQuuuuuuX)</span>,  <span class=\"anime-title\">Kowloon Generic Romance</span>, and  <span class=\"anime-title\">From the Old Country Bumpkin to Master Swordsman... </span> <span class=\"jp-title\">(Katainaka no Ossan Kensei ni Naru)</span>are still holding some potential to rise — though honestly, they're quite wobbly. From my personal view, Gundam and From the Old... have finally started showing some of their own charm, though not fully baked yet. And the thing is — back in Episode 1, these were among the shows I was really excited about. I hope the next few episodes will give them the push they need to live up to that early promise.</p>",
-  conclusion: "That wraps up my Ep. 7–8 impressions. Thanks for reading! I'll see you again for the 2025 Spring Final Tier List.  (And hey—don't forget to let me know where your favorites landed!)",
-  tierImage: "../../../../images/tier-lists/2025/spring/tierlist-2025-spring-week06.png",
+const tierGuideData = {
   tierGuide: `
     <h4 class="criteria-title">Tier Guide</h4>
     <ul class="criteria-list">
@@ -20,60 +14,5 @@ const tierlistData = {
   `,
   disclaimer: `
   <div class="disclaimer-title">*Note on N/A Disqualified Tier:</div>
-  Most titles in the N/A Disqualified tier were dropped or excluded from my watch pool after the first few episodes or even during it. Some didn’t last more than a few minutes, while others were ruled out at a glance—or not even. That doesn’t mean they’re all “absolute trash.” Most just weren’t my cup of tea or didn’t suit the ranking format. Some shows—even if good or fun in their own way—just don’t fit the structure or vibe of my weekly list. That said, yeah, a few were truly dookie.`,
-  
-  tiers: {
-     "SS": [
-      "The Apothecary Diaries 2nd Season",
-      "Sword of the Demon Hunter",
-      "Shoshimin: How to Become Ordinary 2"
-    ],
-    "S": [
-      "Apocalypse Hotel",
-      "A Ninja and an Assassin Under One Roof",
-      "Me and the Alien MuMu"
-    ],
-    "A": [
-      "Mobile Suit Gundam GQuuuuuuX",
-      "The Catcher in the Ballpark!"
-    ],
-    "B": [
-      "Please Put Them On",
-      "Kowloon Generic Romance"
-    ],
-    "C": [
-      "From Old Country Bumpkin to Master Swordsman: My Hotshot Disciples Are All Grown Up Now",
-      "Your Forma",
-      "Miru: Paths to My Future"
-    ],
-    "D": [
-      "Can a Boy-Girl Friendship Survive?",
-      "Once Upon a Witch's Death"
-    ],
-    "Dropped": [
-      "LAZARUS",
-      "Uma Musume: Cinderella Grey",
-      "The Dinner Table Detective",
-      "Mono",
-      "Anne Shirley",
-      "Zatsu Tabi: That's Journey",
-      "Rock wa Lady no Tashinami deshite",
-      "Food For the Soul",
-      "The Shiunji Family Children",
-      "The Too-Perfect Saint: Tossed Aside by My Fiancé and Sold to Another Kingdom",
-      "Summer Pockets"
-    ],
-    "N/A": [
-      "The Mononoke Lecture Logs of Chuzenji-sensei",
-      "The Brilliant Healer's New Life in the Shadows",
-      "Maebashi Witches",
-      "Aharen Is Indecipherable 2nd Season",
-      "Moonrise",
-      "Yandere Dark Elf: She Chased Me All the Way From Another World!",
-      "The Beginning After the End",
-      "Witch Watch"
-],
-    "RecentlyDropped": ["Your Forma", "Uma Musume: Cinderella Grey", "Summer Pockets", "LAZARUS"
-]
-  }
-}
+  Most titles in the N/A Disqualified tier were dropped or excluded from my watch pool after the first few episodes or even during it. Some didn’t last more than a few minutes, while others were ruled out at a glance—or not even. That doesn’t mean they’re all “absolute trash.” Most just weren’t my cup of tea or didn’t suit the ranking format. Some shows—even if good or fun in their own way—just don’t fit the structure or vibe of my weekly list. That said, yeah, a few were truly dookie.`
+};
