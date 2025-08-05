@@ -223,7 +223,7 @@ function setTierImage() {
     section.appendChild(button);
     section.appendChild(p);
   } else {
-    
+
     // 通常のリスト表示
 
         titles.forEach(title => {
@@ -234,6 +234,7 @@ function setTierImage() {
 
         section.appendChild(button);
         section.appendChild(list);
+  }  
         tierSections.appendChild(section);
       }
     })
