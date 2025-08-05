@@ -174,13 +174,14 @@ function setTierImage() {
 }
 
 
-  // Titles by Tier
+  // Titles by Tier をJSONからロードし、Season Title/Dateも設定
   function loadTiersFromJSON() {
   const pathParts = window.location.pathname.split("/");
   const year = pathParts[3];   // "2025"
   const season = pathParts[4]; // "summer"
   const week = pathParts[5];   // "week06"
 
+   // JSONファイル名はシンプルに：tierlist-${year}-${season}-${week}.json
   const jsonPath = `tierlist-${year}-${season}-${week}.json`;
 
   console.log("Loading tiers JSON from:", jsonPath);
@@ -191,6 +192,21 @@ function setTierImage() {
       return res.json();
     })
     .then(jsonData => {
+
+     /* ============================
+         1. Season Title と Season Date を設定
+         ============================ */
+      // JSONには "season" と "version" が別々にあるので、結合して seasonTitle にする
+      const fullSeasonTitle = `${jsonData.season} ${jsonData.version}`;
+      document.getElementById("seasonTitle").textContent = fullSeasonTitle;
+
+      // seasonDate はJSONにある値をそのまま使う
+      document.getElementById("seasonDate").textContent = jsonData.seasonDate;
+
+    /* ============================
+         2. Titles by Tier の生成
+         ============================ */
+
       if (!jsonData.tiers) {
         console.error("No 'tiers' key found in JSON");
         return;
@@ -203,6 +219,7 @@ function setTierImage() {
         const section = document.createElement("div");
         section.className = "tier-section";
 
+      // マッピング適用（classMapは外部スコープで定義されている想定）
         const normalizedClass = classMap[tierName.trim()] || tierName.trim().toLowerCase();
 
         const button = document.createElement("button");
