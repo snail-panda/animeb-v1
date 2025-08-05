@@ -1,26 +1,5 @@
 /* Tier List 用 html CSS JS Json 分離型*/
 
-function loadTierGuide() {
-  const pathParts = window.location.pathname.split("/");
-  const week = pathParts[3]; // e.g. "week01"
-
-  const tierGuidePath = `animeb-v1/assets/js/tierlist/weekly/tierguide-${week}.js`;
-
-  const script = document.createElement("script");
-  script.src = tierGuidePath;
-  script.onload = function() {
-    if (typeof tierGuideData !== "undefined") {
-      const box = document.getElementById("tierGuide");
-      if (box) box.innerHTML = tierGuideData.tierGuide;
-
-      const disclaimerBox = document.getElementById("disclaimer");
-      if (disclaimerBox) disclaimerBox.innerHTML = tierGuideData.disclaimer;
-    }
-  };
-  document.body.appendChild(script);
-}
-
-
 
 document.addEventListener("DOMContentLoaded", function() {
   // Load data from tierlistData
@@ -97,7 +76,21 @@ fetch("conclusion.html")
 
   // Tier Guide
    // Tier Guide（週別自動読み込みに変更）まず詳細版
-  loadTierGuide();
+  function loadTierGuide() {
+  const pathParts = window.location.pathname.split("/");
+  const week = pathParts[3]; // e.g. "week01"
+
+  const tierGuidePath = `animeb-v1/assets/js/tierlist/weekly/tierguide-${week}.js`;
+
+  const script = document.createElement("script");
+  script.src = tierGuidePath;
+  script.onload = function() {
+    if (typeof tierGuideData !== "undefined") {
+      const box = document.getElementById("tierGuide");
+      if (box) box.innerHTML = tierGuideData.tierGuide;
+
+      const disclaimerBox = document.getElementById("disclaimer");
+      if (disclaimerBox) disclaimerBox.innerHTML = tierGuideData.disclaimer;
 
   // criteria-listのliから簡易版を生成
 const simpleList = document.createElement("ul");
@@ -143,8 +136,10 @@ document.getElementById("tierGuide").appendChild(simpleList);
   }
 });
 
-  // Disclaimer
-  document.getElementById("disclaimer").innerHTML = data.disclaimer;
+   }
+  };
+  document.body.appendChild(script);
+}
 
   // Titles by Tier
   const tierSections = document.getElementById("tierSections");
