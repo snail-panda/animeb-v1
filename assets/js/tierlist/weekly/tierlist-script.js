@@ -1,8 +1,7 @@
 /* Tier List 用 html CSS JS Json 分離型 */
 
 document.addEventListener("DOMContentLoaded", function() {
-  // Load data from tierlistData
-  const data = tierlistData;
+  
 
  // --- 🔧 正規化マッピングここに追加 ---
   const classMap = {
@@ -17,61 +16,41 @@ document.addEventListener("DOMContentLoaded", function() {
     "N/A": "na",
     "RecentlyDropped": "recently-dropped"
   };
-  
-  document.getElementById("seasonTitle").textContent = data.seasonTitle;
-  document.getElementById("seasonDate").textContent = data.seasonDate;
-
- // ✅ contentText用のsafeContent は削除！でもいまはコメントアウト
-  /* const safeIntro = data.intro.replace(/\n/g, "<br>"); */
-
-// ✅ introText を先に読みに行きなければdata.jsのcontentをfallbackで読みに行く
-
-fetch("intro.html")
-  .then(res => res.ok ? res.text() : null)
-  .then(html => {
-    const target = document.getElementById("introText");
-    if (html) {
-      target.innerHTML = html;
-    } else {
-      target.innerHTML = tierlistData.intro;
-    }
-});
 
 
-// ✅ contentText用のsafeContent は削除！でもいまはコメントアウト
-/* const safeContent = data.content.replace(/\n/g, "<br>"); */
-
-// ✅ contentText を先に読みに行きなければdata.jsのcontentをfallbackで読みに行く
-
-fetch("content.html")
-  .then(res => res.ok ? res.text() : null)
-  .then(html => {
-    const target = document.getElementById("contentText");
-    if (html) {
-      target.innerHTML = html;
-    } else {
-      target.innerHTML = tierlistData.content;
-    }
-});
-
-// ✅ conclusionText用のsafeContent は削除！でもいまはコメントアウト
-/* const safeConclusion = data.conclusion.replace(/\n/g, "<br>"); */
-
-// ✅ conclusionText を先に読みに行きなければdata.jsのcontentをfallbackで読みに行く
-
-fetch("conclusion.html")
-  .then(res => res.ok ? res.text() : null)
-  .then(html => {
-    const target = document.getElementById("conclusionText");
-    if (html) {
-      target.innerHTML = html;
-    } else {
-      target.innerHTML = tierlistData.conclusion;
-    }
-});
+// ✅ intro.html 読み込み
+  fetch("intro.html")
+    .then(res => res.ok ? res.text() : null)
+    .then(html => {
+      const target = document.getElementById("introText");
+      if (html) {
+        target.innerHTML = html;
+      }
+    });
 
 
-  // Tier Guide
+ // ✅ content.html 読み込み
+  fetch("content.html")
+    .then(res => res.ok ? res.text() : null)
+    .then(html => {
+      const target = document.getElementById("contentText");
+      if (html) {
+        target.innerHTML = html;
+      }
+    });
+
+// ✅ conclusion.html 読み込み
+  fetch("conclusion.html")
+    .then(res => res.ok ? res.text() : null)
+    .then(html => {
+      const target = document.getElementById("conclusionText");
+      if (html) {
+        target.innerHTML = html;
+      }
+    });
+
+
+  // ========== Tier Guide ロード ==========
    // Tier Guide（週別自動読み込みに変更）まず詳細版
 
   function getWeekFolder() {
@@ -159,6 +138,8 @@ fetch("conclusion.html")
 loadTierGuide();
 setTierImage();
 loadTiersFromJSON();
+
+// ========== Tier Image ロード ==========
 
 function setTierImage() {
   const pathParts = window.location.pathname.split("/");
