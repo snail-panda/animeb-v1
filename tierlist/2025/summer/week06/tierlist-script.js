@@ -4,17 +4,22 @@ function loadTierGuide() {
   const pathParts = window.location.pathname.split("/");
   const week = pathParts[3]; // e.g. "week01"
 
-  const tierGuidePath = `/assets/tierguide-${week}.html`;
+  const tierGuidePath = `/assets/tierguide-${week}.js`;
 
-  fetch(tierGuidePath)
-    .then(res => res.ok ? res.text() : null)
-    .then(html => {
-      if (html) {
-        const box = document.getElementById("tierGuide");
-        if (box) box.innerHTML = html;
-      }
-    });
+  const script = document.createElement("script");
+  script.src = tierGuidePath;
+  script.onload = function() {
+    if (typeof tierGuideData !== "undefined") {
+      const box = document.getElementById("tierGuide");
+      if (box) box.innerHTML = tierGuideData.tierGuide;
+
+      const disclaimerBox = document.getElementById("disclaimer");
+      if (disclaimerBox) disclaimerBox.innerHTML = tierGuideData.disclaimer;
+    }
+  };
+  document.body.appendChild(script);
 }
+
 
 
 document.addEventListener("DOMContentLoaded", function() {
