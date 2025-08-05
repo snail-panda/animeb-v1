@@ -181,7 +181,6 @@ function setTierImage() {
   const season = pathParts[4]; // "summer"
   const week = pathParts[5];   // "week06"
 
-  // JSONファイル名はシンプルに：tierlist-${year}-${season}-${week}.json
   const jsonPath = `tierlist-${year}-${season}-${week}.json`;
 
   console.log("Loading tiers JSON from:", jsonPath);
@@ -204,28 +203,30 @@ function setTierImage() {
         const section = document.createElement("div");
         section.className = "tier-section";
 
-  // --- 🔧 ここでマッピングを適用 ---
-    const normalizedClass = classMap[tierName.trim()] || tierName.trim().toLowerCase();
- 
-    
-    const button = document.createElement("button");
-    button.className = `toggle-button ${normalizedClass}-button`;
-    button.textContent = tierName;
-    button.addEventListener("click", function() {
-      list.classList.toggle("hidden");
-    });
+        const normalizedClass = classMap[tierName.trim()] || tierName.trim().toLowerCase();
 
-    const list = document.createElement("ul");
-    list.className = "tier-list hidden";
-    titles.forEach(title => {
-      const li = document.createElement("li");
-      li.textContent = title;
-      list.appendChild(li);
-    });
+        const button = document.createElement("button");
+        button.className = `toggle-button ${normalizedClass}-button`;
+        button.textContent = tierName;
+        button.addEventListener("click", function() {
+          list.classList.toggle("hidden");
+        });
 
-    section.appendChild(button);
-    section.appendChild(list);
-    tierSections.appendChild(section);
-  }
-});
+        const list = document.createElement("ul");
+        list.className = "tier-list hidden";
+        titles.forEach(title => {
+          const li = document.createElement("li");
+          li.textContent = title;
+          list.appendChild(li);
+        });
+
+        section.appendChild(button);
+        section.appendChild(list);
+        tierSections.appendChild(section);
+      }
+    })
+    .catch(err => {
+      console.error(err);
+    });
+}
 
