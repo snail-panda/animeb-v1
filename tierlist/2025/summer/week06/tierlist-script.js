@@ -1,5 +1,4 @@
-/* Tier List 用 html CSS JS Json 分離型*/
-
+/* Tier List 用 html CSS JS Json 分離型 */
 
 document.addEventListener("DOMContentLoaded", function() {
   // Load data from tierlistData
@@ -96,7 +95,7 @@ fetch("conclusion.html")
     return;
   }
 
-  const tierGuidePath = `animeb-v1/assets/js/tierlist/weekly/tierguide-${week}.js`;
+  const tierGuidePath = `/animeb-v1/assets/js/tierlist/weekly/tierguide-${week}.js`;
 
   const script = document.createElement("script");
   script.src = tierGuidePath;
