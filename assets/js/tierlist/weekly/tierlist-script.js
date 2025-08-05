@@ -197,10 +197,10 @@ function setTierImage() {
       tierSections.innerHTML = ""; // 初期化
 
       for (const [tierName, titles] of Object.entries(jsonData.tiers)) {
-        // 空配列または全要素が空文字/空白ならスキップ
- if (!titles || titles.length === 0 || titles.every(t => t.trim() === "")) {
-    continue; // このティアだけスキップ
-}
+        // 完全に空配列の場合だけスキップ
+  if (!titles || (titles.length === 1 && titles[0].trim() === "")) {
+    continue;
+  }
 
         const section = document.createElement("div");
         section.className = "tier-section";
