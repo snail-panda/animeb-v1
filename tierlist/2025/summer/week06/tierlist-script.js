@@ -4,7 +4,7 @@ function loadTierGuide() {
   const pathParts = window.location.pathname.split("/");
   const week = pathParts[3]; // e.g. "week01"
 
-  const tierGuidePath = `/assets/js/tierlist/weekly/tierguide-${week}.js`;
+  const tierGuidePath = `animeb-v1/assets/js/tierlist/weekly/tierguide-${week}.js`;
 
   const script = document.createElement("script");
   script.src = tierGuidePath;
