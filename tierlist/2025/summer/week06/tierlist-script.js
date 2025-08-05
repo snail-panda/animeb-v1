@@ -70,8 +70,6 @@ fetch("conclusion.html")
     }
 });
 
-  
-  document.getElementById("tierImage").src = data.tierImage;
 
   // Tier Guide
    // Tier Guide（週別自動読み込みに変更）まず詳細版
@@ -153,6 +151,20 @@ fetch("conclusion.html")
 
 
 loadTierGuide();
+
+function setTierImage() {
+  const pathParts = window.location.pathname.split("/");
+  const year = pathParts[3];   // "2025"
+  const season = pathParts[4]; // "summer"
+  const week = pathParts[5];   // "week06"
+
+  // ファイル名例: tierlist-2025-summer-week06.png
+  const imgPath = `/animeb-v1/images/tier-lists/${year}/${season}/${week}/tierlist-${year}-${season}-${week}.png`;
+
+  console.log("Tier image path:", imgPath);
+  document.getElementById("tierImage").src = imgPath;
+}
+
 
   // Titles by Tier
   const tierSections = document.getElementById("tierSections");
