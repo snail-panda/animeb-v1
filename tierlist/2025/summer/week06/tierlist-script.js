@@ -120,23 +120,29 @@ fetch("conclusion.html")
           simpleList.appendChild(simpleLi);
         }
       });
+      // 最初はcriteria-list(詳細版)を非表示
       document.querySelector(".criteria-list").classList.add("hidden");
+      // 最初は簡易版だけ見せる
       document.getElementById("tierGuide").appendChild(simpleList);
 
+      //🔽 ここに追記 トグルボタン show details button and function added
       const toggleButton = document.createElement('button');
       toggleButton.id = "toggleTierGuide";
       toggleButton.textContent = "Show details";
       toggleButton.classList.add("tier-guide-toggle");
       document.getElementById("tierGuide").appendChild(toggleButton);
 
+      // ボタンクリックで切替
       toggleButton.addEventListener("click", function() {
         const detailed = document.querySelector(".criteria-list");
         const simple = document.querySelector(".criteria-simple");
         if (detailed.classList.contains("hidden")) {
+          // 詳細版を出す→簡易版を隠す
           detailed.classList.remove("hidden");
           simple.classList.add("hidden");
           toggleButton.textContent = "Hide details";
         } else {
+          // 簡易版に戻す
           detailed.classList.add("hidden");
           simple.classList.remove("hidden");
           toggleButton.textContent = "Show details";
