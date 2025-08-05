@@ -220,13 +220,20 @@ function setTierImage() {
 
         if (titles.length === 1 && titles[0].toLowerCase() === "no entry") {
     // No entry でもボタンは作成、クリック時に表示
-    const p = document.createElement("p");
-    p.textContent = "No entry";
-    p.className = "no-entry-text"; // CSSで装飾可能
-    section.appendChild(button);
-  section.appendChild(p);
-  tierSections.appendChild(section); // これも忘れない
-  continue; // 他の処理はスキップ
+    const noEntryDiv = document.createElement("div");
+  noEntryDiv.textContent = "No entry";
+  noEntryDiv.className = "no-entry-text hidden"; // 初期状態で非表示
+
+  section.appendChild(button);
+  section.appendChild(noEntryDiv);
+  tierSections.appendChild(section);
+
+  // ボタンクリックで表示切替
+  button.addEventListener("click", function() {
+    noEntryDiv.classList.toggle("hidden");
+  });
+
+  continue;
   } else {
 
     // 通常のリスト表示
