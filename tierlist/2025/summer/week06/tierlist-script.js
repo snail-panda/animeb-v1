@@ -157,6 +157,7 @@ fetch("conclusion.html")
 
 
 loadTierGuide();
+setTierImage();
 
 function setTierImage() {
   const pathParts = window.location.pathname.split("/");
