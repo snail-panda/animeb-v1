@@ -220,10 +220,13 @@ function setTierImage() {
 
         if (titles.length === 1 && titles[0].toLowerCase() === "no entry") {
     // No entry でもボタンは作成、クリック時に表示
-    const li = document.createElement("p");
+    const p = document.createElement("p");
     p.textContent = "No entry";
     p.className = "no-entry-text"; // CSSで装飾可能
-    list.appendChild(p);
+    section.appendChild(button);
+  section.appendChild(p);
+  tierSections.appendChild(section); // これも忘れない
+  continue; // 他の処理はスキップ
   } else {
 
     // 通常のリスト表示
