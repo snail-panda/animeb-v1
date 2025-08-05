@@ -229,4 +229,4 @@ function setTierImage() {
       console.error(err);
     });
 }
-
+});
