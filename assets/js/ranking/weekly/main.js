@@ -1078,12 +1078,14 @@ const infoMap = {
   `,
   vstatus: `<span class="tooltip-heading">What’s Viewing Status?</span>
 <ul class="tooltip-list">
-  <li><span class="key">Watching</span>: 今週視聴した全作品数（Dropped 含む）<br>
-      <em>Titles watched this week, including dropped ones.</em></li>
+  <li><span class="key">Watching</span>: 今週視聴した全作品数（Dropped・Back on List 含む）<br>
+      <em>Titles watched this week, including dropped ones and back on list.</em></li>
   <li><span class="key">Dropped (this week) </span>: 今週新たに切った作品数<br>
       <em>Titles dropped this week.</em></li>
   <li><span class="key">Total Dropped</span>: 今までに切った作品数（今週含む）<br>
-      <em>Total titles dropped so far, including this week.</em></li>    
+      <em>Total titles dropped so far, including this week.</em></li>
+  <li><span class="key">Back on List</span>: 既に切っていたが、今週視聴評価対象に復帰した作品数<br>
+      <em>Titles that were previously dropped but returned to the active watching list this week.</em></li>        
   <li><span class="key">No Air</span>: 今週放送されなかった作品数（放送休止など）<br>
       <em>Titles with no episode aired this week.</em></li>
   <li><span class="key">Completed</span>: 先週までに全話放送した作品数<br>
@@ -1092,7 +1094,7 @@ const infoMap = {
   <li><span class="key">Total</span>: 初期評価候補数（Prelim 時点）<br>
       <em>Initial number of titles selected at the prelim stage.</em></li>
 </ul>
-<p class="tooltip-note">“Watching” includes all titles watched this week, even if they were dropped or ended.</p>
+<p class="tooltip-note">“Watching” includes all titles watched this week, even if they were dropped, ended, or returned to the list.</p>
 `
 
 };
