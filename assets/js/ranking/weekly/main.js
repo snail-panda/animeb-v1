@@ -127,6 +127,7 @@ if (noteMountPoint) {
         watching: 'Watching',
         droppedThisWeek: 'Dropped',
         droppedTotal: 'Total dropped',
+        backOnList: 'Back on List', // 追加
         noAir: 'NoAir',
         completed: 'Completed',
         total: 'Total'
