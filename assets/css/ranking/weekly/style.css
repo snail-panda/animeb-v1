@@ -1069,7 +1069,7 @@ VIEWING STATUS ZONE
   background-position: center center;
   background-color: #fffdec;
   border: 1px solid #bbb;
-  padding: 0.625rem 0.938rem 0.938rem 0.938rem;
+  padding: 1.25rem 0.938rem 1.938rem 0.938rem;
   border-radius: 6px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.15);
 }
