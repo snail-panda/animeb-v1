@@ -1048,7 +1048,7 @@ VIEWING STATUS ZONE
 
 @media screen and (max-width: 480px) {
   .popup-review-text {
-    font-size: 0.719rem; /* 11.5px */
+    font-size: 0.75rem; /* 12px */
     line-height: 1.7;
   }
 }
