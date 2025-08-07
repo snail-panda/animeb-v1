@@ -19,9 +19,10 @@
       font-weight: 400;
       color: #7f7d7d;
       text-align: right;
-      margin-bottom: 2px;
+      margin-top: 16px;
+      margin-bottom: 4px;
       border-bottom: 0.5px solid #ccc;
-      padding-bottom: 0.19rem;
+      padding-bottom: 0.25rem;
     }
 
     .week-number {
