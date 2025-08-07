@@ -1048,7 +1048,7 @@ VIEWING STATUS ZONE
 
 @media screen and (max-width: 480px) {
   .popup-review-text {
-    font-size: 0.781rem; /* 12.5px */
+    /*font-size: 0.781rem; /* 12.5px */
     line-height: 1.7;
   }
 }
@@ -1432,7 +1432,7 @@ VIEWING STATUS ZONE
 
 @media screen and (max-width: 480px) {
   .html {
-    font-size: 12px; /* スマホ用の基本フォントサイズ */
+    font-size: 11px; /* スマホ用の基本フォントサイズ */
   }
   .wrapper {
     padding: 0.5rem; /* スマホ用のパディング */
