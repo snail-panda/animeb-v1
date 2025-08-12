@@ -14,64 +14,19 @@ Let’s take a look!</p>
 <hr style="border: none; border-top: 1px solid #C3C3C9; width: 100%; margin: 20px 0 -5px 6px;">
 
 
-<!-- Toggle control (JP only) -->
-<div style="display:flex; gap:8px; align-items:center; margin:0 0 10px;">
-  <button type="button" id="toggle-jp" aria-controls="note-jp" aria-expanded="false">日本語ノートを表示</button>
-  <!-- 英語も隠したい場合は下を使う（デフォルト表示のまま）：
-  <button type="button" id="toggle-en" aria-controls="note-en" aria-expanded="true">English Note: Hide</button>
-  -->
-</div>
-
-<!-- Note (English) -->
+<!-- Note (English) → 常時表示 -->
 <aside id="note-en" aria-label="Note" role="note">
   <h5>&lt; Note &gt;</h5>
   <p style="font-size: 0.86em; line-height: 1.6;">This mid-season tier list is slightly different from my usual format. Specifically, <strong>even titles that were dropped from the Weekly Ranking evaluation</strong> are included here <strong>if I have continued watching them</strong>. The purpose is to cover a wider range of shows and present their current placement from a perspective separate from the Weekly Ranking.</p>
   <p style="font-size: 0.9em; line-height: 1.6;">Please note that any series I stopped watching after placing it in the Week 1 tier list remain marked as “Dropped” and are not included here.<br>Think of this tier list as a <strong>standalone overview</strong>, independent of the Weekly Ranking.</p>
 </aside>
 
-<!-- 注意書き（日本語） -->
-<aside id="note-jp" aria-label="注意" role="note" hidden>
-  <h6>＜注意＞</h6>
-  <p style="font-size: 0.72em; line-height: 1.7;">今回のティアリストは、これまでの形式とは一部異なります。具体的には、<strong>ウィークリーランキングの評価対象から外した（いわゆる「切った」）作品</strong>であっても、視聴を継続しているものは本ティアリストに含めています。これは、より多くの作品をカバーし、ランキングとは異なる視点で現時点の位置づけを示すためです。</p>
-  <p style="font-size: 0.72em; line-height: 1.7;">なお、第1週目時点でティアリストに載せた後、視聴をやめた作品については、そのまま「ドロップ（視聴終了）」扱いになっています。<br>このティアリストは、<strong>ウィークリーランキングとは別物</strong>としてお楽しみください。</p>
-</aside>
-
-<script>
-  (function () {
-    var jp = document.getElementById('note-jp');
-    var btnJP = document.getElementById('toggle-jp');
-
-    function toggleJP() {
-      var isHidden = jp.hasAttribute('hidden');
-      if (isHidden) {
-        jp.removeAttribute('hidden');
-        btnJP.setAttribute('aria-expanded', 'true');
-        btnJP.textContent = '日本語ノートを隠す';
-      } else {
-        jp.setAttribute('hidden', '');
-        btnJP.setAttribute('aria-expanded', 'false');
-        btnJP.textContent = '日本語ノートを表示';
-      }
-    }
-
-    btnJP.addEventListener('click', toggleJP);
-
-    /* 英語ノートもトグルしたい場合はコメント解除
-    var en = document.getElementById('note-en');
-    var btnEN = document.getElementById('toggle-en');
-    function toggleEN() {
-      var isHidden = en.hasAttribute('hidden');
-      if (isHidden) {
-        en.removeAttribute('hidden');
-        btnEN.setAttribute('aria-expanded', 'true');
-        btnEN.textContent = 'English Note: Hide';
-      } else {
-        en.setAttribute('hidden', '');
-        btnEN.setAttribute('aria-expanded', 'false');
-        btnEN.textContent = 'English Note: Show';
-      }
-    }
-    if (btnEN) btnEN.addEventListener('click', toggleEN);
-    */
-  })();
-</script>
+<!-- 日本語ノート → detailsで開閉（初期は閉） -->
+<details id="jp-note" style="margin-top:12px;">
+  <summary style="font-size:0.75em; line-height:1.6; cursor:pointer; user-select:none;">日本語ノートを表示 / 隠す</summary>
+  <aside id="note-jp" aria-label="注意" role="note">
+    <h6>＜注意＞</h6>
+    <p style="font-size: 0.72em; line-height: 1.7;">今回のティアリストは、これまでの形式とは一部異なります。具体的には、<strong>ウィークリーランキングの評価対象から外した（いわゆる「切った」）作品</strong>であっても、視聴を継続しているものは本ティアリストに含めています。これは、より多くの作品をカバーし、ランキングとは異なる視点で現時点の位置づけを示すためです。</p>
+    <p style="font-size: 0.72em; line-height: 1.7;">なお、第1週目時点でティアリストに載せた後、視聴をやめた作品については、そのまま「ドロップ（視聴終了）」扱いになっています。<br>このティアリストは、<strong>ウィークリーランキングとは別物</strong>としてお楽しみください。</p>
+  </aside>
+</details>
