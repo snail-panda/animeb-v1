@@ -124,6 +124,31 @@ a
   color: #444;
 }
 
+/* Tier headings — left border only (no background) */
+h4.tier-heading {
+  margin: 26px 0 12px;
+  padding-left: 0.6rem;     /* ← ボーダーと文字の間のスペース */
+  border-left-width: 8px;   /* ← ちょい太め */
+  border-left-style: solid;
+  border-radius: 6px;       /* ← 左上・左下に軽く丸み（背景なしでもOK） */
+  color: inherit;
+}
+
+/* パレットは既存のトーンに合わせる（button系の色を流用） */
+h4.tier-ss { border-left-color: #e8b4a4; }  /* SS */
+h4.tier-s  { border-left-color: #e8caa4; }  /* S  */
+h4.tier-a  { border-left-color: #e8d6a4; }  /* A  */
+h4.tier-b  { border-left-color: #eae9a6; }  /* B  */
+h4.tier-c  { border-left-color: #dbeaa6; }  /* C  */
+h4.tier-d  { border-left-color: #c5eaa6; }  /* D  */
+
+/* もしSSSやNA/Droppedを見出しに使う予定があればオプションで */
+h4.tier-sss       { border-left-color: #e2c4e7; } /* 任意 */
+h4.tier-na        { border-left-color: #a6d7ea; } /* 任意 */
+h4.tier-dropped   { border-left-color: #a6eacd; } /* 任意 */
+h4.tier-recentdrop{ border-left-color: #fdd0d0; } /* 任意 */
+
+
 
 /* ====================================================
   Tier Criteria Block
