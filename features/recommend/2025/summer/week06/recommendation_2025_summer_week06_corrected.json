@@ -1,0 +1,30 @@
+{
+  "meta": {
+    "season": "summer",
+    "year": "2025",
+    "recommendationstage": "Mid-Season",
+    "seasondate": "August 16, 2025"
+  },
+  "entries": [
+    {
+      "rank": 1,
+      "title": "Sword of the Demon Hunter",
+      "romanized_title": "Kijin Gentoushou",
+      "jpTitle": "鬼人幻燈抄",
+      "kv": "kijin",
+      "genre": [
+        "Action",
+        "Historical",
+        "Drama"
+      ],
+      "based_on": "Naro",
+      "studios": "Yokohama Animation Laboratory",
+      "creators": "Kazuya Aiura",
+      "review": {
+        "en": "",
+        "jp": ""
+      },
+      "synopsis": "In the Edo period, there was a shrine maiden called \"Itsukihime\" in the mountain village of Kadono. Jinta, a young man who acts as the shrine maiden's guardian despite being a stranger, encounters a mysterious demon who speaks of the far future in the forest where he went to defeat it. From Edo to the Heisei era, this huge Japanese fantasy series follows a demon man who travels through time while continuously questioning the meaning of wielding a sword."
+    }
+  ]
+}
