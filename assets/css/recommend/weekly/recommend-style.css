@@ -138,16 +138,16 @@ hr.thin-divider {
       height: auto;
       max-height: 200px;
   }
-  .card-content {
+  .card-details {
+    flex-basis: 100%;
     width: 100%;
+    margin-top: 1rem;
+    padding: 0.5rem 0;
   }
 
-  /* 👇 details要素を横幅いっぱいに広げる */
-  .card-content details {
-    width: 100vw; /* ← ブラウザ横幅ぜんぶ */
-    margin-left: -1rem;  /* ← 親のpaddingと揃える */
-    padding: 0 1rem;
-    box-sizing: border-box;
+  .card-details p {
+    font-size: 0.85rem;
+    line-height: 1.4;
   }
 }
 
@@ -164,15 +164,15 @@ hr.thin-divider {
       height: auto;
       max-height: 200px;
   }
-  .card-content {
+  .card-details {
+    flex-basis: 100%;
     width: 100%;
+    margin-top: 1rem;
+    padding: 0.5rem 0;
   }
 
-  /* 👇 details要素を横幅いっぱいに広げる */
-  .card-content details {
-    width: 100vw; /* ← ブラウザ横幅ぜんぶ */
-    margin-left: -1rem;  /* ← 親のpaddingと揃える */
-    padding: 0 1rem;
-    box-sizing: border-box;
+  .card-details p {
+    font-size: 0.85rem;
+    line-height: 1.4;
   }
 }
