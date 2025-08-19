@@ -1,3 +1,8 @@
+/* デフォルト：通常のPC表示時（1rem = 16px） */
+html {
+  font-size: 16px;
+}
+
 body {
       font-family: 'Barlow Condensed', sans-serif;
       background: #fdfdfd;
@@ -113,3 +118,17 @@ hr.thin-divider {
       font-weight: 500;
       font-size: 0.93rem;
     }
+
+    /* 📱 スマホ（狭い画面）時にフォントを小さくする：例 1rem = 14px */
+@media screen and (max-width: 600px) {
+  html {
+    font-size: 14px;
+  }
+}
+
+/* 📱 さらに狭い超コンパクトなデバイス用（1rem = 13px） */
+@media screen and (max-width: 400px) {
+  html {
+    font-size: 13px;
+  }
+}
