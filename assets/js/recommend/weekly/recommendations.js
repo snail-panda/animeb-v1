@@ -4,12 +4,16 @@
 const path = window.location.pathname;
 const segments = path.split('/');
 
-const year = segments[segments.indexOf('recommend') + 1];
-const season = segments[segments.indexOf('recommend') + 2];
-const rawWeek = segments[segments.indexOf('recommend') + 3];
-const week = rawWeek.replace(/^week/, ''); // ← ここで 'week' を取り除く
+// 例: /animeb-v1/features/recommend/2025/summer/week06/
+const year = segments[segments.indexOf('recommend') + 1];     // "2025"
+const season = segments[segments.indexOf('recommend') + 2];   // "summer"
+const weekSlug = segments[segments.indexOf('recommend') + 3]; // "week06"
 
-const basePath = `/animeb-v1/features/recommend/${year}/${season}/${rawWeek}/`;
+// 👇ここで "06" だけを抽出する
+const week = weekSlug.replace(/^week/, '');
+
+// JSONファイルのパスは week を2重にしないように構成する
+const basePath = `/animeb-v1/features/recommend/${year}/${season}/${weekSlug}/`;
 const imageBase = `/animeb-v1/images/key-visuals/${year}/${season}/`;
 
 const recommendPath = `${basePath}recommend-${year}-${season}-week${week}.json`;
