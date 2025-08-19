@@ -3,12 +3,18 @@
 // recommendations.js の最上部などに記述
 const path = window.location.pathname;
 const segments = path.split('/');
+
 const year = segments[segments.indexOf('recommend') + 1];
 const season = segments[segments.indexOf('recommend') + 2];
-const week = segments[segments.indexOf('recommend') + 3];
+const rawWeek = segments[segments.indexOf('recommend') + 3];
+const week = rawWeek.replace(/^week/, ''); // ← ここで 'week' を取り除く
 
-const basePath = `/animeb-v1/features/recommend/${year}/${season}/${week}/`;
+const basePath = `/animeb-v1/features/recommend/${year}/${season}/${rawWeek}/`;
 const imageBase = `/animeb-v1/images/key-visuals/${year}/${season}/`;
+
+const recommendPath = `${basePath}recommend-${year}-${season}-week${week}.json`;
+const enjoyPath = `${basePath}enjoyment_ranking-${year}-${season}-week${week}.json`;
+
 
 
 document.addEventListener('DOMContentLoaded', () => {
