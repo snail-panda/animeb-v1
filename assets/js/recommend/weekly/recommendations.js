@@ -16,8 +16,8 @@ const week = weekSlug.replace(/^week/, '');
 const basePath = `/animeb-v1/features/recommend/${year}/${season}/${weekSlug}/`;
 const imageBase = `/animeb-v1/images/key-visuals/${year}/${season}/`;
 
-const recommendPath = `${basePath}recommend-${year}-${season}-week${week}.json`;
-const enjoyPath = `${basePath}enjoyment_ranking-${year}-${season}-week${week}.json`;
+const recommendPath = `${basePath}recommend-${year}-${season}-${weekSlug}.json`;
+const enjoyPath = `${basePath}enjoyment_ranking-${year}-${season}-${weekSlug}.json`;
 
 // 👇ここでログ出力
 console.log("Recommend JSON Path:", recommendPath);
