@@ -1,6 +1,6 @@
 // recommendations.js
 
-// recommendations.js の最上部などに記述
+// ファイルの最上部（グローバル定義）
 const path = window.location.pathname;
 const segments = path.split('/');
 
@@ -23,21 +23,15 @@ const enjoyPath = `${basePath}enjoyment_ranking-${year}-${season}-${weekSlug}.js
 console.log("Recommend JSON Path:", recommendPath);
 console.log("Enjoyment JSON Path:", enjoyPath);
 
+// 読み込み処理（グローバル定義を使う）
 document.addEventListener('DOMContentLoaded', () => {
-  const path = window.location.pathname;
-  const segments = path.split('/');
-  const year = segments[segments.indexOf('recommend') + 1];
-  const season = segments[segments.indexOf('recommend') + 2];
-  const week = segments[segments.indexOf('recommend') + 3];
-
-  const basePath = `/animeb-v1/features/recommend/${year}/${season}/${week}/`;
-  const imageBase = `/animeb-v1/images/key-visuals/${year}/${season}/`;
-
-  fetch(`${basePath}recommend-${year}-${season}-week${week}.json`)
+  
+// ✅ 正しいパスで読み込み
+  fetch(recommendPath)
     .then(res => res.json())
     .then(data => renderMainEntries(data.entries));
 
-  fetch(`${basePath}enjoyment_ranking-${year}-${season}-week${week}.json`)
+  fetch(enjoyPath)
     .then(res => res.json())
     .then(data => renderEnjoymentRanking(data.watchRanking));
 
