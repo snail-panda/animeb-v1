@@ -74,6 +74,9 @@ hr.thin-divider {
       color: #666;
       margin-bottom: 0.6rem;
     }
+    summary {
+  font-size: 0.95rem;
+}
     .details {
       margin-top: 0.5rem;
       font-size: 0.95rem;
