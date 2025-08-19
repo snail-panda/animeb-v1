@@ -130,24 +130,10 @@ hr.thin-divider {
   html {
     font-size: 14px;
   }
-  .card {
-    flex-direction: column;
-  }
   .card img {
       width: 140px;
       height: auto;
-      max-height: 200px;
-  }
-  .card-details {
-    flex-basis: 100%;
-    width: 100%;
-    margin-top: 1rem;
-    padding: 0.5rem 0;
-  }
-
-  .card-details p {
-    font-size: 0.85rem;
-    line-height: 1.4;
+      max-height: 190px;
   }
 }
 
@@ -156,23 +142,9 @@ hr.thin-divider {
   html {
     font-size: 13px;
   }
-  .card {
-    flex-direction: column;
-  }
   .card img {
-      width: 140px;
+      width: 120px;
       height: auto;
-      max-height: 200px;
-  }
-  .card-details {
-    flex-basis: 100%;
-    width: 100%;
-    margin-top: 1rem;
-    padding: 0.5rem 0;
-  }
-
-  .card-details p {
-    font-size: 0.85rem;
-    line-height: 1.4;
+      max-height: 190px;
   }
 }
