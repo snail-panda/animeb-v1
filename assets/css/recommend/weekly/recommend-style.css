@@ -130,10 +130,24 @@ hr.thin-divider {
   html {
     font-size: 14px;
   }
+  .card {
+    flex-direction: column;
+  }
   .card img {
       width: 140px;
       height: auto;
-      max-height: 190px;
+      max-height: 200px;
+  }
+  .card-content {
+    width: 100%;
+  }
+
+  /* 👇 details要素を横幅いっぱいに広げる */
+  .card-content details {
+    width: 100vw; /* ← ブラウザ横幅ぜんぶ */
+    margin-left: -1rem;  /* ← 親のpaddingと揃える */
+    padding: 0 1rem;
+    box-sizing: border-box;
   }
 }
 
@@ -142,9 +156,23 @@ hr.thin-divider {
   html {
     font-size: 13px;
   }
+  .card {
+    flex-direction: column;
+  }
   .card img {
-      width: 120px;
+      width: 140px;
       height: auto;
-      max-height: 190px;
+      max-height: 200px;
+  }
+  .card-content {
+    width: 100%;
+  }
+
+  /* 👇 details要素を横幅いっぱいに広げる */
+  .card-content details {
+    width: 100vw; /* ← ブラウザ横幅ぜんぶ */
+    margin-left: -1rem;  /* ← 親のpaddingと揃える */
+    padding: 0 1rem;
+    box-sizing: border-box;
   }
 }
