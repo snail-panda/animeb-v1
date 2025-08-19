@@ -76,13 +76,13 @@ document.addEventListener('DOMContentLoaded', () => {
             </div>
             <div class="studio">${studio}</div>
             <p>${review}</p>
-            </div>
-  <details class="card-details">
+            <details>
               <summary>＋ More details</summary>
               <p><strong>Director:</strong> ${entry.creators || ''}<br>
 			  <strong>Based on:</strong> ${entry.based_on || ''}<br>
               <strong>Synopsis:</strong> ${entry.synopsis || ''}</p>
             </details>
+          </div>
         </div>`;
     } else {
       return `
