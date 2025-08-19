@@ -127,11 +127,19 @@ hr.thin-divider {
   html {
     font-size: 14px;
   }
+  .card img {
+      width: 140px;
+      height: auto;
+  }
 }
 
 /* 📱 さらに狭い超コンパクトなデバイス用（1rem = 13px） */
 @media screen and (max-width: 400px) {
   html {
     font-size: 13px;
+  }
+  .card img {
+      width: 120px;
+      height: auto;
   }
 }
