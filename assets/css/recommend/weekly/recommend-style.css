@@ -130,7 +130,7 @@ hr.thin-divider {
   .card img {
       width: 140px;
       height: auto;
-      max-height: 230px;
+      max-height: 200px;
   }
 }
 
@@ -142,6 +142,6 @@ hr.thin-divider {
   .card img {
       width: 120px;
       height: auto;
-      max-height: 230px;
+      max-height: 200px;
   }
 }
