@@ -25,6 +25,13 @@ console.log("Enjoyment JSON Path:", enjoyPath);
 
 // 読み込み処理（グローバル定義を使う）
 document.addEventListener('DOMContentLoaded', () => {
+	
+// 各セクションの中身をクリアしてプレースホルダーを削除
+  const sections = document.querySelectorAll('.section');
+  sections.forEach(section => {
+    const cards = section.querySelectorAll('.card, .small-card, .watch-ranking-item');
+    cards.forEach(card => card.remove());
+  });	
   
 // ✅ 正しいパスで読み込み
   fetch(recommendPath)
