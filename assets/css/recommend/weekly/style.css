@@ -1,0 +1,115 @@
+body {
+      font-family: 'Barlow Condensed', sans-serif;
+      background: #fdfdfd;
+      color: #222;
+      max-width: 980px;
+      margin: auto;
+      padding: 2rem;
+    }
+    h1, h2 {
+      border-left: 5px solid #e67e22;
+      padding-left: 12px;
+    }
+ .update-date {
+  font-size: 0.85rem;
+  color: #878484;
+  margin-top: -0.5rem;
+  margin-bottom: 0rem;
+}
+
+hr.thin-divider {
+  border: none;
+  border-top: 1px solid #eee;
+  margin: 0.6rem 0 2rem 0;
+}
+
+    .section {
+      margin-bottom: 3rem;
+    }
+    .class-description {
+      font-size: 0.78em;
+      color: #5C5858;
+      font-weight: 500;
+      margin-left: 0.4rem;
+    }
+    .card {
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      overflow: hidden;
+      margin-bottom: 1.5rem;
+      display: flex;
+      gap: 1rem;
+      padding: 1rem;
+    }
+    .card img {
+      width: 160px;
+      height: auto;
+      border-radius: 6px;
+      object-fit: cover;
+    }
+    .card-content {
+      flex: 1;
+    }
+    .card-title {
+      font-weight: bold;
+      font-size: 1.5rem;
+      margin-bottom: 0.2rem;
+    }
+    
+    .title-romaji {
+      font-weight: 400;
+      font-size: 1.1rem;
+      color: #555;
+      font-style: italic;
+      margin-left: 0.4rem;
+    }
+    .studio {
+      font-size: 0.93rem;
+      color: #666;
+      margin-bottom: 0.6rem;
+    }
+    .details {
+      margin-top: 0.5rem;
+      font-size: 0.95rem;
+    }
+    .small-card {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      background: #f7f7f7;
+      padding: 0.6rem 0.8rem;
+      border-radius: 6px;
+      margin-bottom: 0.8rem;
+    }
+    .small-card img {
+      width: 80px;
+      height: auto;
+      border-radius: 4px;
+    }
+    .small-title {
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+    .watch-ranking-item {
+      margin-bottom: 1.4rem;
+    }
+    .watch-title {
+      font-weight: bold;
+      font-size: 1.05rem;
+      margin-bottom: 0.3rem;
+    }
+    .watch-title .title-romaji {
+      font-size: 0.93rem;
+    }
+    .note {
+      font-size: 0.98rem;
+      color: #666;
+      margin-top: -1rem;
+      margin-bottom: 3.5rem;
+    }
+    
+    .watch-ranking-item .note {
+      font-weight: 500;
+      font-size: 0.93rem;
+    }
