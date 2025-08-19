@@ -79,6 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <details>
               <summary>＋ More details</summary>
               <p><strong>Director:</strong> ${entry.creators || ''}<br>
+			  <strong>Based on:</strong> ${entry.based_on || ''}<br>
               <strong>Synopsis:</strong> ${entry.synopsis || ''}</p>
             </details>
           </div>
@@ -92,6 +93,7 @@ document.addEventListener('DOMContentLoaded', () => {
               <span class="title-en">${entry.title}</span>
               <span class="title-romaji">${romaji}</span>
             </div>
+			<div class="studio">${studio}</div>
             <div>${review}</div>
           </div>
         </div>`;
