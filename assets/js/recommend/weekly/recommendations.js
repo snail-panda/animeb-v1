@@ -19,7 +19,9 @@ const imageBase = `/animeb-v1/images/key-visuals/${year}/${season}/`;
 const recommendPath = `${basePath}recommend-${year}-${season}-week${week}.json`;
 const enjoyPath = `${basePath}enjoyment_ranking-${year}-${season}-week${week}.json`;
 
-
+// 👇ここでログ出力
+console.log("Recommend JSON Path:", recommendPath);
+console.log("Enjoyment JSON Path:", enjoyPath);
 
 document.addEventListener('DOMContentLoaded', () => {
   const path = window.location.pathname;
