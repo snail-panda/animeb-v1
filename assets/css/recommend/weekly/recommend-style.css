@@ -108,7 +108,7 @@ hr.thin-divider {
     .watch-title {
       font-weight: bold;
       font-size: 1.2rem;
-      margin-top: 1.5rem;
+      margin-top: 2rem;
       margin-bottom: 0.5rem;
     }
     .watch-title .title-romaji {
@@ -118,7 +118,7 @@ hr.thin-divider {
       font-size: 0.98rem;
       color: #666;
       margin-top: -1rem;
-      margin-bottom: 3.5rem;
+      margin-bottom: 3rem;
     }
 
     .watch-title .note { 
