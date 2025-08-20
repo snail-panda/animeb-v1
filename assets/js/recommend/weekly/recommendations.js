@@ -158,23 +158,15 @@ function createWatchRankingItem(entry, indexForFallback) {
   const titleRomaji = entry.romanized_title ? `(${entry.romanized_title})` : "";
 
   const commentEN = entry.comment_en || "";
-  const noteEN = formatNoteEn(entry.note_en || "");
-const noteJP = formatNoteJp?.(entry.note_jp || "") || "";  // 定義してなければ無視される
-
-// ENを優先。ENが空ならJPを使う
-const noteText = noteEN || noteJP;
-
-if (noteText) {
-  const spanNote = document.createElement("span");
-  spanNote.className = "note";
-  spanNote.textContent = ` ${noteText}`;
-  titleWrap.appendChild(spanNote);
-}
-
-
- // 例: "※not ranked" / "※Complete ※not ranked" など（そのまま表示）
-
-  // <div class="watch-ranking-item">
+  
+  
+  // 注記は文字列だけ先に整形（表示は後で）
+  const noteEN = typeof formatNoteEn === "function" ? formatNoteEn(entry.note_en || "") : (entry.note_en || "");
+  const noteJP = typeof formatNoteJp === "function" ? formatNoteJp(entry.note_jp || "") : (entry.note_jp || "");
+  const noteText = noteEN || noteJP;   // EN優先、無ければJP
+  
+    // --- ここからDOMを作る ---
+  // <div class="watch-ranking-item">	
   const item = document.createElement("div");
   item.className = "watch-ranking-item";
 
@@ -182,8 +174,7 @@ if (noteText) {
   const titleWrap = document.createElement("div");
   titleWrap.className = "watch-title";
 
-  const textNode = document.createTextNode(`${rankNum}. `);
-  titleWrap.appendChild(textNode);
+  titleWrap.appendChild(document.createTextNode(`${rankNum}. `));
 
   const spanEN = document.createElement("span");
   spanEN.className = "title-en";
@@ -196,34 +187,26 @@ if (noteText) {
     spanRomaji.textContent = ` ${titleRomaji}`;
     titleWrap.appendChild(spanRomaji);
   }
-
-  if (noteEN) {
-    const spanNote = document.createElement("span");
-    spanNote.className = "note";
-    spanNote.textContent = ` ${noteEN}`;
-    titleWrap.appendChild(spanNote);
-  }
   
-  /* if (noteJP) {
-  const spanNoteJp = document.createElement("span");
-  spanNoteJp.className = "note";
-  spanNoteJp.textContent = ` ${noteJP}`;
-  titleWrap.appendChild(spanNoteJp);
-} */
+  
+  // ★ titleWrap を作った「後」に注記を足す　
+  if (noteText) {
+  const spanNote = document.createElement("span");
+  spanNote.className = "note";
+  spanNote.textContent = ` ${noteText}`;
+  titleWrap.appendChild(spanNote);
+}
 
-
-
-  //   <div>コメント本文</div>（comment_enがあれば）
-  const commentDiv = document.createElement("div");
-  if (commentEN) {
-    commentDiv.textContent = commentEN;
-  } else {
-    // コメント未設定なら空のdivは作らない
-    commentDiv.remove();
-  }
 
   item.appendChild(titleWrap);
-  if (commentEN) item.appendChild(commentDiv);
+
+  //   <div>コメント本文</div>（comment_enがあれば）
+  if (commentEN) {
+  const commentDiv = document.createElement("div");
+  commentDiv.textContent = commentEN;
+  item.appendChild(commentDiv);
+}
+
 
   return item;
 }
