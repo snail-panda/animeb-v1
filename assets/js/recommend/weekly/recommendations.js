@@ -119,6 +119,35 @@ function clearEnjoymentItems(sectionEl) {
   sectionEl.querySelectorAll(".watch-ranking-item").forEach(el => el.remove());
 }
 
+  function formatNoteEn(raw) {
+  if (!raw) return "";
+  let s = String(raw).trim();
+
+  // 既に「※not ranked」系 → 大文字だけ統一
+  if (/※\s*not\s*ranked/i.test(s)) {
+    return s.replace(/※\s*not\s*ranked/ig, "※Not ranked");
+  }
+  // 「not ranked」を含むのに※が無い → 「※Not ranked」に置換
+  if (/not\s*ranked/i.test(s)) {
+    return s.replace(/(^|\b)not\s*ranked(\b|$)/ig, "※Not ranked").trim();
+  }
+  return s; // NEW など他の語は触らない
+}
+
+  function formatNoteJp(raw) {
+  if (!raw) return "";
+  let s = String(raw).trim();
+
+  // 既に「※対象外」ならそのまま
+  if (/※\s*対象外/.test(s)) return s.replace(/※\s*対象外/g, "※対象外");
+
+  // 「対象外」を含むのに※が無い場合 → 置換して「※対象外」に
+  if (/対象外/.test(s)) return s.replace(/対象外/g, "※対象外").trim();
+
+  // それ以外は触らない
+  return s;
+}
+
 // 5) 1件分のアイテムDOMを生成
 function createWatchRankingItem(entry, indexForFallback) {
   const rankNum = (typeof entry.rank === "number" && Number.isFinite(entry.rank))
@@ -129,7 +158,10 @@ function createWatchRankingItem(entry, indexForFallback) {
   const titleRomaji = entry.romanized_title ? `(${entry.romanized_title})` : "";
 
   const commentEN = entry.comment_en || "";
-  const noteEN = entry.note_en || ""; // 例: "※not ranked" / "※Complete ※not ranked" など（そのまま表示）
+  const noteEN = formatNoteEn(entry.note_en || "");
+  const noteJP = formatNoteJp(entry.note_jp || "");
+
+ // 例: "※not ranked" / "※Complete ※not ranked" など（そのまま表示）
 
   // <div class="watch-ranking-item">
   const item = document.createElement("div");
@@ -160,6 +192,15 @@ function createWatchRankingItem(entry, indexForFallback) {
     spanNote.textContent = ` ${noteEN}`;
     titleWrap.appendChild(spanNote);
   }
+  
+  if (noteJP) {
+  const spanNoteJp = document.createElement("span");
+  spanNoteJp.className = "note";
+  spanNoteJp.textContent = ` ${noteJP}`;
+  titleWrap.appendChild(spanNoteJp);
+}
+
+
 
   //   <div>コメント本文</div>（comment_enがあれば）
   const commentDiv = document.createElement("div");
