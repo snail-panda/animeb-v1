@@ -120,7 +120,9 @@ hr.thin-divider {
       margin-bottom: 3.5rem;
     }
 
-    .watch-title .note { margin-left: 0.5em; }
+    .watch-title .note { 
+      margin-left: 0.5em;
+    }
 
     
     .watch-ranking-item .note {
