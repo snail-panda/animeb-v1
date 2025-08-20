@@ -119,6 +119,9 @@ hr.thin-divider {
       margin-top: -1rem;
       margin-bottom: 3.5rem;
     }
+
+    .watch-title .note { margin-left: 0.5em; }
+
     
     .watch-ranking-item .note {
       font-weight: 500;
