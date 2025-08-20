@@ -227,12 +227,6 @@ body {
   border-bottom: none;
 }
 
-/* このリンクだけ折り返し。ドロップダウン全体の幅はそのまま */
-.submenu a.menu-reco { white-space: normal; line-height: 1.2; }
-.submenu a.menu-reco .label-sub { display:block; font-size:.88em; opacity:.8; margin-top:2px; }
-/* （任意）2行でもタップ面積を確保 */
-.submenu a.menu-reco { padding-top:10px; padding-bottom:10px; }
-
 
 /* --- MULTI-LEVEL DROPDOWN STRUCTURE --- */
 
@@ -1236,6 +1230,18 @@ footer {
     padding: 0.5rem;
   }
 }
+
+
+/* Recommendations だけ2行にする（.dropdown 構造に合わせて上書き） */
+.nav-menu .dropdown li a.menu-reco { 
+  display: block !important;
+  white-space: normal !important;   /* 既存の nowrap を打ち消す */
+  line-height: 1.2;
+  padding-top: 10px; 
+  padding-bottom: 10px;
+}
+.nav-menu .dropdown li a.menu-reco .label-main { display:block; }
+.nav-menu .dropdown li a.menu-reco .label-sub  { display:block; font-size:.88em; opacity:.8; margin-top:2px; }
 
 
 </style>
