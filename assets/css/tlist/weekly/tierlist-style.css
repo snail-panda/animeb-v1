@@ -408,7 +408,7 @@ h4.tier-recentdrop{ border-left-color: #fdd0d0; } /* 任意 */
 .tierlist-nav a {
   flex: 1;
   text-decoration: none;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   font-weight: normal;
   color: #333;
 }
