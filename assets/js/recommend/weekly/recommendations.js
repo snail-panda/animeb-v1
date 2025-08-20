@@ -159,7 +159,18 @@ function createWatchRankingItem(entry, indexForFallback) {
 
   const commentEN = entry.comment_en || "";
   const noteEN = formatNoteEn(entry.note_en || "");
-  const noteJP = formatNoteJp(entry.note_jp || "");
+const noteJP = formatNoteJp?.(entry.note_jp || "") || "";  // 定義してなければ無視される
+
+// ENを優先。ENが空ならJPを使う
+const noteText = noteEN || noteJP;
+
+if (noteText) {
+  const spanNote = document.createElement("span");
+  spanNote.className = "note";
+  spanNote.textContent = ` ${noteText}`;
+  titleWrap.appendChild(spanNote);
+}
+
 
  // 例: "※not ranked" / "※Complete ※not ranked" など（そのまま表示）
 
@@ -193,12 +204,12 @@ function createWatchRankingItem(entry, indexForFallback) {
     titleWrap.appendChild(spanNote);
   }
   
-  if (noteJP) {
+  /* if (noteJP) {
   const spanNoteJp = document.createElement("span");
   spanNoteJp.className = "note";
   spanNoteJp.textContent = ` ${noteJP}`;
   titleWrap.appendChild(spanNoteJp);
-}
+} */
 
 
 
