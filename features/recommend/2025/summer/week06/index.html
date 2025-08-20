@@ -453,6 +453,29 @@
   </div>
   
   <script src="/animeb-v1/assets/js/recommend/weekly/recommendations.js" defer></script>
+  
+  <script>
+(function(){
+  const link = document.getElementById('back-home');
+
+  // 1) 直前ページが同一オリジンなら「戻る」
+  link.addEventListener('click', function(e){
+    try {
+      const canGoBack = document.referrer && new URL(document.referrer).origin === location.origin;
+      if (canGoBack) {
+        e.preventDefault();
+        history.back();
+        return;
+      }
+    } catch(_) {}
+    // 2) 直リンク等はサイトホームにフォールバック（必要なら変更）
+    link.setAttribute('href', '/animeb-v1/');
+  }, { once: true });
+
+  // 3) 念のため：ページ読み込み時にホームURLを事前設定したい場合は下記を有効化
+  // link.setAttribute('href', '/animeb-v1/');
+})();
+</script>
 
   
   </body>
