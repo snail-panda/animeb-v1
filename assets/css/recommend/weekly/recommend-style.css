@@ -132,6 +132,23 @@ hr.thin-divider {
       color: #E66E76;
     }
 
+       /* Temporary Back to Home */
+.mini-nav {
+  position: sticky; top: 0; z-index: 1000;
+  text-align: center;
+  background: #fff; border-bottom: 1px solid #eee;
+  padding: 8px 0;
+}
+.mini-nav .mini-home-link {
+  display: inline-block;
+  font-size: 0.7rem;
+  color: #B5A8AC;
+  padding: 6px 12px; min-width: 44px; /* タップ面積確保 */
+  border: 1px solid #ddd; border-radius: 9999px;
+  text-decoration: none; color: #70686B;
+}
+.mini-nav .mini-home-link:active { transform: translateY(1px); }
+
     /* 📱 スマホ（狭い画面）時にフォントを小さくする：例 1rem = 14px */
 @media screen and (max-width: 600px) {
   html {
