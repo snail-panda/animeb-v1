@@ -214,6 +214,4 @@ async function renderEnjoymentRankingFromJson(jsonUrl) {
   });
 }
 
-}
-
 
