@@ -507,6 +507,10 @@ body {
   background-color: #646a6f;
 }
 
+.tag-featured {
+  background-color: #6f5899;
+}
+
 .post-title {
   font-family: 'Bahnschrift SemiCondensed', 'Abel', 'sans-serif';
   font-size: 1rem;
@@ -525,6 +529,14 @@ body {
 
 .title-final {
   color: #882d6b;
+}
+
+.title-recommendation {
+  color: #714495;
+}
+
+.title-enjoyment {
+  color: #b3a934;
 }
 
 .post-date {
