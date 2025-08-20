@@ -148,6 +148,14 @@ function clearEnjoymentItems(sectionEl) {
   return s;
 }
 
+  // コメントは当面 EN のみ表示（JPは将来用に残す）
+// 先頭のダッシュ等は描画側で付けるので除去
+function pickCommentEN(entry) {
+  const en = (entry?.comment_en || "").trim();
+  return en.replace(/^\s*[—-]\s*/, ""); // 先頭の「— / -」が入ってたら外す
+}
+
+
 // 5) 1件分のアイテムDOMを生成
 // ▼ 理由：注記はコンバーター取りこぼしの“保険”だけ行う。
 //         EN優先・無ければJP。DOMは必要な時だけ作って無駄を減らす。
@@ -159,7 +167,6 @@ function createWatchRankingItem(entry, indexForFallback) {
   const titleEN = entry.title || "";
   const titleRomaji = entry.romanized_title ? `(${entry.romanized_title})` : "";
 
-  const commentEN = entry.comment_en || "";
   
   
   // --- 注記は文字列だけ先に整形（ここではDOMを作らない） -----------------
@@ -203,13 +210,15 @@ function createWatchRankingItem(entry, indexForFallback) {
 
   item.appendChild(titleWrap);
 
-  // ★ コメントDOMは“必要な時だけ”作る（無駄を減らす）<div>コメント本文</div>（comment_enがあれば）
-  if (commentEN) {
+  // ★ コメントDOMは“必要な時だけ”作る（無駄を減らす）ENがあればENだけ表示／ENが空なら何も出さない（JPは無視）<div>コメント本文</div>（comment_enがあれば）
+const commentText = pickCommentEN(entry);
+if (commentText) {
   const commentDiv = document.createElement("div");
-  commentDiv.className = "comment";     // ← 追加
-  commentDiv.textContent = commentEN;   // ← JSONは素の文だけ
+  commentDiv.className = "comment";
+  commentDiv.textContent = commentText; // JSONは素の文だけ
   item.appendChild(commentDiv);
 }
+
 
 
 
