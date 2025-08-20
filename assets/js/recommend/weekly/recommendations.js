@@ -206,9 +206,11 @@ function createWatchRankingItem(entry, indexForFallback) {
   // ★ コメントDOMは“必要な時だけ”作る（無駄を減らす）<div>コメント本文</div>（comment_enがあれば）
   if (commentEN) {
   const commentDiv = document.createElement("div");
-  commentDiv.textContent = commentEN;
+  commentDiv.className = "comment";     // ← 追加
+  commentDiv.textContent = commentEN;   // ← JSONは素の文だけ
   item.appendChild(commentDiv);
 }
+
 
 
   return item;

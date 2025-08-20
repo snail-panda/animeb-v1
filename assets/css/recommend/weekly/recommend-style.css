@@ -132,6 +132,16 @@ hr.thin-divider {
       color: #E66E76;
     }
 
+    .watch-ranking-item .comment {
+  margin-top: 4px;        /* タイトルとの間隔 */
+  line-height: 1.35;
+}
+.watch-ranking-item .comment::before {
+  content: "— ";          /* 先頭のダッシュ */
+  opacity: .8;
+}
+
+
        /* Temporary Back to Home */
 .mini-nav {
   position: sticky; top: 0; z-index: 1000;
