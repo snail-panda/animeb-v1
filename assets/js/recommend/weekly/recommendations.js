@@ -202,15 +202,12 @@ async function renderEnjoymentRankingFromJson(jsonUrl) {
     return ra - rb;
   });
 
-  const insertAfter = section.querySelector("p.note") || section.querySelector("h2");
-
-  entries.forEach((entry, i) => {
-    const item = createWatchRankingItem(entry, i);
-    if (insertAfter && insertAfter.nextSibling) {
-      section.insertBefore(item, insertAfter.nextSibling);
-    } else {
-      section.appendChild(item);
-    }
+  // ✅ 修正：アンカーを前進させる（順序そのまま） 
+  let anchor = section.querySelector("p.note") || section.querySelector("h2");
+entries.forEach((entry, i) => {
+  const item = createWatchRankingItem(entry, i);
+  anchor.insertAdjacentElement('afterend', item);
+  anchor = item; // ← これで次は末尾に足され、昇順に並ぶ
   });
 }
 
