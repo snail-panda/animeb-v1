@@ -108,8 +108,8 @@ document.addEventListener('DOMContentLoaded', () => {
 function getEnjoymentSection() {
   const sections = Array.from(document.querySelectorAll(".section"));
   return sections.find(sec => {
-    const h2 = sec.querySelector("h2");
-    return h2 && /enjoyment ranking/i.test(h2.textContent);
+    const heading = sec.querySelector("h1, h2, h3"); // ← h1/h2/h3 もOKに
+    return heading && /enjoyment ranking/i.test(heading.textContent);
   });
 }
 
@@ -241,7 +241,7 @@ async function renderEnjoymentRankingFromJson(jsonUrl) {
   });
 
   // ✅ 修正：アンカーを前進させる（順序そのまま） 
-  let anchor = section.querySelector("p.note") || section.querySelector("h2");
+  let anchor = section.querySelector("p.note") || section.querySelector("h1, h2") || section;
 entries.forEach((entry, i) => {
   const item = createWatchRankingItem(entry, i);
   anchor.insertAdjacentElement('afterend', item);
