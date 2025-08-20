@@ -17,7 +17,7 @@ const basePath = `/animeb-v1/features/recommend/${year}/${season}/${weekSlug}/`;
 const imageBase = `/animeb-v1/images/key-visuals/${year}/${season}/`;
 
 const recommendPath = `${basePath}recommend-${year}-${season}-${weekSlug}.json`;
-const enjoyPath = `${basePath}enjoyment_ranking-${year}-${season}-${weekSlug}.json`;
+const enjoyPath = `${basePath}enjoyment-ranking-${year}-${season}-${weekSlug}.json`;
 
 // 👇ここでログ出力
 console.log("Recommend JSON Path:", recommendPath);
@@ -37,10 +37,6 @@ document.addEventListener('DOMContentLoaded', () => {
   fetch(recommendPath)
     .then(res => res.json())
     .then(data => renderMainEntries(data.entries));
-
-  fetch(enjoyPath)
-    .then(res => res.json())
-    .then(data => renderEnjoymentRanking(data.watchRanking));
 
   function renderMainEntries(entries) {
     entries.forEach(entry => {
@@ -100,43 +96,13 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  function renderEnjoymentRanking(list) {
-    const container = document.querySelector('.section:nth-of-type(6)');
-    list.forEach(item => {
-      const note = item.note ? `<span class="note">※${item.note}</span>` : '';
-      container.insertAdjacentHTML('beforeend', `
-        <div class="watch-ranking-item">
-          <div class="watch-title">
-            ${item.rank}. <span class="title-en">${item.title}</span>
-            <span class="title-romaji">(${item.romanized_title})</span> ${note}
-          </div>
-          <div>${item.comment}</div>
-        </div>
-      `);
-    });
-  }
+    renderEnjoymentRankingFromJson(enjoyPath);
+
+
 });
 
 // === Enjoyment Ranking: JSON → HTML 描画 =====================================
 
-// 1) 現在のURLから year/season/week を推定（/2025/summer/week06/index.html想定）
-function deriveContextFromPath() {
-  // 例: /2025/summer/week06/index.html
-  const parts = window.location.pathname.replace(/\/index\.html?$/i, "/").split("/").filter(Boolean);
-  // parts = ["2025","summer","week06", ...] を想定（末尾は空 or ない想定）
-  const year = parts[0] || "";
-  const season = parts[1] || "";
-  const week = parts[2] || ""; // week06
-  return { year, season, week };
-}
-
-// 2) JSONパスを生成（kebab-case に統一）
-function buildEnjoymentJsonPath({ year, season, week }) {
-  // index.html と同じフォルダに置いてある前提
-  const basePath = window.location.pathname.replace(/\/index\.html?$/i, "/");
-  const fileName = `enjoyment-ranking-${year}-${season}-${week}.json`;
-  return basePath + fileName;
-}
 
 // 3) Enjoymentセクション（h2に Enjoyment Ranking を含む .section）を取得
 function getEnjoymentSection() {
@@ -211,19 +177,16 @@ function createWatchRankingItem(entry, indexForFallback) {
 }
 
 // 6) メイン：JSONを読み込み → ソート → 描画
-async function renderEnjoymentRankingFromJson() {
+async function renderEnjoymentRankingFromJson(jsonUrl) {
   const section = getEnjoymentSection();
   if (!section) return;
 
   clearEnjoymentItems(section);
 
-  const ctx = deriveContextFromPath();
-  const jsonPath = buildEnjoymentJsonPath(ctx);
-
   let data;
   try {
-    const res = await fetch(jsonPath, { cache: "no-cache" });
-    if (!res.ok) throw new Error(`Failed to fetch ${jsonPath} (${res.status})`);
+    const res = await fetch(jsonUrl, { cache: "no-cache" });
+    if (!res.ok) throw new Error(`Failed to fetch ${jsonUrl} (${res.status})`);
     data = await res.json();
   } catch (err) {
     console.error("[Enjoyment] JSON読込エラー:", err);
@@ -232,15 +195,13 @@ async function renderEnjoymentRankingFromJson() {
 
   const entries = Array.isArray(data?.enjoymentRanking) ? data.enjoymentRanking.slice() : [];
 
-  // rank昇順（数字だけ正規にソート）→ それ以外は元順を維持
+  // rank昇順（数値のみ正規ソート）
   entries.sort((a, b) => {
     const ra = (typeof a.rank === "number" && Number.isFinite(a.rank)) ? a.rank : Infinity;
     const rb = (typeof b.rank === "number" && Number.isFinite(b.rank)) ? b.rank : Infinity;
     return ra - rb;
   });
 
-  // 既存の <h2> とセクション直下の note <p> は残し、それ以降にレンダリング
-  // （＝h2, p.note の後に追加）
   const insertAfter = section.querySelector("p.note") || section.querySelector("h2");
 
   entries.forEach((entry, i) => {
@@ -253,8 +214,6 @@ async function renderEnjoymentRankingFromJson() {
   });
 }
 
-// 7) 起動
-document.addEventListener("DOMContentLoaded", () => {
-  renderEnjoymentRankingFromJson();
-});
+}
+
 
