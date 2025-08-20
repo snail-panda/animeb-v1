@@ -149,6 +149,8 @@ function clearEnjoymentItems(sectionEl) {
 }
 
 // 5) 1件分のアイテムDOMを生成
+// ▼ 理由：注記はコンバーター取りこぼしの“保険”だけ行う。
+//         EN優先・無ければJP。DOMは必要な時だけ作って無駄を減らす。
 function createWatchRankingItem(entry, indexForFallback) {
   const rankNum = (typeof entry.rank === "number" && Number.isFinite(entry.rank))
     ? entry.rank
@@ -160,12 +162,13 @@ function createWatchRankingItem(entry, indexForFallback) {
   const commentEN = entry.comment_en || "";
   
   
-  // 注記は文字列だけ先に整形（表示は後で）
+  // --- 注記は文字列だけ先に整形（ここではDOMを作らない） -----------------
   const noteEN = typeof formatNoteEn === "function" ? formatNoteEn(entry.note_en || "") : (entry.note_en || "");
   const noteJP = typeof formatNoteJp === "function" ? formatNoteJp(entry.note_jp || "") : (entry.note_jp || "");
   const noteText = noteEN || noteJP;   // EN優先、無ければJP
-  
-    // --- ここからDOMを作る ---
+  // -------------------------------------------------------------------------
+
+  // --- DOM構築（titleWrap を先に作る。これより前で append しない） ----------
   // <div class="watch-ranking-item">	
   const item = document.createElement("div");
   item.className = "watch-ranking-item";
@@ -189,7 +192,7 @@ function createWatchRankingItem(entry, indexForFallback) {
   }
   
   
-  // ★ titleWrap を作った「後」に注記を足す　
+   // ★ 注記は titleWrap を作った“後”に、1回だけ追加（重複防止）
   if (noteText) {
   const spanNote = document.createElement("span");
   spanNote.className = "note";
@@ -200,7 +203,7 @@ function createWatchRankingItem(entry, indexForFallback) {
 
   item.appendChild(titleWrap);
 
-  //   <div>コメント本文</div>（comment_enがあれば）
+  // ★ コメントDOMは“必要な時だけ”作る（無駄を減らす）<div>コメント本文</div>（comment_enがあれば）
   if (commentEN) {
   const commentDiv = document.createElement("div");
   commentDiv.textContent = commentEN;
