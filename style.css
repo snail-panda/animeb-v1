@@ -620,6 +620,10 @@ body {
   margin-bottom: 0.1rem;
 }
 
+.month-block {
+  margin-bottom: 0.1rem;
+}
+
 .collapsible {
   background: none;
   border: none;
@@ -645,18 +649,18 @@ body {
   transform: rotate(180deg);
 }
 
-.month-links {
+.week-links {
   list-style: none;
   padding-left: 2rem;
   margin: 0.1rem 0 0 0;
   display: none;
 }
 
-.month-links li {
+.week-links li {
   padding: 0;
 }
 
-.month-links a {
+.week-links a {
   color: #577157;
   font-family: 'Abel', 'sans-serif';
   font-size: 0.6rem;
@@ -664,7 +668,7 @@ body {
   text-decoration: none;
 }
 
-.month-links a:hover {
+.week-links a:hover {
   color: #8ca989;
 }
 
