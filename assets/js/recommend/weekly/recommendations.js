@@ -75,6 +75,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <details>
               <summary>＋ More details</summary>
               <p><strong>Director:</strong> ${entry.creators || ''}<br>
+              <strong>Series comp:</strong> ${entry.seriesComposition || ''}<br>
 			  <strong>Based on:</strong> ${entry.based_on || ''}<br>
               <strong>Synopsis:</strong> ${entry.synopsis || ''}</p>
             </details>
@@ -131,6 +132,16 @@ function clearEnjoymentItems(sectionEl) {
   if (/not\s*ranked/i.test(s)) {
     return s.replace(/(^|\b)not\s*ranked(\b|$)/ig, "※Not ranked").trim();
   }
+
+    // 既に「※Complete」系 → 表記統一
+  if (/※\s*complete/i.test(s)) {
+    return s.replace(/※\s*complete/ig, "※Complete");
+  }
+  // 「complete」を含むのに※が無い → 「※Complete」に置換
+  if (/\bcomplete\b/i.test(s)) {
+    return s.replace(/\bcomplete\b/ig, "※Complete").trim();
+  }
+
   return s; // NEW など他の語は触らない
 }
 
@@ -143,6 +154,15 @@ function clearEnjoymentItems(sectionEl) {
 
   // 「対象外」を含むのに※が無い場合 → 置換して「※対象外」に
   if (/対象外/.test(s)) return s.replace(/対象外/g, "※対象外").trim();
+
+    // 既に「※放送終了」なら表記統一
+  if (/※\s*放送終了/.test(s)) {
+    return s.replace(/※\s*放送終了/g, "※放送終了");
+  }
+  // 「放送終了」を含むのに※が無い → 「※放送終了」に置換
+  if (/放送終了/.test(s)) {
+    return s.replace(/放送終了/g, "※放送終了").trim();
+  }
 
   // それ以外は触らない
   return s;
