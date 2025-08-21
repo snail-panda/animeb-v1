@@ -746,103 +746,8 @@ The initial chaos of the early season is beginning to settle down, and some show
 <div class="archive-title">Archive</div>
 
   <div class="week-rank">Weekly Anime Ranking</div>
-  <div class="year-block">
-    <button class="collapsible">2023 <span class="arrow">&#9662;</span></button>
-    <div class="season-block">
-    <button class="collapsible">Winter <span class="arrow">&#9662;</span></button>
-    <ul class="week-links">
-      <li><a href="#">Week01</a></li>
-    </ul>
-  </div>
-  <div class="season-block">
-    <button class="collapsible">Spring <span class="arrow">&#9662;</span></button>
-    <ul class="week-links">
-      <li><a href="#">Week01</a></li>
-    </ul>
-  </div>
-  <div class="season-block">
-    <button class="collapsible">Summer <span class="arrow">&#9662;</span></button>
-    <ul class="week-links">
-      <li><a href="#">Week01</a></li>
-    </ul>
-  </div>
-  <div class="season-block">
-    <button class="collapsible">Fall <span class="arrow">&#9662;</span></button>
-    <ul class="week-links">
-      <li><a href="#">Week01</a></li>
-    </ul>
-  </div>
-</div>
-  <div class="year-block">
-    <button class="collapsible">2024 <span class="arrow">&#9662;</span></button>
-    <div class="season-block">
-    <button class="collapsible">Winter <span class="arrow">&#9662;</span></button>
-    <ul class="week-links">
-      <li><a href="#">Week01</a></li>
-    </ul>
-  </div>
-  <div class="season-block">
-    <button class="collapsible">Spring <span class="arrow">&#9662;</span></button>
-    <ul class="week-links">
-      <li><a href="#">Week01</a></li>
-    </ul>
-  </div>
-  <div class="season-block">
-    <button class="collapsible">Summer <span class="arrow">&#9662;</span></button>
-    <ul class="week-links">
-      <li><a href="#">Week01</a></li>
-    </ul>
-  </div>
-  <div class="season-block">
-    <button class="collapsible">Fall <span class="arrow">&#9662;</span></button>
-    <ul class="week-links">
-      <li><a href="#">Week01</a></li>
-    </ul>
-  </div>
-</div>
-  <div class="year-block">
-    <button class="collapsible">2025 <span class="arrow">&#9662;</span></button>
-    <div class="season-block">
-    <button class="collapsible">Winter <span class="arrow">&#9662;</span></button>
-    <ul class="week-links">
-      <li><a href="#">Week01</a></li>
-    </ul>
-  </div>
-    <div class="season-block">
-    <button class="collapsible">Spring <span class="arrow">&#9662;</span></button>
-    <ul class="week-links">
-      <li><a href="#">Week01</a></li>
-      <li><a href="#">Week02</a></li>
-      <li><a href="#">Week03</a></li>
-      <li><a href="#">Week04</a></li>
-      <li><a href="#">Week05</a></li>
-      <li><a href="#">week06</a></li>
-      <li><a href="#">Week07</a></li>
-      <li><a href="#">Week08</a></li>
-      <li><a href="#">Week09</a></li>
-      <li><a href="#">Week10</a></li>
-      <li><a href="#">Week11</a></li>
-      <li><a href="#">Week12</a></li>
-    </ul>
-  </div>
-    <div class="season-block">
-    <button class="collapsible">Summer <span class="arrow">&#9662;</span></button>
-    <ul class="week-links">
-      <li><a href="#">Week01</a></li>
-      <li><a href="#">Week02</a></li>
-      <li><a href="#">Week03</a></li>
-      <li><a href="#">Week04</a></li>
-      <li><a href="#">Week05</a></li>
-      <li><a href="#">week06</a></li>
-    </ul>
-  </div>
-  <div class="season-block">
-    <button class="collapsible">Fall <span class="arrow">&#9662;</span></button>
-    <ul class="week-links">
-      <li><a href="#">Week01</a></li>
-    </ul>
-  </div>
-</div>
+<div id="archive-weekly"></div>
+
 </aside>
     
     
@@ -1161,6 +1066,132 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
+// === Sidebar Weekly Archive (JSON → collapsible) ============================
+
+const ARCHIVE_JSON_PATH = "./weekly-rankings.json";
+const RANKING_ABS_BASE  = "/animeb-v1/ranking";
+const SEASON_ORDER = ["Winter", "Spring", "Summer", "Fall"];
+
+function toNN(n){ return String(n).padStart(2,"0"); }
+function normalizeWeekId(s){
+  const m = String(s).match(/(\d{1,2})$/);
+  const num = m ? m[1] : null;
+  return num ? `week${toNN(num)}` : null;
+}
+function weekLabel(weekId){
+  const m = String(weekId).match(/(\d{2})$/);
+  return m ? `Week ${m[1]}` : String(weekId);
+}
+
+function buildHref(year, season, weekId){
+  return `${RANKING_ABS_BASE}/${year}/${season.toLowerCase()}/${weekId}/index.html`;
+}
+
+// サイドバー内だけにクリックハンドラを配線（既存のものとは干渉しない）
+function wireLocalCollapsibles(scope){
+  scope.querySelectorAll(".collapsible").forEach(btn=>{
+    btn.addEventListener("click", ()=>{
+      const panel = btn.nextElementSibling; // 直後のコンテンツを開閉
+      const arrow = btn.querySelector(".arrow");
+      if(!panel) return;
+      panel.style.display = (panel.style.display === "block") ? "none" : "block";
+      if (arrow) arrow.classList.toggle("rotate");
+    });
+  });
+}
+
+async function renderSidebarArchive(containerId="archive-weekly"){
+  const root = document.getElementById(containerId);
+  if(!root) return;
+
+  // 初期化
+  root.textContent = "";
+
+  let data;
+  try{
+    const res = await fetch(ARCHIVE_JSON_PATH, { cache: "no-cache" });
+    if(!res.ok) throw new Error(`${res.status} ${res.statusText}`);
+    data = await res.json();
+  }catch(e){
+    console.error("[Archive] JSON load error:", e);
+    root.textContent = "Archive failed to load.";
+    return;
+  }
+
+  // 年は降順
+  const years = Object.keys(data).sort((a,b)=> Number(b)-Number(a));
+  const frag  = document.createDocumentFragment();
+
+  years.forEach((year, idxYear)=>{
+    const yearBlock = document.createElement("div");
+    yearBlock.className = "year-block";
+
+    const yearBtn = document.createElement("button");
+    yearBtn.className = "collapsible";
+    yearBtn.innerHTML = `${year} <span class="arrow">&#9662;</span>`;
+    yearBlock.appendChild(yearBtn);
+
+    // 年配下の全シーズンを包むラッパ（←これが nextElementSibling になる）
+    const seasonsWrap = document.createElement("div");
+    seasonsWrap.className = "seasons-wrap";
+    seasonsWrap.style.display = "none"; // 初期は閉じる（最新年だけ開きたいなら後で開く）
+    yearBlock.appendChild(seasonsWrap);
+
+    // シーズンは固定順
+    SEASON_ORDER.forEach(season=>{
+      const node = data?.[year]?.[season];
+      const weeksRaw = node?.weeks;
+      if(!Array.isArray(weeksRaw) || weeksRaw.length === 0) return;
+
+      const weeks = weeksRaw
+        .map(normalizeWeekId)
+        .filter(Boolean)
+        .sort((a,b)=> Number(a.slice(-2)) - Number(b.slice(-2)));
+
+      const seasonBlock = document.createElement("div");
+      seasonBlock.className = "season-block";
+
+      const seasonBtn = document.createElement("button");
+      seasonBtn.className = "collapsible";
+      seasonBtn.innerHTML = `${season} <span class="arrow">&#9662;</span>`;
+      seasonBlock.appendChild(seasonBtn);
+
+      const ul = document.createElement("ul");
+      ul.className = "week-links";
+      ul.style.display = "none";
+
+      weeks.forEach(weekId=>{
+        const li = document.createElement("li");
+        const a  = document.createElement("a");
+        a.href = buildHref(year, season, weekId);
+        a.textContent = weekLabel(weekId);
+        li.appendChild(a);
+        ul.appendChild(li);
+      });
+
+      seasonBlock.appendChild(ul);
+      seasonsWrap.appendChild(seasonBlock);
+    });
+
+    // 週が1つも無い年はスキップ
+    if (seasonsWrap.children.length > 0) {
+      frag.appendChild(yearBlock);
+      // 最新年だけ最初から開いておきたい場合はここで開く
+      if (idxYear === 0) {
+        seasonsWrap.style.display = "block";
+        const arrow = yearBtn.querySelector(".arrow");
+        if (arrow) arrow.classList.add("rotate");
+      }
+    }
+  });
+
+  root.appendChild(frag);
+  wireLocalCollapsibles(root); // ← 生成後に配線
+}
+
+document.addEventListener("DOMContentLoaded", ()=> {
+  renderSidebarArchive("archive-weekly");
+});
 
 
 
