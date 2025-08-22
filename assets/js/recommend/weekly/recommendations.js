@@ -230,21 +230,6 @@ function createWatchRankingItem(entry, indexForFallback) {
 
   item.appendChild(titleWrap);
 
-  // --- Enjoyment 表示つまみ -----------------------------------------------
-// 既定: Infinity = 全ランクに Dir / Series comp を表示
-// 例) URLで ?meta=30 を付ければ Top30 までに制限
-// 例) <section class="section" data-meta-max-rank="30"> でもOK（URL優先）
-const META_DETAIL_MAX_RANK = (() => {
-  const urlVal = Number(new URLSearchParams(location.search).get("meta"));
-  if (Number.isFinite(urlVal)) return urlVal;
-
-  const sec = getEnjoymentSection();
-  const dsVal = Number(sec?.dataset?.metaMaxRank);
-  if (Number.isFinite(dsVal)) return dsVal;
-
-  return Infinity; // 既定＝全件表示
-})();
-
 
   // --- Enjoyment用メタ行（Studios / Dir / Series comp） -------------------------
 function normalizeStudios(st) {
@@ -257,6 +242,8 @@ function summarizeStudios(list) {
   if (list.length === 1) return list[0];
   return `${list[0]} +${list.length - 1}`;
 }
+
+const META_DETAIL_MAX_RANK = Infinity; // いまは全件。将来Top30なら 30 に変える
 
 function buildMetaLine(entry, rankNum) {
   const parts = [];
