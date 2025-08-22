@@ -70,6 +70,14 @@
       line-height: 1.8;
 }
 
+.weekly-overview ul{
+  list-style: none;
+  padding-inline-start: 1rem; /* 0〜1remで調整 */
+  margin-left: 0;
+}
+
+
+
 li {
   margin-top: 0.5rem;
 }
@@ -87,13 +95,13 @@ li {
 
 /* Responsive Design */
     @media screen and (max-width: 768px) {
-      .html {
+      html {
         font-size: 13px; /* スマホ用のフォントサイズ */
       }
     }
 
     @media screen and (max-width: 480px) {
-      .html {
+      html {
         font-size: 10px; /* スマホ用のフォントサイズ */ 
       }
       .weekly-overview p {
