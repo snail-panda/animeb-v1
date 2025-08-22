@@ -167,7 +167,7 @@ hr.thin-divider {
   font-size: 0.7rem;
   color: #B5A8AC;
   padding: 6px 12px; min-width: 44px; /* タップ面積確保 */
-  border: 1px solid #ddd; border-radius: 9999px;
+  border: 0px solid #ddd; border-radius: 9999px;
   text-decoration: none; color: #70686B;
 }
 .mini-nav .mini-home-link:active { transform: translateY(1px); }
@@ -188,7 +188,9 @@ hr.thin-divider {
   border: 1px solid #ddd; border-radius: 9999px;
   text-decoration: none; color: #70686B;
 }
-.lang-switch .lang-link:active { transform: translateY(1px); }
+.lang-switch .lang-link:hover { 
+  background-color: #F2F0E6;
+  transform: translateY(1px); }
 
     /* 📱 スマホ（狭い画面）時にフォントを小さくする：例 1rem = 14px */
 @media screen and (max-width: 600px) {
