@@ -287,10 +287,10 @@ function buildMetaLine(entry, rankNum) {
 
   // ←ここを rankNum <= 10 から差し替え
   if (rankNum <= META_DETAIL_MAX_RANK) {
-    const dir = (entry.creators || entry.director || "").trim();
+    const dir    = (pick(entry,'creators') || pick(entry,'director')).trim();
     if (dir) parts.push(`Dir: ${dir}`);
 
-    const series = (entry.seriesComposition || "").trim();
+    const series = pick(entry,'seriesComposition').trim();
     if (series) parts.push(`Series comp: ${series}`);
   }
 
