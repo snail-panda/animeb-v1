@@ -1,272 +1,304 @@
-// recommendations.js
+// recommendations.js  (EN/JA 両対応・単一ファイル版)
 
-// ファイルの最上部（グローバル定義）
+// ====== 基本設定・パス推定 ======
 const path = window.location.pathname;
 const segments = path.split('/');
-
 // 例: /animeb-v1/features/recommend/2025/summer/week06/
 const year = segments[segments.indexOf('recommend') + 1];     // "2025"
 const season = segments[segments.indexOf('recommend') + 2];   // "summer"
 const weekSlug = segments[segments.indexOf('recommend') + 3]; // "week06"
-
-// 👇ここで "06" だけを抽出する
 const week = weekSlug.replace(/^week/, '');
 
-// JSONファイルのパスは week を2重にしないように構成する
-const basePath = `/animeb-v1/features/recommend/${year}/${season}/${weekSlug}/`;
+const basePath  = `/animeb-v1/features/recommend/${year}/${season}/${weekSlug}/`;
 const imageBase = `/animeb-v1/images/key-visuals/${year}/${season}/`;
 
 const recommendPath = `${basePath}recommend-${year}-${season}-${weekSlug}.json`;
-const enjoyPath = `${basePath}enjoyment-ranking-${year}-${season}-${weekSlug}.json`;
+const enjoyPath     = `${basePath}enjoyment-ranking-${year}-${season}-${weekSlug}.json`;
 
-// 👇ここでログ出力
 console.log("Recommend JSON Path:", recommendPath);
 console.log("Enjoyment JSON Path:", enjoyPath);
 
-// 読み込み処理（グローバル定義を使う）
-document.addEventListener('DOMContentLoaded', () => {
-	
-// 各セクションの中身をクリアしてプレースホルダーを削除
-  const sections = document.querySelectorAll('.section');
-  sections.forEach(section => {
-    const cards = section.querySelectorAll('.card, .small-card, .watch-ranking-item');
-    cards.forEach(card => card.remove());
-  });	
-  
-// ✅ 正しいパスで読み込み
-  fetch(recommendPath)
-    .then(res => res.json())
-    .then(data => renderMainEntries(data.entries));
+// ====== 言語判定 ======
+const IS_JA = /^ja/i.test(document.documentElement.lang || "");
 
-  function renderMainEntries(entries) {
-    entries.forEach(entry => {
-      const html = generateCard(entry);
-      if (entry.rank <= 3) {
-        document.querySelector('.section:nth-of-type(1)').insertAdjacentHTML('beforeend', html);
-      } else if (entry.rank <= 5) {
-        document.querySelector('.section:nth-of-type(2)').insertAdjacentHTML('beforeend', html);
-      } else if (entry.rank <= 8) {
-        document.querySelector('.section:nth-of-type(3)').insertAdjacentHTML('beforeend', html);
-      } else if (entry.rank <= 10) {
-        document.querySelector('.section:nth-of-type(4)').insertAdjacentHTML('beforeend', html);
-      } else {
-        document.querySelector('.section:nth-of-type(5)').insertAdjacentHTML('beforeend', html);
-      }
-    });
+// ====== 括弧内表記：例外オーバーライド（モード → KV一覧） ======
+// モード: 'none' | 'en' | 'romaji' | 'en+romaji'
+// ここに KV を並べるだけで、該当作の括弧表示を上書きできます。
+// ※記載が無ければ既定の auto 規則で判断
+const PAREN_OVERRIDE = {
+  none:       new Set(['drstone', 'turkey', 'samapoke', 'city']),
+  en:         new Set([
+    // 例: 'buta-santa', 'food'
+  ]),
+  romaji:     new Set([
+    // 例: 'kijin'
+  ]),
+  'en+romaji': new Set([
+    // 例: 'bisque'
+  ]),
+};
+// KVの別名を許す場合はここに追記（旧→新）
+const KV_ALIAS = {
+  // 'buta': 'buta-santa',
+};
+
+// ====== 汎用ピッカー ======
+function aliasKV(kv) {
+  if (!kv) return '';
+  const k = String(kv).trim();
+  return KV_ALIAS[k] || k;
+}
+function pickJPTitle(entry) {
+  return entry.jpTitle || entry.title_ja || entry.title_jp || entry.native_title || "";
+}
+function pickENTitle(entry) {
+  return entry.title || entry.title_en || "";
+}
+function pickRomaji(entry) {
+  return entry.romanized_title || entry.romaji || entry.romanizedTitle || "";
+}
+function equalish(a, b) {
+  const norm = (s) => String(s || "")
+    .toLowerCase()
+    .normalize("NFKC")
+    .replace(/[\s'’"“”\-—–_:;.,!?()［\]【】（）]/g, "");
+  return !!a && !!b && norm(a) === norm(b);
+}
+
+// auto 規則（JAページの括弧決定）
+function decideParenAuto({ jp, en, romaji }) {
+  if (en && !equalish(jp, en)) return en;       // 英題が“別物”なら英題
+  if (!en && romaji)        return romaji;      // 英題が無ければローマ字
+  if (en && equalish(jp, en)) return "";        // 実質同名なら括弧なし
+  return "";                                    // それ以外はなし
+}
+
+// 例外テーブルのモード取得
+function getParenModeForKV(kvRaw) {
+  const kv = aliasKV(kvRaw);
+  for (const mode of Object.keys(PAREN_OVERRIDE)) {
+    if (PAREN_OVERRIDE[mode].has(kv)) return mode;
   }
+  return 'auto';
+}
 
-  function generateCard(entry) {
-    const kvImage = `${imageBase}${entry.kv}.webp`;
-    const romaji = entry.romanized_title ? `(${entry.romanized_title})` : '';
-    const studio = entry.studios ? `Studio: ${entry.studios}` : '';
-    const review = entry.review?.en || '';
+// JAページ用：括弧内文字列を構築（'' なら括弧出さない）
+function buildParenForJA(entry) {
+  const kv = aliasKV(entry.kv || "");
+  const jp = pickJPTitle(entry);
+  const en = pickENTitle(entry);
+  const ro = pickRomaji(entry);
+  const mode = getParenModeForKV(kv);
 
-    if (entry.rank <= 5) {
-      return `
-        <div class="card">
-          <img src="${kvImage}" alt="${entry.romanized_title}">
-          <div class="card-content">
-            <div class="card-title">
-              <span class="title-en">${entry.title}</span>
-              <span class="title-romaji">${romaji}</span>
-            </div>
-            <div class="studio">${studio}</div>
-            <p>${review}</p>
-            <details>
-              <summary>＋ More details</summary>
-              <p><strong>Director:</strong> ${entry.creators || ''}<br>
-              <strong>Series comp:</strong> ${entry.seriesComposition || ''}<br>
-			  <strong>Based on:</strong> ${entry.based_on || ''}<br>
-              <strong>Synopsis:</strong> ${entry.synopsis || ''}</p>
-            </details>
-          </div>
-        </div>`;
-    } else {
-      return `
-        <div class="small-card">
-          <img src="${kvImage}" alt="${entry.romanized_title}">
-          <div>
-            <div class="small-title">
-              <span class="title-en">${entry.title}</span>
-              <span class="title-romaji">${romaji}</span>
-            </div>
-			<div class="studio">${studio}</div>
-            <div>${review}</div>
-          </div>
-        </div>`;
+  const make = (s) => s ? `(${s})` : "";
+
+  switch (mode) {
+    case 'none':        return "";
+    case 'en':          return make(en);
+    case 'romaji':      return make(ro);
+    case 'en+romaji':   return make([en, ro].filter(Boolean).join(" / "));
+    default: {
+      const decided = decideParenAuto({ jp, en, romaji: ro });
+      return make(decided);
     }
   }
+}
 
-    renderEnjoymentRankingFromJson(enjoyPath);
+// レビュー/コメント（Rec）
+function pickReviewForRec(entry) {
+  if (IS_JA) {
+    return (entry?.review?.jp || entry?.review?.ja || entry?.review_jp || entry?.review?.en || "").trim();
+  }
+  return (entry?.review?.en || entry?.review?.jp || "").trim();
+}
 
+// ====== 起動処理 ======
+document.addEventListener('DOMContentLoaded', () => {
+  // プレースホルダー除去
+  document.querySelectorAll('.section').forEach(section => {
+    section.querySelectorAll('.card, .small-card, .watch-ranking-item').forEach(el => el.remove());
+  });
 
+  // Recommendations
+  fetch(recommendPath)
+    .then(res => res.json())
+    .then(data => renderMainEntries(data.entries || []));
+
+  // Enjoyment
+  renderEnjoymentRankingFromJson(enjoyPath);
 });
 
-// === Enjoyment Ranking: JSON → HTML 描画 =====================================
-
-
-// 3) Enjoymentセクション（h2に Enjoyment Ranking を含む .section）を取得
-function getEnjoymentSection() {
-  const sections = Array.from(document.querySelectorAll(".section"));
-  return sections.find(sec => {
-    const heading = sec.querySelector("h1, h2, h3"); // ← h1/h2/h3 もOKに
-    return heading && /enjoyment ranking/i.test(heading.textContent);
+// ====== Recommendations 描画 ======
+function renderMainEntries(entries) {
+  entries.forEach(entry => {
+    const html = generateCard(entry);
+    if (entry.rank <= 3) {
+      document.querySelector('.section:nth-of-type(1)').insertAdjacentHTML('beforeend', html);
+    } else if (entry.rank <= 5) {
+      document.querySelector('.section:nth-of-type(2)').insertAdjacentHTML('beforeend', html);
+    } else if (entry.rank <= 8) {
+      document.querySelector('.section:nth-of-type(3)').insertAdjacentHTML('beforeend', html);
+    } else if (entry.rank <= 10) {
+      document.querySelector('.section:nth-of-type(4)').insertAdjacentHTML('beforeend', html);
+    } else {
+      document.querySelector('.section:nth-of-type(5)').insertAdjacentHTML('beforeend', html);
+    }
   });
 }
 
-// 4) 既存の .watch-ranking-item をクリア
+function generateCard(entry) {
+  const kvImage = `${imageBase}${entry.kv}.webp`;
+
+  // タイトル・括弧
+  const mainTitle = IS_JA ? (pickJPTitle(entry) || pickENTitle(entry)) : pickENTitle(entry);
+  const parenText = IS_JA ? buildParenForJA(entry) : (pickRomaji(entry) ? `(${pickRomaji(entry)})` : '');
+
+  // メタ（スタジオは英語のまま表示）
+  const studioText = entry.studios ? `Studio: ${entry.studios}` : '';
+
+  // レビュー本文
+  const review = pickReviewForRec(entry);
+
+  // details ラベル（Rec は既存踏襲。必要になったらJA化）
+  const L = {
+    details: "＋ More details",
+    dir: "Director:",
+    series: "Series comp:",
+    based: "Based on:",
+    synopsis: "Synopsis:"
+  };
+
+  if (entry.rank <= 5) {
+    return `
+      <div class="card">
+        <img src="${kvImage}" alt="${pickRomaji(entry) || mainTitle}">
+        <div class="card-content">
+          <div class="card-title">
+            <span class="title-en">${mainTitle}</span>
+            ${parenText ? `<span class="title-romaji"> ${parenText}</span>` : ""}
+          </div>
+          <div class="studio">${studioText}</div>
+          ${review ? `<p>${review}</p>` : ""}
+          <details>
+            <summary>${L.details}</summary>
+            <p>
+              <strong>${L.dir}</strong> ${entry.creators || ''}<br>
+              <strong>${L.series}</strong> ${entry.seriesComposition || ''}<br>
+              <strong>${L.based}</strong> ${entry.based_on || ''}<br>
+              <strong>${L.synopsis}</strong> ${entry.synopsis || ''}
+            </p>
+          </details>
+        </div>
+      </div>`;
+  } else {
+    return `
+      <div class="small-card">
+        <img src="${kvImage}" alt="${pickRomaji(entry) || mainTitle}">
+        <div>
+          <div class="small-title">
+            <span class="title-en">${mainTitle}</span>
+            ${parenText ? `<span class="title-romaji"> ${parenText}</span>` : ""}
+          </div>
+          <div class="studio">${studioText}</div>
+          ${review ? `<div>${review}</div>` : ""}
+        </div>
+      </div>`;
+  }
+}
+
+// ====== Enjoyment Ranking: JSON → HTML ======
+
+function getEnjoymentSection() {
+  // JA/ENどちらでも検出できるよう見出し文字を多言語対応
+  const sections = Array.from(document.querySelectorAll(".section"));
+  const isEnjoyHead = (el) => {
+    const txt = (el.textContent || "").trim();
+    return /enjoyment/i.test(txt) || /楽し|エンジョイ/.test(txt);
+  };
+  let found = sections.find(sec => {
+    const h = sec.querySelector("h1, h2, h3");
+    return h && isEnjoyHead(h);
+  });
+  // 見つからなければ最後のセクションをフォールバック
+  return found || sections[sections.length - 1] || null;
+}
+
 function clearEnjoymentItems(sectionEl) {
   if (!sectionEl) return;
   sectionEl.querySelectorAll(".watch-ranking-item").forEach(el => el.remove());
 }
 
-  function formatNoteEn(raw) {
+// 注記整形（既存）
+function formatNoteEn(raw) {
   if (!raw) return "";
   let s = String(raw).trim();
-
-  // 既に「※not ranked」系 → 大文字だけ統一
-  if (/※\s*not\s*ranked/i.test(s)) {
-    return s.replace(/※\s*not\s*ranked/ig, "※Not ranked");
-  }
-  // 「not ranked」を含むのに※が無い → 「※Not ranked」に置換
-  if (/not\s*ranked/i.test(s)) {
-    return s.replace(/(^|\b)not\s*ranked(\b|$)/ig, "※Not ranked").trim();
-  }
-
-    // 既に「※Complete」系 → 表記統一
-  if (/※\s*complete/i.test(s)) {
-    return s.replace(/※\s*complete/ig, "※Complete");
-  }
-  // 「complete」を含むのに※が無い → 「※Complete」に置換
-  if (/\bcomplete\b/i.test(s)) {
-    return s.replace(/\bcomplete\b/ig, "※Complete").trim();
-  }
-
-  return s; // NEW など他の語は触らない
+  if (/※\s*not\s*ranked/i.test(s)) return s.replace(/※\s*not\s*ranked/ig, "※Not ranked");
+  if (/not\s*ranked/i.test(s))     return s.replace(/(^|\b)not\s*ranked(\b|$)/ig, "※Not ranked").trim();
+  if (/※\s*complete/i.test(s))     return s.replace(/※\s*complete/ig, "※Complete");
+  if (/\bcomplete\b/i.test(s))     return s.replace(/\bcomplete\b/ig, "※Complete").trim();
+  return s;
 }
-
-  function formatNoteJp(raw) {
+function formatNoteJp(raw) {
   if (!raw) return "";
   let s = String(raw).trim();
-
-  // 既に「※対象外」ならそのまま
   if (/※\s*対象外/.test(s)) return s.replace(/※\s*対象外/g, "※対象外");
-
-  // 「対象外」を含むのに※が無い場合 → 置換して「※対象外」に
-  if (/対象外/.test(s)) return s.replace(/対象外/g, "※対象外").trim();
-
-    // 既に「※放送終了」なら表記統一
-  if (/※\s*放送終了/.test(s)) {
-    return s.replace(/※\s*放送終了/g, "※放送終了");
-  }
-  // 「放送終了」を含むのに※が無い → 「※放送終了」に置換
-  if (/放送終了/.test(s)) {
-    return s.replace(/放送終了/g, "※放送終了").trim();
-  }
-
-  // それ以外は触らない
+  if (/対象外/.test(s))      return s.replace(/対象外/g, "※対象外").trim();
+  if (/※\s*放送終了/.test(s)) return s.replace(/※\s*放送終了/g, "※放送終了");
+  if (/放送終了/.test(s))     return s.replace(/放送終了/g, "※放送終了").trim();
   return s;
 }
 
-  // コメントは当面 EN のみ表示（JPは将来用に残す）
-// 先頭のダッシュ等は描画側で付けるので除去
+// コメント（Enjoyment）
 function pickCommentEN(entry) {
   const en = (entry?.comment_en || "").trim();
-  return en.replace(/^\s*[—-]\s*/, ""); // 先頭の「— / -」が入ってたら外す
+  return en.replace(/^\s*[—-]\s*/, "");
+}
+function pickCommentJP(entry) {
+  const jp = (entry?.comment_jp || entry?.comment_ja || "").trim();
+  return jp.replace(/^\s*[—-]\s*/, "");
 }
 
-
-// 5) 1件分のアイテムDOMを生成
-// ▼ 理由：注記はコンバーター取りこぼしの“保険”だけ行う。
-//         EN優先・無ければJP。DOMは必要な時だけ作って無駄を減らす。
 function createWatchRankingItem(entry, indexForFallback) {
   const rankNum = (typeof entry.rank === "number" && Number.isFinite(entry.rank))
-    ? entry.rank
-    : (indexForFallback + 1);
+    ? entry.rank : (indexForFallback + 1);
 
-  const titleEN = entry.title || "";
-  const titleRomaji = entry.romanized_title ? `(${entry.romanized_title})` : "";
+  // タイトル・括弧（JAは和題を主、ENは英題を主）
+  const mainTitle = IS_JA ? (pickJPTitle(entry) || pickENTitle(entry)) : pickENTitle(entry);
+  const parenText = IS_JA ? buildParenForJA(entry) : (pickRomaji(entry) ? `(${pickRomaji(entry)})` : "");
 
-  
-  
-  // --- 注記は文字列だけ先に整形（ここではDOMを作らない） -----------------
-  const noteEN = typeof formatNoteEn === "function" ? formatNoteEn(entry.note_en || "") : (entry.note_en || "");
-  const noteJP = typeof formatNoteJp === "function" ? formatNoteJp(entry.note_jp || "") : (entry.note_jp || "");
-  const noteText = noteEN || noteJP;   // EN優先、無ければJP
-  // -------------------------------------------------------------------------
+  // 注記（EN優先→JP）
+  const noteEN = formatNoteEn(entry.note_en || "");
+  const noteJP = formatNoteJp(entry.note_jp || "");
+  const noteText = noteEN || noteJP;
 
-  // --- DOM構築（titleWrap を先に作る。これより前で append しない） ----------
-  // <div class="watch-ranking-item">	
+  // DOM
   const item = document.createElement("div");
   item.className = "watch-ranking-item";
 
-  //   <div class="watch-title"> 1. <span class="title-en">...</span> <span class="title-romaji">(...)</span> <span class="note">※...</span> </div>
   const titleWrap = document.createElement("div");
   titleWrap.className = "watch-title";
-
   titleWrap.appendChild(document.createTextNode(`${rankNum}. `));
 
-  const spanEN = document.createElement("span");
-  spanEN.className = "title-en";
-  spanEN.textContent = titleEN;
-  titleWrap.appendChild(spanEN);
+  const spanMain = document.createElement("span");
+  spanMain.className = "title-en"; // 既存スタイル継続
+  spanMain.textContent = mainTitle;
+  titleWrap.appendChild(spanMain);
 
-  if (titleRomaji) {
-    const spanRomaji = document.createElement("span");
-    spanRomaji.className = "title-romaji";
-    spanRomaji.textContent = ` ${titleRomaji}`;
-    titleWrap.appendChild(spanRomaji);
+  if (parenText) {
+    const spanParen = document.createElement("span");
+    spanParen.className = "title-romaji";
+    spanParen.textContent = ` ${parenText}`;
+    titleWrap.appendChild(spanParen);
   }
-  
-  
-   // ★ 注記は titleWrap を作った“後”に、1回だけ追加（重複防止）
   if (noteText) {
-  const spanNote = document.createElement("span");
-  spanNote.className = "note";
-  spanNote.textContent = ` ${noteText}`;
-  titleWrap.appendChild(spanNote);
-}
-
-
+    const spanNote = document.createElement("span");
+    spanNote.className = "note";
+    spanNote.textContent = ` ${noteText}`;
+    titleWrap.appendChild(spanNote);
+  }
   item.appendChild(titleWrap);
 
-
-  // --- Enjoyment用メタ行（Studios / Dir / Series comp） -------------------------
-function normalizeStudios(st) {
-  if (Array.isArray(st)) return st.map(s => String(s).trim()).filter(Boolean);
-  if (!st) return [];
-  return String(st).split(/[;,/|｜]/).map(s => s.trim()).filter(Boolean); // ; , / | ｜ を区切りとして許容
-}
-function summarizeStudios(list) {
-  if (list.length === 0) return "";
-  if (list.length === 1) return list[0];
-  return `${list[0]} +${list.length - 1}`;
-}
-
-const META_DETAIL_MAX_RANK = Infinity; // いまは全件。将来Top30なら 30 に変える
-
-function buildMetaLine(entry, rankNum) {
-  const parts = [];
-
-  // Studios（全作品）
-  const studios = summarizeStudios(normalizeStudios(entry.studios));
-  if (studios) parts.push(studios);
-
-  // ←ここを rankNum <= 10 から差し替え
-  if (rankNum <= META_DETAIL_MAX_RANK) {
-    const dir = (entry.creators || entry.director || "").trim();
-    if (dir) parts.push(`Dir: ${dir}`);
-
-    const series = (entry.seriesComposition || "").trim();
-    if (series) parts.push(`Series comp: ${series}`);
-  }
-
-  return parts.join(" · "); //中黒で軽く区切る
-}
-
-
-
-      // ★ メタ1行（Studios / Dir / Series comp）
+  // メタ行（Studios / Dir / Series comp）— ラベルはJAページのみ日本語
   const metaText = buildMetaLine(entry, rankNum);
   if (metaText) {
     const metaDiv = document.createElement("div");
@@ -275,23 +307,44 @@ function buildMetaLine(entry, rankNum) {
     item.appendChild(metaDiv);
   }
 
-
-  // ★ コメントDOMは“必要な時だけ”作る（無駄を減らす）ENがあればENだけ表示／ENが空なら何も出さない（JPは無視）<div>コメント本文</div>（comment_enがあれば）
-const commentText = pickCommentEN(entry);
-if (commentText) {
-  const commentDiv = document.createElement("div");
-  commentDiv.className = "comment";
-  commentDiv.textContent = commentText; // JSONは素の文だけ
-  item.appendChild(commentDiv);
-}
-
-
-
+  // コメント（JA→JP優先 / EN→EN）
+  const commentText = IS_JA ? (pickCommentJP(entry) || pickCommentEN(entry)) : pickCommentEN(entry);
+  if (commentText) {
+    const commentDiv = document.createElement("div");
+    commentDiv.className = "comment";
+    commentDiv.textContent = commentText;
+    item.appendChild(commentDiv);
+  }
 
   return item;
 }
 
-// 6) メイン：JSONを読み込み → ソート → 描画
+function normalizeStudios(st) {
+  if (Array.isArray(st)) return st.map(s => String(s).trim()).filter(Boolean);
+  if (!st) return [];
+  return String(st).split(/[;,/|｜]/).map(s => s.trim()).filter(Boolean);
+}
+function summarizeStudios(list) {
+  if (list.length === 0) return "";
+  if (list.length === 1) return list[0];
+  return `${list[0]} +${list.length - 1}`;
+}
+const META_DETAIL_MAX_RANK = Infinity;
+
+function buildMetaLine(entry, rankNum) {
+  const parts = [];
+  const studios = summarizeStudios(normalizeStudios(entry.studios));
+  if (studios) parts.push(studios);
+
+  if (rankNum <= META_DETAIL_MAX_RANK) {
+    const dir = (entry.creators || entry.director || "").trim();
+    if (dir) parts.push(IS_JA ? `監督：${dir}` : `Dir: ${dir}`);
+    const series = (entry.seriesComposition || "").trim();
+    if (series) parts.push(IS_JA ? `シリーズ構成：${series}` : `Series comp: ${series}`);
+  }
+  return parts.join(" · ");
+}
+
 async function renderEnjoymentRankingFromJson(jsonUrl) {
   const section = getEnjoymentSection();
   if (!section) return;
@@ -309,21 +362,16 @@ async function renderEnjoymentRankingFromJson(jsonUrl) {
   }
 
   const entries = Array.isArray(data?.enjoymentRanking) ? data.enjoymentRanking.slice() : [];
-
-  // rank昇順（数値のみ正規ソート）
   entries.sort((a, b) => {
     const ra = (typeof a.rank === "number" && Number.isFinite(a.rank)) ? a.rank : Infinity;
     const rb = (typeof b.rank === "number" && Number.isFinite(b.rank)) ? b.rank : Infinity;
     return ra - rb;
   });
 
-  // ✅ 修正：アンカーを前進させる（順序そのまま） 
   let anchor = section.querySelector("p.note") || section.querySelector("h1, h2") || section;
-entries.forEach((entry, i) => {
-  const item = createWatchRankingItem(entry, i);
-  anchor.insertAdjacentElement('afterend', item);
-  anchor = item; // ← これで次は末尾に足され、昇順に並ぶ
+  entries.forEach((entry, i) => {
+    const item = createWatchRankingItem(entry, i);
+    anchor.insertAdjacentElement('afterend', item);
+    anchor = item;
   });
 }
-
-
