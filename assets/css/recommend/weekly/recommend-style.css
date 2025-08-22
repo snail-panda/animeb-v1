@@ -72,6 +72,7 @@ hr.thin-divider {
     .studio {
       font-size: 0.93rem;
       color: #666;
+      margin-top: 0.1rem;
       margin-bottom: 0.6rem;
     }
     summary {
