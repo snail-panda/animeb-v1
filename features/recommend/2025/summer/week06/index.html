@@ -14,15 +14,15 @@
 </nav>
 <!-- ▲ Temporary Back to Home -->
 
-  <h1><span class="season">Summer 2025</span> Anime <br><span class="stage">Mid-Season Recommendations</span></h1>
-  <p class="update-date">Last updated: August 16, 2025</p>
+  <h1 data-i18n="heading_reco" data-i18n-br><span class="season">Summer 2025</span> Anime <br><span class="stage">Mid-Season Recommendations</span></h1>
+  <p class="update-date" data-i18n="last_updated">Last updated: August 16, 2025</p>
   <hr class="thin-divider">
-  <p class="note">* This ranking is based purely on personal impression and taste. <br>
+  <p class="note" data-i18n="note_reco" data-i18n-br>* This ranking is based purely on personal impression and taste. <br>
   The order, impressions, and comments reflect a natural, irresistible sense. Please forgive any differences in feeling with yours, and try to "believe, wait, and forgive."<br>
   Some titles not ranked may still be included as honorable mentions.</p>
 
   <div class="section">
-  <h2>🏆 Top 3 <span class="class-description">(If nothing else, at least watch these… or else)</span></h2>
+  <h2 data-i18n="top3">🏆 Top 3 <span class="class-description" data-i18n="blurb_top3">(If nothing else, at least watch these… or else)</span></h2>
 
   <div class="card">
     <img src="https://placehold.co/160x230" alt="Kijin Gento Sho">
@@ -79,7 +79,7 @@
   <!-- 以下、Top 5, Top 8, Watch Rankingなどもこの形式で続きます。必要に応じて全文展開可能です。 -->
 
    <div class="section">
-  <h2>🎖️ Top 5 <span class="class-description">(If you claim to like anime—or even if you don’t—you should still watch these.)</span></h2>
+  <h2 data-i18n="top5">🎖️ Top 5 <span class="class-description" data-i18n="blurb_top5">(If you claim to like anime—or even if you don’t—you should still watch these.)</span></h2>
 
   <div class="card">
     <img src="https://placehold.co/160x230" alt="Ruri no Hōseki">
@@ -108,7 +108,7 @@
 
 
  <div class="section">
-  <h2> Top 8 <span class="class-description">(For anime fans, these should be automatic picks.)</span></h2>
+  <h2 data-i18n="top8"> Top 8 <span class="class-description" data-i18n="blurb_top8">(For anime fans, these should be automatic picks.)</span></h2>
 
   <div class="small-card">
     <img src="https://placehold.co/80x120" alt="Dekin no Mogura">
@@ -146,7 +146,7 @@
 
 
   <div class="section">
-  <h2> Top 10 <span class="class-description">(If you can only watch 10 shows this season, start here.)</span></h2>
+  <h2 data-i18n="top10"> Top 10 <span class="class-description" data-i18n="blurb_top10">(If you can only watch 10 shows this season, start here.)</span></h2>
 
   <div class="small-card">
     <img src="https://placehold.co/80x120" alt="Turkey!">
@@ -173,7 +173,7 @@
 
 
   <div class="section">
-  <h2> Additional Picks <span class="class-description">(If you’ve got room—these are worth your time.)</span></h2>
+  <h2 data-i18n="additional"> Additional Picks <span class="class-description" data-i18n="blurb_extra">(If you’ve got room—these are worth your time.)</span></h2>
 
   <div class="small-card">
     <img src="https://placehold.co/80x120" alt="Busu ni Hanataba o">
@@ -199,8 +199,8 @@
 </div>
 
   <div class="section">
-  <h1> Enjoyment Ranking <span class="class-description">(Based on enjoyment, not evaluation—includes non-ranked titles.)</span></h1>
-  <p class="note">Note: This includes shows not eligible for ranking. It's simply a list of what I’m genuinely enjoying or looking forward to the most.</p>
+  <h1 data-i18n="heading_enj"> Enjoyment Ranking <span class="class-description" data-i18n="caption_enj">(Based on enjoyment, not evaluation—includes non-ranked titles.)</span></h1>
+  <p class="note" data-i18n="note_enj">Note: This includes shows not eligible for ranking. It's simply a list of what I’m genuinely enjoying or looking forward to the most.</p>
 
   <div class="watch-ranking-item">
     <div class="watch-title">
@@ -452,7 +452,14 @@
 </div>
   </div>
   
+  <!-- data-i18n を先に読み込み、次に recommendations.js -->
+<script src="./data-i18n.js" defer></script>
   <script src="/animeb-v1/assets/js/recommend/weekly/recommendations.js" defer></script>
+
+<!-- 言語適用（en/jp を選択）-->
+<script defer>
+  document.addEventListener('DOMContentLoaded', () => applyI18n('en')); // 例: 'jp'
+</script>  
   
   <script>
 (function(){
