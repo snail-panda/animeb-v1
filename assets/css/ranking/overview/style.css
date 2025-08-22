@@ -71,6 +71,11 @@
       line-height: 2;
 }
     
+    .weekly-overview ul{
+  list-style: none;
+  padding-inline-start: 1rem; /* 0〜1remで調整 */
+  margin-left: 0;
+}
     .dropped-list {
       font-size: 0.7rem;
       color: #615e5e;
@@ -84,13 +89,13 @@
 
 
     @media screen and (max-width: 800px) {
-      .html {
+      html {
         font-size: 11px; /* スマホ用のフォントサイズ */
       }
     }
 
     @media screen and (max-width: 480px) {
-      .html {
+      html {
         font-size: 9px; /* スマホ用のフォントサイズ */ 
       }
       .weekly-overview p {
