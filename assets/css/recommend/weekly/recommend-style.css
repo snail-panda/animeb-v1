@@ -134,7 +134,8 @@ hr.thin-divider {
     }
 
     .watch-ranking-item .comment {
-  margin-top: 2rem;        /* タイトルとの間隔 */
+  margin-top: 1.5rem;        /* タイトルとの間隔 */
+  margin-bottom: 2.5rem;
   line-height: 1.35;
 }
 .watch-ranking-item .comment::before {
