@@ -109,7 +109,7 @@ hr.thin-divider {
       font-weight: bold;
       font-size: 1.2rem;
       margin-top: 2rem;
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.2rem;
     }
     .watch-title .title-romaji {
       font-size: 1.03rem;
@@ -142,7 +142,8 @@ hr.thin-divider {
 }
 
 .meta-line{
-  margin-top:.25rem;
+  margin-top:.2rem;
+  margin-bottom: 0.5rem;
   font-size:.9rem;
   color:#6b7280; /* Tailwindのgray-500相当 */
   line-height:1.2;
