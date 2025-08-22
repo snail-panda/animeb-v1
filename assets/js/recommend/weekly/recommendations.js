@@ -1,5 +1,38 @@
 // recommendations.js
 
+// ===== 言語（URLパラメータから初期化） =====
+const _LANG_PARAM = new URLSearchParams(location.search).get('lang');
+let CURRENT_LANG = (_LANG_PARAM === 'jp') ? 'jp' : 'en';
+
+// 固定文言の適用（data-i18n.jsのapplyI18nを使用）
+document.addEventListener('DOMContentLoaded', () => {
+  if (typeof applyI18n === 'function') applyI18n(CURRENT_LANG);
+
+  // ボタンの見た目
+  document.querySelectorAll('.lang-btn').forEach(b => {
+    b.classList.toggle('is-active', b.dataset.lang === CURRENT_LANG);
+    b.addEventListener('click', () => {
+      const sp = new URLSearchParams(location.search);
+      sp.set('lang', b.dataset.lang);
+      // パラメータだけ入れ替えてリロード（最小改修で確実に全体再描画）
+      location.search = sp.toString();
+    });
+  });
+});
+
+// 言語別フィールド取得（title_jp → title の順）
+function pick(entry, base) {
+  const k = `${base}_${CURRENT_LANG}`;
+  return (entry?.[k] ?? entry?.[base] ?? "").toString();
+}
+
+// コメントも言語別（冒頭ダッシュは除去）
+function pickComment(entry) {
+  const raw = (CURRENT_LANG === 'jp' ? (entry?.comment_jp || "") : (entry?.comment_en || ""));
+  return raw.trim().replace(/^\s*[—-]\s*/, "");
+}
+
+
 // ファイルの最上部（グローバル定義）
 const path = window.location.pathname;
 const segments = path.split('/');
@@ -184,8 +217,8 @@ function createWatchRankingItem(entry, indexForFallback) {
     ? entry.rank
     : (indexForFallback + 1);
 
-  const titleEN = entry.title || "";
-  const titleRomaji = entry.romanized_title ? `(${entry.romanized_title})` : "";
+  const titleText   = pick(entry, 'title');                       // ← 言語対応
+const titleRomaji = entry.romanized_title ? `(${entry.romanized_title})` : "";
 
   
   
@@ -208,7 +241,7 @@ function createWatchRankingItem(entry, indexForFallback) {
 
   const spanEN = document.createElement("span");
   spanEN.className = "title-en";
-  spanEN.textContent = titleEN;
+  spanEN.textContent = titleText;
   titleWrap.appendChild(spanEN);
 
   if (titleRomaji) {
@@ -277,7 +310,7 @@ function buildMetaLine(entry, rankNum) {
 
 
   // ★ コメントDOMは“必要な時だけ”作る（無駄を減らす）ENがあればENだけ表示／ENが空なら何も出さない（JPは無視）<div>コメント本文</div>（comment_enがあれば）
-const commentText = pickCommentEN(entry);
+const commentText = pickComment(entry);   // ← 言語対応（EN/JP）
 if (commentText) {
   const commentDiv = document.createElement("div");
   commentDiv.className = "comment";
@@ -326,4 +359,22 @@ entries.forEach((entry, i) => {
   });
 }
 
+// ---- 言語状態とフィールド選択ヘルパー -------------------------------
+window.currentLang = 'en';
+
+function setLang(lang){
+  window.currentLang = (lang === 'jp') ? 'jp' : 'en';
+  // 固定文言（見出し・注意書きなど）
+  if (typeof applyI18n === 'function') applyI18n(window.currentLang);
+  // データ部分：再描画（既に読込済みなら再利用／未読なら従来の処理が動く）
+  if (window.recoData) renderRecommendationsFromData(window.recoData);
+  if (window.enjData && window.enjJsonUrlCached) renderEnjoymentFromData(window.enjData);
+}
+
+// EN/JPどちらでも拾える汎用ピッカー（例: title ↔ title_jp, synopsis ↔ synopsis_jp）
+function pick(entry, base){
+  const en = entry[`${base}_en`] ?? entry[base];
+  const jp = entry[`${base}_jp`];
+  return (window.currentLang === 'jp') ? (jp ?? en ?? '') : (en ?? jp ?? '');
+}
 
