@@ -230,6 +230,21 @@ function createWatchRankingItem(entry, indexForFallback) {
 
   item.appendChild(titleWrap);
 
+  // --- Enjoyment 表示つまみ -----------------------------------------------
+// 既定: Infinity = 全ランクに Dir / Series comp を表示
+// 例) URLで ?meta=30 を付ければ Top30 までに制限
+// 例) <section class="section" data-meta-max-rank="30"> でもOK（URL優先）
+const META_DETAIL_MAX_RANK = (() => {
+  const urlVal = Number(new URLSearchParams(location.search).get("meta"));
+  if (Number.isFinite(urlVal)) return urlVal;
+
+  const sec = getEnjoymentSection();
+  const dsVal = Number(sec?.dataset?.metaMaxRank);
+  if (Number.isFinite(dsVal)) return dsVal;
+
+  return Infinity; // 既定＝全件表示
+})();
+
 
   // --- Enjoyment用メタ行（Studios / Dir / Series comp） -------------------------
 function normalizeStudios(st) {
@@ -242,6 +257,7 @@ function summarizeStudios(list) {
   if (list.length === 1) return list[0];
   return `${list[0]} +${list.length - 1}`;
 }
+
 function buildMetaLine(entry, rankNum) {
   const parts = [];
 
@@ -249,8 +265,8 @@ function buildMetaLine(entry, rankNum) {
   const studios = summarizeStudios(normalizeStudios(entry.studios));
   if (studios) parts.push(studios);
 
-  // Top10だけ Dir / Series comp を追加
-  if (rankNum <= 10) {
+  // ←ここを rankNum <= 10 から差し替え
+  if (rankNum <= META_DETAIL_MAX_RANK) {
     const dir = (entry.creators || entry.director || "").trim();
     if (dir) parts.push(`Dir: ${dir}`);
 
@@ -258,8 +274,9 @@ function buildMetaLine(entry, rankNum) {
     if (series) parts.push(`Series comp: ${series}`);
   }
 
-  return parts.join(" · "); // 中黒で軽く区切る
+  return parts.join(" · "); //中黒で軽く区切る
 }
+
 
 
       // ★ メタ1行（Studios / Dir / Series comp）
