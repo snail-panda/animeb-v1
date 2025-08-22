@@ -230,6 +230,48 @@ function createWatchRankingItem(entry, indexForFallback) {
 
   item.appendChild(titleWrap);
 
+
+  // --- Enjoyment用メタ行（Studios / Dir / Series comp） -------------------------
+function normalizeStudios(st) {
+  if (Array.isArray(st)) return st.map(s => String(s).trim()).filter(Boolean);
+  if (!st) return [];
+  return String(st).split(/[;,/|｜]/).map(s => s.trim()).filter(Boolean); // ; , / | ｜ を区切りとして許容
+}
+function summarizeStudios(list) {
+  if (list.length === 0) return "";
+  if (list.length === 1) return list[0];
+  return `${list[0]} +${list.length - 1}`;
+}
+function buildMetaLine(entry, rankNum) {
+  const parts = [];
+
+  // Studios（全作品）
+  const studios = summarizeStudios(normalizeStudios(entry.studios));
+  if (studios) parts.push(studios);
+
+  // Top10だけ Dir / Series comp を追加
+  if (rankNum <= 10) {
+    const dir = (entry.creators || entry.director || "").trim();
+    if (dir) parts.push(`Dir: ${dir}`);
+
+    const series = (entry.seriesComposition || "").trim();
+    if (series) parts.push(`Series comp: ${series}`);
+  }
+
+  return parts.join(" · "); // 中黒で軽く区切る
+}
+
+
+      // ★ メタ1行（Studios / Dir / Series comp）
+  const metaText = buildMetaLine(entry, rankNum);
+  if (metaText) {
+    const metaDiv = document.createElement("div");
+    metaDiv.className = "meta-line";
+    metaDiv.textContent = metaText;
+    item.appendChild(metaDiv);
+  }
+
+
   // ★ コメントDOMは“必要な時だけ”作る（無駄を減らす）ENがあればENだけ表示／ENが空なら何も出さない（JPは無視）<div>コメント本文</div>（comment_enがあれば）
 const commentText = pickCommentEN(entry);
 if (commentText) {

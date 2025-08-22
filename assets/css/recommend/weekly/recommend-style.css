@@ -141,6 +141,17 @@ hr.thin-divider {
   opacity: .8;
 }
 
+.meta-line{
+  margin-top:.25rem;
+  font-size:.9rem;
+  color:#6b7280; /* Tailwindのgray-500相当 */
+  line-height:1.2;
+}
+@media (max-width: 600px){
+  .meta-line{ font-size:.85rem; }
+}
+
+
 
        /* Temporary Back to Home */
 .mini-nav {
