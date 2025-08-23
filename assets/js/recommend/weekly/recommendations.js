@@ -20,6 +20,7 @@ console.log("Enjoyment JSON Path:", enjoyPath);
 
 // ====== 言語判定 ======
 const IS_JA = /^ja/i.test(document.documentElement.lang || "");
+const LANG_CLASS = IS_JA ? 'lang-ja' : 'lang-en';
 
 // ====== 括弧内表記：例外オーバーライド（モード → KV一覧） ======
 // モード: 'none' | 'en' | 'romaji' | 'en+romaji'
@@ -159,6 +160,13 @@ function generateCard(entry) {
   // レビュー本文
   const review = pickReviewForRec(entry);
 
+  // ランク帯クラス（Recommendations のカード用）
+  const tierClass =
+     (entry.rank <= 3) ? 'tier-top3' :
+     (entry.rank <= 5) ? 'tier-top5' :
+     (entry.rank <= 8) ? 'tier-top8' :
+     (entry.rank <= 10) ? 'tier-top10' : 'tier-additional';
+
   // details ラベル（Rec は既存踏襲。必要になったらJA化）
   const L = {
     details: "＋ More details",
@@ -170,7 +178,7 @@ function generateCard(entry) {
 
   if (entry.rank <= 5) {
     return `
-      <div class="card">
+      <div class="card ${LANG_CLASS} ${tierClass}">
         <img src="${kvImage}" alt="${pickRomaji(entry) || mainTitle}">
         <div class="card-content">
           <div class="card-title">
@@ -178,7 +186,7 @@ function generateCard(entry) {
             ${parenText ? `<span class="title-romaji"> ${parenText}</span>` : ""}
           </div>
           <div class="studio">${studioText}</div>
-          ${review ? `<p>${review}</p>` : ""}
+          ${review ? `<p class="review-text ${LANG_CLASS}">${review}</p>` : ""}
           <details>
             <summary>${L.details}</summary>
             <p>
@@ -192,7 +200,7 @@ function generateCard(entry) {
       </div>`;
   } else {
     return `
-      <div class="small-card">
+      <div class="small-card ${LANG_CLASS} ${tierClass}">
         <img src="${kvImage}" alt="${pickRomaji(entry) || mainTitle}">
         <div>
           <div class="small-title">
@@ -200,7 +208,7 @@ function generateCard(entry) {
             ${parenText ? `<span class="title-romaji"> ${parenText}</span>` : ""}
           </div>
           <div class="studio">${studioText}</div>
-          ${review ? `<div>${review}</div>` : ""}
+          ${review ? `<div class="review-text ${LANG_CLASS}">${review}</div>` : ""}
         </div>
       </div>`;
   }
@@ -273,7 +281,7 @@ function createWatchRankingItem(entry, indexForFallback) {
 
   // DOM
   const item = document.createElement("div");
-  item.className = "watch-ranking-item";
+  item.className = "watch-ranking-item " + LANG_CLASS;
 
   const titleWrap = document.createElement("div");
   titleWrap.className = "watch-title";
@@ -311,7 +319,7 @@ function createWatchRankingItem(entry, indexForFallback) {
   const commentText = IS_JA ? (pickCommentJP(entry) || pickCommentEN(entry)) : pickCommentEN(entry);
   if (commentText) {
     const commentDiv = document.createElement("div");
-    commentDiv.className = "comment";
+    commentDiv.className = "comment comment-text " + LANG_CLASS;
     commentDiv.textContent = commentText;
     item.appendChild(commentDiv);
   }
