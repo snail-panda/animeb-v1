@@ -154,6 +154,22 @@ hr.thin-divider {
   .meta-line{ font-size:.85rem; }
 }
 
+/* review & comment text */
+/* 日本語の本文だけ少し小さめ */
+.review-text.lang-ja { font-size: 0.9rem; line-height: 1.6; }
+.comment-text.lang-ja { font-size: 0.9rem; line-height: 1.6; }
+
+/* 大カード（Top3/Top5）は少し大きめ、小カードは控えめ  */
+.card.lang-ja.tier-top3 .review-text { font-size: 1rem; }
+.card.lang-ja.tier-top5 .review-text { font-size: 0.95rem; }
+.small-card.lang-ja .review-text      { font-size: 0.85rem; }
+
+/* 追加で行間や余白の微調整も */
+.card.lang-ja .review-text { margin-top: 0.4rem; }
+.small-card.lang-ja .review-text { margin-top: 0.35rem; }
+.watch-ranking-item.lang-ja .comment-text { margin-top: 0.35rem; }
+
+
 
 /* Lang-switch と back to home nav */
 .lang-switch {
