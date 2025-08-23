@@ -94,13 +94,13 @@ li {
 /* Responsive Design */
     @media screen and (max-width: 768px) {
       html {
-        font-size: 14px; /* スマホ用のフォントサイズ */
+        font-size: 15px; /* スマホ用のフォントサイズ */
       }
     }
 
     @media screen and (max-width: 480px) {
       html {
-        font-size: 13px; /* スマホ用のフォントサイズ */ 
+        font-size: 14px; /* スマホ用のフォントサイズ */ 
       }
       .weekly-overview p {
       max-width: 92ch;
