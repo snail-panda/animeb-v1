@@ -90,13 +90,13 @@ html {
 
     @media screen and (max-width: 800px) {
       html {
-        font-size: 11px; /* スマホ用のフォントサイズ */
+        font-size: 14px; /* スマホ用のフォントサイズ */
       }
     }
 
     @media screen and (max-width: 480px) {
       html {
-        font-size: 9px; /* スマホ用のフォントサイズ */ 
+        font-size: 12px; /* スマホ用のフォントサイズ */ 
       }
       .weekly-overview p {
       max-width: 70ch;
