@@ -1,5 +1,5 @@
 html {
- font-size: 16px; /* デフォルトのフォントサイズ */
+ font-size: 18px; /* デフォルトのフォントサイズ */
 }
 
 .weekly-overview {
@@ -90,7 +90,7 @@ html {
 
     @media screen and (max-width: 800px) {
       html {
-        font-size: 16px; /* スマホ用のフォントサイズ */
+        font-size: 17px; /* スマホ用のフォントサイズ */
       }
     }
 
