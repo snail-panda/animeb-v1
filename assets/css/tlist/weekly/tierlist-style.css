@@ -118,7 +118,7 @@ hr.thin-divider {
 
 /* Tier headings — left border only (no background) */
 h4.tier-heading {
-  margin: 26px 0 12px;
+  margin: 26px 0 22px;
   padding-left: 0.6rem;     /* ← ボーダーと文字の間のスペース */
   border-left-width: 8px;   /* ← ちょい太め */
   border-left-style: solid;
