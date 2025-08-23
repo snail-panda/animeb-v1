@@ -43,50 +43,47 @@ body {
   color: #2b2b2b;
 }
 
+hr.thin-divider {
+    border: none;
+    border-top: 1px solid #eee;
+    margin: 0.6rem 0 -0.2rem 0;
+}
+
 .post-date {
   font-size: 0.8rem;
   color: #707070;
   margin-bottom: 4rem;
 }
-a
+
 .post-intro {
-  font-size: 1rem;
   margin-top: 4rem;
   margin-bottom: 5rem;
-  line-height: 1.7;
-  letter-spacing: 0.05px;
-  word-spacing: 0.1em;
-  width: 75ch;
 } 
 
 .post-content {
-  font-size: 1rem;
   margin-top: 0.9rem;
   margin-bottom: 1.5rem;
   padding: 2.5rem 0; /* 20px */
-  line-height: 1.75;
   border-bottom: 1px solid #ddd;
-  letter-spacing: 0.05px;
-  word-spacing: 0.13rem;
-  width: 75ch;
 } 
 
 .post-conclusion  {
-  font-size: 1rem;
   margin-top: 3rem;
   margin-bottom: 5rem;
-  line-height: 1.7;
-  letter-spacing: 0.05px;
-  word-spacing: 0.1rem;
-  width: 75ch;
 } 
 
 .post-intro,
 .post-content,
 .post-conclusion {
+  font-size: 1rem; 
+  letter-spacing: 0.01em; 
+  word-spacing: 0.01em; 
+  line-height: 1.75;
   max-width: 75ch;
   width: 90%;
 }
+
+#introText p, #contentText p, #conclusionText p { margin: 0 0 1.5rem; }
 
 #introText::first-letter,
 #contentText::first-letter,
@@ -99,11 +96,6 @@ a
   line-height: 1.7;
 }
 
-.post-intro,
-.post-content,
-.post-conclusion {
-  line-height: 1.7;
-}
 
 #introText,
 #contentText,
