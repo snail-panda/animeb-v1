@@ -8,7 +8,7 @@ html {
 
 body {
   margin: 0;
-  padding: 1.25rem;
+  padding: 0.65rem;
   font-family: 'Arial Nova Cond Light', sans-serif;
   background: #ffffed;
 }
@@ -370,7 +370,7 @@ VIEWING STATUS ZONE
 
 .table {
   display: grid;
-  grid-template-columns: 40px 1fr 30px;
+  grid-template-columns: 36px 1fr 30px;
   border-bottom: 2px solid #ccc;
   margin: 0;
 }
@@ -410,7 +410,7 @@ VIEWING STATUS ZONE
 
 .entry {
   display: grid;
-  grid-template-columns: 40px 1fr 30px;
+  grid-template-columns: 36px 1fr 30px;
   grid-template-rows: auto auto auto;
   grid-template-areas:
     "rank title score"
