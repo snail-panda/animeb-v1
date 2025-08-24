@@ -17,7 +17,7 @@ body {
   max-width: 740px;
   margin: 0 auto;
   background: #ffffed;
-  padding: .875rem;
+  padding: 1.875rem;
   border: solid 0.5px #d4ddd0;
   /*box-shadow: 0 0 12px rgba(0, 0, 0, 0.08);*/
   /*box-sizing: border-box; ← 一回消してみる*/
