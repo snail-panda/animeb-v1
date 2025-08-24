@@ -613,7 +613,7 @@ VIEWING STATUS ZONE
   letter-spacing: 0.03em;
   word-spacing: 0.13em;
   padding-top: 0.125rem;
-  padding-right: 0;
+  padding-right: 6px; /* 右の余白 0,4,6,8*/
 }
 
 .jp-title {
