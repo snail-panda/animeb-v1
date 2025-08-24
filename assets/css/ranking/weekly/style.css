@@ -458,7 +458,7 @@ VIEWING STATUS ZONE
   flex-direction: column;
   align-items: flex-end;
   justify-content: center;
-  margin-right: 0.4rem; /* adjustable per alignment needs */  
+  margin-right: 0.8rem; /* adjustable per alignment needs */  
   padding-top: 0.25rem; /* 4px */
 }
 
