@@ -669,7 +669,6 @@ VIEWING STATUS ZONE
   position: relative; /* ← imgとoverlayをレイヤーに */
   width: 80px; /* imgサイズと一致 */
   aspect-ratio: 4/5; /* 縦横比が一致するなら */
-  isolation: isolate;
 }
 
 .kv-thumb img {
