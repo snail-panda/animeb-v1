@@ -1136,28 +1136,29 @@ VIEWING STATUS ZONE
 }
 
 /* スマホ帯（従来どおり 480px 基準） */
+/* iOS/古め端末を含むスマホ帯の WRP ポップアップ対策（最終上書き） */
 @media (max-width: 480px) {
-  .popup.wrp-popup {
-    /* 今の配置のままでOK。位置は既存CSS/JSに任せる */
-    /* 幅まわりだけ確実に制御する */
-    display: block;                 /* 開く時に block で表示（念のため） */
+  /* できるだけ広くマッチ：.popup.wrp-popup / .wrp-popup / popup-wrp-popup-active 等 */
+  :where(.popup.wrp-popup, .wrp-popup, [class*="wrp-popup"]) {
+    position: fixed;                            /* 画面基準にする（親の幅から解放） */
+    left: 50%;
+    transform: translateX(-50%);                /* 中央寄せ → 原理的に右切れしない */
+    top: max(12px, env(safe-area-inset-top, 0px));
+    z-index: 9999;
+
+    /* 幅ルール：細くならず（86.54px）、内容に応じて広がるが画面内に収める */
+    min-width: 86.54px;
+    width: max-content;                         /* shrink-to-fit を避けて内容基準 */
+    max-width: min(calc(100vw - 32px), calc(100dvw - 32px));
     box-sizing: border-box;
 
-    /* ▼ ここが肝：最小幅を保障し、内容に合わせて広がるが画面内にクランプ */
-    min-width: 86.54px;             /* あなたの“細くならない”下限 */
-    width: max-content;             /* 内容サイズに合わせて横に広がる */
-    max-width: calc(100vw - 48px);  /* 画面左右に16pxの余白を残して収める */
-
-    /* 実機Safari向けに d*vw が使える環境なら優先させてズレを更に減らす */
-    max-width: min(calc(100vw - 48px), calc(100dvw - 48px));
-    box-sizing: border-box;
-
-    /* テキストの折返し（自然に折れるように） */
+    /* テキスト折返し（見切れ防止） */
     white-space: normal;
     overflow-wrap: anywhere;
     word-break: break-word;
   }
 }
+
 
 
 
