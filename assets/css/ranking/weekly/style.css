@@ -1136,32 +1136,16 @@ VIEWING STATUS ZONE
 }
 
 /* スマホ帯（従来どおり 480px 基準） */
-/* iOS/古め端末を含むスマホ帯の WRP ポップアップ対策（最終上書き） */
 @media (max-width: 480px) {
-  /* できるだけ広くマッチ：.popup.wrp-popup / .wrp-popup / popup-wrp-popup-active 等 */
-  :where(.popup.wrp-popup, .wrp-popup, [class*="wrp-popup"]) {
-    position: fixed;                            /* 画面基準にする（親の幅から解放） */
-    left: 50%;
-    transform: translateX(-50%);                /* 中央寄せ → 原理的に右切れしない */
-    top: max(12px, env(safe-area-inset-top, 0px));
-    z-index: 9999;
-
-    /* 幅ルール：細くならず（86.54px）、内容に応じて広がるが画面内に収める */
-    min-width: 86.54px;
-    width: max-content;                         /* shrink-to-fit を避けて内容基準 */
-    max-width: min(calc(100vw - 32px), calc(100dvw - 32px));
+  .wrp-popup {
+    min-width: 86.54px;                 /* ← 下限だけ保証 */
+    max-width: calc(100vw - 32px);      /* ← 画面外に出ない蓋 */
     box-sizing: border-box;
-
-    /* テキスト折返し（見切れ防止） */
     white-space: normal;
     overflow-wrap: anywhere;
     word-break: break-word;
   }
 }
-
-
-
-
 
 /* レビューバッジ */
 .review-tag {
