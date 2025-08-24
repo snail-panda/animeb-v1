@@ -1135,40 +1135,28 @@ VIEWING STATUS ZONE
   padding: 0.625rem 0.75rem;
 }
 
-/* 画面基準で安全に出すためのポップアップ共通スタイル */
-.wrp-popup {
-  position: fixed;                     /* ← ここがキモ（親ではなく画面に対して出す） */
-  left: var(--wrp-left, 12px);         /* JSで計算した値を受け取る */
-  top:  var(--wrp-top,  12px);
-  z-index: 9999;
+/* スマホ時のWRPポップアップは“画面基準で中央寄せ”にする */
+@media (max-width: 540px) {
+  .popup.wrp-popup {
+    position: fixed;                          /* ← 親の幅に縛られない */
+    left: 50%;
+    top: calc(12px + env(safe-area-inset-top, 0px));
+    transform: translateX(-50%);
+    z-index: 9999;
 
-  /* 幅と折返し：縦長ノッポ防止 */
-  max-width: min(360px, calc(100vw - 2 * var(--wrp-gutter, 12px)));
-  width: max-content;                  /* 内容に合わせつつ max-width で頭打ち */
-  max-height: calc(100vh - 2 * var(--wrp-gutter, 12px));
-  overflow: auto;
+    /* 横幅は読みやすい範囲にクランプ（細長対策） */
+    width: auto;
+    max-width: min(360px, 92vw);
+    max-height: calc(
+      100vh - 24px - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px)
+    );
+    overflow: auto;
 
-  /* テキストのブレイクを自然に */
-  white-space: normal;
-  overflow-wrap: anywhere;
-  word-break: break-word;
-  hyphens: auto;
-
-  /* 体裁（好みで） */
-  padding: 0.5rem 0.75rem;
-  border-radius: 8px;
-  background: #fffdec;
-  box-shadow: 0 8px 24px rgba(0,0,0,.18);
-}
-
-/* 右/左/上寄せによって矢印の位置を切り替えたい場合のフック（任意） */
-.wrp-popup.align-left  { transform-origin: left top;  }
-.wrp-popup.align-right { transform-origin: right top; }
-.wrp-popup.placement-top { transform-origin: center bottom; }
-
-/* iOS のノッチ領域を考慮（任意） */
-@supports (padding: max(0px)) {
-  .wrp-popup { --wrp-gutter: max(12px, env(safe-area-inset-left), env(safe-area-inset-right)); }
+    /* 変な改行を避けて自然に折り返す */
+    white-space: normal;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
 }
 
 
