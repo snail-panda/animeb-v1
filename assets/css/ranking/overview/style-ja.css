@@ -1,5 +1,5 @@
 html {
-  font-size: 18px; /* デフォルトのフォントサイズ */
+  font-size: 16px; /* デフォルトのフォントサイズ */
 }
 
 .weekly-overview {
@@ -14,7 +14,7 @@ html {
     }
     
     .overview-title {
-      font-size: 0.9rem;
+      font-size: 1.025rem;
       font-family: 'Noto Sans TC SemiBold', 'Squada One', sans-serif;
       font-weight: 400;
       color: #7f7d7d;
@@ -30,7 +30,7 @@ html {
     }
     
     .date {
-      font-size: 0.6rem;
+      font-size: 0.725rem;
       font-family: 'Abel', sans-serif;
       font-weight: 400;
       color: #8a8787;
@@ -40,7 +40,7 @@ html {
     }
     
     .section-title {
-      font-size: 0.85rem;
+      font-size: 0.975rem;
       margin-top: 1.75rem;
       margin-bottom: 1.25rem;
       color: #666464;
@@ -50,7 +50,7 @@ html {
     }
 
     .weekly-overview p {
-      font-size: 0.7rem;
+      font-size: 0.825rem;
       color: #3d3d3d;
       max-width: 92ch;
       width: 90%;
@@ -60,7 +60,7 @@ html {
     }
 
 	ul {
-      font-size: 0.7rem;
+      font-size: 0.825rem;
       color: #3d3d3d;
       max-width: 92ch;
       width: 90%;
@@ -81,7 +81,7 @@ li {
 }
 
 .dropped-list {
-      font-size: 0.65rem;
+      font-size: 0.775rem;
       color: #615e5e;
       margin-top: 0.5rem;
       padding-left: 1.5rem;
@@ -94,13 +94,13 @@ li {
 /* Responsive Design */
     @media screen and (max-width: 768px) {
       html {
-        font-size: 17px; /* スマホ用のフォントサイズ */
+        font-size: 15px; /* スマホ用のフォントサイズ */
       }
     }
 
     @media screen and (max-width: 480px) {
       html {
-        font-size: 16px; /* スマホ用のフォントサイズ */ 
+        font-size: 14px; /* スマホ用のフォントサイズ */ 
       }
       .weekly-overview p {
       max-width: 92ch;
