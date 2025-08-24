@@ -8,7 +8,7 @@ html {
 
 body {
   margin: 0;
-  padding: 0.65rem;
+  padding: 1.25rem;
   font-family: 'Arial Nova Cond Light', sans-serif;
   background: #ffffed;
 }
@@ -17,7 +17,7 @@ body {
   max-width: 740px;
   margin: 0 auto;
   background: #ffffed;
-  padding: .875rem;
+  padding: 1.875rem;
   border: solid 0.5px #d4ddd0;
   /*box-shadow: 0 0 12px rgba(0, 0, 0, 0.08);*/
   /*box-sizing: border-box; ← 一回消してみる*/
@@ -370,7 +370,7 @@ VIEWING STATUS ZONE
 
 .table {
   display: grid;
-  grid-template-columns: 38px 1fr 30px;
+  grid-template-columns: 40px 1fr 30px;
   border-bottom: 2px solid #ccc;
   margin: 0;
 }
@@ -410,7 +410,7 @@ VIEWING STATUS ZONE
 
 .entry {
   display: grid;
-  grid-template-columns: 38px 1fr 30px;
+  grid-template-columns: 40px 1fr 30px;
   grid-template-rows: auto auto auto;
   grid-template-areas:
     "rank title score"
@@ -603,18 +603,17 @@ VIEWING STATUS ZONE
 
 /* 8. ENTRY MAIN AREA 〜 Title + Bar + Score */
 
-     /* タイトル行（右サイドの恒常余白は消す） */
      .entry .title {
-  display: flex;
-  align-items: flex-start;
-  font-family: 'Special Gothic Expanded One', 'sans-serif';
-  font-size: 0.6rem;
-  color: #404040;
-  letter-spacing: 0.03em;
-  word-spacing: 0.13em;
-  padding-top: 0.125rem;
-  padding-right: 0;
-}
+      display: flex;
+      align-items: center;
+      font-family: 'Special Gothic Expanded One', 'sans-serif';
+      font-size: 0.6rem;
+      color: #404040;
+      letter-spacing: 0.03em;
+      word-spacing: 0.13em;
+      padding-top: 0.125rem; /* 2px */
+      padding-right: 1.125rem; /* 18px */
+    }
 
 .jp-title {
   font-size: 0.5rem; /* 8px */
@@ -632,25 +631,21 @@ VIEWING STATUS ZONE
 
 /* Key Visual, Genre Tags, Collapse Area*/
 
-/* タイトル内のフレックス行が列いっぱいに広がるように */
 .title-container {
   display: flex;
   flex-direction: row;
-  gap: 0.5rem;
+  gap: 0.5rem; /* 余白 */
   align-items: flex-start;
   position: relative;
-  width: 100%;
-  min-width: 0;
 }
 
-/* info-box を“余白を飲む役”に */
 .info-box {
   display: flex;
+  width: 100%;
+  max-width: 170px;
+  min-width: 136px;
   flex-direction: column;
   gap: 0.25rem;
-  flex: 1 1 auto;
-  min-width: 0;
-  /* max-width を残したいなら例：max-width: clamp(170px, 40vw, 260px); */
 }
 
 @media (max-width: 390px) {
@@ -667,12 +662,12 @@ VIEWING STATUS ZONE
 
 .kv-thumb {
   position: relative; /* ← imgとoverlayをレイヤーに */
-  width: 80px; /* imgサイズと一致 */
+  width: 70px; /* imgサイズと一致 */
   aspect-ratio: 4/5; /* 縦横比が一致するなら */
 }
 
 .kv-thumb img {
-  width: 80px;
+  width: 70px;
   height: auto;
   display: block;
   object-fit: cover;
@@ -684,7 +679,6 @@ VIEWING STATUS ZONE
   transform: scale(1); 
   /* Defines the transition for the transform property over 0.4 seconds with ease timing */
   transition: transform 0.4s ease;
-  will-change: transform;
 }
 
 .kv-thumb img:hover {
@@ -719,12 +713,10 @@ VIEWING STATUS ZONE
   gap: 0.35rem; /* タグとボタンの間に余白 */
 }
 
-/* タグの折返しガード（必要時） */
 .genre-tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.188rem;
-  min-width: 0;
+  gap: 0.188rem; /* 3px */
 }
 
 .genre-tag {
@@ -739,8 +731,6 @@ VIEWING STATUS ZONE
   border-radius: 0.375rem; /* 6px */
   border: solid 1px #bd8397;
   margin-top: 0.125rem; /* 2px */
-  white-space: normal;
-  overflow-wrap: anywhere;
 }
 
 .collapse-wrapper {
@@ -1134,31 +1124,6 @@ VIEWING STATUS ZONE
   color: #555;
   padding: 0.625rem 0.75rem;
 }
-
-/* スマホ時のWRPポップアップは“画面基準で中央寄せ”にする */
-@media (max-width: 480px) {
-  .popup.wrp-popup {
-    position: fixed;                          /* ← 親の幅に縛られない */
-    left: 50%;
-    top: calc(12px + env(safe-area-inset-top, 0px));
-    transform: translateX(-50%);
-    z-index: 9999;
-
-    /* 横幅は読みやすい範囲にクランプ（細長対策） */
-    width: auto;
-    max-width: min(360px, 92vw);
-    max-height: calc(
-      100vh - 24px - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px)
-    );
-    overflow: auto;
-
-    /* 変な改行を避けて自然に折り返す */
-    white-space: normal;
-    overflow-wrap: anywhere;
-    word-break: break-word;
-  }
-}
-
 
 /* レビューバッジ */
 .review-tag {
