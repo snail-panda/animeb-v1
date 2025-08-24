@@ -1135,29 +1135,32 @@ VIEWING STATUS ZONE
   padding: 0.625rem 0.75rem;
 }
 
-/* スマホ時のWRPポップアップは“画面基準で中央寄せ”にする */
+/* スマホ帯は幅を“決める”。max-width:260px を無効化して中央配置 */
 @media (max-width: 480px) {
   .popup.wrp-popup {
-    position: fixed;                          /* ← 親の幅に縛られない */
+    position: fixed;
     left: 50%;
-    top: calc(12px + env(safe-area-inset-top, 0px));
+    top: max(12px, env(safe-area-inset-top, 0px));
     transform: translateX(-50%);
     z-index: 9999;
 
-    /* 横幅は読みやすい範囲にクランプ（細長対策） */
-    width: auto;
-    max-width: min(360px, 92vw);
-    max-height: calc(
-      100vh - 24px - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px)
-    );
-    overflow: auto;
+    /* ← shrink-to-fitを避けるため“明示的な幅”を与える */
+    width: clamp(280px, 92vw, 360px);
+    max-width: none !important;   /* 既存 .popup の 260px を確実に打ち消す */
+    min-width: 0;
+    box-sizing: border-box;
 
-    /* 変な改行を避けて自然に折り返す */
+    /* 読みやすい折返し */
     white-space: normal;
     overflow-wrap: anywhere;
     word-break: break-word;
+
+    /* 縦は画面に収める */
+    max-height: calc(100vh - 24px - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px));
+    overflow: auto;
   }
 }
+
 
 
 /* レビューバッジ */
