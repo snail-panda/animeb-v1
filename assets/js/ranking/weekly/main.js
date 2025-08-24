@@ -782,37 +782,10 @@ function createPopup(content, typeClass) {
 }
 
 function positionPopup(button, popup) {
-  // 一時表示でサイズ計測
-  popup.style.visibility = 'hidden';
-  popup.style.display = 'block';
-
   const rect = button.getBoundingClientRect();
-  const vw = window.innerWidth;
-  const vh = window.innerHeight;
-  const sx = window.scrollX;
-  const sy = window.scrollY;
-
-  let left, top;
-  top = rect.bottom + sy + 5;
-
-  if (vw <= 480) {
-    // スマホは中央寄せ（右切れ根絶）
-    const w = popup.offsetWidth;
-    left = sx + (vw - w) / 2;
-  } else {
-    // PCはトリガー左基準＋右端クランプ
-    left = rect.left + sx;
-    const overflow = left + popup.offsetWidth - vw;
-    if (overflow > 0) left = Math.max(10, left - overflow - 12);
-  }
-
-  popup.style.left = `${left}px`;
-  popup.style.top  = `${top}px`;
-
-  popup.style.display = '';
-  popup.style.visibility = '';
+  popup.style.top = `${rect.bottom + window.scrollY + 5}px`;
+  popup.style.left = `${rect.left + window.scrollX}px`;
 }
-
 
 function capitalize(str) {
   return str.charAt(0).toUpperCase() + str.slice(1);
