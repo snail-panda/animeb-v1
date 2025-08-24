@@ -1146,7 +1146,11 @@ VIEWING STATUS ZONE
     /* ▼ ここが肝：最小幅を保障し、内容に合わせて広がるが画面内にクランプ */
     min-width: 86.54px;             /* あなたの“細くならない”下限 */
     width: max-content;             /* 内容サイズに合わせて横に広がる */
-    max-width: calc(100vw - 24px);  /* 画面左右に12pxの余白を残して収める */
+    max-width: calc(100vw - 32px);  /* 画面左右に16pxの余白を残して収める */
+
+    /* 実機Safari向けに d*vw が使える環境なら優先させてズレを更に減らす */
+    max-width: min(calc(100vw - 32px), calc(100dvw - 32px));
+    box-sizing: border-box;
 
     /* テキストの折返し（自然に折れるように） */
     white-space: normal;
