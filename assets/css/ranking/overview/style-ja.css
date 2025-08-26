@@ -91,12 +91,11 @@ li {
       color: #bbb;
 }
 
-footnote {
-      font-size: 0.725rem;
-      color: #777;
-      margin-top: 0.5rem;
-      line-height: 1.6;
-      display: block;
+.weekly-overview p.footnote {
+  font-size: 0.725rem;
+  color: #777;
+  margin-top: 0.5rem;
+  line-height: 1.6;
 }
 
 /* Responsive Design */
