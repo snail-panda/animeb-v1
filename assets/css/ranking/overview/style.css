@@ -89,9 +89,9 @@ html {
 
 .weekly-overview p.footnote {
   font-size: 0.725rem;
-  color: #777;
+  color: #666;
   margin-top: 0.5rem;
-  line-height: 1.6;
+  line-height: 1.7;
 }
 
     @media screen and (max-width: 800px) {
