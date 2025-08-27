@@ -41,8 +41,8 @@ html {
     
     .section-title {
       font-size: 0.975rem;
-      margin-top: 1.75rem;
-      margin-bottom: 1.25rem;
+      margin-top: 3rem;
+      margin-bottom: 2.5rem;
       color: #666464;
       font-weight: 600;
       border-left: solid 2px #e2b29c; /* changed from #cdcdcd */
