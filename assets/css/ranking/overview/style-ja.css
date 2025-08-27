@@ -48,12 +48,22 @@ html {
       border-left: solid 2px #e2b29c; /* changed from #cdcdcd */
       padding-left: 0.25rem;
     }
+   
+    .section-top5 {
+      font-size: 1.1rem;
+      margin-top: 3rem;
+      margin-bottom: 2rem;
+      color: #666464;
+      font-weight: 600;
+      border-left: solid 2.5px #d6cbcb; 
+      padding-left: 0.25rem;
+    }
 
     .three-picks {
       font-size: 1.0rem;
       margin-top: 1rem;
       margin-bottom: 1.8rem;
-      color: #8e8e8e;
+      color: #808080;
       font-weight: 600;
       border-left: solid 2.5px #d6cbcb;
       padding-left: 0.25rem;
