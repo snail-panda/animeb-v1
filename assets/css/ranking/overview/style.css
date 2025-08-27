@@ -50,7 +50,6 @@ html {
     }
 
     .three-picks {
-      .section-title {
       font-size: 1.15rem;
       margin-top: 2.5rem;
       margin-bottom: 2rem;
@@ -119,4 +118,4 @@ html {
       max-width: 70ch;
       width: 95%;
     }  
-    }    
+    }
