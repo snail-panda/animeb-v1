@@ -1,0 +1,299 @@
+{
+  "meta": {
+    "week": "week 8",
+    "duration": "08-24-Sun-08-30-Sat",
+    "season": "2025 Summer",
+    "ep_range": "ep.8-9",
+    "status": {
+      "watching": 19,
+      "droppedThisWeek": 2,
+      "droppedTotal": 24,
+      "backOnList": 0,
+      "noAir": 0,
+      "completed": 2,
+      "total": 45
+    }
+  },
+  "entries": [
+    {
+      "rank": 1,
+      "trend": "up",
+      "title": "Sword of the Demon Hunter",
+      "jpTitle": "鬼人幻燈抄",
+      "kv": "kijin",
+      "episode": 20,
+      "genre": [
+        "Action",
+        "Historical",
+        "Drama"
+      ],
+      "wrp_score": 9.8,
+      "score": 10,
+      "review": {
+        "en": "Episode #20: The Wish Part 1",
+        "jp": "第20話:  願い(前編)<p>『前回からの流れを最高の形で回収してくれた。もちろんおふうが圧倒的に素晴らしい（絶対に嫁にするべし）のだが、それは死してなお教え導いてくれる定長の生き様なのだろう。そして共に生きていくれているおふう、三浦直次、また野茉莉の存在や想い、言葉がどうしようもない暗闇にいる甚夜をそれでいいのだと導いてくれるのだろう。\"確かに間違っているかも知れないが、それで救われている人がここにいる。そんな甚夜だからわたしたちは救われたんだ\"と。\"正しいことを正しくすることが必ずしもいいわけではない\"というのもその通りだろう。また、三浦直次が甚夜の鬼の姿を見て恐れおののき\"化け物\"として逃げてしまったことを、そのまま素直に認め、自ら謝罪したのも素晴らしかった。そんなことが出来る人がどれだけいるだろうか。一切取り繕うこと無く、自らの非を認めるからこそその人の言葉を信じ逆に頼りとすることが出来るのだろう。甚夜は確かに鬼だがそれでも\"人\"であり、\"化け物\"ではないと、自分でもそう思わせてくれるのはそういった友があってのことだからだ。あの3人（野茉莉も入れて4人）のやり取りは涙なくしては見ることが出来ないだろう。そこで語られていたのは、言ってみれば、「間違いは必ずしも否定すべきものじゃない。それが人を救い、関係を繋ぐ力になる＝寧ろ時として間違いとされる選択の中にこそ、人を救う力がある」ということだったのだろうと思う。そしてきっと来週詳しく語られる土浦の過去、きっとこれも心に来るんだろうな・・・。9点なんてつけられません。』</p>"
+      },
+      "wrp_breakdown": {
+        "base_score": 5,
+        "animation": 0.75,
+        "script": 0.8,
+        "direction": 0.8,
+        "charm": 0.7,
+        "overall": 1.75
+      },
+      "romanized_title": "Kijin Gentoushou",
+      "release_date": "3/31/2025",
+      "based_on": "Naro",
+      "studios": "Yokohama Animation Laboratory",
+      "creators": "Kazuya Aiura",
+      "external_scores": "",
+      "streaming_services": "",
+      "synopsis": "In the Edo period, there was a shrine maiden called \"Itsukihime\" in the mountain village of Kadono. Jinta, a young man who acts as the shrine maiden's guardian despite being a stranger, encounters a mysterious demon who speaks of the far future in the forest where he went to defeat it. From Edo to the Heisei era, this huge Japanese fantasy series follows a demon man who travels through time while continuously questioning the meaning of wielding a sword."
+    },
+    {
+      "rank": 2,
+      "trend": "up",
+      "title": "Dr. Stone: Science Future Part 2",
+      "jpTitle": "『Dr.STONE SCIENCE FUTURE』第4期最終シーズン第2クール",
+      "kv": "drstone",
+      "episode": 8,
+      "genre": [
+        "Action",
+        "Adventure",
+        "Comedy",
+        "Sci-Fi"
+      ],
+      "wrp_score": 9.4,
+      "score": 9,
+      "review": {
+        "en": "Episode #8: What Once I Sought to Destroy",
+        "jp": "第8話: かつて消そうとしたものは<p>『非常に熱いエピソードだった。皆が己の生命を厭わないこともだけど、今回は兎に角ツカサが持っていった。かつて科学を否定しこの世界から科学の発展を消し去ろうとしたツカサが、その科学に、センクウに全てを託そうとしているという。見る人によっては助かる前提かよ、と思われるものかも知れないがそうではないことは、スイカ、フランソワを始めとして彼ら一人ひとりの姿勢からも明らかである。もしこの戦いに勝利することになるのであれば、彼らのそういった行動がそれに結びつけたのであるし、そうさせたのはセンクウでもあったり・・・ってのが本当に良かった。さぁさて、メドゥーサの完成は間に合うのか・・・。ますます熱くなってきて止まりません。』</p>"
+      },
+      "wrp_breakdown": {
+        "base_score": 5,
+        "animation": 0.65,
+        "script": 0.75,
+        "direction": 0.7,
+        "charm": 0.65,
+        "overall": 1.65
+      },
+      "romanized_title": "Dr. Stone: Science Future 4th Season 2nd Cour",
+      "release_date": "7/10/2025",
+      "based_on": "Manga",
+      "studios": "TMS Entertainment",
+      "creators": "Shuhei Matsushita",
+      "external_scores": "",
+      "streaming_services": "",
+      "synopsis": "The second cour of the fourth season of Dr.STONE."
+    },
+    {
+      "rank": 3,
+      "trend": "up",
+      "title": "The Fragrant Flower Blooms with Dignity",
+      "jpTitle": "薫る花は凛と咲く",
+      "kv": "kaoru",
+      "episode": 9,
+      "genre": [
+        "Comedy",
+        "Drama",
+        "Romance"
+      ],
+      "wrp_score": 9.2,
+      "score": 9,
+      "review": {
+        "en": "Episode #9: Blond Hair and Pierced Ears",
+        "jp": "第9話: 金髪とピアス<p>『ズルい。母親を出してくると全てが正当化される。友達同士とか薫子とかがいいこと言ったりして、「はいはい、いい話ですねぇ・・・」で済むところが、一気にぐわっと胸を掴まれる。凛太郎の母親の気持ちが、どストレートに伝わってきて「やっぱり母親ってすげーな」、「そりゃあ嬉しいだろうなぁ」というものでいっぱいになる。金髪とピアスの経緯が熱かった。そう言えば何でこのお母さん金髪風（アニメだからただの茶髪可分かりづらかった）にしてるんだろう？元ヤン？くらいにしか思ってなかったけど、どんだけ愛情あるんだよ・・・って思った。子どもが友達連れてくるのって色んな意味で嬉しいもんなんだろうなっていうのも、これ以上無いくらい伝わってきた。お母さんがみんなのために持ってきたケーキも何だかいつもよりも一層輝いていた。また、カレーと唐揚げっていうのも飾らなくって良かったし。まぁ兎にも角にもズルい回でした。すごく良かった。』</p>"
+      },
+      "wrp_breakdown": {
+        "base_score": 5,
+        "animation": 0.7,
+        "script": 0.75,
+        "direction": 0.7,
+        "charm": 0.55,
+        "overall": 1.5
+      },
+      "romanized_title": "Kaoru Hana wa Rin to Saku",
+      "release_date": "7/5/2025 to 9/28/2025",
+      "based_on": "Web Comics",
+      "studios": "CLOVERWORKS",
+      "creators": "Miyuki Kuroki",
+      "external_scores": "",
+      "streaming_services": "",
+      "synopsis": "Chidori High is a boys’ school that takes in the dregs of society with the lowest grades. Next door stands Kikyo Girls’ High, where the wealthy, high-class families send their precious daughters. Chidori second-year Rintaro, who has a fierce face but a gentle heart, is helping at his family’s patisserie when he meets a girl named Kaoruko. The two hit it off right away…but this blissful peace is quickly disturbed when Rintaro discovers that Kaoruko is actually a student at Kikyo. Worse, she doesn’t seem to realize what a huge problem this really is! Will these two be able to forge a path for themselves, and sidestep the traps (metaphorical and literal) laid by their classmates?"
+    },
+    {
+      "rank": 4,
+      "trend": "down",
+      "title": "Ruri Rocks",
+      "jpTitle": "瑠璃の宝石",
+      "kv": "ruri",
+      "episode": 8,
+      "genre": [
+        "Adventure",
+        "Slice of Life"
+      ],
+      "wrp_score": 9.05,
+      "score": 9,
+      "review": {
+        "en": "Episode #9: The Golden Elegy",
+        "jp": "第8話: 黄昏色のエレジー<p>『前回出会った瑠璃と硝子の距離が近づいていく＝結晶となる過程を、比較的にじみ目立だがよく練られた構成とストーリーで綴られた秀逸な回。好きなものを共有するからこそ、相手がどれだけ嬉しかったり残念だったりするか分かる。そういったちょっとしたことに気がついたりしても、中々うまくいかないこともあるのが人間関係。自由研究で水質検査を一緒にすることになった瑠璃と硝子。その過程で息抜きに鉱石攫いをしてオレンジ色の鉱石を見つけるも、落としてなくしてしまう硝子。その残念そうな姿が忘れられない瑠璃。なんとかしてあげたくて凪の研究室を訪ね、伊万里の調査に同行する事になる。その調査の過程もどこか瑠璃と硝子の調査に似ていて、石を知るのに水を知ることの大切さも知る瑠璃。自分たちの水質調査も石の調査に繋がっていることを感じる。最終的に例のオレンジ色の石は、廃工場で偶然に生成されたZinciteが川に流れていったものだった。ただそれは自然に生成されることが非常に稀であり、人工的な過程が関与（人の手が関わって）して化学変化を起こして、この稀な鉱石が結晶化されることがあると凪が語る。それはまるで瑠璃と硝子が存在し偶然であったが、それだけでなく凪さんと伊万里が居て、鉱物が大好きであるということがあったからこそ、この2人の関係が合わさり結晶化していってるのだということに繋がっていてとても良くできた話だった。また、\"いい悪いという2つのことで片付けられることがこの世の中にどれだけあるのだろう?\"という瑠璃の言葉も良かったし、\"自分が\"見つけたのではなく、\"2人で\"みつけた初めての石（結晶）という硝子もまた良かった。8点はつけられないな。』</p>"
+      },
+      "wrp_breakdown": {
+        "base_score": 5,
+        "animation": 0.65,
+        "script": 0.7,
+        "direction": 0.7,
+        "charm": 0.55,
+        "overall": 1.45
+      },
+      "romanized_title": "Ruri no Houseki",
+      "release_date": "7/6/2025 to 9/28/2025",
+      "based_on": "Manga",
+      "studios": "Studio Bind",
+      "creators": "Shingo Fujii",
+      "external_scores": "",
+      "streaming_services": "",
+      "synopsis": "Mineral collecting is like a modern-day treasure hunt!  Ruri, a high school girl who loves jewelry and accessories, gets into the world of mineral collecting, venturing into mountains, rivers, and caves. The first volume features numerous minerals, including quartz, garnet, pyrite, gold sand, and fluorite. The manga is full of fascinating scenes focusing on specialized tools such as a panning dish, hammer, and topographical maps. An authentic scientific adventure based on the author's solid knowledge of mineralogy!"
+    },
+    {
+      "rank": 5,
+      "trend": "stay",
+      "title": "April Showers Bring May Flowers",
+      "jpTitle": "ブスに花束を。",
+      "kv": "busu",
+      "episode": 9,
+      "genre": [
+        "Comedy",
+        "Romance"
+      ],
+      "wrp_score": 8.85,
+      "score": 8,
+      "review": {
+        "en": "Episode #9: I Want to See Fireworks with You",
+        "jp": "第9話: 君と花火が見たい<p>『なんだかわかんなけど良かった。おそらく1クールかそれ以上をかけて、なぜうえのっちがたばたっちをすきになっているのかを見せる・・・という姿勢（勝手にそう思っている）がいい。夏祭りに行って花火を見るというコテコテのシチュだけどなんとも地味でそれが\"本来こういうのでいいんだよね\"っていうものに見事になっている。突然のご都合転校生がかつての仲良しかわいい陽キャ女子だが、一切コテコテの邪魔存在になってないのもいい。これは結構いい感じ。最後の視聴者がみんな田端のことをかわいい、好きっておもえるようになるんじゃないかな?という希望が持てる。』</p>"
+      },
+      "wrp_breakdown": {
+        "base_score": 5,
+        "animation": 0.6,
+        "script": 0.65,
+        "direction": 0.65,
+        "charm": 0.55,
+        "overall": 1.4
+      },
+      "romanized_title": "Busu ni Hanataba wo.",
+      "release_date": "7/4/2025 to 9/26/2025",
+      "based_on": "Manga",
+      "studios": "SILVER LINK.",
+      "creators": "Mirai Minato",
+      "external_scores": "",
+      "streaming_services": "",
+      "synopsis": "Hana Tabata is a lonely and unpopular high school girl with negative thoughts. Early morning in the classroom when she was pretending to be a manga heroine, the class's good looking Yosuke accidentally saw her...!? This love, you will definitely want to support it! Masochistic system unpopular girl comedy!"
+    },
+    {
+      "rank": "spotlight",
+      "trend": "up",
+      "title": "Me and the Alien MuMu",
+      "jpTitle": "宇宙人ムームー",
+      "kv": "muumuu",
+      "episode": 21,
+      "genre": [
+        "Comedy",
+        "Sci-Fi",
+        "Slice of Life",
+        "School"
+      ],
+      "wrp_score": 8.75,
+      "score": 8,
+      "review": {
+        "en": "Episode #21: Sonoko and USB",
+        "jp": "第21話: 園子とUSB<p>『今回はミスキャンパス微笑み小町こと園子のセリフ、\"私のUSBはオーダーメイドよ\"にすべてが込められていた。Aパートの展開の持って行き方は多少強引にも感じられるが、皆が其々の良さを分かる組み合わせのコンビネーションであると同時に好き勝手言ったりやったりしてるってのも上手かったので良かった。またBパートはまさかのマジックミラー号のネタで防災実演カーを使ったイケメンと桜子の距離の縮め方も良かった。まぁあれだけうまく防災グッズを面白く散りばめたもんだと関心。どちらも凄く面白かった。今後どうなるのかな?関係性は進展するのか?そして本筋の宇宙関係はどうなるのか。個人的には宇宙の方は放っといていいのだけど。』</p>"
+      },
+      "wrp_breakdown": {
+        "base_score": 5,
+        "animation": 0.6,
+        "script": 0.6,
+        "direction": 0.65,
+        "charm": 0.55,
+        "overall": 1.35
+      },
+      "romanized_title": "Uchuujin MuuMuu",
+      "release_date": "4/9/2025",
+      "based_on": "Manga",
+      "studios": "OLM",
+      "creators": "Tomoya Takahashi",
+      "external_scores": "",
+      "streaming_services": "",
+      "synopsis": "A cat-like alien from a distant galaxy, MuMu, arrives on Earth. His goal is to learn about home appliance technology on Earth to recover the technology his species has lost. The protagonist, Sakurako, has a typical university life, but everything changes with MuMu's arrival! What begins as an unexpected cohabitation quickly turns into a whirlwind of chaotic events. The chemistry between Sakurako and MuMu leads to a super-spectacular, appliance-filled, and cat comedy adventure."
+    },
+    {
+      "rank": "editor's pick",
+      "trend": "down",
+      "title": "My Dress-Up Darling Season 2",
+      "jpTitle": "その着せ替え人形は恋をする Season 2",
+      "kv": "bisque",
+      "episode": 21,
+      "genre": [
+        "Comedy",
+        "Romance",
+        "Ecchi"
+      ],
+      "wrp_score": 8,
+      "score": 8,
+      "review": {
+        "en": "Episode #21: Because I don't Intend to Sleep Tonight",
+        "jp": "第21話: 俺 今夜寝るつもりないので<p>『正直気持ちは7点。個人的に良かった点はあまねくんが旭ちゃんの挙動を見逃さずタバコを吸いに一緒に行ったところとジュジュが妹に弱い所。それだけ。旭ちゃんが海夢を嫌いなのか好きすぎるのかを引っ張りすぎ、その発言を五条くんがタイミングよく聞いてしまうご都合、家族と買い物中なのに速攻で合流できる乾姉妹のご都合、家に来たら電車が停まるご都合、強壮剤エリアにいてモンスターを買うくらいで勘違いする海夢?などなど主観で言えば辛いことだらけだった。海夢ちゃんの男装写真が無いことを嘆く腐女子たちの嘆きなどを始め、CLOVERWORKSお得意の大げさな演出も個人的にはちょっと辛かった。なんだかうる星やつらっぽくもあったかな。ゲームのシーンやドンキの店内の描き方とかが異常に凝ってたりするのは、関心はするけど評価は上がらない。まぁよくはやっていると思うので義理義理で8点。』</p>"
+      },
+      "wrp_breakdown": {
+        "base_score": 5,
+        "animation": 0.65,
+        "script": 0.55,
+        "direction": 0.55,
+        "charm": 0.4,
+        "overall": 0.85
+      },
+      "romanized_title": "Sono Bisque Doll wa Koi wo Suru Season 2",
+      "release_date": "7/5/2025 to 9/21/2025",
+      "based_on": "Manga",
+      "studios": "CLOVERWORKS",
+      "creators": "Keisuke Shinohara",
+      "external_scores": "",
+      "streaming_services": "",
+      "synopsis": "When Marin Kitagawa and Wakana Gojo met, they grew close over their love for cosplay. Through interacting with classmates and making new cosplay friends, Marin and Wakana’s world keeps growing. New developments arise as Marin’s love for Wakana continues to be filled with endless excitement. In their ever-expanding world, Marin and Wakana’s story of cosplay and thrills continues!"
+    },
+    {
+      "rank": "dookie",
+      "trend": "down",
+      "title": "Welcome to the Outcast's Restaurant!",
+      "jpTitle": "追放者食堂へようこそ！",
+      "kv": "tsuihou",
+      "episode": 9,
+      "genre": [
+        "Adventure",
+        "Comedy",
+        "Fantasy"
+      ],
+      "wrp_score": 5.65,
+      "score": 5,
+      "review": {
+        "en": "Episode #9: If It's Important to You, Then Please Don't Let Go of It!",
+        "jp": "第9話: 大事なものなら、手放さないでください!<p>『何だろ・・・ものすごく薄くて浅い感じで物事は進んでいきますね。レストランを放火で失ったデニス。よく分からん常連が集まってみんなで何とか報復することに。元仲間の女子がほぼ全裸で登場。謎に謝罪するがここまで来ておいて黒幕の悪者リーダーは仲間だから売れないと分けのわからに理屈をこねるが、独り言と言って情報を告げる茶番。結局、飛び出した古巣のレストランに行き、育ての親の伝説級料理長にどの面下げて会うのかと思えば全てがスムース。意味不明。アトリエさえ可愛ければいいのでまぁいいか。』</p>"
+      },
+      "wrp_breakdown": {
+        "base_score": 5,
+        "animation": 0.5,
+        "script": 0.3,
+        "direction": 0.3,
+        "charm": 0.2,
+        "overall": -1.5
+      },
+      "romanized_title": "Tsuihou  Shokudou e Youkoso!",
+      "release_date": "7/3/2025 to 9/19/2025",
+      "based_on": "Web Novels",
+      "studios": "OLM Team Yoshioka",
+      "creators": "Jouji Shimura",
+      "external_scores": "",
+      "streaming_services": "",
+      "synopsis": "When superstar adventurer Dennis gets booted from the world’s strongest party, he teams up with runaway Atelier to serve up his true passion—delicious cuisine. But this not-so-average eatery has not-so-average patrons. Dennis will battle his quirky customers’ troubles with his trusty butcher knife and wok. Visit Adventurer’s Restaurant and fill up your heart and stomach!"
+    }
+  ]
+}
