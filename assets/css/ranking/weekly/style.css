@@ -326,8 +326,17 @@ VIEWING STATUS ZONE
 }
 
 @keyframes bounce {
-  0%, 100% { transform: translateY(0); }
-  50%      { transform: translateY(3px); }
+  0%, 100% { transform: rotate(0deg) translateY(0); }
+  50%      { transform: rotate(0deg) translateY(3px); }
+}
+
+.triangle-icon.rotate {
+  animation: bounce-rotated 1.2s ease-in-out infinite;
+}
+
+@keyframes bounce-rotated {
+  0%, 100% { transform: rotate(180deg) translateY(0); }
+  50%      { transform: rotate(180deg) translateY(3px); }
 }
 
 
