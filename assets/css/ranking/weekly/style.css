@@ -319,6 +319,8 @@ VIEWING STATUS ZONE
 }
 
 .triangle-icon {
+  width: 10px;
+  height: 10px;
   display: inline-block;
   margin-right: 0.125rem;
   font-size: 0.6rem;
