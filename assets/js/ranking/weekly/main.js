@@ -965,17 +965,24 @@ window.initOverviewSection = function() {
 
   // トグル動作 ボタンクリックでアコーディオン開閉（innerHTML を使わない！）
   btn.addEventListener("click", () => {
-    container.classList.toggle("expanded");
-    triangle.classList.toggle("rotate");
+  container.classList.toggle("expanded");
+  triangle.classList.toggle("rotate");
 
-    if (container.classList.contains("expanded")) {
-      btn.innerHTML = '<span class="triangle-icon rotate">&#9660;</span> CLOSE';
-      loadOverview(currentLang);
-    } else {
-      btn.innerHTML = '<span class="triangle-icon">&#9660;</span> OVERVIEW';
-      container.innerHTML = ""; //閉じたとき中身クリア
-    }
-  });
+  const label = container.classList.contains("expanded") ? "CLOSE" : "OVERVIEW";
+
+  // span.triangle-icon を直接残したまま、テキストだけ変える
+  const textNode = btn.querySelector('.label-text');
+  if (textNode) {
+    textNode.textContent = label;
+  }
+
+  if (container.classList.contains("expanded")) {
+    loadOverview(currentLang);
+  } else {
+    container.innerHTML = ""; //閉じたとき中身クリア
+  }
+});
+
 
   const year = window.year;
   const season = window.season;
