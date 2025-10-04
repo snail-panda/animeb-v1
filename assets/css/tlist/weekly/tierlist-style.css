@@ -139,6 +139,7 @@ h4.tier-sss       { border-left-color: #e2c4e7; } /* 任意 */
 h4.tier-na        { border-left-color: #a6d7ea; } /* 任意 */
 h4.tier-dropped   { border-left-color: #a6eacd; } /* 任意 */
 h4.tier-recentdrop{ border-left-color: #fdd0d0; } /* 任意 */
+h4.tier-neverwatched { border-left-color: #cccccc; } /* 任意 */
 
 
 
@@ -364,6 +365,12 @@ h4.tier-recentdrop{ border-left-color: #fdd0d0; } /* 任意 */
   background-color: #fdd0d0;
   color: #505f42;
 }
+
+.neverwatched-button {
+  background-color: #d9d9d9; /* 薄いグレー */
+  color: #505f42;
+}
+
 
 
 /* ✅ hiddenクラスは今のまま維持 */

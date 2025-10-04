@@ -14,7 +14,10 @@ document.addEventListener("DOMContentLoaded", function() {
     "D": "d",
     "Dropped": "dropped",
     "N/A": "na",
-    "RecentlyDropped": "recently-dropped"
+    "RecentlyDropped": "recently-dropped",
+    // 追加（JSONのキーに合わせてどちらか一方を使う）
+  "Never Watched": "neverwatched",
+  // "NeverWatched": "neverwatched",
   };
 
 
