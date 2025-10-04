@@ -1,74 +1,26 @@
 {
   "2023": {
-    "Winter": {
-      "weeks": [],
-      "final":
-    },
-    "Spring": {
-      "weeks": [],
-      "final":
-    },
-    "Summer": {
-      "weeks": [],
-      "final":
-    },
-    "Fall": {
-      "weeks": [],
-      "final":
-    }
+    "Winter": { "weeks": [], "final": null },
+    "Spring": { "weeks": [], "final": null },
+    "Summer": { "weeks": [], "final": null },
+    "Fall":   { "weeks": [], "final": null }
   },
   "2024": {
-    "Winter": {
-      "weeks": [],
-      "final":
-    },
-    "Spring": {
-      "weeks": [],
-      "final":
-    },
-    "Summer": {
-      "weeks": [],
-      "final":
-    },
-    "Fall": {
-      "weeks": [],
-      "final":
-    }
+    "Winter": { "weeks": [], "final": null },
+    "Spring": { "weeks": [], "final": null },
+    "Summer": { "weeks": [], "final": null },
+    "Fall":   { "weeks": [], "final": null }
   },
   "2025": {
-    "Winter": {
-      "weeks": [],
-      "final":
-    },
-    "Spring": {
-      "weeks": ["Week 01", "Week 06", "Week 12"],
-      "final": "Week 12"
-    },
-    "Summer": {
-      "weeks": ["Week 01", "Week 06", "Week 12"],
-      "final": "Week 12"
-    },
-    "Fall": {
-      "weeks": [],
-      "final":
-    }
+    "Winter": { "weeks": [], "final": null },
+    "Spring": { "weeks": ["Week 01","Week 06","Week 12"], "final": "Week 12" },
+    "Summer": { "weeks": ["Week 01","Week 06","Week 12"], "final": "Week 12" },
+    "Fall":   { "weeks": [], "final": null }
   },
   "2026": {
-    "Winter": {
-      "weeks": [],
-      "final":
-    },
-    "Spring": {
-      "weeks": [],
-      "final":
-    },
-    "Summer": {
-      "weeks": [],
-      "final":
-    },
-    "Fall": {
-      "weeks": [],
-      "final":
-    }
+    "Winter": { "weeks": [], "final": null },
+    "Spring": { "weeks": [], "final": null },
+    "Summer": { "weeks": [], "final": null },
+    "Fall":   { "weeks": [], "final": null }
   }
 }
