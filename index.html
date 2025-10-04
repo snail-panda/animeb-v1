@@ -905,128 +905,111 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 //For Latest Top5 in sidebar
+// For Latest Top5 in sidebar  (auto-pick newest + PNG icons)
 document.addEventListener("DOMContentLoaded", function () {
-  // JSONファイルのパス（index.html からの相対パス）
+  // index.json（年/季節一覧）→ 最新 pick → その週の ranking-*.json を読む
+  let pick = null; // {year, season, weekNum, weekPath}
   let jsonPath = "";
 
-fetch("./weekly-rankings.json")
-  .then(res => res.json())
-  .then(data => {
-    const targetYear = "2025";
-    const targetSeason = "Spring";
-    const latestWeeks = data[targetYear][targetSeason].weeks;
-    const latestWeek = latestWeeks[latestWeeks.length - 1];
+  const SEASON_DESC = ["Fall", "Summer", "Spring", "Winter"]; // 年内の新しい順
+  const toNN = n => String(n).padStart(2, "0");
+  const toNum = s => {
+    const m = String(s).match(/\d{1,2}/);
+    return m ? parseInt(m[0], 10) : NaN;
+  };
 
-    const seasonPath = targetSeason.toLowerCase();
-    const weekNumber = parseInt(latestWeek.replace(/[^\d]/g, ''), 10);
-    const weekPath = `week${weekNumber < 10 ? '0' + weekNumber : weekNumber}`;
+  fetch("./weekly-rankings.json", { cache: "no-cache" })
+    .then(res => res.json())
+    .then(data => {
+      // ★ 最新の年→季節→最大週 を自動選択
+      const yearsDesc = Object.keys(data).map(Number).sort((a,b)=>b-a).map(String);
+      outer:
+      for (const y of yearsDesc) {
+        for (const s of SEASON_DESC) {
+          const weeks = data?.[y]?.[s]?.weeks || [];
+          if (!weeks.length) continue;
+          const nums = weeks.map(w => ({w, n: toNum(w)})).filter(x => Number.isFinite(x.n));
+          if (!nums.length) continue;
+          const latest = nums.sort((a,b)=>a.n-b.n)[nums.length-1];
+          pick = { year: y, season: s, weekNum: latest.n, weekPath: `week${toNN(latest.n)}` };
+          break outer;
+        }
+      }
+      if (!pick) throw new Error("No non-empty weeks found.");
 
-    jsonPath = `ranking/${targetYear}/${seasonPath}/${weekPath}/ranking-${weekPath}-${seasonPath}${targetYear}.json`;
-
-    // ✅ ここで jsonPath ができたので、通常どおり fetch(jsonPath) を続けてOK
-    return fetch(jsonPath);
-  })
-  .then(response => response.json())
-  .then(data => {
-    // ✅ ここ以降の処理は今まで使っていた処理のままでOK！
+      const seasonPath = pick.season.toLowerCase();
+      jsonPath = `ranking/${pick.year}/${seasonPath}/${pick.weekPath}/ranking-${pick.weekPath}-${seasonPath}${pick.year}.json`;
+      return fetch(jsonPath);
+    })
+    .then(response => response.json())
+    .then(data => {
       const container = document.querySelector(".ranking-widget");
-    
+      if (!container) return;
 
       // 既存のエントリー要素をすべて削除
       container.querySelectorAll(".ranking-entry").forEach(el => el.remove());
 
-      // メタ情報も反映
-const seasonEl = document.querySelector(".season-title");
-const weekEl = document.querySelector(".week-title");
+      // 見出し（表示はmeta、リンクは pick を使う）
+      const seasonEl = document.querySelector(".season-title");
+      const weekEl   = document.querySelector(".week-title");
+      if (seasonEl) seasonEl.textContent = data.meta?.season ?? `${pick.year} ${pick.season}`;
+      if (weekEl)   weekEl.textContent   = ` – ${data.meta?.week ?? `Week ${toNN(pick.weekNum)}`} – `;
 
+      const epsEl = document.querySelector(".eps");
+      if (epsEl && data.meta?.ep_range) epsEl.textContent = `[${data.meta.ep_range}]`;
 
-if (seasonEl) seasonEl.textContent = data.meta.season;
-if (weekEl) weekEl.textContent = ` – ${data.meta.week} – `;
+      // === UPDATE RANKING LINK BLOCKS (Header + Bottom) ===
+      // ★ リンクは meta.week で再計算せず、pick を信頼
+      const path = `ranking/${pick.year}/${pick.season.toLowerCase()}/${pick.weekPath}/index.html`;
+      const headerLink = document.querySelector('.ranking-header .ranking-link');
+      if (headerLink) headerLink.href = path;
+      const bottomLink = document.querySelector('.latest-batch-link .ranking-link');
+      if (bottomLink) { bottomLink.href = path; bottomLink.textContent = "View Full Ranking"; }
+      // === ここまで ===
 
-// ✅ ep_range もあれば反映する
-const epsEl = document.querySelector(".eps");
-if (epsEl && data.meta.ep_range) {
-  epsEl.textContent = `[${data.meta.ep_range}]`;
-}
+      // スコア整形（週次=pt/ Final=WRPなど）
+      const fmtScore = (entry) => {
+        const v = entry.score ?? entry.wrp_score ?? entry.fwrp_score;
+        if (v == null) return "";
+        const num = Number(v);
+        if (!Number.isFinite(num)) return "";
+        return num <= 11 ? `${Math.round(num)}pt` : `${num.toFixed(2)}pt`;
+      };
 
+      // PNG固定
+      const iconMap = {
+        up: "arrow-up.png",
+        down: "arrow-down.png",
+        stay: "arrow-stay.png",
+        new: "arrow-new.png",
+        re: "arrow-re.png"
+      };
 
-// ===  UPDATE RANKING LINK BLOCKS (Header + Bottom) ===
-
-// メタ情報を整形してパスに変換
-const seasonRaw = data.meta.season;         // 例: "2025 Spring"
-const weekRaw = data.meta.week;             // 例: "Week 9"
-
-// それぞれパス用に整形
-const [year, seasonName] = seasonRaw.split(' ');               // "2025", "Spring"
-const season = `${year}/${seasonName.toLowerCase()}`;          // "2025/spring"
-
-// ✅ Week番号だけを抽出し、2桁に変換（例: 9 → "09", 10 → "10"）
-const weekNumber = parseInt(weekRaw.replace(/[^\d]/g, ''), 10); // 数字部分だけ取り出して整数化
-const week = `week${weekNumber < 10 ? '0' + weekNumber : weekNumber}`;
-
-// 完成形のパスを組み立て
-const path = `ranking/${season}/${week}/index.html`;
-
-// 上部リンク（.ranking-header 内の a）
-const headerLink = document.querySelector('.ranking-header .ranking-link');
-if (headerLink) {
-  headerLink.href = path;
-}
-
-// 下部リンク（.latest-batch-link 内の a）
-const bottomLink = document.querySelector('.latest-batch-link .ranking-link');
-if (bottomLink) {
-  bottomLink.href = path;
-  bottomLink.textContent = "View Full Ranking";
-}
-
-// ===  ここまで　UPDATE RANKING LINK BLOCKS (Header + Bottom) ===
-
-
-      const top5 = data.entries.slice(0, 5);
+      const top5 = (data.entries || []).slice(0, 5);
 
       top5.forEach(entry => {
         const entryDiv = document.createElement("div");
         entryDiv.className = "ranking-entry";
 
-console.log("trend raw value:", entry.trend);
+        const trendRaw = (entry.trend ?? "").toLowerCase();
+        const icon = iconMap[trendRaw];
+        const trendHTML = icon
+          ? `<span class="trend ${trendRaw}"><img src="images/trends/${icon}" class="arrow-${trendRaw}"></span>`
+          : `<span class="trend none"></span>`; // ★ ダミーで列幅維持
 
-
-        const trendRaw = entry.trend?.toLowerCase() || "";
-  let trendDisplay = "";
-  let trendHTML = "";
-
-  if (["up", "down", "stay", "new", "re"].includes(trendRaw)) {
-    const trendIcon = {
-      up: "arrow-up.png",
-      down: "arrow-down.png",
-      stay: "arrow-stay.png",
-      new: "arrow-new.png",
-      re: "arrow-re.png"
-    }[trendRaw];
-
-    trendHTML = `
-      <span class="trend ${trendRaw}">
-        <img src="images/trends/${trendIcon}" class="arrow-${trendRaw}">
-      </span>
-    `;
-  } else if (trendRaw === "re") {
-    trendDisplay = "re-entry";
-    trendHTML = `<span class="trend-label">re:</span>`;
-  } else {
-    // 空欄や想定外 → 表示なし（trendHTML = "" のまま）
-  }
-
-  entryDiv.innerHTML = `
-    <span class="rank">${entry.rank}</span>
-    ${trendHTML}
-    <span class="title">${entry.title}</span>
-    <span class="ep">ep.${entry.episode}</span>
-    <span class="score">${entry.score}pt</span>
-  `;
-
-  container.appendChild(entryDiv);
+        entryDiv.innerHTML = `
+          <span class="rank">${entry.rank}</span>
+          ${trendHTML}
+          <span class="title">${entry.title}</span>
+          <span class="ep">ep.${entry.episode ?? "—"}</span>
+          <span class="score">${fmtScore(entry)}</span>
+        `;
+        container.appendChild(entryDiv);
       });
+    })
+    .catch(err => {
+      console.error("[ranking widget]", err);
+      // 失敗時は静的プレースホルダーが残る想定
     });
 });
 
