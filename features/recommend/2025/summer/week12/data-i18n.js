@@ -1,7 +1,7 @@
 const STR = {
   en: {
-    heading_reco: `Summer 2025 Anime
-Mid-Season Recommendations`,
+    heading_reco: `Summer 2025 Anime: 
+End-of-Season Recommendations`,
     last_updated: "Last updated: August 16, 2025",
     note_reco: `* This ranking is based purely on personal impression and taste.
 The order, impressions, and comments reflect a natural, irresistible sense. Please forgive any differences in feeling with yours, and try to "believe, wait, and forgive."
@@ -22,8 +22,8 @@ Some titles not ranked may still be included as honorable mentions.`,
   },
   jp: {
     heading_reco: `2025年夏アニメ
-中盤折り返しおすすめ作品`,
-    last_updated: "最終更新日: 2025年8月16日",
+おすすめ作品（シーズン終了時点）`,
+    last_updated: "最終更新日: 2025年10月4日",
     note_reco: `※このランキングは完全にピュアな主観・個人的な感覚によるものです。
 順位、感想・コメント等に関しては、"自然にそう感じてしまっていて抗えないもの"なので、しょうがないと諦めてください。もし自分の感じ方と違うとしても、そこは「信じ、待ち、許す」でお願いします。
 ランキングでは対象外とした作品も含まれます。`,
