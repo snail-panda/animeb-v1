@@ -913,7 +913,7 @@ fetch("./weekly-rankings.json")
   .then(res => res.json())
   .then(data => {
     const targetYear = "2025";
-    const targetSeason = "Summer";
+    const targetSeason = "Spring";
     const latestWeeks = data[targetYear][targetSeason].weeks;
     const latestWeek = latestWeeks[latestWeeks.length - 1];
 
