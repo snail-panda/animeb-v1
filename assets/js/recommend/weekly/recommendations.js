@@ -59,12 +59,9 @@ function pickRomaji(entry) {
   return entry.romanized_title || entry.romaji || entry.romanizedTitle || "";
 }
 function equalish(a, b) {
-  const norm = (s) => String(s || "")
-    .toLowerCase()
-    .normalize("NFKC")
-    .replace(/[\s'’"“”\-—–_:;.,!?()［\]【】（）]/g, "");
-  return !!a && !!b && norm(a) === norm(b);
+  return String(a || "").trim() === String(b || "").trim();
 }
+
 
 // auto 規則（JAページの括弧決定）
 function decideParenAuto({ jp, en, romaji }) {
