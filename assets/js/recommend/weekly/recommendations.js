@@ -27,7 +27,7 @@ const LANG_CLASS = IS_JA ? 'lang-ja' : 'lang-en';
 // ここに KV を並べるだけで、該当作の括弧表示を上書きできます。
 // ※記載が無ければ既定の auto 規則で判断
 const PAREN_OVERRIDE = {
-  none:       new Set(['drstone', 'turkey', 'samapoke', 'city']),
+  none:       new Set(['samapoke', 'city']),
   en:         new Set([
     // 例: 'buta-santa', 'food'
   ]),
@@ -59,9 +59,12 @@ function pickRomaji(entry) {
   return entry.romanized_title || entry.romaji || entry.romanizedTitle || "";
 }
 function equalish(a, b) {
-  return String(a || "").trim() === String(b || "").trim();
+  const norm = (s) => String(s || "")
+    .toLowerCase()
+    .normalize("NFKC")
+    .replace(/[\s'’"“”\-—–_:;.,!?()［\]【】（）]/g, "");
+  return !!a && !!b && norm(a) === norm(b);
 }
-
 
 // auto 規則（JAページの括弧決定）
 function decideParenAuto({ jp, en, romaji }) {
