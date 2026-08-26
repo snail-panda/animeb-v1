@@ -1,0 +1,294 @@
+{
+  "meta": {
+    "week": "week 5",
+    "duration": "08-03-Sun-08-09-Sat",
+    "season": "2025 Summer",
+    "ep_range": "ep.5-6",
+    "status": {
+      "watching": 22,
+      "droppedThisWeek": 0,
+      "droppedTotal": 22,
+      "backOnList": 1,
+      "noAir": 0,
+      "completed": 1,
+      "total": 45
+    }
+  },
+  "entries": [
+    {
+      "rank": 1,
+      "trend": "up",
+      "title": "CITY THE ANIMATION",
+      "jpTitle": "CITY THE ANIMATION",
+      "kv": "city",
+      "episode": 5,
+      "genre": [
+        "Comedy",
+        "Slice of Life"
+      ],
+      "wrp_score": 10,
+      "score": 11,
+      "review": {
+        "en": "",
+        "jp": "『凄かった。いや、凄まじかった。このアニメーション。今回で「鬼◯の刃」を始めとする今どき超絶アクション作画至上主義作品たちに挑戦状を叩きつけているのだろうか?一体どれだけの情熱と労力で今回の話を作り上げたのだろうか?とんでもない。今回はこれまでずっと見せてきたこの\"CITY\"が一体としてその歴史から現在をタナベ家の初代当主から続く善行と感謝というテーマに基づいて描いてみせた凄い回だった（相当無理やりだけど）。最初から最後まで、果てはエンディングやスタッフロールまでとんでもない完成度で作り上げた。話として面白かったか?はわからないが、ただのハイクオリティということではない、こだわりや情熱の塊として、ここまでのものを見せられたら11点を付けないわけにはいかない代物を見せられた。言いたいことはただ一つ、「凄かったけど、なんで?」。ペンダントの中身は女子高生コンビニは見られたねー。』"
+      },
+      "wrp_breakdown": {
+        "base_score": 5,
+        "animation": 1.1,
+        "script": 0.8,
+        "direction": 0.8,
+        "charm": 0.6,
+        "overall": 1.7
+      },
+      "romanized_title": "CITY THE ANIMATION",
+      "release_date": "7/6/2025",
+      "based_on": "Manga",
+      "studios": "Kyoto Animation",
+      "creators": "Taichi Ishidate",
+      "external_scores": "",
+      "streaming_services": "",
+      "synopsis": "This town, is not just a normal town. There's laughter, love and emotional moments. An unpredictable ordinary life presented by the residents. Exciting stuffs come one after another. Welcome to CITY."
+    },
+    {
+      "rank": 2,
+      "trend": "up",
+      "title": "My Dress-Up Darling Season 2",
+      "jpTitle": "その着せ替え人形は恋をする Season 2",
+      "kv": "bisque",
+      "episode": 18,
+      "genre": [
+        "Comedy",
+        "Romance",
+        "Ecchi"
+      ],
+      "wrp_score": 9.5,
+      "score": 10,
+      "review": {
+        "en": "",
+        "jp": "『五条くんの脱皮・成長とまりんちゃんの圧倒的な見た目・パフォーマンスが光りまくった回。他のクラスメイトたちが五条くんとマリンちゃんの迷惑を顧みず、次から次へわらわらと被服室へやってきては、本番直前、最後の仕上げで要集中が明白な二人を取り囲んでメイクを見ようとする状況づくりの不自然さ、またマリンちゃんが撮ろうと払ったお金で男子だけでプリクラ撮る、とかレインボーローズの作り方を教えてくれた女子のご都合登場~全力ダッシュ~自腹購入、そして取って付けた様な超絶個性的キャラとか、がもう全てなんともわざとらし過ぎて鼻につくわ、違和感爆発だわだったけど、それを払拭するほどにプラスの点が勝っていたのでまぁよし（実はあんまり良くない）。っていうかこれらのクラスメイトたち・・・誰?って感じ。だから良さげなシーンでも特になんとも思えないのですけど。あ、あと五条くんが過去にいろんなことを思い出しての回想で盛り上げるところも、いわゆる超コテコテの感動演出で個人的には非常に辛かった、これもご時世ということでオーケーなんでしょうね。それでも今回はいつもよりも地に足ついてる感じで良かった。前回も言ったが、マリンちゃんは夕飯は五条くん家で食べる決まりがあったっけ?何も覚えてません。』"
+      },
+      "wrp_breakdown": {
+        "base_score": 5,
+        "animation": 0.75,
+        "script": 0.7,
+        "direction": 0.75,
+        "charm": 0.65,
+        "overall": 1.65
+      },
+      "romanized_title": "Sono Bisque Doll wa Koi wo Suru Season 2",
+      "release_date": "7/5/2025 to 9/21/2025",
+      "based_on": "Manga",
+      "studios": "CLOVERWORKS",
+      "creators": "Keisuke Shinohara",
+      "external_scores": "",
+      "streaming_services": "",
+      "synopsis": "When Marin Kitagawa and Wakana Gojo met, they grew close over their love for cosplay. Through interacting with classmates and making new cosplay friends, Marin and Wakana’s world keeps growing. New developments arise as Marin’s love for Wakana continues to be filled with endless excitement. In their ever-expanding world, Marin and Wakana’s story of cosplay and thrills continues!"
+    },
+    {
+      "rank": 3,
+      "trend": "up",
+      "title": "Turkey! Time to Strike",
+      "jpTitle": "Turkey!",
+      "kv": "turkey",
+      "episode": 5,
+      "genre": [
+        "Adventure",
+        "Sports",
+        "Supernatural"
+      ],
+      "wrp_score": 9.25,
+      "score": 9,
+      "review": {
+        "en": "",
+        "jp": "『今回は非常に良かった。いちいち演出に力が入っていたし、劇伴も熱くてよし。それぞれの心が開いていく様も、そこに繋がっていく展開も終始一貫していたし、何より面白かったのでオールオーケー（?）。今回スポットライトがあたっていた、ちょっとユウキとリナのふたりとも良かった。特にユウキの\"自分はいい人じゃないふりしてるけど実はすごくいい人なんだ\"っていうセリフは良かった。展開自体は丸見えに読めてしまう程度のものだったけど、一応ボーリングの玉を使ってるし、リナや仲間との絆もちゃんと過去から今へ繋いでいるし良いんじゃないかと。アンズ役の伊藤美紀さんの演技は意図的?と思わなくては見ていられない程、微妙なところが多かった気がする。最後にリナが素直に謝ってくるのも個人的には良いと思えたところ。今週は女子作品たちの間で\"ちゃんと素直に謝る\"っていうのがテーマで行きましょうって取り決めがあったの?ってくらい、他の作品でも似たような展開を目にした。。本作、どんどん良くなっていて、今後は普通にランクインに絡んでくるだろうと思えるほどでした。やっと2025年夏アニメがあったまってきたのかとちょっと嬉しい気分になりました。』"
+      },
+      "wrp_breakdown": {
+        "base_score": 5,
+        "animation": 0.65,
+        "script": 0.75,
+        "direction": 0.75,
+        "charm": 0.6,
+        "overall": 1.5
+      },
+      "romanized_title": "Turkey!",
+      "release_date": "7/8/2025",
+      "based_on": "Original",
+      "studios": "BAKKEN RECORD",
+      "creators": "Susumu Kudou",
+      "external_scores": "",
+      "streaming_services": "",
+      "synopsis": "\"Turkey\" is a bowling term for scoring three consecutive strikes.  Mai, a second-year student and captain of the Ikkokukan High School Bowling Club, is a genius who can't seem to win a match. Whenever she scores a Turkey, she mysteriously follows it up with an unyielding split—the Snake Eyes.  One day, Rina, the club’s only first-year member, confronts her \"You’re doing it on purpose, aren’t you?\"  \"You’re running away from winning. But I want to win. If you have no intention of winning, I’ll quit.\""
+    },
+    {
+      "rank": 4,
+      "trend": "down",
+      "title": "See You Tomorrow at the Food Court",
+      "jpTitle": "フードコートで、また明日。",
+      "kv": "food",
+      "episode": 5,
+      "genre": [
+        "Comedy",
+        "Slice of Life"
+      ],
+      "wrp_score": 9.2,
+      "score": 9,
+      "review": {
+        "en": "",
+        "jp": "『今回もお見事（一体何話連続だろう?）多分自分は既にこの二人、山本と和田に恋をしちゃってるので冷静には見れてないかも知れない。いまだに他の作品と同様のアニメ作品として扱うべきか?と思っているところもなくもないが、それでも作画や動きや表情や演技、そして脚本、展開どれをとってもそれでいいのではないかと思える、いや、それ以上か。具体的な内容の一つ一つはあまり覚えてないが、今回は多少二人の仲睦まじさにフォーカスが集まりそれがちょっと過多気味だったかな。ただ、親友との喧嘩から決別という流れの中で二人が友だちになる馴れ初めに繋がっていて、そこでまず先に謝れる和田の素晴らしさが光っていた。先に謝れる女子は天然記念物的に、いやそれ以上に価値が高い。今までは山本のあまりのいいヤツぶりばかり目立っていたが、今回で和田の株が相当上がったのは間違いない。そしてそのあとよく臆面もなくあんなに素直な気持ちを友達に伝えるよな山本よ、いや、ふたりともだ。本当にいい友達。この二人の馴れ初めに繋がっていく流れと二人のコンビとしてのあり方やお互いへの姿勢、などが非常に良かったことが今回の高得点の一番大きな理由だろう。ちょっと甘ったるいけど。そして最後の水着は・・・反則でしょう。山本の危ない水着過ぎる。そして体がまた・・・本当にちょっと肉があれであれしてて・・・最高すぎた。ナイスチョイス和田。着る方も着る方だが。時にやはり女子同士を引き裂くのは男絡みなのだろうか。それだからこその山本の反応の冷たさ、だったのだろう。でもスカートめくり男に彼女がいることは知っていたはずの山本、何故心配したのか?やはり本当に和田がおじさんとかについて行ったのかと心配していたのかも。いい奴なだけに義理堅いし、ちゃんと連絡しないことに厳しいのは分かるけどね。ただ自分の大事さと同じくらい相手にも大事に思って欲しいということかな、表し方は違ったとしても。まぁ、\"スカートめくりの\"滝沢が和田をかつて好きだったこと、和田と似ていたことが全てでないにしても、今の彼女と付き合うきっかけにはなっていたであろうことを知っている山本としては、話の途中から更に面白くなくなっていたことは確かだろう、和田が大切なだけに。さて前半はどんな話だっただろうか?全く覚えていません。いずれにしても後１話だけなんて信じられない、信じたくない!ああ~もっと見たい!まじで今期３作品しかみちゃだめなら絶対本作を１つに選びます。ってことで。はぁ・・・。』－9点・視聴継続【追加】一応見直した。前半は、麦茶に砂糖入れる、何でも砂糖をいれるおばあちゃん、甘いものを足す食べ物話でトマトにはちみつと納豆に砂糖とめんつゆ、私らホント趣味合わないよねといいつつ卵焼きに砂糖で合意で嬉しそうって感じでまずまず。漫画で顔に油性ペンで落書きでそこまで激昂しないのおかしくね?マジブチギレ案件でしょ?の和田の疑問。そこから和田の手に「うんち」「うんこ」を油性・水性で実験。水性が面白いほどすぐ落ちるのでおでこに「肉」を書いて写メることに。ひとしきり写真を取ったので落としてくると言いその場を去る和田。そしてペンが油性だったことに気づく山本。意気揚々と「落ちたー?」と聞きながら帰って来る和田。正直に真剣に謝る山本。昭和の漫画リアクションで軽く許す和田の反応に突っ込みながらも、何故怒らないのか疑問の和田。「前髪あるし、でも前髪無かったらぶん殴ってた」とヘラヘラいう和田。ーここが後に繋がる。バイトがラストまでという山本だが前回の「一生一緒に帰る」発言もあるし待っているという和田。ひとりで待っていると前回のスカートめくりの滝沢本人登場。恐らく彼女から聞いたのだろうか?意外とかっこよくなってて意気投合した和田は滝沢と帰宅、山本に連絡を入れずに。。。次の日その滝沢との遭遇で過去に好かれていたことなどを知って更に浮かれポンチな和田が話しかけるもそっけない態度の山本。しばらく話した後、ようやく山本が腹を立てていることに気づく和田。おそらくその理由の把握が多少食い違っている。和田は連絡入れずに帰っちゃったことを怒っていると思っている。がそれは表面上で本当は自分の大切な友達がぽっと出の男に取られちゃう可能性自体にすら腹を立てていた。もちろんその前に和田が変なオジサンにでもついて行っちゃったのかなと心配していたことや大事な友人であり更に親密度もマシている近頃に待っていてくれることを楽しみにしていたであろうが、なんの連絡文無く帰ってしまっていた挙げ句、人の心配もよそに男の話を仕出す始末。しかも山本は滝沢の現彼女と遭遇していてその辺の経緯も既に知っているのでそんなしょうもないやつに!等色々整理のつかない思いをしたのが大きいのだろう。そしてそれはちょっと照れくさいので率直に直ぐに言葉にして伝えづらいことだが、山本のそんな複雑な気持ちは直ぐに和田には伝わらず、普段の山本の包容力にズブズブ甘えてる和田はこの件でそうしてしまっていた自分も認められず、結局喧嘩となってその後5日間くらい合わない日々を迎えることになる。このやり取りの直後ですら山本は和田の「肉」写真を眺めているし、二人はそれぞれ別々の日にフードコートに来ているがすれ違っているし、本当に大事な存在だからこそ腹が立ってしまうし、起こってしまう喧嘩でもあってちょっと胸が締め付けられる感じだった。この件が二人の出会いや友だちになる馴れ初め、また何故和田がそれまで仲がめちゃくちゃよかった友達と袂を分かつことになったのかにすごく関連している見せ方も良かった。今まではとにかくマイペースでしゃべくり倒す和田と大人っぽく落ち着いて包容力があるいい奴の山本という構図だったが、今回は和田にちょっと多めにフォーカスがいっていて、和田は「ちゃんと謝ること」をすごく大事にしているいい子なのだと思った。だからこそ例え油性ペンでおでこに「肉」と書いてしまったとしても、その間違いを認めて素直に真剣に謝られたら、「怒れない」のである。だからきっとその照れ隠しで昭和リアクションをしたのだろう。そして過去の親友との件でも、「ちゃんと誤ったら許し合う」ということも大事にしてることがわかるし、「自分が悪いと思ったら自分から先に謝る」ということがちゃんとできる子なんだと思った。それはとても大事なこと。友達関係でも人間関係一般でも。それが出来ない人のなんと多いことか（損得勘定抜きで）。だから和田は「親しき仲にもなんちゃら」といいつつ、自分の非を認め、ちゃんと先に謝ったし、それに対して山本も即自分も謝り、尚且つしっかりと心を開いて正直に自分の気持ちを話した。ここのやり取りが過去の回想とも前半の油性ペンともつながり本当に素晴らしかった。こんなにお互いを大事に思いあっている唯一無二の友人だからこそ、最後のクソ水着をお互い着て呆然と立ち尽くしているのでしょう（山本がまじでエロい）。ということでオチまでしっかり決まって素晴らしい脚本・展開・演出でした。ただ、唯一の疑問と問題点は、いくら水性ペンで書いたといっても高校生女子がおでこに書いた「肉」を洗面所に落としに言った際に鏡で自分で確認もせずに戻ってくるということはあり得ないだろうということ。いくらいざとなったら、いやデフォルトで前髪で隠せる・隠れてるとしても。それこそ「ねえ、落ちたー?」と聞きながら帰って来る?はあくまでも展開のためのご都合過ぎる超不自然発言・行動と感じたので点をちょっと押さえている・・・・はず。ただ、そうはいってもこの部分は避けようがないものだというのはじゅうじゅう理解している。説明セリフやシーンを入れたとしてもそれも余分で違和感になってしまうだろう。例えば、女子トイレが清掃中で和田はやむなく手を洗うだけのシンクと蛇口が設置してあるようなところでおでこを洗ったので鏡がなく確認できなかった生ーンを入れるとか、そういった台詞を入れるとか。。。いやいや、余分だしアニメにおいてその10秒15秒がどれだけ重要でメインのことに使いたいかを考えると更に入れることは避けられるのが当然だろう。ならば違和感を承知したうえであの和田の発言の感じから、自ら鏡で確認をするタイプじゃない、とか水性が恐ろしく簡単に落ちるのを既に見せていたので和田も確認しなかったとか、なんらかの事情で確認できなかったことは視聴者が推し量ってあげるべきもの・・・とか?まぁいずれにしても映画やドラマやアニメでそういうシーンはいくらでもあると思う。制限時間やカットが無いのであればやりようもあるだろうが、こういう或る意味不可避のケースってやっぱり「そのまま」がベストな選択なのだろうか?』"
+      },
+      "wrp_breakdown": {
+        "base_score": 5,
+        "animation": 0.65,
+        "script": 0.75,
+        "direction": 0.75,
+        "charm": 0.6,
+        "overall": 1.45
+      },
+      "romanized_title": "Food Court de, Mata Ashita",
+      "release_date": "7/7/2025",
+      "based_on": "Manga",
+      "studios": "Atelier Pontdarc",
+      "creators": "Kazuomi Koga",
+      "external_scores": "",
+      "streaming_services": "",
+      "synopsis": "Meet Wada, who gives off an unapproachable vibe, and Yamamoto, who strikes fear into those around her because of her looks. Though the two girls attend separate high schools, they meet up at a shopping center’s food court almost every day. Take a little peek at the laid-back afternoons Wada and Yamamoto share as they reflect on the ups and downs of high school life together."
+    },
+    {
+      "rank": 5,
+      "trend": "re",
+      "title": "Hotel Inhumans",
+      "jpTitle": "ホテル・インヒューマンズ",
+      "kv": "hotel",
+      "episode": 5,
+      "genre": [
+        "Action",
+        "Drama"
+      ],
+      "wrp_score": 9.1,
+      "score": 9,
+      "review": {
+        "en": "",
+        "jp": "『ここまでの３,４話と連続でなかなか良いものを見せてくれた本作だが、今回の第5話で見事本戦復帰を決定づけた。どこかで見たことの在るような内容ではある。しかも何度も。でも、見せ方、構成などの作りこみが相当練られしっかりとしてかなり良かったと思う。殺し屋が記憶があるのとないので見た目も話し方もまるで変わるのもいい感じだったし、コンシェルジュ二人の冷静さと苦悩、そして1年経過時の成長というのも良かった。事故でうまく記憶が失われること、また頭を打って再度記憶が失われること等々、流石に都合がいい部分が溢れていたけど全体としての秀逸さ、出来から9点でいいと思う。女性コンシェルジュの謎の華麗さはとその演出は何なのだろう?個人的には好きだし、\"有り\"だけど。』"
+      },
+      "wrp_breakdown": {
+        "base_score": 5,
+        "animation": 0.65,
+        "script": 0.7,
+        "direction": 0.7,
+        "charm": 0.55,
+        "overall": 1.5
+      },
+      "romanized_title": "Hotel Inhumans",
+      "release_date": "7/6/2025",
+      "based_on": "Web Comics",
+      "studios": "Bridge",
+      "creators": "Aminotetsuro",
+      "external_scores": "",
+      "streaming_services": "",
+      "synopsis": "The best hotels must meet certain standards, including the finest cuisine, ways to relax, and entertainment. Of course, they also need the best selection of weapons, reliable ways to falsify one’s identity, and ways to dispose of evidence. In this hotel at the border of death stand two concierges, Ikuro Hoshi and Sara Haizaki. What kinds of requests will the assassins have for them next?"
+    },
+    {
+      "rank": "spotlight",
+      "trend": "up",
+      "title": "The Fragrant Flower Blooms with Dignity",
+      "jpTitle": "薫る花は凛と咲く",
+      "kv": "kaoru",
+      "episode": 6,
+      "genre": [
+        "Comedy",
+        "Drama",
+        "Romance"
+      ],
+      "wrp_score": 9.05,
+      "score": 9,
+      "review": {
+        "en": "",
+        "jp": "『正直内容は、\"自分は一体何を見させられているんだろう?\"というものだったが、それを圧倒的な（コテコテで仰々しいドラマチックさで盛り上げる）演出で、魅せきってしまった事実を評価したいと思った。言ってしまえば保科昴についても、謎にハーフ?で美しすぎる?性格難ありってこと以外、現時点ではご都合的に存在するキャラって感じが強く、良くわからないしどうでもいい。結局こいつは余計なことしかしてないし、更にその上塗りしてるし。凛太郎も考えなしに\"電話できる?\"ってメッセージを送るはず無いのに送るのも\"は?\"って思ったし、薫子と昴のやり取りの感情上げ上げ演出のやり過ぎ感はもう・・・勘弁してくださいっていうレベルだったし、最後の公園でもサッカーボール飛ばしてくる少年が死ぬほど都合よく、凛太郎と昴が喫茶店で話していた時の男の子で、しかも二人のことを覚えていて、\"あ、あの時の二人だ!すごく仲いいね!\"とか言う!!!???言わねーよ!ってのもあったし、もう全てがご都合と強引さでとっ散らかってて、どうし給うか?と思うほどの内容だった。しかし或る意味、中身もアニメーションも\"完全に振り切っている\"ということで見せることが出来ている作品として、逆に評価したい、評価するべきなのかな?と思った、ということです。何だこれ・・・作品も評価も。』"
+      },
+      "wrp_breakdown": {
+        "base_score": 5,
+        "animation": 0.75,
+        "script": 0.65,
+        "direction": 0.65,
+        "charm": 0.55,
+        "overall": 1.45
+      },
+      "romanized_title": "Kaoru Hana wa Rin to Saku",
+      "release_date": "7/5/2025 to 9/28/2025",
+      "based_on": "Web Comics",
+      "studios": "CLOVERWORKS",
+      "creators": "Miyuki Kuroki",
+      "external_scores": "",
+      "streaming_services": "",
+      "synopsis": "Chidori High is a boys’ school that takes in the dregs of society with the lowest grades. Next door stands Kikyo Girls’ High, where the wealthy, high-class families send their precious daughters. Chidori second-year Rintaro, who has a fierce face but a gentle heart, is helping at his family’s patisserie when he meets a girl named Kaoruko. The two hit it off right away…but this blissful peace is quickly disturbed when Rintaro discovers that Kaoruko is actually a student at Kikyo. Worse, she doesn’t seem to realize what a huge problem this really is! Will these two be able to forge a path for themselves, and sidestep the traps (metaphorical and literal) laid by their classmates?"
+    },
+    {
+      "rank": "editor's pick",
+      "trend": "up",
+      "title": "Solo Camping for Two",
+      "jpTitle": "ふたりソロキャンプ",
+      "kv": "futari",
+      "episode": 5,
+      "genre": [
+        "Slice of Life",
+        "Outdoor"
+      ],
+      "wrp_score": 8.65,
+      "score": 8,
+      "review": {
+        "en": "",
+        "jp": "『今回は前回登場した、ゲンの高校時代からの腐れ縁であるアキヒトが再度登場。或る意味ゲンとシズクのキューピッドになりつつ、シズクの友達の内一人をゲット?からの4人ソロキャンが将来実現しそうな予感もさせる回。それは飛躍しすぎとしても、今回は居酒屋でアキヒトにシズクとの関係に若干プッシュされ意識しつつあるゲンがひとりキャンプを堪能している時、シズクは友達たちと一緒にアキヒトと会いゲンのことなど相談しつつ・・・という2元中継的に見せる話でした。この2つの場面の対比も良かったし、色々と徐々にしっかり高まっている感じも悪くなく楽しめたので今後への期待も若干生まれた。ただすべてが普通で意外性も大して無く、結局は年下ギャルとの恋愛をするおっさんソロキャンパーって話なのね、ってのは正直ある。ただそれでもあの例の1回を除いて作画も安定しつつあるし、シズクの人柄もわかってきて嫌悪感も無くなったし、ゲンとアキヒトの出会いなどを通して人間関係もある程度深みを持ったし、実際中々楽しめる作品になってきてると思った。大人があまり深く考えず気楽に見る程度には丁度いいキャンプと恋愛、日常的人間関係を描いた作品かと。ただシズクの代わりに友達の短髪青髪女の失礼な態度が気になった。ま、時代もあるんでそんなもんかも知れないけど。』"
+      },
+      "wrp_breakdown": {
+        "base_score": 5,
+        "animation": 0.6,
+        "script": 0.6,
+        "direction": 0.65,
+        "charm": 0.5,
+        "overall": 1.3
+      },
+      "romanized_title": "Futari Solo Camp",
+      "release_date": "7/10/2025",
+      "based_on": "Manga",
+      "studios": "Synergy SP",
+      "creators": "Jun Hatori",
+      "external_scores": "",
+      "streaming_services": "",
+      "synopsis": "Gen Kinokura, 34 years old.  A solitary camper who cherishes his alone time in nature, Gen enjoys his usual solo camping trips. However, he unexpectedly encounters Shizuku Kusano, a complete beginner in camping. Reluctantly, Gen ends up camping with Shizuku, despite it being the last thing he wanted to do.  What will become of Gen’s peaceful camping life now that it’s turned upside down by this new companion?"
+    },
+    {
+      "rank": "dookie",
+      "trend": "stay",
+      "title": "Secrets of the Silent Witch",
+      "jpTitle": "サイレント・ウィッチ 沈黙の魔女の隠しごと",
+      "kv": "silent",
+      "episode": 6,
+      "genre": [
+        "Adventure",
+        "Fantasy"
+      ],
+      "wrp_score": 5.9,
+      "score": 5,
+      "review": {
+        "en": "",
+        "jp": "『何故?唐突で脈絡なしがこの作品のテーマ?突然の社交ダンス。前回の流れから今回はさも乗馬クラブの内容かと思いきや、馬は一切無く、それはただのキッカケだったらしく、今回は社交ダンスを教えたり、また唐突のお茶会で謎に窮地に立たされるモニカの手助けしたりする。また（また）そこでお決まりの謎に感じ悪い黒髪ロング女子が登場し、今まで謎に誰も突っ込まなかった沈黙の魔女との名前の共通点を突っ込んだり、ネチネチぶりを披露しまくる。お茶会での窮地は、過去の出来事の逆恨みから、用意していた紅茶を捨てられるというコテコテいじめだが、フリが弱すぎて\"なぜ?\"、\"どうして急に?\"としか思えない。また出すお茶が被ってすらいけないという高貴なお茶会で紅茶がないピンチの打開策が代わりにコーヒーを出すという意味不明さ。なんだかんだで最終的に\"可愛い子ちゃんの「仲の良い友達に美味しいものを飲んで欲しいから・・・」という純粋な気持ちは尊いから良し\"的ないいい加減なことで適当に締められると思ったら大間違い。\"何言ってんの?\"という違和感しか無い。そしてまた社交ダンスの練習で王子様生徒会長と、氷の先輩にチヤホヤされるモニカ。最終的に、またいつもの魔法・計算オタクぶりでボケる締め。ク◯枠として確定コース。前回半分ジョークで書いたんだが、マジで羊文学さん、ご愁傷さまです。』"
+      },
+      "wrp_breakdown": {
+        "base_score": 5,
+        "animation": 0.5,
+        "script": 0.3,
+        "direction": 0.3,
+        "charm": 0.2,
+        "overall": -1.5
+      },
+      "romanized_title": "Silent Witch: Chinmoku no Majo no Kakushigoto",
+      "release_date": "7/4/2025 to 9/27/2025",
+      "based_on": "Naro",
+      "studios": "Studio五組",
+      "creators": "Takaomi Kanezaki/Yasuo Iwamoto",
+      "external_scores": "",
+      "streaming_services": "",
+      "synopsis": "Monica Everett, the Silent Witch, is the world’s only practitioner of Voiceless Magic, a veritable heroine who single-handedly fended off the Black Dragon of legend. However, the young prodigy is actually…super-duper shy! Yup, turns out she only learned Voiceless Magic to avoid speaking in public. Ignorant of this, the Seven Sages have placed her on a top-secret mission to guard the Second Prince. Can Monica keep it together as she contends with both social interaction and the evils targeting the young royal?"
+    }
+  ]
+}
