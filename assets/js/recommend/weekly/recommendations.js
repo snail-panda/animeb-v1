@@ -113,6 +113,62 @@ function pickReviewForRec(entry) {
   return (entry?.review?.en || entry?.review?.jp || "").trim();
 }
 
+// ====== ページメタ更新 ======
+function updatePageMeta(meta) {
+  const year = meta.year || "";
+  const seasonRaw = meta.season || "";
+  const stage = meta.recommendationstage || meta.recommendationStage || "";
+  const date = meta.seasondate || meta.seasonDate || "";
+
+  const season =
+    seasonRaw.charAt(0).toUpperCase() +
+    seasonRaw.slice(1).toLowerCase();
+
+  // ページ上部の Season / Year
+  document.querySelectorAll('.season').forEach(el => {
+    el.textContent = IS_JA
+      ? `${year}年${season === "Spring" ? "春" : season === "Summer" ? "夏" : season === "Fall" ? "秋" : season === "Winter" ? "冬" : season}`
+      : `${season} ${year}`;
+  });
+
+  // Mid-Season / End-of-Season など
+  document.querySelectorAll('.stage').forEach(el => {
+    if (IS_JA) {
+      if (/mid/i.test(stage)) {
+        el.textContent = "中盤折り返しおすすめ作品";
+      } else if (/end/i.test(stage)) {
+        el.textContent = "シーズン終了時おすすめ作品";
+      } else {
+        el.textContent = stage;
+      }
+    } else {
+      el.textContent = stage
+        ? `${stage} Recommendations`
+        : "Recommendations";
+    }
+  });
+
+  // Last updated
+  document.querySelectorAll('.update-date').forEach(el => {
+    el.textContent = IS_JA
+      ? `最終更新日: ${date}`
+      : `Last updated: ${date}`;
+  });
+
+  // Footerの日付
+  const footer = document.querySelector('footer');
+  if (footer) {
+    const dateLine = Array.from(footer.querySelectorAll('p'))
+      .find(p => /Last updated|最終更新日/i.test(p.textContent));
+
+    if (dateLine) {
+      dateLine.textContent = IS_JA
+        ? `最終更新日: ${date}`
+        : `Last updated: ${date}`;
+    }
+  }
+}
+
 // ====== 起動処理 ======
 document.addEventListener('DOMContentLoaded', () => {
   // プレースホルダー除去
@@ -123,7 +179,10 @@ document.addEventListener('DOMContentLoaded', () => {
   // Recommendations
   fetch(recommendPath)
     .then(res => res.json())
-    .then(data => renderMainEntries(data.entries || []));
+    .then(data => {
+      updatePageMeta(data.meta || {});
+      renderMainEntries(data.entries || []);
+    });
 
   // Enjoyment
   renderEnjoymentRankingFromJson(enjoyPath);
