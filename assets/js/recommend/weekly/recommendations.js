@@ -124,12 +124,21 @@ function updatePageMeta(meta) {
     seasonRaw.charAt(0).toUpperCase() +
     seasonRaw.slice(1).toLowerCase();
 
+  const seasonJPMap = {
+  Spring: "春",
+  Summer: "夏",
+  Fall: "秋",
+  Winter: "冬"
+};
+
+const seasonJP = seasonJPMap[season] || season;  
+
   // ページ上部の Season / Year
   document.querySelectorAll('.season').forEach(el => {
-    el.textContent = IS_JA
-      ? `${year}年${season === "Spring" ? "春" : season === "Summer" ? "夏" : season === "Fall" ? "秋" : season === "Winter" ? "冬" : season}`
-      : `${season} ${year}`;
-  });
+  el.textContent = IS_JA
+    ? `${year}年${seasonJP}`
+    : `${season} ${year}`;
+});
 
   // Mid-Season / End-of-Season など
   document.querySelectorAll('.stage').forEach(el => {
