@@ -167,6 +167,11 @@ function updatePageMeta(meta) {
         : `Last updated: ${date}`;
     }
   }
+
+  // ページタイトル
+  document.title = IS_JA
+  ? `${year}年${season === "Summer" ? "夏" : season}アニメ ${stage}`
+  : `${season} ${year} Anime ${stage} Recommendations`;
 }
 
 // ====== 起動処理 ======
