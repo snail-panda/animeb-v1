@@ -1,0 +1,1223 @@
+{
+  "meta": {
+    "week": "week prelim",
+    "duration": "06-28-Sun-07-04-Sat",
+    "season": "2026 Summer",
+    "ep_range": "ep.1-2",
+    "status": {
+      "watching": 28,
+      "droppedThisWeek": 4,
+      "droppedTotal": 4,
+	  "backOnList": 0,
+      "noAir": 0,
+      "completed": 0,
+      "total": 32
+    }
+  },
+  "entries": [
+    {
+      "rank": 1,
+      "trend": "re",
+      "title": "Mushoku Tensei: Jobless Reincarnation Season 3",
+      "jpTitle": "無職転生Ⅲ ～異世界行ったら本気だす～",
+      "kv": "mushoku",
+      "episode": 2,
+      "genre": [
+        "Isekai",
+        "Reincarnation",
+        "Ecchi"
+      ],
+      "wrp_score": 10.35,
+      "score": 11,
+      "review": {
+        "en": "",
+        "jp": ""
+      },
+      "wrp_breakdown": {
+        "base_score": 5,
+        "animation": 0.85,
+        "script": 0.9,
+        "direction": 0.9,
+        "charm": 0.85,
+        "overall": 1.85
+      },
+      "romanized_title": "Mushoku Tensei III: Isekai Ittara Honki Dasu",
+      "release_date": "7/5/2026 to 9/27/2025",
+      "based_on": "Light Novels",
+      "studios": "Studio Bind",
+      "creators": "Ryunosuke Shibuya",
+      "external_scores": "",
+      "streaming_services": "",
+      "synopsis": "Third season of Mushoku Tensei: Isekai Ittara Honki Dasu."
+    },
+    {
+      "rank": 2,
+      "trend": "up",
+      "title": "Victoria of Many Faces",
+      "jpTitle": "手札が多めのビクトリア",
+      "kv": "victoria",
+      "episode": 2,
+      "genre": [
+        "Action",
+        "Drama",
+        "Fantasy"
+      ],
+      "wrp_score": 9.51,
+      "score": 10,
+      "review": {
+        "en": "",
+        "jp": ""
+      },
+      "wrp_breakdown": {
+        "base_score": 5.01,
+        "animation": 0.7,
+        "script": 0.75,
+        "direction": 0.75,
+        "charm": 0.65,
+        "overall": 1.65
+      },
+      "romanized_title": "Tefuda ga Oome no Victoria",
+      "release_date": "7/7/2026",
+      "based_on": "Light Novels",
+      "studios": "Studio DEEN",
+      "creators": "Nobukage Kimura",
+      "external_scores": "",
+      "streaming_services": "",
+      "synopsis": "In an age when spies act behind the scenes in every land, Chloe spends her days successfully carrying out even the most difficult missions due to her unparalleled disguise skills and martial arts abilities. After the betrayal of her boss, she suddenly disappears—as Chloe plans to redo her life as the ordinary citizen Victoria in the neighboring kingdom of Ashberry, striving for a “normal” life. However, Victoria's peaceful life is abruptly cut short as she begins to get involved with many people. In this new land, her experiences and abilities from her days as a spy come in far more useful than she ever expected! On the other hand, the second prince--and others--take an interest in Victoria's strength, and the shadows close in on the woman with many faces…  (Source: Yen Press)"
+    },
+    {
+      "rank": 3,
+      "trend": "new",
+      "title": "Jaadugar: A Witch in Mongolia",
+      "jpTitle": "天幕のジャードゥーガル",
+      "kv": "jaadugar",
+      "episode": 1,
+      "genre": [
+        "Drama"
+      ],
+      "wrp_score": 9.5,
+      "score": 10,
+      "review": {
+        "en": "",
+        "jp": ""
+      },
+      "wrp_breakdown": {
+        "base_score": 5,
+        "animation": 0.75,
+        "script": 0.75,
+        "direction": 0.7,
+        "charm": 0.65,
+        "overall": 1.65
+      },
+      "romanized_title": "Tenmaku no Jaadugar",
+      "release_date": "7/4/2026 to 9/19/2025",
+      "based_on": "Manga",
+      "studios": "Science SARU",
+      "creators": "Naoko Yamada, Abel Gongora",
+      "external_scores": "",
+      "streaming_services": "",
+      "synopsis": "After losing her mother and her homeland, Sitara’s despair transforms into determination with the power of knowledge. New possibilities unfold when a family of scholars takes her in, deepening her education. Meanwhile, Genghis Khan’s Mongol Empire conquers nation after nation, nearing Sitara’s new home. After the Fourth Prince of the empire takes her captive, a flame of revenge is ignited.  (Source: Crunchyroll)"
+    },
+    {
+      "rank": 4,
+      "trend": "up",
+      "title": "Iron Wok Jan!",
+      "jpTitle": "鉄鍋のジャン！",
+      "kv": "jan",
+      "episode": 2,
+      "genre": [
+        "Action",
+        "Comedy"
+      ],
+      "wrp_score": 9.5,
+      "score": 9,
+      "review": {
+        "en": "",
+        "jp": ""
+      },
+      "wrp_breakdown": {
+        "base_score": 5,
+        "animation": 0.7,
+        "script": 0.75,
+        "direction": 0.75,
+        "charm": 0.65,
+        "overall": 1.65
+      },
+      "romanized_title": "Tetsunabe no Jan!",
+      "release_date": "7/5/2026 to 9/20/2025",
+      "based_on": "Manga",
+      "studios": "TROYCA",
+      "creators": "Ei Aoki",
+      "external_scores": "",
+      "streaming_services": "",
+      "synopsis": "Jan Akiyama, a cocky arrogant teenager wants to fulfill his grandfathers wish of defeating his arch nemesis Mutsuju Gobancho. When he arrives at the Gobancho restaurant he meets his granddaughter Kiriko Gobancho. Their rivalry is easily compared to Jan's and Kiriko's grandfathers, for Jan believes cooking is about competition and Kiriko believes cooking is about heart."
+    },
+    {
+      "rank": 5,
+      "trend": "up",
+      "title": "Draw This, Then Die!",
+      "jpTitle": "これ描いて死ね",
+      "kv": "korekaite",
+      "episode": 2,
+      "genre": [
+        "Comedy",
+        "Slice of Life"
+      ],
+      "wrp_score": 9.4,
+      "score": 9,
+      "review": {
+        "en": "",
+        "jp": ""
+      },
+      "wrp_breakdown": {
+        "base_score": 5,
+        "animation": 0.7,
+        "script": 0.75,
+        "direction": 0.75,
+        "charm": 0.65,
+        "overall": 1.55
+      },
+      "romanized_title": "Kore Kaite Shine",
+      "release_date": "7/3/2026 to 9/19/2025",
+      "based_on": "Manga",
+      "studios": "Shin-Ei Animation",
+      "creators": "Hiroaki Akagi",
+      "external_scores": "",
+      "streaming_services": "",
+      "synopsis": "First-year high school student Ai Yasumi lives on the island of Izu Oshima and loves reading manga. But after a certain turning point, she sets her sights on creating stories of her own! As she dives into the world of manga-making, Ai faces challenges, growth, and the excitement of chasing her creative dreams. Where will her creative journey take her?  (Source: Crunchyroll)"
+    },
+    {
+      "rank": 6,
+      "trend": "re",
+      "title": "You and I Are Polar Opposites Season 2",
+      "jpTitle": "『正反対な君と僕』第2期",
+      "kv": "hantai",
+      "episode": 2,
+      "genre": [
+        "Comedy",
+        "Drama",
+        "Romance"
+      ],
+      "wrp_score": 9.15,
+      "score": 9,
+      "review": {
+        "en": "",
+        "jp": ""
+      },
+      "wrp_breakdown": {
+        "base_score": 5,
+        "animation": 0.7,
+        "script": 0.7,
+        "direction": 0.7,
+        "charm": 0.65,
+        "overall": 1.4
+      },
+      "romanized_title": "Seihantai na Kimi to Boku 2nd Season",
+      "release_date": "7/5/2026 to 9/21/2025",
+      "based_on": "Manga",
+      "studios": "Lapin Track",
+      "creators": "Takayoshi Nagatomo",
+      "external_scores": "",
+      "streaming_services": "",
+      "synopsis": "The second season of Seihantai na Kimi to Boku."
+    },
+    {
+      "rank": 7,
+      "trend": "up",
+      "title": "Kaiju Girl Caramelise",
+      "jpTitle": "乙女怪獣キャラメリゼ",
+      "kv": "caramel",
+      "episode": 2,
+      "genre": [
+        "Comedy",
+        "Romance"
+      ],
+      "wrp_score": 9,
+      "score": 9,
+      "review": {
+        "en": "",
+        "jp": ""
+      },
+      "wrp_breakdown": {
+        "base_score": 5,
+        "animation": 0.7,
+        "script": 0.65,
+        "direction": 0.65,
+        "charm": 0.6,
+        "overall": 1.4
+      },
+      "romanized_title": "Otome Kaijuu Caramelise",
+      "release_date": "7/2/2026 to 8/2/2025",
+      "based_on": "Manga",
+      "studios": "LIDENFILMS",
+      "creators": "Teruyuki Oomine",
+      "external_scores": "",
+      "streaming_services": "",
+      "synopsis": "Kuroe Akaishi just wants a normal high school life—but that’s impossible with a rare condition that turns her into a giant kaiju whenever her emotions spike! Things get even worse when she falls for Arata Minami, the most popular boy in class. Now every blush, heartbeat, and crush could trigger a monster transformation. Can Kuroe survive high school love before it destroys everything around her?!  (Source: Crunchyroll)"
+    },
+    {
+      "rank": 8,
+      "trend": "re",
+      "title": "Saga of Tanya the Evil II",
+      "jpTitle": "幼女戦記Ⅱ",
+      "kv": "youjo",
+      "episode": 2,
+      "genre": [
+        "Isekai",
+        "Military",
+        "Reincarnation"
+      ],
+      "wrp_score": 9,
+      "score": 9,
+      "review": {
+        "en": "",
+        "jp": ""
+      },
+      "wrp_breakdown": {
+        "base_score": 5,
+        "animation": 0.65,
+        "script": 0.7,
+        "direction": 0.65,
+        "charm": 0.55,
+        "overall": 1.45
+      },
+      "romanized_title": "Youjo Senki II",
+      "release_date": "7/8/2026 to 9/21/2025",
+      "based_on": "Light Novels",
+      "studios": "Nut",
+      "creators": "Takayuki Yamamoto",
+      "external_scores": "",
+      "streaming_services": "",
+      "synopsis": "Second season of Youjo Senki."
+    },
+    {
+      "rank": 9,
+      "trend": "re",
+      "title": "Hell Mode: The Hardcore Gamer Dominates in Another World with Garbage Balancing Season 2",
+      "jpTitle": "『ヘルモード　～やり込み好きのゲーマーは廃設定の異世界で無双する～』2nd Season",
+      "kv": "hell",
+      "episode": 1,
+      "genre": [
+        "Action",
+        "Adventure",
+        "Fantasy"
+      ],
+      "wrp_score": 8.85,
+      "score": 8,
+      "review": {
+        "en": "",
+        "jp": ""
+      },
+      "wrp_breakdown": {
+        "base_score": 5,
+        "animation": 0.6,
+        "script": 0.65,
+        "direction": 0.65,
+        "charm": 0.6,
+        "overall": 1.35
+      },
+      "romanized_title": "Hell Mode: Yarikomi-zuki no Gamer wa Haisettei no Isekai de Musou Suru 2nd Season",
+      "release_date": "7/3/2026 to 9/19/2025",
+      "based_on": "Light Novels",
+      "studios": "Yokohama Animation Laboratory",
+      "creators": "Makoto Tamagawa",
+      "external_scores": "",
+      "streaming_services": "",
+      "synopsis": "The second season of Hell Mode."
+    },
+    {
+      "rank": 10,
+      "trend": "up",
+      "title": "Dara-san of Reiwa",
+      "jpTitle": "令和のダラさん",
+      "kv": "dara",
+      "episode": 2,
+      "genre": [
+        "Comedy",
+        "Horror"
+      ],
+      "wrp_score": 8.81,
+      "score": 8,
+      "review": {
+        "en": "",
+        "jp": ""
+      },
+      "wrp_breakdown": {
+        "base_score": 5.01,
+        "animation": 0.65,
+        "script": 0.65,
+        "direction": 0.65,
+        "charm": 0.55,
+        "overall": 1.3
+      },
+      "romanized_title": "Reiwa no Dara-san",
+      "release_date": "7/2/2026 to 9/18/2025",
+      "based_on": "Light Novels",
+      "studios": "Asahi Production",
+      "creators": "Masato Suzuki",
+      "external_scores": "",
+      "streaming_services": "",
+      "synopsis": "Clouds blacken the sky and sheets of rain turn the mountain forest into a treacherous maze... A landslide crushes a razor wire fence, and buries a \"NO TRESPASSING\" sign... Two young siblings wander into a dark world where they do not belong, and a long, horrid shadow rears up to meet them- Anyway, so that's how we met Dara-san! She might look kinda scary, but just wait until you get to know her!  \"Look, I'm a god of misfortune, okay!? Aren't you kids gonna freak out about my grotesque visage!?\"  (Source: Yen Press)"
+    },
+    {
+      "rank": 11,
+      "trend": "up",
+      "title": "Goodbye, Lara",
+      "jpTitle": "さよならララ",
+      "kv": "lara",
+      "episode": 2,
+      "genre": [
+        "Romance",
+        "Supernatural"
+      ],
+      "wrp_score": 8.8,
+      "score": 8,
+      "review": {
+        "en": "",
+        "jp": ""
+      },
+      "wrp_breakdown": {
+        "base_score": 5,
+        "animation": 0.7,
+        "script": 0.65,
+        "direction": 0.65,
+        "charm": 0.45,
+        "overall": 1.35
+      },
+      "romanized_title": "Sayonara Lara",
+      "release_date": "7/5/2026",
+      "based_on": "Original",
+      "studios": "Kinema Citrus",
+      "creators": "Takushi Koide",
+      "external_scores": "",
+      "streaming_services": "",
+      "synopsis": "Once upon a time, a mermaid princess named Lara fell in love with a human prince. To be with him, she used a witch’s potion to become human—but the magic came at a cost: If she failed to find true love, she would vanish into sea foam forever. Now, 200 years later, Lara awakens in Lake Biwa with one final chance at life and love.  (Source: Crunchyroll)"
+    },
+    {
+      "rank": 12,
+      "trend": "up",
+      "title": "Smoking Behind the Supermarket with You",
+      "jpTitle": "スーパーの裏でヤニ吸うふたり",
+      "kv": "super",
+      "episode": 2,
+      "genre": [
+        "Comedy",
+        "Romance",
+        "Slice of Life"
+      ],
+      "wrp_score": 8.75,
+      "score": 8,
+      "review": {
+        "en": "",
+        "jp": ""
+      },
+      "wrp_breakdown": {
+        "base_score": 5,
+        "animation": 0.65,
+        "script": 0.6,
+        "direction": 0.6,
+        "charm": 0.55,
+        "overall": 1.35
+      },
+      "romanized_title": "Super no Ura de Yani Suu Futari",
+      "release_date": "7/9/2026 to 9/27/2025",
+      "based_on": "Light Novel",
+      "studios": "Asahi Production",
+      "creators": "Masato Suzuki",
+      "external_scores": "",
+      "streaming_services": "",
+      "synopsis": "The sole thing that gets the middle-aged Sasaki through his soul-sucking job is a cheerful smile from Yamada—the young woman who works at a nearby 24-hour supermarket he frequents. After every tiring day of getting berated by his boss, Sasaki stops by the store to have his spirit healed by his favorite cashier.  After a particularly grueling day, Sasaki shows up at the supermarket, only to find that Yamada's shift has already ended. Disappointed, he searches for a place to smoke when a woman from behind the store calls him over to join her. The bold and dangerously playful Tayama is quick to call out Sasaki's peculiar habit of always seeking out her coworker—even going as far as telling Yamada about Sasaki's vested interest in her.  Now, in addition to seeing his adored cashier Yamada, Sasaki also visits the store to see if his new smoking partner Tayama is around. But there is more to Tayama's mischievousness than she initially lets on. With every cigarette, an unlikely friendship begins to blossom.  [Written by MAL Rewrite]"
+    },
+    {
+      "rank": 13,
+      "trend": "up",
+      "title": "The World Is Dancing",
+      "jpTitle": "ワールド イズ ダンシング",
+      "kv": "dancing",
+      "episode": 2,
+      "genre": [
+        "Drama"
+      ],
+      "wrp_score": 8.7,
+      "score": 8,
+      "review": {
+        "en": "",
+        "jp": ""
+      },
+      "wrp_breakdown": {
+        "base_score": 5,
+        "animation": 0.7,
+        "script": 0.65,
+        "direction": 0.65,
+        "charm": 0.4,
+        "overall": 1.3
+      },
+      "romanized_title": "World Is Dancing",
+      "release_date": "7/2/2026 to 9/17/2025",
+      "based_on": "Manga",
+      "studios": "Cypic",
+      "creators": "Toshimasa Kuroyanagi",
+      "external_scores": "",
+      "streaming_services": "",
+      "synopsis": "Born into a life of acting and dance with a traveling theater troupe in 14th-century Japan, 12-year old Oniyasha has one problem—he doesn't know what the point of any of it is. \"Why must I step with the left foot here instead of the right? Why is one performance good and another, bad? Why do people dance at all?\" It all seems perfectly arbitrary, until a chance encounter in a run-down shack sets him down a path to revolutionizing the art form and influencing much of Japanese culture to come. A fictionalized account of the early life of Zeami Motokiyo (Oniyasha), the founder of modern Noh theater—the world's oldest surviving theater art—this coming-of-age artist's journey vividly brings to life a man far ahead of his time during one of Japan's most culturally and socially vibrant eras.  (Source: Kodansha Comics)"
+    },
+    {
+      "rank": 14,
+      "trend": "new",
+      "title": "The Ghost in the Shell",
+      "jpTitle": "攻殻機動隊 THE GHOST IN THE SHELL",
+      "kv": "shell",
+      "episode": 1,
+      "genre": [
+        "Action",
+        "Psychological",
+        "Sci-Fi"
+      ],
+      "wrp_score": 8.65,
+      "score": 8,
+      "review": {
+        "en": "",
+        "jp": ""
+      },
+      "wrp_breakdown": {
+        "base_score": 5,
+        "animation": 0.7,
+        "script": 0.65,
+        "direction": 0.65,
+        "charm": 0.55,
+        "overall": 1.1
+      },
+      "romanized_title": "Koukaku Kidoutai: THE GHOST IN THE SHELL",
+      "release_date": "7/7/2026 to 9/25/2025",
+      "based_on": "Manga",
+      "studios": "Science SARU",
+      "creators": "Moko-chan",
+      "external_scores": "",
+      "streaming_services": "",
+      "synopsis": "The year is 2029. In near-future Japan, where the world has become highly information-intensive, with a vast corporate network covering the planet, electrons and light pulsing through it. But the nation-state and ethnic groups still survive.  Motoko Kusanagi, a full-body cyborg, leads an elite combat unit, including Batou. While commanding her team, Kusanagi envisions the creation of a specialized task force to preemptively strike against emerging threats. Meanwhile, Daisuke Aramaki of the Ministry of Internal Affairs, who had been planning to establish a similar unit, recruited Kusanagi and her team. Together, they begin operations as Public Security Section 9—an offensive tactical unit known as “Shell Squad.” As they confront complex cybercrimes and international conspiracies, the existence of a mysterious, unidentified hacker known as The “Puppet Master” emerges on the horizon of their investigation.  What fate awaits Kusanagi? And what is the Puppet Master’s true objective? A new era of cyberpunk action begins.  (Source:攻殻機動隊 THE GHOST IN THE SHELL Site)"
+    },
+    {
+      "rank": 15,
+      "trend": "re",
+      "title": "Ascendance of a Bookworm Season 3",
+      "jpTitle": "本好きの下剋上　領主の養女",
+      "kv": "honzuki",
+      "episode": 1,
+      "genre": [
+        "Drama",
+        "Fantasy",
+        "Slice of Life"
+      ],
+      "wrp_score": 8.6,
+      "score": 8,
+      "review": {
+        "en": "",
+        "jp": ""
+      },
+      "wrp_breakdown": {
+        "base_score": 5,
+        "animation": 0.65,
+        "script": 0.6,
+        "direction": 0.6,
+        "charm": 0.6,
+        "overall": 1.15
+      },
+      "romanized_title": "Honzuki no Gekokujou: Ryoushu no Youjo",
+      "release_date": "7/11/2026 to 9/28/2025",
+      "based_on": "Light Novel",
+      "studios": "WIT STUDIO",
+      "creators": "Yoshiaki Iwasaki",
+      "external_scores": "",
+      "streaming_services": "",
+      "synopsis": "Following a disastrous encounter with a noble, Myne finally resolves to say goodbye to her family and friends in the lower city, changing her name to “Rozemyne” and beginning her new life as the adopted daughter of Ehrenfest’s archduke. However, her days as an archnoble in noble society are brutal, as she is put through rigorous etiquette and magic training on top of her duties as High Bishop and forewoman. It all proves too much for a weak little seven-year-old girl... Or it would have, had the High Priest not offered her the keys to the temple’s book room as a reward. If she could get her hands on those, she’d be able to read all sorts of precious books! Her name may have changed, but Rozemyne’s passion for books remains the same as she charges into a whole new world! The detailed setting expands as the printing industry grows in size. Here begins Part 3 of this biblio-fantasy for book lovers everywhere!  (Source: J-Novel Club)"
+    },
+    {
+      "rank": 16,
+      "trend": "re",
+      "title": "From Old Country Bumpkin to Master Swordsman Season 2",
+      "jpTitle": "片田舎のおっさん、剣聖になるII",
+      "kv": "inaka",
+      "episode": 1,
+      "genre": [
+        "Action",
+        "Adventure",
+        "Comedy"
+      ],
+      "wrp_score": 8.35,
+      "score": 8,
+      "review": {
+        "en": "",
+        "jp": ""
+      },
+      "wrp_breakdown": {
+        "base_score": 5,
+        "animation": 0.65,
+        "script": 0.6,
+        "direction": 0.55,
+        "charm": 0.4,
+        "overall": 1.15
+      },
+      "romanized_title": "Katainaka no Ossan, Kensei ni Naru II",
+      "release_date": "7/8/2026 to 9/20/2025",
+      "based_on": "Light Novels",
+      "studios": "Hayabusa Film, Passione",
+      "creators": "Akio Kazumi",
+      "external_scores": "",
+      "streaming_services": "",
+      "synopsis": "The second season of Katainaka no Ossan, Kensei ni Naru."
+    },
+    {
+      "rank": 17,
+      "trend": "new",
+      "title": "The Cat and the Dragon",
+      "jpTitle": "猫と竜",
+      "kv": "neko",
+      "episode": 1,
+      "genre": [
+        "Adventure",
+        "Fantasy"
+      ],
+      "wrp_score": 8.25,
+      "score": 8,
+      "review": {
+        "en": "",
+        "jp": ""
+      },
+      "wrp_breakdown": {
+        "base_score": 5,
+        "animation": 0.55,
+        "script": 0.55,
+        "direction": 0.55,
+        "charm": 0.4,
+        "overall": 1.2
+      },
+      "romanized_title": "Neko to Ryuu",
+      "release_date": "7/4/2026 to 9/16/2025",
+      "based_on": "Naro",
+      "studios": "OLM",
+      "creators": "Jin-Koo Oh",
+      "external_scores": "",
+      "streaming_services": "",
+      "synopsis": "The story follows a fire-breathing, human-hating dragon raised by a mother cat in a forest. The dragon, known affectionately as \"Uncle Wing,\" watches over the many curious cats — such as one that goes on an adventure with a human prince, and another that lives in the city and people-watches as a hobby — and gradually warms up to humans along the way.  (Source: Crunchyroll News)"
+    },
+    {
+      "rank": 18,
+      "trend": "new",
+      "title": "A Livid Lady's Guide to Getting Even: How I Crushed My Homeland with My Mighty Grimoires",
+      "jpTitle": "ブチ切れ令嬢は報復を誓いました。 ～魔導書の力で祖国を叩き潰します～",
+      "kv": "buchigire",
+      "episode": 1,
+      "genre": [
+        "Drama",
+        "Fantasy"
+      ],
+      "wrp_score": 8.1,
+      "score": 8,
+      "review": {
+        "en": "",
+        "jp": ""
+      },
+      "wrp_breakdown": {
+        "base_score": 5,
+        "animation": 0.65,
+        "script": 0.55,
+        "direction": 0.55,
+        "charm": 0.4,
+        "overall": 0.95
+      },
+      "romanized_title": "Buchigire Reijou wa Houfuku wo Chikaimashita.: Madousho no Chikara de Sokoku wo Tataki Tsubushimasu",
+      "release_date": "7/6/2026 to 9/21/2025",
+      "based_on": "Light Novels",
+      "studios": "Studio Comet",
+      "creators": "Naoyuki Kuzuya",
+      "external_scores": "",
+      "streaming_services": "",
+      "synopsis": "Elizabeth Leiston, daughter of the influential prime minister, is a picture-perfect lady on the path to becoming the future queen of the Kingdom of Haldoria. But her life takes a sudden turn for the worst when her fiancé makes a show of publicly calling off their engagement. Soon after, he throws her in jail and starts spreading nasty rumors about her. The encouragement Elizabeth receives from her loyal waiting maid, Mireille, and her inner fury are all she needs to reconsider her goals. Why should she continue devoting herself to a country that doesn’t respect her when she can trample over it instead? She will get even with those who wronged her and bring down the damned kingdom, even if it’s the last thing she does! Luckily, Elizabeth is no damsel in distress and has seven powerful magic grimoires she won’t hesitate to use. Get ready because this ruthless lady is out for blood!  (Source: J-Novel Club)"
+    },
+    {
+      "rank": 19,
+      "trend": "new",
+      "title": "Hanaori-san Still Wants to Fight in the Next Life",
+      "jpTitle": "花織さんは転生しても喧嘩がしたい",
+      "kv": "hanaori",
+      "episode": 1,
+      "genre": [
+        "Comedy",
+        "Romance"
+      ],
+      "wrp_score": 7.8,
+      "score": 7,
+      "review": {
+        "en": "",
+        "jp": ""
+      },
+      "wrp_breakdown": {
+        "base_score": 5,
+        "animation": 0.55,
+        "script": 0.55,
+        "direction": 0.6,
+        "charm": 0.4,
+        "overall": 0.7
+      },
+      "romanized_title": "Hanaori-san wa Tensei Shite mo Kenka ga Shitai",
+      "release_date": "7/11/2026 to 9/29/2025",
+      "based_on": "Manga",
+      "studios": "LIDENFILMS",
+      "creators": "Hideyo Yamamoto",
+      "external_scores": "",
+      "streaming_services": "",
+      "synopsis": "Once the Demon King, now a shut-in NEET—Ryuusei Narukami’s second life is anything but peaceful! When Meteor Hanaori, the Hero who once defeated him, suddenly returns as a normal high school girl, his world is thrown into chaos. Determined to change, Ryuusei reenters society as a teacher and ends up teaching at her school! Their explosive reunion reignites the past—and sparks an unexpected love!  (Source: Crunchyroll)"
+    },
+    {
+      "rank": 20,
+      "trend": "new",
+      "title": "Oh Boy, Was I Wrong About Her",
+      "jpTitle": "転校先の清楚可憐な美少女が、昔男子と思って一緒に遊んだ幼馴染だった件",
+      "kv": "tenkousaki",
+      "episode": 1,
+      "genre": [
+        "Comedy",
+        "Romance"
+      ],
+      "wrp_score": 7.75,
+      "score": 7,
+      "review": {
+        "en": "",
+        "jp": ""
+      },
+      "wrp_breakdown": {
+        "base_score": 5,
+        "animation": 0.55,
+        "script": 0.55,
+        "direction": 0.55,
+        "charm": 0.4,
+        "overall": 0.7
+      },
+      "romanized_title": "Tenkousaki no Seiso Karen na Bishoujo ga, Mukashi Danshi to Omotte Issho ni Asonda Osananajimi datta Ken",
+      "release_date": "7/6/2026 to 9/23/2025",
+      "based_on": "Light Novels",
+      "studios": "project No.9",
+      "creators": "0",
+      "external_scores": "",
+      "streaming_services": "",
+      "synopsis": "Seven years after making a childhood promise to always be friends, Hayato is reunited with his formerly tomboyish pal Haruki at a city high school–only now, Haruki has transformed into the girl every guy dreams about! While Haruki’s looks may have changed, with Hayato, she’s still the same pal he remembers. Despite years apart, their promise and feelings remain and deepen into something stronger.  (Source: Crunchyroll)"
+    },
+    {
+      "rank": 21,
+      "trend": "new",
+      "title": "From Overshadowed to Overpowered: Second Reincarnation of a Talentless Sage",
+      "jpTitle": "落第賢者の学院無双～二度目の転生、Sランクチート魔術師冒険録～",
+      "kv": "rakudai",
+      "episode": 1,
+      "genre": [
+        "Action",
+        "Adventure",
+        "Fantasy"
+      ],
+      "wrp_score": 7.7,
+      "score": 7,
+      "review": {
+        "en": "",
+        "jp": ""
+      },
+      "wrp_breakdown": {
+        "base_score": 5,
+        "animation": 0.6,
+        "script": 0.55,
+        "direction": 0.55,
+        "charm": 0.4,
+        "overall": 0.6
+      },
+      "romanized_title": "Rakudai Kenja no Gakuin Musou: Nidome no Tensei, S-Rank Cheat Majutsushi Bouken-roku",
+      "release_date": "7/1/2026 to 9/30/2025",
+      "based_on": "Web Comics",
+      "studios": "EMT Squared",
+      "creators": "Hisashi Ishii",
+      "external_scores": "",
+      "streaming_services": "",
+      "synopsis": "The great sage Ephtal dies in despair after failing to reach the peak of magic—but 400 years later, he’s reborn with all his memories and power intact! In a world where magic has decayed and ancient spells are treated as miracles, Ephtal storms into a prestigious magic academy to reclaim the true art of sorcery. As his power shakes the world, long-forgotten legends begin to awaken!  (Source: Crunchyroll)"
+    },
+    {
+      "rank": 22,
+      "trend": "new",
+      "title": "Let's Go Kaikigumi",
+      "jpTitle": "レッツゴー怪奇組",
+      "kv": "kaikigumi",
+      "episode": 1,
+      "genre": [
+        "Comedy",
+        "Horror"
+      ],
+      "wrp_score": 7.6,
+      "score": 8,
+      "review": {
+        "en": "",
+        "jp": ""
+      },
+      "wrp_breakdown": {
+        "base_score": 5,
+        "animation": 0.6,
+        "script": 0.55,
+        "direction": 0.55,
+        "charm": 0.35,
+        "overall": 0.55
+      },
+      "romanized_title": "Let's Go Kaikigumi",
+      "release_date": "7/5/2026 to 9/29/2025",
+      "based_on": "Manga",
+      "studios": "C-Station",
+      "creators": "Yutaka Hirata",
+      "external_scores": "",
+      "streaming_services": "",
+      "synopsis": "The horror comedy manga begins one fateful day when the cowardly (unnamed) protagonist meets Mechako, the leader of the \"Kaikigumi\" organization which is in charge of the ghosts and supernatural creatures scaring humans. The protagonist somehow takes part in the revival of the Kaikigumi, after which one bizarre (yet not scary) phenomenon after another crops up around him.  (Source: ANN)"
+    },
+    {
+      "rank": 23,
+      "trend": "up",
+      "title": "Love Unseen Beneath the Clear Night Sky",
+      "jpTitle": "透明な夜に駆ける君と、目に見えない恋をした。",
+      "kv": "toumei",
+      "episode": 2,
+      "genre": [
+        "Drama",
+        "Romance"
+      ],
+      "wrp_score": 7.5,
+      "score": 7,
+      "review": {
+        "en": "",
+        "jp": ""
+      },
+      "wrp_breakdown": {
+        "base_score": 5,
+        "animation": 0.55,
+        "script": 0.55,
+        "direction": 0.55,
+        "charm": 0.35,
+        "overall": 0.5
+      },
+      "romanized_title": "Toumei na Yoru ni Kakeru Kimi to, Me ni Mienai Koi wo Shita.",
+      "release_date": "7/6/2026 to 8/11/2025",
+      "based_on": "Light Novels",
+      "studios": "Makaria",
+      "creators": "Joe Yoshizaki",
+      "external_scores": "",
+      "streaming_services": "",
+      "synopsis": "On an April night in Tokyo, still too early for fireworks, university student Kakeru Sorano meets a woman named Koharu Fuyutsuki. She is a beautiful girl who stands out from the crowd, laughs a lot, and exudes a warmth that contrasts sharply with Kakeru's own introversion. But there was something Kakeru didn't know at first—she can't see.  Unlike Kakeru, Koharu hasn't given up on anything, even with her blindness. She attends university daily, shows interest in clubs, makes friends—and dreams of launching fireworks one day. Kakeru wonders why, when she can't see them...but maybe it doesn't matter. And maybe he can start moving forward, too, for the girl who's always been by his side  (Source: Yen Press)"
+    },
+    {
+      "rank": 24,
+      "trend": "up",
+      "title": "Sparks of Tomorrow",
+      "jpTitle": "二十世紀電氣目録-ユーレカ・エヴリカ-",
+      "kv": "denki",
+      "episode": 2,
+      "genre": [
+        "Adventure",
+        "Romance"
+      ],
+      "wrp_score": 7.4,
+      "score": 7,
+      "review": {
+        "en": "",
+        "jp": ""
+      },
+      "wrp_breakdown": {
+        "base_score": 5,
+        "animation": 0.7,
+        "script": 0.5,
+        "direction": 0.55,
+        "charm": 0.3,
+        "overall": 0.35
+      },
+      "romanized_title": "Nijusseiki Denki Mokuroku: Eureka Evrika",
+      "release_date": "7/5/2026 to 9/28/2025",
+      "based_on": "Light Novels",
+      "studios": "Kyoto Animation",
+      "creators": "Minoru Oota",
+      "external_scores": "",
+      "streaming_services": "",
+      "synopsis": "The novel takes place in the summer of 1907, the 40th year of the Meiji era. 15-year-old Inako Momokawa lives in the Fushimi area of Kyoto, and is the second daughter of a sake brewer. Nothing she does ever comes out right, and she receives a scolding from her father every day. Her only relief is the trust she places in her prayers to the gods. One day while at Fushimi Inari shrine, she meets a freewheeling young man named Kihachi Sakamoto. He rejects the gods, and boasts of the incoming age of electricity.  The topic of marriage suddenly comes up in Inako's household. Her father is one-sidedly making all the decisions for her, and Inako is about to give up hope. It is then that Kihachi draws out Inako's true feelings of wanting to run away from her family. The only way to stop her marriage is to find an unusual book called the \"Electricity Catalog.\" The book is a prediction book about electricity that Kihachi wrote when he was a child, but his older brother Seiroku took the book, and its current whereabouts are unknown. Inako and Kihachi together go in search of the book across Kyoto and Shiga prefectures.  (Source: Anime News Network)"
+    },
+    {
+      "rank": 25,
+      "trend": "up",
+      "title": "Though I Am an Inept Villainess",
+      "jpTitle": "ふつつかな悪女ではございますが ～雛宮蝶鼠とりかえ伝～",
+      "kv": "futsutsuka",
+      "episode": 2,
+      "genre": [
+        "Drama",
+        "Romance"
+      ],
+      "wrp_score": 7.25,
+      "score": 7,
+      "review": {
+        "en": "",
+        "jp": ""
+      },
+      "wrp_breakdown": {
+        "base_score": 5,
+        "animation": 0.5,
+        "script": 0.55,
+        "direction": 0.55,
+        "charm": 0.3,
+        "overall": 0.35
+      },
+      "romanized_title": "Futsutsuka na Akujo de wa Gozaimasu ga: Suuguu Chouso Torikae Den",
+      "release_date": "7/12/2026",
+      "based_on": "Manga",
+      "studios": "Doga Kobo",
+      "creators": "Mitsue Yamazaki",
+      "external_scores": "",
+      "streaming_services": "",
+      "synopsis": "As maidens from the Five Clans battle for the Crown Prince’s heart, jealous Keigetsu uses forbidden magic to swap bodies with the beloved Reirin. Switching places does not guarantee happiness for Keigetsu with her new body's ill health leaving her hanging on the verge of death. Meanwhile, Reirin, now wearing the face of a scorned outcast, must answer for Keigetsu’s crimes in a dangerous trial.  The unlikely pair become increasingly entangled in each other’s lives and they will need to work together to survive after discovering the dark conspiracies brewing beneath the palace's genial surface. To confront the deadly threats lurking in the shadows, Reirin must embrace her new identity and defy their expectations of the court's inept villainess.  (Source: Crunchyroll)"
+    },
+    {
+      "rank": 26,
+      "trend": "new",
+      "title": "Grand Blue Dreaming Season 3",
+      "jpTitle": "『ぐらんぶる』Season 3",
+      "kv": "guraburu",
+      "episode": 1,
+      "genre": [
+        "Comedy",
+        "Slice of Life"
+      ],
+      "wrp_score": 7.2,
+      "score": 7,
+      "review": {
+        "en": "",
+        "jp": ""
+      },
+      "wrp_breakdown": {
+        "base_score": 5,
+        "animation": 0.55,
+        "script": 0.5,
+        "direction": 0.5,
+        "charm": 0.4,
+        "overall": 0.25
+      },
+      "romanized_title": "Grand Blue Season 3",
+      "release_date": "7/6/2026 to 9/21/2025",
+      "based_on": "Manga",
+      "studios": "Zero-G, Saber Works",
+      "creators": "Shinji Takamatsu",
+      "external_scores": "",
+      "streaming_services": "",
+      "synopsis": "The third season of Grand Blue."
+    },
+    {
+      "rank": 27,
+      "trend": "new",
+      "title": "Grow Up Show: Sunflower Circus",
+      "jpTitle": "グロウアップショウ ～ひまわりのサーカス団～",
+      "kv": "grow",
+      "episode": 1,
+      "genre": [
+        "Circus",
+        "Drama",
+        "Comedy"
+      ],
+      "wrp_score": 7,
+      "score": 7,
+      "review": {
+        "en": "",
+        "jp": ""
+      },
+      "wrp_breakdown": {
+        "base_score": 5,
+        "animation": 0.6,
+        "script": 0.45,
+        "direction": 0.45,
+        "charm": 0.25,
+        "overall": 0.25
+      },
+      "romanized_title": "Grow Up Show: Himawari no Circus-dan",
+      "release_date": "7/4/2026 to 9/27/2025",
+      "based_on": "Original",
+      "studios": "A-1 Pictures, Psyde Kick Studio",
+      "creators": "Kanta Kamei, Satsuki Takahashi",
+      "external_scores": "",
+      "streaming_services": "",
+      "synopsis": "The anime's story is set in the late 1950s and early 1960s, during the height of Japan's economic boom, when the circus is a major form of entertainment. Different circus troupes travel throughout Japan to perform and compete for a chance to participate in the world-renowned festival called \"Circus Collection.\" One troupe called the \"Sunflower Circus,\" led by its ringmaster Maria, travels around Japan to perform, despite struggling with financial difficulties. However, they meet a circus prodigy named Mizuka Tsurumaki. This is the story of a one-of-a-kind circus show of young girls with big dreams.  (Source: Anime News Network)"
+    },
+    {
+      "rank": 28,
+      "trend": "new",
+      "title": "I Want to Love You Till Your Dying Day",
+      "jpTitle": "きみが死ぬまで恋をしたい",
+      "kv": "shinumade",
+      "episode": 1,
+      "genre": [
+        "Drama",
+        "Fantasy",
+        "Romance"
+      ],
+      "wrp_score": 6.9,
+      "score": 8,
+      "review": {
+        "en": "",
+        "jp": ""
+      },
+      "wrp_breakdown": {
+        "base_score": 5,
+        "animation": 0.7,
+        "script": 0.45,
+        "direction": 0.5,
+        "charm": 0.25,
+        "overall": 0
+      },
+      "romanized_title": "Kimi ga Shinu made Koi wo Shitai",
+      "release_date": "7/7/2026 to 9/24/2025",
+      "based_on": "Manga",
+      "studios": "ROLL2",
+      "creators": "Yasushi Tomoda",
+      "external_scores": "",
+      "streaming_services": "",
+      "synopsis": "At the mysterious orphanage where Sheena lives, death is nothing new to its residents—girls who no longer have families of their own, who are raised as weapons of war, taught to kill and take the lives of others without batting an eye. Everyone, that is, except Sheena, who wishes for nothing more than the growing conflict around her to end. On the night of her roommate's death, Sheena meets a strange girl covered in blood, who smiles despite the turmoil surrounding them. The next day, the girl appears as a new student in Sheena's class and introduces herself as Mimi. Initially thought to be a school myth, there are now whispers in the orphanage's halls that Mimi is their secret weapon—an immortal who cannot die. When Mimi is later assigned as Sheena's new roommate, Sheena's world grows even more complicated when she begins living with someone who loves and welcomes death, when all Sheena wants to do is stop it…  (Source: Kodansha USA)"
+    },
+    {
+      "rank": 29,
+      "trend": "new",
+      "title": "The Villager of Level 999",
+      "jpTitle": "LV999の村人",
+      "kv": "murabito",
+      "episode": 1,
+      "genre": [
+        "Action",
+        "Adventure",
+        "Comedy"
+      ],
+      "wrp_score": 6.7,
+      "score": 6,
+      "review": {
+        "en": "",
+        "jp": ""
+      },
+      "wrp_breakdown": {
+        "base_score": 5,
+        "animation": 0.5,
+        "script": 0.45,
+        "direction": 0.45,
+        "charm": 0.25,
+        "overall": 0.05
+      },
+      "romanized_title": "LV999 no Murabito",
+      "release_date": "7/1/2026 to 9/18/2025",
+      "based_on": "Light Novels",
+      "studios": "Brain Base",
+      "creators": "Yoshinobu Kasai",
+      "external_scores": "",
+      "streaming_services": "",
+      "synopsis": "In Earthclear, everyone is born into a fixed role, and villagers are the weakest of all. Most never rise above Level 5—except Kouji Kagami, who is Level…999?! On a monster hunt, he meets Alice, the Demon King’s daughter, and discovers they share an impossible dream: coexistence between humans and demons. In a world destined for conflict, they charge into battle to defy fate and shatter the rules.  (Source: Crunchyroll)"
+    },
+    {
+      "rank": 30,
+      "trend": "up",
+      "title": "The Forsaken Saintess and her Foodie Roadtrip in Another World  Edit",
+      "jpTitle": "捨てられ聖女の異世界ごはん旅 隠れスキルでキャンピングカーを召喚しました",
+      "kv": "camp",
+      "episode": 2,
+      "genre": [
+        "Action",
+        "Adventure",
+        "Comedy"
+      ],
+      "wrp_score": 5.35,
+      "score": 5,
+      "review": {
+        "en": "",
+        "jp": ""
+      },
+      "wrp_breakdown": {
+        "base_score": 5,
+        "animation": 0.5,
+        "script": 0.3,
+        "direction": 0.3,
+        "charm": 0.25,
+        "overall": -1
+      },
+      "romanized_title": "Suterare Seijo no Isekai Gohantabi: Kakure Skill de Camping Car wo Shoukan Shimashita",
+      "release_date": "7/6/2026 to 9/28/2025",
+      "based_on": "Naro",
+      "studios": "EMT Squared",
+      "creators": "Atsushi Nigorikawa",
+      "external_scores": "",
+      "streaming_services": "",
+      "synopsis": "Rin Takanashi, a caregiver in her thirties, was unceremoniously discarded as \"trash\" despite being summoned as a saint.  However, as a lover of the great outdoors and all things camping, she was blessed with a special skill, \"Survival,\" as well as another unique skill! Thus, a riveting tale begins: one of sweat, tears, and insatiable hunger as Rin, together with companions she picked up along the way, leisurely explores this parallel world and savours gourmet cuisine to her heart's content...  Or so the story should have gone, but it looks like their road is going in an unexpected direction...?"
+    },
+    {
+      "rank": 31,
+      "trend": "new",
+      "title": "Rich Girl Caretaker: I'm Secretly the Caregiver of the Most Popular Girl in This Rich Kid School",
+      "jpTitle": "才女のお世話　高嶺の花だらけな名門校で、学院一のお嬢様(生活能力皆無)を陰ながらお世話することになりました",
+      "kv": "saijo",
+      "episode": 1,
+      "genre": [
+        "Comedy",
+        "Romance"
+      ],
+      "wrp_score": 5.3,
+      "score": 6,
+      "review": {
+        "en": "",
+        "jp": ""
+      },
+      "wrp_breakdown": {
+        "base_score": 5,
+        "animation": 0.5,
+        "script": 0.3,
+        "direction": 0.3,
+        "charm": 0.2,
+        "overall": -1
+      },
+      "romanized_title": "Saijo no Osewa: Takane no Hanadarake na Meimonkou de, Gakuin Ichi no Ojou-sama (Seikatsu Nouryoku Kaimu) wo Kagenagara Osewa suru Koto ni Narimashita",
+      "release_date": "7/4/2026 to 9/26/2025",
+      "based_on": "Light Novels",
+      "studios": "Brain Base",
+      "creators": "Shuusei Morishita",
+      "external_scores": "",
+      "streaming_services": "",
+      "synopsis": "Hinako Konohana is the perfect young lady—graceful, elegant, and flawless… or so everyone thinks. Behind closed doors, she’s a total disaster who can’t handle basic chores! When ordinary student Itsuki Tomonari becomes her caretaker, he’s thrown into 24/7 damage control, maintaining her “perfect” image. It’s awkward, nonstop chaos—but it starts softening into something that feels like love…  (Source: Crunchyroll)"
+    },
+    {
+      "rank": 32,
+      "trend": "new",
+      "title": "The World's Strongest Rearguard",
+      "jpTitle": "世界最強の後衛 ～迷宮国の新人探索者～",
+      "kv": "kouei",
+      "episode": 1,
+      "genre": [
+        "Action",
+        "Adventure",
+        "Fantasy"
+      ],
+      "wrp_score": 5,
+      "score": 5,
+      "review": {
+        "en": "",
+        "jp": ""
+      },
+      "wrp_breakdown": {
+        "base_score": 5,
+        "animation": 0.35,
+        "script": 0.3,
+        "direction": 0.3,
+        "charm": 0.3,
+        "overall": -1.25
+      },
+      "romanized_title": "Sekai Saikyou no Kouei: Meikyuukoku no Shinjin Tansakusha",
+      "release_date": "7/5/2026 to 9/21/2025",
+      "based_on": "Light Novels",
+      "studios": "Maho Film",
+      "creators": "Yuuji Yanase",
+      "external_scores": "",
+      "streaming_services": "",
+      "synopsis": "After a fatal accident, overworked office worker Arihito Atobe is reborn in the Labyrinth Country as a Seeker with the rare Rearguard class—an all-purpose support role that excels in attack, defense, and healing. Joined by a fierce demi-human mercenary and his former boss, Arihito dives into deadly dungeons and rises through the ranks. The adventure of the strongest support class begins!  (Source: Crunchyroll)"
+    },
+    {
+      "rank": "spotlight",
+      "trend": "up",
+      "title": "Dara-san of Reiwa",
+      "jpTitle": "令和のダラさん",
+      "kv": "dara",
+      "episode": 2,
+      "genre": [
+        "Comedy",
+        "Horror"
+      ],
+      "wrp_score": 8.81,
+      "score": 8,
+      "review": {
+        "en": "",
+        "jp": ""
+      },
+      "wrp_breakdown": {
+        "base_score": 5.01,
+        "animation": 0.65,
+        "script": 0.65,
+        "direction": 0.65,
+        "charm": 0.55,
+        "overall": 1.3
+      },
+      "romanized_title": "Reiwa no Dara-san",
+      "release_date": "7/2/2026 to 9/18/2025",
+      "based_on": "Light Novels",
+      "studios": "Asahi Production",
+      "creators": "Masato Suzuki",
+      "external_scores": "",
+      "streaming_services": "",
+      "synopsis": "Clouds blacken the sky and sheets of rain turn the mountain forest into a treacherous maze... A landslide crushes a razor wire fence, and buries a \"NO TRESPASSING\" sign... Two young siblings wander into a dark world where they do not belong, and a long, horrid shadow rears up to meet them- Anyway, so that's how we met Dara-san! She might look kinda scary, but just wait until you get to know her!  \"Look, I'm a god of misfortune, okay!? Aren't you kids gonna freak out about my grotesque visage!?\"  (Source: Yen Press)"
+    },
+    {
+      "rank": "editor's pick",
+      "trend": "new",
+      "title": "Rich Girl Caretaker: I'm Secretly the Caregiver of the Most Popular Girl in This Rich Kid School",
+      "jpTitle": "才女のお世話　高嶺の花だらけな名門校で、学院一のお嬢様(生活能力皆無)を陰ながらお世話することになりました",
+      "kv": "saijo",
+      "episode": 1,
+      "genre": [
+        "Comedy",
+        "Romance"
+      ],
+      "wrp_score": 5.3,
+      "score": 6,
+      "review": {
+        "en": "",
+        "jp": ""
+      },
+      "wrp_breakdown": {
+        "base_score": 5,
+        "animation": 0.5,
+        "script": 0.3,
+        "direction": 0.3,
+        "charm": 0.2,
+        "overall": -1
+      },
+      "romanized_title": "Saijo no Osewa: Takane no Hanadarake na Meimonkou de, Gakuin Ichi no Ojou-sama (Seikatsu Nouryoku Kaimu) wo Kagenagara Osewa suru Koto ni Narimashita",
+      "release_date": "7/4/2026 to 9/26/2025",
+      "based_on": "Light Novels",
+      "studios": "Brain Base",
+      "creators": "Shuusei Morishita",
+      "external_scores": "",
+      "streaming_services": "",
+      "synopsis": "Hinako Konohana is the perfect young lady—graceful, elegant, and flawless… or so everyone thinks. Behind closed doors, she’s a total disaster who can’t handle basic chores! When ordinary student Itsuki Tomonari becomes her caretaker, he’s thrown into 24/7 damage control, maintaining her “perfect” image. It’s awkward, nonstop chaos—but it starts softening into something that feels like love…  (Source: Crunchyroll)"
+    },
+    {
+      "rank": "dookie",
+      "trend": "up",
+      "title": "The Forsaken Saintess and her Foodie Roadtrip in Another World  Edit",
+      "jpTitle": "捨てられ聖女の異世界ごはん旅 隠れスキルでキャンピングカーを召喚しました",
+      "kv": "camp",
+      "episode": 2,
+      "genre": [
+        "Action",
+        "Adventure",
+        "Comedy"
+      ],
+      "wrp_score": 5.35,
+      "score": 5,
+      "review": {
+        "en": "",
+        "jp": ""
+      },
+      "wrp_breakdown": {
+        "base_score": 5,
+        "animation": 0.5,
+        "script": 0.3,
+        "direction": 0.3,
+        "charm": 0.25,
+        "overall": -1
+      },
+      "romanized_title": "Suterare Seijo no Isekai Gohantabi: Kakure Skill de Camping Car wo Shoukan Shimashita",
+      "release_date": "7/6/2026 to 9/28/2025",
+      "based_on": "Naro",
+      "studios": "EMT Squared",
+      "creators": "Atsushi Nigorikawa",
+      "external_scores": "",
+      "streaming_services": "",
+      "synopsis": "Rin Takanashi, a caregiver in her thirties, was unceremoniously discarded as \"trash\" despite being summoned as a saint.  However, as a lover of the great outdoors and all things camping, she was blessed with a special skill, \"Survival,\" as well as another unique skill! Thus, a riveting tale begins: one of sweat, tears, and insatiable hunger as Rin, together with companions she picked up along the way, leisurely explores this parallel world and savours gourmet cuisine to her heart's content...  Or so the story should have gone, but it looks like their road is going in an unexpected direction...?"
+    }
+  ]
+}
