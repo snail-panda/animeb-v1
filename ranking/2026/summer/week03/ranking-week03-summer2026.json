@@ -1,0 +1,294 @@
+{
+  "meta": {
+    "week": "week 3",
+    "duration": "07-19-Sun-07-25-Sat",
+    "season": "2026 Summer",
+    "ep_range": "ep.3-4",
+    "status": {
+      "watching": 27,
+      "droppedThisWeek": 3,
+      "droppedTotal": 5,
+      "backOnList": 0,
+      "noAir": 0,
+      "completed": 0,
+      "total": 32
+    }
+  },
+  "entries": [
+    {
+      "rank": 1,
+      "trend": "up",
+      "title": "Draw This, Then Die!",
+      "jpTitle": "これ描いて死ね",
+      "kv": "korekaite",
+      "episode": 4,
+      "genre": [
+        "Comedy",
+        "Slice of Life"
+      ],
+      "wrp_score": 9.5,
+      "score": 10,
+      "review": {
+        "en": "<strong>Episode #4: Utopia: Making Manga's Better with Others</strong>",
+        "jp": "第4話: ユートピア〜漫画づくりに仲間はいるほうがいい<p>『展開、演出、ギャグ、キャラクターディベロプメントなどなど、どれをとっても申し分無し。面白いし楽しいし、もっと見ていたいと思う。それぞれのキャラに役割分担があり、人間関係、微妙で複雑な感情の揺れなどの描写がいい。個人的には緑髪の初期設定高すぎの作画担当がもうちょっとそこらの経緯が欲しいというきがする。でもいいですよね、原作と作画の二人の関係とその行き違いの解消も。』</p>"
+      },
+      "wrp_breakdown": {
+        "base_score": 5,
+        "animation": 0.75,
+        "script": 0.7,
+        "direction": 0.75,
+        "charm": 0.7,
+        "overall": 1.6
+      },
+      "romanized_title": "Kore Kaite Shine",
+      "release_date": "7/3/2026 to 9/19/2025",
+      "based_on": "Manga",
+      "studios": "Shin-Ei Animation",
+      "creators": "Hiroaki Akagi",
+      "external_scores": "",
+      "streaming_services": "",
+      "synopsis": "First-year high school student Ai Yasumi lives on the island of Izu Oshima and loves reading manga. But after a certain turning point, she sets her sights on creating stories of her own! As she dives into the world of manga-making, Ai faces challenges, growth, and the excitement of chasing her creative dreams. Where will her creative journey take her?  (Source: Crunchyroll)"
+    },
+    {
+      "rank": 2,
+      "trend": "up",
+      "title": "Hell Mode: The Hardcore Gamer Dominates in Another World with Garbage Balancing Season 2",
+      "jpTitle": "『ヘルモード　～やり込み好きのゲーマーは廃設定の異世界で無双する～』2nd Season",
+      "kv": "hell",
+      "episode": 4,
+      "genre": [
+        "Action",
+        "Adventure",
+        "Fantasy"
+      ],
+      "wrp_score": 9.1,
+      "score": 9,
+      "review": {
+        "en": "<strong>Episode #4: An Order from the Prince</strong>",
+        "jp": "第4話: 王太子からの誘い<p>『剣聖クレナのアツさ、カッコ良さにすら痺れて深くにも泣いてしまった。果たして、こんなに丁寧にちゃんと描いてる作品が他にあるだろうか?（いや、あるけどさ）みたいなことを思ってしまうくらい流石だなぁと感じる作品。剣聖…良いな。全部がSincereなんだ。だから響く。』</p>"
+      },
+      "wrp_breakdown": {
+        "base_score": 5,
+        "animation": 0.65,
+        "script": 0.7,
+        "direction": 0.65,
+        "charm": 0.65,
+        "overall": 1.45
+      },
+      "romanized_title": "Hell Mode: Yarikomi-zuki no Gamer wa Haisettei no Isekai de Musou Suru 2nd Season",
+      "release_date": "7/3/2026 to 9/19/2025",
+      "based_on": "Light Novels",
+      "studios": "Yokohama Animation Laboratory",
+      "creators": "Makoto Tamagawa",
+      "external_scores": "",
+      "streaming_services": "",
+      "synopsis": "The second season of Hell Mode."
+    },
+    {
+      "rank": 3,
+      "trend": "up",
+      "title": "Dara-san of Reiwa",
+      "jpTitle": "令和のダラさん",
+      "kv": "dara",
+      "episode": 4,
+      "genre": [
+        "Comedy",
+        "Horror"
+      ],
+      "wrp_score": 9.05,
+      "score": 9,
+      "review": {
+        "en": "<strong>Episode #4: The Return of Yamatagi-Madara</strong>",
+        "jp": "第4話: 活の谷跨斑<p>『実はこの作品、一番面白いかも。脚本・構成・演出・ギャグが全てビタリとハマっている。姉弟の謎な性別逆転見た目や、その２人のダラさんとの関係、そして相当に深いダラさんと姉の因縁、そして今回はマダラも登場、そしてその分身をつかせている娘の登場。マダラの転生の失敗ぶり、その新キャラと姉の関わり、その前の画で説明やプラモデル作りなど全てが面白い。満を持しての（?）ランクイン。今後にも大いに期待。』</p>"
+      },
+      "wrp_breakdown": {
+        "base_score": 5,
+        "animation": 0.7,
+        "script": 0.65,
+        "direction": 0.7,
+        "charm": 0.6,
+        "overall": 1.4
+      },
+      "romanized_title": "Reiwa no Dara-san",
+      "release_date": "7/2/2026 to 9/18/2025",
+      "based_on": "Light Novels",
+      "studios": "Asahi Production",
+      "creators": "Masato Suzuki",
+      "external_scores": "",
+      "streaming_services": "",
+      "synopsis": "Clouds blacken the sky and sheets of rain turn the mountain forest into a treacherous maze... A landslide crushes a razor wire fence, and buries a \"NO TRESPASSING\" sign... Two young siblings wander into a dark world where they do not belong, and a long, horrid shadow rears up to meet them- Anyway, so that's how we met Dara-san! She might look kinda scary, but just wait until you get to know her!  \"Look, I'm a god of misfortune, okay!? Aren't you kids gonna freak out about my grotesque visage!?\"  (Source: Yen Press)"
+    },
+    {
+      "rank": 4,
+      "trend": "down",
+      "title": "Victoria of Many Faces",
+      "jpTitle": "手札が多めのビクトリア",
+      "kv": "victoria",
+      "episode": 3,
+      "genre": [
+        "Action",
+        "Drama",
+        "Fantasy"
+      ],
+      "wrp_score": 8.9,
+      "score": 8,
+      "review": {
+        "en": "<strong>Episode #3: I Couldn't Become Someone to Be Depended Upon</strong>",
+        "jp": "第3話: 頼られる存在になれなかった<p>\"表面的クオリティもものともしない、着実な丁寧さ、心情の描き方の積み重ねに納得のみ\"<br><br>『決してお世辞にもハイクオリティといえる作品ではないし、多少強引で、「あれ?」と思うところが決してないわけでもないし、そりゃあ回想だって使いもする…。しかし、ちゃんとした説得力があるのだ。それは、いつも誰が何故どういう意図を持って行動しているか、ということをちゃんと積み重ねて描いているから。それを考えた時にすべての行動などに合点がいく。今回も、ヴィクトリアがジェフリーに怪しい給仕を指摘、テラスから1階に行き待ち伏せ、処理して戻るとかも、正直「ん?」と思ったし、その後のビクトリアの説明も言い訳っぽく聞こえないわけではなかった。しかしちゃんと考えると納得せざるを得ない。そこには、何が彼女にとって問題で、そのためにはどうすることが最善であったかなどが重要で、全てはそれに従っていた事がわかるからだし、そこでも久々のお仕事をして震える手やその状態で、ノンナが待つ家に帰るわけにはいかないと、一杯引っ掛けて落ち着かせるヴィクトリア、そしてそのバーでのバーテンとのやり取りなども、本当に丁寧に、そして興味深く描かれていた。また繰り返しとなるが、作画もお世辞にもハイクオリティとは言えないものではあるのだが、ダンスのシーンですら工夫をしてCG丸出しを避け、ちゃんと魅せるダンスを上手に踊り、ヴィクトリアにはもちろんのこと、シーン自体にもしっかり魅力をもたせるものだったし、給仕を仕留めるときに「あれ、これじゃあ目撃されてるかも?」という描き方をちゃんとしていた。また更には、唐突な回想とも思えるジェフリーの過去や王家との関係も、これまでのジェフリーのあり方からも納得の行くものが描かれていて、自分としては「ずいぶん都合の良い回想を放り込んできたな」と感じると思っていたにも関わらず、思わず涙してしまったという結果となった。いやぁ、これは本当に、本当に丁寧で好印象しか無い、いい作品だと思う。全9話しか無いこともあり、多少駆け足にならざるを得なかったり、少し雑に感じる演出もあるのかも知れないがわたしは全然許す。スタジオディーンはいい会社だよ、本当に。ありがとうございます。』</p>"
+      },
+      "wrp_breakdown": {
+        "base_score": 5,
+        "animation": 0.65,
+        "script": 0.65,
+        "direction": 0.65,
+        "charm": 0.6,
+        "overall": 1.35
+      },
+      "romanized_title": "Tefuda ga Oome no Victoria",
+      "release_date": "7/7/2026",
+      "based_on": "Light Novels",
+      "studios": "Studio DEEN",
+      "creators": "Nobukage Kimura",
+      "external_scores": "",
+      "streaming_services": "",
+      "synopsis": "In an age when spies act behind the scenes in every land, Chloe spends her days successfully carrying out even the most difficult missions due to her unparalleled disguise skills and martial arts abilities. After the betrayal of her boss, she suddenly disappears—as Chloe plans to redo her life as the ordinary citizen Victoria in the neighboring kingdom of Ashberry, striving for a “normal” life. However, Victoria's peaceful life is abruptly cut short as she begins to get involved with many people. In this new land, her experiences and abilities from her days as a spy come in far more useful than she ever expected! On the other hand, the second prince--and others--take an interest in Victoria's strength, and the shadows close in on the woman with many faces…  (Source: Yen Press)"
+    },
+    {
+      "rank": 5,
+      "trend": "up",
+      "title": "Jaadugar: A Witch in Mongolia",
+      "jpTitle": "天幕のジャードゥーガル",
+      "kv": "jaadugar",
+      "episode": 5,
+      "genre": [
+        "Drama"
+      ],
+      "wrp_score": 8.85,
+      "score": 8,
+      "review": {
+        "en": "<strong>Episode #5: A Snake Shows Its Colors, Man Hides His Colors</strong>",
+        "jp": "第5話: 蛇のまだらは外側に 人のまだらは内側に<p>『正直、毎回何も考えるまでもなく、最低でも9点でいいと思うくらいの作品。今回も密偵という任務を負ううことになったシタラが、以前に手に入れた石が発端で事が思わぬ方向へ転じていく。ここでも様々な部署で様々な役割があり、それぞれの事情や複雑な思いを抱えていることも描きながらメインとしてはシタラ、キルギスタニ、またオゴタイの元にいるものなどとも微妙に複雑に絡み合ったものも見えてくる。そこで本来恨みを持っているペルシア人である2人がともにそれでもときとともに許してしまいそうになっていく自分に対しても苦しんでいることを共有する・・・などとその\"石\"が持つ意味や運命の悪戯なども考えてしまう良い回でした。今回はこれからに繋がっていくそこそこおとなしめな回なので8点にはしておくが、先に言ったように本当は9点で全く構わない…。』</p>"
+      },
+      "wrp_breakdown": {
+        "base_score": 5,
+        "animation": 0.7,
+        "script": 0.65,
+        "direction": 0.7,
+        "charm": 0.55,
+        "overall": 1.25
+      },
+      "romanized_title": "Tenmaku no Jaadugar",
+      "release_date": "7/4/2026 to 9/19/2025",
+      "based_on": "Manga",
+      "studios": "Science SARU",
+      "creators": "Naoko Yamada, Abel Gongora",
+      "external_scores": "",
+      "streaming_services": "",
+      "synopsis": "After losing her mother and her homeland, Sitara’s despair transforms into determination with the power of knowledge. New possibilities unfold when a family of scholars takes her in, deepening her education. Meanwhile, Genghis Khan’s Mongol Empire conquers nation after nation, nearing Sitara’s new home. After the Fourth Prince of the empire takes her captive, a flame of revenge is ignited.  (Source: Crunchyroll)"
+    },
+    {
+      "rank": "spotlight",
+      "trend": "down",
+      "title": "Oh Boy, Was I Wrong About Her",
+      "jpTitle": "転校先の清楚可憐な美少女が、昔男子と思って一緒に遊んだ幼馴染だった件",
+      "kv": "tenkousaki",
+      "episode": 3,
+      "genre": [
+        "Comedy",
+        "Romance"
+      ],
+      "wrp_score": 6.5,
+      "score": 6,
+      "review": {
+        "en": "<strong>Episode #3: Produced by Himeko</strong>",
+        "jp": "第3話: 姫子の、プロデュース<p>『楽しんで見てはいるが、とにかく、結果的に視聴者に与える効果に基づいた設定や不自然な展開や見せ方が目立つ気がする。当然触れてなければ不自然そうな件に一切触れなかったり、話さない、行かない、提案しない、聞かない、という「無い無い尽くし」であるのも、全ては順序よく狙い通りに見せるため。それが6点の理由。作画の乱れも早くも目立つ。あの弁当の圧倒的な簡素さはウケ狙いだったのか?。田舎のサキちゃん、テンプレキャラのたまもちゃん（個人的には好み、本命ヒロイン）、妹に、ヒロインとまぁ女子が賑やかになってきましたな。っていうかヒロイン何故に一人暮らし?決まりなの?そして謎に部屋はきれいだが部屋以外がまぁ酷いことこの上ない?なのに家に呼ぶ?マジで?そして、幼馴染の兄妹の家の方にははなかなか率先して行こうとしなかったのは、なんか理由があるのか?いや、そうすると話的に困る展開になるからってことで、行かないんだよね?あと、兄妹の父親は?どこ?どうなってる?そして母親…。手術?、入院?妹とのなんか確執?父のせいで母が病んだの?それで妹とも揉めたの?良くわからんけどさ…、それら全てを伏せているのもとにかくご都合。この分では当然ながら、今後もっと低い点になる可能性も十分にあるだろう。』</p>"
+      },
+      "wrp_breakdown": {
+        "base_score": 5,
+        "animation": 0.45,
+        "script": 0.5,
+        "direction": 0.55,
+        "charm": 0.25,
+        "overall": -0.25
+      },
+      "romanized_title": "Tenkousaki no Seiso Karen na Bishoujo ga, Mukashi Danshi to Omotte Issho ni Asonda Osananajimi datta Ken",
+      "release_date": "7/6/2026 to 9/23/2025",
+      "based_on": "Light Novels",
+      "studios": "project No.9",
+      "creators": "0",
+      "external_scores": "",
+      "streaming_services": "",
+      "synopsis": "Seven years after making a childhood promise to always be friends, Hayato is reunited with his formerly tomboyish pal Haruki at a city high school–only now, Haruki has transformed into the girl every guy dreams about! While Haruki’s looks may have changed, with Hayato, she’s still the same pal he remembers. Despite years apart, their promise and feelings remain and deepen into something stronger.  (Source: Crunchyroll)"
+    },
+    {
+      "rank": "editor's pick",
+      "trend": "stay",
+      "title": "The Forsaken Saintess and her Foodie Roadtrip in Another World  Edit",
+      "jpTitle": "捨てられ聖女の異世界ごはん旅 隠れスキルでキャンピングカーを召喚しました",
+      "kv": "camp",
+      "episode": 3,
+      "genre": [
+        "Action",
+        "Adventure",
+        "Comedy"
+      ],
+      "wrp_score": 4.7,
+      "score": 4,
+      "review": {
+        "en": "<strong>Episode #3: War on the Water! Seafood Barbeque</strong>",
+        "jp": "第3話: 海で開戦！ 海鮮バーベキュー！<p>『そのバカバカしさ、アホくささにも、もう飽きたかな、本当に滅茶苦茶だよ。料理は意外にもわりと美味しそうな時もあるのだけど、まぁ何だコリャコリャ。異世界のもの、生き物も全てが、こっちの世界のものと似てると言うか…、いやまるで同じ。何で?っていうか調査は?あと、シャチ…。もう意味不明だよ。マジで。』</p>"
+      },
+      "wrp_breakdown": {
+        "base_score": 5,
+        "animation": 0.4,
+        "script": 0.2,
+        "direction": 0.25,
+        "charm": 0.15,
+        "overall": -1.3
+      },
+      "romanized_title": "Suterare Seijo no Isekai Gohantabi: Kakure Skill de Camping Car wo Shoukan Shimashita",
+      "release_date": "7/6/2026 to 9/28/2025",
+      "based_on": "Naro",
+      "studios": "EMT Squared",
+      "creators": "Atsushi Nigorikawa",
+      "external_scores": "",
+      "streaming_services": "",
+      "synopsis": "Rin Takanashi, a caregiver in her thirties, was unceremoniously discarded as \"trash\" despite being summoned as a saint.  However, as a lover of the great outdoors and all things camping, she was blessed with a special skill, \"Survival,\" as well as another unique skill! Thus, a riveting tale begins: one of sweat, tears, and insatiable hunger as Rin, together with companions she picked up along the way, leisurely explores this parallel world and savours gourmet cuisine to her heart's content...  Or so the story should have gone, but it looks like their road is going in an unexpected direction...?"
+    },
+    {
+      "rank": "dookie",
+      "trend": "down",
+      "title": "Grow Up Show: Sunflower Circus",
+      "jpTitle": "グロウアップショウ ～ひまわりのサーカス団～",
+      "kv": "grow",
+      "episode": 4,
+      "genre": [
+        "Circus",
+        "Drama",
+        "Comedy"
+      ],
+      "wrp_score": 3.8,
+      "score": 3,
+      "review": {
+        "en": "<strong>Episode #4: I Just Can't Bring Myself to Be Honest</strong>",
+        "jp": "第4話: 素直になんか、なれなくて<p>『とにかくなんだコレ?ただ作画クオリティは高くて、女の子は可愛いしょうもないグダグダやアニメ女子ならではの絡みを愛でるクソ作品か。はい、素直に言います、「無理過ぎる苦痛。苦痛意外何も無い。酷すぎる、ギブアップです!」』</p>"
+      },
+      "wrp_breakdown": {
+        "base_score": 5,
+        "animation": 0.5,
+        "script": 0.3,
+        "direction": 0.3,
+        "charm": 0.2,
+        "overall": -1.5
+      },
+      "romanized_title": "Grow Up Show: Himawari no Circus-dan",
+      "release_date": "7/4/2026 to 9/27/2025",
+      "based_on": "Original",
+      "studios": "A-1 Pictures, Psyde Kick Studio",
+      "creators": "Kanta Kamei, Satsuki Takahashi",
+      "external_scores": "",
+      "streaming_services": "",
+      "synopsis": "The anime's story is set in the late 1950s and early 1960s, during the height of Japan's economic boom, when the circus is a major form of entertainment. Different circus troupes travel throughout Japan to perform and compete for a chance to participate in the world-renowned festival called \"Circus Collection.\" One troupe called the \"Sunflower Circus,\" led by its ringmaster Maria, travels around Japan to perform, despite struggling with financial difficulties. However, they meet a circus prodigy named Mizuka Tsurumaki. This is the story of a one-of-a-kind circus show of young girls with big dreams.  (Source: Anime News Network)"
+    }
+  ]
+}
