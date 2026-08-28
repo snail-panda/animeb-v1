@@ -459,8 +459,8 @@ body {
 }
 
 .announcement-card .post-excerpt {
-  max-height: 11.2em;
-  -webkit-line-clamp: 8;
+  max-height: 12.6em;
+  -webkit-line-clamp: 9;
 }
 
 .title-entry-number {
