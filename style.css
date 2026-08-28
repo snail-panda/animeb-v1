@@ -460,7 +460,7 @@ body {
 
 .announcement-card .post-excerpt {
   max-height: 16.8em;
-  -webkit-line-clamp: 11;
+  -webkit-line-clamp: 12;
 }
 
 .title-entry-number {
