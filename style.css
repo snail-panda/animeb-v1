@@ -458,6 +458,11 @@ body {
   display: block;
 }
 
+.rezero-phrase {
+  font-style: italic;
+  font-weight: 600;
+}
+
 .announcement-card .post-excerpt {
   max-height: 16.8em;
   -webkit-line-clamp: 12;
