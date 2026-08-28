@@ -1,0 +1,294 @@
+{
+  "meta": {
+    "week": "week 2",
+    "duration": "07-12-Sun-07-18-Sat",
+    "season": "2026 Summer",
+    "ep_range": "ep.2-3",
+    "status": {
+      "watching": 28,
+      "droppedThisWeek": 3,
+      "droppedTotal": 4,
+      "backOnList": 0,
+      "noAir": 0,
+      "completed": 0,
+      "total": 32
+    }
+  },
+  "entries": [
+    {
+      "rank": 1,
+      "trend": "up",
+      "title": "Victoria of Many Faces",
+      "jpTitle": "手札が多めのビクトリア",
+      "kv": "victoria",
+      "episode": 2,
+      "genre": [
+        "Action",
+        "Drama",
+        "Fantasy"
+      ],
+      "wrp_score": 9.51,
+      "score": 10,
+      "review": {
+        "en": "<strong>Episode #2: No One Should Feel Sorry for Me</strong>",
+        "jp": "第2話: 可哀想じゃないのよ<p>”『子どもを含めた3人でのピクニックの意味やビクトリアがパーティに誘われた時に負担になりたくはないから最大限に無理をして気を使って軽く「いいよ」といいつつも、そんな意図はないが自分が負担であるかのようにといわれたこと、また離れることの寂しさをぶつける様子、気難しいおじの心情、スリの被害者のおばぁさんとのやり取り、ふと女性として扱われ髪に触れられたときの様子などなどなど、見せる部分も見せない部分も素晴らしいシーンだらけだった。個人的には今季トップクラスに好き。』</p>"
+      },
+      "wrp_breakdown": {
+        "base_score": 5.01,
+        "animation": 0.7,
+        "script": 0.75,
+        "direction": 0.75,
+        "charm": 0.65,
+        "overall": 1.65
+      },
+      "romanized_title": "Tefuda ga Oome no Victoria",
+      "release_date": "7/7/2026",
+      "based_on": "Light Novels",
+      "studios": "Studio DEEN",
+      "creators": "Nobukage Kimura",
+      "external_scores": "",
+      "streaming_services": "",
+      "synopsis": "In an age when spies act behind the scenes in every land, Chloe spends her days successfully carrying out even the most difficult missions due to her unparalleled disguise skills and martial arts abilities. After the betrayal of her boss, she suddenly disappears—as Chloe plans to redo her life as the ordinary citizen Victoria in the neighboring kingdom of Ashberry, striving for a “normal” life. However, Victoria's peaceful life is abruptly cut short as she begins to get involved with many people. In this new land, her experiences and abilities from her days as a spy come in far more useful than she ever expected! On the other hand, the second prince--and others--take an interest in Victoria's strength, and the shadows close in on the woman with many faces…  (Source: Yen Press)"
+    },
+    {
+      "rank": 2,
+      "trend": "up",
+      "title": "Iron Wok Jan!",
+      "jpTitle": "鉄鍋のジャン！",
+      "kv": "jan",
+      "episode": 2,
+      "genre": [
+        "Action",
+        "Comedy"
+      ],
+      "wrp_score": 9.5,
+      "score": 10,
+      "review": {
+        "en": "<strong>Episode #2: They're Like Gunpowder</strong>",
+        "jp": "第2話: 火薬のようなやつら<p></p>"
+      },
+      "wrp_breakdown": {
+        "base_score": 5,
+        "animation": 0.7,
+        "script": 0.75,
+        "direction": 0.75,
+        "charm": 0.65,
+        "overall": 1.65
+      },
+      "romanized_title": "Tetsunabe no Jan!",
+      "release_date": "7/5/2026 to 9/20/2025",
+      "based_on": "Manga",
+      "studios": "TROYCA",
+      "creators": "Ei Aoki",
+      "external_scores": "",
+      "streaming_services": "",
+      "synopsis": "Jan Akiyama, a cocky arrogant teenager wants to fulfill his grandfathers wish of defeating his arch nemesis Mutsuju Gobancho. When he arrives at the Gobancho restaurant he meets his granddaughter Kiriko Gobancho. Their rivalry is easily compared to Jan's and Kiriko's grandfathers, for Jan believes cooking is about competition and Kiriko believes cooking is about heart."
+    },
+    {
+      "rank": 3,
+      "trend": "down",
+      "title": "Draw This, Then Die!",
+      "jpTitle": "これ描いて死ね",
+      "kv": "korekaite",
+      "episode": 3,
+      "genre": [
+        "Comedy",
+        "Slice of Life"
+      ],
+      "wrp_score": 9.4,
+      "score": 9,
+      "review": {
+        "en": "<strong>Episode #3: Kokoro's Heart: Draw This, Then Die!!!!</strong>",
+        "jp": "第3話: 心の心〜これ描いて死ね!!!<p>『個人的にはパロディはあまり好きじゃないがまぁよし。先生の過去と生徒の現状のオーバーラップと未来に対する想いの対比など非常に良かった。』</p>"
+      },
+      "wrp_breakdown": {
+        "base_score": 5,
+        "animation": 0.7,
+        "script": 0.75,
+        "direction": 0.75,
+        "charm": 0.65,
+        "overall": 1.55
+      },
+      "romanized_title": "Kore Kaite Shine",
+      "release_date": "7/3/2026 to 9/19/2025",
+      "based_on": "Manga",
+      "studios": "Shin-Ei Animation",
+      "creators": "Hiroaki Akagi",
+      "external_scores": "",
+      "streaming_services": "",
+      "synopsis": "First-year high school student Ai Yasumi lives on the island of Izu Oshima and loves reading manga. But after a certain turning point, she sets her sights on creating stories of her own! As she dives into the world of manga-making, Ai faces challenges, growth, and the excitement of chasing her creative dreams. Where will her creative journey take her?  (Source: Crunchyroll)"
+    },
+    {
+      "rank": 4,
+      "trend": "up",
+      "title": "You and I Are Polar Opposites Season 2",
+      "jpTitle": "『正反対な君と僕』第2期",
+      "kv": "hantai",
+      "episode": 2,
+      "genre": [
+        "Comedy",
+        "Drama",
+        "Romance"
+      ],
+      "wrp_score": 9.15,
+      "score": 9,
+      "review": {
+        "en": "<strong>Episode #2: Dilemma of a Winter's Night</strong>",
+        "jp": "第2話: 冬の夜のジレンマ<p></p>"
+      },
+      "wrp_breakdown": {
+        "base_score": 5,
+        "animation": 0.7,
+        "script": 0.7,
+        "direction": 0.7,
+        "charm": 0.65,
+        "overall": 1.4
+      },
+      "romanized_title": "Seihantai na Kimi to Boku 2nd Season",
+      "release_date": "7/5/2026 to 9/21/2025",
+      "based_on": "Manga",
+      "studios": "Lapin Track",
+      "creators": "Takayoshi Nagatomo",
+      "external_scores": "",
+      "streaming_services": "",
+      "synopsis": "The second season of Seihantai na Kimi to Boku."
+    },
+    {
+      "rank": 5,
+      "trend": "up",
+      "title": "Dara-san of Reiwa",
+      "jpTitle": "令和のダラさん",
+      "kv": "dara",
+      "episode": 3,
+      "genre": [
+        "Comedy",
+        "Horror"
+      ],
+      "wrp_score": 9.1,
+      "score": 9,
+      "review": {
+        "en": "<strong>Episode #3: The Laws of Forbidden Ground</strong>",
+        "jp": "第3話: 禁足地の掟<p>『相変わらず楽ししい姉弟（変態先生）との関わり方に加えて、霊能者コンビを絡めた霊界、神隠しの見せ方、また祭りを楽しみながらも不届きで禁忌に触れるYouTuberへの制裁と二人の母親の想いなども見事な構成と演出だった。今季とても好きな作品。』</p>"
+      },
+      "wrp_breakdown": {
+        "base_score": 5,
+        "animation": 0.7,
+        "script": 0.7,
+        "direction": 0.7,
+        "charm": 0.6,
+        "overall": 1.4
+      },
+      "romanized_title": "Reiwa no Dara-san",
+      "release_date": "7/2/2026 to 9/18/2025",
+      "based_on": "Light Novels",
+      "studios": "Asahi Production",
+      "creators": "Masato Suzuki",
+      "external_scores": "",
+      "streaming_services": "",
+      "synopsis": "Clouds blacken the sky and sheets of rain turn the mountain forest into a treacherous maze... A landslide crushes a razor wire fence, and buries a \"NO TRESPASSING\" sign... Two young siblings wander into a dark world where they do not belong, and a long, horrid shadow rears up to meet them- Anyway, so that's how we met Dara-san! She might look kinda scary, but just wait until you get to know her!  \"Look, I'm a god of misfortune, okay!? Aren't you kids gonna freak out about my grotesque visage!?\"  (Source: Yen Press)"
+    },
+    {
+      "rank": "spotlight",
+      "trend": "up",
+      "title": "Sparks of Tomorrow",
+      "jpTitle": "二十世紀電氣目録-ユーレカ・エヴリカ-",
+      "kv": "denki",
+      "episode": 2,
+      "genre": [
+        "Adventure",
+        "Romance"
+      ],
+      "wrp_score": 7.4,
+      "score": 7,
+      "review": {
+        "en": "<strong>Episode #2: The Mysteries of the Catalog</strong>",
+        "jp": "第2話: 目録の謎<p></p>"
+      },
+      "wrp_breakdown": {
+        "base_score": 5,
+        "animation": 0.7,
+        "script": 0.5,
+        "direction": 0.55,
+        "charm": 0.3,
+        "overall": 0.35
+      },
+      "romanized_title": "Nijusseiki Denki Mokuroku: Eureka Evrika",
+      "release_date": "7/5/2026 to 9/28/2025",
+      "based_on": "Light Novels",
+      "studios": "Kyoto Animation",
+      "creators": "Minoru Oota",
+      "external_scores": "",
+      "streaming_services": "",
+      "synopsis": "The novel takes place in the summer of 1907, the 40th year of the Meiji era. 15-year-old Inako Momokawa lives in the Fushimi area of Kyoto, and is the second daughter of a sake brewer. Nothing she does ever comes out right, and she receives a scolding from her father every day. Her only relief is the trust she places in her prayers to the gods. One day while at Fushimi Inari shrine, she meets a freewheeling young man named Kihachi Sakamoto. He rejects the gods, and boasts of the incoming age of electricity.  The topic of marriage suddenly comes up in Inako's household. Her father is one-sidedly making all the decisions for her, and Inako is about to give up hope. It is then that Kihachi draws out Inako's true feelings of wanting to run away from her family. The only way to stop her marriage is to find an unusual book called the \"Electricity Catalog.\" The book is a prediction book about electricity that Kihachi wrote when he was a child, but his older brother Seiroku took the book, and its current whereabouts are unknown. Inako and Kihachi together go in search of the book across Kyoto and Shiga prefectures.  (Source: Anime News Network)"
+    },
+    {
+      "rank": "editor's pick",
+      "trend": "new",
+      "title": "Though I Am an Inept Villainess",
+      "jpTitle": "ふつつかな悪女ではございますが ～雛宮蝶鼠とりかえ伝～",
+      "kv": "futsutsuka",
+      "episode": 1,
+      "genre": [
+        "Drama",
+        "Romance"
+      ],
+      "wrp_score": 6.05,
+      "score": 6,
+      "review": {
+        "en": "<strong>Episode #1: Though I Am an Inept Villainess</strong>",
+        "jp": "第1話: ふつつかな悪女ではございますが<p></p>"
+      },
+      "wrp_breakdown": {
+        "base_score": 5,
+        "animation": 0.55,
+        "script": 0.35,
+        "direction": 0.35,
+        "charm": 0.15,
+        "overall": -0.35
+      },
+      "romanized_title": "Futsutsuka na Akujo de wa Gozaimasu ga: Suuguu Chouso Torikae Den",
+      "release_date": "7/12/2026",
+      "based_on": "Manga",
+      "studios": "Doga Kobo",
+      "creators": "Mitsue Yamazaki",
+      "external_scores": "",
+      "streaming_services": "",
+      "synopsis": "As maidens from the Five Clans battle for the Crown Prince’s heart, jealous Keigetsu uses forbidden magic to swap bodies with the beloved Reirin. Switching places does not guarantee happiness for Keigetsu with her new body's ill health leaving her hanging on the verge of death. Meanwhile, Reirin, now wearing the face of a scorned outcast, must answer for Keigetsu’s crimes in a dangerous trial.  The unlikely pair become increasingly entangled in each other’s lives and they will need to work together to survive after discovering the dark conspiracies brewing beneath the palace's genial surface. To confront the deadly threats lurking in the shadows, Reirin must embrace her new identity and defy their expectations of the court's inept villainess.  (Source: Crunchyroll)"
+    },
+    {
+      "rank": "dookie",
+      "trend": "down",
+      "title": "From Overshadowed to Overpowered: Second Reincarnation of a Talentless Sage",
+      "jpTitle": "落第賢者の学院無双～二度目の転生、Sランクチート魔術師冒険録～",
+      "kv": "rakudai",
+      "episode": 3,
+      "genre": [
+        "Action",
+        "Adventure",
+        "Fantasy"
+      ],
+      "wrp_score": 5.15,
+      "score": 5,
+      "review": {
+        "en": "<strong>Episode #3: Overkill</strong>",
+        "jp": "第3話: 外道 -OVERKILL-<p>『それにしても兄生きてるんかーい!母とあの親父の間の子ども?それにしてもクズな父と異母兄だがそれも処刑にとか色々忙しいですね。無茶苦茶だけど、それでいいと思います。面白くさえあれば。』</p>"
+      },
+      "wrp_breakdown": {
+        "base_score": 5,
+        "animation": 0.5,
+        "script": 0.3,
+        "direction": 0.3,
+        "charm": 0.2,
+        "overall": -1.5
+      },
+      "romanized_title": "Rakudai Kenja no Gakuin Musou: Nidome no Tensei, S-Rank Cheat Majutsushi Bouken-roku",
+      "release_date": "7/1/2026 to 9/30/2025",
+      "based_on": "Web Comics",
+      "studios": "EMT Squared",
+      "creators": "Hisashi Ishii",
+      "external_scores": "",
+      "streaming_services": "",
+      "synopsis": "The great sage Ephtal dies in despair after failing to reach the peak of magic—but 400 years later, he’s reborn with all his memories and power intact! In a world where magic has decayed and ancient spells are treated as miracles, Ephtal storms into a prestigious magic academy to reclaim the true art of sorcery. As his power shakes the world, long-forgotten legends begin to awaken!  (Source: Crunchyroll)"
+    }
+  ]
+}
