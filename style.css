@@ -427,6 +427,22 @@ body {
   margin-bottom: 0.8rem;
 }
 
+.post-image-shell img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 85%;
+  display: block;
+}
+
+.post-image-shell {
+  flex-shrink: 0;
+  width: 160px;
+  height: 200px;
+  overflow: hidden;
+  margin-bottom: 0.8rem;
+}
+
 .post-image-mumu img {
   width: 100%;
   height: 100%;
