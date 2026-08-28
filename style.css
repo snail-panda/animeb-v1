@@ -468,6 +468,10 @@ body {
   -webkit-line-clamp: 12;
 }
 
+.announcement-card .post-excerpt p {
+  margin: 0.6em 0;
+}
+
 .title-entry-number {
   color: #cc72ad;
   font-size: 1.1rem;
