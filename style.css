@@ -459,7 +459,7 @@ body {
 }
 
 .announcement-card .post-excerpt {
-  max-height: 14em;
+  max-height: 15.4em;
   -webkit-line-clamp: 11;
 }
 
