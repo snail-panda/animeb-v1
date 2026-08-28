@@ -10,7 +10,7 @@ function adjustScoreBars() {
     const isFinalWeek = score >= 40; // Final Week はスコアが40〜110
 
     // === スケーリング設定 ===
-    const min = isFinalWeek ? 40 : 4;
+    const min = isFinalWeek ? 40 : 3;
     const max = isFinalWeek ? 100 : 10;
     const unit = max - min;
 
