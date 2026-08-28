@@ -446,7 +446,7 @@ body {
 .post-image-rezero {
   flex-shrink: 0;
   width: 160px;
-  height: 220px;
+  height: 240px;
   overflow: hidden;
 }
 
@@ -459,8 +459,8 @@ body {
 }
 
 .announcement-card .post-excerpt {
-  max-height: 12.6em;
-  -webkit-line-clamp: 9;
+  max-height: 14em;
+  -webkit-line-clamp: 10;
 }
 
 .title-entry-number {
