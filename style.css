@@ -472,6 +472,15 @@ body {
   margin: 0.4em 0;
 }
 
+@media (max-width: 600px) {
+  .announcement-card .post-excerpt {
+    max-height: none;
+    -webkit-line-clamp: unset;
+    display: block;
+    overflow: visible;
+  }
+}
+
 .title-entry-number {
   color: #cc72ad;
   font-size: 1.1rem;
