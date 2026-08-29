@@ -71,7 +71,7 @@
       "final": null
     },
     "Summer": {
-      "weeks": ["Week 00", "Week 01", "Week 02", "Week 03", "Week 04", "Week 05", "Week 07"],
+      "weeks": ["Week 00", "Week 01", "Week 02", "Week 03", "Week 04", "Week 05", "Week 06", "Week 07"],
       "final": "Week 12"
     },
     "Fall": {
