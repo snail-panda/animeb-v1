@@ -1,0 +1,300 @@
+{
+  "meta": {
+    "week": "week 6",
+    "duration": "08-09-Sun-08-15-Sat",
+    "season": "2026 Summer",
+    "ep_range": "ep.6-7",
+    "status": {
+      "watching": 24,
+      "droppedThisWeek": 0,
+      "droppedTotal": 8,
+      "backOnList": 0,
+      "noAir": 1,
+      "completed": 0,
+      "total": 32
+    }
+  },
+  "entries": [
+    {
+      "rank": 1,
+      "trend": "up",
+      "title": "From Old Country Bumpkin to Master Swordsman Season 2",
+      "jpTitle": "片田舎のおっさん、剣聖になるII",
+      "kv": "inaka",
+      "episode": 6,
+      "genre": [
+        "Action",
+        "Adventure",
+        "Comedy"
+      ],
+      "wrp_score": 9.25,
+      "score": 9,
+      "review": {
+        "en": "<strong>Episode #6: The Old Country Bumpkin Faces Off Against His Father</strong><p>\"What it means for a son to surpass his father turned out to be something much broader and deeper. Or perhaps, looked at another way, a father isn't someone you can ever truly surpass...\"</p><p>\"This homecoming was basically centered around a rite of passage between Beryl and his father—something that needed to be settled sooner or later—while everything else felt more like groundwork for what's to come, with a few extras thrown in... Overall, though, I thought it was pretty good. Surpassing your father isn't simply about surpassing him in technique. There's also his ability, who he is as a person, and everything that comes from experience. Once you truly understand that, simply becoming the better swordsman may not mean all that much after all. I also liked that it was his mother who helped him see that, while Mewi, in contrast, was a little disappointed by the outcome. It's been a while, but this finally felt like a good episode again.\"</p>",
+        "jp": "第6話: 片田舎のおっさん、父と対峙する<p> \"息子が父を超えることの意味はもっと広く深かった。逆に言えば超えられるものではないのかもー。\"</p><p>『今回の里帰りは基本ベリルと父親との済ませておくべき通過儀礼にあり、それ以外はとりあえずこれからに続く布石とオマケ的なものだったのかな・・・・。まぁ全体的に悪くなかったかな。父親を超えることは技術的に超えることだけでなく力量、人間として、経験としてのものもあること、それをちゃんと分かっていればただ剣技で上にとなることにはそれほどの意味はなくなるのかも知れない。それを諭すのは母親でもあったのもいいし、ミュイは対象的にちょっとがっかりするのも良かった。久々に良い回だと思った。』</p>"
+      },
+      "wrp_breakdown": {
+        "base_score": 5,
+        "animation": 0.65,
+        "script": 0.7,
+        "direction": 0.7,
+        "charm": 0.6,
+        "overall": 1.6
+      },
+      "romanized_title": "Katainaka no Ossan, Kensei ni Naru II",
+      "release_date": "7/8/2026 to 9/20/2025",
+      "based_on": "Light Novels",
+      "studios": "Hayabusa Film, Passione",
+      "creators": "Akio Kazumi",
+      "external_scores": "",
+      "streaming_services": "",
+      "synopsis": "The second season of Katainaka no Ossan, Kensei ni Naru."
+    },
+    {
+      "rank": 2,
+      "trend": "down",
+      "title": "Mushoku Tensei: Jobless Reincarnation Season 3",
+      "jpTitle": "無職転生Ⅲ ～異世界行ったら本気だす～",
+      "kv": "mushoku",
+      "episode": 7,
+      "genre": [
+        "Isekai",
+        "Reincarnation",
+        "Ecchi"
+      ],
+      "wrp_score": 9.2,
+      "score": 9,
+      "review": {
+        "en": "<strong>Episode #7: Phase Four</strong><p>\"Having to wait even longer for the reunion with Eris is painful, but I really liked the careful character work and the surprisingly cheerful farewell. And now I'm nervous about this encounter with a legend...\"</p><p>\"Still no reunion with Eris just yet. That said, I personally liked this episode quite a bit. That hopeless beastfolk duo finally came to say goodbye... and the whole farewell was ridiculous as ever, yet somehow genuinely touching at the same time. That strange mix of bittersweetness and sheer stupidity really worked for me. And that Japanese girl's cold(?) is weirdly bothering me too... Could that actually be some kind of foreshadowing? Then, out of nowhere, we're suddenly face-to-face with that legendary and seriously dangerous authority on teleportation... It feels like things could heat up very quickly from here. I also really appreciate all the little moments with Norn and others, and how carefully the series continues to portray people's feelings and growth, as well as the consideration and understanding they show toward one another. Still, we're really only getting started, so I'm keeping my praise a little restrained for now.\"</p>",
+        "jp": "第7話: 第四段階<p>\"エリスとの再会のお預けはツライが丁寧な描写と明るいお別れも良かった、伝説との対面に緊張\"</p><p>『まだエリスとの再会はお預け。ただ個人的には結構好きな回だった。例の獣人族のスカポンタンコンビがさよならに・・・そこに際してのトンチキだがどこか胸に響く切なさとアホさが面白かったし、あの日本人の女の子の風邪?も妙に気になる・・・まさかのフラグか?そして唐突に転移の権威である伝説のヤヴァいやつのの対面か・・・一気に温度が上がりそうな展開。またちょこちょこノルンのことだったり・・・と丁寧に人の気持ちや成長、配慮や理解なども描かれるのがいい。とはいえこれからなのでちょっと控えめ。』</p>"
+      },
+      "wrp_breakdown": {
+        "base_score": 5,
+        "animation": 0.7,
+        "script": 0.7,
+        "direction": 0.7,
+        "charm": 0.65,
+        "overall": 1.45
+      },
+      "romanized_title": "Mushoku Tensei III: Isekai Ittara Honki Dasu",
+      "release_date": "7/5/2026 to 9/27/2025",
+      "based_on": "Light Novels",
+      "studios": "Studio Bind",
+      "creators": "Ryunosuke Shibuya",
+      "external_scores": "",
+      "streaming_services": "",
+      "synopsis": "Third season of Mushoku Tensei: Isekai Ittara Honki Dasu."
+    },
+    {
+      "rank": 3,
+      "trend": "up",
+      "title": "Though I Am an Inept Villainess",
+      "jpTitle": "ふつつかな悪女ではございますが ～雛宮蝶鼠とりかえ伝～",
+      "kv": "futsutsuka",
+      "episode": 5,
+      "genre": [
+        "Drama",
+        "Romance"
+      ],
+      "wrp_score": 9.15,
+      "score": 9,
+      "review": {
+        "en": "<strong>Episode #5: Who Is That Girl?</strong><p>",
+        "jp": "第5話: あの女は誰だ<p>『色々と盛り込んでちゃんと意味のある見せ方だったし、仕返しの流れも良かった。また今後の伏線となりそうなものもしっかりと仕込んでいたし、侍女の存在の意味もしっかりあったのでよかった。』</p>"
+      },
+      "wrp_breakdown": {
+        "base_score": 5,
+        "animation": 0.65,
+        "script": 0.7,
+        "direction": 0.7,
+        "charm": 0.6,
+        "overall": 1.5
+      },
+      "romanized_title": "Futsutsuka na Akujo de wa Gozaimasu ga: Suuguu Chouso Torikae Den",
+      "release_date": "7/12/2026",
+      "based_on": "Manga",
+      "studios": "Doga Kobo",
+      "creators": "Mitsue Yamazaki",
+      "external_scores": "",
+      "streaming_services": "",
+      "synopsis": "As maidens from the Five Clans battle for the Crown Prince’s heart, jealous Keigetsu uses forbidden magic to swap bodies with the beloved Reirin. Switching places does not guarantee happiness for Keigetsu with her new body's ill health leaving her hanging on the verge of death. Meanwhile, Reirin, now wearing the face of a scorned outcast, must answer for Keigetsu’s crimes in a dangerous trial.  The unlikely pair become increasingly entangled in each other’s lives and they will need to work together to survive after discovering the dark conspiracies brewing beneath the palace's genial surface. To confront the deadly threats lurking in the shadows, Reirin must embrace her new identity and defy their expectations of the court's inept villainess.  (Source: Crunchyroll)"
+    },
+    {
+      "rank": 4,
+      "trend": "down",
+      "title": "Hell Mode: The Hardcore Gamer Dominates in Another World with Garbage Balancing Season 2",
+      "jpTitle": "『ヘルモード　～やり込み好きのゲーマーは廃設定の異世界で無双する～』2nd Season",
+      "kv": "hell",
+      "episode": 7,
+      "genre": [
+        "Action",
+        "Adventure",
+        "Fantasy"
+      ],
+      "wrp_score": 9.1,
+      "score": 9,
+      "review": {
+        "en": "<strong>Episode #7: Onward To Rohzenheim</strong><p>\"It's playing out just as expected, but everything that's been built up until now makes the payoff all the more satisfying. Absolutely fantastic.\"</p><p>\"Seriously, this is so damn good. This overwhelming display of power works precisely because of everything that's led up to it, and even here, the series continues to carefully lay out the strategy and how everything is unfolding. This show... is seriously good. I just hope they can somehow make it through this crisis... I have nothing but high expectations for what's coming next.\"</p>",
+        "jp": "第7話: ローゼンヘイムへ<p>\"期待通りの展開だが、これまでの積み重ねがあるからこそこの旨味がなお活きる。最高。\"</p><p>『いやマジ最高です。これまでがあるからこそのこの無双だし、そこについてもいちいち戦略や動向の描き方がしっかりしている。この作品・・・・まじでいい。うまくこの危機を乗り越えられるといいのだけど・・・。期待しか無い。』</p>"
+      },
+      "wrp_breakdown": {
+        "base_score": 5,
+        "animation": 0.65,
+        "script": 0.7,
+        "direction": 0.65,
+        "charm": 0.65,
+        "overall": 1.45
+      },
+      "romanized_title": "Hell Mode: Yarikomi-zuki no Gamer wa Haisettei no Isekai de Musou Suru 2nd Season",
+      "release_date": "7/3/2026 to 9/19/2025",
+      "based_on": "Light Novels",
+      "studios": "Yokohama Animation Laboratory",
+      "creators": "Makoto Tamagawa",
+      "external_scores": "",
+      "streaming_services": "",
+      "synopsis": "The second season of Hell Mode."
+    },
+    {
+      "rank": 5,
+      "trend": "up",
+      "title": "Saga of Tanya the Evil II",
+      "jpTitle": "幼女戦記Ⅱ",
+      "kv": "youjo",
+      "episode": 6,
+      "genre": [
+        "Isekai",
+        "Military",
+        "Reincarnation"
+      ],
+      "wrp_score": 9.06,
+      "score": 9,
+      "review": {
+        "en": "<strong>Episode #6: Decoy</strong><p>\"A superb episode that finally made all the patience up to this point feel worthwhile—at least for me. This is the episode that finally convinced me to keep watching.\"</p><p>\"This episode was exceptionally well done. The tension, the mind games, the sheer intensity—it all came together beautifully. Above all, His Excellency was fantastic. The conflict within the enemy ranks also added another nice layer of depth. As gripping as it all was, though, there were quite a few moments where things worked out just a little too perfectly at the very last second, so it's hard to completely shake the feeling of plot convenience. Still, if you see those outcomes as something earned through the convictions and actions His Excellency has consistently shown us up to this point, I can let it slide.\"</p>",
+        "jp": "第6話:  囮<p>\"これまでの我慢が報われたような（あくまでも個人的には）見事な回、これでようやく視聴継続が決まった。\"</p><p>『今回は非常にお見事だった。その緊張感と駆け引きとアツさと全てが重なっていた。とにかく閣下がよかったな。敵の仲間内での衝突もいい感じのレイヤーで深みを増していた。見応えがある反面、色んなところがあまりにもギリギリ上手く行き過ぎることなども多く、ご都合感は否めないものの、それもこれまで描いてきていた閣下の信念と行動があるから故とすれば許せもしよう。』</p>"
+      },
+      "wrp_breakdown": {
+        "base_score": 5.01,
+        "animation": 0.7,
+        "script": 0.7,
+        "direction": 0.65,
+        "charm": 0.55,
+        "overall": 1.45
+      },
+      "romanized_title": "Youjo Senki II",
+      "release_date": "7/8/2026 to 9/21/2025",
+      "based_on": "Light Novels",
+      "studios": "Nut",
+      "creators": "Takayuki Yamamoto",
+      "external_scores": "",
+      "streaming_services": "",
+      "synopsis": "Second season of Youjo Senki."
+    },
+    {
+      "rank": "spotlight",
+      "trend": "new",
+      "title": "Re:ZERO -Starting Life in Another World- Season 4",
+      "jpTitle": "『Re:ゼロから始める異世界生活』4th season（奪還編）",
+      "kv": "rezero",
+      "episode": 1,
+      "genre": [
+        "Isekai",
+        "Fantasy",
+        "Psychological",
+        "Thriller",
+        "Romance"
+      ],
+      "wrp_score": 9.05,
+      "score": 9,
+      "review": {
+        "en": "<strong>Episode #1: From Now On</strong><p>\"The Recapture Arc of Season 4 Part 2 is finally underway. It was good overall, but the way Mey-Rin was saved felt a little too smooth and too quick.\"</p><p>\"Since this is starting at such an awkward point in the broadcast season, I'm still not sure whether I should officially include it as a candidate for the rankings, but for now, I will. I did like the episode—and actually, quite a bit—but I found the way things worked out for Mey-Rin a little underwhelming... She accepts everything that easily?? That's more or less how I felt, so for the time being, I'm keeping my rating on the conservative side.\"</p>",
+        "jp": "第1話: これからの話<p>\"第4期後編の《奪還編》がようやくスタート。まぁ良かったが、メイリンの救われる流れがスムーズでクイック過ぎかな。\"</p><p>『放送時期的にものすごい中途半端な時点でのスタートなので、正式にランキングの候補に入れるかは未だに迷うがとりあえずは入れる。良かったんだけど…しかも結構）、メイリンの救われる流れがちょっと物足りなかったかな…。そんな簡単に受け入れるのか??という感じなので、とりあえず今のところ評価は控えめ。』</p>"
+      },
+      "wrp_breakdown": {
+        "base_score": 5,
+        "animation": 0.7,
+        "script": 0.65,
+        "direction": 0.65,
+        "charm": 0.6,
+        "overall": 1.45
+      },
+      "romanized_title": "Re:Zero kara Hajimeru Isekai Seikatsu 4th Season (Dakkan Hen)",
+      "release_date": "8/12/2026 to 9/17/2025",
+      "based_on": "Light Novels",
+      "studios": "WHITE FOX",
+      "creators": "Masahiro Shinohara",
+      "external_scores": "",
+      "streaming_services": "",
+      "synopsis": "The fourth season of Re:Zero kara Hajimeru Isekai Seikatsu.  To save his stricken allies, Subaru faces a deadly desert to find the Sage at Pleiades Watchtower.  (Source: Crunchyroll News)"
+    },
+    {
+      "rank": "editor's pick",
+      "trend": "down",
+      "title": "Victoria of Many Faces",
+      "jpTitle": "手札が多めのビクトリア",
+      "kv": "victoria",
+      "episode": 6,
+      "genre": [
+        "Action",
+        "Drama",
+        "Fantasy"
+      ],
+      "wrp_score": 9,
+      "score": 9,
+      "review": {
+        "en": "<strong>Episode #6: Think About This Child's Happiness</strong><p>\"As careful and delicate as ever... Above all, this one was heartbreaking. But Nonno will be fine. I also really liked her encounter with the old man.\"</p><p>\"Honestly, I could give pretty much every episode at least a 9, but since we're still in the middle of things here, I'm giving this one an 8. Still, I really liked the connection with the veteran that developed through the horse, as well as that indescribably bittersweet exchange with the captain. On the other hand, the prince acting entirely on his own, followed by the nobles' completely one-sided arguments and proposal, seriously put me off. Victoria is one thing, but the way that woman—the captain's sister? Cousin?—treated her was just unacceptable... And of course Nonno has some incredible plan of her own. I'm sure of it. I can't wait to see what she does. But still... this episode really hurt. What a wonderful series.\"</p>",
+        "jp": "第6話: この子の幸せを考えてやらないと<p>\"相変わらず丁寧で繊細・・・とにかく切なかった。でもノンノは大丈夫。おじさんとの出会いもいい。\"</p><p>『正直毎回最低9点以上でいいが、今回は途中でもあるので8点。ただ、馬を通しての退役軍人との関わり、また隊長さんとのなんとも言えない切ないやり取りは良かった。ただ王子の勝手な行動、また貴族の一方的な言い分と提案はドン引き。ヴィクトリアはまだしもあの隊長さんの姉?いとこ?の女の対応はないでしょう・・・。そして、ノンノにはノンノの凄い考えがあるに決まってる。楽しみでしか無い。でも切なかった・・・・。素晴らしい作品。』</p>"
+      },
+      "wrp_breakdown": {
+        "base_score": 5,
+        "animation": 0.65,
+        "script": 0.65,
+        "direction": 0.65,
+        "charm": 0.65,
+        "overall": 1.4
+      },
+      "romanized_title": "Tefuda ga Oome no Victoria",
+      "release_date": "7/7/2026",
+      "based_on": "Light Novels",
+      "studios": "Studio DEEN",
+      "creators": "Nobukage Kimura",
+      "external_scores": "",
+      "streaming_services": "",
+      "synopsis": "In an age when spies act behind the scenes in every land, Chloe spends her days successfully carrying out even the most difficult missions due to her unparalleled disguise skills and martial arts abilities. After the betrayal of her boss, she suddenly disappears—as Chloe plans to redo her life as the ordinary citizen Victoria in the neighboring kingdom of Ashberry, striving for a “normal” life. However, Victoria's peaceful life is abruptly cut short as she begins to get involved with many people. In this new land, her experiences and abilities from her days as a spy come in far more useful than she ever expected! On the other hand, the second prince--and others--take an interest in Victoria's strength, and the shadows close in on the woman with many faces…  (Source: Yen Press)"
+    },
+    {
+      "rank": "dookie",
+      "trend": "down",
+      "title": "Ascendance of a Bookworm Season 3",
+      "jpTitle": "本好きの下剋上　領主の養女",
+      "kv": "honzuki",
+      "episode": 18,
+      "genre": [
+        "Drama",
+        "Fantasy",
+        "Slice of Life"
+      ],
+      "wrp_score": 7.3,
+      "score": 7,
+      "review": {
+        "en": "<strong>Episode #18: Damuel's Proposal</strong><p>\"This isn't interesting at all. WIT STUDIO, enough already.\"</p><p>\"At this point, I'm just... WIT STUDIO, seriously, enough already. Traveling around on cute little rides, trying to make us swoon over a handsome priest—I (and hopefully everyone else) don't need any more of that... We've had plenty. And it feels like that's all they keep doing... And when it's not that, what, we're supposed to get all teary-eyed every time Rozemyne receives yet another handcrafted hair ornament (kamikazari) from her older sister Tuuli and her mother Effa? How many times are we going to do this? Don't cheapen their victory! Make the bookmaking and the business side of things more interesting. This is exactly what I was afraid of when I heard WIT STUDIO was taking over the production... This isn't interesting at all.\"</p>",
+        "jp": "第18話: ダームエルの申し出<p>”全然面白くない。WIT​STUDIOいい加減にしろ。”</p> <p> 『なんかもう…WIT​STUDIOよ、いい加減にしてくれ。可愛い乗り物で移動したり、イケメン神父でドキドキさせたり、そういう事はもういいよ…。十分やったよ。そしてそればっかり…。そうじゃなければ、再三のトゥーリの手作り髪飾りの受け渡し、家族との僅かで希少な再会でお涙頂戴演出？何十回それやり続けるんだ！彼らの勝ちを下げるな！それより本づくりやビジネスをもっと面白く見せてよ。制作会社がWITSTUDIOになるって聞いてからずっとコレを恐れていたんだ…。まさか本作にこんな評価をする日が来るとは・・・全然面白くない。』</p>"
+      },
+      "wrp_breakdown": {
+        "base_score": 5,
+        "animation": 0.5,
+        "script": 0.3,
+        "direction": 0.3,
+        "charm": 0.2,
+        "overall": -1.5
+      },
+      "romanized_title": "Honzuki no Gekokujou: Ryoushu no Youjo",
+      "release_date": "7/11/2026 to 9/28/2025",
+      "based_on": "Light Novel",
+      "studios": "WIT STUDIO",
+      "creators": "Yoshiaki Iwasaki",
+      "external_scores": "",
+      "streaming_services": "",
+      "synopsis": "Following a disastrous encounter with a noble, Myne finally resolves to say goodbye to her family and friends in the lower city, changing her name to “Rozemyne” and beginning her new life as the adopted daughter of Ehrenfest’s archduke. However, her days as an archnoble in noble society are brutal, as she is put through rigorous etiquette and magic training on top of her duties as High Bishop and forewoman. It all proves too much for a weak little seven-year-old girl... Or it would have, had the High Priest not offered her the keys to the temple’s book room as a reward. If she could get her hands on those, she’d be able to read all sorts of precious books! Her name may have changed, but Rozemyne’s passion for books remains the same as she charges into a whole new world! The detailed setting expands as the printing industry grows in size. Here begins Part 3 of this biblio-fantasy for book lovers everywhere!  (Source: J-Novel Club)"
+    }
+  ]
+}
