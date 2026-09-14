@@ -6,9 +6,9 @@
     "ep_range": "ep.10-11",
     "status": {
       "watching": 23,
-      "droppedThisWeek": null,
+      "droppedThisWeek": 0,
       "droppedTotal": 8,
-      "backOnList": null,
+      "backOnList": 0,
       "noAir": 0,
       "completed": 1,
       "total": 32
