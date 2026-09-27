@@ -1,99 +1,88 @@
 {
-  "season": "2025 Summer",
+  "season": "2026 Summer",
   "version": "Season-Final Tier List – Episodes 12–13",
-  "date": "October 04, 2025",
+  "seasonDate": "October 04, 2026",
   "intro": "",
-  "mainContent": "",
+  "content": "",
   "conclusion": "",
   "tiers": {
-    "SSS": [
-      "Sword of the Demon Hunter"
-    ],
     "SS": [
-      "Dr. Stone: Science Future Part 2",
-      "Takopi's Original Sin",
-      "See You Tomorrow at the Food Court"
+      "Draw This, Then Die!",
+      "Victoria of Many Faces",
+      "You and I Are Polar Opposites Season 2",
+      "Mushoku Tensei: Jobless Reincarnation Season 3"
     ],
     "S": [
-      "Ruri Rocks",
-      "Me and the Alien MuMu",
-      "Turkey!"
+      "Hell Mode: The Hardcore Gamer Dominates in Another World with Garbage Balancing Season 2",
+      "Jaadugar: A Witch in Mongolia"
     ],
     "A": [
-      "April Showers Bring May Flowers",
-      "Dekin no Mogura: The Earthbound Mole",
-      "My Dress-Up Darling Season 2",
-      "The Fragrant Flower Blooms with Dignity"
+      "Saga of Tanya the Evil II",
+      "Iron Wok Jan!",
+      "Dara-san of Reiwa",
+      "The Cat and the Dragon"
     ],
     "B": [
-      "Fermat no Ryouri",
-      "Call of the Night Season 2",
-      "Rascal Does Not Dream of Santa Claus",
-      "Hotel Inhumans",
-      "Clevatess",
-      "Solo Camping for Two",
-      "Milky☆Subway: The Galactic Limited Express"
+      "Kaiju Girl Caramelise",
+      "Let's Go Kaikigumi",
+      "Though I Am an Inept Villainess",
+      "Re:ZERO -Starting Life in Another World- Season 4",
+      "From Old Country Bumpkin to Master Swordsman Season 2",
+      "Goodbye, Lara",
+      "Ascendance of a Bookworm Season 3"
     ],
     "C": [
-      "Nyaight of the Living Cat",
-      "Private Tutor to the Duke's Daughter",
-      "Summer Pockets",
-      "Dan Da Dan Season 2",
-      "CITY THE ANIMATION",
-      "Apocalypse Bringer Mynoghra: World Conquest Starts with the Civilization of Ruin",
-      "The Summer Hikaru Died"
+      "Love Unseen Beneath the Clear Night Sky",
+      "Smoking Behind the Supermarket with You",
+      "The World Is Dancing",
+      "A Livid Lady's Guide to Getting Even: How I Crushed My Homeland with My Mighty Grimoires"
     ],
     "D": [
-      "Rent-a-Girlfriend Season 4",
-      "Grand Blue Dreaming Season 2",
-      "A Couple of Cuckoos Season 2",
-      "Welcome to the Outcast's Restaurant!",
-      "Uglymug, Epicfighter",
-      "Watari-kun's ****** Is about to Collapse",
-      "New Saga",
-      "The Shy Hero and the Assassin Princesses",
-      "The Water Magician",
-      "Scooped Up by an S-Ranked Adventurer",
-      "I Was Reincarnated as the 7th Prince so I Can Take My Time Perfecting My Magical Ability Season 2",
-      "Reborn as a Vending Machine, I Now Wander the Dungeon Season 2",
-      "Kaijuu 8-gou"
+      "Rich Girl Caretaker: I'm Secretly the Caregiver of the Most Popular Girl in This Rich Kid School",
+      "Oh Boy, Was I Wrong About Her",
+      "The Exiled Heavy Knight Knows How to Game the System",
+      "From Overshadowed to Overpowered: Second Reincarnation of a Talentless Sage",
+      "The Forsaken Saintess and her Foodie Roadtrip in Another World\n\nEdit"
     ],
     "Dropped": [
-      "There's No Freaking Way I'll be Your Lover! Unless…",
-      "Secrets of the Silent Witch",
-      "Cultural Exchange With a Game Centre Girl",
-      "Harmony of Mille-Feuille",
-      "With You and the Rain",
-      "Bad Girl",
-      "Witch Watch",
-      "Dealing with Mikadono Sisters Is a Breeze",
-      "Anne Shirley",
-      "New PANTY ＆ STOCKING with GARTERBELT",
-      "Tougen Anki",
-      "Gachiakuta",
-      "Detectives These Days Are Crazy!",
-      "YAIBA: Samurai Legend",
-      "Kamitsubaki City Under Construction",
-      "Onmyo Kaiten Re:Birth Verse",
-      "9-nine- Ruler's Crown",
-      "Necronomico and the Cosmic Horror Show"
+      "I Want to Love You Till Your Dying Day",
+      "Grand Blue Dreaming Season 3",
+      "Grow Up Show: Sunflower Circus",
+      "Sparks of Tomorrow",
+      "Heroine? Saint? No, I'm an All-Works Maid (And Proud of It)!",
+      "Hanaori-san Still Wants to Fight in the Next Life",
+      "Clevatess Season 2",
+      "Trapped in a Dating Sim: The World of Otome Games is Tough for Mobs 2",
+      "Skeleton Knight in Another World II",
+      "Magilumiere Magical Girls Inc. Season 2",
+      "Magical Girl Lyrical Nanoha EXCEEDS Gun Blaze Vengeance",
+      "Black Torch",
+      "Mebius Dust",
+      "The Ogre's Bride",
+      "Red River",
+      "The Duke's Son Claims He Won't Love Me Yet Showers Me with Adoration",
+      "Young Ladies Don't Play Fighting Games",
+      "Chainsmoker Cat",
+      "My Stepmother and Stepsisters Aren't Wicked",
+      "The Oblivious Saint Can't Contain Her Power",
+      "The Insipid Prince's Furtive Grab for The Throne",
+      "The Frontier Lord Begins with Zero Subjects",
+      "I Became a Legend After My 10 Year-Long Last Stand.",
+      "The World's Strongest Rearguard",
+      "The Villager of Level 999"
     ],
     "N/A": [
-      "Toilet-Bound Hanako-kun Season 2 Part 2",
-      "The Rising of the Shield Hero Season 4",
-      "With Vengeance, Sincerely, Your Broken Saintess",
-      "Betrothed to My Sister's Ex",
-      "Jigoku Sensei Nube",
-      "CATS EYE",
-      "SAKAMOTO DAYS",
-      "Arknights: Rise from Ember",
-      "Puniru wa Kawaii Slime 2nd Season",
-      "Captivated, By You"
-    ],
-    "Never Watched": [
-      "BULLET/BULLET",
-      "Leviathan",
-      "Let's Go Karaoke!"
+      "The Ghost in the Shell",
+      "BLEACH: Thousand-Year Blood War – The Calamity",
+      "The Elusive Samurai Season 2",
+      "The 100 Girlfriends Who Really, Really, Really, Really, Really Love You Season 3",
+      "ONE PIECE HEROINES",
+      "KAMUI ---He's behind you",
+      "Daemons of the Shadow Realm",
+      "The Drops of God",
+      "That Time I Got Reincarnated as a Slime Season 4",
+      "The Classroom of a Black Cat and a Witch",
+      "Saved by the Ice Cold Prince's Embrace"
     ]
   }
 }
