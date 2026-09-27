@@ -1,734 +1,869 @@
 {
   "meta": {
     "week": "week final",
-    "duration": "07-06-Sun-10-04-Sat",
-    "season": "2025 Summer",
+    "duration": "07-05-Sun-10-03-Sat",
+    "season": "2026 Summer",
     "ep_range": "ep.1-13",
     "status": {
       "watching": 0,
       "droppedThisWeek": 0,
-      "droppedTotal": 25,
+      "droppedTotal": 10,
       "noAir": 0,
-      "completed": 20,
-      "total": 45
+      "completed": 22,
+      "total": 32
     }
   },
   "entries": [
     {
       "rank": 1,
       "trend": "",
-      "title": "Dr. Stone: Science Future Part 2",
-      "jpTitle": "『Dr.STONE SCIENCE FUTURE』第4期最終シーズン第2クール",
-      "kv": "drstone",
-      "episode": "70-81",
+      "title": "Draw This, Then Die!",
+      "jpTitle": "これ描いて死ね",
+      "kv": "korekaite",
+      "episode": "1-12",
       "genre": [
-        "Action",
-        "Adventure",
         "Comedy",
-        "Sci-Fi"
+        "Slice of Life"
       ],
-      "wrp_score": 90.01,
-      "overall_rating": 86,
+      "wrp_score": 92.7728,
+      "overall_rating": 90,
       "review": {
-        "en": "",
-        "jp": ""
+        "en": "<strong>Episode #12: Draw This, Then Die!</strong>\n<p>\"To put it as mildly as possible, this was incredible. Twelve exquisite episodes... and that's exactly why I'm so sad it's over. Thank you.\"</p>\n<p>That was wonderful... It had me from the opening. The writing and direction this time were almost godlike. So this is what the parallel structure between Sensei and Yasumin was really building toward... I mean, I already understood that, but actually seeing it play out hits completely differently. Their meeting in the past... so that's why Sensei had kept Yasumin's fan letter like that, and then carried it with her as she became a teacher...<br><br>Her best friend from the rental manga shop was wonderful too. She was the one who brought the two of them together in the first place, and returning to that place at the end and having the two of them grow closer there was just perfect. Yasumin's invincible high school girl spirit encourages Sensei, inspires her, changes her, and awakens the magma inside her. And then that same Sensei, in turn, guides Yasumin both directly and indirectly...<br><br>I've said it over and over, but to put it as mildly as possible, this was incredible! I had such a great time with this. Thank you so much. To the original creator, to everyone involved in the production—and the OP and ED were fantastic too! Thank you so much for making a series that leaves me feeling this lonely now that it's over.</p>",
+        "jp": "第12話: 「来るべき世界~好きなものを描こう。この先も、ずっと…\n<p>\"至極控えめに言って最高でした。極上の12話、いただきました・・・そしてだからこそ寂しい、ありがとう\"</p>\n<p>『素晴らしかった…、導入から持っていかれた。今回の脚本・演出は神がかっていた。先生とヤスミンのパラレル構造はこういうことだった・・・というかそれは分かっていたけど、それでも見せられるのとは感じ方や衝撃は全然違う。二人の過去の出会い・・・だから先生はあぁいう形でヤスミンのファンレターを持ってたのか・・・そしてそれを持って教師になり・・・。そして貸本屋の親友も本当に良かった。彼女が2人を出会わせたんだから。最後にそこに戻り2人が近づくのも最高だった。ヤスミンの無敵の女子高生が先生を励まし、刺激し、変え、マグマを呼び起こす。そしてその先生もヤスミンを直接・間接的に導くか・・・何度もいうけど、至極控えめに言って最高でした!楽しませて頂きました!本当にありがとう!原作者さん、制作の皆さん、OPEDも最高!終わっちゃってこんなにさみしい気持ちになる作品を作ってくれて本当にありがとうございました。』</p>"
       },
       "key_elements_breakdown": {
-        "op": 1.1,
-        "ed": 1.2,
-        "acting": 0.4,
-        "sound/music": 0.4,
-        "consistency/impact": 0.9,
-        "overall": 1.8,
-        "total": 5.8
+        "op": 1.2,
+        "ed": 1.25,
+        "acting": 0.45,
+        "sound/music": 0.45,
+        "consistency/impact": 0.95,
+        "overall": 1.95,
+        "total": 6.25
       },
-      "romanized_title": "Dr. Stone: Science Future 4th Season 2nd Cour",
-      "release_date": "7/10/2025 to 9/25/2025",
+      "romanized_title": "Kore Kaite Shine",
+      "release_date": "7/3/2026 to 9/25/2026",
       "based_on": "Manga",
-      "studios": "TMS Entertainment",
-      "creators": "Shuhei Matsushita",
+      "studios": "Shin-Ei Animation",
+      "creators": "Hiroaki Akagi",
       "external_scores": "",
       "streaming_services": "",
-      "synopsis": "The second cour of the fourth season of Dr.STONE."
+      "synopsis": "First-year high school student Ai Yasumi lives on the island of Izu Oshima and loves reading manga. But after a certain turning point, she sets her sights on creating stories of her own! As she dives into the world of manga-making, Ai faces challenges, growth, and the excitement of chasing her creative dreams. Where will her creative journey take her?\n\n(Source: Crunchyroll)"
     },
     {
       "rank": 2,
       "trend": "",
-      "title": "Sword of the Demon Hunter",
-      "jpTitle": "鬼人幻燈抄",
-      "kv": "kijin",
-      "episode": "14-24",
+      "title": "Victoria of Many Faces",
+      "jpTitle": "手札が多めのビクトリア",
+      "kv": "victoria",
+      "episode": "1-9",
       "genre": [
         "Action",
-        "Historical",
-        "Drama"
+        "Drama",
+        "Fantasy"
       ],
-      "wrp_score": 88.99,
-      "overall_rating": 88,
+      "wrp_score": 91.4727,
+      "overall_rating": 89,
+      "review": {
+        "en": "<strong>Episode #9: No Matter What Happens From Here</strong>\n<p>\"It was wonderful right to the very end. Once again, it felt like watching a beautiful classic film. Nonna... you really stole the show. (sobbing)\"</p>\n<p>Even the finale felt like an entire classic film in itself—especially an old European one, perhaps.<br><br>The revelation about Jeffrey and his brother's past was quite unexpected, but it made so much of what we'd seen before suddenly fall into place. What I especially liked was how naturally the story brought us there. Jeffrey genuinely wanted Victoria to know about his past and his relationship with his brother, and through that conversation, we—the audience—were finally given the explanation we'd been waiting for as well. It never felt like some cheap piece of foreshadowing being neatly paid off; it simply flowed naturally from the relationship these two had reached by this point.<br><br>Jeffrey finding Victoria by the rocky shore is, admittedly, incredibly convenient. Earlier, Nonna happens to lose one of her distinctive buttons at the festival, and much later Jeffrey just happens to come across it, immediately realizing that she and Victoria must be there. We don't see him searching all over the festival afterward; before long, there he is at the rocky shore, finally reunited with them. \"How on earth did he manage to find her there?\" would be a perfectly reasonable question. But we don't really need to see him searching through every street and every crowd. Long before they were separated, Victoria and Jeffrey had made a promise that someday the three of them would come to the Cadiz summer festival together. For Victoria, who had lived by the rule of never making plans or promises about the future, this was the one future she had allowed herself to promise. And by the time Jeffrey finds Nonna's button, night has fallen and the festival is reaching its most meaningful moment, with people gathering by the rocky shore to send candlelit boats out to sea. It makes perfect sense that this is where he would look for her.<br><br>Jeffrey even says that if he hadn't found Victoria this year, he would have kept coming back for years until he did. And I believe him completely. Sometimes coincidence works because the characters have already done everything necessary to earn it. So fate only needed to carry them the final few steps. What matters is that the instant Nonna sees Jeffrey, she runs straight to him. And the moment Victoria sees him standing there, everything simply clicks into place. There is no longer anything for her to decide. That's why I couldn't care less about how convenient their reunion is. In fact, this is exactly the kind of narrative convenience I welcome.<br><br>And then there is Nonna's confession on the ship at the very end. She tells Victoria that, when they first met on that bench in the square, she already knew that her mother had abandoned her. She had wanted to thank Vicky for sitting there with her until evening. And there were so many other things she had wanted to thank her for as well... To bring that back now, at the very end... that's just unfair. Absolutely unfair. Perfect.<br><br>And apparently we're getting a second season! I couldn't possibly be happier. This was by far the biggest surprise of the season for me. Thank you for giving me a story that was this warm, joyful, bittersweet, fun, and genuinely happy. And Victoria's smile at the end was absolutely beautiful. Maybe that was the greatest card in her hand all along.</p>",
+        "jp": "第9話: この先何があっても\n<p>\"最後まで最高でした、やっぱり素晴らしいクラシック映画だった、ノンナよ、もっていったな・・・(号泣)\"</p>\n<p>『最終回も全部名作クラシック映画でした、特にヨーロッパかな・・・。ジェフリーとお兄さんの過去はかなり意外だったけど、それでいろいろと合点がいくところがあった。それは決して安い伏線回収的なものではなく、アンナ(クロエ、ヴィクトリア）にとってと言うより、実は視聴者に対して納得行くものなのだろうけど、ヴィクトリアがそれまで隠してきていたものを意外なまでにあっさりと話すように、ジェフリーも共有したいし、知っておいて欲しいと心から思っていたのだろう。ジェフリーとの岩場での再会はあまりにもご都合で、どうやってそこに?というのはごもっともだが、そこにたどり着くまでジェフリーがどれだけ探し回ったかは描く必要もない（当然理由は尺だけど）し、ポイントは一瞬でノンナが走り寄ること、ヴィクトリアがここで会えることで全てを受け入れる準備が出来てしまっていることなのだと思う。だからこそそんなご都合はどうでもいい・・・というか、こういうご都合は大歓迎ないいご都合です。そして最後の船の上でのノンナの告白、初めて広場のベンチで出会ったときに自分が母親に捨てられたことを知っていたこと、そして夕方まで一緒に座ってくれていたヴィッキーにお礼を言いたかったこと、もっといっぱいいろんなことにお礼を言いたかったこと・・・それをここでだすとは・・・反則ですよ。最高だ。そしてなんと、2期決定らしいですね。こんなに嬉しいことはない。今期もっともおおきな伏兵でこんなにも温かく嬉しく切なく楽しく幸せな作品に出会わせてくれてありがとうございます。ヴィクトリアの笑顔最高でした。それも最大の手札でしょう。』</p>"
+      },
+      "key_elements_breakdown": {
+        "op": 1,
+        "ed": 1,
+        "acting": 0.35,
+        "sound/music": 0.35,
+        "consistency/impact": 0.9,
+        "overall": 1.85,
+        "total": 5.05
+      },
+      "romanized_title": "Tefuda ga Oome no Victoria",
+      "release_date": "7/7/2026 to 9/2/2026",
+      "based_on": "Light Novels",
+      "studios": "Studio DEEN",
+      "creators": "Nobukage Kimura",
+      "external_scores": "",
+      "streaming_services": "",
+      "synopsis": "In an age when spies act behind the scenes in every land, Chloe spends her days successfully carrying out even the most difficult missions due to her unparalleled disguise skills and martial arts abilities. After the betrayal of her boss, she suddenly disappears—as Chloe plans to redo her life as the ordinary citizen Victoria in the neighboring kingdom of Ashberry, striving for a “normal” life. However, Victoria's peaceful life is abruptly cut short as she begins to get involved with many people. In this new land, her experiences and abilities from her days as a spy come in far more useful than she ever expected! On the other hand, the second prince--and others--take an interest in Victoria's strength, and the shadows close in on the woman with many faces…\n\n(Source: Yen Press)"
+    },
+    {
+      "rank": 3,
+      "trend": "",
+      "title": "Mushoku Tensei: Jobless Reincarnation Season 3",
+      "jpTitle": "無職転生Ⅲ ～異世界行ったら本気だす～",
+      "kv": "mushoku",
+      "episode": "1-13",
+      "genre": [
+        "Isekai",
+        "Reincarnation",
+        "Ecchi"
+      ],
+      "wrp_score": 88.6172,
+      "overall_rating": null,
       "review": {
         "en": "",
         "jp": ""
       },
       "key_elements_breakdown": {
         "op": 1.05,
-        "ed": 1.15,
-        "acting": 0.35,
-        "sound/music": 0.35,
-        "consistency/impact": 1.1,
-        "overall": 2.1,
-        "total": 6.1
-      },
-      "romanized_title": "Kijin Gentoushou",
-      "release_date": "3/31/2025 to 9/30/2025",
-      "based_on": "Naro",
-      "studios": "Yokohama Animation Laboratory",
-      "creators": "Kazuya Aiura",
-      "external_scores": "",
-      "streaming_services": "",
-      "synopsis": "In the Edo period, there was a shrine maiden called \"Itsukihime\" in the mountain village of Kadono. Jinta, a young man who acts as the shrine maiden's guardian despite being a stranger, encounters a mysterious demon who speaks of the far future in the forest where he went to defeat it. From Edo to the Heisei era, this huge Japanese fantasy series follows a demon man who travels through time while continuously questioning the meaning of wielding a sword."
-    },
-    {
-      "rank": 3,
-      "trend": "",
-      "title": "Takopi's Original Sin",
-      "jpTitle": "タコピーの原罪",
-      "kv": "takopi",
-      "episode": "1-6",
-      "genre": [
-        "Drama",
-        "Psychological",
-        "Sci-Fi"
-      ],
-      "wrp_score": 88.31,
-      "overall_rating": 86,
-      "review": {
-        "en": "",
-        "jp": ""
-      },
-      "key_elements_breakdown": {
-        "op": 1,
-        "ed": 1.1,
+        "ed": 1.2,
         "acting": 0.45,
-        "sound/music": 0.4,
-        "consistency/impact": 0.9,
-        "overall": 1.8,
-        "total": 5.65
+        "sound/music": 0.45,
+        "consistency/impact": 0,
+        "overall": 0,
+        "total": 3.15
       },
-      "romanized_title": "Takopii no Genzai",
-      "release_date": "6/28/2025 to 8/2/2025",
-      "based_on": "Manga",
-      "studios": "ENISHIYA",
-      "creators": "shinya Iino",
+      "romanized_title": "Mushoku Tensei III: Isekai Ittara Honki Dasu",
+      "release_date": "7/5/2026 to 9/28/2026",
+      "based_on": "Light Novels",
+      "studios": "Studio Bind",
+      "creators": "Ryunosuke Shibuya",
       "external_scores": "",
       "streaming_services": "",
-      "synopsis": "A Happy alien, Takopi, lands on Earth with one mission: to spread happiness! When he meets Shizuka, a lonely fourth grader, he vows to bring back her smile using his magical Happy Gadgets. But as he uncovers the pain in her life, Takopi learns that true happiness may require more than gadgets."
+      "synopsis": "Third season of Mushoku Tensei: Isekai Ittara Honki Dasu."
     },
     {
       "rank": 4,
       "trend": "",
-      "title": "Ruri Rocks",
-      "jpTitle": "瑠璃の宝石",
-      "kv": "ruri",
-      "episode": "1-13",
+      "title": "You and I Are Polar Opposites Season 2",
+      "jpTitle": "『正反対な君と僕』第2期",
+      "kv": "hantai",
+      "episode": "1-11",
       "genre": [
-        "Adventure",
-        "Slice of Life"
+        "Comedy",
+        "Drama",
+        "Romance"
       ],
-      "wrp_score": 87.66,
-      "overall_rating": 83,
+      "wrp_score": 83.86,
+      "overall_rating": null,
       "review": {
         "en": "",
         "jp": ""
       },
       "key_elements_breakdown": {
-        "op": 1.1,
-        "ed": 1.15,
-        "acting": 0.3,
-        "sound/music": 0.35,
-        "consistency/impact": 0.8,
-        "overall": 1.5,
-        "total": 5.2
+        "op": 0,
+        "ed": 0,
+        "acting": 0,
+        "sound/music": 0,
+        "consistency/impact": 0,
+        "overall": 0,
+        "total": 0
       },
-      "romanized_title": "Ruri no Houseki",
-      "release_date": "7/6/2025 to 9/28/2025",
+      "romanized_title": "Seihantai na Kimi to Boku 2nd Season",
+      "release_date": "7/5/2026 to 10/4/2026",
       "based_on": "Manga",
-      "studios": "Studio Bind",
-      "creators": "Shingo Fujii",
+      "studios": "Lapin Track",
+      "creators": "Takayoshi Nagatomo",
       "external_scores": "",
       "streaming_services": "",
-      "synopsis": "Mineral collecting is like a modern-day treasure hunt!  Ruri, a high school girl who loves jewelry and accessories, gets into the world of mineral collecting, venturing into mountains, rivers, and caves. The first volume features numerous minerals, including quartz, garnet, pyrite, gold sand, and fluorite. The manga is full of fascinating scenes focusing on specialized tools such as a panning dish, hammer, and topographical maps. An authentic scientific adventure based on the author's solid knowledge of mineralogy!"
+      "synopsis": "The second season of Seihantai na Kimi to Boku."
     },
     {
       "rank": 5,
       "trend": "",
-      "title": "See You Tomorrow at the Food Court",
-      "jpTitle": "フードコートで、また明日。",
-      "kv": "food",
-      "episode": "1-6",
+      "title": "Jaadugar: A Witch in Mongolia",
+      "jpTitle": "天幕のジャードゥーガル",
+      "kv": "jaadugar",
+      "episode": "1-12",
       "genre": [
-        "Comedy",
-        "Slice of Life"
+        "Drama"
       ],
-      "wrp_score": 88.18,
-      "overall_rating": 79,
+      "wrp_score": 89.21,
+      "overall_rating": 86,
       "review": {
-        "en": "",
-        "jp": ""
+        "en": "<strong>Episode #12: The Steppe as It Always Was</strong>\n<p>\"In just twelve episodes, it made me feel something almost impossibly vast out there on that same familiar grassland—and sent a shiver through me. I'm grateful.\"</p>\n<p>It's difficult to put into words. I simply shuddered. That was my immediate reaction after watching Episode 12, the finale, and perhaps I don't need to say anything more or less than that. Of course, as a story, this is surely still only the beginning. And yet I thought it was a truly wonderful way to bring this part of the story to a close.<br><br>The bond between Fatima (Sitara) and Töregene may, at one point, have brought each of them close to betraying the other. But perhaps betraying the other would, at the same time, have meant betraying themselves. Those who conquer, and those who are conquered. Even after being conquered, no matter what happens to them, people go on living. But what if the life that follows isn't necessarily a bad one? And what if we look at it from the side of the conqueror? If the people you conquered go on to find happiness and live out their lives that way, then what does it actually mean to have truly conquered them...?<br><br>And within all of that, there are people like Sorqoqtani, Boraqchin, and the others—the ways they live, and the ways they die. I also found their discussion of the heavens tremendously interesting. Sitara sees herself at the center, with the stars around her divided into eight layers and revolving around her. Ögedei, meanwhile, sees people as moving while bound to the North Star—an absolute presence, almost like God. Perhaps we move intelligently and as we see fit within the particular layer to which we belong, while at the same time remaining bound to something absolute—slaves, in a sense, to fate itself.<br><br>From here, with events involving Sitara's homeland of Persia seemingly poised to set much larger changes in motion, I would absolutely love to see this series continue depicting the wider world centered around the Mongol Empire as it shifts and transforms.<br><br>With only twelve episodes to work with, I can't say there weren't moments that felt somewhat packed in, or places where I wished certain things had been explored more fully. And yet, within those limitations, could they really have shown us anything better than this? No... I don't think they could have. What they gave us was truly magnificent.<br><br>Of course, this isn't the kind of ending that leaves everything neatly resolved. Instead, against that same vast, unchanging sweep of the world and history that has always been there, it was a finale that made me want to simply sit with this series for a while longer and let its lingering presence wash over me.<br><br>To everyone involved in making this series, thank you so much for all your hard work.<br><br>Naoko Yamada... you really are something else. You're incredible. ♡</p>",
+        "jp": "第12話: いつもと変わらない草原\n<p>\"限られた12話だったが途方もなく大きなものをいつもの草原にて身震いとともに感じさせられた、感謝\"</p>\n<p>『うまく言えないが、ただ身震いがした。この第12話(最終回)を見た率直な感想として、それ以上でもそれ以下の言葉もいらないのかも知れない。当然物語としてはまだまだ序章に過ぎないだろう。しかし、本当に良い締めくくり方だったと思う。ファティマ(シタラ)とドレゲネとの繋がりも一度は互いに裏切ろうとしたかも知れない。しかしそれは相手を裏切ることであると同時に、自分を裏切るものであったのかも知れない。征服するものとされるもの。征服されても、どんな目にあったとしても人は生きていく。それこそその後の生活が悪いものではなかったとしたら?そして征服するものの立場でみたら?それらの征服したものがその後幸せを感じ、過ごし行きたとしたらそれこそ本当の征服なのだろう・・・。その中にある、ソルコクタニ、ボラクチン、その他の者たちのあり方となくなり方。彼らの話す天体のはなしも非常に興味深かった。自分を中心として周りの星星たちは8つのそうに分かれて回っているというシタラ。北極星＝神のような絶対的な存在に繋がれた者たちが動いているというオゴタイ・・・。それぞれの属する層において思うように賢明に動きもするし、同時に絶対的なものの、運命の?奴隷のようなものでもあるのかも知れない。今後の展開もシタラの祖国のペルシアに関わるものを発端として大きく動いていくモンゴルを中心とした世界の描きも是非見てみたい。12話という限られた話数の中で多少詰め込んだところや描き足りないのでは?と思う所がなかったわけではない。しかし、その中でこれ以上のものはあり得るか?いや・・・ないと言える素晴らしいものを見せてくれた。当然スッキリはしないが、大きな大きないつもと変わらない大局の中で、しばらくの間この作品の余韻に浸っていたいと感じさせてくれる最終回だった。制作に携わられたみなさん、本当にお疲れ様でした。山田尚子よ、あんたって人は・・・凄いね♡』</p>"
       },
       "key_elements_breakdown": {
-        "op": 1.15,
-        "ed": 1.15,
+        "op": 1.05,
+        "ed": 1,
         "acting": 0.4,
-        "sound/music": 0.35,
-        "consistency/impact": 0.9,
-        "overall": 1.8,
-        "total": 5.75
+        "sound/music": 0.45,
+        "consistency/impact": 0.8,
+        "overall": 1.75,
+        "total": 5.45
       },
-      "romanized_title": "Food Court de, Mata Ashita",
-      "release_date": "7/7/2025 to 8/11/2025",
+      "romanized_title": "Tenmaku no Jaadugar",
+      "release_date": "7/4/2026 to 9/12/2026",
       "based_on": "Manga",
-      "studios": "Atelier Pontdarc",
-      "creators": "Kazuomi Koga",
+      "studios": "Science SARU",
+      "creators": "Naoko Yamada, Abel Gongora",
       "external_scores": "",
       "streaming_services": "",
-      "synopsis": "Meet Wada, who gives off an unapproachable vibe, and Yamamoto, who strikes fear into those around her because of her looks. Though the two girls attend separate high schools, they meet up at a shopping center’s food court almost every day. Take a little peek at the laid-back afternoons Wada and Yamamoto share as they reflect on the ups and downs of high school life together."
+      "synopsis": "After losing her mother and her homeland, Sitara’s despair transforms into determination with the power of knowledge. New possibilities unfold when a family of scholars takes her in, deepening her education. Meanwhile, Genghis Khan’s Mongol Empire conquers nation after nation, nearing Sitara’s new home. After the Fourth Prince of the empire takes her captive, a flame of revenge is ignited.\n\n(Source: Crunchyroll)"
     },
     {
       "rank": 6,
       "trend": "",
-      "title": "Me and the Alien MuMu",
-      "jpTitle": "宇宙人ムームー",
-      "kv": "muumuu",
-      "episode": "13-24",
+      "title": "Hell Mode: The Hardcore Gamer Dominates in Another World with Garbage Balancing Season 2",
+      "jpTitle": "『ヘルモード　～やり込み好きのゲーマーは廃設定の異世界で無双する～』2nd Season",
+      "kv": "hell",
+      "episode": "1-13",
       "genre": [
-        "Comedy",
-        "Sci-Fi",
-        "Slice of Life",
-        "School"
+        "Action",
+        "Adventure",
+        "Fantasy"
       ],
-      "wrp_score": 84.87,
-      "overall_rating": 79,
+      "wrp_score": 86.8858,
+      "overall_rating": 84,
       "review": {
-        "en": "",
-        "jp": ""
+        "en": "<strong>Episode #13: The Summoner of Beginnings</strong>\n<p>\"I still have plenty I could say, but after seeing it all the way through, I came away feeling that I could simply say, 'Yeah, that was good.' And in the end, that's what matters.\"</p>\n<p>What I want to say about this cour hasn't changed: I wish they had taken a little more time and let things unfold more slowly and carefully. The material, the buildup, and the appeal were all there to support that.<br><br>That said, after watching this finale, I definitely felt that it gave me a satisfying enough sense of payoff. Personally, I actually found the much quieter material from Season 1—the family interactions and the everyday exchanges with the nobles they lived alongside—even more interesting, so I can't help wishing this season had spent more time on those kinds of things too. Of course, I know that's probably asking for the impossible.<br><br>Even so, they still gave us something genuinely impressive and worth watching. And more than that, they showed enough to make me want to see what comes next. That's what I want to give credit for, so this gets a 9 from me.<br><br>Please, please give us a third season—and this time, don't rush through it!<br><br>For now, great work on this season. I could really feel how much love the production staff put into it. And to the original author, Hamuo-san: thank you. Looking forward to more!</p>",
+        "jp": "第13話: はじまりの召喚士\n<p>\"色々言いたい事はあるが全部終わって気持ちよく良かったと言えるものだったと感じた、それが全て\"</p>\n<p>『クール通して言いたいことは変わりません、\"もうちょっと時間をかけてじっくりやってほしかった。それだけの内容と積み重ね、魅力がある。\"ということです。ただ今回のラストを見終わって、十分な爽快感は味あわせてくれたな・・・ということは十分に感じた。個人的には第1期のもっともっと地味な家族や共に暮す貴族とのやり取りなどの話の方が面白かったから、今期もそういった部分も時間を割いてもっと見せてくれたら全然良かったのにな・・・友思わずにはいられない。そりゃまぁ無理な相談なんだろうけど。ただ、そうは言ってもそれなりに素晴らしいものを見せてくれた、見応えがありました。そしてこの先も見たい・・・そういった期待が持てるものを十分に見せてくれたのでそれを評価したいということで9点。ぜひぜひ第3期、しかも足早でなく・・・お願いします!とりあえず、今期、大変お疲れ様でした。制作の皆さんの愛情をたっぷり感じました。そして原作のハム男さん、ありがとう、引き続きよろしく!』</p>"
       },
       "key_elements_breakdown": {
-        "op": 0.9,
-        "ed": 1.15,
-        "acting": 0.4,
-        "sound/music": 0.35,
-        "consistency/impact": 0.75,
-        "overall": 1.5,
-        "total": 5.05
+        "op": 1.25,
+        "ed": 1.1,
+        "acting": 0.35,
+        "sound/music": 0.3,
+        "consistency/impact": 0.85,
+        "overall": 1.7,
+        "total": 5.55
       },
-      "romanized_title": "Uchuujin MuuMuu",
-      "release_date": "4/9/2025 to 9/18/2025",
-      "based_on": "Manga",
-      "studios": "OLM",
-      "creators": "Tomoya Takahashi",
+      "romanized_title": "Hell Mode: Yarikomi-zuki no Gamer wa Haisettei no Isekai de Musou Suru 2nd Season",
+      "release_date": "7/3/2026 to 9/19/2026",
+      "based_on": "Light Novels",
+      "studios": "Yokohama Animation Laboratory",
+      "creators": "Makoto Tamagawa",
       "external_scores": "",
       "streaming_services": "",
-      "synopsis": "A cat-like alien from a distant galaxy, MuMu, arrives on Earth. His goal is to learn about home appliance technology on Earth to recover the technology his species has lost. The protagonist, Sakurako, has a typical university life, but everything changes with MuMu's arrival! What begins as an unexpected cohabitation quickly turns into a whirlwind of chaotic events. The chemistry between Sakurako and MuMu leads to a super-spectacular, appliance-filled, and cat comedy adventure."
+      "synopsis": "The second season of Hell Mode."
     },
     {
       "rank": 7,
       "trend": "",
-      "title": "Dekin no Mogura: The Earthbound Mole",
-      "jpTitle": "出禁のモグラ",
-      "kv": "mogura",
-      "episode": "1-12",
-      "genre": [
-        "Comedy",
-        "Mystery",
-        "Supernatural"
-      ],
-      "wrp_score": 84.63,
-      "overall_rating": 79,
-      "review": {
-        "en": "",
-        "jp": ""
-      },
-      "key_elements_breakdown": {
-        "op": 0.9,
-        "ed": 1.1,
-        "acting": 0.35,
-        "sound/music": 0.35,
-        "consistency/impact": 0.7,
-        "overall": 1.45,
-        "total": 4.85
-      },
-      "romanized_title": "Dekin no Mogura",
-      "release_date": "7/7/2025 to 9/21/2025",
-      "based_on": "Manga",
-      "studios": "Brain's Base",
-      "creators": "Hiroshi Ishiodori",
-      "external_scores": "",
-      "streaming_services": "",
-      "synopsis": "\"I won't die 'cause I was banned from the afterlife.\"  A shady self-proclaimed hermit named Momoyuki Mogura, AKA: Mogura, is banned from the afterlife due to an incident. Now he collects spirit possessed will-o'-wisps in his lantern, hoping to make a comeback.  It seems that those who encounter him begin to see peculiar things."
-    },
-    {
-      "rank": 8,
-      "trend": "",
-      "title": "April Showers Bring May Flowers",
-      "jpTitle": "ブスに花束を。",
-      "kv": "busu",
+      "title": "Dara-san of Reiwa",
+      "jpTitle": "令和のダラさん",
+      "kv": "dara",
       "episode": "1-13",
       "genre": [
         "Comedy",
-        "Romance"
+        "Horror"
       ],
-      "wrp_score": 84.14,
-      "overall_rating": 79,
+      "wrp_score": 85.0165,
+      "overall_rating": 82,
       "review": {
-        "en": "",
-        "jp": ""
+        "en": "<strong>Episode #13: The Dara-san of Reiwa</strong>\n<p>\"For this episode itself, there were a few things that felt a little underwhelming, but overall it was still a good finale that clearly conveyed the message of the entire cour.\"</p>\n<p>Personally, I still love this series, so I have absolutely no problem giving this episode a 9. And after finishing the entire cour, I was glad that it left me with this wonderfully warm, refreshing sense of satisfaction.<br><br>That said, the whole part involving the older sister's grudge felt a little underdeveloped—like there just wasn't quite enough time for it. It ended rather abruptly, and considering how much weight was placed on her name appearing, the way everything was resolved also felt a little underwhelming.<br><br>Overall, though, I really liked how the feelings, actions, and wishes of the man Dara-san loved back then have genuinely been passed down to the present day. What he did was truly remarkable. And precisely because of that, I also loved how those things have continued to endure even though their form has changed completely over time. More than anything, I felt that this was probably the central message of this cour.<br><br>It's definitely the kind of series that won't be for everyone—the siblings whose appearances seem reversed, the constant blatant display of huge breasts, and plenty of other things—but for me, those aren't things you can use to measure the value of the series. If anything, they actually give it even more flavor. I thought this was a genuinely good show with a charm that goes far beyond those surface elements.<br><br>I really love this series.<br><br>I know it's probably unlikely, but if possible, please give us a second season too. To everyone involved in the production, and to the original creator: thank you so much for all your hard work!</p>",
+        "jp": "第13話: 令和のダラさん\n<p>\"今回の話においては若干微妙さもありながら、クール通してのメッセージはしっかり伝わるいい回だった\"</p>\n<p>『個人的にはやはり大好きな作品で今回も9点で全く構わないし、全話見終わって、なんともほんわかと清々しい爽快感も感じることが出来てよかった。ただ、姉の怨念のクダリはちょっと尺が足りないというか、あっけないとうか、その割に名前で出てきちゃうのも、解決ぶりも若干微妙ではあった。全体としては、ダラさんの当時の想い人の想いや行動、願いが今でもしっかり受け継がれているし、それだけの行動をした彼を本当に凄いと思う。まただからこそ、それが形はまるで変わっても受け継がれているのも凄く良かった。とにかくそれが本作の今クールのメッセージなんだろうなって思った。見た目が逆の姉弟とか、巨乳丸出しとかいろいろと人を選ぶ作品とは思うが、私としてはそこでは測れない、寧ろ逆にそれがさらに味わい深いものにしている良作だなと感じました。とても大好きです。無理とは思いますが出来れば第2期もお願いします。制作に携わられた方々、原作者様大変お疲れ様でした!ありがとうございます。』</p>"
       },
       "key_elements_breakdown": {
         "op": 0.85,
         "ed": 1,
         "acting": 0.35,
-        "sound/music": 0.35,
-        "consistency/impact": 0.75,
+        "sound/music": 0.3,
+        "consistency/impact": 0.8,
         "overall": 1.5,
         "total": 4.8
       },
-      "romanized_title": "Busu ni Hanataba wo.",
-      "release_date": "7/4/2025 to 9/26/2025",
-      "based_on": "Manga",
-      "studios": "SILVER LINK.",
-      "creators": "Mirai Minato",
+      "romanized_title": "Reiwa no Dara-san",
+      "release_date": "7/2/2026 to 9/21/2026",
+      "based_on": "Light Novels",
+      "studios": "Asahi Production",
+      "creators": "Masato Suzuki",
       "external_scores": "",
       "streaming_services": "",
-      "synopsis": "Hana Tabata is a lonely and unpopular high school girl with negative thoughts. Early morning in the classroom when she was pretending to be a manga heroine, the class's good looking Yosuke accidentally saw her...!? This love, you will definitely want to support it! Masochistic system unpopular girl comedy!"
+      "synopsis": "Clouds blacken the sky and sheets of rain turn the mountain forest into a treacherous maze... A landslide crushes a razor wire fence, and buries a \"NO TRESPASSING\" sign... Two young siblings wander into a dark world where they do not belong, and a long, horrid shadow rears up to meet them- Anyway, so that's how we met Dara-san! She might look kinda scary, but just wait until you get to know her!\n\n\"Look, I'm a god of misfortune, okay!? Aren't you kids gonna freak out about my grotesque visage!?\"\n\n(Source: Yen Press)"
+    },
+    {
+      "rank": 8,
+      "trend": "",
+      "title": "Iron Wok Jan!",
+      "jpTitle": "鉄鍋のジャン！",
+      "kv": "jan",
+      "episode": "1-12",
+      "genre": [
+        "Action",
+        "Comedy"
+      ],
+      "wrp_score": 85.0483,
+      "overall_rating": 81,
+      "review": {
+        "en": "<strong>Episode #12: Nightmares, Followed by Clear Skies!</strong>\n<p>\"A feel-good finale in all kinds of ways. Once you've gone all out and blown everything away, you just laugh and head home!\"</p>\n<p>Nothing but praise for the passion of the production staff! In an age when people are so quick to make a fuss over everything, I honestly want to applaud them for going this far. They really did portray just how vicious Otani Nichido could be... and Jan's response to him as well.<br><br>Of course, there were moments when things felt way too exaggerated, or when the developments and scoring seemed obviously manipulated to force the results toward the predetermined outcome, and I can't say I never thought, \"Isn't this a bit much?\" But there was enough conviction, passion, and sheer entertainment behind it all that I was willing to go along with that too.<br><br>And that ending was fantastic. Jan skips the awards ceremony, Onogi is there waiting for him, and the two of them head home laughing. That sense of release was perfect. This is exactly what I wanted. After dragging everything out and going at it so relentlessly, there was also this feeling that Jan had finally done everything he came there to do...<br><br>And I think, in a way, the viewers who made it to the end could share that same feeling.<br><br>What a satisfying viewing experience. Thank you!<br><br>Please give us a second season. I'm looking forward to it!</p>",
+        "jp": "第12話: 悪夢、のち晴れ!\n<p>\"色んな意味で気持ちの良い最終エピソード、ブチかますだけかましたら、笑って帰るのさ!\"</p>\n<p>『制作の熱い情熱にただただ称賛を!この何かとうるさいご時世によくやったなぁ…と賛辞を送りたい。大谷日堂のエグさもよくここまで描いたな・・と、そしてそれに対するジャンも。もちろん、大げさすぎたり、なんだかんだで予定通りの点数、結果にするための展開や点数操作が溢れて如何なものか?と思う瞬間がなかったわけではない。しかし、それをも良しとする志や想い、そして面白さがあった。最後に表彰式をすっぽかして帰るジャンを待つ小此木と、笑いながら帰っていく爽快さ、最高だった。これが良い。アレだけねちっこくやっておいて、どこかやりきった感もあるのだろう・・・。そういった気持ちを見終わった視聴者もどこか共感出来るところがあるように感じた。爽快な視聴体験でした。ありがとう!是非2期!期待してます!』</p>"
+      },
+      "key_elements_breakdown": {
+        "op": 0.95,
+        "ed": 1.05,
+        "acting": 0.35,
+        "sound/music": 0.35,
+        "consistency/impact": 0.8,
+        "overall": 1.35,
+        "total": 4.85
+      },
+      "romanized_title": "Tetsunabe no Jan!",
+      "release_date": "7/5/2026 to 9/20/2026",
+      "based_on": "Manga",
+      "studios": "TROYCA",
+      "creators": "Ei Aoki",
+      "external_scores": "",
+      "streaming_services": "",
+      "synopsis": "Jan Akiyama, a cocky arrogant teenager wants to fulfill his grandfathers wish of defeating his arch nemesis Mutsuju Gobancho. When he arrives at the Gobancho restaurant he meets his granddaughter Kiriko Gobancho. Their rivalry is easily compared to Jan's and Kiriko's grandfathers, for Jan believes cooking is about competition and Kiriko believes cooking is about heart."
     },
     {
       "rank": 9,
       "trend": "",
-      "title": "Turkey! Time to Strike",
-      "jpTitle": "Turkey!",
-      "kv": "turkey",
+      "title": "Saga of Tanya the Evil II",
+      "jpTitle": "幼女戦記Ⅱ",
+      "kv": "youjo",
       "episode": "1-12",
       "genre": [
-        "Adventure",
-        "Sports",
-        "Supernatural"
+        "Isekai",
+        "Military",
+        "Reincarnation"
       ],
-      "wrp_score": 84.17,
-      "overall_rating": 80,
+      "wrp_score": 84.9483,
+      "overall_rating": 84,
       "review": {
-        "en": "",
-        "jp": ""
+        "en": "<strong>Episode #12: The Way Out</strong>\n<p>\"This was a little different from what I was expecting... and not entirely in a good way. In the end, I just didn't find it all that interesting.\"</p>\n<p>I guess this was a little different from what I had expected... The real highlights were Degurechaff's fighting and maneuvering, and the way she ultimately got the job done indirectly by using the enemy rather than handling things herself.<br><br>And then there's Zettour, who instead of bringing the war to an end... wait, seriously? We're continuing? We're still right in the middle of an insanely dangerous situation here! And on top of that, he casually manages to reclaim his position too.<br><br>As entertainment, though, I found this one a little lacking. It certainly wasn't bad, but the whole sequence of events involving the enemy unit and how everything connected together felt a bit too messy.<br><br>More than anything, I think this episode just reminded me that this series was never really to my personal taste in the first place. I still think it's a very well-made work, though.<br><br>Anyway, good work.</p>",
+        "jp": "第12話: 出口\n<p>\"ちょっと思ってたのとは違ったかな・・・少し悪い意味で、というか結果的に面白みを感じえなかった故\"</p>\n<p>『少し思ってたのとは違ったかな・・・。見どころは寧ろデグレチャフの戦闘と駆け引き、そして落としどころとして直接ではなく、敵を利用して間接的に仕事をなしたところ、またゼートゥーアが戦争を止めるどころか・・・おいおい・・・続行で、超ヤバいところの真っ只中だぞ!と。そしてちゃっかり地位も返り咲いてってね。面白みとしては薄かったかな。もちろん悪くはなかったけど、敵の部隊との絡みなどの経緯?がごちゃつき過ぎてたかな。もともとあまりこの作品が好みではないことを再確認したかな。優れた作品だとは思ってるけど。おつです。』</p>"
       },
       "key_elements_breakdown": {
-        "op": 1.2,
-        "ed": 1.15,
-        "acting": 0.35,
+        "op": 0.8,
+        "ed": 1,
+        "acting": 0.4,
         "sound/music": 0.4,
-        "consistency/impact": 0.85,
-        "overall": 1.7,
-        "total": 5.65
+        "consistency/impact": 0.75,
+        "overall": 1.4,
+        "total": 4.75
       },
-      "romanized_title": "Turkey!",
-      "release_date": "7/8/2025 to 9/24/2025",
-      "based_on": "Original",
-      "studios": "BAKKEN RECORD",
-      "creators": "Susumu Kudou",
+      "romanized_title": "Youjo Senki II",
+      "release_date": "7/8/2026 to 9/23/2026",
+      "based_on": "Light Novels",
+      "studios": "Nut",
+      "creators": "Takayuki Yamamoto",
       "external_scores": "",
       "streaming_services": "",
-      "synopsis": "\"Turkey\" is a bowling term for scoring three consecutive strikes.  Mai, a second-year student and captain of the Ikkokukan High School Bowling Club, is a genius who can't seem to win a match. Whenever she scores a Turkey, she mysteriously follows it up with an unyielding split—the Snake Eyes.  One day, Rina, the club’s only first-year member, confronts her \"You’re doing it on purpose, aren’t you?\"  \"You’re running away from winning. But I want to win. If you have no intention of winning, I’ll quit.\""
+      "synopsis": "Second season of Youjo Senki."
     },
     {
       "rank": 10,
       "trend": "",
-      "title": "The Fragrant Flower Blooms with Dignity",
-      "jpTitle": "薫る花は凛と咲く",
-      "kv": "kaoru",
-      "episode": "1-13",
+      "title": "Kaiju Girl Caramelise",
+      "jpTitle": "乙女怪獣キャラメリゼ",
+      "kv": "caramel",
+      "episode": "1-12",
       "genre": [
         "Comedy",
-        "Drama",
         "Romance"
       ],
-      "wrp_score": 83.11,
-      "overall_rating": 81,
+      "wrp_score": 81.0164,
+      "overall_rating": 73,
       "review": {
-        "en": "",
-        "jp": ""
+        "en": "<strong>Episode #1-12</strong>\n<p>\"It's formulaic as hell, but I liked that it went all in and fully committed to it. Good for you, Chloe.\"</p>\n<p>It's classic kaiju stuff mixed with the classic shy, cute girl story, but I liked it. Chloe finally breaking out of her shell and merging with Minami-kun. That's it. That's all I needed. Everything else? Who cares anymore.<br><br>Her mother? Her junior? The kaiju fanatic? Goriko? The idol? They're all just stage props there to make this one thing—the culmination of the love between these two—as grand and ridiculously over-the-top as possible.<br><br>I liked it.<br><br>Wouldn't recommend it, though.<br><br>Good stuff. I'm out.</p>",
+        "jp": "第1-12話:\n<p>\"コテコテですが、極ふりしてやりきったのが良かった。クロエちゃんよかったね。\"</p>\n<p>『怪獣モノ、そして内気な可愛い女の子の定番ですが良かったです。もうクロエちゃんの脱皮と南くんとの融合。それだけ。後はもうどうでもいい。お母さん?その後輩?怪獣マニア?ゴリ子?アイドル?全部其れを壮大に大げさに見せる、2人の愛の結晶のための舞台装置。良かったです。オススメはしないけど。おつ。』</p>"
       },
       "key_elements_breakdown": {
-        "op": 0.95,
-        "ed": 1,
-        "acting": 0.35,
-        "sound/music": 0.4,
-        "consistency/impact": 0.8,
-        "overall": 1.55,
-        "total": 5.05
+        "op": 0.75,
+        "ed": 0.9,
+        "acting": 0.25,
+        "sound/music": 0.3,
+        "consistency/impact": 0.5,
+        "overall": 0.65,
+        "total": 3.35
       },
-      "romanized_title": "Kaoru Hana wa Rin to Saku",
-      "release_date": "7/5/2025 to 9/28/2025",
-      "based_on": "Web Comics",
-      "studios": "CLOVERWORKS",
-      "creators": "Miyuki Kuroki",
+      "romanized_title": "Otome Kaijuu Caramelise",
+      "release_date": "7/2/2026 to 9/18/2026",
+      "based_on": "Manga",
+      "studios": "LIDENFILMS",
+      "creators": "Teruyuki Oomine",
       "external_scores": "",
       "streaming_services": "",
-      "synopsis": "Chidori High is a boys’ school that takes in the dregs of society with the lowest grades. Next door stands Kikyo Girls’ High, where the wealthy, high-class families send their precious daughters. Chidori second-year Rintaro, who has a fierce face but a gentle heart, is helping at his family’s patisserie when he meets a girl named Kaoruko. The two hit it off right away…but this blissful peace is quickly disturbed when Rintaro discovers that Kaoruko is actually a student at Kikyo. Worse, she doesn’t seem to realize what a huge problem this really is! Will these two be able to forge a path for themselves, and sidestep the traps (metaphorical and literal) laid by their classmates?"
+      "synopsis": "Kuroe Akaishi just wants a normal high school life—but that’s impossible with a rare condition that turns her into a giant kaiju whenever her emotions spike! Things get even worse when she falls for Arata Minami, the most popular boy in class. Now every blush, heartbeat, and crush could trigger a monster transformation. Can Kuroe survive high school love before it destroys everything around her?!\n\n(Source: Crunchyroll)"
     },
     {
       "rank": 11,
       "trend": "",
-      "title": "Call of the Night Season 2",
-      "jpTitle": "よふかしのうた Season2",
-      "kv": "yofukashi",
-      "episode": "1-12",
+      "title": "Re:ZERO -Starting Life in Another World- Season 4",
+      "jpTitle": "『Re:ゼロから始める異世界生活』4th season（奪還編）",
+      "kv": "rezero",
+      "episode": "1-7",
       "genre": [
-        "Comedy",
-        "Romance",
-        "Supernatural"
+        "Isekai",
+        "Fantasy",
+        "Psychological",
+        "Thriller",
+        "Romance"
       ],
-      "wrp_score": 82.24,
-      "overall_rating": 73,
-      "review": {
-        "en": "",
-        "jp": ""
-      },
-      "key_elements_breakdown": {
-        "op": 0.95,
-        "ed": 1.1,
-        "acting": 0.35,
-        "sound/music": 0.35,
-        "consistency/impact": 0.7,
-        "overall": 1.35,
-        "total": 4.8
-      },
-      "romanized_title": "Yofukashi no Uta",
-      "release_date": "7/4/2025 to 9/19/2025",
-      "based_on": "Manga",
-      "studios": "Liden Films",
-      "creators": "Tomoyuki Itamura",
-      "external_scores": "",
-      "streaming_services": "",
-      "synopsis": "Ko overcomes his confusion about becoming a vampire and decides to \"like\" Nazuna, while Nazuna resolves to make Ko \"fall in love\" with her. Without understanding what \"love\" even is, the two of them spend their nights together in a frenzy. Meanwhile, Detective Uguisu Anko is closing in with her plot to kill vampires, not just Nazuna. A vampire's weakness is \"anything they were attached to when they were human\" and so they all try to get rid of this weakness before it's too late. But, Nazuna has no memory of her human life. What is Nazuna's hidden past? Why did Anko start killing vampires? And what is the \"secret\" that Nazuna and Anko share? For Ko, Nazuna, Anko, a fun \"late night\" doesn't end here... a new \"night\" begins!"
-    },
-    {
-      "rank": 12,
-      "trend": "",
-      "title": "Rascal Does Not Dream of Santa Claus",
-      "jpTitle": "青春ブタ野郎はサンタクロースの夢を見ない",
-      "kv": "buta",
-      "episode": "1-13",
-      "genre": [
-        "Comedy",
-        "Romance",
-        "Supernatural"
-      ],
-      "wrp_score": 80.37,
-      "overall_rating": 72,
+      "wrp_score": 79.3768,
+      "overall_rating": null,
       "review": {
         "en": "",
         "jp": ""
       },
       "key_elements_breakdown": {
         "op": 0.9,
-        "ed": 0.95,
-        "acting": 0.35,
+        "ed": 1.05,
+        "acting": 0.4,
         "sound/music": 0.4,
-        "consistency/impact": 0.55,
-        "overall": 1.15,
-        "total": 4.3
+        "consistency/impact": 0,
+        "overall": 0,
+        "total": 2.75
       },
-      "romanized_title": "Seishun Buta Yarou wa Santa Claus no Yume wo Minai",
-      "release_date": "7/5/2025 to 9/27/2025",
-      "based_on": "Naro",
-      "studios": "CLOVERWORKS",
-      "creators": "Souichi Masui",
+      "romanized_title": "Re:Zero kara Hajimeru Isekai Seikatsu 4th Season (Dakkan Hen)",
+      "release_date": "8/12/2026 to 9/30/2026",
+      "based_on": "Light Novels",
+      "studios": "WHITE FOX",
+      "creators": "Masahiro Shinohara",
       "external_scores": "",
       "streaming_services": "",
-      "synopsis": "After encountering various girls going through Puberty Syndrome, Sakuta Azusagawa's high school days have come to a close, and he is now a university student. He enrolls at a university in Kanazawa-hakkei alongside his girlfriend Mai Sakurajima, a nationally famed actress. Off campus, he stumbles upon an out-of-season miniskirt Santa. Precognitive dreams, an anonymous online singer, poltergeists buzzing on social media... A mysterious tale with enigmatic phenomenons surrounding girls with wavering hearts starts again. Puberty continues..."
+      "synopsis": "The fourth season of Re:Zero kara Hajimeru Isekai Seikatsu.\n\nTo save his stricken allies, Subaru faces a deadly desert to find the Sage at Pleiades Watchtower.\n\n(Source: Crunchyroll News)"
+    },
+    {
+      "rank": 12,
+      "trend": "",
+      "title": "The Cat and the Dragon",
+      "jpTitle": "猫と竜",
+      "kv": "neko",
+      "episode": "1-12",
+      "genre": [
+        "Adventure",
+        "Fantasy"
+      ],
+      "wrp_score": 81.2456,
+      "overall_rating": 79,
+      "review": {
+        "en": "<strong>Episode #12: The Cat and the Royal Capital's Festival</strong>\n<p>\"Rather than judging this finale purely on its own, I liked it more as a culmination of the consistent themes and storytelling that ran throughout the entire cour.\"</p>\n<p>If I were judging this episode entirely on its own—its execution, or simply the impression it left on me—I honestly might give it an 8. But looking at the season as a whole, I think the consistency of its storytelling deserves more credit: the many different forms of relationships between cats and humans, and the way the dragon—and perhaps the demons as well?—served to connect them. So, with a little bonus credit, I'm giving it a 9.<br><br>As a conclusion that left me feeling this really was a good series in the end, it also tied nicely back to where everything began... And ultimately, I think that was what the whole story came down to: people and cats, brought together by the dragon at the center of it all. I liked that.<br><br>Good work, O-Jingu.</p>",
+        "jp": "第12話: 猫と王都の祭り\n<p>\"今回の最終回単体としてというよりはクール全体として一貫したテーマや描き方への評価としてよかった\"</p>\n<p>『今回単体の出来?印象?としては正直8点かもしれないが、今シーズン通じての一貫した描き方、様々な形での猫と人、それを繋いだ竜や魔族?の描き方も良かったと言えるのかな?ということで若干オマケの9点。最終的にいい作品だったと思えるまとめとしても始まりから繋がっていたし・・・。やはり主役の竜が繋いだ人と猫というのが全てで良かった。オ・ジングお疲れ。』</p>"
+      },
+      "key_elements_breakdown": {
+        "op": 1.1,
+        "ed": 1,
+        "acting": 0.3,
+        "sound/music": 0.35,
+        "consistency/impact": 0.8,
+        "overall": 1.4,
+        "total": 4.95
+      },
+      "romanized_title": "Neko to Ryuu",
+      "release_date": "7/4/2026 to 9/19/2026",
+      "based_on": "Naro",
+      "studios": "OLM",
+      "creators": "Jin-Koo Oh",
+      "external_scores": "",
+      "streaming_services": "",
+      "synopsis": "The story follows a fire-breathing, human-hating dragon raised by a mother cat in a forest. The dragon, known affectionately as \"Uncle Wing,\" watches over the many curious cats — such as one that goes on an adventure with a human prince, and another that lives in the city and people-watches as a hobby — and gradually warms up to humans along the way.\n\n(Source: Crunchyroll News)"
     },
     {
       "rank": 13,
       "trend": "",
-      "title": "My Dress-Up Darling Season 2",
-      "jpTitle": "その着せ替え人形は恋をする Season 2",
-      "kv": "bisque",
+      "title": "From Old Country Bumpkin to Master Swordsman Season 2",
+      "jpTitle": "片田舎のおっさん、剣聖になるII",
+      "kv": "inaka",
       "episode": "1-12",
       "genre": [
-        "Comedy",
-        "Romance",
-        "Ecchi"
+        "Action",
+        "Adventure",
+        "Comedy"
       ],
-      "wrp_score": 80.36,
-      "overall_rating": 74,
+      "wrp_score": 77.63,
+      "overall_rating": 72,
       "review": {
-        "en": "",
-        "jp": ""
+        "en": "<strong>Episode #12: The Old Country Bumpkin Returns Home</strong>\n<p>\"Everything feels half-baked, and all that really stands out is the fight with the absurdly overpowered pope, which feels completely out of place... And seriously, Mask, don't kill people.\"</p>\n<p>What even is that pope's strength supposed to be? Is it just there to make the battle more exciting? Or to make Beryl look even stronger? And then Alicia's situation basically gets wrapped up without anything really happening.<br><br>The silent masked girl is also obviously who she is, so that whole thing just feels kind of pointless... And seriously, why kill him? Let him be judged properly.<br><br>Then in the end they try to solve things through Mui again... And Beryl keeps getting praised as this incredible person, but... is he really that far above everyone else? I honestly don't feel that much of a gap.<br><br>This just isn't very interesting... I think I've had enough.<br><br>Actually, the biggest mystery of all is why Unicorn did the OP. Is the author a fan and specifically asked for them or something?</p>",
+        "jp": "第12話: 片田舎のおっさん、我が家に帰る\n<p>\"すべてが中途半端で、ただ浮きまくりの最強教皇との戦闘ばかりが目立つ・・・。殺すなよ、マスク。\"</p>\n<p>『教皇の強さは何じゃ?ただ戦闘を盛り上げたいため?とベリルの強さを際立たせたいの?そしてアリーシャのこともとりあえず何事もなく一段落。マスクの無言娘も正体丸わかりだし何だか・・・っていうか、裁かれるようにしろよって、何故殺す?そして結局ミュイでなんとかしようとする・・・。さらにベリルがすごい人になると評価され続けるが・・・そこまでか?対して差があるようには思えん・・・。面白くはないよ・・・。もういいかなぁ。っていうか最大の謎は何故ユニコーンがOPを?作者がファンで頼んだとか?』</p>"
       },
       "key_elements_breakdown": {
-        "op": 1.05,
-        "ed": 0.95,
-        "acting": 0.35,
-        "sound/music": 0.4,
-        "consistency/impact": 0.6,
-        "overall": 1.15,
-        "total": 4.5
+        "op": 0.95,
+        "ed": 0.85,
+        "acting": 0.3,
+        "sound/music": 0.3,
+        "consistency/impact": 0.5,
+        "overall": 0.9,
+        "total": 3.8
       },
-      "romanized_title": "Sono Bisque Doll wa Koi wo Suru Season 2",
-      "release_date": "7/5/2025 to 9/21/2025",
-      "based_on": "Manga",
-      "studios": "CLOVERWORKS",
-      "creators": "Keisuke Shinohara",
+      "romanized_title": "Katainaka no Ossan, Kensei ni Naru II",
+      "release_date": "7/8/2026 to 9/23/2026",
+      "based_on": "Light Novels",
+      "studios": "Hayabusa Film, Passione",
+      "creators": "Akio Kazumi",
       "external_scores": "",
       "streaming_services": "",
-      "synopsis": "When Marin Kitagawa and Wakana Gojo met, they grew close over their love for cosplay. Through interacting with classmates and making new cosplay friends, Marin and Wakana’s world keeps growing. New developments arise as Marin’s love for Wakana continues to be filled with endless excitement. In their ever-expanding world, Marin and Wakana’s story of cosplay and thrills continues!"
+      "synopsis": "The second season of Katainaka no Ossan, Kensei ni Naru."
     },
     {
       "rank": 14,
       "trend": "",
-      "title": "Solo Camping for Two",
-      "jpTitle": "ふたりソロキャンプ",
-      "kv": "futari",
-      "episode": "1-12",
+      "title": "Though I Am an Inept Villainess",
+      "jpTitle": "ふつつかな悪女ではございますが ～雛宮蝶鼠とりかえ伝～",
+      "kv": "futsutsuka",
+      "episode": "1-11",
       "genre": [
-        "Slice of Life",
-        "Outdoor"
+        "Drama",
+        "Romance"
       ],
-      "wrp_score": 77.5,
-      "overall_rating": 71,
+      "wrp_score": 77.1,
+      "overall_rating": 68,
       "review": {
-        "en": "",
-        "jp": ""
+        "en": "<strong>Episode #11: Quite the Villainess</strong>\n<p>\"Sweet in some ways, harsh in others. I enjoyed it well enough, but there are probably limits to how much a one-cour anime can really do with material like this.\"</p>\n<p>The relationships between the Crown Prince, Kou Reirin, and Shu Keigetsu—and the way Shu Keigetsu fits into all of that—continued to be good, and the path the story took to get there wasn't bad either, so overall I came away with a positive impression. But the way the second cour was set up felt a little awkward? Disjointed, maybe? So I kept this at a 7.<br><br>The way things were wrapped up between Shu Gabi and Kou Kenshuu was neat enough, I suppose, but it also felt very much like, \"Well, they tied that up.\"<br><br>Since this is a rear-palace story, there are a lot of complicated relationships involving the different families, so I imagine the original work might be much easier to enjoy in that respect. In the anime, though, the names themselves are hard enough to keep track of, and the limited runtime probably makes things even tougher.<br><br>Taking that into account, I suppose you could also say I'm not judging it too harshly.<br><br>Either way, as for the second cour... I may have had enough. I'll keep an eye on it, but that's probably where I am right now.<br><br>I did enjoy it to some extent, but especially early on, I expected it to become a lot more interesting as it went, so in that sense it may have been a little disappointing.</p>",
+        "jp": "第11話: たいした悪女ですよ\n<p>\"甘くもあり厳しくもある、それなりには楽しんだが、1クールアニメサイズでは限界あるでしょうね\"</p>\n<p>『皇太子と黄 玲琳（こう れいりん）と朱 慧月（しゅ けいげつ）、また朱 慧月（しゅ けいげつ）の関係なんかはその後もいいし、そこにたどり着く流れも悪くはなかったから、印象はポジティブでいいのだけど、2クール目の繋ぎ具合がなんだか微妙?チグハグ?だったので7点に留めた。朱 雅媚（しゅ がび）と黄 絹秀（こう けんしゅう）の関係の結びは綺麗といえば綺麗だけど、まぁまとめたな・・と。本作は後宮なのでかなり入り組んだ人間関係が各家に絡んだりしているので、原作はもっと楽しめるのかもだけど、アニメだと名前も分かりづらいし尺も限られているからちょっとキツイのかも。そういった点も考慮してあまりキツくは評価してないとも言える。いずれにしても、2クール目は・・・もういいかな、と言ったところかも。様子は見るけど。それなりには楽しめたけど、特に初期の頃は今後もっと面白くなるだろうと期待してたので、少し期待外れだったかも。』</p>"
       },
       "key_elements_breakdown": {
-        "op": 0.95,
-        "ed": 0.75,
+        "op": 1,
+        "ed": 0.6,
         "acting": 0.3,
         "sound/music": 0.25,
         "consistency/impact": 0.55,
-        "overall": 0.75,
-        "total": 3.55
+        "overall": 0.8,
+        "total": 3.5
       },
-      "romanized_title": "Futari Solo Camp",
-      "release_date": "7/10/2025",
+      "romanized_title": "Futsutsuka na Akujo de wa Gozaimasu ga: Suuguu Chouso Torikae Den",
+      "release_date": "7/12/2026 to 9/20/2026",
       "based_on": "Manga",
-      "studios": "Synergy SP",
-      "creators": "Jun Hatori",
+      "studios": "Doga Kobo",
+      "creators": "Mitsue Yamazaki",
       "external_scores": "",
       "streaming_services": "",
-      "synopsis": "Gen Kinokura, 34 years old.  A solitary camper who cherishes his alone time in nature, Gen enjoys his usual solo camping trips. However, he unexpectedly encounters Shizuku Kusano, a complete beginner in camping. Reluctantly, Gen ends up camping with Shizuku, despite it being the last thing he wanted to do.  What will become of Gen’s peaceful camping life now that it’s turned upside down by this new companion?"
+      "synopsis": "As maidens from the Five Clans battle for the Crown Prince’s heart, jealous Keigetsu uses forbidden magic to swap bodies with the beloved Reirin. Switching places does not guarantee happiness for Keigetsu with her new body's ill health leaving her hanging on the verge of death. Meanwhile, Reirin, now wearing the face of a scorned outcast, must answer for Keigetsu’s crimes in a dangerous trial.\n\nThe unlikely pair become increasingly entangled in each other’s lives and they will need to work together to survive after discovering the dark conspiracies brewing beneath the palace's genial surface. To confront the deadly threats lurking in the shadows, Reirin must embrace her new identity and defy their expectations of the court's inept villainess.\n\n(Source: Crunchyroll)"
     },
     {
       "rank": 15,
       "trend": "",
-      "title": "Clevatess",
-      "jpTitle": "クレバテス-魔獣の王と赤子と屍の勇者-",
-      "kv": "clevatess",
+      "title": "Goodbye, Lara",
+      "jpTitle": "さよならララ",
+      "kv": "lara",
       "episode": "1-12",
       "genre": [
-        "Action",
-        "Drama",
-        "Fantasy"
+        "Romance",
+        "Supernatural"
       ],
-      "wrp_score": 77.24,
-      "overall_rating": 69,
+      "wrp_score": 75.0428,
+      "overall_rating": 70,
       "review": {
-        "en": "",
-        "jp": ""
-      },
-      "key_elements_breakdown": {
-        "op": 1,
-        "ed": 1.1,
-        "acting": 0.35,
-        "sound/music": 0.35,
-        "consistency/impact": 0.55,
-        "overall": 0.75,
-        "total": 4.1
-      },
-      "romanized_title": "Clevatess: Majuu no Ou to Akago to Kabane no Yuusha",
-      "release_date": "7/2/2025 to 9/17/2025",
-      "based_on": "Web Comics",
-      "studios": "Lay-duce",
-      "creators": "Kiyotaka Taguchi",
-      "external_scores": "",
-      "streaming_services": "",
-      "synopsis": "The story centers on the the titular Clevatess, the lord of Dark Beasts, who wields both uncanny intellect and destructive power. Frustrated by the 13 heroes tasked to destroy him, he has decided to be rid of humanity once and for all. However, he has been charged with one nuisance: he revived a hero he personally slayed and adopts an orphaned humanoid baby—the last hope to save a dying world. The world stands upon the brink of Armageddon, with the obligation of raising one child holding it all back. Now bound together, what fate awaits this unlikely trio?"
-    },
-    {
-      "rank": 16,
-      "trend": "",
-      "title": "CITY THE ANIMATION",
-      "jpTitle": "CITY THE ANIMATION",
-      "kv": "city",
-      "episode": "1-13",
-      "genre": [
-        "Comedy",
-        "Slice of Life"
-      ],
-      "wrp_score": 77.95,
-      "overall_rating": 68,
-      "review": {
-        "en": "",
-        "jp": ""
+        "en": "<strong>Episode #12: Goodbye, Lara</strong>\n<p>\"Sweet in some ways, harsh in others. I enjoyed it well enough, but there are probably limits to how much a one-cour anime can really do with material like this.\"</p>\n<p>The relationships between the Crown Prince, Kou Reirin, and Shu Keigetsu—and the way Shu Keigetsu fits into all of that—continued to be good, and the path the story took to get there wasn't bad either, so overall I came away with a positive impression. But the way the second cour was set up felt a little awkward? Disjointed, maybe? So I kept this at a 7.<br><br>The way things were wrapped up between Shu Gabi and Kou Kenshuu was neat enough, I suppose, but it also felt very much like, \"Well, they tied that up.\"<br><br>Since this is a rear-palace story, there are a lot of complicated relationships involving the different families, so I imagine the original work might be much easier to enjoy in that respect. In the anime, though, the names themselves are hard enough to keep track of, and the limited runtime probably makes things even tougher.<br><br>Taking that into account, I suppose you could also say I'm not judging it too harshly.<br><br>Either way, as for the second cour... I may have had enough. I'll keep an eye on it, but that's probably where I am right now.<br><br>I did enjoy it to some extent, but especially early on, I expected it to become a lot more interesting as it went, so in that sense it may have been a little disappointing.</p>",
+        "jp": "第1-12話:\n<p>\"タイトル回収ご苦労さま、ララに振り回された人々、ご苦労さまでした、あ、自分も?\"</p>\n<p>『あ、題名はそういうことね、ってことは最低でも分かった。人魚が自分の居場所を地上で見るけることで本当の意味で?人間になる、成長する、進歩する、自分になるってこと?魔女、マリ・・・あらら。結局、人魚、王である親父、そして何よりひたすらララに振り回されただけ。何やねん・・・。アホくさ。作画や演出のクオリティは高いですけど、今回もね。でもね、、、しょうもない。最後まで見て、それで\"で?\"ですよ。』</p>"
       },
       "key_elements_breakdown": {
         "op": 1.05,
         "ed": 0.95,
-        "acting": 0.35,
-        "sound/music": 0.45,
-        "consistency/impact": 0.9,
-        "overall": 1.5,
-        "total": 5.2
+        "acting": 0.3,
+        "sound/music": 0.35,
+        "consistency/impact": 0.25,
+        "overall": 0.3,
+        "total": 3.2
       },
-      "romanized_title": "CITY THE ANIMATION",
-      "release_date": "7/6/2025 to 9/29/2025",
-      "based_on": "Manga",
-      "studios": "Kyoto Animation",
-      "creators": "Taichi Ishidate",
+      "romanized_title": "Sayonara Lara",
+      "release_date": "7/5/2026 to 9/21/2026",
+      "based_on": "Original",
+      "studios": "Kinema Citrus",
+      "creators": "Takushi Koide",
       "external_scores": "",
       "streaming_services": "",
-      "synopsis": "This town, is not just a normal town. There's laughter, love and emotional moments. An unpredictable ordinary life presented by the residents. Exciting stuffs come one after another. Welcome to CITY."
+      "synopsis": "Once upon a time, a mermaid princess named Lara fell in love with a human prince. To be with him, she used a witch’s potion to become human—but the magic came at a cost: If she failed to find true love, she would vanish into sea foam forever. Now, 200 years later, Lara awakens in Lake Biwa with one final chance at life and love.\n\n(Source: Crunchyroll)"
+    },
+    {
+      "rank": 16,
+      "trend": "",
+      "title": "Smoking Behind the Supermarket with You",
+      "jpTitle": "スーパーの裏でヤニ吸うふたり",
+      "kv": "super",
+      "episode": "1-13",
+      "genre": [
+        "Comedy",
+        "Romance",
+        "Slice of Life"
+      ],
+      "wrp_score": 74.7468,
+      "overall_rating": 68,
+      "review": {
+        "en": "<strong>Episode #12: ：Keeping It Going Behind the Supermarket with You</strong>\n<p>\"In the end, it's basically just a story about a tsundere Tayama smoking behind the supermarket with some middle-aged guy.\"</p>\n<p>Honestly, it ended up feeling pretty pointless... The way Sasaki and Yamada (Tayama) gradually got closer felt underwhelming, the other characters never really seemed to have much reason to be there, and even this episode's story about the former senior who gave Sasaki the watch he wears was pretty weak.<br><br>In the end, it was basically just a series about admiring Yamada's tsundere side and the contrast between her two personas, and that was disappointing.<br><br>That's about all I have to say.</p>",
+        "jp": "第12話: スーパーの裏で続くふたり\n<p>\"結局スーパーの裏でヤニ吸うツンデレデレ田山とおじさんっていう話\"</p>\n<p>『なんか結局しょうもなかったな・・・と。山田（田山）との距離の縮まり方も微妙、その2人以外のキャラの存在意義も微妙、今回の佐々木くんのしている腕時計をくれたかつての先輩との話も微妙・・・ただただ2面性を持ってる感じの山田のツンデレを愛でるだけの作品でがっかりでした。それだけかな・・。』</p>"
+      },
+      "key_elements_breakdown": {
+        "op": 0.6,
+        "ed": 0.8,
+        "acting": 0.25,
+        "sound/music": 0.2,
+        "consistency/impact": 0.45,
+        "overall": 0.65,
+        "total": 2.95
+      },
+      "romanized_title": "Super no Ura de Yani Suu Futari",
+      "release_date": "7/9/2026 to 9/24/2026",
+      "based_on": "Light Novel",
+      "studios": "Asahi Production",
+      "creators": "Masato Suzuki",
+      "external_scores": "",
+      "streaming_services": "",
+      "synopsis": "The sole thing that gets the middle-aged Sasaki through his soul-sucking job is a cheerful smile from Yamada—the young woman who works at a nearby 24-hour supermarket he frequents. After every tiring day of getting berated by his boss, Sasaki stops by the store to have his spirit healed by his favorite cashier.\n\nAfter a particularly grueling day, Sasaki shows up at the supermarket, only to find that Yamada's shift has already ended. Disappointed, he searches for a place to smoke when a woman from behind the store calls him over to join her. The bold and dangerously playful Tayama is quick to call out Sasaki's peculiar habit of always seeking out her coworker—even going as far as telling Yamada about Sasaki's vested interest in her.\n\nNow, in addition to seeing his adored cashier Yamada, Sasaki also visits the store to see if his new smoking partner Tayama is around. But there is more to Tayama's mischievousness than she initially lets on. With every cigarette, an unlikely friendship begins to blossom.\n\n[Written by MAL Rewrite]"
     },
     {
       "rank": 17,
       "trend": "",
-      "title": "The Summer Hikaru Died",
-      "jpTitle": "光が死んだ夏",
-      "kv": "hikaru",
+      "title": "A Livid Lady's Guide to Getting Even: How I Crushed My Homeland with My Mighty Grimoires",
+      "jpTitle": "ブチ切れ令嬢は報復を誓いました。 ～魔導書の力で祖国を叩き潰します～",
+      "kv": "buchigire",
       "episode": "1-12",
       "genre": [
-        "Horror",
-        "Mystery",
-        "Supernatural",
-        "Thriller"
+        "Drama",
+        "Fantasy"
       ],
-      "wrp_score": 73.7,
-      "overall_rating": 66,
+      "wrp_score": 70.3572,
+      "overall_rating": 64,
       "review": {
-        "en": "",
-        "jp": ""
+        "en": "<strong>Episode #12: The Furious Young Lady's Revenge Continues</strong>\n<p>\"So the revenge isn't over... What about the prince? And now we're supposed to worry that he might someday end up on the receiving end of revenge too?? Huh!?\"</p>\n<p>So the revenge isn't over... What about the prince? And then we have a subordinate worrying that someday he might end up becoming the target of revenge himself???<br><br>What are you doing if you're not going to take revenge on the prince?<br><br>After watching an entire cour, it basically amounted to people getting caught in the crossfire, suffering absurdly harsh retaliation, while the prince himself was just an idiot for reasons that were never really made clear...<br><br>I guess the high point was the episode where she took revenge on the guy who tied her up because he was following the prince's orders. That one was brutal.<br><br>And that's about it.<br><br>I don't know... where's the catharsis?</p>",
+        "jp": "第12話: ブチ切れ令嬢の報復は終わらない\n<p>\"報復は終わらないのですね・・・王子は?自分も報復を受ける側になる未来への不安??は!?\"</p>\n<p>『報復は終わらないのですね・・・王子は?自分も報復を受ける側になる未来への不安???を憂う部下・・・。王子に報復しないでどうする?それは1クール見て…結局とばっちりを食らったり、理不尽に酷い報復を受けたり、王子はただ理由もよくわからずバカなだけで・・・。王子の命令に従って、自分を縛った奴に対する報復のエピソードがピークだったのかな・・・残酷で。それだけですよ。何だかね・・・カタルシス。』</p>"
       },
       "key_elements_breakdown": {
-        "op": 0.7,
-        "ed": 0.7,
-        "acting": 0.3,
-        "sound/music": 0.3,
-        "consistency/impact": 0.45,
-        "overall": 0.45,
-        "total": 2.9
+        "op": 0.4,
+        "ed": 0.4,
+        "acting": 0.25,
+        "sound/music": 0.2,
+        "consistency/impact": 0.05,
+        "overall": 0.2,
+        "total": 1.5
       },
-      "romanized_title": "Hikaru ga Shinda Natsu",
-      "release_date": "7/5/2025 to 9/21/2025",
-      "based_on": "Web Comics",
-      "studios": "CygamesPictures",
-      "creators": "Ryouhei Takeshita",
+      "romanized_title": "Buchigire Reijou wa Houfuku wo Chikaimashita.: Madousho no Chikara de Sokoku wo Tataki Tsubushimasu",
+      "release_date": "7/6/2026 to 9/21/2026",
+      "based_on": "Light Novels",
+      "studios": "Studio Comet",
+      "creators": "Naoyuki Kuzuya",
       "external_scores": "",
       "streaming_services": "",
-      "synopsis": "Two best friends living in a rural Japanese village: Yoshiki and Hikaru. Growing up together, they were inseparable… until the day Hikaru came back from the mountains, and was no longer himself. “Something” has taken over Hikaru’s body, memories, feelings… and everything they know begins to unravel."
+      "synopsis": "Elizabeth Leiston, daughter of the influential prime minister, is a picture-perfect lady on the path to becoming the future queen of the Kingdom of Haldoria. But her life takes a sudden turn for the worst when her fiancé makes a show of publicly calling off their engagement. Soon after, he throws her in jail and starts spreading nasty rumors about her. The encouragement Elizabeth receives from her loyal waiting maid, Mireille, and her inner fury are all she needs to reconsider her goals. Why should she continue devoting herself to a country that doesn’t respect her when she can trample over it instead? She will get even with those who wronged her and bring down the damned kingdom, even if it’s the last thing she does! Luckily, Elizabeth is no damsel in distress and has seven powerful magic grimoires she won’t hesitate to use. Get ready because this ruthless lady is out for blood!\n\n(Source: J-Novel Club)"
     },
     {
       "rank": 18,
       "trend": "",
-      "title": "Hotel Inhumans",
-      "jpTitle": "ホテル・インヒューマンズ",
-      "kv": "hotel",
+      "title": "The World Is Dancing",
+      "jpTitle": "ワールド イズ ダンシング",
+      "kv": "dancing",
       "episode": "1-13",
       "genre": [
-        "Action",
         "Drama"
       ],
-      "wrp_score": 74.38,
-      "overall_rating": 66,
+      "wrp_score": 71.9328,
+      "overall_rating": 67,
+      "review": {
+        "en": "<strong>Episode #13: Noh</strong>\n<p>\"Honestly, I was just speechless. I couldn't even care who was who, or why anyone was doing anything. I neither like nor dislike Oniyasha. I just don't care.\"</p>\n<p>All I could think was exactly what I wrote above... and I think that says everything.</p>",
+        "jp": "第1-13話:\n<p>\"絶句、誰が誰だかも、何で何をも興味も持てない、鬼夜叉を好きでも嫌いでもない、どうでもいい\"</p>\n<p>『上に書いたようにしか思えなかった…それが全てだと思う。』</p>"
+      },
+      "key_elements_breakdown": {
+        "op": 1.1,
+        "ed": 0.8,
+        "acting": 0.3,
+        "sound/music": 0.25,
+        "consistency/impact": 0.35,
+        "overall": 0.35,
+        "total": 3.15
+      },
+      "romanized_title": "World Is Dancing",
+      "release_date": "7/2/2026 to 9/21/2026",
+      "based_on": "Manga",
+      "studios": "Cypic",
+      "creators": "Toshimasa Kuroyanagi",
+      "external_scores": "",
+      "streaming_services": "",
+      "synopsis": "Born into a life of acting and dance with a traveling theater troupe in 14th-century Japan, 12-year old Oniyasha has one problem—he doesn't know what the point of any of it is. \"Why must I step with the left foot here instead of the right? Why is one performance good and another, bad? Why do people dance at all?\" It all seems perfectly arbitrary, until a chance encounter in a run-down shack sets him down a path to revolutionizing the art form and influencing much of Japanese culture to come. A fictionalized account of the early life of Zeami Motokiyo (Oniyasha), the founder of modern Noh theater—the world's oldest surviving theater art—this coming-of-age artist's journey vividly brings to life a man far ahead of his time during one of Japan's most culturally and socially vibrant eras.\n\n(Source: Kodansha Comics)"
+    },
+    {
+      "rank": 19,
+      "trend": "",
+      "title": "Ascendance of a Bookworm Season 3",
+      "jpTitle": "本好きの下剋上　領主の養女",
+      "kv": "honzuki",
+      "episode": "1-11",
+      "genre": [
+        "Drama",
+        "Fantasy",
+        "Slice of Life"
+      ],
+      "wrp_score": 69.6574,
+      "overall_rating": null,
       "review": {
         "en": "",
         "jp": ""
       },
       "key_elements_breakdown": {
-        "op": 0.8,
-        "ed": 0.95,
-        "acting": 0.3,
-        "sound/music": 0.4,
-        "consistency/impact": 0.5,
-        "overall": 0.7,
-        "total": 3.65
+        "op": 0.55,
+        "ed": 0.55,
+        "acting": 0.25,
+        "sound/music": 0.25,
+        "consistency/impact": 0,
+        "overall": 0,
+        "total": 1.6
       },
-      "romanized_title": "Hotel Inhumans",
-      "release_date": "7/6/2025 to 9/28/2025",
-      "based_on": "Web Comics",
-      "studios": "Bridge",
-      "creators": "Aminotetsuro",
+      "romanized_title": "Honzuki no Gekokujou: Ryoushu no Youjo",
+      "release_date": "7/11/2026 to 10/3/2026",
+      "based_on": "Light Novel",
+      "studios": "WIT STUDIO",
+      "creators": "Yoshiaki Iwasaki",
       "external_scores": "",
       "streaming_services": "",
-      "synopsis": "The best hotels must meet certain standards, including the finest cuisine, ways to relax, and entertainment. Of course, they also need the best selection of weapons, reliable ways to falsify one’s identity, and ways to dispose of evidence. In this hotel at the border of death stand two concierges, Ikuro Hoshi and Sara Haizaki. What kinds of requests will the assassins have for them next?"
+      "synopsis": "Following a disastrous encounter with a noble, Myne finally resolves to say goodbye to her family and friends in the lower city, changing her name to “Rozemyne” and beginning her new life as the adopted daughter of Ehrenfest’s archduke. However, her days as an archnoble in noble society are brutal, as she is put through rigorous etiquette and magic training on top of her duties as High Bishop and forewoman. It all proves too much for a weak little seven-year-old girl... Or it would have, had the High Priest not offered her the keys to the temple’s book room as a reward. If she could get her hands on those, she’d be able to read all sorts of precious books! Her name may have changed, but Rozemyne’s passion for books remains the same as she charges into a whole new world! The detailed setting expands as the printing industry grows in size. Here begins Part 3 of this biblio-fantasy for book lovers everywhere!\n\n(Source: J-Novel Club)"
     },
     {
-      "rank": 19,
+      "rank": 20,
       "trend": "",
-      "title": "Rent-a-Girlfriend Season 4",
-      "jpTitle": "彼女、お借りします 第4期",
-      "kv": "kanokari",
+      "title": "Love Unseen Beneath the Clear Night Sky",
+      "jpTitle": "透明な夜に駆ける君と、目に見えない恋をした。",
+      "kv": "toumei",
+      "episode": "1-12",
+      "genre": [
+        "Drama",
+        "Romance"
+      ],
+      "wrp_score": 69.1775,
+      "overall_rating": 63,
+      "review": {
+        "en": "<strong>Episode #12: A Memory for a Lifetime</strong>\n<p>\"It's rare for this kind of story to leave me not in tears, but simply exasperated and completely dry-eyed. This was formulaic convenience piled on top of convenience.\"</p>\n<p>Hmm... I don't know. I've seen this kind of story far too many times already. I really didn't like the way the final C-part seemed designed to justify everything by showing us what happened afterward.<br><br>Kakeru's growth—how he changes and resolves to stay by Koharu's side—just felt too thin. The fake amnesia, the doctor at the hospital, Koharu's mother, her friends... they only seem to appear when the story conveniently needs them.<br><br>And after all that brutal chemotherapy and radiation treatment, after even talking about her hair, she somehow keeps a full head of hair, never loses weight, and looks incredibly healthy the entire time? Come on!<br><br>Everything feels manipulated purely to show us whatever scene the story wants to show us.<br><br>Then there's the IC recorder at the end. Perfect timing: his daughter brings it over, he plays just a little of it, and suddenly there's Koharu's recording... Was there really no setup or foreshadowing for that at all?<br><br>What a mess.<br><br>Even so, thanks largely to the efforts of the voice actors, I do think this episode was at least watchable enough. So honestly, I feel like giving it a 5, but I'll bump it up to a 6 as a bonus.<br><br>No, seriously, you don't need to watch this.<br><br>And where did all those university friends even go?<br><br>I think I've had enough of Hayami's voice in this kind of story too.</p>",
+        "jp": "第1-12話:\n<p>\"この手の話、作品で涙が出ない、呆れてサバサバするのは珍しい、ご都合コテコテ作品でした\"</p>\n<p>『うーん・・・何だか。これまで見すぎてきた内容。最後のCパートに見せるその後によって全てを正当化させようとする感じがダメ。カケルが如何に成長しコハルと共にいようと覚悟を決めるのかが・・・薄い。記憶喪失のフリや病院の先生、コハルの母、友人も都合の良い時しか出てこない。アレだけツライ抗癌剤、放射線治療などをしてるのに、髪がどうの言ってたのにずっとフサフサで痩せずに超健康的って、そんな馬鹿な!とにかく見せたいものを見せるために全てをどうにかする感じ・・・。最後のICレコーダーも、タイミングよく、娘が持ってきてちょっと再生したらコハルが録音してる・・・。なんの前触れも伏線もないんか・・・。ひどい話よ。まぁそれでも声優さん達の頑張りもあってこの回はそれなりに見れはした・・・とは思う。だから本心は5点だけどオマケで6点。いやいや、見なくていいよ。ホントあの大学の友人達はどこに?早見ボイスはもうこの手の作品ではいいかなぁ。』</p>"
+      },
+      "key_elements_breakdown": {
+        "op": 0.75,
+        "ed": 0.55,
+        "acting": 0.25,
+        "sound/music": 0.2,
+        "consistency/impact": 0.35,
+        "overall": 0.35,
+        "total": 2.45
+      },
+      "romanized_title": "Toumei na Yoru ni Kakeru Kimi to, Me ni Mienai Koi wo Shita.",
+      "release_date": "7/6/2026 to 9/21/2026",
+      "based_on": "Light Novels",
+      "studios": "Makaria",
+      "creators": "Joe Yoshizaki",
+      "external_scores": "",
+      "streaming_services": "",
+      "synopsis": "On an April night in Tokyo, still too early for fireworks, university student Kakeru Sorano meets a woman named Koharu Fuyutsuki. She is a beautiful girl who stands out from the crowd, laughs a lot, and exudes a warmth that contrasts sharply with Kakeru's own introversion. But there was something Kakeru didn't know at first—she can't see.\n\nUnlike Kakeru, Koharu hasn't given up on anything, even with her blindness. She attends university daily, shows interest in clubs, makes friends—and dreams of launching fireworks one day. Kakeru wonders why, when she can't see them...but maybe it doesn't matter. And maybe he can start moving forward, too, for the girl who's always been by his side\n\n(Source: Yen Press)"
+    },
+    {
+      "rank": 21,
+      "trend": "",
+      "title": "Rich Girl Caretaker: I'm Secretly the Caregiver of the Most Popular Girl in This Rich Kid School",
+      "jpTitle": "才女のお世話　高嶺の花だらけな名門校で、学院一のお嬢様(生活能力皆無)を陰ながらお世話することになりました",
+      "kv": "saijo",
       "episode": "1-12",
       "genre": [
         "Comedy",
         "Romance"
       ],
-      "wrp_score": 71,
-      "overall_rating": 63,
+      "wrp_score": 64.3548,
+      "overall_rating": 58,
       "review": {
-        "en": "",
-        "jp": ""
+        "en": "<strong>Episode #1-12</strong>\n<p>\"Tennoji-san and Naruka are cute, but the main story never really gets properly developed. Everything is shallow and half-baked, and I'm left wondering what exactly I even watched.\"</p>\n<p>With three heroines and one protagonist crammed into a single cour, everything ends up being unbelievably shallow. Something happens, that causes the next thing, and then suddenly we're at the result—all within about ten seconds.<br><br>It's such a shame, because each of the girls is cute and appealing in her own way.<br><br>And in the end, it basically wraps up with, \"They're all unattainable flowers on a high peak—but they're also all completely into me,\" and I'm left wondering what exactly I've been watching this whole time. And I'm not interested in what happens next either.<br><br>Wait, so he's still going to keep taking care of her...?<br><br>Whatever.<br><br>I actually liked Tsurumi Shizune—the head maid, I think?—so I wish they had done a little more with her.<br><br>Anyway, this was just terrible.</p>",
+        "jp": "第1-12話:\n<p>\"天王寺さんと成香はかわいい、メインは描ききれてない、全部が浅く生煮えで何を見たのか・・・疑問\"</p>\n<p>『とにかく3人のヒロインと1主人公という構成で1クールやったもんで、全部が浅いのなんの。Aが起きてBをしたからCになる、という構造が10秒以内に展開する。せっかくそれぞれは可愛くて魅力的なのに残念でならない。そして結局\"みんな高嶺の花（でも全員俺に夢中でもある）\"というエンドで、一体何を見てきた?そしてこれからにも興味はない、という結末。っていうか、お世話はし続けるのね・・・。どうでもいいよ。鶴見静音（メイド長?）はお気に入りだったので、もうちょっと描いてほしかったな。とにかくHIDOI』</p>"
       },
       "key_elements_breakdown": {
-        "op": 1.05,
-        "ed": 0.95,
-        "acting": 0.35,
-        "sound/music": 0.35,
-        "consistency/impact": 0.4,
-        "overall": 0.35,
-        "total": 3.45
+        "op": 0.75,
+        "ed": 0.9,
+        "acting": 0.2,
+        "sound/music": 0.2,
+        "consistency/impact": 0.2,
+        "overall": 0.3,
+        "total": 2.55
       },
-      "romanized_title": "Kanojo, Okarishimasu 4th Season",
-      "release_date": "7/4/2025 to 9/16/2025",
-      "based_on": "Manga",
-      "studios": "TMS Entertainment",
-      "creators": "Kazuomi Koga",
+      "romanized_title": "Saijo no Osewa: Takane no Hanadarake na Meimonkou de, Gakuin Ichi no Ojou-sama (Seikatsu Nouryoku Kaimu) wo Kagenagara Osewa suru Koto ni Narimashita",
+      "release_date": "7/4/2026 to 9/20/2026",
+      "based_on": "Light Novels",
+      "studios": "Brain Base",
+      "creators": "Shuusei Morishita",
       "external_scores": "",
       "streaming_services": "",
-      "synopsis": "Kazuya’s ready to confess with the lush paradise of Hawaii as a backdrop. But renting Chizuru for the dream trip turns into a war zone of love due to Ruka’s aggressive advances and Mami’s scheming. Despite the chaos, this is Kazuya’s moment to bare his heart. Will his words reach Chizuru? And if they do, what will she even say?"
+      "synopsis": "Hinako Konohana is the perfect young lady—graceful, elegant, and flawless… or so everyone thinks. Behind closed doors, she’s a total disaster who can’t handle basic chores! When ordinary student Itsuki Tomonari becomes her caretaker, he’s thrown into 24/7 damage control, maintaining her “perfect” image. It’s awkward, nonstop chaos—but it starts softening into something that feels like love…\n\n(Source: Crunchyroll)"
     },
     {
-      "rank": 20,
+      "rank": 22,
       "trend": "",
-      "title": "Welcome to the Outcast's Restaurant!",
-      "jpTitle": "追放者食堂へようこそ！",
-      "kv": "tsuihou",
+      "title": "Oh Boy, Was I Wrong About Her",
+      "jpTitle": "転校先の清楚可憐な美少女が、昔男子と思って一緒に遊んだ幼馴染だった件",
+      "kv": "tenkousaki",
       "episode": "1-12",
       "genre": [
-        "Adventure",
         "Comedy",
+        "Romance"
+      ],
+      "wrp_score": 59.7332,
+      "overall_rating": 56,
+      "review": {
+        "en": "<strong>Episode #12: The Beginning of What's to Come</strong>\n<p>\"Awful. It's been a while since I've seen something this bad. Did we somehow loop all the way back to the beginning? That ending practically screams it. In other words, nothing had actually started at all.\"</p>\n<p>It's just awful. What even was this? Everything is floating around with no weight or direction.<br><br>So first they go to the pool... something happens... then there's some kind of summer-vacation setup, and during summer break the siblings and Haruki go back to the countryside. They meet the shrine maiden girl, there's some blushing, Minamo apparently finishes serving her role and never shows up again after that except through messages.<br><br>And then... did anything actually move forward?<br><br>No. Nothing.<br><br>It just ends with, \"Everything starts from here.\"</p>",
+        "jp": "第1-12話:\n<p>\"酷い、久々の酷さ。始まりにループしたのか?と言わんばかりのエンド、何も始まっていなかったのだ\"</p>\n<p>『とにかく酷い。なんだこれ?全てが空中でフワフワ。とりあえず、プール行って・・・なんかあって、夏休みのフリがあって、夏休みに兄妹とハルキで田舎へ。巫女の子ともあってなんか頬を赤らめ、ミナモは役割終了とばかりにあれ以来一切出てこず、メールのみ。で・・・なんか動いたのか?いや何も。全てはここからエンド。』</p>"
+      },
+      "key_elements_breakdown": {
+        "op": 0.1,
+        "ed": 0.45,
+        "acting": 0.15,
+        "sound/music": 0.15,
+        "consistency/impact": 0,
+        "overall": 0,
+        "total": 0.85
+      },
+      "romanized_title": "Tenkousaki no Seiso Karen na Bishoujo ga, Mukashi Danshi to Omotte Issho ni Asonda Osananajimi datta Ken",
+      "release_date": "7/6/2026 to 9/21/2026",
+      "based_on": "Light Novels",
+      "studios": "project No.9",
+      "creators": "0",
+      "external_scores": "",
+      "streaming_services": "",
+      "synopsis": "Seven years after making a childhood promise to always be friends, Hayato is reunited with his formerly tomboyish pal Haruki at a city high school–only now, Haruki has transformed into the girl every guy dreams about! While Haruki’s looks may have changed, with Hayato, she’s still the same pal he remembers. Despite years apart, their promise and feelings remain and deepen into something stronger.\n\n(Source: Crunchyroll)"
+    },
+    {
+      "rank": 23,
+      "trend": "",
+      "title": "From Overshadowed to Overpowered: Second Reincarnation of a Talentless Sage",
+      "jpTitle": "落第賢者の学院無双～二度目の転生、Sランクチート魔術師冒険録～",
+      "kv": "rakudai",
+      "episode": "1-12",
+      "genre": [
+        "Action",
+        "Adventure",
         "Fantasy"
       ],
-      "wrp_score": 67.89,
-      "overall_rating": 60,
+      "wrp_score": 61.7764,
+      "overall_rating": 50,
       "review": {
-        "en": "",
-        "jp": ""
+        "en": "<strong>Episode #12: The End and the Beginning</strong>\n<p>\"You could practically see the ゴゴゴ... rumbling in the background—that's how overwhelmingly tense it was. The exchange between the two of them... devastating, and not remotely satisfying or reassuring.\"</p>\n<p>Seriously, what was with that tension? Twenty-three minutes consisting almost entirely of a conversation between the Rudeus of the future and the Rudeus of the present. It's been a long time since 23 minutes felt that short and that tense. And... it was scary.<br><br>Future Rudeus seemed to have mastered just about every kind of magic imaginable, and yet even he was completely powerless to do anything about what had happened. He came back with no regard whatsoever for his own life, just to deliver his bitter regrets and his warning. I don't know whether there was any hope left in what he was doing, but there is no question that this was the only thing he had left. The anguish and desperation behind his words came through with incredible force.<br><br>And then Sylphie and Roxy, concerned after hearing the noise but still somehow lacking any real sense of urgency, only made the whole thing feel even more ominous and intense. I did find it strange that Rudeus didn't tell them with an absolute, unmistakable \"DO NOT\" to stay out of the room and not eat anything, but I assume that was because he'd already resolved to handle it himself. And if he'd made too much of it, they might have tried to help him instead. They're also the two people who would probably pick up on just how serious Rudeus was without needing him to spell it all out.<br><br>But wow... all of a sudden, everything involving Hitogami—and really, everything involving the characters in this story—feels like it has started moving at once. It was almost too sudden, and yet at the same time the scope of what was covered was so enormous that I couldn't help thinking, \"Really?\"<br><br>Then there's the whole question of timelines—are there one or two?—and once you start thinking in terms of changing the past, the questions never end. Doesn't the mere fact that Future Rudeus came back already change what happens to Roxy and everything else? In any case, personally, there was a lot about this entire exchange that felt seriously strange to me.<br><br>He talked about Eris, Sylphie... and to some extent Nanahoshi, Cliff, the princess, Luke, and others. But what about his sisters, Zenith, Ruijerd, Perugius... and surely plenty of other people? And he never meets Orsted again after that? Not for decades? What about Nanahoshi? And more fundamentally, was Hitogami really unable to interfere with Future Rudeus coming back? When can he interfere, and when can't he? Did he deliberately allow it? Was even this visit part of his plan...? The more I think about it, the less I understand.<br><br>So as someone watching only the anime with absolutely zero knowledge of the source material, I assume there is much, much more going on behind all of this. Could Perugius actually be Rudeus too, somehow? Could Rudeus have existed for hundreds of years, or gone even further back into the past? There are all kinds of possibilities I can imagine, and I still can't shake my uneasiness about Future Rudeus and what we heard from him this episode.<br><br>Putting all of that aside, though, the tension, the performances, the direction, the structure... everything about this episode was incredible. There is no score other than an 11.<br><br>And there are only two episodes left...? What the hell is going to happen? I want to know what's in that diary, and surely Rudeus is going to tell Nanahoshi and his wives what he learned this time... Maybe that's as far as this cour will get.<br><br>And Eris... even if I've only heard half the story... this is way too complicated...<br><br>Seriously, just reunite already!</p>",
+        "jp": "第12話: 終わりと始まり\n<p>\"ゴゴゴ・・・という文字が見える程の圧倒的緊迫感、2人のやり取り、やり切れなくスッキリもしない\"</p>\n<p>『いや、何だこの緊迫感。ほぼ未来と現在のルディの会話だけの23分間。こんなに短く緊張した23分間は久しぶりだった。そして・・・怖い。想定しうるあらゆる魔法を身につけたと思える未来のルディがそれでもどうしようもなく、自らの命など顧みずに伝えに来たその無念と忠告。そこに希望はあったのかはわからないが、彼に残されていたのはもはやこれしかなかったことは間違いない。その悲痛な思いや訴えがとんでもなく伝わってきた。そして物音に気づき心配しながらもどこか緊張感のないシルフィとロキシーの姿・様子がまたその不気味さと強さの度合いを高める。ルディが2人に\"絶対に\"というような強さで部屋から出ないように、ものを食べないように言わなかったことに違和感も感じたが、それは自ら処理をする覚悟や考えがあってのことだろうし、そこまでやると逆に力になろうとしてくる・・・というのもあっただろう。また二人のことだからルディの真剣さを容易に感じ取れるということもあっただろう。いやいや・・・急にヒトガミに関わること、また本作の登場人物たちに関わることが一気に動き出したというか・・・。ちょっと唐突すぎて、またその割にカバーしている範囲が広すぎて・・・本当に?と思わずにはいられない。また世界線的に1つ、2つ?というのもあるし、過去改変という意味ではそもそも未来から来ただけでロキシーやその他に関わるの事象も変化しないの?とか考えたらキリがないが、いずれにしても個人的には相当な違和感を覚えるやり取りだった。エリスのこと、シルフィーのこと、、、多少ナナホシやクリフ、王女、ルークなどなどのこともいってたけど、妹たち、ゼニス、ルイジェルド、ペルギウス・・・などなど他にもいろいろあるだろうに・・・。そしてオルステッドともその後会うことがない?何十年も?ナナホシは?とか、そもそもそもそも、ヒトガミがこの未来ルディの来訪に関われなかったの?いつ介入できていつ出来ないの?わざと?とかも考えるとわからない。そもそもこの来訪すら計画の上?とか・・・。だから、アニメしてみていない原作知識０の私としては、裏にはもっともっといっぱいあるだろうし（ペルギウスも実はルディだとか?とか?ルディも何百年も存在していたりもっと過去にいっていたとか?）、この今回の未来のルディに対しての違和感も拭えずにいる。ただそうしたことは別にして、今回の話の緊張感や演技、演出、構成・・・全てが凄かった・・・11点以外ないだろう。そしてあと2話って・・・どうなんねん。日記の中身も気になるし、ルディは今回わかったことをナナホシや奥さんたちにも話すだろうし・・・今クールはそこまでかなぁ・・・。それにしてもエリス・・・話半分だけど・・・ややこしすぎる・・・。っていうか再会しよう!』</p>"
+      },
+      "key_elements_breakdown": {
+        "op": 0.65,
+        "ed": 0.35,
+        "acting": 0.2,
+        "sound/music": 0.15,
+        "consistency/impact": 0.05,
+        "overall": 0.05,
+        "total": 1.45
+      },
+      "romanized_title": "Rakudai Kenja no Gakuin Musou: Nidome no Tensei, S-Rank Cheat Majutsushi Bouken-roku",
+      "release_date": "7/1/2026 to 9/11/2026",
+      "based_on": "Web Comics",
+      "studios": "EMT Squared",
+      "creators": "Hisashi Ishii",
+      "external_scores": "",
+      "streaming_services": "",
+      "synopsis": "The great sage Ephtal dies in despair after failing to reach the peak of magic—but 400 years later, he’s reborn with all his memories and power intact! In a world where magic has decayed and ancient spells are treated as miracles, Ephtal storms into a prestigious magic academy to reclaim the true art of sorcery. As his power shakes the world, long-forgotten legends begin to awaken!\n\n(Source: Crunchyroll)"
+    },
+    {
+      "rank": 24,
+      "trend": "",
+      "title": "The Forsaken Saintess and her Foodie Roadtrip in Another World",
+      "jpTitle": "捨てられ聖女の異世界ごはん旅 隠れスキルでキャンピングカーを召喚しました",
+      "kv": "camp",
+      "episode": "1-12",
+      "genre": [
+        "Action",
+        "Adventure",
+        "Comedy"
+      ],
+      "wrp_score": 58.35,
+      "overall_rating": 48,
+      "review": {
+        "en": "<strong>Episode #12: Good Work, Let's Eat Curry But The Adventure Will Continue Forever</strong>\n<p>\"The messing around just keeps going and going... except I really wish it wouldn't! What even is this?\"</p>\n<p>In the end, the otome-game setup barely meant anything. It's basically just that the summoned heroine has a camper van, and for some reason she can cook, so she cooks monsters and that's about it.<br><br>Even in the final episode, they move the OP to the end and don't even play the ED, like they're trying to make it feel special... and yet hardly anything actually happens.<br><br>They keep saying that the summoner's special ability is what opens the door, but then they barely even bother to show that scene properly. That's how half-assed it feels.<br><br>Otsu-curry-sama!<br><br>Now please just go away—forever!</p>",
+        "jp": "第1-12話:\n<p>\"おふざけは続くよどこまでも…って続かないでいいから!なんだコレ?\"</p>\n<p>『結局乙女ゲー設定にも大した意味無く、ただ召喚されたヒロインがキャンピングカー持ってて、とにかく何故か料理できるからモンスターとか料理するってだけ。ファイナルエピソードも、OPを最後に持ってきてED流さないまでしてるのに、大して何もなかった。召喚者の特別能力で扉を開けると言いつつ、そのシーンもろくに見せない手抜き様。おつカレー様!立ち去れー、どこまでも!』</p>"
       },
       "key_elements_breakdown": {
         "op": 0.4,
-        "ed": 0.75,
-        "acting": 0.25,
-        "sound/music": 0.2,
-        "consistency/impact": 0.3,
-        "overall": 0.35,
-        "total": 2.25
+        "ed": 0.65,
+        "acting": 0.2,
+        "sound/music": 0.15,
+        "consistency/impact": 0,
+        "overall": -0.25,
+        "total": 1.15
       },
-      "romanized_title": "Tsuihou  Shokudou e Youkoso!",
-      "release_date": "7/3/2025 to 9/19/2025",
-      "based_on": "Web Novels",
-      "studios": "OLM Team Yoshioka",
-      "creators": "Jouji Shimura",
+      "romanized_title": "Suterare Seijo no Isekai Gohantabi: Kakure Skill de Camping Car wo Shoukan Shimashita",
+      "release_date": "7/6/2026 to 9/21/2026",
+      "based_on": "Naro",
+      "studios": "EMT Squared",
+      "creators": "Atsushi Nigorikawa",
       "external_scores": "",
       "streaming_services": "",
-      "synopsis": "When superstar adventurer Dennis gets booted from the world’s strongest party, he teams up with runaway Atelier to serve up his true passion—delicious cuisine. But this not-so-average eatery has not-so-average patrons. Dennis will battle his quirky customers’ troubles with his trusty butcher knife and wok. Visit Adventurer’s Restaurant and fill up your heart and stomach!"
+      "synopsis": "Rin Takanashi, a caregiver in her thirties, was unceremoniously discarded as \"trash\" despite being summoned as a saint.\n\nHowever, as a lover of the great outdoors and all things camping, she was blessed with a special skill, \"Survival,\" as well as another unique skill! Thus, a riveting tale begins: one of sweat, tears, and insatiable hunger as Rin, together with companions she picked up along the way, leisurely explores this parallel world and savours gourmet cuisine to her heart's content...\n\nOr so the story should have gone, but it looks like their road is going in an unexpected direction...?"
     }
   ]
 }
