@@ -65,6 +65,7 @@ hr.thin-divider {
   margin-bottom: 1.5rem;
   padding: 2.5rem 0; /* 20px */
   border-bottom: 1px solid #ddd;
+  line-height: 1.75;
 } 
 
 .post-conclusion  {
@@ -72,18 +73,14 @@ hr.thin-divider {
   margin-bottom: 5rem;
 } 
 
-/* Reading width / typography: keep Intro, Content, and Conclusion consistent. */
 .post-intro,
-.post-content,
 .post-conclusion {
-  font-size: 1.05rem;
-  letter-spacing: 0.01em;
-  word-spacing: 0.01em;
-  line-height: 1.75;
-  width: 100%;
-  max-width: 44rem;
-  margin-left: auto;
-  margin-right: auto;
+  font-size: 1rem; 
+  letter-spacing: 0.01em; 
+  word-spacing: 0.01em; 
+  line-height: 1.7;
+  max-width: 75ch;
+  width: 90%;
 }
 
 #introText p, #contentText p, #conclusionText p { margin: 0 0 1.5rem; }
@@ -457,14 +454,5 @@ h4.tier-neverwatched { border-left-color: #cccccc; } /* 任意 */
   
   html {
     font-size: 13px;
-  }
-
-  /* Keep article text readable on phones without changing the rest of the UI. */
-  .post-intro,
-  .post-content,
-  .post-conclusion {
-    font-size: 1.23rem; /* about 16px when the root is 13px */
-    max-width: none;
-    width: 100%;
   }
 }
