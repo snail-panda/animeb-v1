@@ -5,9 +5,9 @@
     "season": "2026 Summer",
     "ep_range": "ep.1-13",
     "status": {
-      "watching": 0,
+      "watching": 1,
       "droppedThisWeek": 0,
-      "droppedTotal": 10,
+      "droppedTotal": 9,
       "noAir": 0,
       "completed": 22,
       "total": 32
@@ -91,26 +91,26 @@
       "title": "Mushoku Tensei: Jobless Reincarnation Season 3",
       "jpTitle": "無職転生Ⅲ ～異世界行ったら本気だす～",
       "kv": "mushoku",
-      "episode": "1-13",
+      "episode": "1-14",
       "genre": [
         "Isekai",
         "Reincarnation",
         "Ecchi"
       ],
-      "wrp_score": 88.62,
-      "overall_rating": null,
+      "wrp_score": 91.25,
+      "overall_rating": 89,
       "review": {
-        "en": "",
-        "jp": ""
+        "en": "<strong>Episode #14: Resolve</strong>\n<p>\"Without a doubt, this was an excellent way to close out the cour. I do have a few concerns and questions, so I'm being a little stricter than I otherwise might—but please, give us the continuation soon!\"</p>\n<p>Honestly, I thought this was a fantastic episode. So why not a 10? Simply because, on a personal level, there were a few things that bothered me.<br><br>First, Hitogami conveniently appears and basically spills everything: what he had been trying to do all along, the fact that Old Rudeus came from the future and interfered with his original plan, why he is targeting Roxy, and even what Orsted is trying to accomplish. And yes, Old Rudeus did advise Rudeus to maintain a good relationship with Hitogami, but even so, the decision to go after Orsted felt a little too hasty to me. You're really going to believe him? And then immediately go fight Orsted? Even Old Rudeus, after decades of growth, still couldn't defeat Orsted. So is this supposed to be more of a performance than a genuine attempt to kill him?<br><br>Then there's the timing of Rudeus's letter reaching Eris. Fine, sure, but did it really need to be so absurdly close that just a few more minutes would have made it too late? And even if Eris has grown much stronger through her training, there's still no way she could seriously stand against Orsted. It did make me wonder whether Rudeus is actually trying to deceive Hitogami, reunite with Eris for the time being, and then use the situation to create an opportunity to meet and talk with Orsted. That kind of interpretation is possible, but there were still a few moments that felt slightly too much like plot devices to me, which is why I settled on a 9.<br><br>That said, as I mentioned at the beginning, this was still an outstanding episode. Especially from the opening through the middle, tears just kept streaming down my face and I couldn't even fully explain why. How deeply loved is this man? How many people truly care about him? Realizing that before he actually lost all of it may very well be the greatest blessing Rudeus could have received.<br><br>So now, please give us the second cour as soon as possible! I've said plenty of critical things here, but there is no question in my mind that this is a truly exceptional anime—one that will be remembered for years to come. To everyone involved in the production this cour, thank you so much for all your hard work.</p>",
+        "jp": "第14話: 覚悟\n<p>\"クールの締めくくりとして間違いなく優秀な回、懸念・疑問点もあるので若干厳しめ、早く続きを!\"</p>\n<p>『正直なところ、素晴らしい出来だったと思う。では何故10点ではないかというと、あくまで個人的にではあるが、いくつか気になる点があったから。<br>まず、ヒトガミがちょうどよく出てきてネタバレ、コレまでの狙いなどもみなルーデウスに話す、そして老デウスが未来から来て本来の狙いを阻止したことも認識していることも話す、そして何故ロキシーを狙うか、またオルステッドの狙いも話すこと。そして一応老デウスの忠告として\"ヒトガミとはいい関係を保つこと\"というのがあったとしても、オルステッド討伐に行こうというのがどうにも短絡的というか、信じるんかい?そしてすぐに行くのか?というのが納得できなかった。まず、何十年後の老デウスでさえもオルステッドには叶わないのに?それではこの討伐はポーズ?また、ルーデウスの手紙がエリスに届くタイミング・・・。まぁいいけど、あと数分遅ければ間に合わなかったギリギリみたいにまでする必要があったか?とも感じたし、いくらエリスも修行して強くなっているとしても、オルステッドには全く刃が立たないだろうに・・・。これはルーデウスがヒトガミをうまく騙してとりあえずエリスと合流しつつ、オルステッドととも会って話す機会を持つ狙いなのか?などとも思えるが、じゃっかんプロットデバイス的なものや微妙に感じるところもあったので9点にした。ただし、最初にも言ったように非常に素晴らしいエピソードで、特に序盤から中盤までは、理由もわからず涙が流れ続けていた・・・。どれだけ大切にされ、想われているんだ、それを本当に失う前に気づけたことはルーデウスにとっての最大の幸福かも知れないと思った。さて、2クール目、すぐにお願いしますよ!色々言ったけど間違いなく時代に残る名作アニメ、作品であることは間違いのない事実なのだから。今クールも制作の皆さん、本当にお疲れ様でした。ありがとうございます!』</p>"
       },
       "key_elements_breakdown": {
         "op": 1.05,
         "ed": 1.2,
         "acting": 0.45,
         "sound/music": 0.45,
-        "consistency/impact": 0,
-        "overall": 0,
-        "total": 3.15
+        "consistency/impact": 0.9,
+        "overall": 1.85,
+        "total": 5.9
       },
       "romanized_title": "Mushoku Tensei III: Isekai Ittara Honki Dasu",
       "release_date": "7/5/2026 to 9/28/2026",
@@ -127,13 +127,13 @@
       "title": "You and I Are Polar Opposites Season 2",
       "jpTitle": "『正反対な君と僕』第2期",
       "kv": "hantai",
-      "episode": "1-11",
+      "episode": "1-12",
       "genre": [
         "Comedy",
         "Drama",
         "Romance"
       ],
-      "wrp_score": 83.86,
+      "wrp_score": 84.15,
       "overall_rating": null,
       "review": {
         "en": "",
