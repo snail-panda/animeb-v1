@@ -468,15 +468,3 @@ h4.tier-neverwatched { border-left-color: #cccccc; } /* 任意 */
     width: 100%;
   }
 }
-
-/* Desktop/tablet: align the article header/date with the reading column.
-   Tier list image, Tier Guide, N/A note, and other wide sections are untouched. */
-@media (min-width: 481px) {
-  .post-header,
-  .post-date {
-    width: 100%;
-    max-width: 44rem;
-    margin-left: auto;
-    margin-right: auto;
-  }
-}
