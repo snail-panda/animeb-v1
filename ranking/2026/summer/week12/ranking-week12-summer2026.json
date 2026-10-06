@@ -5,11 +5,11 @@
     "season": "2026 Summer",
     "ep_range": "ep.1-13",
     "status": {
-      "watching": 1,
+      "watching": 0,
       "droppedThisWeek": 0,
       "droppedTotal": 8,
       "noAir": 0,
-      "completed": 23,
+      "completed": 24,
       "total": 32
     }
   },
