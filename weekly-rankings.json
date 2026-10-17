@@ -75,7 +75,7 @@
       "final": "Week 12"
     },
     "Fall": {
-      "weeks": [],
+      "weeks": ["Week 00"],
       "final": null
     }
   }
