@@ -3,11 +3,11 @@
     "week": "week prelim",
     "duration": "09-27-Sun-10-10-Sat",
     "season": "2026 Fall",
-    "ep_range": "ep.1-2",
+    "ep_range": "ep.0-1",
     "status": {
       "watching": 35,
-      "droppedThisWeek": 6,
-      "droppedTotal": 6,
+      "droppedThisWeek": 0,
+      "droppedTotal": 0,
       "backOnList": 0,
       "noAir": 0,
       "completed": 0,
@@ -17,7 +17,7 @@
   "entries": [
     {
       "rank": 1,
-      "trend": "re",
+      "trend": "new",
       "title": "Nia Liston: The Merciless Maiden",
       "jpTitle": "凶乱令嬢ニア・リストン 病弱令嬢に転生した神殺しの武人の華麗なる無双録",
       "kv": "kyouran",
@@ -50,7 +50,7 @@
     },
     {
       "rank": 2,
-      "trend": "up",
+      "trend": "new",
       "title": "Even the Student Council Has Its Holes!",
       "jpTitle": "生徒会にも穴はある！",
       "kv": "seitokai",
@@ -85,7 +85,7 @@
     },
     {
       "rank": 3,
-      "trend": "new",
+      "trend": "re",
       "title": "The Ramparts of Ice Season 2",
       "jpTitle": "『氷の城壁』第2期",
       "kv": "jouheki",
@@ -121,7 +121,7 @@
     },
     {
       "rank": 4,
-      "trend": "up",
+      "trend": "new",
       "title": "The Seven Knights of the Marronnier Kingdom",
       "jpTitle": "マロニエ王国の七人の騎士",
       "kv": "oukoku",
@@ -156,7 +156,7 @@
     },
     {
       "rank": 5,
-      "trend": "up",
+      "trend": "re",
       "title": "The Apothecary Diaries Season 3",
       "jpTitle": "『薬屋のひとりごと』第3期",
       "kv": "kusuriya",
@@ -224,7 +224,7 @@
     },
     {
       "rank": 7,
-      "trend": "up",
+      "trend": "new",
       "title": "Romelia War Chronicle",
       "jpTitle": "ロメリア戦記",
       "kv": "romelia",
@@ -259,7 +259,7 @@
     },
     {
       "rank": 8,
-      "trend": "re",
+      "trend": "new",
       "title": "#I'm Looking For a Zombie",
       "jpTitle": "#ゾンビさがしてます",
       "kv": "zombie",
@@ -295,7 +295,7 @@
     },
     {
       "rank": 9,
-      "trend": "re",
+      "trend": "new",
       "title": "Magic Knight Rayearth (2026)",
       "jpTitle": "魔法騎士レイアース",
       "kv": "rayearth",
@@ -329,7 +329,7 @@
     },
     {
       "rank": 10,
-      "trend": "up",
+      "trend": "new",
       "title": "Super Psychic Policeman Chojo",
       "jpTitle": "超巡！超条先輩",
       "kv": "choujou",
@@ -363,7 +363,7 @@
     },
     {
       "rank": 11,
-      "trend": "up",
+      "trend": "new",
       "title": "A Certain Dark Item",
       "jpTitle": "とある暗部の少女共棲",
       "kv": "toaru",
@@ -397,7 +397,7 @@
     },
     {
       "rank": 12,
-      "trend": "up",
+      "trend": "re",
       "title": "Sasaki and Peeps Season 2",
       "jpTitle": "『佐々木とピーちゃん』Season 2",
       "kv": "sasaki",
@@ -432,7 +432,7 @@
     },
     {
       "rank": 13,
-      "trend": "up",
+      "trend": "new",
       "title": "FX Fighter Kurumi-chan",
       "jpTitle": "FX戦士くるみちゃん",
       "kv": "fx",
@@ -500,7 +500,7 @@
     },
     {
       "rank": 15,
-      "trend": "re",
+      "trend": "new",
       "title": "Aoki Denshou Welsh & Shedar",
       "jpTitle": "蒼き伝承 – Welsh & Shedar",
       "kv": "aoki",
@@ -534,7 +534,7 @@
     },
     {
       "rank": 16,
-      "trend": "re",
+      "trend": "new",
       "title": "Magic Repo Man: Dumped by My Party, I'll Cash In With a Cute Support Fairy to Become the Strongest!",
       "jpTitle": "貸した魔力は【リボ払い】で強制徴収",
       "kv": "revo",
@@ -570,7 +570,7 @@
     },
     {
       "rank": 17,
-      "trend": "new",
+      "trend": "re",
       "title": "Tokyo Revengers: War of the Three Titan Arc",
       "jpTitle": "『東京リベンジャーズ』三天戦争編",
       "kv": "tokyo",
@@ -642,7 +642,7 @@
     },
     {
       "rank": 19,
-      "trend": "new",
+      "trend": "re",
       "title": "Blue Box Season 2",
       "jpTitle": "『アオのハコ』Season2",
       "kv": "hako",
@@ -783,7 +783,7 @@
     },
     {
       "rank": 23,
-      "trend": "up",
+      "trend": "new",
       "title": "A Tale of the Secret Saint",
       "jpTitle": "転生した大聖女は、聖女であることをひた隠す",
       "kv": "hitakakusu",
@@ -818,7 +818,7 @@
     },
     {
       "rank": 24,
-      "trend": "up",
+      "trend": "re",
       "title": "The Detective Is Already Dead Season 2",
       "jpTitle": "探偵はもう、死んでいる。Season2",
       "kv": "tantei",
@@ -854,7 +854,7 @@
     },
     {
       "rank": 25,
-      "trend": "up",
+      "trend": "new",
       "title": "The Laid-Off Cheat-Granting Mage Enjoys a Second Lease on Life",
       "jpTitle": "追放されたチート付与魔術師は気ままなセカンドライフを謳歌する。 ～俺は武器だけじゃなく、あらゆるものに『強化ポイント』を付与できるし、俺の意思でいつでも効果を解除できるけど、残った人たち大丈夫？～",
       "kv": "fuyoshi",
@@ -890,7 +890,7 @@
     },
     {
       "rank": 26,
-      "trend": "new",
+      "trend": "re",
       "title": "Ao Ashi Season 2",
       "jpTitle": "『アオアシ Season2』第1クール",
       "kv": "aoashi",
@@ -1024,7 +1024,7 @@
     },
     {
       "rank": 30,
-      "trend": "up",
+      "trend": "re",
       "title": "A Returner's Magic Should Be Special Season 2",
       "jpTitle": "『帰還者の魔法は特別です』第二期",
       "kv": "kikansha",
@@ -1059,7 +1059,7 @@
     },
     {
       "rank": 31,
-      "trend": "new",
+      "trend": "re",
       "title": "The Iceblade Sorcerer Shall Rule the World II",
       "jpTitle": "冰剣の魔術師が世界を統べるⅡ",
       "kv": "hyouken",
@@ -1233,7 +1233,7 @@
     },
     {
       "rank": "spotlight",
-      "trend": "up",
+      "trend": "new",
       "title": "Even the Student Council Has Its Holes!",
       "jpTitle": "生徒会にも穴はある！",
       "kv": "seitokai",
@@ -1302,7 +1302,7 @@
     },
     {
       "rank": "dookie",
-      "trend": "up",
+      "trend": "new",
       "title": "The Vermilion Mask",
       "jpTitle": "朱色の仮面",
       "kv": "shuiro",
