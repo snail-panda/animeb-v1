@@ -1,0 +1,470 @@
+{
+  "meta": {
+    "week": "week 1",
+    "duration": "10-04-Sun-10-10-Sat",
+    "season": "2026 Fall",
+    "ep_range": "ep.1-2",
+    "status": {
+      "watching": 30,
+      "droppedThisWeek": 0,
+      "droppedTotal": 0,
+      "backOnList": 0,
+      "noAir": 0,
+      "completed": 0,
+      "total": 35
+    }
+  },
+  "entries": [
+    {
+      "rank": 1,
+      "trend": "new",
+      "title": "Nia Liston: The Merciless Maiden",
+      "jpTitle": "凶乱令嬢ニア・リストン 病弱令嬢に転生した神殺しの武人の華麗なる無双録",
+      "kv": "kyouran",
+      "episode": 1,
+      "genre": [
+        "Fantasy"
+      ],
+      "wrp_score": 9.45,
+      "score": 9,
+      "review": {
+        "en": "",
+        "jp": "第1話: 闇より浮かびて\n<p>いやいや驚いた。実はコレが一番面白いかも・・・。しかも声優陣も新し目の人たちだし凄くフレッシュ感あふれていた。巷のチープな復讐・悪役令嬢などなどではなくもともとがよくわからないけど記憶もろくになく凄く強かった存在が一日だけのために病で死にそうな女子に転生されるところからの流れもいいし、ちょうどいい感じで強さをアピールしたがるのもいい。テンポも見せ方もいちいちハマっている。いやいや期待しかない。OPEDもバッチリ!</p>"
+      },
+      "wrp_breakdown": {
+        "base_score": 5,
+        "animation": 0.7,
+        "script": 0.75,
+        "direction": 0.75,
+        "charm": 0.65,
+        "overall": 1.6
+      },
+      "romanized_title": "Kyouran Reijou Nia Liston: Byoujaku Reijou ni Tensei shita Kamigoroshi no Bujin no Karei Naru Musouroku",
+      "release_date": "10/6/2026",
+      "based_on": "Naro",
+      "studios": "Konami animation",
+      "creators": "Motoki Nakanishi",
+      "external_scores": "",
+      "streaming_services": "",
+      "synopsis": "Lying on her deathbed with seemingly no chance at recovery, a young Nia Liston is soon to succumb to her illness. Unable to give up hope, her parents desperately search for a cure in even the most obscure places, leading to the appearance of a hooded man claiming he can help rid Nia of her condition. But rather than curing her, the hooded man transplants the soul of a deceased hero who was undefeated in battle into the girl's frail body.\n\nGiven a second chance at life as Nia, the hero is determined to recover her new body's strength by using a technique known as chi to target and eliminate the illness at its roots. With her enthusiastic hunger for combat having also been carried over, Nia is eager to return to exploring the world. However, the hero's restless soul yearns to find a worthy opponent who can defeat her on the battlefield, sparking chaos wherever Nia may go.\n\n[Written by MAL Rewrite]"
+    },
+    {
+      "rank": 2,
+      "trend": "down",
+      "title": "Even the Student Council Has Its Holes!",
+      "jpTitle": "生徒会にも穴はある！",
+      "kv": "seitokai",
+      "episode": 2,
+      "genre": [
+        "Comedy",
+        "Slice of Life",
+        "Ecchi"
+      ],
+      "wrp_score": 9.3,
+      "score": 9,
+      "review": {
+        "en": "",
+        "jp": "第2話: 「メシアたん」「七不思議と夜のお仕事」「こまろ現る!!」\n<p>\"怒涛の快進撃、執念すら感じるのはあのぬ◯たしのリベンジか?\"</p>\n<p>『いや、ヤバいな・・・。パッショーネの情念を感じる。「ぬきたし」のリベンジ?とも思えるような・・・。もうそこかしこにギリギリの挑戦、いや線を超えてしまっている挑戦をしている。学園モノとしてもやれることはどんどんやるということで2話目で肝試し的なものもやるし、そこではエロさよりも怖がる、頼られたい争いばかりに集中してるのも逆に面白い。結局MCが会長に抱きついてても誰も突っ込まない。また今回登場したダメダメな庶務のピンク髪もなかなかにいい。学園内で挿入はちょっと・・・には笑わせて頂きました。いいですねぇ・・・、これは続くかぁ?続くのかぁ?ってところです。行けそうだけどね。』</p>"
+      },
+      "wrp_breakdown": {
+        "base_score": 5,
+        "animation": 0.7,
+        "script": 0.7,
+        "direction": 0.7,
+        "charm": 0.7,
+        "overall": 1.5
+      },
+      "romanized_title": "Seitokai ni mo Ana wa Aru!",
+      "release_date": "10/3/2026",
+      "based_on": "Manga",
+      "studios": "Passione",
+      "creators": "Naoyuki Tatsuwa",
+      "external_scores": "",
+      "streaming_services": "",
+      "synopsis": "Ume Mizunoe, a first-year student at the prestigious Fujinari Academy, excels in Japanese literature but struggles so badly in science that his chances of advancing are at risk. Hoping to boost his academic record, he joins the student council—only to find himself surrounded by a cast of quirky characters: a charismatic yet secretly shy president, a kind but intimidating treasurer, an adorably cheeky boy, and a tiny, stray-cat-like secretary.\n\nThrown into a whirlwind of chaotic daily life, Ume's school days are about to get a lot more unpredictable—and a lot more lively!\n\n(Source: MAL News)"
+    },
+    {
+      "rank": 3,
+      "trend": "up",
+      "title": "The Seven Knights of the Marronnier Kingdom",
+      "jpTitle": "マロニエ王国の七人の騎士",
+      "kv": "oukoku",
+      "episode": 2,
+      "genre": [
+        "Comedy",
+        "Fantasy",
+        "Romance"
+      ],
+      "wrp_score": 9.1,
+      "score": 9,
+      "review": {
+        "en": "<strong>Episode #2: Spring By The Lake</strong>",
+        "jp": "第2話: 湖上の春\n<p>『何故かよくわからないけど凄く面白い、今期一番面白いかも・・・。真犯人は肥え太ったリスか・・・。王女と寒がりやの関係も面白いし、長男もそれに多少関わるのか?とエレオノーラとか・・・。そして過去に何があったのか?不思議な話・・・。好みだわぁ。』</p>"
+      },
+      "wrp_breakdown": {
+        "base_score": 5,
+        "animation": 0.7,
+        "script": 0.65,
+        "direction": 0.7,
+        "charm": 0.6,
+        "overall": 1.45
+      },
+      "romanized_title": "Marronnier Oukoku no Shichinin no Kishi",
+      "release_date": "10/3/2026",
+      "based_on": "Manga",
+      "studios": "J.C.STAFF",
+      "creators": "Seiko Sayama",
+      "external_scores": "",
+      "streaming_services": "",
+      "synopsis": "At the center of a continent made up of eight kingdoms lies the Kingdom of Marronnier. Leading the nation is the female general Baribara, who has seven sons, each with a personality all his own.\n\nSleepy, benevolent, sensitive to heat, sensitive to cold, gifted with animals, proud of his swordsmanship, and always hungry—the brothers possess very different qualities, but they are united by a single goal: \"Someday, we'll rescue a princess in a cool way!\"\n\nBefore long, the brothers set out for the seven neighboring kingdoms as ambassadors. What encounters, trials, and destinies await them in these unfamiliar lands?\n\nSet in a medieval-inspired fantasy world, this tale of romance and adventure begins.\n\n(Source: MAL News)"
+    },
+    {
+      "rank": 4,
+      "trend": "down",
+      "title": "The Apothecary Diaries Season 3",
+      "jpTitle": "『薬屋のひとりごと』第3期",
+      "kv": "kusuriya",
+      "episode": 2,
+      "genre": [
+        "Drama",
+        "Mystery"
+      ],
+      "wrp_score": 9.05,
+      "score": 9,
+      "review": {
+        "en": "<strong>Episode #2: Fire Rat's Cloak</strong>",
+        "jp": "第2話: 火鼠の皮衣\n<p>\"派手さのないい回ですら桁違いの面白さ、じわじわと来る深さよ\"</p>\n<p>『面白い。この作品（と「氷の城壁」）だけが他の作品とレベルが段違い。今回も派手さはないがずーっと見ていて面白い。飽きるはずがない。前半の火鼠の皮衣の話しと謎解きも面白かったし、後半の久々の人士とマオマオの絡みもなんとも慣れ親しんだ中に深結びつきを感じるいいものでよかった。子守唄を唄ってほしくてそれですぐに安心して寝てしま威厳気になるのは本当に想っている女性（ひと）で間違いないでしょうね。何回言ったかわからないが、面白かった。』</p>"
+      },
+      "wrp_breakdown": {
+        "base_score": 5,
+        "animation": 0.7,
+        "script": 0.7,
+        "direction": 0.6,
+        "charm": 0.6,
+        "overall": 1.45
+      },
+      "romanized_title": "Kusuriya no Hitorigoto 3rd Season",
+      "release_date": "10/2/2026",
+      "based_on": "Light Novel",
+      "studios": "OLM",
+      "creators": "Akinori Fudesaka",
+      "external_scores": "",
+      "streaming_services": "",
+      "synopsis": "In the aftermath of the Shi Clan's rebellion, things have finally settled down, and Maomao has returned to her old life as a pharmacist in the pleasure district. One day, triggered by a breakfast served at the Verdigris House, Maomao senses an anomaly and begins investigating its true nature. Meanwhile, Jinshi, who has revealed his true identity as the Imperial brother and begun to face his heavy responsibilities, is deeply troubled by the final message left by Loulan: a warning of an impending \"disaster that will strike the nation.\" To make matters worse, rumors of a mysterious shrine maiden who deceives the people begin to spread, casting a dark shadow over the country of Li once again. From the depths of the inner court to the city streets, and across foreign borders—the world grows wider, and the stakes even higher for Maomao and Jinshi.\n\n(Source: Crunchyroll)"
+    },
+    {
+      "rank": 5,
+      "trend": "new",
+      "title": "Hotel Inhumans Season 2",
+      "jpTitle": "『ホテル・インヒューマンズ』第2期",
+      "kv": "hotel",
+      "episode": 1,
+      "genre": [
+        "Action",
+        "Drama"
+      ],
+      "wrp_score": 8.8,
+      "score": 8,
+      "review": {
+        "en": "<strong>Episode #1: Piano Lesson 1</strong>",
+        "jp": "第1話: ピアノ・レッスン1\n<p>なかなか面白かった。続きが気になる。今期もいい感じかな。ー視聴継続</p>"
+      },
+      "wrp_breakdown": {
+        "base_score": 5,
+        "animation": 0.6,
+        "script": 0.65,
+        "direction": 0.65,
+        "charm": 0.55,
+        "overall": 1.35
+      },
+      "romanized_title": "Hotel Inhumans 2nd Season",
+      "release_date": "10/4/2026",
+      "based_on": "Web Comics",
+      "studios": "Bridge",
+      "creators": "Tetsurou Amino",
+      "external_scores": "",
+      "streaming_services": "",
+      "synopsis": "Hotel Inhumans 2nd Season\nSecond season of Hotel Inhumans."
+    },
+    {
+      "rank": 6,
+      "trend": "down",
+      "title": "Romelia War Chronicle",
+      "jpTitle": "ロメリア戦記",
+      "kv": "romelia",
+      "episode": 2,
+      "genre": [
+        "Adventure",
+        "Drama",
+        "Fantasy"
+      ],
+      "wrp_score": 8.4,
+      "score": 8,
+      "review": {
+        "en": "<strong>Episode #2: Start of the Fortress Capture</strong>",
+        "jp": "第2話: 砦攻略開始\n<p>『なかなかいいと思う。MCもちょっとセーバーとヴァイオレットを足して2で割ったようでたってるし、全体的なクオリティも高いし。ただ全てがプロットのためにそこにおいてあるかのように感じる。主人公と王子の婚約状態と、魔王討伐直前からのスタート。MCが優秀らしいのは分かるが、何故\"魔王\"という恐らく最強?レベルのものを討伐する最前線のパーティにまでいられる実力があるのか、どんな理由でそこにいたのか?もまるでわからない。今回来た場所でも、領主が前提としてクソ、そして兵隊の中に前提としてMCを憎んでる?やつがいてそいつがリーダー格。MCはそこかしこで優秀さを見せる・・・・。基本、意欲を掻き立てるものはほぼ全て、見せておくべきものを見せてないで、前提条件、設定にしてしまっているだけ?という気もしてしまう。視聴直後はいいねぇと思ったけど、少し時間が立つと、いや・・・待てよ・・・なんかなぁ・・・クオリティに騙されてないか?と思い始めてしまう。ただ、それでもしっかりと作られているし、魅力もあるのは確かなので今のところはこの評価。今後に期待。』</p>"
+      },
+      "wrp_breakdown": {
+        "base_score": 5,
+        "animation": 0.65,
+        "script": 0.6,
+        "direction": 0.55,
+        "charm": 0.4,
+        "overall": 1.2
+      },
+      "romanized_title": "Romelia Senki",
+      "release_date": "10/5/2026",
+      "based_on": "Light Novel",
+      "studios": "Atra",
+      "creators": "Hiroshi Shirai",
+      "external_scores": "",
+      "streaming_services": "",
+      "synopsis": "Rising from the ashes, a fallen noblewoman stands to save humanity!\n\nAfter the Demon King's defeat, Countess Romelia's world is shattered when Prince Henri, her fiancé, publicly breaks off their engagement, dismissing her as \"useless\" alongside his new allies: Saint Elizabeth, the sage Ekaterina, and the swordswoman Lu Hime. What they don't realize is that Romelia possesses a secret power called \"Grace,\" which brings her extraordinary luck. Left abandoned and humiliated, Romelia refuses to give up. With her homeland still under siege by the remnants of the demon army and her people enslaved, she embarks on a desperate mission to save them.\n\nFacing overwhelming challenges—no army, no healers, no funds, and only inexperienced recruits—Romelia uses her wit and determination to turn the odds in her favor. She seizes fortresses from local lords to build her forces, negotiates with the church for healing, secures funds from merchants, and has her soldiers gain experience through monster hunting. Against all expectations, Romelia rises from the ashes, leading her loyal followers in a daring campaign to rescue her people and prove her worth.\n\n(Source: MAL News)"
+    },
+    {
+      "rank": 7,
+      "trend": "up",
+      "title": "#I'm Looking For a Zombie",
+      "jpTitle": "#ゾンビさがしてます",
+      "kv": "zombie",
+      "episode": 2,
+      "genre": [
+        "Action",
+        "Comedy",
+        "Horror",
+        "Mystery"
+      ],
+      "wrp_score": 8.35,
+      "score": 8,
+      "review": {
+        "en": "<strong>Episode #2: I'm Looking For My Friends.</strong>",
+        "jp": "第2話: 仲間さがしてます\n<p>『起死回生の１打か?相当に緩い判定なのは間違いないが、今回唐突にやってきたミカヅキの話がよかった。そして彼女との関わりによって、1話でも今までもゆるゆる過ぎるキャラたちに苛立ちすら感じていたものが少し納得いった気がする。施設を出たばかりだからなんだと。またそのミカヅキのあり方やMCとの切ないやり取り、最終的に戻ってきたミカヅキを始末しなければいけなかったことと、前半の河原でののらゾンビの始末との対比もよかった。意外と面白くなりそうな予感を感じたので8点。』</p>"
+      },
+      "wrp_breakdown": {
+        "base_score": 5,
+        "animation": 0.55,
+        "script": 0.6,
+        "direction": 0.6,
+        "charm": 0.4,
+        "overall": 1.2
+      },
+      "romanized_title": "#Zombie Sagashitemasu",
+      "release_date": "10/3/2026",
+      "based_on": "Manga",
+      "studios": "Studio Comet",
+      "creators": "Shinya Une",
+      "external_scores": "",
+      "streaming_services": "",
+      "synopsis": "Set in a world where 90% of humanity has contracted and died from a deadly, virulent disease, only to rise again as attacking zombies, thirteen years have passed since the \"Red Day\" of societal collapse. The surviving humans now live away from the big cities, still hoping to reclaim them one day. An entirely new generation, unaware of the pre-Red Day world, is coming into its own.\n\nThe story begins when Aki, who has no memories of the world before its fall, escapes her village with her close friends Haru and Natsuki to search for her missing father. As they venture into the outside world, they find themselves surrounded by zombies on all sides! Along the way, they rescue Yuu and Sakura and take refuge in a home improvement store. They regroup, and now the counterattack begins—!!\n\n(Source: Kadokawa, edited)"
+    },
+    {
+      "rank": 8,
+      "trend": "down",
+      "title": "The Ramparts of Ice Season 2",
+      "jpTitle": "『氷の城壁』第2期",
+      "kv": "jouheki",
+      "episode": 2,
+      "genre": [
+        "Comedy",
+        "Drama",
+        "Romance",
+        "Slice of Life"
+      ],
+      "wrp_score": 8.2,
+      "score": 8,
+      "review": {
+        "en": "<strong>Episode #2: Stop and Go</strong>",
+        "jp": "第2話: 停止と進行\n<p>『いや、面白いし、いつも通りよくもまぁ繊細に摘み取って描いているけど・・・。こじらせ?がもういいかな・・・とも思うというか、そもそも何でアマミヤはコユンのことを友達として好きとヨウタに言ったのだろう。もう、あれがあったかないかだけ・・・というか・・・。いや、でもいいんだけどね。だから8点。っていうかあの後輩の女は可愛くないというか、特徴なさすぎないか?存在感ないし。』</p>"
+      },
+      "wrp_breakdown": {
+        "base_score": 5,
+        "animation": 0.6,
+        "script": 0.55,
+        "direction": 0.6,
+        "charm": 0.5,
+        "overall": 0.95
+      },
+      "romanized_title": "Koori no Jouheki 2nd Season",
+      "release_date": "10/1/2026",
+      "based_on": "Manga",
+      "studios": "Studio KAI",
+      "creators": "Mankyu",
+      "external_scores": "",
+      "streaming_services": "",
+      "synopsis": "Second season of Koori no Jouheki."
+    },
+    {
+      "rank": 9,
+      "trend": "new",
+      "title": "Magic Knight Rayearth (2026)",
+      "jpTitle": "魔法騎士レイアース",
+      "kv": "rayearth",
+      "episode": 1,
+      "genre": [
+        "Adventure",
+        "Fantasy"
+      ],
+      "wrp_score": 8,
+      "score": 8,
+      "review": {
+        "en": "<strong>Episode #1: The Birth of the Legendary Magic Knights!</strong>",
+        "jp": "第1話: 伝説の魔法騎士（マジックナイト）始動\n<p>なかなか良かった。かなり気合はいってたし、ふるさと新しさをいい感じのバランスで見せていた。哀愁のデザインと雰囲気がクオリティアップしている感じでいいと思えた。ぶっ飛んでいるのにおいおい・・・とはならないよくわからない説得力が素晴らしい。単純に楽しめたし面白い。まぁそれでもナンノコッチャなんですけど・・・。</p>"
+      },
+      "wrp_breakdown": {
+        "base_score": 5,
+        "animation": 0.6,
+        "script": 0.6,
+        "direction": 0.6,
+        "charm": 0.35,
+        "overall": 0.85
+      },
+      "romanized_title": "Magic Knight Rayearth (2026)",
+      "release_date": "10/7/2026",
+      "based_on": "Manga",
+      "studios": "E&H Production",
+      "creators": "0",
+      "external_scores": "",
+      "streaming_services": "",
+      "synopsis": "Three high school girls—hot-blooded Hikaru Shidou, haughty Umi Ryuuzaki, and gentle Fuu Hououji—have just met at Tokyo Tower when they hear a call for help that pulls them into another world. They are soon greeted by Guru Clef, a youthful-looking man who informs them that they are the legendary Magic Knights summoned by Princess Emeraude to save this magical land known as Cephiro.\n\nWhile Hikaru finds the prospect exciting, Umi and Fuu simply want to return to their own world. Unfortunately for them, Clef explains that they cannot go home until they have saved Cephiro and banished the monsters plaguing it. In order to do so, they have to rescue Princess Emeraude from the clutches of the powerful Lord Zagato. To stand a chance against him, they must revive mysterious beings called Rune Gods.\n\nAs Clef grants the trio armor and magic, one of Zagato's servants attacks, forcing the guru to send the girls away to the weaponsmith Presea and the rabbit-like guide Mokona, who can further equip them for their journey. Though they have a long way to go, Hikaru, Umi, and Fuu will show that they have what it takes to live up to their titles as Magic Knights and bring salvation to Cephiro.\n\n[Written by MAL Rewrite]"
+    },
+    {
+      "rank": 10,
+      "trend": "new",
+      "title": "Super Psychic Policeman Chojo",
+      "jpTitle": "超巡！超条先輩",
+      "kv": "choujou",
+      "episode": 1,
+      "genre": [
+        "Comedy",
+        "Slice of Life"
+      ],
+      "wrp_score": 7.95,
+      "score": 7,
+      "review": {
+        "en": "<strong>Episode #1: The Psychic Senior Police Officer</strong>",
+        "jp": "第1話: 超能力巡査長\n<p>完全にノーマークだったがそこまで悪くないというか・・・なんかいろんなのが混ざったような作品。警察、超能力、しがらみのある女性景観とのパートナーシップ、ふざけてるけど実は良いやつ層でやっぱりふざけてそうでいいやつ?的な?ある意味コテコテ。気が向いたら視聴は続けるかも?対象からは外しそう。</p>"
+      },
+      "wrp_breakdown": {
+        "base_score": 5,
+        "animation": 0.6,
+        "script": 0.55,
+        "direction": 0.6,
+        "charm": 0.35,
+        "overall": 0.85
+      },
+      "romanized_title": "Choujun! Choujou-senpai",
+      "release_date": "10/6/2026",
+      "based_on": "Manga",
+      "studios": "Arvo Animation",
+      "creators": "Junichi Yamamoto",
+      "external_scores": "",
+      "streaming_services": "",
+      "synopsis": "In Chinjuku, the city that never sleeps, there is a psychic senior police officer who has powers beyond human comprehension! His name is Meguru Chojo! Along with his judo expert partner Nao Ippongi, this hilarious duo will keep the streets clean by any means necessary!"
+    },
+    {
+      "rank": "spotlight",
+      "trend": "new",
+      "title": "The Detective Is Already Dead Season 2",
+      "jpTitle": "探偵はもう、死んでいる。Season2",
+      "kv": "tanmoshi",
+      "episode": 1,
+      "genre": [
+        "Comedy",
+        "Drama",
+        "Mystery",
+        "Romance"
+      ],
+      "wrp_score": 6.5,
+      "score": 6,
+      "review": {
+        "en": "<strong>Episode #1: To See You Once More</strong>",
+        "jp": "第1話: もう一度、君に会うために\n<p>非常につまらない。覚えてもいない。何を知りたくて見るのだろう?誰にも興味も持てない。たぐえん・・・切ってくれ。もともと酷かったのに・・・続きやるなら覚えてるうちにやれよ。そうじゃなきゃ誰も見ない・・・という世の中だったらいいのに。検討3</p>"
+      },
+      "wrp_breakdown": {
+        "base_score": 5,
+        "animation": 0.55,
+        "script": 0.45,
+        "direction": 0.45,
+        "charm": 0.2,
+        "overall": -0.15
+      },
+      "romanized_title": "Tantei wa Mou, Shindeiru. Season 2",
+      "release_date": "10/7/2026",
+      "based_on": "Light Novel",
+      "studios": "ENGI",
+      "creators": "Manabu Kurihara",
+      "external_scores": "",
+      "streaming_services": "",
+      "synopsis": "Second season of Tantei wa Mou, Shindeiru."
+    },
+    {
+      "rank": "editor's pick",
+      "trend": "new",
+      "title": "The Cold Sato-san is Only Sweet to Me",
+      "jpTitle": "塩対応の佐藤さんが俺にだけ甘い",
+      "kv": "shiotaiou",
+      "episode": 1,
+      "genre": [
+        "Comedy",
+        "Romance"
+      ],
+      "wrp_score": 6.15,
+      "score": 6,
+      "review": {
+        "en": "<strong>Episode #1: The Cold Sato-San</strong>",
+        "jp": "第1話: 塩対応の佐藤さん\n<p>えっ?初恋だったの?もうさ・・・MC凄いおしゃれなカフェの息子で、父親超マッチョなデカい筋肉の塊だし・・・入学試験隣で金平糖あげてるし、そんなの忘れるわけないし、写真がぶれすぎだし・・・あほくさいし・・・伊藤美来だし・・・。酷い。酷さで楽しませてください枠ですね。手塚アニメーションはちょっと作画レベル上がったの?</p>"
+      },
+      "wrp_breakdown": {
+        "base_score": 5,
+        "animation": 0.6,
+        "script": 0.45,
+        "direction": 0.45,
+        "charm": 0.25,
+        "overall": -0.6
+      },
+      "romanized_title": "Shiotaiou no Satou-san ga Ore ni dake Amai",
+      "release_date": "10/6/2026",
+      "based_on": "Light Novel",
+      "studios": "Tezuka Productions",
+      "creators": "Fumihiro Yoshimura",
+      "external_scores": "",
+      "streaming_services": "",
+      "synopsis": "Koharu Satou is known to her classmates as the \"unattainable flower\" a cold and distant girl whose refusal to smile keeps everyone at arm's length.\n\nHowever, Souta Oshio accidentally stumbles upon Satou's secret at her family's cafe. It turns out the \"icy Satou-san\" is actually an incredibly shy and clumsy girl who struggles even with something as simple as taking photos of sweets for the cafe's social media.\n\nBonding over their shared love for cameras and desserts, the distance between the two gradually shrinks. This charming romantic comedy follows two socially awkward people as they navigate their feelings in a story that is as sweet as it is endearing.\n\n(Source: MAL News)"
+    },
+    {
+      "rank": "dookie",
+      "trend": "new",
+      "title": "The World's Strongest Witch",
+      "jpTitle": "世界最強の魔女、始めました",
+      "kv": "saikyou",
+      "episode": 1,
+      "genre": [
+        "Adventure",
+        "Comedy",
+        "Fantasy"
+      ],
+      "wrp_score": 3.95,
+      "score": 3,
+      "review": {
+        "en": "<strong>Episode #1: I Tried Using the Internet!</strong>",
+        "jp": "第1話: インターネットを使ってみた！\n<p>ゴミクズ</p>"
+      },
+      "wrp_breakdown": {
+        "base_score": 5,
+        "animation": 0.5,
+        "script": 0.2,
+        "direction": 0.2,
+        "charm": 0.05,
+        "overall": -2
+      },
+      "romanized_title": "Sekai Saikyou no Majo, Hajimemashita",
+      "release_date": "10/7/2026",
+      "based_on": "Light Novel",
+      "studios": "AisleBridge",
+      "creators": "Joji Furuta",
+      "external_scores": "",
+      "streaming_services": "",
+      "synopsis": "When Lorna manifests a completely useless ability, she's labeled an embarrassment to her family and kicked out of the house. With no money or food, she's about to hit rock bottom. But then, she figures out how to use her supposedly worthless SSS-Rank skill, \"Internet.\" This cheat-level talent gives her the know-how to gather an unlimited amount of valuable items and easily acquire rare equipment. Armed with godlike knowledge, Lorna's free to do anything she wants! If only she could figure out what \"lmfao\" means...\n\n(Source: Yen Press)"
+    }
+  ]
+}
