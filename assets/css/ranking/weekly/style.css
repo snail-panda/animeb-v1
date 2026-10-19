@@ -1710,3 +1710,9 @@ body { padding: 0; }
 @media (max-width: 768px) {
   .ep-range { font-size: 1rem; }
 }
+
+/* v14: Match desktop ranking navigation to the main bordered wrapper.
+   Keep the existing mobile navigation unchanged. */
+@media (min-width: 769px) {
+  .nav-bar { max-width: 920px; }
+}
