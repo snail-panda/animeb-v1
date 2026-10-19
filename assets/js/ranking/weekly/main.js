@@ -408,6 +408,12 @@ const season = window.season; // spring, summer, etc.
     kvImg.alt = `${entryData.title} key visual`;
   }
 
+  // Experiment: move the original rank/trend node into the key-visual corner.
+  // This preserves rank colors, special badges, trend updates and source data.
+  const originalRank = clone.querySelector('.entry > .rank-wrapper');
+  const kvCorner = clone.querySelector('.kv-thumb');
+  if (originalRank && kvCorner) kvCorner.appendChild(originalRank);
+
   // — トレンド —
   const trendLabel = clone.querySelector(".trend-label");
   const trendIcon = clone.querySelector(".rank-trend img");
