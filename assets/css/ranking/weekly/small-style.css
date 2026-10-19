@@ -1036,3 +1036,22 @@ body {
   .popup.review-popup .review-language-choice { font-size: 8px; min-width: 30px; height: 16px; padding: 0 4px; line-height: 1; border-radius: 9px; }
   .popup.review-popup .review-language-bar { gap: 3px; }
 }
+
+/* v20: preserve readable bilingual episode metadata on narrow screens */
+.ranking-episode-line {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .12rem .35rem;
+  margin: .22rem 0 .38rem;
+  color: #777267;
+  font-family: 'Fira Sans', 'Yu Gothic UI', sans-serif;
+  font-size: 10px;
+  font-weight: 400;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+}
+.ranking-episode-separator { color: #b7ad99; }
+.popup-review-text .review-episode-heading { font-weight: 600; margin: 0 0 1.15em; line-height: 1.55; }
+.popup-review-text .review-standfirst { margin-bottom: 0; }
+.popup-review-text .review-section-divider { height: 0; width: calc(100% - 38px); border-top: 1px solid rgba(142,121,88,.245); transform: scaleY(.65); transform-origin: center; margin: 1.7em 0 2em; }
+.popup-review-text .review-section-divider + p { margin-top: 0; }
