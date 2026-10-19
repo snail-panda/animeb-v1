@@ -430,6 +430,32 @@ const season = window.season; // spring, summer, etc.
   clone.querySelector(".info-top").textContent = entryData.title || "";
   clone.querySelector(".jp-title").textContent = entryData.jpTitle || "";
 
+  // v20: bilingual episode headings beneath the anime titles.
+  const enEpisode = reviewParts(entryData.review?.en || '').heading;
+  const jpEpisode = reviewParts(entryData.review?.jp || '').heading;
+  const jpTitle = clone.querySelector('.jp-title');
+  if (jpTitle && (enEpisode || jpEpisode)) {
+    const episodeLine = document.createElement('div');
+    episodeLine.className = 'ranking-episode-line';
+    if (enEpisode) {
+      const en = document.createElement('span');
+      en.textContent = enEpisode;
+      episodeLine.appendChild(en);
+    }
+    if (enEpisode && jpEpisode) {
+      const separator = document.createElement('span');
+      separator.className = 'ranking-episode-separator';
+      separator.textContent = '│';
+      episodeLine.appendChild(separator);
+    }
+    if (jpEpisode) {
+      const jp = document.createElement('span');
+      jp.textContent = jpEpisode;
+      episodeLine.appendChild(jp);
+    }
+    jpTitle.after(episodeLine);
+  }
+
   // — ジャンルタグ —
   const genreBox = clone.querySelector(".genre-tags");
   genreBox.innerHTML = "";
@@ -630,6 +656,51 @@ function positionPopup(trigger, popup) {
 }
 
 
+
+// v20: presentation-only parsing of the existing bilingual review HTML.
+// The source JSON and its original review markup are never modified.
+function reviewParts(markup) {
+  if (!markup || !markup.trim()) return { heading: '', html: markup || '' };
+  const template = document.createElement('template');
+  template.innerHTML = markup;
+  const root = template.content;
+  // Existing reviews begin with either a <strong> episode heading or a text node.
+  let heading = '';
+  const first = root.firstChild;
+  if (first && first.nodeType === Node.ELEMENT_NODE && first.tagName === 'STRONG') {
+    heading = first.textContent.trim();
+    first.remove();
+  } else if (first && first.nodeType === Node.TEXT_NODE) {
+    const raw = first.textContent;
+    const m = raw.match(/^\s*((?:Episode\s*#?\s*\d+|第\s*\d+\s*話)[^\r\n]*)/i);
+    if (m) {
+      heading = m[1].trim();
+      first.textContent = raw.slice(m[0].length);
+    }
+  }
+  if (heading) {
+    const h = document.createElement('div');
+    h.className = 'review-episode-heading';
+    h.textContent = heading;
+    root.insertBefore(h, root.firstChild);
+  }
+  const paragraphs = [...root.querySelectorAll('p')];
+  const firstParagraph = paragraphs[0];
+  if (firstParagraph) {
+    const quote = firstParagraph.textContent.trim();
+    if (/^["“「]/.test(quote) && /["”」]$/.test(quote)) {
+      firstParagraph.classList.add('review-standfirst');
+      if (paragraphs.length > 1) {
+        const rule = document.createElement('div');
+        rule.className = 'review-section-divider';
+        rule.setAttribute('aria-hidden', 'true');
+        firstParagraph.after(rule);
+      }
+    }
+  }
+  return { heading, html: template.innerHTML };
+}
+
 // ========== ポップアップロジック（EN/JP切り替え: 閉じずに切替・ボタン制御追加） ==========
 function setupPopups() {
   document.querySelectorAll('.review-tag').forEach(btn => {
@@ -697,7 +768,7 @@ function updateContent() {
 
 console.log("📦 reviewEn =", reviewEn);
 
-    contentEl.innerHTML = reviewEn || 'English review not available.';
+    contentEl.innerHTML = reviewEn ? reviewParts(reviewEn).html : 'English review not available.';
     switchBtn.textContent = 'Switch to Japanese';
 
  console.log("🌸 contentEl.innerHTML after setting:", contentEl.innerHTML);
@@ -705,7 +776,7 @@ console.log("📦 reviewEn =", reviewEn);
 
 
   } else {
-    contentEl.innerHTML = reviewJp || 'Japanese review not available.';
+    contentEl.innerHTML = reviewJp ? reviewParts(reviewJp).html : 'Japanese review not available.';
     switchBtn.textContent = 'Switch to English';
   }
 // 🔁 ここでフォント用クラスを切り替える
