@@ -1323,3 +1323,39 @@ footer {
 
 
 </style>
+/* === Homepage layout experiment v1: narrow screens only === */
+@media (max-width: 600px) {
+ body { margin: 0; padding: 0; }
+ .site-wrapper { width: 100%; max-width: none; padding: 0 3px; box-sizing: border-box; }
+ .site-header { padding-left: 7px; padding-right: 7px; }
+ .content { padding: 8px 5px; }
+ .logo { font-size: clamp(1.7rem, 6.6vw, 2.2rem); }
+ .quote { font-size: clamp(.52rem, 2.1vw, .68rem) !important; }
+ .top-nav ul { font-size: clamp(.66rem, 2.6vw, .82rem); }
+ .post-card { margin-bottom: 16px; }
+ .post-details { padding: 10px; }
+}
+
+/* === v11 homepage: Welcome banner and side border are the outer edge === */
+html, body { margin: 0; padding: 0; }
+.site-wrapper { width: 100%; max-width: none; margin: 0; padding: 0; box-sizing: border-box; }
+@media (max-width: 600px) {
+  .site-wrapper { width: 100%; max-width: none; margin: 0; padding: 0; box-sizing: border-box; }
+}
+
+/* === v12 homepage typography only: desktop and mobile navigation === */
+@media (min-width: 601px) {
+  .top-nav .nav-menu > li > a { font-size: 0.76rem; }
+  .top-nav .dropdown li a,
+  .top-nav .year-menu li a,
+  .top-nav .season-menu li a,
+  .top-nav .week-menu li a { font-size: 0.70rem; }
+}
+@media (max-width: 600px) {
+  .site-header .quote { font-size: clamp(.55rem, 2.1vw + .5px, .71rem) !important; }
+  .top-nav .nav-menu > li > a { font-size: clamp(.76rem, 2.6vw + 1.5px, .90875rem); }
+  .top-nav .dropdown li a,
+  .top-nav .year-menu li a,
+  .top-nav .season-menu li a,
+  .top-nav .week-menu li a { font-size: .68875rem; }
+}
