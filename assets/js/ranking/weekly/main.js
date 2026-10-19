@@ -659,6 +659,19 @@ popup.addEventListener('click', function (e) {
   e.stopPropagation();
 });
 
+const languageBar = document.createElement('div');
+languageBar.className = 'review-language-bar';
+const languageButtons = {};
+['en', 'jp'].forEach(code => {
+  const languageBtn = document.createElement('button');
+  languageBtn.type = 'button';
+  languageBtn.className = `review-language-choice review-language-${code}`;
+  languageBtn.textContent = code.toUpperCase();
+  languageBtn.setAttribute('aria-label', code === 'en' ? 'English review' : 'Japanese review');
+  languageButtons[code] = languageBtn;
+  languageBar.appendChild(languageBtn);
+});
+
 const contentEl = document.createElement('div');
 contentEl.className = 'popup-review-text';
 
@@ -699,19 +712,37 @@ console.log("📦 reviewEn =", reviewEn);
   contentEl.classList.remove('lang-en', 'lang-jp');
   contentEl.classList.add(lang === 'jp' ? 'lang-jp' : 'lang-en');
   switchBtn.disabled = false;
+  Object.entries(languageButtons).forEach(([code, languageBtn]) => {
+    const selected = code === lang;
+    languageBtn.classList.toggle('is-selected', selected);
+    languageBtn.setAttribute('aria-pressed', String(selected));
+  });
   btn.dataset.lang = lang;
 }
 
 updateContent();
 
+function changeReviewLanguage(nextLang) {
+  if (lang === nextLang) return;
+  lang = nextLang;
+  updateContent();
+  popup.scrollTop = 0;
+  requestAnimationFrame(() => {
+    popup.scrollTop = 0;
+    adjustFlowerSize(contentEl, flowerTopLeft, flowerBottomRight);
+    adjustPopupPadding(popup);
+  });
+}
+Object.entries(languageButtons).forEach(([code, languageBtn]) => {
+  languageBtn.addEventListener('click', function (e) {
+    e.stopPropagation();
+    changeReviewLanguage(code);
+  });
+});
+
 switchBtn.addEventListener('click', function (e) {
   e.stopPropagation();
-  lang = lang === 'en' ? 'jp' : 'en';
-  updateContent();
-  setTimeout(() => {
-  adjustFlowerSize(contentEl, flowerTopLeft, flowerBottomRight);
-}, 0); // ←💡追加！
-  adjustPopupPadding(popup); // ←💡追加！
+  changeReviewLanguage(lang === 'en' ? 'jp' : 'en');
 });
 
 // 🌟 ここにセットタイムアウトを追加！
@@ -729,6 +760,7 @@ closeBtn.addEventListener('click', function (e) {
 // ✅ Append順に注意（花 → content → ボタン）
 popup.appendChild(flowerTopLeft);
 popup.appendChild(flowerBottomRight);
+popup.appendChild(languageBar);
 popup.appendChild(contentEl);
 popup.appendChild(switchBtn);
 popup.appendChild(closeBtn);
