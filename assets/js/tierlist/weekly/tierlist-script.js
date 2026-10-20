@@ -229,6 +229,8 @@ function setTierImage() {
       const jsonYear = match ? match[1] : "";
       const validPage = Boolean(match && jsonSeason === urlSeason && jsonYear === String(year));
       if (validPage) {
+        // Keep the browser-tab title in sync with the validated article JSON.
+        if (String(jsonData.version || "").trim()) document.title = fullSeasonTitle.trim();
         tierArticleMetadata = {
           year: String(year),
           season: jsonSeason.charAt(0).toUpperCase() + jsonSeason.slice(1),
