@@ -30,6 +30,10 @@ function applyTierArticleMetadata(root) {
   const tokens = {
     "{{year}}": tierArticleMetadata.year,
     "{{season}}": tierArticleMetadata.season,
+    "{{previousSeason}}": tierArticleMetadata.previousSeason,
+    "{{previousYear}}": tierArticleMetadata.previousYear,
+    "{{nextSeason}}": tierArticleMetadata.nextSeason,
+    "{{nextYear}}": tierArticleMetadata.nextYear,
     "{{week}}": tierArticleMetadata.week,
     "{{weekNumber}}": tierArticleMetadata.weekNumber,
     "{{seasonDate}}": tierArticleMetadata.seasonDate,
@@ -40,8 +44,8 @@ function applyTierArticleMetadata(root) {
   const nodes = [];
   while (walker.nextNode()) nodes.push(walker.currentNode);
   nodes.forEach(node => {
-    if (!/\{\{(?:year|season|week|weekNumber|seasonDate|publishedDate|updatedDate)\}\}/.test(node.nodeValue)) return;
-    node.nodeValue = node.nodeValue.replace(/\{\{(?:year|season|week|weekNumber|seasonDate|publishedDate|updatedDate)\}\}/g, token => tokens[token] == null ? token : String(tokens[token]));
+    if (!/\{\{(?:year|season|previousSeason|previousYear|nextSeason|nextYear|week|weekNumber|seasonDate|publishedDate|updatedDate)\}\}/.test(node.nodeValue)) return;
+    node.nodeValue = node.nodeValue.replace(/\{\{(?:year|season|previousSeason|previousYear|nextSeason|nextYear|week|weekNumber|seasonDate|publishedDate|updatedDate)\}\}/g, token => tokens[token] == null ? token : String(tokens[token]));
   });
 }
 function applyTierMetadataToArticles() {
@@ -231,9 +235,18 @@ function setTierImage() {
       if (validPage) {
         // Keep the browser-tab title in sync with the validated article JSON.
         if (String(jsonData.version || "").trim()) document.title = fullSeasonTitle.trim();
+        // Reuse the year-aware season navigation rules (Winter <-> Fall rollover).
+        const currentSeason = jsonSeason.charAt(0).toUpperCase() + jsonSeason.slice(1);
+        const previous = typeof getPrevSeason === "function" ? getPrevSeason(year, currentSeason) : null;
+        const next = typeof getNextSeason === "function" ? getNextSeason(year, currentSeason) : null;
+        if (!previous || !next) console.warn("Previous/next season metadata unavailable: tierlist-nav.js was not loaded");
         tierArticleMetadata = {
           year: String(year),
-          season: jsonSeason.charAt(0).toUpperCase() + jsonSeason.slice(1),
+          season: currentSeason,
+          previousSeason: previous?.season ?? null,
+          previousYear: previous?.year ?? null,
+          nextSeason: next?.season ?? null,
+          nextYear: next?.year ?? null,
           week: String(week),
           weekNumber: String(Number(String(week).replace(/^week/i, ""))),
           seasonDate: jsonData.seasonDate ?? null,
