@@ -73,7 +73,7 @@ body {
 
 .duration {
   font-family: 'Antonio', 'Special Gothic Condensed One', 'Bebas Neue', sans-serif;
-  font-size: 0.69rem;
+  font-size: 0.74rem;
   font-weight: 400;
   color: #a04343;
   letter-spacing: -0.02rem;
@@ -137,7 +137,7 @@ body {
 
 .ep-range {
   font-family: 'Special Gothic Condensed One', 'Bebas Neue', sans-serif;
-  font-size: 0.81rem;
+  font-size: .955rem;
   font-weight: 500;
   color: #749277;
   vertical-align: 0.8px;
@@ -1491,3 +1491,313 @@ VIEWING STATUS ZONE
     box-sizing: border-box;
   }
 }
+
+/* === Layout experiment v1: rank integrated with key visual === */
+*, *::before, *::after { box-sizing: border-box; }
+body { padding: 0; }
+.wrapper { width: 100%; max-width: 920px; padding: clamp(10px, 2.4vw, 26px); }
+.table { grid-template-columns: minmax(0, 1fr) max-content; column-gap: 8px; }
+.table-header .header-rank { display: none; }
+.table-header .header-title { padding-left: 0; }
+.table-header .header-title::before { content: 'RANK (Δ) / '; }
+.table-header .header-totalscore { margin-left: 0; }
+.entry { grid-template-columns: minmax(0, 1fr) max-content; grid-template-areas: 'title score' 'synopsis synopsis' 'moreinfo moreinfo'; column-gap: 6px; }
+.entry > .rank-wrapper { display: none; }
+.entry .title { min-width: 0; padding-right: 0; font-size: clamp(.66rem, 1.45vw, .83rem); }
+.title-container { gap: clamp(7px, 1.6vw, 14px); }
+.info-box { max-width: none !important; }
+.kv-thumb { flex: 0 0 clamp(104px, 19vw, 160px); width: clamp(104px, 19vw, 160px); height: auto; aspect-ratio: auto; align-self: flex-start; }
+.kv-thumb > img { width: 100%; margin-right: 0; border-top-left-radius: 26%; }
+.kv-thumb .rank-wrapper { position: absolute; top: 0; left: 0; z-index: 2; margin: 0; padding: 5px 7px 6px 5px; min-width: 47px; max-width: 86%; align-items: flex-start; justify-content: flex-start; background: #ffffed; border-radius: 0 0 13px 0; box-shadow: 1px 1px 2px rgba(0,0,0,.12); pointer-events: none; }
+.kv-thumb .rank-top { gap: 2px; }
+.kv-thumb .rank-number { font-size: 1.35rem; line-height: 1.05; }
+.kv-thumb .rank-trend { margin: 3px 0 0; justify-content: flex-start; }
+.kv-thumb .trend-label { font-size: .58rem; line-height: 1; }
+.kv-thumb .rank-wrapper img.light, .kv-thumb .rank-wrapper img.editor-pick, .kv-thumb .rank-wrapper img.dookie-skull { max-width: 38px; }
+.entry .jp-title { font-size: clamp(.55rem, 1.15vw, .69rem); }
+@media (max-width: 768px) {
+ .wrapper { padding: 8px 7px; max-width: none; }
+ .entry { gap: 6px; }
+ .entry .title { font-size: clamp(.68rem, 2.7vw, .8rem); }
+ .kv-thumb { flex-basis: clamp(105px, 29vw, 155px); width: clamp(105px, 29vw, 155px); }
+ .info-box { min-width: 0; }
+ .kv-thumb .rank-number { font-size: 1.25rem; }
+}
+@media (max-width: 390px) {
+ .wrapper { padding: 7px 5px; }
+ .title-container { gap: 7px; }
+ .kv-thumb { flex-basis: 29vw; width: 29vw; }
+ .kv-thumb .rank-wrapper { padding: 3px 5px; min-width: 40px; }
+ .kv-thumb .rank-trend { gap: 1px; }
+ .kv-thumb .trend-label { font-size: .51rem; }
+}
+
+/* === Layout experiment v3: compact rank corner, readable scale === */
+.table-header { font-size: .66rem; }
+.table-header .header-title, .table-header .header-totalscore { font-size: .66rem; line-height: 1.25; }
+.kv-thumb .rank-wrapper {
+  min-width: 0; max-width: 48px; padding: 3px 4px 4px;
+  border-radius: 0 0 10px 0; box-shadow: none;
+  background: #ffffed; gap: 1px; overflow: hidden;
+}
+.kv-thumb .rank-top { gap: 0; }
+.kv-thumb .rank-number { font-size: 1.08rem; line-height: 1.05; }
+.kv-thumb .rank-trend { margin: 1px 0 0; gap: 2px; flex-wrap: wrap; }
+.kv-thumb .rank-trend img,
+.kv-thumb .rank-wrapper img.trend-icon-up,
+.kv-thumb .rank-wrapper img.trend-icon-down,
+.kv-thumb .rank-wrapper img.trend-icon-stay,
+.kv-thumb .rank-wrapper img.trend-icon-new {
+  display: inline-block; width: auto; max-width: 24px; height: 12px;
+  max-height: 12px; object-fit: contain; margin: 0; padding: 0;
+  border-radius: 0; box-shadow: none; transform: none;
+  position: static; will-change: auto;
+}
+.kv-thumb .rank-wrapper img.light,
+.kv-thumb .rank-wrapper img.editor-pick,
+.kv-thumb .rank-wrapper img.dookie-skull { width: auto; max-width: 30px; height: auto; max-height: 24px; box-shadow: none; transform: none; border-radius: 0; }
+.kv-thumb .rank-wrapper img:hover { transform: none; box-shadow: none; }
+.kv-thumb .trend-label { font-size: .53rem; line-height: 1.05; }
+.kv-thumb .title-ep { font-size: .7rem; padding: .16rem .23rem .2rem .42rem; }
+.entry .title { font-size: clamp(.74rem, 1.5vw, .89rem); }
+.entry .jp-title { font-size: clamp(.62rem, 1.2vw, .74rem); }
+.bar-wrapper { max-width: 540px; }
+@media (max-width: 768px) {
+  .table-header .header-title, .table-header .header-totalscore { font-size: .6rem; }
+  .entry .title { font-size: clamp(.72rem, 2.8vw, .86rem); }
+  .kv-thumb .rank-wrapper { max-width: 40px; padding: 2px 3px 3px; }
+  .kv-thumb .rank-number { font-size: 1rem; }
+  .kv-thumb .rank-trend img { max-width: 21px; max-height: 11px; }
+  .bar-wrapper { max-width: 100%; }
+}
+
+/* === Layout experiment v4: refined A, comfortably spaced corner === */
+/* Keep the existing generous cutout; refine the contents rather than shrinking it. */
+.kv-thumb .rank-wrapper {
+  min-width: 49px; max-width: 60px;
+  padding: 6px 6px 8px 5px;
+  gap: 4px;
+  overflow: visible;
+  border-radius: 0 0 14px 0;
+  background: #ffffed;
+  box-shadow: none;
+}
+.kv-thumb .rank-number { font-size: 1.22rem; line-height: 1.12; }
+.kv-thumb .rank-trend { margin: 3px 0 0; gap: 4px; flex-direction: column; flex-wrap: nowrap; align-items: flex-start; }
+.kv-thumb .rank-trend img,
+.kv-thumb .rank-wrapper img.trend-icon-up,
+.kv-thumb .rank-wrapper img.trend-icon-down,
+.kv-thumb .rank-wrapper img.trend-icon-stay,
+.kv-thumb .rank-wrapper img.trend-icon-new {
+  max-width: 21px; max-height: 11px; height: 11px;
+  object-fit: contain;
+}
+.kv-thumb .trend-label { font-size: .55rem; line-height: 1.2; white-space: nowrap; }
+/* Specialty badges retain their distinct identity and proportions. */
+.kv-thumb .rank-wrapper img.light,
+.kv-thumb .rank-wrapper img.editor-pick,
+.kv-thumb .rank-wrapper img.dookie-skull { max-width: 32px; max-height: 26px; height: auto; }
+/* Readability adjustments, focused on desktop. */
+@media (min-width: 769px) {
+  .table-header .header-title, .table-header .header-totalscore { font-size: .73rem; }
+  .entry .jp-title { font-size: clamp(.68rem, 1.3vw, .79rem); }
+  .entry .title { font-size: clamp(.79rem, 1.55vw, .94rem); }
+  .entry .genre-tag, .entry .review-tag { font-size: .57rem; }
+  .entry .more-info-toggle, .entry .wrp-label { font-size: .77rem; }
+  .entry .wrp-score { font-size: .75rem; }
+}
+@media (max-width: 768px) {
+  .kv-thumb .rank-wrapper { min-width: 47px; max-width: 56px; padding: 5px 5px 7px 4px; gap: 3px; }
+  .kv-thumb .rank-number { font-size: 1.16rem; }
+  .kv-thumb .rank-trend { margin-top: 3px; gap: 3px; }
+  .kv-thumb .rank-trend img { max-width: 19px; max-height: 10px; height: 10px; }
+  .kv-thumb .trend-label { font-size: .53rem; }
+}
+@media (max-width: 390px) {
+  .kv-thumb .rank-wrapper { min-width: 44px; max-width: 53px; padding: 4px 5px 6px 4px; }
+}
+
+/* === Layout experiment v5: C proportions + B breathing room ===
+   Numeric ranks are primary; landscape trend icons and labels are secondary.
+   This overrides only the visual corner, leaving special badges and scoring intact. */
+.kv-thumb .rank-wrapper {
+  min-width: 0;
+  width: fit-content;
+  max-width: 58px;
+  padding: 3px 6px 6px 5px;
+  gap: 0;
+  align-items: center;
+  justify-content: flex-start;
+  border-radius: 0 0 12px 0;
+  box-shadow: none;
+  overflow: visible;
+}
+.kv-thumb .rank-top { gap: 1px; justify-content: center; }
+.kv-thumb .rank-number { font-size: 2.05rem; line-height: .98; }
+.kv-thumb .rank-trend {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: nowrap;
+  gap: 2px;
+  margin: 2px 0 0;
+}
+.kv-thumb .rank-trend img,
+.kv-thumb .rank-wrapper img.trend-icon-up,
+.kv-thumb .rank-wrapper img.trend-icon-down,
+.kv-thumb .rank-wrapper img.trend-icon-stay,
+.kv-thumb .rank-wrapper img.trend-icon-new {
+  width: auto;
+  max-width: 20px;
+  height: 8px;
+  max-height: 8px;
+  object-fit: contain;
+  box-shadow: none;
+}
+.kv-thumb .trend-label { font-size: .47rem; line-height: 1.1; white-space: nowrap; }
+/* Non-numeric rank emblems should retain their own proportions. */
+.kv-thumb .rank-wrapper:has(.rank-number img) { max-width: 58px; }
+.kv-thumb .rank-wrapper:has(.rank-number img) .rank-number { line-height: 1; }
+@media (max-width: 768px) {
+  .kv-thumb .rank-wrapper { max-width: 51px; padding: 3px 5px 5px 4px; }
+  .kv-thumb .rank-number { font-size: 1.82rem; }
+  .kv-thumb .rank-trend { margin-top: 2px; gap: 2px; }
+  .kv-thumb .rank-trend img { max-width: 18px; height: 7px; max-height: 7px; }
+  .kv-thumb .trend-label { font-size: .45rem; }
+}
+
+/* === Layout experiment v6: wider rank corner, slightly smaller numeral, square key visual === */
+.kv-thumb > img { border-top-left-radius: 0; }
+.kv-thumb .rank-wrapper {
+  min-width: 48px;
+  width: 48px;
+  max-width: 58px;
+  box-sizing: border-box;
+  padding: 3px 6px 6px 5px;
+}
+.kv-thumb .rank-number { font-size: 1.93rem; }
+@media (max-width: 768px) {
+  .kv-thumb .rank-wrapper {
+    min-width: 44px;
+    width: 44px;
+    max-width: 51px;
+    padding: 3px 5px 5px 4px;
+  }
+  .kv-thumb .rank-number { font-size: 1.72rem; }
+}
+
+/* === Layout experiment v7: fine adjustment only ===
+   Slightly narrow the rank corner; add breathing room beneath special emblems. */
+.kv-thumb .rank-wrapper { min-width: 45px; width: 45px; }
+.kv-thumb .rank-wrapper:has(.rank-number img) .rank-trend { margin-top: 5px; }
+@media (max-width: 768px) {
+  .kv-thumb .rank-wrapper { min-width: 42px; width: 42px; }
+  .kv-thumb .rank-wrapper:has(.rank-number img) .rank-trend { margin-top: 4px; }
+}
+
+/* === Layout experiment v8: final fine tuning ===
+   One-pixel corner refinement, synopsis readability, rightward visual zoom. */
+.kv-thumb .rank-wrapper { min-width: 44px; width: 44px; }
+.synopsis { font-size: .75rem; } /* 12px instead of 11.5px */
+/* Anchor enlargement at the left edge so the key visual expands to the right. */
+.kv-thumb > img { transform-origin: left center; }
+@media (max-width: 768px) {
+  .kv-thumb .rank-wrapper { min-width: 41px; width: 41px; }
+}
+
+/* v10: EP range size only; retain v9 header adjustments */
+@media (max-width: 768px) {
+  .ep-range { font-size: 1rem; }
+}
+
+/* v14: Match desktop ranking navigation to the main bordered wrapper.
+   Keep the existing mobile navigation unchanged. */
+@media (min-width: 769px) {
+  .nav-bar { max-width: 920px; }
+}
+
+/* Review language selector: top-center, compact and unobtrusive. */
+.popup.review-popup .review-language-bar {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  gap: 4px;
+  margin: 0 0 10px;
+}
+.popup.review-popup .review-language-choice {
+  appearance: none;
+  border: 1px solid #d7d1c5;
+  border-radius: 10px;
+  padding: 0 7px;
+  min-width: 36px;
+  height: 19px;
+  box-sizing: border-box;
+  font-size: 10px;
+  line-height: 1.2;
+  font-weight: 500;
+  color: #77736c;
+  background: #fcfbf4;
+  cursor: pointer;
+}
+.popup.review-popup .review-language-en.is-selected {
+  background: #fdf4f7;
+  border-color: #f0d6df;
+  color: #a18a93;
+}
+.popup.review-popup .review-language-jp.is-selected {
+  background: #f2f8f3;
+  border-color: #cfe1d2;
+  color: #68816d;
+}
+.popup.review-popup .review-language-choice:focus-visible {
+  outline: 2px solid #536f5b;
+  outline-offset: 2px;
+}
+
+/* v19: mouse/trackpad desktop, including narrow windows; preserve touch iPhone sizing. */
+@media (hover: hover) and (pointer: fine) {
+  .popup.review-popup .review-language-choice {
+    font-size: 8px;
+    min-width: 30px;
+    height: 16px;
+    padding: 0 4px;
+    line-height: 1;
+    border-radius: 9px;
+  }
+  .popup.review-popup .review-language-bar { gap: 3px; }
+}
+
+/* v20: bilingual episode metadata in the ranking list */
+.ranking-episode-line {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  column-gap: .4rem;
+  row-gap: .12rem;
+  margin: .22rem 0 .38rem;
+  color: #777267;
+  font-family: 'Fira Sans', 'Yu Gothic UI', sans-serif;
+  font-size: clamp(.55rem, .95vw, .68rem);
+  font-weight: 400;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+}
+.ranking-episode-separator { color: #b7ad99; }
+/* v20: hierarchy within the existing parchment review popup */
+.popup-review-text .review-episode-heading {
+  font-weight: 600;
+  margin: 0 0 1.15em;
+  line-height: 1.55;
+}
+.popup-review-text .review-standfirst { margin-bottom: 0; }
+.popup-review-text .review-section-divider {
+  height: 0;
+  width: calc(100% - 38px);
+  border-top: 1px solid rgba(142, 121, 88, .245);
+  transform: scaleY(.65);
+  transform-origin: center;
+  margin: 1.7em 0 2em;
+}
+.popup-review-text .review-section-divider + p { margin-top: 0; }

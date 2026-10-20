@@ -51,7 +51,7 @@ body {
 
 .duration {
   font-family: 'Antonio', 'Special Gothic Condensed One', 'Bebas Neue', sans-serif;
-  font-size: 10.5px;
+  font-size: 11.2px;
   font-weight: 400;
   color: #a04343;
   letter-spacing: -0.03rem;
@@ -80,7 +80,7 @@ body {
 
 .ep-range {
   font-family: 'Special Gothic Condensed One', 'Bebas Neue', sans-serif;
-  font-size: 13px;
+  font-size: 17px;
   font-weight: 500;
   color: #749277;
   vertical-align: 0.8px;
@@ -991,3 +991,67 @@ body {
     box-sizing: border-box;
   }
 }
+
+/* Review language selector: top-center, compact and unobtrusive. */
+.popup.review-popup .review-language-bar {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  gap: 4px;
+  margin: 0 0 10px;
+}
+.popup.review-popup .review-language-choice {
+  appearance: none;
+  border: 1px solid #d7d1c5;
+  border-radius: 10px;
+  padding: 0 7px;
+  min-width: 36px;
+  height: 19px;
+  box-sizing: border-box;
+  font-size: 10px;
+  line-height: 1.2;
+  font-weight: 500;
+  color: #77736c;
+  background: #fcfbf4;
+  cursor: pointer;
+}
+.popup.review-popup .review-language-en.is-selected {
+  background: #fdf4f7;
+  border-color: #f0d6df;
+  color: #a18a93;
+}
+.popup.review-popup .review-language-jp.is-selected {
+  background: #f2f8f3;
+  border-color: #cfe1d2;
+  color: #68816d;
+}
+.popup.review-popup .review-language-choice:focus-visible {
+  outline: 2px solid #536f5b;
+  outline-offset: 2px;
+}
+
+/* v19: compact controls for mouse/trackpad layouts, even below 769px. */
+@media (hover: hover) and (pointer: fine) {
+  .popup.review-popup .review-language-choice { font-size: 8px; min-width: 30px; height: 16px; padding: 0 4px; line-height: 1; border-radius: 9px; }
+  .popup.review-popup .review-language-bar { gap: 3px; }
+}
+
+/* v20: preserve readable bilingual episode metadata on narrow screens */
+.ranking-episode-line {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .12rem .35rem;
+  margin: .22rem 0 .38rem;
+  color: #777267;
+  font-family: 'Fira Sans', 'Yu Gothic UI', sans-serif;
+  font-size: 10px;
+  font-weight: 400;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+}
+.ranking-episode-separator { color: #b7ad99; }
+.popup-review-text .review-episode-heading { font-weight: 600; margin: 0 0 1.15em; line-height: 1.55; }
+.popup-review-text .review-standfirst { margin-bottom: 0; }
+.popup-review-text .review-section-divider { height: 0; width: calc(100% - 38px); border-top: 1px solid rgba(142,121,88,.245); transform: scaleY(.65); transform-origin: center; margin: 1.7em 0 2em; }
+.popup-review-text .review-section-divider + p { margin-top: 0; }

@@ -408,6 +408,12 @@ const season = window.season; // spring, summer, etc.
     kvImg.alt = `${entryData.title} key visual`;
   }
 
+  // Experiment: move the original rank/trend node into the key-visual corner.
+  // This preserves rank colors, special badges, trend updates and source data.
+  const originalRank = clone.querySelector('.entry > .rank-wrapper');
+  const kvCorner = clone.querySelector('.kv-thumb');
+  if (originalRank && kvCorner) kvCorner.appendChild(originalRank);
+
   // — トレンド —
   const trendLabel = clone.querySelector(".trend-label");
   const trendIcon = clone.querySelector(".rank-trend img");
@@ -423,6 +429,32 @@ const season = window.season; // spring, summer, etc.
   // — タイトル＆日本語タイトル —
   clone.querySelector(".info-top").textContent = entryData.title || "";
   clone.querySelector(".jp-title").textContent = entryData.jpTitle || "";
+
+  // v20: bilingual episode headings beneath the anime titles.
+  const enEpisode = reviewParts(entryData.review?.en || '').heading;
+  const jpEpisode = reviewParts(entryData.review?.jp || '').heading;
+  const jpTitle = clone.querySelector('.jp-title');
+  if (jpTitle && (enEpisode || jpEpisode)) {
+    const episodeLine = document.createElement('div');
+    episodeLine.className = 'ranking-episode-line';
+    if (enEpisode) {
+      const en = document.createElement('span');
+      en.textContent = enEpisode;
+      episodeLine.appendChild(en);
+    }
+    if (enEpisode && jpEpisode) {
+      const separator = document.createElement('span');
+      separator.className = 'ranking-episode-separator';
+      separator.textContent = '│';
+      episodeLine.appendChild(separator);
+    }
+    if (jpEpisode) {
+      const jp = document.createElement('span');
+      jp.textContent = jpEpisode;
+      episodeLine.appendChild(jp);
+    }
+    jpTitle.after(episodeLine);
+  }
 
   // — ジャンルタグ —
   const genreBox = clone.querySelector(".genre-tags");
@@ -624,6 +656,51 @@ function positionPopup(trigger, popup) {
 }
 
 
+
+// v20: presentation-only parsing of the existing bilingual review HTML.
+// The source JSON and its original review markup are never modified.
+function reviewParts(markup) {
+  if (!markup || !markup.trim()) return { heading: '', html: markup || '' };
+  const template = document.createElement('template');
+  template.innerHTML = markup;
+  const root = template.content;
+  // Existing reviews begin with either a <strong> episode heading or a text node.
+  let heading = '';
+  const first = root.firstChild;
+  if (first && first.nodeType === Node.ELEMENT_NODE && first.tagName === 'STRONG') {
+    heading = first.textContent.trim();
+    first.remove();
+  } else if (first && first.nodeType === Node.TEXT_NODE) {
+    const raw = first.textContent;
+    const m = raw.match(/^\s*((?:Episode\s*#?\s*\d+|第\s*\d+\s*話)[^\r\n]*)/i);
+    if (m) {
+      heading = m[1].trim();
+      first.textContent = raw.slice(m[0].length);
+    }
+  }
+  if (heading) {
+    const h = document.createElement('div');
+    h.className = 'review-episode-heading';
+    h.textContent = heading;
+    root.insertBefore(h, root.firstChild);
+  }
+  const paragraphs = [...root.querySelectorAll('p')];
+  const firstParagraph = paragraphs[0];
+  if (firstParagraph) {
+    const quote = firstParagraph.textContent.trim();
+    if (/^["“「]/.test(quote) && /["”」]$/.test(quote)) {
+      firstParagraph.classList.add('review-standfirst');
+      if (paragraphs.length > 1) {
+        const rule = document.createElement('div');
+        rule.className = 'review-section-divider';
+        rule.setAttribute('aria-hidden', 'true');
+        firstParagraph.after(rule);
+      }
+    }
+  }
+  return { heading, html: template.innerHTML };
+}
+
 // ========== ポップアップロジック（EN/JP切り替え: 閉じずに切替・ボタン制御追加） ==========
 function setupPopups() {
   document.querySelectorAll('.review-tag').forEach(btn => {
@@ -653,6 +730,19 @@ popup.addEventListener('click', function (e) {
   e.stopPropagation();
 });
 
+const languageBar = document.createElement('div');
+languageBar.className = 'review-language-bar';
+const languageButtons = {};
+['en', 'jp'].forEach(code => {
+  const languageBtn = document.createElement('button');
+  languageBtn.type = 'button';
+  languageBtn.className = `review-language-choice review-language-${code}`;
+  languageBtn.textContent = code.toUpperCase();
+  languageBtn.setAttribute('aria-label', code === 'en' ? 'English review' : 'Japanese review');
+  languageButtons[code] = languageBtn;
+  languageBar.appendChild(languageBtn);
+});
+
 const contentEl = document.createElement('div');
 contentEl.className = 'popup-review-text';
 
@@ -678,7 +768,7 @@ function updateContent() {
 
 console.log("📦 reviewEn =", reviewEn);
 
-    contentEl.innerHTML = reviewEn || 'English review not available.';
+    contentEl.innerHTML = reviewEn ? reviewParts(reviewEn).html : 'English review not available.';
     switchBtn.textContent = 'Switch to Japanese';
 
  console.log("🌸 contentEl.innerHTML after setting:", contentEl.innerHTML);
@@ -686,26 +776,44 @@ console.log("📦 reviewEn =", reviewEn);
 
 
   } else {
-    contentEl.innerHTML = reviewJp || 'Japanese review not available.';
+    contentEl.innerHTML = reviewJp ? reviewParts(reviewJp).html : 'Japanese review not available.';
     switchBtn.textContent = 'Switch to English';
   }
 // 🔁 ここでフォント用クラスを切り替える
   contentEl.classList.remove('lang-en', 'lang-jp');
   contentEl.classList.add(lang === 'jp' ? 'lang-jp' : 'lang-en');
   switchBtn.disabled = false;
+  Object.entries(languageButtons).forEach(([code, languageBtn]) => {
+    const selected = code === lang;
+    languageBtn.classList.toggle('is-selected', selected);
+    languageBtn.setAttribute('aria-pressed', String(selected));
+  });
   btn.dataset.lang = lang;
 }
 
 updateContent();
 
+function changeReviewLanguage(nextLang) {
+  if (lang === nextLang) return;
+  lang = nextLang;
+  updateContent();
+  popup.scrollTop = 0;
+  requestAnimationFrame(() => {
+    popup.scrollTop = 0;
+    adjustFlowerSize(contentEl, flowerTopLeft, flowerBottomRight);
+    adjustPopupPadding(popup);
+  });
+}
+Object.entries(languageButtons).forEach(([code, languageBtn]) => {
+  languageBtn.addEventListener('click', function (e) {
+    e.stopPropagation();
+    changeReviewLanguage(code);
+  });
+});
+
 switchBtn.addEventListener('click', function (e) {
   e.stopPropagation();
-  lang = lang === 'en' ? 'jp' : 'en';
-  updateContent();
-  setTimeout(() => {
-  adjustFlowerSize(contentEl, flowerTopLeft, flowerBottomRight);
-}, 0); // ←💡追加！
-  adjustPopupPadding(popup); // ←💡追加！
+  changeReviewLanguage(lang === 'en' ? 'jp' : 'en');
 });
 
 // 🌟 ここにセットタイムアウトを追加！
@@ -723,6 +831,7 @@ closeBtn.addEventListener('click', function (e) {
 // ✅ Append順に注意（花 → content → ボタン）
 popup.appendChild(flowerTopLeft);
 popup.appendChild(flowerBottomRight);
+popup.appendChild(languageBar);
 popup.appendChild(contentEl);
 popup.appendChild(switchBtn);
 popup.appendChild(closeBtn);
