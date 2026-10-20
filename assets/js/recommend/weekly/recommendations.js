@@ -114,73 +114,79 @@ function pickReviewForRec(entry) {
 }
 
 // ====== ページメタ更新 ======
+// 年・季節の正本はページURL。日付とステージはRecommendation JSONのmeta。
+const PAGE_YEAR = year;
+const PAGE_SEASON = season;
+
+function formatDateJA(rawDate) {
+  const dateText = String(rawDate || '').trim();
+  const monthNumbers = {
+    january: 1, february: 2, march: 3, april: 4,
+    may: 5, june: 6, july: 7, august: 8,
+    september: 9, october: 10, november: 11, december: 12
+  };
+  const match = dateText.match(/^([A-Za-z]+)\s+(\d{1,2}),\s*(\d{4})$/);
+  const month = match && monthNumbers[match[1].toLowerCase()];
+  return month
+    ? `${match[3]}年${month}月${Number(match[2])}日`
+    : dateText;
+}
+
 function updatePageMeta(meta) {
-  const year = meta.year || "";
-  const seasonRaw = meta.season || "";
-  const stage = meta.recommendationstage || meta.recommendationStage || "";
-  const date = meta.seasondate || meta.seasonDate || "";
+  const metaYear = String(meta.year || '').trim();
+  const metaSeason = String(meta.season || '').trim().toLowerCase();
+  if ((metaYear && metaYear !== PAGE_YEAR) ||
+      (metaSeason && metaSeason !== PAGE_SEASON.toLowerCase())) {
+    console.warn('[Recommendations] URL and JSON year/season differ. Displaying the URL values.', {
+      url: `${PAGE_YEAR}/${PAGE_SEASON}`,
+      json: `${metaYear}/${metaSeason}`
+    });
+  }
 
-  const season =
-    seasonRaw.charAt(0).toUpperCase() +
-    seasonRaw.slice(1).toLowerCase();
+  const stage = meta.recommendationstage || meta.recommendationStage || '';
+  const date = meta.seasondate || meta.seasonDate || '';
+  const displayDate = IS_JA ? formatDateJA(date) : date;
+  const seasonName = PAGE_SEASON.charAt(0).toUpperCase() + PAGE_SEASON.slice(1).toLowerCase();
+  const seasonJPMap = { Spring: '春', Summer: '夏', Fall: '秋', Winter: '冬' };
+  const seasonJP = seasonJPMap[seasonName] || seasonName;
+  const stageJA = /mid/i.test(stage)
+    ? '中盤折り返しおすすめ作品'
+    : /end/i.test(stage)
+      ? 'シーズン終了時おすすめ作品'
+      : stage;
 
-  const seasonJPMap = {
-  Spring: "春",
-  Summer: "夏",
-  Fall: "秋",
-  Winter: "冬"
-};
-
-const seasonJP = seasonJPMap[season] || season;  
-
-  // ページ上部の Season / Year
   document.querySelectorAll('.season').forEach(el => {
-  el.textContent = IS_JA
-    ? `${year}年${seasonJP}`
-    : `${season} ${year}`;
-});
-
-  // Mid-Season / End-of-Season など
-  document.querySelectorAll('.stage').forEach(el => {
-    if (IS_JA) {
-      if (/mid/i.test(stage)) {
-        el.textContent = "中盤折り返しおすすめ作品";
-      } else if (/end/i.test(stage)) {
-        el.textContent = "シーズン終了時おすすめ作品";
-      } else {
-        el.textContent = stage;
-      }
-    } else {
-      el.textContent = stage
-        ? `${stage} Recommendations`
-        : "Recommendations";
-    }
+    el.textContent = IS_JA
+      ? `${PAGE_YEAR}年${seasonJP}`
+      : `${seasonName} ${PAGE_YEAR}`;
   });
 
-  // Last updated
+  document.querySelectorAll('.stage').forEach(el => {
+    el.textContent = IS_JA
+      ? stageJA
+      : stage ? `${stage} Recommendations` : 'Recommendations';
+  });
+
   document.querySelectorAll('.update-date').forEach(el => {
     el.textContent = IS_JA
-      ? `最終更新日: ${date}`
-      : `Last updated: ${date}`;
+      ? `最終更新日: ${displayDate}`
+      : `Last updated: ${displayDate}`;
   });
 
-  // Footerの日付
   const footer = document.querySelector('footer');
   if (footer) {
     const dateLine = Array.from(footer.querySelectorAll('p'))
       .find(p => /Last updated|最終更新日/i.test(p.textContent));
-
     if (dateLine) {
       dateLine.textContent = IS_JA
-        ? `最終更新日: ${date}`
-        : `Last updated: ${date}`;
+        ? `最終更新日: ${displayDate}`
+        : `Last updated: ${displayDate}`;
     }
   }
 
-  // ページタイトル
   document.title = IS_JA
-  ? `${year}年${season === "Summer" ? "夏" : season}アニメ ${stage}`
-  : `${season} ${year} Anime ${stage} Recommendations`;
+    ? `${PAGE_YEAR}年${seasonJP}アニメ ${stageJA}`
+    : `${seasonName} ${PAGE_YEAR} Anime ${stage} Recommendations`;
 }
 
 // ====== 起動処理 ======
