@@ -21,6 +21,33 @@ document.addEventListener("DOMContentLoaded", function() {
   };
 
 
+// v11: Explicit opt-in metadata tokens in article snippets.
+// Text nodes only: do not rewrite prose, HTML attributes, or existing dates.
+// Available after JSON loads; no changes are made to legacy text unless a token exists.
+let tierArticleMetadata = null;
+function applyTierArticleMetadata(root) {
+  if (!root || !tierArticleMetadata) return;
+  const tokens = {
+    "{{year}}": tierArticleMetadata.year,
+    "{{season}}": tierArticleMetadata.season,
+    "{{week}}": tierArticleMetadata.week,
+    "{{weekNumber}}": tierArticleMetadata.weekNumber,
+    "{{seasonDate}}": tierArticleMetadata.seasonDate,
+    "{{publishedDate}}": tierArticleMetadata.publishedDate,
+    "{{updatedDate}}": tierArticleMetadata.updatedDate
+  };
+  const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
+  const nodes = [];
+  while (walker.nextNode()) nodes.push(walker.currentNode);
+  nodes.forEach(node => {
+    if (!/\{\{(?:year|season|week|weekNumber|seasonDate|publishedDate|updatedDate)\}\}/.test(node.nodeValue)) return;
+    node.nodeValue = node.nodeValue.replace(/\{\{(?:year|season|week|weekNumber|seasonDate|publishedDate|updatedDate)\}\}/g, token => tokens[token] == null ? token : String(tokens[token]));
+  });
+}
+function applyTierMetadataToArticles() {
+  ["introText","contentText","conclusionText"].forEach(id => applyTierArticleMetadata(document.getElementById(id)));
+}
+
 // ✅ intro.html 読み込み
   fetch("intro.html")
     .then(res => res.ok ? res.text() : null)
@@ -28,6 +55,7 @@ document.addEventListener("DOMContentLoaded", function() {
       const target = document.getElementById("introText");
       if (html) {
         target.innerHTML = html;
+        applyTierArticleMetadata(target);
       }
     });
 
@@ -39,6 +67,7 @@ document.addEventListener("DOMContentLoaded", function() {
       const target = document.getElementById("contentText");
       if (html) {
         target.innerHTML = html;
+        applyTierArticleMetadata(target);
       }
     });
 
@@ -49,6 +78,7 @@ document.addEventListener("DOMContentLoaded", function() {
       const target = document.getElementById("conclusionText");
       if (html) {
         target.innerHTML = html;
+        applyTierArticleMetadata(target);
       }
     });
 
@@ -199,6 +229,16 @@ function setTierImage() {
       const jsonYear = match ? match[1] : "";
       const validPage = Boolean(match && jsonSeason === urlSeason && jsonYear === String(year));
       if (validPage) {
+        tierArticleMetadata = {
+          year: String(year),
+          season: jsonSeason.charAt(0).toUpperCase() + jsonSeason.slice(1),
+          week: String(week),
+          weekNumber: String(Number(String(week).replace(/^week/i, ""))),
+          seasonDate: jsonData.seasonDate ?? null,
+          publishedDate: jsonData.publishedDate ?? null,
+          updatedDate: jsonData.updatedDate ?? null
+        };
+        applyTierMetadataToArticles();
         const body = document.body;
         ["fall-hero-v27", "fall-hero-v28", "fall-hero-v29", "fall-hero-v30", "fall-hero-v31", "fall-hero-v32"].forEach(cls => body.classList.add(cls));
         body.classList.add("tierlist-editorial-common", "tierlist-theme-" + jsonSeason);

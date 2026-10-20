@@ -954,3 +954,25 @@ body.tierlist-editorial-common .fall-hero-season {
 
 /* v9: restore visible image zoom guidance across desktop and touch. */
 .tier-image-touch-hint { display:block; margin:.7rem 0 0; color:#837a68; font-family:Abel,sans-serif; font-size:.78rem; line-height:1.35; text-align:center; letter-spacing:.015em; }
+
+/* v11: editorial subheading is a reusable article component, not a hero version.
+   Retain the exact approved v10 appearance; no header/first-letter changes. */
+body.tierlist-editorial-common .tier-editorial-subheading,
+body.tierlist-editorial-common .tier-final-heading {
+  font-family:'EB Garamond',serif;
+  font-size:1.55rem;
+  font-weight:700;
+  color:#625c4c;
+  display:flex;
+  align-items:center;
+  gap:.8rem;
+  margin:3.25rem 0 1rem;
+}
+body.tierlist-editorial-common .tier-editorial-subheading::before,
+body.tierlist-editorial-common .tier-final-heading::before {
+  content:"";width:26px;flex:none;border-top:1px solid #b8a77d;
+}
+body.tierlist-editorial-common .tier-editorial-subheading::after,
+body.tierlist-editorial-common .tier-final-heading::after {
+  content:"";flex:1;border-top:1px solid #e4dfcc;
+}
