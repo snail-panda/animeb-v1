@@ -480,3 +480,499 @@ h4.tier-neverwatched { border-left-color: #cccccc; } /* 任意 */
     margin-right: auto;
   }
 }
+
+/* v23 Tier List editorial refinement */
+.post-header h1 {color:#38362f;}
+.post-header .season-highlight.spring {color:#4f804c;}
+.post-header .season-highlight.summer {color:#339cbb;}
+.post-header .season-highlight.fall {color:#d24529;}
+.post-header .season-highlight.winter {color:#3338bb;}
+.post-date {color:#918977;}
+.post-header::after {content:"";display:block;border-top:1px solid #e1ddc9;margin:1.25rem 0 0;}
+.post-intro {margin-top:2.4rem;}
+.post-intro,.post-content,.post-conclusion {color:#57534b;}
+#introText::first-letter {font-size:195%;color:#8b916c;}
+#contentText::first-letter {font-size:195%;color:#b5844b;}
+#conclusionText::first-letter {font-size:195%;color:#8e7770;}
+.tier-image-caption {font-family:'Abel',sans-serif;font-size:.9rem;color:#6f6b55;font-weight:600;margin:0 0 .55rem;letter-spacing:.01em;}
+.tierlist-image {min-width:0;}
+.tierlist-image img {display:block;transform-origin:left center;}
+@media (hover:hover) and (pointer:fine) {.tierlist-image img:hover {transform:scale(1.8);}}
+.tier-image-viewer {position:fixed;inset:0;background:rgba(28,26,22,.85);z-index:99999;display:none;flex-direction:column;align-items:center;padding:1rem;box-sizing:border-box;}
+.tier-image-viewer.is-open {display:flex;}
+.tier-image-toolbar {display:flex;align-items:center;gap:.65rem;color:white;font-family:Arial,sans-serif;font-size:13px;margin-bottom:.7rem;}
+.tier-image-toolbar button {font:inherit;padding:.35rem .65rem;border:1px solid #c7c1b5;border-radius:5px;background:#faf6e9;color:#3e3930;cursor:pointer;}
+.tier-image-scroll {overflow:auto;overscroll-behavior:contain;flex:1;width:100%;max-width:1100px;background:#1b1b1b;touch-action:pan-x pan-y;}
+.tier-image-scroll img {display:block;max-width:none;height:auto;width:170%;} 
+.tier-final-heading {font-family:'EB Garamond',serif;font-weight:600;color:#625c4c;font-size:1.25rem;display:flex;align-items:center;gap:.8rem;margin:2rem 0 1rem;}
+.tier-final-heading::before {content:"";width:26px;border-top:1px solid #b8a77d;}
+.tier-final-heading::after {content:"";flex:1;border-top:1px solid #e4dfcc;}
+@media(max-width:480px){.post-date {font-size:.9rem;} .tier-image-caption {font-size:.85rem;} .tier-image-scroll img{width:280%;}.tierlist-image img {cursor:zoom-in;}}
+
+/* v24: subtle editorial paper edge, restrained title ink, mobile tier alignment */
+.main-container {border:1px solid #e4dcc8;box-shadow:0 3px 11px rgba(94,75,48,.105),0 1px 2px rgba(94,75,48,.055);}
+.post-header h1 {color:#40372f;}
+.tierlist-titles-header {font-family:'Abel',sans-serif;}
+@media (max-width:600px) {
+  .tier-image-caption,.tierlist-titles-header {font-family:'Abel',sans-serif;font-size:.85rem;line-height:1.35;letter-spacing:.01em;}
+  .tier-image-caption {font-weight:600;}
+  .tierlist-titles-header {font-weight:500;}
+  .tierlist-image img.mobile-preview-zoom {transform:scale(1.48);transform-origin:left top;box-shadow:0 5px 16px rgba(55,44,30,.23);position:relative;z-index:15;}
+}
+
+/* v25: warm editorial heading, mobile breathing room and touch zoom guidance */
+.post-header h1 { color:#51443a; }
+@media (max-width:600px) {
+  .main-container { padding:1.35rem; }
+  .post-header { padding-top:1.45rem; }
+  .post-date { margin-bottom:.6rem; }
+  .post-header::after { margin-top:1rem; }
+  .tierlist-image img.mobile-preview-zoom {
+    transform:scale(1.8);
+    transform-origin:left top;
+  }
+  .tier-image-touch-hint {
+    margin:.7rem 0 0;
+    color:#837a68;
+    font-family:'Abel',sans-serif;
+    font-size:.78rem;
+    line-height:1.35;
+    text-align:center;
+    letter-spacing:.015em;
+  }
+}
+@media (min-width:601px) { .tier-image-touch-hint { display:none; } }
+
+
+/* v26: consistent desktop/mobile editorial hierarchy and vertical rhythm.
+   Keep image interaction, body type, and existing paper frame unchanged. */
+.post-header {
+  padding-top: 2.5rem;
+}
+.post-header h1 {
+  color: #634735;
+  font-weight: 650;
+  margin-bottom: 1.25rem;
+}
+.post-date {
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+}
+.post-header::after {
+  margin-top: 1rem;
+}
+.post-intro {
+  margin-top: 3.6rem;
+}
+.tier-final-heading {
+  margin-top: 3.25rem;
+}
+@media (max-width:600px) {
+  .post-header { padding-top: 2.5rem; }
+  .post-date { margin-bottom: 0.75rem; }
+  .post-header::after { margin-top: 1rem; }
+  .post-intro { margin-top: 3.6rem; }
+}
+
+/* v27 — Fall 2026 Week 1 editorial header ONLY. All existing body/zoom behavior retained. */
+body.fall-hero-v27 { background:#b8bea0; }
+.fall-hero-v27 .outer-wrapper { padding:1.15rem 1rem 2rem; }
+.fall-hero-v27 .main-container { background:#fbf9e9; border-radius:18px; border-color:#e6dfc9; }
+.fall-hero-v27 .post-header { width:100%;max-width:44rem;margin-inline:auto;padding-top:2.5rem; }
+.fall-hero-v27 .fall-hero-eyebrow { font:800 .62rem/1.3 Arial,sans-serif;letter-spacing:.095em;color:#16120f;margin:0 0 1.5rem; }
+.fall-hero-v27 .post-header h1 { display:grid;grid-template-columns:1.15fr 1fr;align-items:center;gap:1.2rem;width:100%;font-family:Arial,Helvetica,sans-serif;font-weight:900;margin:0 0 .75rem;color:#261107;letter-spacing:-.035em;line-height:1; }
+.fall-hero-v27 .fall-hero-left { display:flex;flex-direction:column;align-items:flex-start;min-width:0; }
+.fall-hero-v27 .fall-hero-year { font-size:clamp(1.65rem,3.8vw,2.65rem);letter-spacing:-.06em;line-height:1.05;color:#291207; }
+.fall-hero-v27 .fall-hero-season { font-size:clamp(4.2rem,11vw,8rem);line-height:.93;letter-spacing:-.075em;color:#d69b0d;font-weight:950; }
+.fall-hero-v27 .fall-hero-right { display:flex;flex-direction:column;justify-content:center;min-width:0;padding:.4rem 0 .4rem 1.1rem;border-left:1px solid #77734f; }
+.fall-hero-v27 .fall-hero-lines { display:flex;flex-direction:column;font-size:clamp(1.2rem,2.9vw,2.05rem);line-height:1.03;letter-spacing:-.055em; }
+.fall-hero-v27 .fall-hero-tier { color:#59351f; }
+.fall-hero-v27 .fall-hero-episode { font:700 clamp(1rem,2.4vw,1.5rem)/1.15 Georgia,serif;color:#747548;letter-spacing:-.035em;margin-top:.55rem; }
+.fall-hero-v27 .post-date { font:400 .92rem/1.5 Arial,sans-serif;color:#9a967d;margin:0 0 .55rem; }
+.fall-hero-v27 .post-header::after { margin-top:.8rem;border-color:#c9c7a8; }
+.fall-hero-v27 #introText::first-letter { color:#818454; }
+@media (max-width:600px) {
+ .fall-hero-v27 .outer-wrapper { padding:.6rem .55rem 1rem; }
+ .fall-hero-v27 .main-container { padding:1.25rem; }
+ .fall-hero-v27 .post-header { padding-top:1.8rem; }
+ .fall-hero-v27 .fall-hero-eyebrow { font-size:.54rem;margin-bottom:1.1rem; }
+ .fall-hero-v27 .post-header h1 { grid-template-columns:1fr;gap:1rem;margin-bottom:.9rem; }
+ .fall-hero-v27 .fall-hero-year { font-size:1.85rem; }
+ .fall-hero-v27 .fall-hero-season { font-size:clamp(5.5rem,24vw,8rem); }
+ .fall-hero-v27 .fall-hero-right { border-left:0;border-top:1px solid #a6a17d;padding:.8rem 0 0; }
+ .fall-hero-v27 .fall-hero-lines { font-size:clamp(1.5rem,6.5vw,2rem); }
+ .fall-hero-v27 .fall-hero-episode { font-size:1.15rem; }
+ .fall-hero-v27 .post-date { font-size:.8rem; }
+}
+
+/* v28: approved responsive editorial header; Fall 2026 Week 1 ONLY */
+body.fall-hero-v28 { background:#d2d5be; }
+.fall-hero-v28 .main-container { background:#fbf9e9; }
+.fall-hero-v28 .post-header { max-width:49rem; padding-top:2.8rem; }
+.fall-hero-v28 .fall-hero-eyebrow { font-size:.60rem; letter-spacing:.045em; margin-bottom:1.25rem; color:#21150f; }
+.fall-hero-v28 .fall-hero-eyebrow-tier { color:#914629; }
+.fall-hero-v28 .fall-hero-slash { color:#21150f; }
+.fall-hero-v28 .post-header h1 { grid-template-columns:1.16fr 1fr; gap:1.55rem; color:#3a2117; margin-bottom:.55rem; }
+.fall-hero-v28 .fall-hero-year { color:#311c13; font-size:clamp(1.65rem,3.3vw,2.35rem); line-height:1.03; }
+.fall-hero-v28 .fall-hero-season { color:#d69b0d; font-size:clamp(4.1rem,10vw,7.6rem); letter-spacing:-.075em; }
+.fall-hero-v28 .fall-hero-right { border-color:#858b67; padding-left:1.55rem; }
+.fall-hero-v28 .fall-hero-lines { color:#392117; font-size:clamp(1.25rem,2.65vw,1.98rem); line-height:1.06; }
+.fall-hero-v28 .fall-hero-tier { color:#914629; }
+.fall-hero-v28 .fall-hero-episode { color:#747c50; font-family:Arial,Helvetica,sans-serif; font-size:clamp(.9rem,1.75vw,1.25rem); font-weight:750; letter-spacing:-.025em; }
+.fall-hero-v28 .post-date { color:#969b7d; }
+.fall-hero-v28 .post-header::after { border-color:#adb394; }
+@media(max-width:600px) {
+ .fall-hero-v28 .post-header { padding-top:2.1rem; }
+ .fall-hero-v28 .fall-hero-eyebrow { font-size:.53rem; margin-bottom:1.1rem; }
+ .fall-hero-v28 .post-header h1 { grid-template-columns:minmax(0,1fr); gap:.95rem; }
+ .fall-hero-v28 .fall-hero-year { font-size:1.65rem; }
+ .fall-hero-v28 .fall-hero-season { font-size:clamp(5rem,23vw,7.6rem); }
+ .fall-hero-v28 .fall-hero-right { border-left:0; border-top:1.5px solid #929979; padding:.9rem 0 0; }
+ .fall-hero-v28 .fall-hero-lines { font-size:clamp(1.4rem,6.1vw,1.9rem); }
+ .fall-hero-v28 .fall-hero-episode { font-size:1.03rem; }
+ /* Optional comparison only: ?layout=horizontal */
+ .fall-hero-v28.fall-mobile-horizontal .post-header h1 { grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:.55rem; align-items:center; }
+ .fall-hero-v28.fall-mobile-horizontal .fall-hero-year { font-size:1.05rem; }
+ .fall-hero-v28.fall-mobile-horizontal .fall-hero-season { font-size:clamp(2.5rem,12vw,4.6rem); }
+ .fall-hero-v28.fall-mobile-horizontal .fall-hero-right { border-top:0; border-left:1px solid #929979; padding:0 0 0 .6rem; }
+ .fall-hero-v28.fall-mobile-horizontal .fall-hero-lines { font-size:clamp(.82rem,3.55vw,1.15rem); }
+ .fall-hero-v28.fall-mobile-horizontal .fall-hero-episode { font-size:.78rem; }
+}
+
+/* v29: screenshot-matched editorial hierarchy; Fall 2026 Week 1 only. */
+body.fall-hero-v29 { background:#e0e2ce; }
+.fall-hero-v29 .main-container {background:#fbf9eb;}
+.fall-hero-v29 .post-header {max-width:49rem;padding-top:1.5rem;}
+.fall-hero-v29 .fall-hero-eyebrow {margin:0 0 .75rem;font-size:.66rem;font-weight:900;letter-spacing:.025em;}
+.fall-hero-v29 .post-header h1 {display:grid;grid-template-columns:minmax(0, .98fr) minmax(0, 1fr);gap:1.2rem;align-items:center;margin:0 0 .15rem;letter-spacing:-.04em;}
+.fall-hero-v29 .fall-hero-left {min-width:0;align-items:flex-start;gap:0;}
+.fall-hero-v29 .fall-hero-year {font-family:'Arial Black',Arial,sans-serif;font-weight:1000;font-size:clamp(2.3rem,4.3vw,3.2rem);line-height:.99;letter-spacing:-.075em;}
+.fall-hero-v29 .fall-hero-season {font-family:'Arial Black',Impact,Arial,sans-serif;font-weight:1000;font-size:clamp(5.4rem,12vw,9.2rem);line-height:.88;letter-spacing:-.075em;color:#d99d08;margin-left:-.015em;}
+.fall-hero-v29 .fall-hero-right {border-left:2px solid #858b68;padding:.05rem 0 .05rem 1.4rem;min-width:0;}
+.fall-hero-v29 .fall-hero-lines {font-family:'Arial Black',Arial,sans-serif;font-weight:1000;font-size:clamp(1.55rem,3.3vw,2.45rem);line-height:1.04;letter-spacing:-.05em;}
+.fall-hero-v29 .fall-hero-tier {color:#974729;}
+.fall-hero-v29 .fall-hero-episode {font-family:Georgia,serif;font-weight:800;font-size:clamp(1.35rem,2.3vw,1.85rem);color:#747d4f;margin-top:.45rem;letter-spacing:-.04em;}
+.fall-hero-v29 .post-date {font-size:.96rem;line-height:1.3;margin:.2rem 0 .65rem;color:#949b7a;}
+.fall-hero-v29 .post-header::after {margin-top:.65rem;border-color:#aeb595;}
+.fall-hero-v29 .post-intro {margin-top:1.5rem;}
+.fall-hero-v29 #introText::first-letter,
+.fall-hero-v29 #contentText::first-letter,
+.fall-hero-v29 #conclusionText::first-letter {font-family:Georgia,serif;font-weight:900;font-size:310%;line-height:.8;margin-right:.06em;}
+.fall-hero-v29 .tier-final-heading {font-size:1.55rem;font-weight:700;}
+@media(max-width:600px) and (orientation:portrait) {
+ .fall-hero-v29 .post-header {padding-top:1.6rem;}
+ .fall-hero-v29 .fall-hero-eyebrow {font-size:.65rem;margin-bottom:.8rem;}
+ .fall-hero-v29 .post-header h1 {grid-template-columns:minmax(0,1fr);gap:.65rem;margin-bottom:.6rem;}
+ .fall-hero-v29 .fall-hero-year {font-size:2.25rem;}
+ .fall-hero-v29 .fall-hero-season {font-size:clamp(5.4rem,24.5vw,8rem);line-height:.86;}
+ .fall-hero-v29 .fall-hero-right {border-left:0;border-top:1.5px solid #919878;padding:.75rem 0 0;}
+ .fall-hero-v29 .fall-hero-lines {font-size:clamp(1.65rem,7vw,2.2rem);line-height:1.05;}
+ .fall-hero-v29 .fall-hero-episode {font-size:1.45rem;margin-top:.4rem;}
+ .fall-hero-v29 .post-date {font-size:.82rem;margin:.35rem 0 .65rem;}
+ .fall-hero-v29 .post-intro {margin-top:3.1rem;}
+}
+@media(max-width:950px) and (orientation:landscape) {
+ .fall-hero-v29 .post-header {padding-top:1.2rem;}
+ .fall-hero-v29 .post-header h1 {grid-template-columns:minmax(0,.95fr) minmax(0,1fr);gap:.8rem;}
+ .fall-hero-v29 .fall-hero-year {font-size:clamp(1.6rem,4vw,2.3rem);}
+ .fall-hero-v29 .fall-hero-season {font-size:clamp(3.8rem,13vw,6.5rem);}
+ .fall-hero-v29 .fall-hero-right {border-top:0;border-left:2px solid #858b68;padding:0 0 0 .85rem;}
+ .fall-hero-v29 .fall-hero-lines {font-size:clamp(1.15rem,3.3vw,1.8rem);}
+ .fall-hero-v29 .fall-hero-episode {font-size:clamp(1rem,2.5vw,1.45rem);}
+ .fall-hero-v29 .post-intro {margin-top:1.6rem;}
+}
+
+
+/* v30 — responsive header stabilization, Fall 2026 Week 1 only */
+body.fall-hero-v30 {background:#e9ebdd;}
+.fall-hero-v30 .post-header {max-width:49rem;}
+.fall-hero-v30 .post-header h1 {grid-template-columns:minmax(0,1.04fr) minmax(0,1fr);gap:.8rem;align-items:center;}
+.fall-hero-v30 .fall-hero-left {display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:0;min-width:0;}
+.fall-hero-v30 .fall-hero-year {display:block;margin:0 0 -.025em 0;padding:0;font-family:Impact,'Arial Black',Arial,sans-serif;font-weight:900;line-height:.92;letter-spacing:-.035em;}
+.fall-hero-v30 .fall-hero-season {display:block;margin:0;padding:0;max-width:100%;font-family:Impact,'Arial Black',Arial,sans-serif;font-weight:900;font-stretch:normal;letter-spacing:-.045em;line-height:.9;white-space:nowrap;text-indent:0;transform:none;}
+.fall-hero-v30 .fall-hero-right {padding-left:1rem;}
+.fall-hero-v30 .fall-hero-episode {font-family:Georgia,serif;font-weight:900;letter-spacing:-.025em;}
+.fall-hero-v30 .post-date {font-size:.84rem;margin:.02rem 0 .55rem;line-height:1.3;}
+.fall-hero-v30 #introText::first-letter,
+.fall-hero-v30 #contentText::first-letter,
+.fall-hero-v30 #conclusionText::first-letter {font-family:Impact,'Arial Black',Arial,sans-serif;font-size:245%;font-weight:900;line-height:.9;margin-right:.045em;}
+@media(min-width:951px){
+ .fall-hero-v30 .fall-hero-season {font-size:clamp(5.8rem,11vw,9.1rem);}
+ .fall-hero-v30 .fall-hero-year {font-size:clamp(2.4rem,4.3vw,3.2rem);}
+ .fall-hero-v30 .fall-hero-lines {font-size:clamp(1.7rem,3.3vw,2.45rem);}
+}
+@media(max-width:950px) and (min-width:601px){
+ .fall-hero-v30 .post-header h1 {grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:.6rem;}
+ .fall-hero-v30 .fall-hero-season {font-size:clamp(4.3rem,10.2vw,7rem);}
+ .fall-hero-v30 .fall-hero-year {font-size:clamp(1.9rem,3.7vw,2.6rem);}
+ .fall-hero-v30 .fall-hero-right {padding-left:.75rem;}
+ .fall-hero-v30 .fall-hero-lines {font-size:clamp(1.3rem,3vw,2rem);}
+}
+@media(max-width:600px) and (orientation:portrait){
+ .fall-hero-v30 .post-header h1 {grid-template-columns:minmax(0,1fr);gap:.7rem;}
+ .fall-hero-v30 .fall-hero-year {font-size:2.1rem;}
+ .fall-hero-v30 .fall-hero-season {font-size:clamp(5rem,21.5vw,7.4rem);}
+ .fall-hero-v30 .fall-hero-right {border-left:0;border-top:1.5px solid #919878;padding:.8rem 0 0;}
+ .fall-hero-v30 .fall-hero-lines {font-size:clamp(1.65rem,7vw,2.2rem);}
+ .fall-hero-v30 .fall-hero-episode {font-size:1.5rem;}
+ .fall-hero-v30 .post-date {font-size:.82rem;}
+ .fall-hero-v30 #introText::first-letter,
+ .fall-hero-v30 #contentText::first-letter,
+ .fall-hero-v30 #conclusionText::first-letter {font-size:230%;}
+}
+@media(max-width:950px) and (orientation:landscape){
+ .fall-hero-v30 .post-header h1 {grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:.55rem;}
+ .fall-hero-v30 .fall-hero-year {font-size:clamp(1.45rem,3.8vw,2.2rem);}
+ .fall-hero-v30 .fall-hero-season {font-size:clamp(3.3rem,9.4vw,6.1rem);}
+ .fall-hero-v30 .fall-hero-right {padding-left:.65rem;}
+ .fall-hero-v30 .fall-hero-lines {font-size:clamp(1.1rem,3.4vw,1.85rem);}
+ .fall-hero-v30 .fall-hero-episode {font-size:clamp(1rem,2.7vw,1.5rem);}
+ .fall-hero-v30 #introText::first-letter,
+ .fall-hero-v30 #contentText::first-letter,
+ .fall-hero-v30 #conclusionText::first-letter {font-size:220%;}
+}
+
+/* v31 — repair compressed Impact letterforms; restore clean editorial hierarchy.
+   Scoped to Fall 2026 Week 1; no other tier list affected. */
+body.fall-hero-v31 {background:#e9ebdd;}
+.fall-hero-v31 .post-header {padding-top:1.65rem;}
+.fall-hero-v31 .fall-hero-eyebrow {font-size:.62rem;margin-bottom:.95rem;}
+.fall-hero-v31 .post-header h1 {grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:.8rem;align-items:center;}
+.fall-hero-v31 .fall-hero-left {align-items:flex-start;gap:0;}
+.fall-hero-v31 .fall-hero-year {font-family:'Arial Black',Arial,Helvetica,sans-serif;font-weight:900;font-size:clamp(2.1rem,4.3vw,3.15rem);line-height:1.05;letter-spacing:-.055em;margin:0 0 .02em;}
+.fall-hero-v31 .fall-hero-season {font-family:'Arial Black',Arial,Helvetica,sans-serif;font-weight:900;font-stretch:normal;font-size:clamp(5rem,10vw,8.4rem);line-height:.98;letter-spacing:-.065em;margin:0;white-space:nowrap;transform:none;text-indent:0;}
+.fall-hero-v31 .fall-hero-right {padding-left:1.1rem;}
+.fall-hero-v31 .fall-hero-lines {font-family:'Arial Black',Arial,Helvetica,sans-serif;font-weight:900;line-height:.98;letter-spacing:-.055em;font-size:clamp(1.55rem,3.3vw,2.4rem);}
+.fall-hero-v31 .fall-hero-episode {font-family:Georgia,serif;font-weight:900;font-size:clamp(1.25rem,2.15vw,1.7rem);line-height:1.05;margin-top:.5rem;}
+.fall-hero-v31 .post-date {font-size:.83rem;line-height:1.2;margin:.02rem 0 .5rem;}
+.fall-hero-v31 #introText::first-letter,.fall-hero-v31 #contentText::first-letter,.fall-hero-v31 #conclusionText::first-letter {font-family:Georgia,serif;font-weight:700;font-size:245%;line-height:.9;margin-right:.045em;}
+@media (min-width:951px) {
+ .fall-hero-v31 .fall-hero-season {font-size:clamp(6.3rem,10.4vw,8.6rem);}
+}
+@media (min-width:601px) and (max-width:950px) {
+ .fall-hero-v31 .post-header h1 {gap:.6rem;}
+ .fall-hero-v31 .fall-hero-season {font-size:clamp(4.1rem,9.5vw,6.2rem);}
+ .fall-hero-v31 .fall-hero-year {font-size:clamp(1.75rem,3.7vw,2.4rem);}
+ .fall-hero-v31 .fall-hero-right {padding-left:.7rem;}
+ .fall-hero-v31 .fall-hero-lines {font-size:clamp(1.25rem,3vw,1.9rem);}
+}
+@media (max-width:600px) and (orientation:portrait) {
+ .fall-hero-v31 .post-header h1 {grid-template-columns:minmax(0,1fr);gap:.7rem;}
+ .fall-hero-v31 .fall-hero-year {font-size:2.05rem;}
+ .fall-hero-v31 .fall-hero-season {font-size:clamp(4.9rem,20.5vw,6.9rem);letter-spacing:-.055em;}
+ .fall-hero-v31 .fall-hero-right {border-left:0;border-top:1.5px solid #919878;padding:.7rem 0 0;}
+ .fall-hero-v31 .fall-hero-lines {font-size:clamp(1.65rem,6.8vw,2.1rem);line-height:.98;}
+ .fall-hero-v31 .fall-hero-episode {font-size:1.42rem;}
+ .fall-hero-v31 .post-date {font-size:.82rem;}
+}
+@media (max-width:950px) and (orientation:landscape) {
+ .fall-hero-v31 .post-header {padding-top:1.05rem;}
+ .fall-hero-v31 .fall-hero-eyebrow {font-size:.51rem;margin-bottom:.6rem;}
+ .fall-hero-v31 .post-header h1 {grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:.5rem;}
+ .fall-hero-v31 .fall-hero-year {font-size:clamp(1.5rem,3.4vw,2.1rem);}
+ .fall-hero-v31 .fall-hero-season {font-size:clamp(3.5rem,8.8vw,5.7rem);letter-spacing:-.06em;}
+ .fall-hero-v31 .fall-hero-right {border-top:0;border-left:2px solid #858b68;padding:0 0 0 .65rem;}
+ .fall-hero-v31 .fall-hero-lines {font-size:clamp(1.1rem,3.25vw,1.8rem);line-height:.98;}
+ .fall-hero-v31 .fall-hero-episode {font-size:clamp(.95rem,2.45vw,1.4rem);}
+ .fall-hero-v31 #introText::first-letter,.fall-hero-v31 #contentText::first-letter,.fall-hero-v31 #conclusionText::first-letter {font-size:230%;}
+}
+
+/* v32 — final typography refinements; only Fall 2026 Week 1.
+   Preserve v31 background, layout, body typography, and other pages. */
+.fall-hero-v31.fall-hero-v32 .fall-hero-year {
+  font-size:clamp(1.85rem,3.45vw,2.65rem);
+  line-height:.96;
+  margin-bottom:-.085em;
+}
+.fall-hero-v31.fall-hero-v32 .fall-hero-season {
+  font-family:'Arial Black',Arial,Helvetica,sans-serif;
+  font-weight:900;
+  font-stretch:normal;
+  letter-spacing:-.045em;
+  margin-left:-.018em;
+  line-height:.96;
+}
+.fall-hero-v31.fall-hero-v32 #introText::first-letter,
+.fall-hero-v31.fall-hero-v32 #contentText::first-letter,
+.fall-hero-v31.fall-hero-v32 #conclusionText::first-letter {
+  font-family:Arial,Helvetica,sans-serif;
+  font-weight:700;
+  font-size:210%;
+  line-height:.95;
+  margin-right:.045em;
+}
+@media (max-width:600px) and (orientation:portrait) {
+  .fall-hero-v31.fall-hero-v32 .fall-hero-year {font-size:1.8rem;margin-bottom:-.07em;}
+  .fall-hero-v31.fall-hero-v32 .fall-hero-season {
+    font-family:'Arial Black',Arial,Helvetica,sans-serif;
+    font-weight:900;
+    font-size:clamp(5.05rem,21vw,7.15rem);
+    letter-spacing:-.045em;
+    margin-left:-.018em;
+    -webkit-text-stroke:.012em currentColor;
+    paint-order:stroke fill;
+  }
+}
+@media (max-width:950px) and (orientation:landscape) {
+  .fall-hero-v31.fall-hero-v32 .fall-hero-year {font-size:clamp(1.35rem,3.0vw,1.85rem);margin-bottom:-.075em;}
+  .fall-hero-v31.fall-hero-v32 .fall-hero-season {
+    font-family:'Arial Black',Arial,Helvetica,sans-serif;
+    font-weight:900;
+    font-size:clamp(4rem,10.4vw,6.3rem);
+    letter-spacing:-.04em;
+    margin-left:-.018em;
+    -webkit-text-stroke:.012em currentColor;
+    paint-order:stroke fill;
+  }
+  .fall-hero-v31.fall-hero-v32 #introText::first-letter,
+  .fall-hero-v31.fall-hero-v32 #contentText::first-letter,
+  .fall-hero-v31.fall-hero-v32 #conclusionText::first-letter {font-size:190%;}
+}
+
+/* Shared seasonal accent; Fall remains the approved v32 mustard. */
+.tierlist-editorial-common { --tier-season-accent:#d69b0d; }
+.tierlist-theme-spring { --tier-season-accent:#4f804c; }
+.tierlist-theme-summer { --tier-season-accent:#339cbb; }
+.tierlist-theme-fall { --tier-season-accent:#d69b0d; }
+.tierlist-theme-winter { --tier-season-accent:#5963aa; }
+.tierlist-editorial-common .fall-hero-season { color:var(--tier-season-accent); }
+/* Long season names need a smaller size to avoid overlapping the right column. */
+@media (min-width:601px) {
+ .tierlist-theme-spring .fall-hero-season,
+ .tierlist-theme-summer .fall-hero-season,
+ .tierlist-theme-winter .fall-hero-season { font-size:clamp(3rem,7.2vw,5.6rem); }
+}
+@media (max-width:600px) and (orientation:portrait) {
+ .tierlist-theme-spring .fall-hero-season,
+ .tierlist-theme-summer .fall-hero-season,
+ .tierlist-theme-winter .fall-hero-season { font-size:clamp(3.5rem,14.5vw,5.6rem); }
+}
+@media (max-width:950px) and (orientation:landscape) {
+ .tierlist-theme-spring .fall-hero-season,
+ .tierlist-theme-summer .fall-hero-season,
+ .tierlist-theme-winter .fall-hero-season { font-size:clamp(2.7rem,6.6vw,4.5rem); }
+}
+
+/* Common editorial v2 — targeted responsive corrections after device review.
+   Desktop Summer: keep the divider and right column fixed, fit the season word.
+   Desktop intro: add breathing room below the header without changing mobile.
+   Narrow portrait: protect SUMMER on standard-size phones; Pro Max unchanged. */
+@media (min-width:951px) {
+  body.tierlist-editorial-common.tierlist-theme-summer .fall-hero-season {
+    font-size:clamp(3rem,6.4vw,4.9rem);
+  }
+  body.tierlist-editorial-common .post-intro {
+    margin-top:2.35rem;
+  }
+}
+@media (max-width:390px) and (orientation:portrait) {
+  body.tierlist-editorial-common.tierlist-theme-summer .fall-hero-season {
+    font-size:clamp(2.75rem,12.2vw,3.45rem);
+    letter-spacing:-.045em;
+  }
+}
+
+/* Common editorial v3 — width-aware desktop season words.
+   The font size is based on the ACTUAL left grid track, not the whole viewport.
+   This avoids SUMMER crossing the divider in a resized desktop window. */
+@media (min-width:951px) {
+  body.tierlist-editorial-common .fall-hero-left {
+    container-type:inline-size;
+    min-width:0;
+  }
+  body.tierlist-editorial-common.tierlist-theme-summer .fall-hero-season {
+    font-size:min(4.9rem, 17cqw);
+    max-width:100%;
+    white-space:nowrap;
+  }
+  body.tierlist-editorial-common.tierlist-theme-spring .fall-hero-season,
+  body.tierlist-editorial-common.tierlist-theme-winter .fall-hero-season {
+    font-size:min(5.6rem, 19cqw);
+    max-width:100%;
+  }
+}
+/* On intermediate non-landscape viewports, the left track must still fit. */
+@media (min-width:601px) and (max-width:950px) and (orientation:portrait) {
+  body.tierlist-editorial-common .fall-hero-left {container-type:inline-size;min-width:0;}
+  body.tierlist-editorial-common.tierlist-theme-summer .fall-hero-season {font-size:min(4.9rem,17cqw);}
+}
+/* Keep the approved mobile drop cap. Correct the desktop initial's baseline
+   without changing the paragraphs' own line-height or text content. */
+@media (min-width:951px) {
+  body.tierlist-editorial-common #introText::first-letter,
+  body.tierlist-editorial-common #contentText::first-letter,
+  body.tierlist-editorial-common #conclusionText::first-letter {
+    line-height:1;
+    padding-top:0;
+    vertical-align:baseline;
+  }
+}
+
+/* Common editorial v5: one monotonic desktop breakpoint.
+   The earlier 601–1100px desktop-only stack conflicted with the existing
+   <=950px landscape two-column rules. Use ONE breakpoint at 850px,
+   overriding landscape rules only below that boundary. */
+@media (max-width:850px) and (hover:hover) and (pointer:fine) {
+  body.tierlist-editorial-common .post-header h1 {
+    grid-template-columns:minmax(0,1fr);
+    gap:.75rem;
+  }
+  body.tierlist-editorial-common .fall-hero-right {
+    border-left:0;
+    border-top:1.5px solid #919878;
+    padding:.75rem 0 0;
+  }
+  body.tierlist-editorial-common .fall-hero-left {
+    width:100%;
+    min-width:0;
+  }
+}
+/* Allow the runtime width-fit to measure the natural, untruncated word. */
+body.tierlist-editorial-common .fall-hero-left {min-width:0;}
+body.tierlist-editorial-common .fall-hero-season {
+  display:block;
+  width:max-content;
+  max-width:none;
+  white-space:nowrap;
+}
+
+/* v6: Desktop-only continuous type scale. v5 layout breakpoint remains 850px.
+   The desktop font follows the viewport rather than the left column, so the
+   transition to a stacked heading cannot suddenly enlarge SUMMER. The
+   existing JS width-fit is retained as a safety net, not the primary scaler.
+   Touch devices keep their approved v5 rules. */
+@media (min-width:601px) and (hover:hover) and (pointer:fine) {
+  body.tierlist-editorial-common.tierlist-theme-summer .fall-hero-season {
+    font-size:clamp(3rem, 5vw, 4.9rem);
+  }
+}
+@media (max-width:600px) and (hover:hover) and (pointer:fine) {
+  body.tierlist-editorial-common.tierlist-theme-summer .fall-hero-season {
+    font-size:clamp(2.5rem, 8vw, 3rem);
+  }
+}
+
+/* v9: restore visible image zoom guidance across desktop and touch. */
+.tier-image-touch-hint { display:block; margin:.7rem 0 0; color:#837a68; font-family:Abel,sans-serif; font-size:.78rem; line-height:1.35; text-align:center; letter-spacing:.015em; }
+
+/* v11: editorial subheading is a reusable article component, not a hero version.
+   Retain the exact approved v10 appearance; no header/first-letter changes. */
+body.tierlist-editorial-common .tier-editorial-subheading,
+body.tierlist-editorial-common .tier-final-heading {
+  font-family:'EB Garamond',serif;
+  font-size:1.55rem;
+  font-weight:700;
+  color:#625c4c;
+  display:flex;
+  align-items:center;
+  gap:.8rem;
+  margin:3.25rem 0 1rem;
+}
+body.tierlist-editorial-common .tier-editorial-subheading::before,
+body.tierlist-editorial-common .tier-final-heading::before {
+  content:"";width:26px;flex:none;border-top:1px solid #b8a77d;
+}
+body.tierlist-editorial-common .tier-editorial-subheading::after,
+body.tierlist-editorial-common .tier-final-heading::after {
+  content:"";flex:1;border-top:1px solid #e4dfcc;
+}
