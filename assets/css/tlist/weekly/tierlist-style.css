@@ -951,3 +951,6 @@ body.tierlist-editorial-common .fall-hero-season {
     font-size:clamp(2.5rem, 8vw, 3rem);
   }
 }
+
+/* v9: restore visible image zoom guidance across desktop and touch. */
+.tier-image-touch-hint { display:block; margin:.7rem 0 0; color:#837a68; font-family:Abel,sans-serif; font-size:.78rem; line-height:1.35; text-align:center; letter-spacing:.015em; }

@@ -292,8 +292,23 @@ function setTierImage() {
       } else {
         console.warn("Editorial header skipped: JSON season/year differs from page URL", jsonData.season, year, season);
       }
-      const caption = document.querySelector(".tier-image-caption");
-      if (caption) caption.textContent = fullSeasonTitle;
+      // v26 editorial image heading, restored for every seasonal week.
+      // Earlier weekly HTML pages lack the caption node that Fall Week 01 has.
+      const imageColumn = document.querySelector(".tierlist-image");
+      let caption = imageColumn && imageColumn.querySelector(".tier-image-caption");
+      if (imageColumn && !caption) {
+        caption = document.createElement("div");
+        caption.className = "tier-image-caption";
+        caption.setAttribute("aria-label", "Tier list caption");
+        imageColumn.insertBefore(caption, imageColumn.firstChild);
+      }
+      if (caption) {
+        // Preserve v26's seasonal caption hierarchy, but use each page's
+        // actual version (Mid-Season, Finale, Premiere) rather than a
+        // hard-coded First Impression / Episode 1 label.
+        const seasonLabel = match ? match[1] + " " + match[2] : String(jsonData.season || "");
+        caption.textContent = seasonLabel + " Anime — " + String(jsonData.version || "Tier List").trim();
+      }
       // Legacy JSON uses `date`, newer JSON uses `seasonDate`.
       const dateNode = document.getElementById("seasonDate");
       if (dateNode) dateNode.textContent = jsonData.seasonDate || jsonData.date || "";
@@ -378,11 +393,27 @@ document.addEventListener("DOMContentLoaded",()=>{
  function setZoom(){enlarged.style.width=zoom+"%";}
  function close(){viewer.classList.remove("is-open");document.body.style.overflow="";}
  const isTouchLayout=()=>matchMedia("(hover:none), (pointer:coarse)").matches;
- function alignTierHeadings(){const caption=document.querySelector(".tier-image-caption"),header=document.querySelector(".tierlist-titles-header");if(!caption||!header)return;caption.style.minHeight="";header.style.minHeight="";if(window.innerWidth>600)return;const height=Math.max(caption.getBoundingClientRect().height,header.getBoundingClientRect().height);caption.style.minHeight=height+"px";header.style.minHeight=height+"px";}
+ function alignTierHeadings(){const caption=document.querySelector(".tier-image-caption"),header=document.querySelector(".tierlist-titles-header");if(!caption||!header)return;caption.style.minHeight="";header.style.minHeight="";const height=Math.max(caption.getBoundingClientRect().height,header.getBoundingClientRect().height);caption.style.minHeight=height+"px";header.style.minHeight=height+"px";}
  requestAnimationFrame(alignTierHeadings);window.addEventListener("resize",alignTierHeadings);
+ // JSON is loaded asynchronously. Re-align once its missing caption is inserted.
+ const imageColumnForHeading = document.querySelector(".tierlist-image");
+ if (imageColumnForHeading && typeof MutationObserver !== "undefined") {
+   const headingObserver = new MutationObserver(() => {
+     if (imageColumnForHeading.querySelector(".tier-image-caption")) {
+       headingObserver.disconnect();
+       requestAnimationFrame(alignTierHeadings);
+       if (document.fonts && document.fonts.ready) document.fonts.ready.then(alignTierHeadings);
+     }
+   });
+   if (!imageColumnForHeading.querySelector(".tier-image-caption")) {
+     headingObserver.observe(imageColumnForHeading,{childList:true});
+   } else if (document.fonts && document.fonts.ready) {
+     document.fonts.ready.then(alignTierHeadings);
+   }
+ }
  const hint=document.createElement("p");
  hint.className="tier-image-touch-hint";
- hint.textContent="Tap to enlarge · Tap again for full zoom";
+ hint.textContent=isTouchLayout()?"Tap to enlarge · Tap again for full-screen view":"Hover to enlarge · Click for full-screen zoom & pan";
  img.insertAdjacentElement("afterend",hint);
 
  function openViewer(){img.classList.remove("mobile-preview-zoom");enlarged.src=img.currentSrc||img.src;zoom=window.innerWidth<=480?280:170;setZoom();viewer.classList.add("is-open");document.body.style.overflow="hidden";scroll.scrollTop=0;scroll.scrollLeft=0;}
