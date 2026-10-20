@@ -966,7 +966,7 @@ body.tierlist-editorial-common .tier-final-heading {
   display:flex;
   align-items:center;
   gap:.8rem;
-  margin:3.25rem 0 1rem;
+  margin:4.25rem 0 1rem;
 }
 body.tierlist-editorial-common .tier-editorial-subheading::before,
 body.tierlist-editorial-common .tier-final-heading::before {
