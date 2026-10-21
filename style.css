@@ -1381,7 +1381,7 @@ html, body { margin: 0; padding: 0; }
     content: "";
     display: block;
     width: 95%;
-    border-top: 0.5px solid #d8ddd5;
+    border-top: 0.65px solid #d8ddd5;
     margin: 0.35rem 0 0.05rem;
   }
 }
