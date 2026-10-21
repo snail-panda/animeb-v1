@@ -1377,7 +1377,7 @@ html, body { margin: 0; padding: 0; }
   .post-card .post-title .post-ranking-period {
     color: #555;
   }
-  .post-card:has(.post-title .post-ranking-period) .post-date::before {
+  .post-card:not(.announcement-card) .post-date::before {
     content: "";
     display: block;
     width: 95%;
