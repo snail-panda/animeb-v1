@@ -1371,3 +1371,17 @@ html, body { margin: 0; padding: 0; }
     font-weight: 400;
   }
 }
+
+/* Weekly Ranking cards only: quiet hierarchy for portrait phones. */
+@media (max-width: 600px) and (orientation: portrait) {
+  .post-card .post-title .post-ranking-period {
+    color: #555;
+  }
+  .post-card:has(.post-title .post-ranking-period) .post-date::before {
+    content: "";
+    display: block;
+    width: 50%;
+    border-top: 0.5px solid #d8ddd5;
+    margin: 0 0 0.35rem;
+  }
+}
