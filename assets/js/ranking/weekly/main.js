@@ -892,8 +892,60 @@ function createPopup(content, typeClass) {
 
 function positionPopup(button, popup) {
   const rect = button.getBoundingClientRect();
-  popup.style.top = `${rect.bottom + window.scrollY + 5}px`;
-  popup.style.left = `${rect.left + window.scrollX}px`;
+
+  // Keep non-WRP popups unchanged (e.g. the review panel).
+  if (!popup.classList.contains('wrp-popup')) {
+    popup.style.top = `${rect.bottom + window.scrollY + 5}px`;
+    popup.style.left = `${rect.left + window.scrollX}px`;
+    return;
+  }
+
+  // WRP breakdown is positioned relative to the *visible viewport*, not the page.
+  // This also overrides the old mobile CSS 'left: auto !important; right: 16px'.
+  const margin = 12;
+  const gap = 8;
+  const viewport = window.visualViewport;
+  const viewLeft = viewport ? viewport.offsetLeft : 0;
+  const viewTop = viewport ? viewport.offsetTop : 0;
+  const viewWidth = viewport ? viewport.width : window.innerWidth;
+  const viewHeight = viewport ? viewport.height : window.innerHeight;
+  const viewRight = viewLeft + viewWidth;
+  const viewBottom = viewTop + viewHeight;
+
+  popup.style.setProperty('position', 'fixed', 'important');
+  popup.style.setProperty('right', 'auto', 'important');
+  popup.style.setProperty('left', '0px', 'important');
+  popup.style.setProperty('transform', 'none', 'important');
+  popup.style.top = '0px';
+  popup.style.width = 'max-content';
+  popup.style.maxWidth = `${Math.max(1, viewWidth - 2 * margin)}px`;
+  popup.style.maxHeight = `${Math.max(1, viewHeight - 2 * margin)}px`;
+  popup.style.overflowY = 'auto';
+  popup.style.boxSizing = 'border-box';
+  popup.style.visibility = 'hidden';
+  popup.style.display = 'block';
+
+  const popupWidth = popup.getBoundingClientRect().width;
+  const popupHeight = popup.getBoundingClientRect().height;
+  const minLeft = viewLeft + margin;
+  const maxLeft = Math.max(minLeft, viewRight - margin - popupWidth);
+
+  // Always prefer the inner (left) side of the WRP Info icon.
+  const targetLeft = rect.left - gap - popupWidth;
+  const left = Math.max(minLeft, Math.min(targetLeft, maxLeft));
+
+  const minTop = viewTop + margin;
+  const maxTop = Math.max(minTop, viewBottom - margin - popupHeight);
+  let top = rect.bottom + gap;
+  if (top > maxTop && rect.top - gap - popupHeight >= minTop) {
+    top = rect.top - gap - popupHeight;
+  }
+  top = Math.max(minTop, Math.min(top, maxTop));
+
+  popup.style.setProperty('left', `${Math.round(left)}px`, 'important');
+  popup.style.top = `${Math.round(top)}px`;
+  popup.style.visibility = '';
+  popup.style.display = '';
 }
 
 function capitalize(str) {
