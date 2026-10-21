@@ -977,10 +977,10 @@ body.tierlist-editorial-common .tier-final-heading::after {
   content:"";flex:1;border-top:1px solid #e4dfcc;
 }
 
-/* v12: Slightly calmer SUMMER heading on larger portrait phones only.
+/* v13: Correct SUMMER sizing against actual v32 mobile rule (5.05rem).
    Preserve narrow-phone rules, desktop sizing, and JS width-fit. */
 @media (min-width:391px) and (max-width:600px) and (orientation:portrait) {
   body.tierlist-editorial-common.tierlist-theme-summer .fall-hero-season {
-    font-size: clamp(3.2rem, 13.2vw, 5.1rem);
+    font-size: clamp(4.35rem, 17vw, 5.8rem);
   }
 }
