@@ -73,7 +73,6 @@ function animebFillWeeklyInfo(dl, entry) {
     const dt = document.createElement('dt');
     dt.textContent = label;
     const dd = document.createElement('dd');
-    if (options.full) {dt.classList.add('animeb-wide-label');dd.classList.add('animeb-wide-value');}
     if (options.cast) {
       const grid = document.createElement('div');
       grid.className = 'animeb-weekly-cast';
@@ -108,10 +107,10 @@ function animebFillWeeklyInfo(dl, entry) {
   addPair('Series Total Episodes',entry.seasons_total_ep_cnt);
   addPair('Broadcast',animebInfoFirst(entry.broadcast,entry.broadcast_info));
   addPair('Streaming Services',entry.streaming_services);
-  addPair('Cast',entry.cast,{full:true,cast:true});
-  addPair('Opening Theme',animebInfoFirst(entry.opening_theme,entry.op),{full:true});
-  addPair('Ending Theme',animebInfoFirst(entry.ending_theme,entry.ed),{full:true});
-  addPair('Official Website',entry.official_website,{full:true,url:true});
+  addPair('Cast',entry.cast,{cast:true});
+  addPair('Opening Theme',animebInfoFirst(entry.opening_theme,entry.op));
+  addPair('Ending Theme',animebInfoFirst(entry.ending_theme,entry.ed));
+  addPair('Official Website',entry.official_website,{url:true});
   addPair('External Scores',entry.external_scores);
 }
 

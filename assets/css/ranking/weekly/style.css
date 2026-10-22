@@ -1815,12 +1815,9 @@ body { padding: 0; }
 .entry .more-info dl { min-width:0; }
 .entry .more-info dt { white-space:normal; overflow-wrap:anywhere; }
 .entry .more-info dd { min-width:0; padding-left:0; white-space:pre-line; }
-.entry .more-info .animeb-wide-label, .entry .more-info .animeb-wide-value { grid-column:1/-1; }
-.entry .more-info .animeb-wide-label { margin-top:.5rem; }
-.entry .more-info .animeb-weekly-cast { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:.25rem 1rem; }
+.entry .more-info .animeb-weekly-cast { display:grid; grid-template-columns:minmax(0,1fr); gap:.25rem; }
 .entry .more-info .animeb-weekly-cast span { min-width:0; overflow-wrap:anywhere; }
 .entry .more-info a { color:#27627b; overflow-wrap:anywhere; }
 @media (max-width:620px) {
-  .entry .more-info .animeb-weekly-cast { grid-template-columns:minmax(0,1fr); }
   .entry .more-info dl { grid-template-columns:minmax(100px,1fr) minmax(0,2fr); }
 }
