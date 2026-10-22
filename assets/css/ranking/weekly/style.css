@@ -1962,3 +1962,37 @@ body[data-animeb-lang="en"] .entry .genre-tag {
 .note-mount > [hidden] { display:none !important; }
 .animeb-weekly-notes-ja[hidden] { display:none !important; }
 .animeb-note-jp { font-family:'Noto Sans JP','Yu Gothic UI',sans-serif; font-size:.73rem; line-height:1.8; }
+
+
+/* === AnimeB Weekly v3.3: minimal editorial polish (CSS only) ===
+   Based on approved v3.2. Keep navigation, language switch, badges,
+   WRP, review controls and expanded More Info exactly as they are. */
+
+/* A small, empty rounded speech bubble: no dots, fill or extra image file. */
+.animeb-intro-label::before {
+  content: "";
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  margin-right: 6px;
+  vertical-align: -1px;
+  background: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%3E%3Cpath%20d%3D%22M12%203.8c-4.65%200-8.4%203.24-8.4%207.28%200%201.79.75%203.4%202.02%204.67L4.9%2020l4.03-2.04c.96.33%201.98.5%203.07.5%204.65%200%208.4-3.24%208.4-7.38S16.65%203.8%2012%203.8Z%22%20stroke%3D%22%2385837f%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%3C%2Fsvg%3E") center / contain no-repeat;
+}
+
+/* English intro body: ~6% larger, no change to Japanese body copy. */
+body[data-animeb-lang="en"] .animeb-intro-text {
+  font-size: clamp(.742rem, 1.092vw, .837rem);
+}
+
+/* Japanese intro heading: slightly larger and softer; SAME weight as v3.2. */
+body[data-animeb-lang="ja"] .animeb-intro-label {
+  font-size: .674rem; /* v3.2: .64rem, +5.3% */
+  font-weight: 650;  /* intentionally unchanged */
+  color: #807e7a;
+}
+
+/* Japanese-mode MAIN anime titles only: +8%, no weight change.
+   English-mode titles and the secondary English title are unchanged. */
+body[data-animeb-lang="ja"] .entry .info-top {
+  font-size: 1.08em;
+}
