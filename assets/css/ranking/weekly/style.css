@@ -1821,3 +1821,85 @@ body { padding: 0; }
 @media (max-width:620px) {
   .entry .more-info dl { grid-template-columns:minmax(100px,1fr) minmax(0,2fr); }
 }
+
+
+/* === AnimeB Weekly presentation v3: persistent navigation & page language === */
+.nav-bar { position:sticky; top:0; z-index:110; min-height:31px; }
+.animeb-weekly-language {
+  position:fixed;
+  top:calc(env(safe-area-inset-top, 0px) + 47px);
+  right:max(12px, calc((100vw - 920px)/2 + 13px));
+  z-index:105;
+  display:flex; gap:2px;
+  padding:3px;
+  background:rgba(247,240,252,.96);
+  border:1px solid #dfcbea;
+  border-radius:18px;
+  box-shadow:0 2px 8px rgba(75,43,98,.10);
+  font-family:'Fira Sans', 'Yu Gothic UI', sans-serif;
+  white-space:nowrap;
+}
+.animeb-weekly-language button {
+  appearance:none; border:0; background:transparent; border-radius:14px;
+  color:#7d678e; font-family:inherit; font-size:11px; font-weight:600;
+  padding:4px 10px; min-height:27px; cursor:pointer; line-height:1.25;
+}
+.animeb-weekly-language button.selected {
+  background:#78549b; color:#fff;
+}
+.animeb-weekly-language button:focus-visible { outline:2px solid #55347b; outline-offset:2px; }
+/* Keep the title/duration together, increase breathing room below the title group. */
+.sub-header { margin-bottom:clamp(20px, 3vw, 39px); }
+.animeb-weekly-intro {
+  margin: 4px 0 clamp(24px, 3.5vw, 42px) 5px;
+  max-width:75ch;
+  font-family:'Barlow Condensed','Yu Gothic UI',sans-serif;
+  text-transform:none;
+}
+.animeb-weekly-intro[hidden] { display:none; }
+.animeb-intro-label { font-family:'Fira Sans','Yu Gothic UI',sans-serif; font-size:.72rem;
+  color:#78549b; font-weight:700; margin-bottom:7px; letter-spacing:.045em; }
+.animeb-intro-text { font-size:clamp(.78rem,1.15vw,.9rem); line-height:1.65;
+  color:#504b51; white-space:pre-line; margin:0; font-weight:400; }
+/* Desktop-only preview lives *inside* the KV's right-side information block. */
+.animeb-synopsis-preview { font-family:'Barlow Condensed','Yu Gothic UI',sans-serif;
+  font-size:clamp(.74rem,1.15vw,.86rem); line-height:1.52;
+  color:#5c5c57; font-weight:400; text-transform:none;
+  display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical;
+  line-clamp:3; overflow:hidden; margin-top:clamp(7px,1vw,12px);
+  overflow-wrap:anywhere; }
+.animeb-synopsis-preview[hidden] { display:none; }
+.entry.animeb-expanded .animeb-synopsis-preview { display:none; }
+body[data-animeb-lang="ja"] .entry .synopsis.active:not(.animeb-empty-synopsis)::before { content:'作品概要'; }
+/* Small, proportional adjustments only: do not disturb the historic card geometry. */
+.entry .genre-tag { font-size: .452rem; } /* base .43rem × 1.05 */
+.entry .collapse-btn { font-size: .477rem; } /* base .45rem × 1.06 */
+.entry .review-tag { font-size: .504rem; } /* base .48rem × 1.05 */
+@media (min-width:769px) {
+  .entry .genre-tag, .entry .review-tag { font-size:.599rem; } /* .57rem × 1.05 */
+}
+@media (max-width:768px) {
+  .animeb-synopsis-preview { display:none !important; }
+  .animeb-weekly-language { top:calc(env(safe-area-inset-top, 0px) + 43px);right:9px; }
+  .animeb-weekly-language button {font-size:10px; padding:4px 8px; min-height:28px;}
+  .nav-bar { min-height:32px; }
+  .nav-link { font-size:.72rem; }
+  .sub-header { margin-bottom:24px; }
+  .animeb-weekly-intro { margin-left:4px; margin-right:4px; }
+}
+@media (max-width:390px) {
+  .animeb-weekly-language {right:6px;}
+  .nav-link {font-size:.69rem;}
+}
+
+/* Use a Japanese face for the primary Japanese title without changing English mode. */
+body[data-animeb-lang="ja"] .entry .info-top {
+  font-family:'Yu Gothic UI','Hiragino Kaku Gothic ProN','Noto Sans JP',sans-serif;
+  font-weight:750; letter-spacing:0; word-spacing:normal;
+  text-transform:none; line-height:1.25;
+}
+body[data-animeb-lang="ja"] .entry .jp-title {
+  font-family:'Special Gothic Expanded One','Fira Sans',sans-serif;
+  font-weight:500; text-transform:uppercase;
+}
+.entry .jp-title.animeb-title-duplicate { display:none; }

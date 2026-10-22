@@ -57,62 +57,199 @@ const jsonPath = `ranking-${window.currentWeek}-${window.season}${window.year}.j
 
 // AnimeB weekly series-information renderer; empty/zero/unavailable values are omitted.
 function animebInfoValue(value) {
-  if (value === undefined || value === null || value === 0) return '';
+  if (value === undefined || value === null || value === false || value === 0) return '';
   const str = String(value).trim();
-  return /^(?:0|n\/?a|none|null|undefined|tbd|not available|—|-)$/i.test(str) ? '' : str;
+  return /^(?:0|false|n\/?a|none|null|undefined|tbd|not available|—|-)$/i.test(str) ? '' : str;
 }
 function animebInfoFirst(...values) {
   for (const v of values) { const text = animebInfoValue(v); if (text) return text; }
   return '';
 }
+// The page-language selector is independent of individual review popups and the legacy Overview.
+let animebWeeklyLang = 'en';
+try { if (localStorage.getItem('animeb-weekly-lang') === 'ja') animebWeeklyLang = 'ja'; } catch (_) {}
+const animebWeeklyGenreJA = {
+  action:'アクション', adventure:'アドベンチャー', comedy:'コメディ', drama:'ドラマ',
+  fantasy:'ファンタジー', romance:'ロマンス', mystery:'ミステリー', horror:'ホラー',
+  historical:'歴史', supernatural:'超常現象', 'slice of life':'日常', 'sci-fi':'SF',
+  'science fiction':'SF', sports:'スポーツ', music:'音楽', psychological:'心理',
+  thriller:'スリラー', suspense:'サスペンス', school:'学園', ecchi:'お色気',
+  mecha:'メカ', isekai:'異世界', 'martial arts':'格闘', 'boys love':'BL',
+  'girls love':'GL', 'award winning':'受賞作', 'avant garde':'前衛', 'gourmet':'グルメ',
+  'adult cast':'大人', 'childcare':'育児', 'medical':'医療', workplace:'お仕事'
+};
+const animebWeeklyBasedJA = {
+  manga:'漫画', 'light novel':'ライトノベル', 'light novels':'ライトノベル',
+  novel:'小説', novels:'小説', original:'オリジナル', webtoon:'ウェブトゥーン',
+  game:'ゲーム', 'video game':'ゲーム', 'visual novel':'ビジュアルノベル',
+  '4-koma manga':'4コマ漫画', '4-koma':'4コマ漫画', 'web manga':'ウェブ漫画',
+  'web novel':'ウェブ小説', other:'その他', unknown:'不明'
+};
+function animebWeeklyTranslatedTag(raw, type='genre') {
+  const value=String(raw || '').trim();
+  if(animebWeeklyLang!=='ja') return value;
+  const map=type==='based' ? animebWeeklyBasedJA : animebWeeklyGenreJA;
+  return map[value.toLowerCase()] || value;
+}
+function animebWeeklyDate(raw) {
+  const value=animebInfoValue(raw);
+  if(animebWeeklyLang!=='ja') return value;
+  return value.replace(/\b(\d{1,2})\/(\d{1,2})\/(\d{4})\b/g,(_,m,d,y)=>`${y}年${Number(m)}月${Number(d)}日`).replace(/\s+to\s+/gi,' ～ ');
+}
 function animebFillWeeklyInfo(dl, entry) {
   dl.replaceChildren();
-  const addPair = (label, raw, options={}) => {
-    const val = animebInfoValue(raw);
+  const ja=animebWeeklyLang==='ja';
+  const addPair=(enLabel,jaLabel,raw,options={})=>{
+    const val=animebInfoValue(raw);
     if (!val) return;
-    const dt = document.createElement('dt');
-    dt.textContent = label;
-    const dd = document.createElement('dd');
-    if (options.cast) {
-      const grid = document.createElement('div');
-      grid.className = 'animeb-weekly-cast';
+    const dt=document.createElement('dt'); dt.textContent=ja?jaLabel:enLabel;
+    const dd=document.createElement('dd');
+    if(options.cast) {
+      const grid=document.createElement('div'); grid.className='animeb-weekly-cast';
       val.split(/\r?\n/).map(x=>x.trim()).filter(Boolean).forEach(item=>{
-        const span = document.createElement('span');
-        span.textContent = item;
-        grid.appendChild(span);
+        const span=document.createElement('span'); span.textContent=item; grid.appendChild(span);
       });
       dd.appendChild(grid);
-    } else if (options.url) {
-      for (const url of [...new Set(val.split('|').map(x=>x.trim()).filter(Boolean))]) {
-        if (!/^https?:\/\/[^\s]+$/i.test(url)) continue;
-        const link = document.createElement('a');
-        link.href=url; link.textContent=url; link.target='_blank'; link.rel='noopener noreferrer';
-        dd.appendChild(link); dd.appendChild(document.createElement('br'));
+    } else if(options.url) {
+      for(const url of [...new Set(val.split('|').map(x=>x.trim()).filter(Boolean))]) {
+        if(!/^https?:\/\/[^\s]+$/i.test(url)) continue;
+        const link=document.createElement('a'); link.href=url; link.textContent=url;
+        link.target='_blank'; link.rel='noopener noreferrer'; dd.append(link,document.createElement('br'));
       }
-      if (!dd.querySelector('a')) return;
-    } else {
-      dd.textContent = val;
-    }
+      if(!dd.querySelector('a')) return;
+    } else dd.textContent=val;
     dl.append(dt,dd);
   };
-  addPair('Release Date',entry.release_date);
-  addPair('Romanized Title',entry.romanized_title);
-  addPair('Based On',animebInfoFirst(entry.based_on,entry.base));
-  addPair('Production Studio',entry.studios);
-  addPair('Director',animebInfoFirst(entry.director,entry.creators));
-  addPair('Series Composition',animebInfoFirst(entry.series_composition,entry.seriesComposition));
-  addPair('Original Creator / Publisher',entry.original_creator_publisher);
-  addPair('Episodes',entry.episode_count);
-  addPair('This Season',entry.total_eps_this_season);
-  addPair('Series Total Episodes',entry.seasons_total_ep_cnt);
-  addPair('Broadcast',animebInfoFirst(entry.broadcast,entry.broadcast_info));
-  addPair('Streaming Services',entry.streaming_services);
-  addPair('Cast',entry.cast,{cast:true});
-  addPair('Opening Theme',animebInfoFirst(entry.opening_theme,entry.op));
-  addPair('Ending Theme',animebInfoFirst(entry.ending_theme,entry.ed));
-  addPair('Official Website',entry.official_website,{url:true});
-  addPair('External Scores',entry.external_scores);
+  const localized=(key)=>animebInfoFirst(ja && entry[`${key}_ja`],entry[key]);
+  addPair('Release Date','放送開始日',animebWeeklyDate(entry.release_date));
+  addPair('Romanized Title','ローマ字タイトル',entry.romanized_title);
+  const based=animebInfoFirst(entry.based_on,entry.base);
+  addPair('Based On','原作媒体',animebWeeklyTranslatedTag(based,'based'));
+  addPair('Production Studio','制作会社',localized('studios'));
+  addPair('Director','監督',animebInfoFirst(ja&&entry.director_ja,entry.director,entry.creators));
+  addPair('Series Composition','シリーズ構成',animebInfoFirst(ja&&entry.series_composition_ja,entry.series_composition,entry.seriesComposition));
+  addPair('Original Creator / Publisher','原作者・出版社',animebInfoFirst(ja&&entry.original_creator_publisher_ja,!ja&&entry.original_creator_publisher_en,entry.original_creator_publisher));
+  addPair('Episodes','総話数',entry.episode_count);
+  addPair('This Season','今期の話数',entry.total_eps_this_season);
+  addPair('Series Total Episodes','シリーズ総話数',entry.seasons_total_ep_cnt);
+  addPair('Broadcast','放送情報',animebInfoFirst(ja&&entry.broadcast_ja,entry.broadcast,entry.broadcast_info));
+  addPair('Streaming Services','配信サービス',animebInfoFirst(ja&&entry.streaming_services_ja,entry.streaming_services));
+  addPair('Cast','キャスト',entry.cast,{cast:true});
+  addPair('Opening Theme','オープニングテーマ',animebInfoFirst(entry.opening_theme,entry.op));
+  addPair('Ending Theme','エンディングテーマ',animebInfoFirst(entry.ending_theme,entry.ed));
+  addPair('Official Website','公式サイト',entry.official_website,{url:true});
+  addPair('External Scores','外部評価',entry.external_scores);
 }
+function animebSetWeeklyLanguage(next) {
+  animebWeeklyLang=next==='ja'?'ja':'en';
+  try {localStorage.setItem('animeb-weekly-lang',animebWeeklyLang);} catch (_) {}
+  animebApplyWeeklyLanguage();
+  // Existing Overview remains a separate, optional HTML source; synchronize its initial/active language.
+  if(typeof window.animebWeeklyReloadOverview==='function') window.animebWeeklyReloadOverview();
+}
+function animebEnsureWeeklyControls() {
+  if(!document.querySelector('#animeb-weekly-language')) {
+    const control=document.createElement('div');
+    control.id='animeb-weekly-language'; control.className='animeb-weekly-language';
+    control.setAttribute('role','group'); control.setAttribute('aria-label','Page language / 表示言語');
+    [['en','EN'],['ja','日本語']].forEach(([code,label])=>{
+      const b=document.createElement('button'); b.type='button'; b.dataset.weeklyLang=code;
+      b.textContent=label; b.setAttribute('aria-label',code==='en'?'Show English':'日本語で表示');
+      b.addEventListener('click',()=>animebSetWeeklyLanguage(code));control.appendChild(b);
+    });
+    (document.querySelector('.nav-bar') || document.body).after(control);
+  }
+}
+function animebApplyWeeklyLanguage() {
+  const ja=animebWeeklyLang==='ja';
+  document.body.dataset.animebLang=animebWeeklyLang;
+  document.querySelectorAll('#animeb-weekly-language button').forEach(b=>{
+    const selected=b.dataset.weeklyLang===animebWeeklyLang;
+    b.classList.toggle('selected',selected); b.setAttribute('aria-pressed',String(selected));
+  });
+  const navTexts=ja
+   ? [['.nav-link.left a','« 前の週'],['.nav-link.center a','ホーム'],['.nav-link.right a','次の週 »']]
+   : [['.nav-link.left a','« Previous Week'],['.nav-link.center a','Back to Home'],['.nav-link.right a','Next Week »']];
+  for(const [selector,label] of navTexts) {const node=document.querySelector(selector);if(node) node.textContent=label;}
+  const statusTranslations={watching:['Watching','視聴中'],droppedThisWeek:['Dropped','今週の視聴中止'],droppedTotal:['Total dropped','視聴中止合計'],backOnList:['Back on List','復帰'],noAir:['NoAir','放送なし'],completed:['Completed','完走'],total:['Total','合計']};
+  document.querySelectorAll('.watch-status .ws-item[data-tooltip]').forEach(node=>{
+    const key=node.dataset.tooltip; const count=node.dataset.statusValue;
+    const label=statusTranslations[key]?.[ja?1:0];
+    const target=node.querySelector('.view-count');
+    if(label && count!==undefined && target) target.textContent=`${label}:${count}`;
+  });
+  const wsTitle=document.querySelector('.ws-title');
+  if(wsTitle && wsTitle.firstChild && wsTitle.firstChild.nodeType===3) wsTitle.firstChild.textContent=ja?'視聴状況':'VIEWING STATUS';
+  const header=document.querySelector('.table-header-mount .header-title');
+  if(header) {
+    const prefix=header.firstChild;
+    if(prefix && prefix.nodeType===3) {
+      const original=header.dataset.originalLeadingText || prefix.textContent;
+      header.dataset.originalLeadingText=original;
+      prefix.textContent=ja?original.replace(/^TITLE\s*\//i,'タイトル /').replace(/Bar Scale:/i,'バー目盛:'):original;
+    }
+  }
+  document.querySelectorAll('.bar-label').forEach(label=>{
+    const original=label.dataset.originalLabel || label.textContent;
+    label.dataset.originalLabel=original;
+    label.textContent=ja ? (original.startsWith('Final')?'最終WRP（6要素）*':'週間ランキングポイント*') : original;
+  });
+  const intro=document.querySelector('.animeb-weekly-intro');
+  if(intro) {
+    const en=animebInfoValue(intro.dataset.en);
+    const jp=animebInfoValue(intro.dataset.ja);
+    const content=animebInfoFirst(ja && jp,en,jp);
+    intro.hidden=!content;
+    if(content) {
+      intro.querySelector('.animeb-intro-label').textContent=ja?'今週のひと言':'THIS WEEK';
+      intro.querySelector('.animeb-intro-text').textContent=content;
+    }
+  }
+  document.querySelectorAll('.entry-list .entry').forEach(clone=>{
+    const entry=clone._animebEntry;
+    if(!entry) return;
+    const primary=clone.querySelector('.info-top');
+    const secondary=clone.querySelector('.jp-title');
+    const primaryText=animebInfoFirst(ja&&entry.jpTitle,entry.title,entry.jpTitle);
+    const secondaryText=animebInfoFirst(ja&&entry.title,entry.jpTitle);
+    if(primary) primary.textContent=primaryText;
+    if(secondary) {
+      secondary.textContent=(secondaryText && secondaryText!==primaryText)?secondaryText:'';
+      secondary.classList.toggle('animeb-title-duplicate',!secondary.textContent);
+    }
+    const headings=clone._animebEpisodeHeadings||{};
+    const line=clone.querySelector('.ranking-episode-line');
+    if(line) {
+      line.replaceChildren();
+      const order=ja?['ja','en']:['en','ja'];
+      for(const key of order) {
+        if(!headings[key]) continue;
+        if(line.childNodes.length) {
+          const divider=document.createElement('span');divider.className='ranking-episode-separator';divider.textContent='│';line.appendChild(divider);
+        }
+        const span=document.createElement('span');span.textContent=headings[key];line.appendChild(span);
+      }
+    }
+    const genre=clone.querySelector('.genre-tags');
+    if(genre) genre.querySelectorAll('.genre-tag').forEach((node,index)=>{
+      const tags=Array.isArray(entry.genre)?entry.genre:String(entry.genre||'').split('|').map(x=>x.trim()).filter(Boolean);
+      node.textContent=animebWeeklyTranslatedTag(tags[index]||'');
+    });
+    const synopsis=clone.querySelector('.synopsis');
+    const preview=clone.querySelector('.animeb-synopsis-preview');
+    const source=animebInfoFirst(ja&&entry.synopsis_ja,entry.synopsis,entry.synopsis_ja);
+    if(synopsis) {
+      synopsis.textContent=source;
+      synopsis.classList.toggle('animeb-empty-synopsis',!source);
+    }
+    if(preview) { preview.textContent=source;preview.hidden=!source; }
+    const dl=clone.querySelector('.more-info dl');
+    if(dl) animebFillWeeklyInfo(dl,entry);
+  });
+}
+// The green navigation remains unchanged structurally; its links are labelled here.
+animebEnsureWeeklyControls();
+animebApplyWeeklyLanguage();
 
 // ========== JSON読み込み & DOM更新 ==========
 fetch(jsonPath)
@@ -199,6 +336,7 @@ if (noteMountPoint) {
   const target = item.querySelector('.view-count'); // ← 明示的にここだけ書き換える
   // 空欄やnull/undefinedはスキップ（ただし0は表示）
     if (target && String(count).trim() !== "") {
+      item.dataset.statusValue=String(count);
       target.textContent = `${label}:${count}`;
   }
 });
@@ -354,6 +492,22 @@ if (epRangeEl && data.meta.ep_range) {
 }
 
 
+    // Optional weekly intro comes from the ranking JSON, not the anime Master.
+    const introRaw=data.meta.weekly_intro || {};
+    const introEn=animebInfoValue(typeof introRaw==='object'?introRaw.en:data.meta.weekly_intro_en);
+    const introJa=animebInfoValue(typeof introRaw==='object'?introRaw.ja:data.meta.weekly_intro_ja);
+    if(introEn || introJa) {
+      let intro=document.querySelector('.animeb-weekly-intro');
+      if(!intro) {
+        intro=document.createElement('section');intro.className='animeb-weekly-intro';
+        const label=document.createElement('div');label.className='animeb-intro-label';
+        const content=document.createElement('p');content.className='animeb-intro-text';
+        intro.append(label,content);
+        document.querySelector('.sub-header')?.after(intro);
+      }
+      intro.dataset.en=introEn;intro.dataset.ja=introJa;
+    }
+
     // ============= phase 1: 構造だけ複製 ==============
 const container = document.querySelector(".entry-list");
 const template = document.querySelector("#entry-template .entry"); // ← ここで .entry を取得
@@ -369,6 +523,7 @@ data.entries.forEach(() => {
 // ========== Phase 2: 情報だけ注入 ==========
 clones.forEach((clone, i) => {
   const entryData = data.entries[i];
+  clone._animebEntry=entryData;
 
   // — ランク —
 const rankEl = clone.querySelector(".rank-number");
@@ -492,6 +647,7 @@ const season = window.season; // spring, summer, etc.
   // v20: bilingual episode headings beneath the anime titles.
   const enEpisode = reviewParts(entryData.review?.en || '').heading;
   const jpEpisode = reviewParts(entryData.review?.jp || '').heading;
+  clone._animebEpisodeHeadings={en:enEpisode,ja:jpEpisode};
   const jpTitle = clone.querySelector('.jp-title');
   if (jpTitle && (enEpisode || jpEpisode)) {
     const episodeLine = document.createElement('div');
@@ -600,6 +756,15 @@ if (kvThumbBox && entryData.episode) {
 }
 
 
+  // PC-only three-line synopsis preview occupies empty space beneath the WRP bar.
+  const infoBox=clone.querySelector('.info-box');
+  if(infoBox && !infoBox.querySelector('.animeb-synopsis-preview')) {
+    const preview=document.createElement('div');preview.className='animeb-synopsis-preview';
+    preview.textContent=animebInfoFirst(entryData.synopsis,entryData.synopsis_ja);
+    preview.hidden=!preview.textContent;
+    infoBox.appendChild(preview);
+  }
+
   // — Synopsis (show the heading only when content exists) —
   const synopsisBox = clone.querySelector('.synopsis');
   if (synopsisBox) {
@@ -639,7 +804,9 @@ if (reviewAnchor) {
 }); // ← ✅ ← ← ← これが `.forEach()` の閉じ
 
   // ✅ 必ず `.then(data => { ... })` の中にある必要がある
+    animebApplyWeeklyLanguage();
     updateWatchStatus(data.meta.status);
+    animebApplyWeeklyLanguage();
     adjustScoreBars();
     setTimeout(() => {
       setupPopups();
@@ -766,7 +933,9 @@ function setupPopups() {
       let lang;
 
       // 初期表示言語決定
-      if (reviewEn) {
+      if (animebWeeklyLang === 'ja' && reviewJp) {
+        lang = 'jp';
+      } else if (reviewEn) {
         lang = 'en';
       } else if (reviewJp) {
         lang = 'jp';
@@ -1095,11 +1264,18 @@ window.initOverviewSection = function() {
   const container = document.getElementById("overview-container");
   const triangle = btn.querySelector(".triangle-icon");
 
-  let currentLang = "EN";
+  if (btn.dataset.animebInitialized) return;
+  btn.dataset.animebInitialized='1';
+  let currentLang = animebWeeklyLang === 'ja' ? 'JP' : 'EN';
+  let overviewRequest = 0;
+  window.animebWeeklyReloadOverview=()=>{
+    currentLang=animebWeeklyLang === 'ja' ? 'JP' : 'EN';
+    if(container.classList.contains('expanded')) loadOverview(currentLang);
+  };
 
   // 最初は overview.html を読み込む
   function loadOverview(lang) {
-
+  const requestId=++overviewRequest;
   const year = window.year;
   const season = window.season;
   const currentWeek = window.currentWeek;
@@ -1119,61 +1295,17 @@ window.initOverviewSection = function() {
         return response.text();
       })
       .then((html) => {
+        if(requestId!==overviewRequest || !container.classList.contains('expanded')) return;
         container.innerHTML = html;
 
-        // 言語切り替えボタンを作成
-        const langBtn = document.createElement("button");
-        langBtn.id = "lang-toggle";
-        langBtn.textContent = "EN ⇄ JP";
-
-        langBtn.addEventListener("click", () => {
-          currentLang = currentLang === "EN" ? "JP" : "EN";
-          loadOverview(currentLang);
-        });
-
-        // ボタンを overview の先頭に差し込む
-        const weeklyOverview = container.querySelector(".weekly-overview");
-        if (weeklyOverview) {
-          weeklyOverview.prepend(langBtn);
-        } else {
-          container.prepend(langBtn);
-        }
+        // Page-wide EN / 日本語 control also switches this legacy Overview.
       })
       .catch(() => {
-        if (lang === "EN") {
-  console.log("English overview missing");
-  container.innerHTML = `
-    <p class="overview-notice" style="text-align:center; margin:1em 0;">
-      English Overview not available.
-    </p>
-  `;
-  const langBtn = document.createElement("button");
-  langBtn.id = "lang-toggle";
-  langBtn.textContent = "EN ⇄ JP";
-  langBtn.addEventListener("click", () => {
-    currentLang = "JP";
-    loadOverview("JP");
-  });
-  container.prepend(langBtn);
-}
- else if (lang === "JP") {
-          console.log("Japanese overview missing");
-          container.innerHTML = `
-            <p class="overview-notice" style="text-align:center; margin:1em 0;">
-              Japanese Overview not available.
-            </p>
-          `;
-          const langBtn = document.createElement("button");
-          langBtn.id = "lang-toggle";
-          langBtn.textContent = "EN ⇄ JP";
-
-          langBtn.addEventListener("click", () => {
-            currentLang = "EN";
-            loadOverview("EN");
-          });
-          container.prepend(langBtn);
-		  langBtn.blur();  // ← これを入れるだけ
-        }
+        if(requestId!==overviewRequest || !container.classList.contains('expanded')) return;
+        const message=document.createElement('p');
+        message.className='overview-notice';message.style.textAlign='center';
+        message.textContent=lang==='EN'?'English Overview not available.':'日本語のOverviewはありません。';
+        container.replaceChildren(message);
       });
   }
 
@@ -1193,6 +1325,7 @@ window.initOverviewSection = function() {
   if (container.classList.contains("expanded")) {
     loadOverview(currentLang);
   } else {
+    overviewRequest++;
     container.innerHTML = ""; //閉じたとき中身クリア
   }
 });
@@ -1233,6 +1366,7 @@ document.addEventListener('click', (e) => {
   if (!btn) return;
 
   const entry = btn.closest('.entry');
+  entry?.classList.toggle('animeb-expanded');
   const moreInfo = entry.querySelector('.more-info');
   const synopsisBox = entry.querySelector('.synopsis');  // ← ここ追加必要！
 
