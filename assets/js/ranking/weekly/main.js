@@ -140,6 +140,40 @@ function animebFillWeeklyInfo(dl, entry) {
   addPair('Official Website','公式サイト',entry.official_website,{url:true});
   addPair('External Scores','外部評価',entry.external_scores);
 }
+// Labels for the score-details panel, applied when the panel is opened.
+const animebWRPItemLabels = {
+  base_score:['Base Score','素点'],base:['Base Score','素点'],
+  animation:['Animation','アニメーション'],
+  script:['Script','脚本'], direction:['Direction','演出'], charm:['Charm','魅力'],
+  overall:['Overall','総合評価'], total:['Total','合計'],
+  op:['Opening','オープニング'], ed:['Ending','エンディング'],
+  acting:['Voice Acting','声優・演技'],
+  'sound/music':['Sound / Music','音楽・音響'],
+  'consistency/impact':['Consistency / Impact','一貫性・インパクト']
+};
+function animebSafeHTML(value) {
+  return String(value ?? '').replace(/[&<>"']/g, chr => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[chr]));
+}
+function animebWRPItemLabel(key) {
+  const pair=animebWRPItemLabels[String(key).trim().toLowerCase()];
+  return pair ? pair[animebWeeklyLang==='ja'?1:0] : titleCase(String(key).replace(/_/g,' '));
+}
+function animebWRPDetailHTML(data, final=false) {
+  const heading=animebWeeklyLang==='ja'
+    ? (final?'6要素ポイント内訳：':'WRP（週間ランキングポイント）内訳：')
+    : (final?'Key elements breakdown:':'WRP Breakdown:');
+  const rows=Object.entries(data||{}).filter(([,v]) => v!==undefined && v!==null && v!=='')
+    .map(([key,val])=>`${animebSafeHTML(animebWRPItemLabel(key))}: ${animebSafeHTML(val)}`);
+  return `${heading}<br>${rows.join('<br>')}`;
+}
+function animebWRPLegacyDetailHTML(text) {
+  const parsed=String(text||'').split(',').map(part=>part.trim()).filter(Boolean).map(part=>{
+    const match=part.match(/^([^:]+):\s*(.*)$/);
+    return match ? `${animebSafeHTML(animebWRPItemLabel(match[1].trim().toLowerCase().replace(/\s+/g,'_')))}: ${animebSafeHTML(match[2])}` : animebSafeHTML(part);
+  });
+  return (animebWeeklyLang==='ja'?'WRP（週間ランキングポイント）内訳：':'WRP Breakdown:')+'<br>'+parsed.join('<br>');
+}
+
 function animebSetWeeklyLanguage(next) {
   animebWeeklyLang=next==='ja'?'ja':'en';
   try {localStorage.setItem('animeb-weekly-lang',animebWeeklyLang);} catch (_) {}
@@ -160,6 +194,65 @@ function animebEnsureWeeklyControls() {
     (document.querySelector('.nav-bar') || document.body).after(control);
   }
 }
+// The legacy Note 1/2 HTML is retained as the authoritative English version.
+// A Japanese counterpart is mounted only when required, without changing shared-index.html.
+const animebNoteJaGeneral = `
+  <div class="note animeb-note-jp"><p class="note-title"><strong>※注釈1：一般的な免責事項</strong></p>
+  <p>このランキングは徹底して個人的・主観的なものでありながら、可能な限り客観性も大切にしています。制作者や作品を貶めたり、否定したりする意図は一切ありません。評価には長年の視聴を通して見直してきた独自の基準を用い、相対的・絶対的な観点の双方を踏まえています。アニメーション、脚本、構成、演出、テンポ、作品としての魅力や個性、そして一つの作品として得られた満足感などを重視しています。</p>
+  <div class="detail-toggle"><u>続きを読む…</u> ▾</div>
+  <div class="detail-content">
+    <p class="note-continued">（続き）</p>
+    <p>WRPでは各話をできるだけ一貫した基準で評価しようとしていますが、固定的・絶対的な尺度ではありません。したがって、各得点も絶対的な数値を意味するものではありません。</p>
+    <p>毎週、放送作品の顔ぶれ、ジャンルの組み合わせ、作品への期待や強みが異なります。そのため、同じ数値でも週によって意味合いが違うことがあります。たとえば、ある週の9点と別の週の9点を必ずしも同じものとしては扱えません。</p>
+    <p>このランキングでは、ジャンル、制作規模、作品固有の魅力やその週の状況も考慮し、相対的・絶対的な評価を組み合わせています。そして、そうした変化も週間ランキングの面白さの一つだと考えています。</p>
+  </div></div>`;
+const animebNoteJaNormal = `
+  <div class="hairline"></div>
+  <div class="note animeb-note-jp"><p class="note-title"><strong>※注釈2：WRP（週間ランキングポイント）とは？</strong></p>
+  <p><strong>WRP</strong>は <em>Weekly Ranking Point</em> の略で、アニメ1話をその週に視聴して得た体験を、できる限り忠実に捉えるための独自の評価指標です。感情や好みだけに頼るのではなく、丁寧な観察と一貫した基準を土台に、個人の感性と客観的な視点を組み合わせています。</p>
+  <p>作品全体を一度に評価するのではなく、1クール約12週間のうちの「その週の1話」に焦点を当てています。たとえ約23分の短い時間でも、かけがえのない視聴体験だからこそ、その瞬間を記録したいと考えています。</p>
+  <div class="detail-toggle"><u>続きを読む…</u> ▾</div>
+  <div class="detail-content"><p class="note-continued">（続き）</p>
+   <p><strong>評価の構成：</strong> WRPは、毎週の視聴体験に大きく関わる6つの基本要素をもとにしています。</p>
+   <ul><li><strong>素点</strong></li><li><strong>映像品質・アニメーション</strong></li><li><strong>脚本・物語構成</strong></li><li><strong>演出・テンポ・画面構成</strong></li><li><strong>魅力</strong>：登場人物、世界観、作風や物語ならではの持ち味が、どれほど発揮されているか。</li><li><strong>総合評価・完成度・満足感</strong>：1話としてのまとまり、楽しさ、充実感、作り込みを含む評価。</li></ul>
+   <p>WRPはあくまで一つの採点方法ですが、アニメの1話1話をより注意深く、深く味わう手がかりとして作られました。ただ「見た」で終わらない23分にすること。そして、ときには作り手と思いを共有するような瞬間につなげることを目指しています。</p>
+  </div></div><div class="hairline"></div>`;
+const animebNoteJaFinal = `
+  <div class="note animeb-note-jp"><p class="note-title"><strong>※注釈2：F.WRP（ファイナル・ウィークリー・ランキング・ポイント）について</strong></p>
+  <p>FWRPは、1クールを通して積み重なった視聴体験を評価するための独自指標です。第1話から最終話までのWRPと、6つの重要な要素を別途採点したポイントを組み合わせています。</p>
+  <p><strong>算出式：</strong></p>
+  <p><code>総WRP（第1話〜最終話）÷ 話数 × 100 × Var(x) ＋ 6要素ポイント</code></p>
+  <div class="detail-toggle"><strong>詳細：▾</strong></div>
+  <div class="detail-content">
+    <p><strong>Var(x)について</strong></p>
+    <p>Var(x)は、WRPの累積点が属するスコア帯によって変わる係数です。作品間の点数分布に生じる偏りを調整し、順位の不均衡を抑える役割を持ちます。</p>
+    <p><strong>6要素ポイントとその内訳</strong></p>
+    <p>1クール全体を通して、作品の魅力と視聴体験に特に大きな影響を与える次の6点を評価します。</p>
+    <ul><li><strong>オープニング：</strong>楽曲（最大1.0点）＋アニメーション（最大0.5点）</li>
+    <li><strong>エンディング：</strong>楽曲（最大1.0点）＋アニメーション（最大0.5点）</li>
+    <li><strong>声優・演技：</strong>最大0.5点</li><li><strong>音楽・音響：</strong>最大0.5点</li>
+    <li><strong>一貫性・整合性・インパクト：</strong>最大1.0点</li><li><strong>総合的な調和・作品力：</strong>最大2.0点</li></ul>
+    <p><strong>合計：最大7.0点</strong></p>
+    <p><strong>なぜすべての項目の点数を公開しないのか？</strong></p>
+    <p>この評価方法は個人の経験と長年の観察から生まれたものです。絶対的な尺度ではなく、作品のニュアンスや感情に訴える部分、視聴体験の豊かさを伝える参考指標です。数字だけですべてを判断しないために、一部の細かな採点や内部ロジックは公開していません。</p>
+  </div></div>`;
+function animebUpdateWeeklyNotes() {
+  const mount=document.querySelector('.note-mount');
+  if(!mount || !mount.children.length) return;
+  let jaSection=mount.querySelector(':scope > .animeb-weekly-notes-ja');
+  if(!jaSection) {
+    const isFinal=!!mount.querySelector('.about-vax, .six-element-summary');
+    jaSection=document.createElement('div');jaSection.className='animeb-weekly-notes-ja';
+    jaSection.innerHTML=animebNoteJaGeneral + (isFinal?animebNoteJaFinal:animebNoteJaNormal);
+    mount.appendChild(jaSection);
+    jaSection.querySelectorAll('.detail-toggle').forEach(toggle=>{
+      toggle.addEventListener('click',()=>toggle.nextElementSibling?.classList.toggle('open'));
+    });
+  }
+  const ja=animebWeeklyLang==='ja';
+  [...mount.children].forEach(child=>{ child.hidden = child===jaSection ? !ja : ja; });
+}
+
 function animebApplyWeeklyLanguage() {
   const ja=animebWeeklyLang==='ja';
   document.body.dataset.animebLang=animebWeeklyLang;
@@ -194,6 +287,20 @@ function animebApplyWeeklyLanguage() {
     label.dataset.originalLabel=original;
     label.textContent=ja ? (original.startsWith('Final')?'最終WRP（6要素）*':'週間ランキングポイント*') : original;
   });
+  animebUpdateWeeklyNotes();
+  if (typeof hideTooltip === 'function') hideTooltip();
+  const headerScore=document.querySelector('.table-header-mount .header-totalscore');
+  if(headerScore) {
+    const trigger=headerScore.querySelector('.info-trigger');
+    const original=headerScore.dataset.animebOriginalScoreLabel ||
+      (trigger?.textContent.trim() || headerScore.firstChild?.textContent?.trim() || '');
+    headerScore.dataset.animebOriginalScoreLabel=original;
+    const label=ja ? (original==='Overall Rating'?'総合評価':'トータルスコア') : original;
+    if(trigger && original!=='Overall Rating') {
+      const text=Array.from(trigger.childNodes).find(x=>x.nodeType===3);
+      if(text) text.textContent=label;
+    } else if(headerScore.firstChild?.nodeType===3) headerScore.firstChild.textContent=label;
+  }
   const intro=document.querySelector('.animeb-weekly-intro');
   if(intro) {
     const en=animebInfoValue(intro.dataset.en);
@@ -698,25 +805,10 @@ if (barLabel) {
   // Final Week 専用: key_elements_breakdown がある場合
   const keyBreakdown = entryData.key_elements_breakdown;
   if (keyBreakdown) {
-    const keyLabelMap = {
-      op: 'Opening',
-      ed: 'Ending',
-      acting: 'Voice Acting',
-      'sound/music': 'Sound / Music',
-      'consistency/impact': 'Consistency / Impact',
-      overall: 'Overall',
-      total: 'Total'
-    };
-
-    const breakdown = Object.entries(keyBreakdown).map(([key, val]) => {
-      const label = keyLabelMap[key] || titleCase(key.replace(/_/g, ' '));
-      return `${label}: ${val}`;
-    }).join('<br>');
-
     wrpEl.querySelector('img').addEventListener('click', function(e) {
       e.stopPropagation();
       closeAll();
-      const popup = createPopup('Key elements breakdown:<br>' + breakdown, 'wrp-popup');
+      const popup = createPopup(animebWRPDetailHTML(keyBreakdown, true), 'wrp-popup');
       positionPopup(this, popup);
     });
 
@@ -724,14 +816,10 @@ if (barLabel) {
   
   } else if (entryData.wrp_breakdown) {
   // 通常の WRP Breakdown をそのまま使う  
-    const breakdown = Object.entries(entryData.wrp_breakdown || {})
-      .map(([key, val]) => `${titleCase(key.replace(/_/g, " "))}: ${val}`)
-      .join("<br>");
-
     wrpEl.querySelector("img").addEventListener("click", function (e) {
       e.stopPropagation();
       closeAll();
-      const popup = createPopup("WRP Breakdown:<br>" + breakdown, "wrp-popup");
+      const popup = createPopup(animebWRPDetailHTML(entryData.wrp_breakdown), "wrp-popup");
       positionPopup(this, popup);
     });
   }
@@ -1074,8 +1162,7 @@ adjustPopupPadding(popup); // ←💡追加！
     btn.addEventListener('click', function (e) {
       e.stopPropagation();
       closeAll();
-      const breakdown = this.dataset.breakdown.replace(/,/g, '<br>');
-      const popup = createPopup('WRP Breakdown:<br>' + breakdown, 'wrp-popup');
+      const popup = createPopup(animebWRPLegacyDetailHTML(this.dataset.breakdown), 'wrp-popup');
       positionPopup(this, popup);
     });
   });
@@ -1225,11 +1312,12 @@ function adjustPopupPadding(popup) {
 function setupInfoTriggers() {
   document.querySelectorAll('.info-trigger').forEach(el => {
     const key = el.dataset.key;
-    const content = infoMap[key];
-    if (!content) return;
+    if (!infoMap[key]) return;
+    if (el.dataset.animebInfoBound === '1') return;
+    el.dataset.animebInfoBound = '1';
 
     el.addEventListener('mouseenter', (e) => {
-      showTooltip(e, content);
+      showTooltip(e, animebWeeklyTooltipFor(key));
     });
 
     el.addEventListener('mousemove', (e) => {
@@ -1241,7 +1329,7 @@ function setupInfoTriggers() {
     });
 
     el.addEventListener('click', (e) => {
-      showTooltip(e, content);
+      showTooltip(e, animebWeeklyTooltipFor(key));
     });
   });
 }
@@ -1454,29 +1542,47 @@ const infoMap = {
 
 };
 
-document.querySelectorAll('.info-trigger').forEach(el => {
-  const key = el.dataset.key;
-  const content = infoMap[key];
-  if (!content) return;
 
-  // Hover for desktop
-  el.addEventListener('mouseenter', (e) => {
-    showTooltip(e, content);
-  });
+const animebInfoMapJa = {
+  wrp: `<span class="tooltip-heading">WRPとは？</span>
+    <ul class="tooltip-list"><li><span class="key">WRP</span>（週間ランキングポイント）は、その週に視聴したアニメ1話の満足度や完成度を総合的に示す点数です。</li>
+    <li>アニメーション、脚本、演出などの技術的な出来と、作品としての楽しさを合わせて評価します。</li>
+    <li>その話単体の出来に加え、同じ週に放送されたほかの作品との比較も考慮します。</li></ul>
+    <p class="tooltip-note">注：絶対的な評価ではありません。その週の作品の顔ぶれや相対的な楽しさによって意味合いは変わります。</p>
+    <p class="tooltip-bottom-note">詳しくはページ下部の注釈をご覧ください。</p>`,
+  total: `<span class="tooltip-heading">トータルスコアとは？</span>
+    <ul class="tooltip-list"><li>トータルスコアは、週間WRPを簡略化し整数に丸めた得点です。</li>
+    <li>通常はWRPの小数点以下を切り捨てます。</li>
+    <li><span class="key">例外：</span><span class="key">9.50〜9.99</span>は<span class="key">10</span>点、<span class="key">10.00以上</span>は<span class="key">11</span>点として扱います。</li></ul>
+    <p class="tooltip-note">注：シーズンランキングに使いやすい簡略化された数値であり、その話の総合的な印象を示す目安でもあります。</p>`,
+  fwrp: `<span class="tooltip-heading">FWRPとは？</span><ul class="tooltip-list">
+    <li><span class="key">FWRP</span>（最終週間ランキングポイント）は、シーズン全体の視聴体験を表す得点です。</li>
+    <li>全話を通した<span class="key">WRPの累積値</span>と、別途採点した<span class="key">6要素ポイント</span>を組み合わせます。</li>
+    <li>得点帯に応じて係数を調整し、感情的なインパクトと作品の構造的な完成度の両方を捉えます。</li></ul>
+    <p class="tooltip-note">注：単純な数値の比較だけでなく、1クールを通して変化する視聴体験を表すための指標です。</p>
+    <p class="tooltip-bottom-note">詳細はページ下部の注釈をご覧ください。</p>`,
+  orp: `<span class="tooltip-heading">総合評価（Overall Rating）とは？</span>
+    <p><span class="key">Overall Rating</span>は、最終話だけではなく、シーズン全体を通した各話の評価を積み重ねた総合的な得点です。</p>
+    <p>一つの作品として完成したときの価値と、視聴体験全体を示すための目安です。これから視聴する人や、あらためて作品を振り返る人にも参考になるよう設計しています。</p>
+    <p class="tooltip-note">注：個人的な基準に基づく評価ですが、できる限り一貫性とバランスを保つよう努めています。作品の価値観は人によって異なります。</p>
+    <p class="tooltip-bottom-note">詳しくはページ下部をご覧ください。</p>`,
+  vstatus: `<span class="tooltip-heading">視聴状況とは？</span><ul class="tooltip-list">
+    <li><span class="key">視聴中</span>：その週に見た作品の総数。視聴中止や復帰した作品も含みます。</li>
+    <li><span class="key">今週の視聴中止</span>：その週に新たに視聴をやめた作品数。</li>
+    <li><span class="key">視聴中止合計</span>：その週を含む、これまでの視聴中止作品数。</li>
+    <li><span class="key">復帰</span>：以前視聴をやめた作品のうち、その週に再び視聴対象となった作品数。</li>
+    <li><span class="key">放送なし</span>：その週に新しいエピソードが放送されなかった作品数。</li>
+    <li><span class="key">完走</span>：前週までに全話の放送が終わった作品数。今週完結した作品は今週の「視聴中」に含め、翌週からこちらに加えます。</li>
+    <li><span class="key">合計</span>：Prelim時点で選んだ初期評価候補数。</li></ul>
+    <p class="tooltip-note">「視聴中」には、その週に見た作品をすべて含みます。</p>`
+};
+function animebWeeklyTooltipFor(key) {
+  return (animebWeeklyLang==='ja' ? animebInfoMapJa[key] : infoMap[key]) || infoMap[key] || '';
+}
 
-  el.addEventListener('mousemove', (e) => {
-    moveTooltip(e);  // ← 追従させたい場合（定義が必要）
-  });
+// Bind the initial icons once. Dynamically mounted header icons are bound after JSON loading.
+setupInfoTriggers();
 
-  el.addEventListener('mouseleave', () => {
-    hideTooltip();
-  });
-
-  // Tap / Click for mobile
-  el.addEventListener('click', (e) => {
-    showTooltip(e, content);
-  });
-});
 
 function showTooltip(event, text) {
   const tooltip = document.getElementById('tooltip');

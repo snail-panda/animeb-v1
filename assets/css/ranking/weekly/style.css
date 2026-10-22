@@ -1942,3 +1942,23 @@ body[data-animeb-lang="en"] .entry .genre-tag {
   body[data-animeb-lang="en"] .entry .genre-tag { font-size: .647rem; } /* .599 × 1.08 */
   .entry .review-tag { font-size: .647rem; } /* .599 × 1.08 */
 }
+
+
+/* === AnimeB Weekly v3.2: requested micro-tuning + bilingual explanatory copy === */
+/* A final subtle reduction: both outer capsule and its inner selected pill. */
+.animeb-weekly-language { gap:1px; padding:1px; border-radius:14px; }
+.animeb-weekly-language button { font-size:9.3px; padding:2.5px 7px; min-height:23px; border-radius:11px; }
+@media (max-width:768px) {
+  .animeb-weekly-language button { font-size:9px; padding:2.5px 6px; min-height:23px; }
+}
+/* THIS WEEK / 今週のひと言: quiet grey editorial note, not a purple callout. */
+.animeb-intro-label { color:#777674; font-size:.64rem; font-weight:650; letter-spacing:.02em; margin-bottom:5px; }
+.animeb-intro-text { color:#666561; font-size:clamp(.70rem, 1.03vw, .79rem); line-height:1.58; }
+/* Approximately 8% larger than v3.1, preserving the original badge proportions. */
+.entry .collapse-btn { font-size:.556rem; }  /* .515 × 1.08 */
+.entry .review-tag { font-size:.587rem; padding:.105rem .335rem .06rem; } /* .544 × 1.08 */
+@media (min-width:769px) { .entry .review-tag { font-size:.699rem; } } /* .647 × 1.08 */
+/* The alternate-language footnotes should replace—not duplicate—the originals. */
+.note-mount > [hidden] { display:none !important; }
+.animeb-weekly-notes-ja[hidden] { display:none !important; }
+.animeb-note-jp { font-family:'Noto Sans JP','Yu Gothic UI',sans-serif; font-size:.73rem; line-height:1.8; }
