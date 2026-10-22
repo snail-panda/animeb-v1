@@ -1996,3 +1996,30 @@ body[data-animeb-lang="ja"] .animeb-intro-label {
 body[data-animeb-lang="ja"] .entry .info-top {
   font-size: 1.08em;
 }
+
+
+/* === AnimeB Weekly v3.4: four approved micro-adjustments (CSS only) ===
+   Keep all v3.3 layout, title weight, language switch, badges and controls. */
+
+/* Slightly larger (+1px) speech bubble; optical baseline ~1–2px lower. */
+.animeb-intro-label::before {
+  width: 13px;  /* v3.3: 12px */
+  height: 13px;
+  vertical-align: -3px; /* v3.3: -1px */
+}
+
+/* English weekly intro body: +3.5% relative to v3.3 (JA body untouched). */
+body[data-animeb-lang="en"] .animeb-intro-text {
+  font-size: clamp(.768rem, 1.130vw, .866rem);
+}
+
+/* Japanese main anime title: +6% relative to v3.3; preserve weight. */
+body[data-animeb-lang="ja"] .entry .info-top {
+  font-size: 1.145em; /* v3.3: 1.08em */
+}
+
+/* Expanded synopsis BODY only: subtly soften #404040 -> #4e4e4e.
+   Existing SYNOPSIS/作品概要 heading ::before has its own color. */
+.entry .synopsis.active:not(.animeb-empty-synopsis) {
+  color: #4e4e4e;
+}
