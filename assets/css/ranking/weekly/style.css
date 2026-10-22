@@ -1801,3 +1801,26 @@ body { padding: 0; }
   margin: 1.7em 0 2em;
 }
 .popup-review-text .review-section-divider + p { margin-top: 0; }
+
+
+/* === AnimeB weekly More Info expansion: actual content height, flexible cast === */
+.entry .more-info, .entry .synopsis { display:none; max-height:none; overflow:visible; transition:none; }
+.entry .more-info.active { display:block; max-height:none; padding:.55rem 0; }
+.entry .synopsis.active:not(.animeb-empty-synopsis) { display:block; max-height:none; padding:.4rem .5rem .5rem 0; }
+.entry .synopsis.active:not(.animeb-empty-synopsis)::before {
+  content:'SYNOPSIS'; display:block; font-weight:700; letter-spacing:.055em;
+  font-size:.7rem; color:#716444; padding-bottom:.25rem; margin-bottom:.35rem;
+  border-bottom:1px solid #e5dfcb;
+}
+.entry .more-info dl { min-width:0; }
+.entry .more-info dt { white-space:normal; overflow-wrap:anywhere; }
+.entry .more-info dd { min-width:0; padding-left:0; white-space:pre-line; }
+.entry .more-info .animeb-wide-label, .entry .more-info .animeb-wide-value { grid-column:1/-1; }
+.entry .more-info .animeb-wide-label { margin-top:.5rem; }
+.entry .more-info .animeb-weekly-cast { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:.25rem 1rem; }
+.entry .more-info .animeb-weekly-cast span { min-width:0; overflow-wrap:anywhere; }
+.entry .more-info a { color:#27627b; overflow-wrap:anywhere; }
+@media (max-width:620px) {
+  .entry .more-info .animeb-weekly-cast { grid-template-columns:minmax(0,1fr); }
+  .entry .more-info dl { grid-template-columns:minmax(100px,1fr) minmax(0,2fr); }
+}

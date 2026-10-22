@@ -55,6 +55,66 @@ const jsonPath = `ranking-${window.currentWeek}-${window.season}${window.year}.j
 
 
 
+// AnimeB weekly series-information renderer; empty/zero/unavailable values are omitted.
+function animebInfoValue(value) {
+  if (value === undefined || value === null || value === 0) return '';
+  const str = String(value).trim();
+  return /^(?:0|n\/?a|none|null|undefined|tbd|not available|—|-)$/i.test(str) ? '' : str;
+}
+function animebInfoFirst(...values) {
+  for (const v of values) { const text = animebInfoValue(v); if (text) return text; }
+  return '';
+}
+function animebFillWeeklyInfo(dl, entry) {
+  dl.replaceChildren();
+  const addPair = (label, raw, options={}) => {
+    const val = animebInfoValue(raw);
+    if (!val) return;
+    const dt = document.createElement('dt');
+    dt.textContent = label;
+    const dd = document.createElement('dd');
+    if (options.full) {dt.classList.add('animeb-wide-label');dd.classList.add('animeb-wide-value');}
+    if (options.cast) {
+      const grid = document.createElement('div');
+      grid.className = 'animeb-weekly-cast';
+      val.split(/\r?\n/).map(x=>x.trim()).filter(Boolean).forEach(item=>{
+        const span = document.createElement('span');
+        span.textContent = item;
+        grid.appendChild(span);
+      });
+      dd.appendChild(grid);
+    } else if (options.url) {
+      for (const url of [...new Set(val.split('|').map(x=>x.trim()).filter(Boolean))]) {
+        if (!/^https?:\/\/[^\s]+$/i.test(url)) continue;
+        const link = document.createElement('a');
+        link.href=url; link.textContent=url; link.target='_blank'; link.rel='noopener noreferrer';
+        dd.appendChild(link); dd.appendChild(document.createElement('br'));
+      }
+      if (!dd.querySelector('a')) return;
+    } else {
+      dd.textContent = val;
+    }
+    dl.append(dt,dd);
+  };
+  addPair('Release Date',entry.release_date);
+  addPair('Romanized Title',entry.romanized_title);
+  addPair('Based On',animebInfoFirst(entry.based_on,entry.base));
+  addPair('Production Studio',entry.studios);
+  addPair('Director',animebInfoFirst(entry.director,entry.creators));
+  addPair('Series Composition',animebInfoFirst(entry.series_composition,entry.seriesComposition));
+  addPair('Original Creator / Publisher',entry.original_creator_publisher);
+  addPair('Episodes',entry.episode_count);
+  addPair('This Season',entry.total_eps_this_season);
+  addPair('Series Total Episodes',entry.seasons_total_ep_cnt);
+  addPair('Broadcast',animebInfoFirst(entry.broadcast,entry.broadcast_info));
+  addPair('Streaming Services',entry.streaming_services);
+  addPair('Cast',entry.cast,{full:true,cast:true});
+  addPair('Opening Theme',animebInfoFirst(entry.opening_theme,entry.op),{full:true});
+  addPair('Ending Theme',animebInfoFirst(entry.ending_theme,entry.ed),{full:true});
+  addPair('Official Website',entry.official_website,{full:true,url:true});
+  addPair('External Scores',entry.external_scores);
+}
+
 // ========== JSON読み込み & DOM更新 ==========
 fetch(jsonPath)
   .then(response => {
@@ -541,23 +601,17 @@ if (kvThumbBox && entryData.episode) {
 }
 
 
-  // — synopsis —
-  const synopsisBox = clone.querySelector(".synopsis");
-  if (synopsisBox) synopsisBox.textContent = entryData.synopsis || "";
-
-  // — More Info —
-  const dl = clone.querySelector(".more-info dl");
-  if (dl) {
-    dl.innerHTML = `
-      <dt>Release Date</dt><dd>${entryData.release_date || ""}</dd>
-      <dt>Romanized Title</dt><dd>${entryData.romanized_title || ""}</dd>
-      <dt>Based On</dt><dd>${entryData.based_on || ""}</dd>
-      <dt>Studios</dt><dd>${entryData.studios || ""}</dd>
-      <dt>Creators</dt><dd>${entryData.creators || ""}</dd>
-      <dt>External Scores</dt><dd>${entryData.external_scores || ""}</dd>
-      <dt>Streaming Services</dt><dd>${entryData.streaming_services || ""}</dd>
-    `;
+  // — Synopsis (show the heading only when content exists) —
+  const synopsisBox = clone.querySelector('.synopsis');
+  if (synopsisBox) {
+    synopsisBox.textContent = animebInfoValue(entryData.synopsis);
+    synopsisBox.classList.toggle('animeb-empty-synopsis', !synopsisBox.textContent);
   }
+
+  // — More Info: backward compatible with old and Master-assisted weekly JSON —
+  const infoPanel = clone.querySelector('.more-info');
+  const dl = infoPanel?.querySelector('dl');
+  if (dl) animebFillWeeklyInfo(dl, entryData);
 
   // — Reviewボタン —
 const reviewAnchor = clone.querySelector(".collapse-wrapper");

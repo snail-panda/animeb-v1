@@ -1,0 +1,214 @@
+/* デフォルト：通常のPC表示時（1rem = 16px） */
+html {
+  font-size: 16px;
+}
+
+body {
+      font-family: 'Barlow Condensed', sans-serif;
+      background: #fdfdfd;
+      color: #222;
+      max-width: 980px;
+      margin: auto;
+      padding: 1rem;
+    }
+    h1, h2 {
+      border-left: 5px solid #e67e22;
+      padding-left: 12px;
+    }
+ .update-date {
+  font-size: 0.85rem;
+  color: #878484;
+  margin-top: -0.5rem;
+  margin-bottom: 0rem;
+}
+
+hr.thin-divider {
+  border: none;
+  border-top: 1px solid #eee;
+  margin: 0.6rem 0 2rem 0;
+}
+
+    .section {
+      margin-bottom: 3rem;
+    }
+    .class-description {
+      font-size: 0.65em;
+      color: #5C5858;
+      font-weight: 500;
+      margin-left: 0.4rem;
+    }
+    .card {
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      overflow: hidden;
+      margin-bottom: 1.5rem;
+      display: flex;
+      gap: 1rem;
+      padding: 1rem;
+    }
+    .card img {
+      width: 160px;
+      height: auto;
+      border-radius: 6px;
+      object-fit: cover;
+    }
+    .card-content {
+      flex: 1;
+    }
+    .card-title {
+      font-weight: bold;
+      font-size: 1.5rem;
+      margin-bottom: 0.2rem;
+    }
+    
+    .title-romaji {
+      font-weight: 400;
+      font-size: 1.1rem;
+      color: #555;
+      font-style: italic;
+      margin-left: 0.4rem;
+    }
+    .studio {
+      font-size: 0.93rem;
+      color: #666;
+      margin-top: 0.1rem;
+      margin-bottom: 0.6rem;
+    }
+    summary {
+  font-size: 0.9rem;
+}
+    .details {
+      margin-top: 0.5rem;
+      font-size: 0.95rem;
+    }
+    .small-card {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      background: #f7f7f7;
+      padding: 0.6rem 0.8rem;
+      border-radius: 6px;
+      margin-bottom: 0.8rem;
+    }
+    .small-card img {
+      width: 80px;
+      height: auto;
+      border-radius: 4px;
+    }
+    .small-title {
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+    .small-title .title-romaji {
+      font-size: 1rem;
+    }
+    .watch-ranking-item {
+      margin-bottom: 1.4rem;
+    }
+    .watch-title {
+      font-weight: bold;
+      font-size: 1.2rem;
+      margin-top: 2rem;
+      margin-bottom: 0.2rem;
+    }
+    .watch-title .title-romaji {
+      font-size: 1.03rem;
+    }
+    .note {
+      font-size: 0.98rem;
+      color: #666;
+      margin-top: -1rem;
+      margin-bottom: 3.5rem;
+    }
+
+    .watch-title .note { 
+      margin-left: 0.5em;
+    }
+
+    
+    .watch-ranking-item .note {
+      font-weight: 500;
+      font-size: 0.93rem;
+      color: #E66E76;
+    }
+
+    .watch-ranking-item .comment {
+  margin-top: 1.5rem;        /* タイトルとの間隔 */
+  margin-bottom: 2.5rem;
+  line-height: 1.35;
+}
+.watch-ranking-item .comment::before {
+  content: "— ";          /* 先頭のダッシュ */
+  opacity: .8;
+}
+
+.meta-line{
+  margin-top:.2rem;
+  margin-bottom: 0.5rem;
+  font-size:.9rem;
+  color:#6b7280; /* Tailwindのgray-500相当 */
+  line-height:1.2;
+}
+@media (max-width: 600px){
+  .meta-line{ font-size:.85rem; }
+}
+
+/* review & comment text */
+/* 日本語の本文だけ少し小さめ */
+.review-text.lang-ja { font-size: 0.9rem; line-height: 1.6; }
+.comment-text.lang-ja { font-size: 0.9rem; line-height: 1.6; }
+
+/* 大カード（Top3/Top5）は少し大きめ、小カードは控えめ  */
+.card.lang-ja.tier-top3 .review-text { font-size: 1rem; }
+.card.lang-ja.tier-top5 .review-text { font-size: 0.95rem; }
+.small-card.lang-ja .review-text      { font-size: 0.85rem; }
+
+/* 追加で行間や余白の微調整も */
+.card.lang-ja .review-text { margin-top: 0.4rem; }
+.small-card.lang-ja .review-text { margin-top: 0.35rem; }
+.watch-ranking-item.lang-ja .comment-text { margin-top: 0.35rem; }
+
+
+
+/* Lang-switch と back to home nav */
+.lang-switch {
+  position: sticky; top: 0; z-index: 1000;
+  background: #fff; border-bottom: 1px solid #eee;
+  padding: 8px 0;
+  display: flex; gap: 8px; justify-content: center; /* ← 2ボタンを横並び */
+  /* margin-top: -1px; は二重バー解消用だったので削ってOK */
+}
+.lang-switch .lang-link {
+  display: inline-block;
+  font-size: 0.7rem;
+  padding: 6px 12px; min-width: 44px;
+  border: 1px solid #ddd; border-radius: 9999px;
+  text-decoration: none; color: #70686B;
+}
+.lang-switch .lang-link:hover { background-color: #F2F0E6; transform: translateY(1px); }
+
+
+    /* 📱 スマホ（狭い画面）時にフォントを小さくする：例 1rem = 14px */
+@media screen and (max-width: 600px) {
+  html {
+    font-size: 14px;
+  }
+  .card img {
+      width: 140px;
+      height: auto;
+      max-height: 190px;
+  }
+}
+
+/* 📱 さらに狭い超コンパクトなデバイス用（1rem = 13px） */
+@media screen and (max-width: 400px) {
+  html {
+    font-size: 13px;
+  }
+  .card img {
+      width: 120px;
+      height: auto;
+      max-height: 190px;
+  }
+}

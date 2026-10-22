@@ -189,6 +189,128 @@ function updatePageMeta(meta) {
     : `${seasonName} ${PAGE_YEAR} Anime ${stage} Recommendations`;
 }
 
+// ===== AnimeB v1.1: bilingual, optional series information =====
+// Existing EN/JA JSON and Master-assisted JSON both remain supported.
+function infoText(value) {
+  if (value === null || value === undefined || value === 0) return '';
+  const text = String(value).trim();
+  return /^(?:0|n\/?a|none|null|undefined|not available|tbd|—|-)$/i.test(text) ? '' : text;
+}
+function infoPick(...values) { for (const v of values) { const x = infoText(v); if (x) return x; } return ''; }
+function infoEscape(value) {
+  return String(value ?? '').replace(/[&<>"']/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
+}
+// Preserve harmless editorial emphasis/line breaks in existing reviews without allowing script HTML.
+function infoReviewHTML(value) {
+  const input = document.createElement('template');
+  input.innerHTML = String(value || '');
+  const allowed = new Set(['B','STRONG','EM','I','U','BR','P','SUP','SUB']);
+  const blocked = new Set(['SCRIPT','STYLE','IFRAME','OBJECT','EMBED','SVG','MATH','FORM']);
+  const clean = node => {
+    if (node.nodeType === Node.TEXT_NODE) return document.createTextNode(node.nodeValue);
+    if (node.nodeType !== Node.ELEMENT_NODE || blocked.has(node.tagName)) return document.createDocumentFragment();
+    const safe = allowed.has(node.tagName) ? document.createElement(node.tagName.toLowerCase()) : document.createDocumentFragment();
+    [...node.childNodes].forEach(child=>safe.appendChild(clean(child)));
+    return safe;
+  };
+  const output = document.createElement('div');
+  [...input.content.childNodes].forEach(node=>output.appendChild(clean(node)));
+  return output.innerHTML;
+}
+function localized(entry, key, ...fallbacks) {
+  return IS_JA
+    ? infoPick(entry[key + '_ja'], entry[key + '_jp'], entry[key], ...fallbacks)
+    : infoPick(entry[key + '_en'], entry[key], ...fallbacks);
+}
+const INFO_TRANSLATIONS = {
+  genre: {Action:'アクション',Adventure:'冒険',Comedy:'コメディ',Drama:'ドラマ',Fantasy:'ファンタジー',Romance:'恋愛',
+    'Slice of Life':'日常','Sci-Fi':'SF',Mystery:'ミステリー',Horror:'ホラー',Psychological:'心理',Sports:'スポーツ',
+    Mecha:'ロボット',Supernatural:'超常現象',Thriller:'スリラー',Ecchi:'お色気',Historical:'歴史',Music:'音楽',
+    School:'学園',Isekai:'異世界',Suspense:'サスペンス'},
+  base: {'Manga':'漫画','Light Novel':'ライトノベル','Novel':'小説','Original':'オリジナル','Web Comics':'ウェブ漫画',
+    'Web Comic':'ウェブ漫画','Web Novel':'ウェブ小説','Visual Novel':'ビジュアルノベル','Game':'ゲーム','Video Game':'ゲーム',
+    'Naro':'なろう系','4-koma Manga':'4コマ漫画','Light Novels':'ライトノベル',
+    'Mangas':'漫画','Web Comics':'ウェブ漫画','Anime':'アニメ','Mobile Game':'モバイルゲーム','Comic':'コミック'}
+};
+const INFO_LABELS = IS_JA ? {
+  studio:'制作会社',director:'監督',series:'シリーズ構成',details:'＋ 詳細情報',
+  release:'放送開始日',romaji:'ローマ字表記',creator:'原作者・出版社',episodes:'話数',seasonEps:'今期の話数',
+  allEps:'シリーズ総話数',cast:'キャスト',op:'オープニング',ed:'エンディング',site:'公式サイト',
+  external:'外部評価',streaming:'配信サービス',broadcast:'放送情報',synopsis:'作品概要'
+} : {
+  studio:'Production Studio',director:'Director',series:'Series Composition',details:'＋ More details',
+  release:'Release Date',romaji:'Romanized Title',creator:'Original Creator / Publisher',episodes:'Episodes',
+  seasonEps:'This Season',allEps:'Series Total Episodes',cast:'Cast',op:'Opening Theme',ed:'Ending Theme',site:'Official Website',
+  external:'External Scores',streaming:'Streaming Services',broadcast:'Broadcast',synopsis:'Synopsis'
+};
+function pickBasedOn(entry) { return infoPick(entry.based_on, entry.base); }
+function parseGenres(value) {
+  return (Array.isArray(value) ? value : String(value || '').split('|')).map(infoText).filter(Boolean);
+}
+function infoTags(entry) {
+  const rawGenre = parseGenres(entry.genre);
+  const genres = [...new Set(rawGenre.map(x => IS_JA ? (INFO_TRANSLATIONS.genre[x] || x) : x))];
+  const base = pickBasedOn(entry);
+  const baseLabel = IS_JA ? (INFO_TRANSLATIONS.base[base] || base) : base;
+  const chips = [...genres.map(x=>`<span class="animeb-chip animeb-genre">${infoEscape(x)}</span>`),
+     ...(baseLabel ? [`<span class="animeb-chip animeb-based">${infoEscape(baseLabel)}</span>`] : [])];
+  return chips.length ? `<div class="animeb-info-tags">${chips.join('')}</div>` : '';
+}
+function studioName(entry) { return localized(entry,'studios'); }
+function directorName(entry) { return localized(entry,'director',entry.creators); }
+function seriesName(entry) { return localized(entry,'series_composition', entry.seriesComposition); }
+function basicMeta(entry) {
+  const lines = [
+    [INFO_LABELS.studio,studioName(entry)],
+    [INFO_LABELS.director,directorName(entry)],
+    [INFO_LABELS.series,seriesName(entry)]
+  ].filter(x=>!!x[1]);
+  return lines.length ? `<div class="animeb-basic-meta">${lines.map(([label,value])=>
+      `<span class="animeb-basic-item"><strong>${infoEscape(label)}:</strong> ${infoEscape(value)}</span>`).join('')}</div>` : '';
+}
+function officialLinks(value) {
+  const urls = String(value || '').split('|').map(x=>x.trim()).filter(Boolean);
+  const unique = [...new Set(urls)].filter(x => /^https?:\/\/[^\s]+$/i.test(x));
+  return unique.map((url,i)=>`<a href="${infoEscape(url)}" target="_blank" rel="noopener noreferrer">${infoEscape(unique.length>1?`${IS_JA?'公式サイト':'Official Site'} ${i+1}`:url)}</a>`).join('<span class="animeb-link-break"></span>');
+}
+function castList(value) {
+  const cast = infoText(value).split(/\r?\n/).map(x=>x.trim()).filter(Boolean);
+  return cast.length ? `<div class="animeb-cast-grid">${cast.map(x=>`<span>${infoEscape(x)}</span>`).join('')}</div>` : '';
+}
+function moreDetailHTML(entry) {
+  // Fields already visible in the card (genres, source, studio, director, composition) are not repeated.
+  const cells = [
+    [INFO_LABELS.release,infoPick(entry.release_date)],
+    [INFO_LABELS.creator,localized(entry,'original_creator_publisher')],
+    [INFO_LABELS.episodes,infoPick(entry.episode_count)],
+    [INFO_LABELS.seasonEps,infoPick(entry.total_eps_this_season)],
+    [INFO_LABELS.allEps,infoPick(entry.seasons_total_ep_cnt)],
+    [INFO_LABELS.broadcast,localized(entry,'broadcast',entry.broadcast_info)],
+    [INFO_LABELS.streaming,localized(entry,'streaming_services')],
+    [INFO_LABELS.external,infoPick(entry.external_scores)]
+  ].filter(x=>!!x[1]);
+  const cellHTML = cells.length ? `<div class="animeb-details-grid">${cells.map(([label,value])=>
+    `<div class="animeb-detail-pair"><span class="animeb-detail-label">${infoEscape(label)}</span><span class="animeb-detail-value">${infoEscape(value)}</span></div>`).join('')}</div>` : '';
+  const synopsis = localized(entry,'synopsis');
+  const cast = castList(entry.cast);
+  const songRows = [[INFO_LABELS.op,infoPick(entry.opening_theme,entry.op)],
+    [INFO_LABELS.ed,infoPick(entry.ending_theme,entry.ed)]].filter(x=>!!x[1]);
+  const songHTML = songRows.length ? `<div class="animeb-details-grid animeb-songs">${songRows.map(([label,value])=>
+    `<div class="animeb-detail-pair"><span class="animeb-detail-label">${infoEscape(label)}</span><span class="animeb-detail-value">${infoEscape(value)}</span></div>`).join('')}</div>` : '';
+  const links = officialLinks(entry.official_website);
+  const more = cellHTML
+    + (synopsis ? `<section class="animeb-details-full"><h4>${INFO_LABELS.synopsis}</h4><p class="animeb-synopsis">${infoEscape(synopsis)}</p></section>` : '')
+    + (cast ? `<section class="animeb-details-full"><h4>${INFO_LABELS.cast}</h4>${cast}</section>` : '')
+    + songHTML
+    + (links ? `<section class="animeb-details-full"><h4>${INFO_LABELS.site}</h4><div class="animeb-official-links">${links}</div></section>` : '');
+  return more ? `<details class="animeb-more"><summary>${INFO_LABELS.details}</summary><div class="animeb-more-body">${more}</div></details>` : '';
+}
+function cardKV(entry) {
+  const kv = infoText(entry.kv);
+  const title = infoEscape(pickENTitle(entry));
+  return kv ? `<img class="animeb-kv" src="${infoEscape(imageBase+encodeURIComponent(kv)+'.webp')}" alt="${title}" loading="lazy">` : '';
+}
+
 // ====== 起動処理 ======
 document.addEventListener('DOMContentLoaded', () => {
   // プレースホルダー除去
@@ -227,70 +349,27 @@ function renderMainEntries(entries) {
 }
 
 function generateCard(entry) {
-  const kvImage = `${imageBase}${entry.kv}.webp`;
-
-  // タイトル・括弧
   const mainTitle = IS_JA ? (pickJPTitle(entry) || pickENTitle(entry)) : pickENTitle(entry);
   const parenText = IS_JA ? buildParenForJA(entry) : (pickRomaji(entry) ? `(${pickRomaji(entry)})` : '');
-
-  // メタ（スタジオは英語のまま表示）
-  const studioText = entry.studios ? `Studio: ${entry.studios}` : '';
-
-  // レビュー本文
   const review = pickReviewForRec(entry);
-
-  // ランク帯クラス（Recommendations のカード用）
-  const tierClass =
-     (entry.rank <= 3) ? 'tier-top3' :
-     (entry.rank <= 5) ? 'tier-top5' :
-     (entry.rank <= 8) ? 'tier-top8' :
-     (entry.rank <= 10) ? 'tier-top10' : 'tier-additional';
-
-  // details ラベル（Rec は既存踏襲。必要になったらJA化）
-  const L = {
-    details: "＋ More details",
-    dir: "Director:",
-    series: "Series comp:",
-    based: "Based on:",
-    synopsis: "Synopsis:"
-  };
-
-  if (entry.rank <= 5) {
-    return `
-      <div class="card ${LANG_CLASS} ${tierClass}">
-        <img src="${kvImage}" alt="${pickRomaji(entry) || mainTitle}">
-        <div class="card-content">
-          <div class="card-title">
-            <span class="title-en">${mainTitle}</span>
-            ${parenText ? `<span class="title-romaji"> ${parenText}</span>` : ""}
-          </div>
-          <div class="studio">${studioText}</div>
-          ${review ? `<p class="review-text ${LANG_CLASS}">${review}</p>` : ""}
-          <details>
-            <summary>${L.details}</summary>
-            <p>
-              <strong>${L.dir}</strong> ${entry.creators || ''}<br>
-              <strong>${L.series}</strong> ${entry.seriesComposition || ''}<br>
-              <strong>${L.based}</strong> ${entry.based_on || ''}<br>
-              <strong>${L.synopsis}</strong> ${entry.synopsis || ''}
-            </p>
-          </details>
+  const tierClass = (entry.rank <= 3) ? 'tier-top3' : (entry.rank <= 5) ? 'tier-top5' :
+    (entry.rank <= 8) ? 'tier-top8' : (entry.rank <= 10) ? 'tier-top10' : 'tier-additional';
+  const large = entry.rank <= 5;
+  const titleHTML = `<span class="title-en">${infoEscape(mainTitle)}</span>${parenText ?
+      `<span class="title-romaji"> ${infoEscape(parenText)}</span>` : ''}`;
+  return `
+    <div class="${large?'card':'small-card'} animeb-info-card ${LANG_CLASS} ${tierClass}">
+      <div class="animeb-recommend-main">
+        ${cardKV(entry)}
+        <div class="${large?'card-content':'animeb-small-content'}">
+          <div class="${large?'card-title':'small-title'}">${titleHTML}</div>
+          ${infoTags(entry)}
+          ${basicMeta(entry)}
+          ${review ? `<div class="review-text ${LANG_CLASS}">${infoReviewHTML(review)}</div>` : ''}
         </div>
-      </div>`;
-  } else {
-    return `
-      <div class="small-card ${LANG_CLASS} ${tierClass}">
-        <img src="${kvImage}" alt="${pickRomaji(entry) || mainTitle}">
-        <div>
-          <div class="small-title">
-            <span class="title-en">${mainTitle}</span>
-            ${parenText ? `<span class="title-romaji"> ${parenText}</span>` : ""}
-          </div>
-          <div class="studio">${studioText}</div>
-          ${review ? `<div class="review-text ${LANG_CLASS}">${review}</div>` : ""}
-        </div>
-      </div>`;
-  }
+      </div>
+      ${moreDetailHTML(entry)}
+    </div>`;
 }
 
 // ====== Enjoyment Ranking: JSON → HTML ======
@@ -346,90 +425,32 @@ function pickCommentJP(entry) {
 }
 
 function createWatchRankingItem(entry, indexForFallback) {
-  const rankNum = (typeof entry.rank === "number" && Number.isFinite(entry.rank))
+  const rankNum = (typeof entry.rank === 'number' && Number.isFinite(entry.rank))
     ? entry.rank : (indexForFallback + 1);
-
-  // タイトル・括弧（JAは和題を主、ENは英題を主）
   const mainTitle = IS_JA ? (pickJPTitle(entry) || pickENTitle(entry)) : pickENTitle(entry);
-  const parenText = IS_JA ? buildParenForJA(entry) : (pickRomaji(entry) ? `(${pickRomaji(entry)})` : "");
-
-  // 注記（EN優先→JP）
-  const noteEN = formatNoteEn(entry.note_en || "");
-  const noteJP = formatNoteJp(entry.note_jp || "");
-  const noteText = noteEN || noteJP;
-
-  // DOM
-  const item = document.createElement("div");
-  item.className = "watch-ranking-item " + LANG_CLASS;
-
-  const titleWrap = document.createElement("div");
-  titleWrap.className = "watch-title";
-  titleWrap.appendChild(document.createTextNode(`${rankNum}. `));
-
-  const spanMain = document.createElement("span");
-  spanMain.className = "title-en"; // 既存スタイル継続
-  spanMain.textContent = mainTitle;
-  titleWrap.appendChild(spanMain);
-
-  if (parenText) {
-    const spanParen = document.createElement("span");
-    spanParen.className = "title-romaji";
-    spanParen.textContent = ` ${parenText}`;
-    titleWrap.appendChild(spanParen);
-  }
-  if (noteText) {
-    const spanNote = document.createElement("span");
-    spanNote.className = "note";
-    spanNote.textContent = ` ${noteText}`;
-    titleWrap.appendChild(spanNote);
-  }
-  item.appendChild(titleWrap);
-
-  // メタ行（Studios / Dir / Series comp）— ラベルはJAページのみ日本語
-  const metaText = buildMetaLine(entry, rankNum);
-  if (metaText) {
-    const metaDiv = document.createElement("div");
-    metaDiv.className = "meta-line";
-    metaDiv.textContent = metaText;
-    item.appendChild(metaDiv);
-  }
-
-  // コメント（JA→JP優先 / EN→EN）
-  const commentText = IS_JA ? (pickCommentJP(entry) || pickCommentEN(entry)) : pickCommentEN(entry);
-  if (commentText) {
-    const commentDiv = document.createElement("div");
-    commentDiv.className = "comment comment-text " + LANG_CLASS;
-    commentDiv.textContent = commentText;
-    item.appendChild(commentDiv);
-  }
-
+  const parenText = IS_JA ? buildParenForJA(entry) : (pickRomaji(entry) ? `(${pickRomaji(entry)})` : '');
+  const noteEN = formatNoteEn(entry.note_en || '');
+  const noteJP = formatNoteJp(entry.note_jp || '');
+  const noteText = IS_JA ? (noteJP || noteEN) : (noteEN || noteJP);
+  const item = document.createElement('div');
+  item.className = 'watch-ranking-item animeb-enjoyment-card ' + LANG_CLASS;
+  const title = `<div class="watch-title"><span class="animeb-rank">${infoEscape(rankNum)}.</span> `+
+    `<span class="title-en">${infoEscape(mainTitle)}</span>`+
+    (parenText ? `<span class="title-romaji"> ${infoEscape(parenText)}</span>` : '')+
+    (noteText ? `<span class="note"> ${infoEscape(noteText)}</span>` : '') + '</div>';
+  const comment = IS_JA ? (pickCommentJP(entry) || pickCommentEN(entry)) : pickCommentEN(entry);
+  item.innerHTML = `
+    <div class="animeb-enjoyment-main">
+      ${cardKV(entry)}
+      <div class="animeb-enjoyment-top">
+        ${title}
+        ${infoTags(entry)}
+        ${basicMeta(entry)}
+      </div>
+    </div>
+    ${comment ? `<div class="comment comment-text ${LANG_CLASS}">${infoEscape(comment)}</div>` : ''}
+    ${moreDetailHTML(entry)}`;
   return item;
-}
-
-function normalizeStudios(st) {
-  if (Array.isArray(st)) return st.map(s => String(s).trim()).filter(Boolean);
-  if (!st) return [];
-  return String(st).split(/[;,/|｜]/).map(s => s.trim()).filter(Boolean);
-}
-function summarizeStudios(list) {
-  if (list.length === 0) return "";
-  if (list.length === 1) return list[0];
-  return `${list[0]} +${list.length - 1}`;
-}
-const META_DETAIL_MAX_RANK = Infinity;
-
-function buildMetaLine(entry, rankNum) {
-  const parts = [];
-  const studios = summarizeStudios(normalizeStudios(entry.studios));
-  if (studios) parts.push(studios);
-
-  if (rankNum <= META_DETAIL_MAX_RANK) {
-    const dir = (entry.creators || entry.director || "").trim();
-    if (dir) parts.push(IS_JA ? `監督：${dir}` : `Dir: ${dir}`);
-    const series = (entry.seriesComposition || "").trim();
-    if (series) parts.push(IS_JA ? `シリーズ構成：${series}` : `Series comp: ${series}`);
-  }
-  return parts.join(" · ");
 }
 
 async function renderEnjoymentRankingFromJson(jsonUrl) {

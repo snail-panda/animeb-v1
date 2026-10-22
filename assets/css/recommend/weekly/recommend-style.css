@@ -212,3 +212,57 @@ hr.thin-divider {
       max-height: 190px;
   }
 }
+
+/* === AnimeB V1: More details & bilingual compact card extension === */
+.animeb-info-card { display:block; min-width:0; }
+.animeb-recommend-main { display:flex; align-items:flex-start; gap:1rem; min-width:0; }
+.animeb-recommend-main .card-content, .animeb-small-content { flex:1; min-width:0; }
+.animeb-info-card.small-card { display:block; }
+.animeb-info-card.small-card .animeb-recommend-main { gap:.8rem; }
+.animeb-recommend-main > img.animeb-kv { width:160px; max-width:38%; height:auto; flex:none; border-radius:6px; }
+.animeb-info-card.small-card img.animeb-kv { width:80px; max-width:27%; height:auto; border-radius:4px; }
+.animeb-info-tags { display:flex; flex-wrap:wrap; gap:4px 5px; margin:.35rem 0 .45rem; }
+.animeb-chip { display:inline-block; border:1px solid #cad7d5; border-radius:12px; background:#f5f8f7;
+  padding:2px 7px; color:#3e5a58; font:600 .75rem/1.2 'Barlow Condensed',sans-serif; }
+.animeb-chip.animeb-based { border-color:#dcccb4; background:#f9f5ef; color:#795e36; }
+.animeb-basic-meta { font-size:.82rem; color:#606466; line-height:1.35; display:flex; flex-wrap:wrap; gap:4px 14px; }
+.animeb-basic-item strong { font-weight:600; color:#535858; }
+.animeb-info-card .review-text { white-space:pre-line; margin:.6rem 0 0; }
+.animeb-more { width:100%; margin-top:.8rem; min-width:0; clear:both; border-top:1px solid #e9ece9; padding-top:.45rem; }
+.animeb-more summary { cursor:pointer; display:list-item; margin-left:1rem; padding:.15rem 0; color:#4e6563; font-weight:600; }
+.animeb-more-body { padding:.7rem .2rem .1rem; font-size:.88rem; line-height:1.55; min-width:0; }
+.animeb-details-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:.65rem 1.2rem; }
+.animeb-detail-pair { min-width:0; }
+.animeb-detail-label { display:block; font-weight:700; font-size:.78rem; color:#4e5d5a; }
+.animeb-detail-value { display:block; white-space:pre-line; overflow-wrap:anywhere; }
+.animeb-details-full { margin:1rem 0 .55rem; }
+.animeb-details-full h4 { font:700 .85rem/1.2 'Barlow Condensed',sans-serif; letter-spacing:.045em;
+  text-transform:uppercase; color:#4e5d5a; border-bottom:1px solid #e6ece9; margin:0 0 .4rem; padding-bottom:.3rem; }
+.animeb-synopsis { margin:.4rem 0 .65rem; white-space:pre-line; line-height:1.58; font-size:.94rem; }
+.animeb-cast-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:3px 16px; }
+.animeb-cast-grid span { min-width:0; overflow-wrap:anywhere; }
+.animeb-songs { margin-top:1rem; }
+.animeb-official-links a { color:#2f6578; overflow-wrap:anywhere; }
+.animeb-link-break { display:block; height:3px; }
+/* Enjoyment: preserve list rhythm and full-width comments with compact key visuals. */
+.animeb-enjoyment-card { margin:1rem 0 1.6rem; }
+.animeb-enjoyment-main { display:flex; gap:11px; align-items:flex-start; min-width:0; }
+.animeb-enjoyment-main img.animeb-kv { width:72px; max-width:22%; height:auto; flex:none; border-radius:4px; }
+.animeb-enjoyment-top { flex:1; min-width:0; }
+.animeb-enjoyment-card .watch-title { margin:0 0 .2rem; }
+.animeb-enjoyment-card .watch-title .note { margin:0 .3rem; }
+.animeb-enjoyment-card .animeb-rank { color:#474949; }
+.animeb-enjoyment-card .animeb-basic-meta { font-size:.81rem; }
+.animeb-enjoyment-card .comment { margin:.75rem 0 .8rem; white-space:pre-line; }
+.animeb-enjoyment-card .animeb-more { margin-top:.65rem; }
+@media (max-width:620px) {
+  .animeb-details-grid, .animeb-cast-grid { grid-template-columns:minmax(0,1fr); }
+  .animeb-recommend-main { gap:.7rem; }
+  .animeb-recommend-main > img.animeb-kv { width:clamp(105px,33vw,140px); }
+  .animeb-info-card.small-card img.animeb-kv { width:70px; }
+  .animeb-enjoyment-main img.animeb-kv { width:62px; }
+  .animeb-info-tags { gap:4px; }
+  .animeb-chip { font-size:.71rem; }
+  .animeb-basic-meta { display:block; }
+  .animeb-basic-item { display:block; margin:1px 0; }
+}
