@@ -1903,3 +1903,42 @@ body[data-animeb-lang="ja"] .entry .jp-title {
   font-weight:500; text-transform:uppercase;
 }
 .entry .jp-title.animeb-title-duplicate { display:none; }
+
+/* === AnimeB Weekly v3.1: micro-tune only (no layout or JS changes) === */
+/* Make the always-visible language switch a touch smaller, keeping its position. */
+.animeb-weekly-language {
+  gap: 1px;
+  padding: 2px;
+  border-radius: 16px;
+}
+.animeb-weekly-language button {
+  font-size: 10px;
+  padding: 3px 8px;
+  min-height: 25px;
+  line-height: 1.2;
+  border-radius: 12px;
+}
+@media (max-width: 768px) {
+  .animeb-weekly-language button {
+    font-size: 9.5px;
+    padding: 3px 7px;
+    min-height: 25px;
+  }
+}
+
+/* English genre chips + ~8%; preserve the Japanese chips' approved spacing. */
+body[data-animeb-lang="en"] .entry .genre-tag {
+  font-size: .488rem; /* v3 .452rem × 1.08 */
+  padding: .055rem .31rem;
+}
+
+/* Give the two adjacent controls comparable, subtly stronger presence. */
+.entry .collapse-btn { font-size: .515rem; } /* v3 .477rem × 1.08 */
+.entry .review-tag {
+  font-size: .544rem; /* v3 .504rem × 1.08 */
+  padding: .10rem .325rem .055rem;
+}
+@media (min-width: 769px) {
+  body[data-animeb-lang="en"] .entry .genre-tag { font-size: .647rem; } /* .599 × 1.08 */
+  .entry .review-tag { font-size: .647rem; } /* .599 × 1.08 */
+}
