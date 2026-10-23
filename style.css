@@ -1,7 +1,5 @@
 /* Force rebuild */
 
-<style>
-
 body {
        font-family: 'EB Garamond', 'sans-serif';
       margin: 0;
@@ -1348,7 +1346,6 @@ footer {
 .nav-menu .dropdown li a.menu-reco .label-sub  { display:block; font-size:.88em; opacity:.8; margin-top:2px; }
 
 
-</style>
 /* === Homepage layout experiment v1: narrow screens only === */
 @media (max-width: 600px) {
  body { margin: 0; padding: 0; }
@@ -1394,8 +1391,7 @@ html, body { margin: 0; padding: 0; }
 }
 
 /* AnimeB Weekly Ranking cards: period as subordinate title text. */
-/* Keep desktop and landscape in the original inline flow. 
-.post-card .post-title .post-ranking-period { display: inline; }*/
+
 @media (max-width: 600px) and (orientation: portrait) {
   .post-card .post-title .post-ranking-period {
     display: block;
