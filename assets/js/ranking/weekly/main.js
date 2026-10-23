@@ -161,7 +161,7 @@ function animebWRPItemLabel(key) {
 function animebWRPDetailHTML(data, final=false) {
   const heading=animebWeeklyLang==='ja'
     ? (final?'6要素ポイント内訳：':'WRP（週間ランキングポイント）内訳：')
-    : (final?'Key elements breakdown:':'WRP Breakdown:');
+    : (final?'Key elements breakdown:':'WRP (Weekly Ranking Point) Breakdown:');
   const rows=Object.entries(data||{}).filter(([,v]) => v!==undefined && v!==null && v!=='')
     .map(([key,val])=>`${animebSafeHTML(animebWRPItemLabel(key))}: ${animebSafeHTML(val)}`);
   return `${heading}<br>${rows.join('<br>')}`;
@@ -171,7 +171,7 @@ function animebWRPLegacyDetailHTML(text) {
     const match=part.match(/^([^:]+):\s*(.*)$/);
     return match ? `${animebSafeHTML(animebWRPItemLabel(match[1].trim().toLowerCase().replace(/\s+/g,'_')))}: ${animebSafeHTML(match[2])}` : animebSafeHTML(part);
   });
-  return (animebWeeklyLang==='ja'?'WRP（週間ランキングポイント）内訳：':'WRP Breakdown:')+'<br>'+parsed.join('<br>');
+  return (animebWeeklyLang==='ja'?'WRP（週間ランキングポイント）内訳：':'WRP (Weekly Ranking Point) Breakdown:')+'<br>'+parsed.join('<br>');
 }
 
 function animebSetWeeklyLanguage(next) {
@@ -249,6 +249,12 @@ function animebUpdateWeeklyNotes() {
       toggle.addEventListener('click',()=>toggle.nextElementSibling?.classList.toggle('open'));
     });
   }
+  // Emphasize only the expanded English name in Note 2, not other italics.
+  mount.querySelectorAll('.note em').forEach(term => {
+    if (term.textContent.trim() === 'Weekly Ranking Point') {
+      term.classList.add('animeb-note-wrp-term');
+    }
+  });
   const ja=animebWeeklyLang==='ja';
   [...mount.children].forEach(child=>{ child.hidden = child===jaSection ? !ja : ja; });
 }

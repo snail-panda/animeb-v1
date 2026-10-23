@@ -2023,3 +2023,26 @@ body[data-animeb-lang="ja"] .entry .info-top {
 .entry .synopsis.active:not(.animeb-empty-synopsis) {
   color: #4e4e4e;
 }
+
+
+/* === AnimeB Weekly v3.4b: narrow typography + English WRP label tune ===
+   v3.4 approved CSS is the baseline (not v3.4a/v3.5).
+   Desktop notes, other note paragraphs, badges and layouts stay unchanged. */
+
+/* Note 2 only: distinguish the italic expansion from running copy,
+   without making it as bold as the leading WRP abbreviation. */
+.note-mount .note .animeb-note-wrp-term { font-weight: 500; }
+
+@media (max-width: 768px) {
+  /* English ONLY: THIS WEEK label +6%; keep weight/color/JA/desktop unchanged. */
+  body[data-animeb-lang="en"] .animeb-intro-label { font-size: .678rem; }
+
+  /* Normal week's six-item WRP list only, EN and JA. Include both labels
+     and descriptions so font sizes do not jump within one list item.
+     Other notes, regular paragraphs and final-week explanatory lists unchanged. */
+  .note-mount .note .detail-content > ul:not(.about-vax):not(.six-element-summary) {
+    font-size: .90em;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+}
