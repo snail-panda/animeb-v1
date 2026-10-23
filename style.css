@@ -1413,3 +1413,30 @@ html, body { margin: 0; padding: 0; }
     margin: 0.35rem 0 0.05rem;
   }
 }
+
+/* === AnimeB PostCard Generator v4.2: optional image tuning (new cards only) === */
+/* Does not alter existing cards. Activated only by .post-image-tuned. */
+.post-card .post-image-tuned {
+  height: var(--pc-img-desktop, 180px);
+  background: #e8eee6;
+}
+.post-card .post-image-tuned img {
+  object-fit: var(--pc-img-fit, cover);
+  object-position: var(--pc-img-x, 50%) var(--pc-img-y-desktop, 60%);
+  transform: scale(var(--pc-img-scale, 1));
+  transform-origin: var(--pc-img-x, 50%) var(--pc-img-y-desktop, 60%);
+}
+@media (max-width: 800px) {
+  .post-card .post-image-tuned {height: var(--pc-img-tablet, 200px);}
+  .post-card .post-image-tuned img {
+    object-position: var(--pc-img-x, 50%) var(--pc-img-y-tablet, 80%);
+    transform-origin: var(--pc-img-x, 50%) var(--pc-img-y-tablet, 80%);
+  }
+}
+@media (max-width: 480px) {
+  .post-card .post-image-tuned {height: var(--pc-img-phone, 220px);}
+  .post-card .post-image-tuned img {
+    object-position: var(--pc-img-x, 50%) var(--pc-img-y-phone, 90%);
+    transform-origin: var(--pc-img-x, 50%) var(--pc-img-y-phone, 90%);
+  }
+}
