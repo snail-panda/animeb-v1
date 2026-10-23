@@ -422,7 +422,7 @@ body {
 .post-image-takopi {
   flex-shrink: 0;
   width: 160px;
-  height: 220px;
+  height: 180px;
   overflow: hidden;
   margin-bottom: 0.8rem;
 }
@@ -438,7 +438,7 @@ body {
 .post-image-shell {
   flex-shrink: 0;
   width: 160px;
-  height: 220px;
+  height: 180px;
   overflow: hidden;
   margin-bottom: 0.8rem;
 }
@@ -454,7 +454,7 @@ body {
 .post-image-mumu {
   flex-shrink: 0;
   width: 160px;
-  height: 220px;
+  height: 180px;
   overflow: hidden;
   margin-bottom: 0.8rem;
 }
@@ -1222,6 +1222,14 @@ footer {
   object-position: center 80%;
  }
 
+ .post-image-takopi {
+  height: 200px;
+ }
+
+ .post-image-shell {
+  height: 200px;
+ }
+
  .post-image-mumu {
   height: 200px;
  }
@@ -1300,6 +1308,13 @@ footer {
   height: 220px;
  }
 
+ .post-image-takopi {
+  height: 220px;
+ }
+
+ .post-image-shell {
+  height: 220px;
+ }
   .sidebar {
     display: none;
   }
