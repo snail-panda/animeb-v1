@@ -266,3 +266,18 @@ hr.thin-divider {
   .animeb-basic-meta { display:block; }
   .animeb-basic-item { display:block; margin:1px 0; }
 }
+
+/* v2.1: extra viewing recommendations per cumulative Top 3/5/8/10 tier.
+   The existing headings and editorial descriptions are intentionally untouched. */
+.section > h2 .animeb-add-more {
+  display: inline-block;
+  margin-left: .42rem;
+  margin-right: .12rem;
+  color: #777b7c;
+  font-size: .57em;
+  font-weight: 600;
+  letter-spacing: .035em;
+  line-height: 1.2;
+  vertical-align: baseline;
+  white-space: nowrap;
+}

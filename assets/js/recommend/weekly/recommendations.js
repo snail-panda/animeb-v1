@@ -311,8 +311,29 @@ function cardKV(entry) {
   return kv ? `<img class="animeb-kv" src="${infoEscape(imageBase+encodeURIComponent(kv)+'.webp')}" alt="${title}" loading="lazy">` : '';
 }
 
+// ====== Recommendations: cumulative tiers (not individual ranks) ======
+// Add a quiet, localized hint without changing the original heading/catchcopy.
+// Top 3 stays unchanged; Top 5 = two additional titles, Top 8 = three, Top 10 = two.
+function addRecommendationIncrementHints() {
+  const additional = { 5: 2, 8: 3, 10: 2 };
+  document.querySelectorAll('.section > h2').forEach(heading => {
+    if (heading.querySelector('.animeb-add-more')) return; // Idempotent
+    const headingLabel = heading.firstChild?.textContent || '';
+    const match = headingLabel.match(/(?:Top\s*|ベスト\s*)(5|8|10)(?!\d)/i);
+    if (!match) return;
+    const count = additional[Number(match[1])];
+    if (!count) return;
+    const hint = document.createElement('span');
+    hint.className = 'animeb-add-more';
+    hint.textContent = IS_JA ? `さらに${count}作品 ` : `ADD ${count} MORE `;
+    const description = heading.querySelector('.class-description');
+    heading.insertBefore(hint, description || null);
+  });
+}
+
 // ====== 起動処理 ======
 document.addEventListener('DOMContentLoaded', () => {
+  addRecommendationIncrementHints();
   // プレースホルダー除去
   document.querySelectorAll('.section').forEach(section => {
     section.querySelectorAll('.card, .small-card, .watch-ranking-item').forEach(el => el.remove());

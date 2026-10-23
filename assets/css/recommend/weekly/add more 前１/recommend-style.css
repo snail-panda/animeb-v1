@@ -1,0 +1,268 @@
+/* デフォルト：通常のPC表示時（1rem = 16px） */
+html {
+  font-size: 16px;
+}
+
+body {
+      font-family: 'Barlow Condensed', sans-serif;
+      background: #fdfdfd;
+      color: #222;
+      max-width: 980px;
+      margin: auto;
+      padding: 1rem;
+    }
+    h1, h2 {
+      border-left: 5px solid #e67e22;
+      padding-left: 12px;
+    }
+ .update-date {
+  font-size: 0.85rem;
+  color: #878484;
+  margin-top: -0.5rem;
+  margin-bottom: 0rem;
+}
+
+hr.thin-divider {
+  border: none;
+  border-top: 1px solid #eee;
+  margin: 0.6rem 0 2rem 0;
+}
+
+    .section {
+      margin-bottom: 3rem;
+    }
+    .class-description {
+      font-size: 0.65em;
+      color: #5C5858;
+      font-weight: 500;
+      margin-left: 0.4rem;
+    }
+    .card {
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      overflow: hidden;
+      margin-bottom: 1.5rem;
+      display: flex;
+      gap: 1rem;
+      padding: 1rem;
+    }
+    .card img {
+      width: 160px;
+      height: auto;
+      border-radius: 6px;
+      object-fit: cover;
+    }
+    .card-content {
+      flex: 1;
+    }
+    .card-title {
+      font-weight: bold;
+      font-size: 1.5rem;
+      margin-bottom: 0.2rem;
+    }
+    
+    .title-romaji {
+      font-weight: 400;
+      font-size: 1.1rem;
+      color: #555;
+      font-style: italic;
+      margin-left: 0.4rem;
+    }
+    .studio {
+      font-size: 0.93rem;
+      color: #666;
+      margin-top: 0.1rem;
+      margin-bottom: 0.6rem;
+    }
+    summary {
+  font-size: 0.9rem;
+}
+    .details {
+      margin-top: 0.5rem;
+      font-size: 0.95rem;
+    }
+    .small-card {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      background: #f7f7f7;
+      padding: 0.6rem 0.8rem;
+      border-radius: 6px;
+      margin-bottom: 0.8rem;
+    }
+    .small-card img {
+      width: 80px;
+      height: auto;
+      border-radius: 4px;
+    }
+    .small-title {
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+    .small-title .title-romaji {
+      font-size: 1rem;
+    }
+    .watch-ranking-item {
+      margin-bottom: 1.4rem;
+    }
+    .watch-title {
+      font-weight: bold;
+      font-size: 1.2rem;
+      margin-top: 2rem;
+      margin-bottom: 0.2rem;
+    }
+    .watch-title .title-romaji {
+      font-size: 1.03rem;
+    }
+    .note {
+      font-size: 0.98rem;
+      color: #666;
+      margin-top: -1rem;
+      margin-bottom: 3.5rem;
+    }
+
+    .watch-title .note { 
+      margin-left: 0.5em;
+    }
+
+    
+    .watch-ranking-item .note {
+      font-weight: 500;
+      font-size: 0.93rem;
+      color: #E66E76;
+    }
+
+    .watch-ranking-item .comment {
+  margin-top: 1.5rem;        /* タイトルとの間隔 */
+  margin-bottom: 2.5rem;
+  line-height: 1.35;
+}
+.watch-ranking-item .comment::before {
+  content: "— ";          /* 先頭のダッシュ */
+  opacity: .8;
+}
+
+.meta-line{
+  margin-top:.2rem;
+  margin-bottom: 0.5rem;
+  font-size:.9rem;
+  color:#6b7280; /* Tailwindのgray-500相当 */
+  line-height:1.2;
+}
+@media (max-width: 600px){
+  .meta-line{ font-size:.85rem; }
+}
+
+/* review & comment text */
+/* 日本語の本文だけ少し小さめ */
+.review-text.lang-ja { font-size: 0.9rem; line-height: 1.6; }
+.comment-text.lang-ja { font-size: 0.9rem; line-height: 1.6; }
+
+/* 大カード（Top3/Top5）は少し大きめ、小カードは控えめ  */
+.card.lang-ja.tier-top3 .review-text { font-size: 1rem; }
+.card.lang-ja.tier-top5 .review-text { font-size: 0.95rem; }
+.small-card.lang-ja .review-text      { font-size: 0.85rem; }
+
+/* 追加で行間や余白の微調整も */
+.card.lang-ja .review-text { margin-top: 0.4rem; }
+.small-card.lang-ja .review-text { margin-top: 0.35rem; }
+.watch-ranking-item.lang-ja .comment-text { margin-top: 0.35rem; }
+
+
+
+/* Lang-switch と back to home nav */
+.lang-switch {
+  position: sticky; top: 0; z-index: 1000;
+  background: #fff; border-bottom: 1px solid #eee;
+  padding: 8px 0;
+  display: flex; gap: 8px; justify-content: center; /* ← 2ボタンを横並び */
+  /* margin-top: -1px; は二重バー解消用だったので削ってOK */
+}
+.lang-switch .lang-link {
+  display: inline-block;
+  font-size: 0.7rem;
+  padding: 6px 12px; min-width: 44px;
+  border: 1px solid #ddd; border-radius: 9999px;
+  text-decoration: none; color: #70686B;
+}
+.lang-switch .lang-link:hover { background-color: #F2F0E6; transform: translateY(1px); }
+
+
+    /* 📱 スマホ（狭い画面）時にフォントを小さくする：例 1rem = 14px */
+@media screen and (max-width: 600px) {
+  html {
+    font-size: 14px;
+  }
+  .card img {
+      width: 140px;
+      height: auto;
+      max-height: 190px;
+  }
+}
+
+/* 📱 さらに狭い超コンパクトなデバイス用（1rem = 13px） */
+@media screen and (max-width: 400px) {
+  html {
+    font-size: 13px;
+  }
+  .card img {
+      width: 120px;
+      height: auto;
+      max-height: 190px;
+  }
+}
+
+/* === AnimeB V1: More details & bilingual compact card extension === */
+.animeb-info-card { display:block; min-width:0; }
+.animeb-recommend-main { display:flex; align-items:flex-start; gap:1rem; min-width:0; }
+.animeb-recommend-main .card-content, .animeb-small-content { flex:1; min-width:0; }
+.animeb-info-card.small-card { display:block; }
+.animeb-info-card.small-card .animeb-recommend-main { gap:.8rem; }
+.animeb-recommend-main > img.animeb-kv { width:160px; max-width:38%; height:auto; flex:none; border-radius:6px; }
+.animeb-info-card.small-card img.animeb-kv { width:80px; max-width:27%; height:auto; border-radius:4px; }
+.animeb-info-tags { display:flex; flex-wrap:wrap; gap:4px 5px; margin:.35rem 0 .45rem; }
+.animeb-chip { display:inline-block; border:1px solid #cad7d5; border-radius:12px; background:#f5f8f7;
+  padding:2px 7px; color:#3e5a58; font:600 .75rem/1.2 'Barlow Condensed',sans-serif; }
+.animeb-chip.animeb-based { border-color:#dcccb4; background:#f9f5ef; color:#795e36; }
+.animeb-basic-meta { font-size:.82rem; color:#606466; line-height:1.35; display:flex; flex-wrap:wrap; gap:4px 14px; }
+.animeb-basic-item strong { font-weight:600; color:#535858; }
+.animeb-info-card .review-text { white-space:pre-line; margin:.6rem 0 0; }
+.animeb-more { width:100%; margin-top:.8rem; min-width:0; clear:both; border-top:1px solid #e9ece9; padding-top:.45rem; }
+.animeb-more summary { cursor:pointer; display:list-item; margin-left:1rem; padding:.15rem 0; color:#4e6563; font-weight:600; }
+.animeb-more-body { padding:.7rem .2rem .1rem; font-size:.88rem; line-height:1.55; min-width:0; }
+.animeb-details-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:.65rem 1.2rem; }
+.animeb-detail-pair { min-width:0; }
+.animeb-detail-label { display:block; font-weight:700; font-size:.78rem; color:#4e5d5a; }
+.animeb-detail-value { display:block; white-space:pre-line; overflow-wrap:anywhere; }
+.animeb-details-full { margin:1rem 0 .55rem; }
+.animeb-details-full h4 { font:700 .85rem/1.2 'Barlow Condensed',sans-serif; letter-spacing:.045em;
+  text-transform:uppercase; color:#4e5d5a; border-bottom:1px solid #e6ece9; margin:0 0 .4rem; padding-bottom:.3rem; }
+.animeb-synopsis { margin:.4rem 0 .65rem; white-space:pre-line; line-height:1.58; font-size:.94rem; }
+.animeb-cast-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:3px 16px; }
+.animeb-cast-grid span { min-width:0; overflow-wrap:anywhere; }
+.animeb-songs { margin-top:1rem; }
+.animeb-official-links a { color:#2f6578; overflow-wrap:anywhere; }
+.animeb-link-break { display:block; height:3px; }
+/* Enjoyment: preserve list rhythm and full-width comments with compact key visuals. */
+.animeb-enjoyment-card { margin:1rem 0 1.6rem; }
+.animeb-enjoyment-main { display:flex; gap:11px; align-items:flex-start; min-width:0; }
+.animeb-enjoyment-main img.animeb-kv { width:72px; max-width:22%; height:auto; flex:none; border-radius:4px; }
+.animeb-enjoyment-top { flex:1; min-width:0; }
+.animeb-enjoyment-card .watch-title { margin:0 0 .2rem; }
+.animeb-enjoyment-card .watch-title .note { margin:0 .3rem; }
+.animeb-enjoyment-card .animeb-rank { color:#474949; }
+.animeb-enjoyment-card .animeb-basic-meta { font-size:.81rem; }
+.animeb-enjoyment-card .comment { margin:.75rem 0 .8rem; white-space:pre-line; }
+.animeb-enjoyment-card .animeb-more { margin-top:.65rem; }
+@media (max-width:620px) {
+  .animeb-details-grid, .animeb-cast-grid { grid-template-columns:minmax(0,1fr); }
+  .animeb-recommend-main { gap:.7rem; }
+  .animeb-recommend-main > img.animeb-kv { width:clamp(105px,33vw,140px); }
+  .animeb-info-card.small-card img.animeb-kv { width:70px; }
+  .animeb-enjoyment-main img.animeb-kv { width:62px; }
+  .animeb-info-tags { gap:4px; }
+  .animeb-chip { font-size:.71rem; }
+  .animeb-basic-meta { display:block; }
+  .animeb-basic-item { display:block; margin:1px 0; }
+}
