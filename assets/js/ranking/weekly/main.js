@@ -65,6 +65,32 @@ function animebInfoFirst(...values) {
   for (const v of values) { const text = animebInfoValue(v); if (text) return text; }
   return '';
 }
+
+// Weekly Intro only: render a small, safe set of editorial HTML tags from JSON.
+// Leave all other JSON fields and rendering paths unchanged.
+function animebRenderWeeklyIntro(target, raw) {
+  if (!target) return;
+  const allowed = new Set(['STRONG','B','EM','I','U','S','DEL','SMALL','BR']);
+  const blocked = new Set(['SCRIPT','STYLE','IFRAME','OBJECT','EMBED','SVG','MATH','FORM','TEMPLATE']);
+  const parsed = new DOMParser().parseFromString(String(raw ?? ''), 'text/html');
+  function safeNode(node) {
+    if (node.nodeType === Node.TEXT_NODE) return document.createTextNode(node.textContent || '');
+    if (node.nodeType !== Node.ELEMENT_NODE || blocked.has(node.tagName)) return null;
+    const out = allowed.has(node.tagName) ? document.createElement(node.tagName.toLowerCase()) : document.createDocumentFragment();
+    // No attributes are copied: prevents style, event-handler, URL and class injection.
+    if (node.tagName !== 'BR') for (const child of node.childNodes) {
+      const safe = safeNode(child);
+      if (safe) out.appendChild(safe);
+    }
+    return out;
+  }
+  const fragment = document.createDocumentFragment();
+  for (const node of parsed.body.childNodes) {
+    const safe = safeNode(node);
+    if (safe) fragment.appendChild(safe);
+  }
+  target.replaceChildren(fragment);
+}
 // The page-language selector is independent of individual review popups and the legacy Overview.
 let animebWeeklyLang = 'en';
 try { if (localStorage.getItem('animeb-weekly-lang') === 'ja') animebWeeklyLang = 'ja'; } catch (_) {}
@@ -315,7 +341,7 @@ function animebApplyWeeklyLanguage() {
     intro.hidden=!content;
     if(content) {
       intro.querySelector('.animeb-intro-label').textContent=ja?'今週のひと言':'THIS WEEK';
-      intro.querySelector('.animeb-intro-text').textContent=content;
+      animebRenderWeeklyIntro(intro.querySelector('.animeb-intro-text'),content);
     }
   }
   document.querySelectorAll('.entry-list .entry').forEach(clone=>{
@@ -614,7 +640,7 @@ if (epRangeEl && data.meta.ep_range) {
       if(!intro) {
         intro=document.createElement('section');intro.className='animeb-weekly-intro';
         const label=document.createElement('div');label.className='animeb-intro-label';
-        const content=document.createElement('p');content.className='animeb-intro-text';
+        const content=document.createElement('div');content.className='animeb-intro-text';
         intro.append(label,content);
         document.querySelector('.sub-header')?.after(intro);
       }
