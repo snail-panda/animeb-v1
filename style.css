@@ -1386,6 +1386,12 @@ html, body { margin: 0; padding: 0; }
   .top-nav .week-menu li a { font-size: .68875rem; }
 }
 
+.post-card .post-title .post-ranking-period {
+  display: block;
+  font-size: 0.85em;
+  font-weight: 400;
+  color: #555;
+}
 
 /* AnimeB Weekly Ranking cards: period as subordinate title text. */
 /* Keep desktop and landscape in the original inline flow. */
