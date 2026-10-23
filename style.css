@@ -1394,8 +1394,8 @@ html, body { margin: 0; padding: 0; }
 }
 
 /* AnimeB Weekly Ranking cards: period as subordinate title text. */
-/* Keep desktop and landscape in the original inline flow. */
-.post-card .post-title .post-ranking-period { display: inline; }
+/* Keep desktop and landscape in the original inline flow. 
+.post-card .post-title .post-ranking-period { display: inline; }*/
 @media (max-width: 600px) and (orientation: portrait) {
   .post-card .post-title .post-ranking-period {
     display: block;
