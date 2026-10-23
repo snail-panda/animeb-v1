@@ -497,6 +497,14 @@ body {
   }
 }
 
+/* Mobile: PostCard excerpt — maximum 4 complete lines */
+@media (max-width: 480px) {
+  .post-card:not(.announcement-card) .post-excerpt {
+    max-height: none;
+    -webkit-line-clamp: 4;
+  }
+}
+
 .title-entry-number {
   color: #cc72ad;
   font-size: 1.1rem;
