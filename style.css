@@ -503,6 +503,9 @@ body {
     max-height: none;
     -webkit-line-clamp: 4;
   }
+
+   .post-card:not(.announcement-card) .read-more {
+    margin-top: 0.4rem;
 }
 
 .title-entry-number {
