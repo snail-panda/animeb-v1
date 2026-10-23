@@ -627,13 +627,13 @@ body {
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
-  -webkit-line-clamp: 5;
+  -webkit-line-clamp: 4; /* Limit to 4 lines */
   -webkit-box-orient: vertical;
 }
 
 .read-more {
   display: inline-block;
-  margin-top: 0.6rem;
+  margin-top: 0.4rem;
   font-size: 0.6rem;
   color: #684887;
   text-decoration: none;
