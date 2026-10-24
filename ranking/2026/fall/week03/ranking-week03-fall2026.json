@@ -5,13 +5,15 @@
     "season": "2026 Fall",
     "ep_range": "ep.3-4",
     "status": {
-      "watching": 31,
-      "droppedThisWeek": 3,
-      "droppedTotal": 4,
-      "backOnList": null,
+      "watching": 29,
+      "droppedThisWeek": 4,
+      "droppedTotal": 5,
+      "backOnList": 0,
       "noAir": 0,
       "completed": 0,
-      "total": 35
+      "total": 35,
+      "notAiredYet": 1,
+      "startedAiringThisWeek": 1
     },
     "weekly_intro": {
       "en": "We’ve now reached Week 03 of the fall 2026 anime season.\nWith most shows hitting Episodes 3 or 4, the stories are pushing toward the first check point—and many have kicked into second gear to make the cut for further stages. (That said, a handful still feel stubbornly slow-burn or simply, dumpster fire…) With mid-point coming close around the corner, how did this week’s ranking shake out?\n\nLet’s dive in and take a look!",

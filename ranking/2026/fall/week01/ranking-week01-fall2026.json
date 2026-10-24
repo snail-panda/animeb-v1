@@ -6,12 +6,14 @@
     "ep_range": "ep.1-2",
     "status": {
       "watching": 30,
-      "droppedThisWeek": 0,
-      "droppedTotal": 5,
+      "droppedThisWeek": 1,
+      "droppedTotal": 1,
       "backOnList": 0,
       "noAir": 0,
       "completed": 0,
-      "total": 35
+      "total": 35,
+      "notAiredYet": 4,
+      "startedAiringThisWeek": 0
     },
     "weekly_intro": {
       "en": "The main phase of the season has officially begun — welcome to Week 1 of the Weekly Rankings.\n\nBack in the Preliminary Round, I started with 35 titles. After some tough decisions, I’ve narrowed them down to a tighter list of 30 shows going forward.\n\nSince many of the titles in this round were already evaluated during the Prelim, I won’t be going over the same impressions in detail here. Most of what needed to be said has already been shared there.\n\nThat said, this week marks the beginning of the true competition. From here on out, each episode will be judged week by week — and compared directly against its peers within the same 7-day window.\n\nWith that, let’s take a look at how things stood in this first week of the main round.",
