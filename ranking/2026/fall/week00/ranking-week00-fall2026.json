@@ -14,8 +14,22 @@
       "total": 35
     },
     "weekly_intro": {
-      "en": "The 2026 Fall Season is finally here—and we’re kicking things off with a jam-packed <strong>Top 35 Prelim Ranking</strong> to get the excitement rolling.\n\nI started by checking out nearly <strong>60</strong> titles—some closely, some just briefly—and from there, narrowed them down to <strong>35</strong> for this opening round.\n\nIt’s not quite the “main event” just yet. Consider this a transitional step: a pre-selection phase before the core weekly rankings truly begin. From next week on, the pool will be further refined to fewer than 30 titles, with consistent evaluation week by week.\n\nSo here it is—the <strong>Top 35 Prelim Ranking</strong>. Which title made the strongest first impression? How did your favorites perform? Let's dive in.\n\n<small>*Although officially labeled as “Week **,” this round functions as a preliminary selection phase based on early impressions—mostly from episodes 1 and 2. The true core lineup will be locked in from next week.</small>",
+      "en": "The 2026 Fall Season is finally here—and we’re kicking things off with a jam-packed <strong>Top 35 Prelim Ranking</strong> to get the excitement rolling.\n\nI started by checking out nearly <strong>60</strong> titles—some closely, some just briefly—and from there, narrowed them down to <strong>35</strong> for this opening round.\n\nIt’s not quite the <strong>“main event”</strong> just yet. Consider this a transitional step: a pre-selection phase before the core weekly rankings truly begin. From next week on, the pool will be further refined to fewer than 30 titles, with consistent evaluation week by week.\n\nSo here it is—the <strong>Top 35 Prelim Ranking</strong>. Which title made the strongest first impression? How did your favorites perform? Let's dive in.\n\n<small>*Although officially labeled as “Week **,” this round functions as a preliminary selection phase based on early impressions—mostly from episodes 1 and 2. The true core lineup will be locked in from next week.</small>",
       "ja": "いよいよ 2026年秋アニメ のシーズンが到来しました。期待で胸も高まる中、まずは<strong>トップ35のプレリミナリーランキング</strong>から幕開けです！\n\nまず始めに今期の全体的なオールラインナップをチェックしたあと<strong>50作品以上</strong>のタイトルを実際に視聴（ほぼしっかり観ましたが、一部極さっくりと確認しただけのものもあります）、その中からしっかりと評価・採点した<strong>35作品</strong>でこの開幕ラウンドは構成されています。\n\nすなわちこれはまだ<strong>「本戦」</strong>ではなく、あくまでウィークリ―ランキング本格始動前のプレ選考フェーズとなるわけです。そしてここでの結果をもって来週以降は作品数は更に30本未満に絞られ、そのうえでいよいよ本戦が本格的にスタートされることになります。\n\nというわけで、こちらが<strong>トップ35</strong>の本戦直前の前哨戦的ランキングになります。どの作品が最も強烈な第一印象を残したのか？視聴意欲をそそったのはどの作品だったでしょう？あなたの推し作品はどんなスタートを切ったのか？早速見ていきましょう！\n\n<small>※正式には「week XX」とされていますが、今回は主に第1話・第2話時点での初期印象をもとにしたプレ選考フェーズとなっています。本格的なランキング対象作品は来週から確定していきます。</small>"
+    },
+    "presentation": {
+      "header": {
+        "mode": "enhanced",
+        "numberFormat": "padded",
+        "fill": "outline",
+        "color": "auto",
+        "customColor": "#8e2222",
+        "specialColorMode": "split",
+        "labelColor": "auto",
+        "customLabelColor": "#215973",
+        "midSeasonLabel": "auto",
+        "midSeasonPlacement": "below"
+      }
     }
   },
   "entries": [
