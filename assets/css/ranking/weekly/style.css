@@ -242,7 +242,7 @@ VIEWING STATUS ZONE
   color: #4f5261;
 }
 .ws-panel.open { 
-  max-height: 200px;
+  max-height: 290px; /* v4.28: optional two additional status rows */
 } /* 中身に合わせて調整 */
 
 /* ✅ 共通ルール：すべてのアイコンに共通の見た目 */
@@ -283,6 +283,9 @@ VIEWING STATUS ZONE
 .icon-total {
   background-image: url(../../../../images/icons/total.svg); /* ←自分の画像に差し替え */
 }
+/* v4.28 optional Viewing Status icons, same dimensions as existing badges. */
+.icon-notairedyet { background-image: url(../../../../images/icons/not-aired-yet.svg); }
+.icon-startedairing { background-image: url(../../../../images/icons/started-airing.svg); }
 
 
 

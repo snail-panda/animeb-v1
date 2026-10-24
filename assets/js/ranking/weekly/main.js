@@ -296,7 +296,7 @@ function animebApplyWeeklyLanguage() {
    ? [['.nav-link.left a','« 前の週'],['.nav-link.center a','ホーム'],['.nav-link.right a','次の週 »']]
    : [['.nav-link.left a','« Previous Week'],['.nav-link.center a','Back to Home'],['.nav-link.right a','Next Week »']];
   for(const [selector,label] of navTexts) {const node=document.querySelector(selector);if(node) node.textContent=label;}
-  const statusTranslations={watching:['Watching','視聴中'],droppedThisWeek:['Dropped','今週の視聴中止'],droppedTotal:['Total dropped','視聴中止合計'],backOnList:['Back on List','復帰'],noAir:['NoAir','放送なし'],completed:['Completed','完走'],total:['Total','合計']};
+  const statusTranslations={watching:['Watching','視聴中'],droppedThisWeek:['Dropped','今週の視聴中止'],droppedTotal:['Total dropped','視聴中止合計'],backOnList:['Back on List','復帰'],noAir:['NoAir','放送なし'],completed:['Completed','完走'],notAiredYet:['Not Aired Yet','未放送（開始前）'],startedAiringThisWeek:['Started This Week','今週放送開始'],total:['Total','合計']};
   document.querySelectorAll('.watch-status .ws-item[data-tooltip]').forEach(node=>{
     const key=node.dataset.tooltip; const count=node.dataset.statusValue;
     const label=statusTranslations[key]?.[ja?1:0];
@@ -566,8 +566,33 @@ if (noteMountPoint) {
   // ✅ ← この位置のすぐ下に追加してOK！
 
     // ========== WATCH STATUS を反映 ==========
+    // v4.28: add two optional items to the existing panel without altering shared-index.html.
+    function animebEnsureOptionalStatusRows(metaStatus) {
+      const panel = document.querySelector('.watch-status .ws-panel');
+      if (!panel) return;
+      const optionalRows = [
+        ['notAiredYet', 'icon-notairedyet'],
+        ['startedAiringThisWeek', 'icon-startedairing']
+      ];
+      for (const [key, icon] of optionalRows) {
+        let row = panel.querySelector(`.ws-item[data-tooltip="${key}"]`);
+        const raw = metaStatus && Object.prototype.hasOwnProperty.call(metaStatus, key) ? metaStatus[key] : null;
+        const available = raw !== null && raw !== undefined && raw !== '' && Number.isInteger(Number(raw)) && Number(raw) >= 0;
+        if (!available) { if (row) row.remove(); continue; }
+        if (!row) {
+          row = document.createElement('div'); row.className = 'ws-item'; row.dataset.tooltip = key;
+          const iconSpan = document.createElement('span'); iconSpan.className = icon; iconSpan.setAttribute('aria-hidden', 'true');
+          const valueSpan = document.createElement('span'); valueSpan.className = 'view-count'; valueSpan.dataset.key = key;
+          row.append(iconSpan, valueSpan);
+        }
+        // Place both new rows after Completed, before Total, in a consistent order.
+        const totalRow = panel.querySelector('.ws-item[data-tooltip="total"]');
+        if (totalRow) panel.insertBefore(row, totalRow); else panel.appendChild(row);
+      }
+    }
     function updateWatchStatus(metaStatus) {
       if (!metaStatus) return;
+      animebEnsureOptionalStatusRows(metaStatus);
 
       const labelMap = {
         watching: 'Watching',
@@ -576,6 +601,8 @@ if (noteMountPoint) {
         backOnList: 'Back on List', // 追加
         noAir: 'NoAir',
         completed: 'Completed',
+        notAiredYet: 'Not Aired Yet',
+        startedAiringThisWeek: 'Started This Week',
         total: 'Total'
       };
 
@@ -585,7 +612,7 @@ if (noteMountPoint) {
   const count = metaStatus[key];
   const target = item.querySelector('.view-count'); // ← 明示的にここだけ書き換える
   // 空欄やnull/undefinedはスキップ（ただし0は表示）
-    if (target && String(count).trim() !== "") {
+    if (target && label && count !== undefined && count !== null && String(count).trim() !== "") {
       item.dataset.statusValue=String(count);
       target.textContent = `${label}:${count}`;
   }
@@ -1678,6 +1705,10 @@ const infoMap = {
   <li><span class="key">Completed</span>: 先週までに全話放送した作品数<br>
       <em>Titles completed before this week.<br>
       * Titles that ended this week are still counted as “Watching” and will be added here next week.</em></li>
+  <li><span class="key">Not Aired Yet</span>: まだ放送開始していない作品数（TBA）。放送開始済みの一時休止であるNo Airとは別。<br>
+      <em>Titles that have not started airing yet. Different from a temporary no-air week.</em></li>
+  <li><span class="key">Started This Week</span>: 今週初めて放送開始した作品数。視聴数の増加理由を示す項目。<br>
+      <em>Titles whose broadcast began this week; this is a change count, not an additional category to add to Total.</em></li>
   <li><span class="key">Total</span>: 初期評価候補数（Prelim 時点）<br>
       <em>Initial number of titles selected at the prelim stage.</em></li>
 </ul>
@@ -1717,6 +1748,8 @@ const animebInfoMapJa = {
     <li><span class="key">復帰</span>：以前視聴をやめた作品のうち、その週に再び視聴対象となった作品数。</li>
     <li><span class="key">放送なし</span>：その週に新しいエピソードが放送されなかった作品数。</li>
     <li><span class="key">完走</span>：前週までに全話の放送が終わった作品数。今週完結した作品は今週の「視聴中」に含め、翌週からこちらに加えます。</li>
+    <li><span class="key">未放送（開始前）</span>：まだ放送開始していない作品の数（TBA）。一時的な放送休止「放送なし」とは区別します。</li>
+    <li><span class="key">今週放送開始</span>：その週に初めて放送が始まった作品数。新規放送開始の動きを示す数で、Totalとの単純な足し算には使いません。</li>
     <li><span class="key">合計</span>：Prelim時点で選んだ初期評価候補数。</li></ul>
     <p class="tooltip-note">「視聴中」には、その週に見た作品をすべて含みます。</p>`
 };
