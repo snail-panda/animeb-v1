@@ -22,7 +22,7 @@
         "mode": "enhanced",
         "numberFormat": "padded",
         "fill": "outline",
-        "color": "auto",
+        "color": "red",
         "customColor": "#8e2222",
         "specialColorMode": "split",
         "labelColor": "red",
