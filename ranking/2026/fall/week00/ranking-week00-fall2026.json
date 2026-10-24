@@ -21,7 +21,7 @@
       "header": {
         "mode": "enhanced",
         "numberFormat": "padded",
-        "fill": "outline",
+        "fill": "solid",
         "color": "auto",
         "customColor": "#8e2222",
         "specialColorMode": "split",
@@ -29,6 +29,10 @@
         "customLabelColor": "#215973",
         "midSeasonLabel": "auto",
         "midSeasonPlacement": "below"
+      },
+      "satisfaction": {
+        "value10": 7,
+        "displayScale": 5
       }
     }
   },
