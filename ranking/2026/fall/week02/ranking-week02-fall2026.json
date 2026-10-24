@@ -11,6 +11,8 @@
       "backOnList": 0,
       "noAir": 0,
       "completed": 0,
+	  "notAiredYet": 2,
+      "startedAiringThisWeek": 2,
       "total": 35
     },
     "weekly_intro": {
