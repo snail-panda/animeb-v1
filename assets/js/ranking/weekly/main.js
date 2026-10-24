@@ -303,6 +303,9 @@ function animebApplyWeeklyLanguage() {
     const target=node.querySelector('.view-count');
     if(label && count!==undefined && target) target.textContent=`${label}:${count}`;
   });
+  document.querySelectorAll('.ws-modern [data-en][data-ja]').forEach(el=>{
+    el.textContent=ja?el.dataset.ja:el.dataset.en;
+  });
   const wsTitle=document.querySelector('.ws-title');
   if(wsTitle && wsTitle.firstChild && wsTitle.firstChild.nodeType===3) wsTitle.firstChild.textContent=ja?'視聴状況':'VIEWING STATUS';
   const header=document.querySelector('.table-header-mount .header-title');
@@ -499,6 +502,109 @@ function animebApplyWeeklyPresentation(meta) {
   placeSatisfaction();
   window.addEventListener('resize',placeSatisfaction,{passive:true});
   if(document.fonts?.ready)document.fonts.ready.then(placeSatisfaction).catch(()=>{});
+}
+
+// v4.29 - Design A. The current season/week header, entries, and score columns are untouched.
+function animebMountRankingCoverage(status, publishedCount) {
+  const getCount = (value) => {
+    if(value === null || value === undefined || String(value).trim()==='') return null;
+    const num=Number(value);
+    return Number.isSafeInteger(num) && num >= 0 ? num : null;
+  };
+  // Important: do not call legacy 'watching' a rated denominator before its formula
+  // has been checked. The new card is opt-in via new JSON fields only.
+  const rated=getCount(status?.ratedThisWeek);
+  const lineup=getCount(status?.currentLineup);
+  if(rated===null || lineup===null || !Number.isSafeInteger(publishedCount) || publishedCount<=0) return;
+  const legacy=document.querySelector('.watch-status');
+  const wrapper=document.querySelector('.watch-status-wrapper');
+  if(!legacy || !wrapper) return;
+
+  const labels = (en, ja, cls='') => {
+    const el=document.createElement('span');
+    if(cls)el.className=cls;
+    el.dataset.en=en; el.dataset.ja=ja;
+    el.textContent=animebWeeklyLang==='ja'?ja:en;
+    return el;
+  };
+  const number = (n,cls='') => {
+    const el=document.createElement('strong');el.textContent=String(n);
+    if(cls)el.className=cls; return el;
+  };
+  const modern=document.createElement('section');
+  modern.className='ws-modern';
+  const toggle=document.createElement('button'); toggle.type='button';
+  toggle.className='ws-modern-toggle';toggle.setAttribute('aria-expanded','false');
+  toggle.setAttribute('aria-controls','animeb-weekly-coverage-detail');
+  toggle.setAttribute('aria-label','View ranking coverage details');
+  const crown=document.createElement('span');crown.className='ws-modern-crown';
+  crown.setAttribute('aria-hidden','true');crown.textContent='♛';
+  const hero=document.createElement('span');hero.className='ws-modern-main';
+  hero.append(number(`TOP ${publishedCount} / ${rated}`),labels('RATED THIS WEEK','今週の評価作品'));
+  const sep=document.createElement('span');sep.className='ws-modern-separator';
+  const line=document.createElement('span');line.className='ws-modern-lineup';
+  line.append(number(lineup),labels('CURRENT LINEUP','継続評価対象'));
+  const chevron=document.createElement('span');chevron.className='ws-modern-chevron';chevron.setAttribute('aria-hidden','true');chevron.textContent='⌄';
+  toggle.append(crown,hero,sep,line,chevron);
+  modern.append(toggle);
+
+  const detail=document.createElement('div');detail.id='animeb-weekly-coverage-detail';
+  detail.className='ws-modern-details';detail.hidden=true;
+  const metrics=document.createElement('div');metrics.className='ws-modern-metrics';
+  const seasonPool=getCount(status?.seasonPool); // No legacy total fallback: it may mean only Initial Pool.
+  const kpis=[
+    ['Season Pool','シーズン候補総数',seasonPool,'pool'],
+    ['Current Lineup','継続評価対象',lineup,'lineup'],
+    ['Rated This Week','今週の評価作品',rated,'rated']
+  ];
+  for(const [en,ja,n,cls] of kpis) {
+    if(n===null)continue;
+    const box=document.createElement('div');box.className='ws-modern-metric ws-modern-metric-'+cls;
+    box.append(number(n),labels(en,ja));metrics.append(box);
+  }
+  detail.append(metrics);
+  const makeGroup=(en,ja,items) => {
+    const valid=items.filter(x=>getCount(status?.[x[0]])!==null);
+    if(!valid.length)return;
+    const group=document.createElement('section');group.className='ws-modern-group';
+    group.append(labels(en,ja,'ws-modern-group-title'));
+    const grid=document.createElement('div');grid.className='ws-modern-grid';
+    for(const [key,titleEn,titleJa,icon] of valid){
+      const row=document.createElement('div');row.className='ws-modern-row';
+      const pict=document.createElement('span');pict.className='ws-modern-icon '+icon;pict.setAttribute('aria-hidden','true');
+      if(icon==='ws-glyph-added')pict.textContent='+';
+      if(icon==='ws-glyph-deferred')pict.textContent='»';
+      if(icon==='ws-glyph-canceled')pict.textContent='×';
+      row.append(pict,labels(titleEn,titleJa),number(getCount(status[key])));
+      grid.append(row);
+    }
+    group.append(grid);detail.append(group);
+  };
+  makeGroup('THIS WEEK','今週の変化',[
+    ['startedAiringThisWeek','Started This Week','今週放送開始','icon-startedairing'],
+    ['noAir','No Episode This Week','今週放送なし','icon-noair'],
+    ['notAiredYet','Not Aired Yet','未放送（開始前）','icon-notairedyet'],
+    ['addedThisWeek','Added This Week','今週新規追加','ws-glyph-added'],
+    ['droppedThisWeek','Dropped This Week','今週の視聴中止','icon-drop'],
+    ['deferredToAnotherSeason','Deferred to Another Season','他シーズンへ延期','ws-glyph-deferred'],
+    ['canceled','Canceled','放送中止','ws-glyph-canceled']
+  ]);
+  makeGroup('SEASON / HISTORY','シーズン・累計',[
+    ['completed','Previously Completed','前週までに完結','icon-completed'],
+    ['droppedTotal','Total Dropped','視聴中止累計','icon-trash'],
+    ['backOnList','Back on List','復帰（混合集計）','icon-back']
+  ]);
+  modern.append(detail);
+  toggle.addEventListener('click',()=>{
+    const open=toggle.getAttribute('aria-expanded')==='true';
+    toggle.setAttribute('aria-expanded',String(!open)); detail.hidden=open;
+    modern.classList.toggle('ws-modern-open',!open);
+  });
+  // Replace only this self-contained area; do NOT replace the global page header.
+  legacy.replaceWith(modern);wrapper.classList.add('ws-modern-wrapper');
+  const intro=document.querySelector('.animeb-weekly-intro:not([hidden])');
+  if(intro)intro.before(wrapper);
+  else document.querySelector('.sub-header')?.after(wrapper);
 }
 
 // ========== JSON読み込み & DOM更新 =========
@@ -1065,6 +1171,9 @@ if (reviewAnchor) {
   // ✅ 必ず `.then(data => { ... })` の中にある必要がある
     animebApplyWeeklyLanguage();
     updateWatchStatus(data.meta.status);
+    // v4.29 DESIGN A (optional / backwards-compatible): the new card appears ONLY
+    // when Converter JSON provides both verified values. Old articles stay unchanged.
+    animebMountRankingCoverage(data.meta.status, Array.isArray(data.entries) ? data.entries.length : 0);
     animebApplyWeeklyLanguage();
     adjustScoreBars();
     setTimeout(() => {
