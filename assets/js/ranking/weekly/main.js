@@ -473,12 +473,32 @@ function animebApplyWeeklyPresentation(meta) {
   // Safe: the SVG comes from a fixed internal set of five expressions, not JSON markup.
   row.innerHTML=animebSatisfactionFace(sat.value10);
   row.appendChild(number);node.append(ja,en,row);
-  const intro=document.querySelector('.animeb-weekly-intro');
-  if(intro)intro.before(node);
-  else {
-    node.classList.add('animeb-sat-standalone');
-    document.querySelector('.sub-header')?.after(node);
+  // v4.27.1: Satisfaction belongs to the article header, independent of the intro.
+  // This avoids narrow-screen text wrapping and works when weekly_intro is absent.
+  const pageHeader=document.querySelector('.header');
+  const subHeader=document.querySelector('.sub-header');
+  if(!pageHeader) return;
+  pageHeader.classList.add('animeb-has-satisfaction');
+  pageHeader.appendChild(node);
+
+  // A long PRELIM/FINAL/date header may fill the available width on small screens.
+  // Preserve the headline instead of allowing an overlap: use a separate, right-aligned
+  // row immediately after the subheader only when there is insufficient horizontal room.
+  function placeSatisfaction() {
+    if(!node.isConnected) return;
+    if(node.parentElement!==pageHeader) pageHeader.appendChild(node);
+    node.classList.remove('animeb-sat-inline-fallback');
+    const headerRight=(pageHeader.querySelector('.animeb-mid-stack') ||
+      pageHeader.querySelector('.duration') || pageHeader.querySelector('.week-title'))?.getBoundingClientRect().right;
+    const satLeft=node.getBoundingClientRect().left;
+    if(subHeader && Number.isFinite(headerRight) && headerRight + 10 > satLeft) {
+      subHeader.after(node);
+      node.classList.add('animeb-sat-inline-fallback');
+    }
   }
+  placeSatisfaction();
+  window.addEventListener('resize',placeSatisfaction,{passive:true});
+  if(document.fonts?.ready)document.fonts.ready.then(placeSatisfaction).catch(()=>{});
 }
 
 // ========== JSON読み込み & DOM更新 =========

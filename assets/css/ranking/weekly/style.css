@@ -2100,9 +2100,24 @@ body[data-animeb-lang="ja"] .entry .info-top {
 .header .animeb-mid-stack .duration { margin:0; }
 /* Optional single-face weekly satisfaction. No tinted card/background. */
 .animeb-weekly-satisfaction {
-  float:right; width:max-content; max-width:44%; margin:0 1px 10px 16px;
+  width:max-content; max-width:44%;
   text-align:right; color:#41464a;
   font-family:'Fira Sans','Yu Gothic UI',sans-serif;
+}
+/* v4.27.1 — approved A placement: the satisfaction summary sits at the
+   TOP/WEEK heading's upper-right, never inside or beside the intro text.
+   The extra 10px above the title group clears the fixed language selector.
+   All unrelated pages and legacy JSON keep their existing geometry. */
+.header.animeb-has-satisfaction { position:relative; }
+.header.animeb-has-satisfaction h1 { margin-top:calc(1.5rem + 10px); }
+.header.animeb-has-satisfaction > .animeb-weekly-satisfaction {
+  position:absolute; top:calc(1.5rem + 16px); right:1px;
+  float:none; margin:0;
+}
+/* Narrow or unusually long first-row headings (e.g. PRELIM/FINAL):
+   right align the summary on its own row instead of colliding with the title. */
+.animeb-weekly-satisfaction.animeb-sat-inline-fallback {
+  position:static; float:none; margin:0 1px 12px auto;
 }
 .animeb-weekly-satisfaction .animeb-sat-label-ja,
 .animeb-weekly-satisfaction .animeb-sat-label-en {
@@ -2118,10 +2133,6 @@ body[data-animeb-lang="ja"] .entry .info-top {
 }
 .animeb-weekly-satisfaction .animeb-sat-denominator {
   font-size:.70rem; font-weight:500;letter-spacing:normal;color:#777;
-}
-/* Only the no-intro case needs its own clearing behavior. */
-.animeb-weekly-satisfaction.animeb-sat-standalone {
-  float:none; margin:0 0 12px auto;
 }
 @media(max-width:390px) {
  .week-title.animeb-week-enhanced .animeb-week-token{font-size:1.32em;}
