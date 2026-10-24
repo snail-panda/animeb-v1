@@ -11,13 +11,27 @@
       "backOnList": 0,
       "noAir": 0,
       "completed": 0,
-	  "notAiredYet": 2,
+      "notAiredYet": 2,
       "startedAiringThisWeek": 2,
       "total": 35
     },
     "weekly_intro": {
-      "en": "After being completely overwhelmed by the sheer number of shows during the prelim round and Week 1, things have finally started to settle down a bit as we head into Week 2 of the Fall 2026 season. It feels like we’re hitting the reset button here—time to catch our breath and really dig in.\n\nQuite unlike usual seasons, this season is NOT packed with so much buzzworthy titles, but lots of returning series. So then, how did things shake out in Week 2? Let’s take a look.\n\nThat said, this week marks the beginning of the true competition. From here on out, each episode will be judged week by week — and compared directly against its peers within the same 7-day window.\n\nWith that, let’s take a look at how things stood in this first week of the main round.",
-      "ja": "プレリム期間と第1週目では、いつも通り、対象(候補)作品数の多さに完全に圧倒されてしまいましたが、2026年夏アニメシーズンも第2週に入り、ようやく少し落ち着きを取り戻しつつあります。ここで一旦リセット。深呼吸して、改めてじっくり向き合っていきたいところです。\n\nとはいえ、今季はシーズン前から史上稀に見る不作と言われ、めぼしい大作・話題作にも事欠き、その代わり続編がひしめいているといったカオスな状態となっています。そんな中、第2週は一体どうなったのでしょうか？さっそく見ていきましょう。"
+      "en": "After being completely overwhelmed by the sheer number of shows during the prelim round and Week 1, things have finally started to settle down a bit as we head into <strong>Week 2</strong> of the <strong>Fall 2026 season</strong>. It feels like we’re hitting the reset button here—time to catch our breath and really dig in.\n\nQuite unlike usual seasons, this season is NOT packed with so much buzzworthy titles, but lots of returning series. So then, how did things shake out in <strong>Week 2</strong>? Let’s take a look.\n\nThat said, this week marks the beginning of the true competition. From here on out, each episode will be judged week by week — and compared directly against its peers within the same 7-day window.\n\nWith that, let’s take a look at how things stood in this first week of the main round.",
+      "ja": "プレリム期間と第1週目では、いつも通り、対象(候補)作品数の多さに完全に圧倒されてしまいましたが、<strong>2026年秋アニメ</strong>シーズンも<strong>第2週</strong>に入り、ようやく少し落ち着きを取り戻しつつあります。ここで一旦リセット。深呼吸して、改めてじっくり向き合っていきたいところです。\n\nとはいえ、今季はシーズン前から史上稀に見る<strong>大不作</strong>と言われ、めぼしい大作・話題作にも事欠き、その代わり続編がひしめいているといったカオスな状態となっています。そんな中、<strong>第2週</strong>は一体どうなったのでしょうか？では、ランキングをご覧遊ばせ！"
+    },
+    "presentation": {
+      "header": {
+        "mode": "enhanced",
+        "numberFormat": "padded",
+        "fill": "outline",
+        "color": "red",
+        "customColor": "#8e2222",
+        "specialColorMode": "unified",
+        "labelColor": "red",
+        "customLabelColor": "#215973",
+        "midSeasonLabel": "auto",
+        "midSeasonPlacement": "below"
+      }
     }
   },
   "entries": [
