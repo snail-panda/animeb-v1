@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" role="img" aria-label="Clapperboard">
+
+<rect x="7" y="18" width="34" height="24" rx="3" fill="none" stroke="#32816e" stroke-width="3.5"/>
+<path d="M9 18L6 11L37 3L40 11L9 18Z" fill="none" stroke="#32816e" stroke-width="3.3" stroke-linejoin="round"/>
+<path d="M14 9L19 15M26 6L31 12M13 23H36" stroke="#32816e" stroke-width="2.3"/>
+<path d="M21 26V37L31 31.5Z" fill="#32816e"/>
+
+</svg>

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" role="img" aria-label="Tear-off calendar">
+
+<rect x="8" y="9" width="29" height="30" rx="3.5" fill="white" stroke="#427989" stroke-width="3.5"/>
+<path d="M8 18H37" stroke="#427989" stroke-width="3"/>
+<path d="M32 39 V30H41Z" fill="#d8e7e4" stroke="#427989" stroke-width="2.8" stroke-linejoin="round"/>
+<path d="M15 25H29M15 31H23" stroke="#427989" stroke-width="3" stroke-linecap="round"/>
+<path d="M15 5V13M29 5V13" stroke="#427989" stroke-width="4" stroke-linecap="round"/>
+
+</svg>

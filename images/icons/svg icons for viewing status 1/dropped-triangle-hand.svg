@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" role="img" aria-label="Dropped: red warning triangle with stop hand">
+<path d="M24 4 L46 43 H2Z" fill="none" stroke="#d63c4a" stroke-width="3.7" stroke-linejoin="round"/>
+<!-- Simplified dark stop palm: remains inside the warning triangle at small sizes -->
+<path d="M19 30.5 L16.8 27.5 C15.5 25.8 13.6 27.2 14.8 29.5 L19.4 36.2 C21.5 39.4 30.5 38.4 31.5 34.6 L31.5 24.2 C31.5 22.5 29.2 22.5 29.2 24.2 L29.2 26.7 L29.2 21.7 C29.2 20 26.9 20 26.9 21.7 L26.9 26.7 L26.9 20.7 C26.9 19 24.6 19 24.6 20.7 L24.6 26.7 L24.6 22.5 C24.6 20.8 22.3 20.8 22.3 22.5 L22.3 32Z" fill="#34383d" stroke="#34383d" stroke-width=".5" stroke-linejoin="round"/>
+</svg>

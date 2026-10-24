@@ -1,7 +1,28 @@
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<!-- Uploaded to: SVG Repo, www.svgrepo.com, Transformed by: SVG Repo Mixer Tools -->
-<svg height="800px" width="800px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xml:space="preserve" fill="#000000">
-<g id="SVGRepo_bgCarrier" stroke-width="0"/>
-<g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/>
-<g id="SVGRepo_iconCarrier"> <path style="fill:#FFFFFF;" d="M256,504C119.248,504,8,392.752,8,256S119.248,8,256,8s248,111.248,248,248S392.752,504,256,504z"/> <g> <path style="fill:#bc5c61;" d="M256,16c132.336,0,240,107.664,240,240S388.336,496,256,496S16,388.336,16,256S123.664,16,256,16 M256,0C114.608,0,0,114.608,0,256c0,141.376,114.608,256,256,256s256-114.624,256-256S397.392,0,256,0L256,0z"/> <path style="fill:#bc5c61;" d="M256.336,421.024l147.968-276.848H108.368L256.336,421.024z M256.336,284.88l-41.952-78.512h83.92 L256.336,284.88z"/> </g> </g>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Dropped: red warning triangle with black stop hand">
+<!-- Red open warning triangle, with a recognizable five-digit stop hand. -->
+<path d="M31.9 4.8 Q33.7 4.8 34.7 6.8 L60.1 53.4 Q61.8 57 57.3 57 H6.7 Q2.1 57 3.9 53.4 L29.2 6.8 Q30.2 4.8 31.9 4.8Z" fill="none" stroke="#de3b4e" stroke-width="4.7" stroke-linejoin="round"/>
+<!-- Each upright finger has a separate round tip; a swept thumb makes the palm legible. -->
+<g transform="translate(8.9 8) scale(.72 .78)">
+<path d="M24 47.7
+C22.5 45.7 20.2 42.7 17.2 39.5
+C15.2 37.3 13.1 37.1 12.4 38.4
+C11.6 39.8 12.5 41.2 14.3 43.4
+L22.6 53.0
+C25.3 56.1 29.0 56.5 34.9 56.0
+L39.7 55.3
+C44.4 54.7 47.0 50.6 47.0 45.2
+L47.0 33.0
+Q47.0 30.5 44.7 30.3 Q42.4 30.1 42.4 32.7
+L42.4 36.0 L42.4 25.4
+Q42.4 22.7 39.9 22.6 Q37.5 22.6 37.5 25.3
+L37.5 34.2 L37.5 22.0
+Q37.5 19.2 34.8 19.2 Q32.3 19.2 32.3 22.0
+L32.3 33.8 L32.3 24.4
+Q32.3 21.6 29.7 21.6 Q27.1 21.6 27.1 24.4
+L27.1 41.3 L27.1 30.7
+Q27.1 28 24.6 28 Q22.1 28 22.1 30.7
+L22.1 45.2Z" fill="#23252a"/>
+<!-- Very subtle finger gaps improve recognition at 24–32px. -->
+<path d="M27.1 34.1V39.7 M32.3 28.6V37.8 M37.5 28.4V37.6 M42.4 34.1V39.3" stroke="#fffef3" stroke-width="1.0" stroke-linecap="round" opacity=".84"/>
+</g>
+</svg>

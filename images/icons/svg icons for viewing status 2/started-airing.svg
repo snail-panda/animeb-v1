@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Started This Week: radio broadcast tower">
+<!-- Clear broadcasting signal and triangular metal tower. -->
+<g stroke="#318974" stroke-linecap="round" stroke-linejoin="round" fill="none">
+  <path d="M30.8 25.0 L16 58 M33.2 25 L48 58 M23.5 42.0H40.5 M19.2 51.3H44.8 M25 49L39 34" stroke-width="4"/>
+  <path d="M23 18 C17 22 17 29 23 34 M41 18 C47 22 47 29 41 34" stroke-width="4.2"/>
+  <path d="M16.4 10.7 C6.0 19.2 6.0 33.5 16.4 42 M47.6 10.7 C58 19.2 58 33.5 47.6 42" stroke-width="4.2"/>
+</g>
+<circle cx="32" cy="25" r="6" fill="#318974"/>
+</svg>

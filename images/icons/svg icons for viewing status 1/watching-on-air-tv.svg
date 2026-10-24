@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" role="img" aria-label="ON AIR TV">
+
+<path d="M12 10 L18 5 M36 10 L30 5" stroke="#34383d" stroke-width="3" stroke-linecap="round"/>
+<rect x="5" y="12" width="38" height="30" rx="6" fill="none" stroke="#34383d" stroke-width="3.5"/>
+<rect x="10.5" y="17.5" width="27" height="19" rx="3" fill="#34383d"/>
+<circle cx="16" cy="22" r="2" fill="#d63c4a"/>
+<text x="28.2" y="28" font-family="Arial, sans-serif" text-anchor="middle" font-size="7" font-weight="800" fill="#ffffff" letter-spacing="0">ON AIR</text>
+
+</svg>

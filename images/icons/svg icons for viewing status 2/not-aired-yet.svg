@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Not Aired Yet: tear-off calendar">
+<!-- Tear-off paper calendar with two binding tabs and a visibly folded corner. -->
+<path d="M10 14 Q10 9 15 9 H47 Q52 9 52 14 V50 L43 58 H15 Q10 58 10 53Z" fill="#fffef3" stroke="#417d8c" stroke-width="4.5" stroke-linejoin="round"/>
+<path d="M10 23V14Q10 9 15 9H47Q52 9 52 14V23Z" fill="#4d9bae"/>
+<path d="M20 5 V17 M42 5 V17" fill="none" stroke="#346a78" stroke-width="6" stroke-linecap="round"/>
+<path d="M43 58 L43 50 Q43 47 46 47 H52Z" fill="#b3d8dc" stroke="#417d8c" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="30" y="47" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="800" fill="#354853" text-anchor="middle">31</text>
+</svg>

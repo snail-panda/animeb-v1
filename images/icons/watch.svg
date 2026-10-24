@@ -1,10 +1,7 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
-<svg fill="#000000" width="800px" height="800px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-<g data-name="Layer 2">
-<g data-name="tv">
-<rect width="24" height="24" opacity="0"/>
-<path d="M18 6h-3.59l2.3-2.29a1 1 0 1 0-1.42-1.42L12 5.59l-3.29-3.3a1 1 0 1 0-1.42 1.42L9.59 6H6a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h12a3 3 0 0 0 3-3V9a3 3 0 0 0-3-3zm1 13a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1z"/>
-</g>
-</g>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Watching: ON AIR television">
+<!-- Original-model rabbit-ear antennas: both arms spring from the same center. -->
+<path d="M32 17 L18 3 M32 17 L46 3" stroke="#202126" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="7" y="17" width="50" height="42" rx="10" fill="#fffef3" stroke="#202126" stroke-width="6"/>
+<rect x="13" y="24" width="38" height="28" rx="5" fill="#d94150"/>
+<text x="32" y="41.6" font-family="Arial, Helvetica, sans-serif" font-weight="900" font-stretch="condensed" font-size="13.8" letter-spacing="-1" fill="#fffef3" text-anchor="middle">ON AIR</text>
+</svg>

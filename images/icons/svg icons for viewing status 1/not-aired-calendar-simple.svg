@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" role="img" aria-label="Standard calendar">
+
+<rect x="6" y="10" width="36" height="31" rx="3.5" fill="none" stroke="#427989" stroke-width="3.8"/>
+<path d="M6 20H42 M15 5V14 M33 5V14" stroke="#427989" stroke-width="3.8" stroke-linecap="round"/>
+<circle cx="16" cy="28" r="2.3" fill="#427989"/><circle cx="24" cy="28" r="2.3" fill="#427989"/><circle cx="32" cy="28" r="2.3" fill="#427989"/>
+
+</svg>

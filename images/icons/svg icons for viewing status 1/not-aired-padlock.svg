@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" role="img" aria-label="Padlock">
+
+<path d="M14 20v-6a10 10 0 0 1 20 0v6" fill="none" stroke="#427989" stroke-width="4.5" stroke-linecap="round"/>
+<rect x="9" y="19" width="30" height="24" rx="4" fill="#427989"/>
+<circle cx="24" cy="29" r="3" fill="white"/><rect x="22.8" y="28" width="2.4" height="7.5" rx="1.2" fill="white"/>
+
+</svg>

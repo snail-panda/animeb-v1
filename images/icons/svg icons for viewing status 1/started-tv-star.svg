@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" role="img" aria-label="TV + Stars">
+
+<rect x="5" y="13" width="32" height="29" rx="5" fill="none" stroke="#32816e" stroke-width="3.5"/>
+<path d="M14 13L18 7M29 13L26 7" stroke="#32816e" stroke-width="3" stroke-linecap="round"/>
+<path d="M20 23L28 27L20 31Z" fill="#32816e"/>
+<path d="M39 3L40.6 8.7L46 10.3L40.6 12L39 17.5L37.2 12L32 10.3L37.2 8.7Z" fill="#e9b836"/><circle cx="43" cy="24" r="2" fill="#e9b836"/>
+
+</svg>

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Watching: ON AIR television">
+<!-- Original-model rabbit-ear antennas: both arms spring from the same center. -->
+<path d="M32 17 L18 3 M32 17 L46 3" stroke="#202126" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="7" y="17" width="50" height="42" rx="10" fill="#fffef3" stroke="#202126" stroke-width="6"/>
+<rect x="13" y="24" width="38" height="28" rx="5" fill="#d94150"/>
+<text x="32" y="41.6" font-family="Arial, Helvetica, sans-serif" font-weight="900" font-stretch="condensed" font-size="13.8" letter-spacing="-1" fill="#fffef3" text-anchor="middle">ON AIR</text>
+</svg>
