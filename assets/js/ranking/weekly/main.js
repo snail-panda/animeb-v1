@@ -390,7 +390,98 @@ function animebApplyWeeklyLanguage() {
 animebEnsureWeeklyControls();
 animebApplyWeeklyLanguage();
 
-// ========== JSON読み込み & DOM更新 ==========
+
+// Optional per-article appearance. No presentation metadata => legacy output exactly as before.
+function animebSatisfactionFace(value10) {
+  const tier = Math.max(0,Math.min(4,Math.ceil(value10/2)-1));
+  const mouths = [
+    '<path d="M15 39Q25 27 35 39"/>',
+    '<path d="M15 38Q25 31 35 38"/>',
+    '<path d="M15 34H35"/>',
+    '<path d="M15 33Q25 43 35 33"/>',
+    '<path d="M13 31Q25 48 37 31"/>'
+  ];
+  return '<svg viewBox="0 0 50 50" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">'
+    + '<circle cx="25" cy="25" r="22" fill="#ffd84e" stroke="#c99b23" stroke-width="2"/>'
+    + '<circle cx="17" cy="20" r="2.4" fill="#444"/><circle cx="33" cy="20" r="2.4" fill="#444"/>'
+    + '<g stroke="#55432c" stroke-width="2.6" fill="none" stroke-linecap="round">'+mouths[tier]+'</g></svg>';
+}
+function animebApplyWeeklyPresentation(meta) {
+  const cfg = meta?.presentation;
+  const header = cfg?.header;
+  const title = document.querySelector('.header .week-title');
+  if (title && header?.mode === 'enhanced' && meta.week) {
+    const raw = String(meta.week).trim().toUpperCase();
+    const tokenText = raw.replace(/^WEEK\s*/,'').trim();
+    if (/^WEEK\s*/.test(raw) && /^(\d+|PRELIM|FINAL)$/.test(tokenText)) {
+      const isSpecial = tokenText === 'PRELIM' || tokenText === 'FINAL';
+      const num = /^\d+$/.test(tokenText) ? Number(tokenText) : null;
+      const label = document.createElement('span'); label.className='animeb-week-label';label.textContent='WEEK';
+      const token = document.createElement('span');token.className='animeb-week-token';
+      token.textContent=num!==null && header.numberFormat!=='plain' ? String(num).padStart(2,'0') : tokenText;
+      if(header.fill==='outline')token.classList.add('animeb-outline');
+      title.replaceChildren(label,token);
+      title.classList.add('animeb-week-enhanced');
+      title.classList.toggle('animeb-special-token',isSpecial);
+      const defaultColor = getComputedStyle(title).color;
+      const colorMap={red:'#8E2222',teal:'#168d98'};
+      const goodHex = value => typeof value==='string' && /^#[0-9a-fA-F]{6}$/.test(value);
+      const accent = header.color==='custom'&&goodHex(header.customColor) ? header.customColor
+        : colorMap[header.color] || defaultColor;
+      title.style.setProperty('--animeb-week-accent',accent);
+      const mode = header.specialColorMode === 'unified' ? 'unified' : 'split';
+      const labelAccent = header.labelColor==='custom'&&goodHex(header.customLabelColor) ? header.customLabelColor
+        : colorMap[header.labelColor] || (isSpecial && mode==='split' ? '#215973' : defaultColor);
+      title.style.setProperty('--animeb-week-label-color',isSpecial&&mode==='unified' ? accent : labelAccent);
+      const midPolicy = header.midSeasonLabel || 'auto';
+      const showMid = !isSpecial && (midPolicy==='show' || (midPolicy==='auto'&&num===6));
+      if(showMid) {
+        title.classList.remove('normal');
+        title.classList.add('mid'); // Mid-Season color for Week 6 by default, or chosen Week 5/7
+        if(header.color==='auto')title.style.setProperty('--animeb-week-accent','#215973');
+        if(header.labelColor==='auto')title.style.setProperty('--animeb-week-label-color','#215973');
+        const place = ['inline','below','stacked'].includes(header.midSeasonPlacement)?header.midSeasonPlacement:'below';
+        if(place==='below') {
+          title.classList.add('animeb-mid-below');
+          const sub=document.createElement('span');sub.className='animeb-mid-under';sub.textContent='MID-SEASON';title.appendChild(sub);
+        } else if(place==='inline') {
+          const sub=document.createElement('span');sub.className='animeb-mid-inline';sub.textContent='MID-SEASON';title.appendChild(sub);
+        } else {
+          const duration=document.querySelector('.header .duration');
+          if(duration) {
+            const stack=document.createElement('span');stack.className='animeb-mid-stack';
+            const sub=document.createElement('span');sub.className='animeb-mid-stack-label';sub.textContent='MID-SEASON';
+            duration.before(stack);stack.append(sub,duration);
+          }
+        }
+      }
+    }
+  }
+  const sat=cfg?.satisfaction;
+  if(!sat || !Number.isInteger(sat.value10) || sat.value10<1 || sat.value10>10 || ![5,10].includes(sat.displayScale))return;
+  const node=document.createElement('aside');
+  node.className='animeb-weekly-satisfaction';
+  node.setAttribute('aria-label','今週の満足度 / Weekly Satisfaction');
+  const ja=document.createElement('span');ja.className='animeb-sat-label-ja';ja.textContent='今週の満足度';
+  const en=document.createElement('span');en.className='animeb-sat-label-en';en.textContent='Weekly Satisfaction';
+  const row=document.createElement('div');row.className='animeb-sat-main';
+  const number=document.createElement('strong');number.className='animeb-sat-score';
+  number.textContent=String(sat.displayScale===5 ? sat.value10/2 : sat.value10);
+  const denominator=document.createElement('span');denominator.className='animeb-sat-denominator';
+  denominator.textContent=' / '+sat.displayScale;
+  number.appendChild(denominator);
+  // Safe: the SVG comes from a fixed internal set of five expressions, not JSON markup.
+  row.innerHTML=animebSatisfactionFace(sat.value10);
+  row.appendChild(number);node.append(ja,en,row);
+  const intro=document.querySelector('.animeb-weekly-intro');
+  if(intro)intro.before(node);
+  else {
+    node.classList.add('animeb-sat-standalone');
+    document.querySelector('.sub-header')?.after(node);
+  }
+}
+
+// ========== JSON読み込み & DOM更新 =========
 fetch(jsonPath)
   .then(response => {
     console.log(`🔍 Response status: ${response.status}`);
@@ -646,6 +737,7 @@ if (epRangeEl && data.meta.ep_range) {
       }
       intro.dataset.en=introEn;intro.dataset.ja=introJa;
     }
+    animebApplyWeeklyPresentation(data.meta);
 
     // ============= phase 1: 構造だけ複製 ==============
 const container = document.querySelector(".entry-list");

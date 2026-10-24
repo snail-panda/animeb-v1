@@ -2046,3 +2046,87 @@ body[data-animeb-lang="ja"] .entry .info-top {
     text-size-adjust: 100%;
   }
 }
+
+
+/* === AnimeB Weekly v4.27: optional per-article presentation only ===
+   Absent meta.presentation.header = unchanged legacy header.
+   Existing TOP / duration / episode range and ranking cards are untouched. */
+.header .week-title.animeb-week-enhanced {
+  display:inline-flex; align-items:baseline; gap:.13rem;
+  position:relative; white-space:nowrap; line-height:1;
+  word-spacing:normal; letter-spacing:normal;
+}
+.week-title.animeb-week-enhanced .animeb-week-label {
+  color:var(--animeb-week-label-color,inherit);
+  font-size:1em; line-height:1; white-space:nowrap;
+}
+.week-title.animeb-week-enhanced .animeb-week-token {
+  color:var(--animeb-week-accent,inherit);
+  font-size:1.42em; line-height:1; letter-spacing:-.018em;
+  white-space:nowrap; paint-order:stroke fill;
+}
+.week-title.animeb-week-enhanced .animeb-week-token.animeb-outline {
+  color:transparent;
+  -webkit-text-stroke:1.0px var(--animeb-week-accent,currentColor);
+}
+/* Prelim / Final text has more characters than the numerical week. */
+.week-title.animeb-week-enhanced.animeb-special-token .animeb-week-token {
+  font-size:1.17em;
+}
+.week-title.animeb-week-enhanced.animeb-special-token .animeb-week-token.animeb-outline {
+  -webkit-text-stroke:.85px var(--animeb-week-accent,currentColor);
+}
+.week-title.animeb-week-enhanced.animeb-mid-below { padding-bottom:.50rem; }
+.week-title.animeb-week-enhanced .animeb-mid-under {
+  position:absolute; bottom:-.22rem; left:calc(100% - 2.1rem);
+  transform:translateX(-45%); font-family:'Antonio','Anton',sans-serif;
+  color:#377bd2; font-size:.50rem; font-weight:700;
+  letter-spacing:0; line-height:1; white-space:nowrap;
+}
+.week-title.animeb-week-enhanced .animeb-mid-inline {
+  font-family:'Antonio','Anton',sans-serif;
+  color:#377bd2; font-size:.58rem; line-height:1; letter-spacing:0;
+  margin-left:.1rem; white-space:nowrap;
+}
+/* Alternative A: MID-SEASON / duration share two lines at the original duration position. */
+.header .animeb-mid-stack {
+  display:inline-flex; flex-direction:column; align-items:flex-start;
+  justify-content:center; gap:1px; margin-left:2px;
+}
+.header .animeb-mid-stack .animeb-mid-stack-label {
+  font:700 .54rem/1 'Antonio','Anton',sans-serif;
+  color:#377bd2; letter-spacing:0; white-space:nowrap;
+}
+.header .animeb-mid-stack .duration { margin:0; }
+/* Optional single-face weekly satisfaction. No tinted card/background. */
+.animeb-weekly-satisfaction {
+  float:right; width:max-content; max-width:44%; margin:0 1px 10px 16px;
+  text-align:right; color:#41464a;
+  font-family:'Fira Sans','Yu Gothic UI',sans-serif;
+}
+.animeb-weekly-satisfaction .animeb-sat-label-ja,
+.animeb-weekly-satisfaction .animeb-sat-label-en {
+  display:block; font-size:.61rem; line-height:1.23; letter-spacing:0;
+  font-weight:500; color:#656766;
+}
+.animeb-weekly-satisfaction .animeb-sat-main {
+  display:flex; justify-content:flex-end; align-items:center; gap:6px; margin-top:3px;
+}
+.animeb-weekly-satisfaction svg { width:30px;height:30px;flex:none; }
+.animeb-weekly-satisfaction .animeb-sat-score {
+  font-size:1.47rem; font-weight:800;line-height:1;letter-spacing:-.05em;
+}
+.animeb-weekly-satisfaction .animeb-sat-denominator {
+  font-size:.70rem; font-weight:500;letter-spacing:normal;color:#777;
+}
+/* Only the no-intro case needs its own clearing behavior. */
+.animeb-weekly-satisfaction.animeb-sat-standalone {
+  float:none; margin:0 0 12px auto;
+}
+@media(max-width:390px) {
+ .week-title.animeb-week-enhanced .animeb-week-token{font-size:1.32em;}
+ .week-title.animeb-week-enhanced.animeb-special-token .animeb-week-token{font-size:1.08em;}
+ .animeb-weekly-satisfaction .animeb-sat-main{gap:4px;}
+ .animeb-weekly-satisfaction svg{width:26px;height:26px;}
+ .animeb-weekly-satisfaction .animeb-sat-score{font-size:1.30rem;}
+}
