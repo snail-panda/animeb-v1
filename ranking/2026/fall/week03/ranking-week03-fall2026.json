@@ -30,11 +30,11 @@
       "header": {
         "mode": "enhanced",
         "numberFormat": "padded",
-        "fill": "outline",
-        "color": "red",
+        "fill": "solid",
+        "color": "teal",
         "customColor": "#8e2222",
         "specialColorMode": "unified",
-        "labelColor": "red",
+        "labelColor": "teal",
         "customLabelColor": "#215973",
         "midSeasonLabel": "auto",
         "midSeasonPlacement": "below"
