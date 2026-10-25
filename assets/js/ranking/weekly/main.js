@@ -232,6 +232,14 @@ function animebInitWeeklyThemes(){
   const LOCAL_KEY='animeb-weekly-theme-local-key-v1';
   const SCOPE_KEY='animeb-weekly-image-scope-v1';
   const VIS_KEY='animeb-weekly-image-visibility-v1';
+  // v4.36: image framing / tone / reading-surface controls remain local to this browser.
+  const ZOOM_KEY='animeb-weekly-image-zoom-v1';
+  const POSX_KEY='animeb-weekly-image-posx-v1';
+  const POSY_KEY='animeb-weekly-image-posy-v1';
+  const INTRO_KEY='animeb-weekly-image-intro-opacity-v1';
+  const TONE_KEY='animeb-weekly-image-tone-v1';
+  const FIT_KEY='animeb-weekly-image-fit-v1';
+  const COLORS_KEY='animeb-weekly-header-colors-v1';
   const MIGRATED='animeb-weekly-v434-legacy-gallery-migrated';
   const API='https://api.github.com/repos/snail-panda/animeb-v1/contents/images/backgrounds?ref=main';
   const scriptSrc=Array.from(document.scripts).find(s=>/\/assets\/js\/ranking\/weekly\/main\.js(?:[?#]|$)/.test(s.src))?.src;
@@ -239,6 +247,9 @@ function animebInitWeeklyThemes(){
   let theme='original',url='',source='url',localId='',localObjectUrl=null;
   // Default image placement is confined to the area ABOVE the ranking table.
   let imageScope='header', imageVisibility=78;
+  let imageZoom=100, imagePosX=50, imagePosY=40, introOpacity=84;
+  let imageTone='light', fullFit='cover', imageNatural=null;
+  let customColors={};
   let localThumbUrls=[],remoteItems=[],localItems=[];
   try {
     theme=localStorage.getItem(STORE)||'original';
@@ -248,10 +259,21 @@ function animebInitWeeklyThemes(){
     imageScope=localStorage.getItem(SCOPE_KEY)||'header';
     const savedVisibility=Number(localStorage.getItem(VIS_KEY));
     if(Number.isFinite(savedVisibility)&&savedVisibility>=25&&savedVisibility<=100)imageVisibility=savedVisibility;
+    const clamped=(key,min,max,fallback)=>{const n=Number(localStorage.getItem(key));return localStorage.getItem(key)!==null&&Number.isFinite(n)?Math.max(min,Math.min(max,n)):fallback;};
+    imageZoom=clamped(ZOOM_KEY,75,250,100);
+    imagePosX=clamped(POSX_KEY,0,100,50);
+    imagePosY=clamped(POSY_KEY,0,100,40);
+    introOpacity=clamped(INTRO_KEY,55,100,84);
+    imageTone=localStorage.getItem(TONE_KEY)||'light';
+    fullFit=localStorage.getItem(FIT_KEY)||'cover';
+    const savedColors=JSON.parse(localStorage.getItem(COLORS_KEY)||'{}');
+    if(savedColors&&typeof savedColors==='object'&&!Array.isArray(savedColors))customColors=savedColors;
   }catch(_){}
   if(!['original','dark','image'].includes(theme))theme='original';
   if(!['url','local'].includes(source))source='url';
-  if(!['header','full'].includes(imageScope))imageScope='header';
+  if(!['header','hero','full'].includes(imageScope))imageScope='header';
+  if(!['light','dark'].includes(imageTone))imageTone='light';
+  if(!['cover','contain','tile'].includes(fullFit))fullFit='cover';
   const ctr=document.createElement('div');ctr.id='animeb-theme-controls';ctr.className='animeb-theme-controls';
   const btn=document.createElement('button');btn.type='button';btn.className='animeb-theme-button';
   btn.textContent='◐';btn.setAttribute('aria-label','Theme / テーマ切替');
@@ -260,8 +282,10 @@ function animebInitWeeklyThemes(){
   const panelHead=document.createElement('div');panelHead.className='animeb-theme-panel-head';
   const header=document.createElement('p');header.className='animeb-theme-panel-title';header.textContent='THEME / テーマ';
   const closeBtn=document.createElement('button');closeBtn.type='button';closeBtn.className='animeb-theme-close';
-  closeBtn.textContent='×';closeBtn.setAttribute('aria-label','Close theme settings / テーマ設定を閉じる');
-  panelHead.append(header,closeBtn);
+  closeBtn.setAttribute('aria-label','Close theme settings / テーマ設定を閉じる');
+  const previewBtn=document.createElement('button');previewBtn.type='button';previewBtn.className='animeb-theme-preview-button';
+  previewBtn.textContent='↗ Preview page / 画面で確認';
+  panelHead.append(header,previewBtn,closeBtn);
   const choices=document.createElement('div');choices.className='animeb-theme-choices';
   const buttons={};
   [['original','Original'],['dark','Dark'],['image','Image']].forEach(([id,name])=>{
@@ -275,7 +299,7 @@ function animebInitWeeklyThemes(){
   const placementLegend=document.createElement('legend');placementLegend.textContent='IMAGE AREA / 背景の表示範囲';
   const scopeChoices=document.createElement('div');scopeChoices.className='animeb-bg-scope-choices';
   const scopeButtons={};
-  [['header','Header area / 上部のみ'],['full','Full page / ページ全体']].forEach(([key,label])=>{
+  [['header','Compact / 通常上部'],['hero','Hero / 広い上部'],['full','Full page / 全面']].forEach(([key,label])=>{
     const el=document.createElement('button');el.type='button';el.className='animeb-bg-scope-button';
     el.textContent=label;el.dataset.scope=key;
     el.addEventListener('click',()=>{
@@ -296,9 +320,75 @@ function animebInitWeeklyThemes(){
     try{localStorage.setItem(VIS_KEY,String(imageVisibility));}catch(_){}
     apply(theme,false);
   });
+  // Live framing preview: mirrors the same selected picture, tone, position and zoom.
+  const previewStage=document.createElement('div');previewStage.className='animeb-bg-live-preview';
+  previewStage.setAttribute('role','img');previewStage.setAttribute('aria-label','Live background crop preview / 背景のトリミングプレビュー');
+  const previewTitle=document.createElement('span');previewTitle.className='animeb-bg-preview-title';
+  previewTitle.textContent='TOP10  WEEK03';
+  const previewDescription=document.createElement('span');previewDescription.textContent='LIVE PREVIEW  ·  変更はすぐ反映';
+  previewStage.append(previewTitle,previewDescription);
+  const frame=document.createElement('div');frame.className='animeb-bg-frame';
+  const mkRange=(name,min,max,step)=>{
+    const row=document.createElement('label');row.className='animeb-bg-frame-label';
+    const title=document.createElement('span');title.textContent=name;
+    const value=document.createElement('output');value.className='animeb-bg-frame-number';
+    const input=document.createElement('input');input.type='range';input.min=min;input.max=max;input.step=step;
+    row.append(title,value,input);frame.append(row);
+    return {input,value};
+  };
+  const zoomCtl=mkRange('ZOOM / 拡大・縮小',75,250,5);
+  const posXCtl=mkRange('HORIZONTAL / 左右位置',0,100,5);
+  const posYCtl=mkRange('VERTICAL / 上下位置',0,100,5);
+  const introCtl=mkRange('THIS WEEK PANEL / 本文パネルの不透明度',55,100,5);
+  const toneBox=document.createElement('fieldset');toneBox.className='animeb-bg-tone';
+  const toneLabel=document.createElement('legend');toneLabel.textContent='IMAGE + COLOR / 背景との組み合わせ';
+  const toneButtons={};const toneRow=document.createElement('div');toneRow.className='animeb-bg-tone-buttons';
+  [['light','Light / 明るい'],['dark','Dark / 暗い']].forEach(([key,label])=>{
+    const el=document.createElement('button');el.type='button';el.className='animeb-bg-tone-choice';el.textContent=label;
+    el.addEventListener('click',()=>{imageTone=key;try{localStorage.setItem(TONE_KEY,key);}catch(_){}apply(theme,false);});
+    toneButtons[key]=el;toneRow.append(el);
+  });toneBox.append(toneLabel,toneRow);
+  const fitRow=document.createElement('div');fitRow.className='animeb-bg-fit-row';
+  const fitLabel=document.createElement('label');fitLabel.textContent='IMAGE FIT / 画像の表示方法';
+  const fitSelect=document.createElement('select');fitSelect.className='animeb-bg-fit';
+  [['cover','Fill screen / 画面に合わせる'],['contain','Entire image / 全体を収める'],['tile','Pattern / タイル状（模様向け）']].forEach(([key,label])=>{
+    const opt=document.createElement('option');opt.value=key;opt.textContent=label;fitSelect.append(opt);
+  });fitSelect.value=fullFit;fitRow.append(fitLabel,fitSelect);
+  fitSelect.addEventListener('change',()=>{fullFit=fitSelect.value;try{localStorage.setItem(FIT_KEY,fullFit);}catch(_){}apply(theme,false);});
+  const frameNote=document.createElement('p');frameNote.className='animeb-bg-frame-note';
+  frameNote.textContent='スライダーで画像の切り抜き位置を調整できます。プレビューでパネルを一時的に隠せます。';
+  // Optional per-device overrides: do not edit JSON or overwrite the source palette.
+  const colorDetails=document.createElement('details');colorDetails.className='animeb-bg-color-options';
+  const colorSummary=document.createElement('summary');colorSummary.textContent='HEADER TEXT COLORS / 見出し文字色（詳細）';
+  const colorRows=document.createElement('div');colorRows.className='animeb-bg-color-grid';
+  const colorDefs=[['top','TOP10 / メインタイトル','#414344'],['week','WEEK / 週番号','#8e2222'],['season','Season line / シーズン行','#587966'],['sat','Satisfaction / 満足度','#4c524e']];
+  const colorInputs={};
+  for(const [key,label,defaultColor] of colorDefs){
+    const row=document.createElement('label');row.className='animeb-bg-color-row';const name=document.createElement('span');name.textContent=label;
+    const input=document.createElement('input');input.type='color';input.value=/^#[0-9a-fA-F]{6}$/.test(customColors[key])?customColors[key]:defaultColor;
+    input.addEventListener('input',()=>{customColors[key]=input.value;saveColors();applyColors();});
+    colorInputs[key]=input;row.append(name,input);colorRows.append(row);
+  }
+  const colorActions=document.createElement('div');colorActions.className='animeb-bg-color-actions';
+  const colorReset=document.createElement('button');colorReset.type='button';colorReset.textContent='Reset / 色の指定を解除';
+  colorReset.addEventListener('click',()=>{customColors={};saveColors();applyColors();for(const [key,,defaultColor] of colorDefs)colorInputs[key].value=defaultColor;});
+  const colorLight=document.createElement('button');colorLight.type='button';colorLight.textContent='White text / 白系';
+  colorLight.addEventListener('click',()=>{customColors={top:'#fffdf4',week:'#ffd6ca',season:'#f9ead1',sat:'#ffffff'};saveColors();applyColors();for(const [key] of colorDefs)colorInputs[key].value=customColors[key];});
+  colorActions.append(colorLight,colorReset);
+  const colorNote=document.createElement('p');colorNote.textContent='端末ごとの表示調整です。JSONとConverterは変更しません。';
+  colorDetails.append(colorSummary,colorRows,colorActions,colorNote);
+  const onRange=(ctl,key,get,set)=>{
+    ctl.input.value=String(get());ctl.input.addEventListener('input',()=>{
+      set(Number(ctl.input.value));try{localStorage.setItem(key,String(get()));}catch(_){}apply(theme,false);
+    });
+  };
+  onRange(zoomCtl,ZOOM_KEY,()=>imageZoom,n=>imageZoom=n);
+  onRange(posXCtl,POSX_KEY,()=>imagePosX,n=>imagePosX=n);
+  onRange(posYCtl,POSY_KEY,()=>imagePosY,n=>imagePosY=n);
+  onRange(introCtl,INTRO_KEY,()=>introOpacity,n=>introOpacity=n);
   const scopeHint=document.createElement('p');scopeHint.className='animeb-bg-scope-note';
   scopeHint.textContent='Header area ends above the ranking table. / 上部のみ：ランキング表の直前まで。';
-  imageOptions.append(placementLegend,scopeChoices,visibilityLabel,scopeHint);
+  imageOptions.append(placementLegend,scopeChoices,visibilityLabel,scopeHint,previewStage,frame,toneBox,fitRow,frameNote,colorDetails);
   const galleryTitle=document.createElement('div');galleryTitle.className='animeb-bg-gallery-head';
   const heading=document.createElement('strong');heading.textContent='BACKGROUND LIBRARY / 背景ギャラリー';
   const refresh=document.createElement('button');refresh.type='button';refresh.className='animeb-bg-refresh';refresh.textContent='↻ Refresh';
@@ -331,12 +421,35 @@ function animebInitWeeklyThemes(){
   };
   const safeName=n=>typeof n==='string'&&n.length<170&&/^[^/\\\\<>:;?*\x00-\x1f]+\.(?:jpe?g|png|webp|gif|avif)$/i.test(n)&&n!=='.'&&n!=='..';
   const repoUrl=name=>new URL(encodeURIComponent(name),base).href;
+  const heroSpacer=document.createElement('div');heroSpacer.className='animeb-image-hero-spacer';heroSpacer.setAttribute('aria-hidden','true');
+  // Insert as a sibling of the established heading. No cards, notes, ranking rows or JSON are altered.
+  document.querySelector('.sub-header')?.after(heroSpacer);
+  const colorStyle=document.createElement('style');colorStyle.id='animeb-theme-custom-colors';document.head.append(colorStyle);
+  const saveColors=()=>{try{localStorage.setItem(COLORS_KEY,JSON.stringify(customColors));}catch(_){}};
+  function applyColors(){
+    const selectors={
+      top:'.wrapper .header h1',
+      week:'.wrapper .header .week-title, .wrapper .header .animeb-week-token',
+      season:'.wrapper .sub-header, .wrapper .sub-header .season-title, .wrapper .sub-header .year, .wrapper .sub-header .title-ranking, .wrapper .sub-header .ep-range',
+      sat:'.wrapper .animeb-weekly-satisfaction, .wrapper .animeb-weekly-satisfaction .animeb-sat-label-ja, .wrapper .animeb-weekly-satisfaction .animeb-sat-label-en, .wrapper .animeb-weekly-satisfaction .animeb-sat-denominator'
+    };
+    colorStyle.textContent=Object.keys(selectors).filter(key=>/^#[0-9a-fA-F]{6}$/.test(customColors[key]||''))
+      .map(key=>`body ${selectors[key].split(', ').join(', body ')}{color:${customColors[key]} !important;}`).join('\n');
+  }
+  applyColors();
+  function rememberNaturalSize(address){
+    if(!address)return;
+    const probe=new Image();probe.onload=()=>{
+      if((source==='url'?url:localObjectUrl)!==address)return;
+      imageNatural={width:probe.naturalWidth,height:probe.naturalHeight};scheduleHeroExtent();
+    };probe.src=address;
+  }
   function photo(value){
     if(value)document.body.style.setProperty('--animeb-theme-photo',`url("${value}")`);
     else document.body.style.removeProperty('--animeb-theme-photo');
   }
   function updateHeroExtent(){
-    if(theme!=='image'||imageScope!=='header')return;
+    if(theme!=='image')return;
     const wrapper=document.querySelector('.wrapper');
     const ranking=document.querySelector('.table-header-mount')||document.querySelector('.entry-list');
     if(!wrapper)return;
@@ -346,6 +459,20 @@ function animebInitWeeklyThemes(){
     const bottom=ranking?ranking.getBoundingClientRect().top:wrapperTop+410;
     const height=Math.max(180,Math.round(bottom-wrapperTop-8));
     wrapper.style.setProperty('--animeb-image-header-height',height+'px');
+    const width=Math.max(1,wrapper.getBoundingClientRect().width);
+    const viewportHeight=Math.max(1,window.innerHeight);
+    const targetWidth=imageScope==='full'?window.innerWidth:width;
+    const targetHeight=imageScope==='full'?viewportHeight:height;
+    let sizing='cover';
+    if(imageNatural?.width&&imageNatural?.height){
+      const ratio=fullFit==='tile'?Math.min(1,240/imageNatural.width):
+        (fullFit==='contain'?Math.min(targetWidth/imageNatural.width,targetHeight/imageNatural.height):
+        Math.max(targetWidth/imageNatural.width,targetHeight/imageNatural.height));
+      const factor=ratio*(imageZoom/100);
+      sizing=`${Math.round(imageNatural.width*factor)}px ${Math.round(imageNatural.height*factor)}px`;
+    }
+    document.body.style.setProperty('--animeb-image-size',sizing);
+  
   }
   let heroFrame=0;
   function scheduleHeroExtent(){
@@ -355,6 +482,18 @@ function animebInitWeeklyThemes(){
   function apply(id,persist){
     theme=id;document.body.dataset.animebTheme=id;
     document.body.dataset.animebImageScope=imageScope;
+    document.body.dataset.animebImageTone=imageTone;
+    document.body.dataset.animebFullFit=fullFit;
+    heroSpacer.hidden=!(id==='image'&&imageScope==='hero');
+    for(const [key,el] of Object.entries(toneButtons))el.setAttribute('aria-pressed',String(key===imageTone));
+    fitRow.hidden=false;
+    fitLabel.textContent=imageScope==='full'?'FULL PAGE FIT / 全面時の画像配置':'IMAGE FIT / 背景画像の収まり方';
+    zoomCtl.value.textContent=imageZoom+'%';
+    posXCtl.value.textContent=imagePosX+'%';posYCtl.value.textContent=imagePosY+'%';
+    introCtl.value.textContent=introOpacity+'%';
+    document.body.style.setProperty('--animeb-image-x',imagePosX+'%');
+    document.body.style.setProperty('--animeb-image-y',imagePosY+'%');
+    document.body.style.setProperty('--animeb-intro-opacity',(introOpacity/100).toFixed(2));
     // A lighter overlay makes the selected illustration visible while
     // preserving enough contrast for the headline and reading panels.
     const wash=(0.10+((100-imageVisibility)/100)*0.68).toFixed(3);
@@ -362,9 +501,18 @@ function animebInitWeeklyThemes(){
     visibilityValue.textContent=imageVisibility+'%';
     Object.entries(scopeButtons).forEach(([key,element])=>element.setAttribute('aria-pressed',String(key===imageScope)));
     scopeHint.textContent=imageScope==='header'
-      ?'Header area ends above the ranking table. / 上部のみ：ランキング表の直前まで。'
-      :'Full-page image; readability depends on your picture. / 全面表示：画像によって読みやすさが変わります。';
-    photo(source==='local'?localObjectUrl:validPath(url));
+      ?'Compact: original header height, image ends at the ranking. / 通常：現在のヘッダーサイズ。'
+      :imageScope==='hero'
+        ?'Hero: extra picture space before the weekly commentary. / 広い上部：今週のひと言より前に画像の余白を追加。'
+        :'Full: image across the page; screen cover prevents tall stretching. / 全面：画面幅に合わせ、極端な縦伸びを防ぎます。';
+    const activePhoto=source==='local'?localObjectUrl:validPath(url);
+    photo(activePhoto);
+    previewStage.style.setProperty('--animeb-preview-photo',activePhoto?`url("${activePhoto}")`:'none');
+    previewStage.style.setProperty('--animeb-preview-visibility',String(imageVisibility/100));
+    previewStage.style.setProperty('--animeb-preview-x',imagePosX+'%');
+    previewStage.style.setProperty('--animeb-preview-y',imagePosY+'%');
+    previewStage.style.setProperty('--animeb-preview-zoom',String(imageZoom/100));
+    previewStage.dataset.tone=imageTone;
     Object.entries(buttons).forEach(([key,element])=>element.setAttribute('aria-pressed',String(key===id)));
     field.hidden=id!=='image';
     if(persist)try{localStorage.setItem(STORE,id);}catch(_){}
@@ -377,7 +525,7 @@ function animebInitWeeklyThemes(){
   function setLocalPreview(blob){
     if(localObjectUrl)URL.revokeObjectURL(localObjectUrl);
     localObjectUrl=URL.createObjectURL(blob);
-    if(source==='local')apply(theme,false);
+    if(source==='local'){rememberNaturalSize(localObjectUrl);apply(theme,false);}
   }
   function database(){return new Promise((resolve,reject)=>{
     if(!('indexedDB' in window))return reject(new Error('IndexedDB unavailable'));
@@ -416,6 +564,7 @@ function animebInitWeeklyThemes(){
     message.textContent='Loading… / 画像を読み込み中…';
     try{await verifyImage(item.url);}catch(_){message.textContent='Could not open this image. / 画像を開けませんでした。';return;}
     url=item.url;source='url';localId='';input.value=url;
+    rememberNaturalSize(item.url);
     savePref('url');apply('image',true);message.textContent=`Selected: ${item.name}`;
   }
   async function useLocal(item){
@@ -522,6 +671,29 @@ function animebInitWeeklyThemes(){
     panel.hidden=!open;btn.setAttribute('aria-expanded',String(open));
     if(open){loadGallery();scheduleHeroExtent();}
   }
+  previewBtn.addEventListener('click',()=>{setPanelOpen(false);btn.focus();});
+  // Drag settings by the title bar when they cover the selected image.
+  // Only the header is a drag handle; the settings remain independently scrollable.
+  let drag=null;
+  panelHead.addEventListener('pointerdown',event=>{
+    if(event.target.closest('button')||event.button!==0)return;
+    const rect=panel.getBoundingClientRect();
+    drag={pointer:event.pointerId,x:event.clientX,y:event.clientY,left:rect.left,top:rect.top};
+    panel.style.position='fixed';panel.style.left=rect.left+'px';panel.style.top=rect.top+'px';
+    panel.style.right='auto';panel.style.margin='0';
+    panelHead.setPointerCapture(event.pointerId);
+  });
+  panelHead.addEventListener('pointermove',event=>{
+    if(!drag||drag.pointer!==event.pointerId)return;
+    const width=panel.getBoundingClientRect().width;
+    const height=panel.getBoundingClientRect().height;
+    const maxX=Math.max(8,window.innerWidth-width-8);
+    const maxY=Math.max(8,window.innerHeight-height-8);
+    const x=Math.min(maxX,Math.max(8,drag.left+event.clientX-drag.x));
+    const y=Math.min(maxY,Math.max(8,drag.top+event.clientY-drag.y));
+    panel.style.left=x+'px';panel.style.top=y+'px';
+  });
+  for(const end of ['pointerup','pointercancel'])panelHead.addEventListener(end,()=>{drag=null;});
   btn.addEventListener('click',()=>setPanelOpen(panel.hidden));
   closeBtn.addEventListener('click',()=>{setPanelOpen(false);btn.focus();});
   document.addEventListener('pointerdown',e=>{if(!ctr.contains(e.target)&&!panel.hidden)setPanelOpen(false);});
@@ -538,6 +710,7 @@ function animebInitWeeklyThemes(){
     }
   }
   apply(theme,false);
+  if(source==='url'&&url)rememberNaturalSize(validPath(url));
   if(source==='local')restoreLocal().then(blob=>{
     if(blob)setLocalPreview(blob);
     else message.textContent='Saved image not found. Select an image again. / 保存画像が見つかりません。再選択してください。';
@@ -861,7 +1034,11 @@ function animebMountRankingCoverage(status, publishedCount) {
   const mark=document.createElement('span');mark.className='ws-modern-crown';mark.setAttribute('aria-hidden','true');
   mark.innerHTML='<svg viewBox="0 0 32 27" role="presentation" focusable="false"><path d="M3.6 8.5 9.3 16l6.6-11.5L22.7 16l5.8-7.5-2.3 13.2H6L3.6 8.5Zm3.1 16.1h18.6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"/><circle cx="3.6" cy="8.5" r="1.3" fill="currentColor"/><circle cx="15.9" cy="4.5" r="1.3" fill="currentColor"/><circle cx="28.5" cy="8.5" r="1.3" fill="currentColor"/></svg>';
   const hero=document.createElement('span');hero.className='ws-modern-main';
-  hero.append(count(`TOP ${publishedCount} / ${rated}`),text('RATED THIS WEEK','今週の評価作品'));
+  const statement=document.createElement('strong');statement.className='ws-modern-headline';
+  const rankingMain=document.createElement('span');rankingMain.className='ws-modern-ranked';rankingMain.textContent='TOP '+publishedCount;
+  const rankingBase=document.createElement('span');rankingBase.className='ws-modern-denominator';rankingBase.textContent=' / '+rated;
+  statement.append(rankingMain,rankingBase);
+  hero.append(statement,text('RATED THIS WEEK','今週の評価作品'));
   const divider=document.createElement('span');divider.className='ws-modern-separator';divider.setAttribute('aria-hidden','true');
   const line=document.createElement('span');line.className='ws-modern-lineup';
   line.append(count(lineup),text('CURRENT LINEUP','継続評価対象'));

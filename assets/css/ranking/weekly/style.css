@@ -2668,3 +2668,226 @@ body[data-animeb-theme="image"][data-animeb-image-scope="full"]{
 body[data-animeb-theme="image"][data-animeb-image-scope="full"] .wrapper{
   background:rgba(255,253,245,.75);box-shadow:0 9px 38px rgba(20,40,33,.19);
 }
+
+/* ================================================================
+ AnimeB v4.36 — image studio: framing, page preview, 3 placements,
+ readable hero, adjustable crop, subtle control corrections.
+ Small-scope addendum to v4.35. Original page and ranking stay intact.
+ ================================================================= */
+.animeb-image-hero-spacer[hidden]{display:none!important}
+.animeb-image-hero-spacer{display:none;pointer-events:none}
+body[data-animeb-theme="image"][data-animeb-image-scope="hero"] .animeb-image-hero-spacer{
+  display:block;height:clamp(146px,24vw,230px);position:relative;z-index:1;
+}
+/* Image-only variants use the same bounded wrapper layer; the hero option
+   simply adds breathing room between the title and the coverage summary. */
+body[data-animeb-theme="image"][data-animeb-image-scope="hero"] .wrapper{
+  position:relative;isolation:isolate;
+}
+body[data-animeb-theme="image"][data-animeb-image-scope="hero"] .wrapper::before{
+  content:"";position:absolute;inset:0 0 auto 0;height:var(--animeb-image-header-height,560px);
+  z-index:0;pointer-events:none;
+  background-image:linear-gradient(180deg,rgba(255,252,239,calc(var(--animeb-image-wash) + .05)) 0%,
+    rgba(255,252,239,var(--animeb-image-wash)) 73%,rgba(255,252,239,.24) 100%),var(--animeb-theme-photo,none);
+  background-size:100% 100%,var(--animeb-image-size,cover);
+  background-position:center,var(--animeb-image-x,50%) var(--animeb-image-y,40%);
+  background-repeat:no-repeat;
+  -webkit-mask-image:linear-gradient(to bottom,#000 0%,#000 87%,transparent 100%);
+  mask-image:linear-gradient(to bottom,#000 0%,#000 87%,transparent 100%);
+}
+body[data-animeb-theme="image"][data-animeb-image-scope="hero"] .wrapper > .header,
+body[data-animeb-theme="image"][data-animeb-image-scope="hero"] .wrapper > .sub-header,
+body[data-animeb-theme="image"][data-animeb-image-scope="hero"] .wrapper > .watch-status-wrapper,
+body[data-animeb-theme="image"][data-animeb-image-scope="hero"] .wrapper > .animeb-weekly-intro,
+body[data-animeb-theme="image"][data-animeb-image-scope="hero"] .wrapper > .overview-section{
+  position:relative;z-index:1;
+}
+body[data-animeb-theme="image"][data-animeb-image-scope="header"] .wrapper::before{
+  background-size:100% 100%,var(--animeb-image-size,cover);
+  background-position:center,var(--animeb-image-x,50%) var(--animeb-image-y,40%);
+}
+/* Full-page image now fits the VIEWPORT, rather than stretching to match a
+   very tall document. The page scrolls over the fixed cover on desktop. */
+body[data-animeb-theme="image"][data-animeb-image-scope="full"]{
+  background-color:#546f66;
+  background-image:linear-gradient(rgba(255,252,239,var(--animeb-image-wash)),rgba(255,252,239,var(--animeb-image-wash))),var(--animeb-theme-photo,none);
+  background-size:100% 100%,var(--animeb-image-size,cover);
+  background-position:center,var(--animeb-image-x,50%) var(--animeb-image-y,40%);
+  background-repeat:no-repeat;
+  background-attachment:fixed,fixed;
+}
+body[data-animeb-theme="image"][data-animeb-image-scope="full"][data-animeb-full-fit="contain"]{
+  background-color:#5f736b;
+}
+body[data-animeb-theme="image"][data-animeb-image-scope="full"][data-animeb-full-fit="tile"]{
+  background-repeat:no-repeat,repeat;
+}
+/* On mobile Safari, fixed document backgrounds can shift on scroll. This
+   fixed viewport layer retains a stable crop without stretching the photo. */
+@supports (-webkit-touch-callout:none){
+ body[data-animeb-theme="image"][data-animeb-image-scope="full"]{
+   background-attachment:scroll; background-size:100% 100%,var(--animeb-image-size,cover);
+ }
+}
+body[data-animeb-theme="image"] .animeb-weekly-intro{
+  background:rgba(255,254,248,var(--animeb-intro-opacity,.84));
+  backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px);
+}
+/* For the dark-on-image variant, brighten text over the picture without
+   accidentally changing the existing ranking/card typography. */
+body[data-animeb-theme="image"][data-animeb-image-tone="dark"][data-animeb-image-scope="header"] .wrapper::before,
+body[data-animeb-theme="image"][data-animeb-image-tone="dark"][data-animeb-image-scope="hero"] .wrapper::before{
+  background-image:linear-gradient(180deg,rgba(17,30,36,calc(var(--animeb-image-wash) + .17)) 0%,
+    rgba(19,32,37,calc(var(--animeb-image-wash) + .11)) 73%,rgba(17,30,36,.36) 100%),var(--animeb-theme-photo,none);
+}
+body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .header h1{color:#fffdf3}
+body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .header .duration{color:#ffe0c8}
+body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .sub-header .season-title,
+body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .sub-header .ep-range{color:#e9f2e6}
+body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .animeb-weekly-satisfaction,
+body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .animeb-weekly-satisfaction .animeb-sat-label-ja,
+body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .animeb-weekly-satisfaction .animeb-sat-label-en,
+body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .animeb-weekly-satisfaction .animeb-sat-denominator{color:#fffdf3}
+body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .ws-modern-toggle,
+body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .ws-modern-details{
+  background:rgba(22,37,42,.87);border-color:rgba(203,227,216,.34);color:#f2f4ee;
+}
+body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .ws-modern-main strong,
+body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .ws-modern-row strong{color:#f6f4e7}
+body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .ws-modern-main > span,
+body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .ws-modern-row,
+body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .ws-modern-footnote{color:#d8e2da}
+body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .ws-modern-lineup strong{color:#a6d7c2}
+body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .ws-modern-metric-pool{background:#2a4454;color:#c6e2f0}
+body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .ws-modern-metric-lineup{background:#29493f;color:#c4e6ce}
+body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .ws-modern-metric-rated{background:#4d3744;color:#f9d7df}
+body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .ws-modern-group-title{color:#b7d4bd}
+body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .ws-modern-group{border-color:#4e6461}
+body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .ws-modern-lineup > span{color:#d4e0d8}
+body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .animeb-weekly-intro{
+  background:rgba(25,39,44,var(--animeb-intro-opacity,.84));
+  color:#ebefe9;
+}
+body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .animeb-weekly-intro .animeb-intro-text,
+body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .animeb-weekly-intro .animeb-intro-label{color:#ebefe9}
+/* Deliberately different sizing: TOP 10 dominates, / 26 reads as a denominator,
+   not a date. Keep the font FAMILY used in v4.35. */
+.ws-modern-headline{display:inline-flex;align-items:baseline;white-space:nowrap;gap:3px}
+.ws-modern-headline .ws-modern-ranked{font-size:1em;font-weight:600}
+.ws-modern-headline .ws-modern-denominator{font-size:.66em;font-weight:500;letter-spacing:-.025em;color:#707b75}
+body[data-animeb-theme="dark"] .ws-modern-denominator,
+body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .ws-modern-denominator{color:#c8d8ce}
+/* Palette controls: equal optical height to the already-accepted language pill. */
+.animeb-theme-button{width:29px;height:27px;min-height:27px;padding:0;font-size:16px;line-height:1;border-radius:18px}
+@media(max-width:768px){.animeb-theme-button{width:29px;height:27px}}
+.animeb-theme-panel-head{cursor:grab;touch-action:none;user-select:none;-webkit-user-select:none}
+.animeb-theme-panel-head:active{cursor:grabbing}
+.animeb-theme-panel-head button{cursor:pointer;touch-action:manipulation}
+.animeb-theme-preview-button{margin-left:auto;border:1px solid #cdd6ca;background:#edf3e9;
+  padding:5px 8px;font:500 10px/1.25 'Fira Sans','Yu Gothic UI',sans-serif;color:#395b49;border-radius:7px}
+/* Replace oversized font glyph close X with a mathematically centered cross. */
+.animeb-theme-close{position:relative;font-size:0!important;line-height:0!important;padding:0!important;display:block;flex:0 0 27px;width:27px;height:27px}
+.animeb-theme-close::before,.animeb-theme-close::after{content:"";position:absolute;display:block;
+  width:12px;height:1.6px;top:calc(50% - .8px);left:calc(50% - 6px);border-radius:1px;
+  background:currentColor;transform:rotate(45deg)}
+.animeb-theme-close::after{transform:rotate(-45deg)}
+.animeb-bg-scope-choices{grid-template-columns:repeat(3,minmax(0,1fr));gap:5px}
+.animeb-bg-scope-button{font-size:9.2px;padding:7px 3px}
+.animeb-bg-live-preview{height:95px;position:relative;overflow:hidden;margin:12px 0 10px;
+  border-radius:10px;border:1px solid #cbd8ca;display:flex;flex-direction:column;
+  justify-content:space-between;box-shadow:inset 0 0 0 1px rgba(255,255,255,.4);
+  background-color:#e3e9dd;color:#303d38;
+  background-image:linear-gradient(rgba(255,253,245,calc(1 - var(--animeb-preview-visibility,.78))),rgba(255,253,245,calc(1 - var(--animeb-preview-visibility,.78)))),var(--animeb-preview-photo,none);
+  background-size:100% 100%,calc(100% * var(--animeb-preview-zoom,1)) auto;
+  background-position:center,var(--animeb-preview-x,50%) var(--animeb-preview-y,40%);
+  background-repeat:no-repeat;padding:9px 13px;font-family:'Fira Sans',sans-serif}
+.animeb-bg-live-preview[data-tone="dark"]{color:#fff;
+  background-image:linear-gradient(rgba(14,24,29,.35),rgba(14,24,29,.28)),var(--animeb-preview-photo,none)}
+.animeb-bg-preview-title{font:800 20px/1 'Alfa Slab One',serif;letter-spacing:-.04em;text-shadow:0 1px 2px rgba(0,0,0,.08)}
+.animeb-bg-live-preview > span:last-child{font:600 9px/1.3 'Fira Sans',sans-serif;letter-spacing:.04em}
+.animeb-bg-frame{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px 12px;margin:4px 0 9px}
+.animeb-bg-frame-label{display:flex!important;flex-wrap:wrap;justify-content:space-between;gap:4px;
+  min-width:0;font:500 9.5px/1.25 'Fira Sans','Yu Gothic UI',sans-serif;color:#496153}
+.animeb-bg-frame-number{font-size:10px;font-weight:700}
+.animeb-bg-frame-label input[type="range"]{flex:0 0 100%;padding:0!important;margin:0!important;border:0!important;
+  height:20px;accent-color:#5c896c;background:transparent!important}
+.animeb-bg-tone{border:0;margin:7px 0;padding:0}
+.animeb-bg-tone legend{margin:0 0 6px;padding:0;font:600 10px/1.2 'Fira Sans',sans-serif;color:#476450}
+.animeb-bg-tone-buttons{display:grid;grid-template-columns:1fr 1fr;gap:7px}
+.animeb-bg-tone-choice{border:1px solid #d3dccc;border-radius:7px;padding:7px;background:#f7f8ed;
+  color:#426051;font:500 10px/1.4 'Fira Sans','Yu Gothic UI',sans-serif;cursor:pointer}
+.animeb-bg-tone-choice[aria-pressed="true"]{background:#dceadf;border-color:#80ac91;color:#24543c}
+.animeb-bg-fit-row{display:grid;gap:5px;margin:11px 0 0;font:600 10px/1.4 'Fira Sans',sans-serif;color:#476450}
+.animeb-bg-fit-row[hidden]{display:none!important}
+.animeb-bg-fit{font:500 11px/1.5 'Fira Sans',sans-serif;background:#fcfdf5;color:#315340;border:1px solid #c9d7ca;
+  padding:7px;border-radius:7px;max-width:100%}
+.animeb-bg-frame-note{font-size:10px;line-height:1.4;color:#68786c;margin:10px 0 0}
+.animeb-bg-color-options{border-top:1px solid #dce1d7;margin:12px 0 0;padding:11px 0 2px;font-size:11px}
+.animeb-bg-color-options summary{cursor:pointer;color:#406350;font-weight:650}
+.animeb-bg-color-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:11px 0}
+.animeb-bg-color-row{display:flex!important;align-items:center;gap:7px;justify-content:space-between;
+  font-size:10px!important;color:#496052}
+.animeb-bg-color-row input[type="color"]{padding:2px!important;width:34px!important;height:26px!important;
+  border-radius:6px;cursor:pointer}
+.animeb-bg-color-actions{display:flex;justify-content:flex-start;flex-wrap:wrap;gap:6px}
+.animeb-bg-color-actions button{padding:6px 8px;border:1px solid #c9d6cb;background:#f3f7f0;color:#46614d;
+  border-radius:6px;font:500 10px 'Fira Sans',sans-serif;cursor:pointer}
+.animeb-bg-color-options p{margin:8px 0;color:#7d8579;font-size:9.5px}
+body[data-animeb-theme="dark"] .animeb-bg-live-preview{border-color:#648075}
+body[data-animeb-theme="dark"] .animeb-bg-frame-label,
+body[data-animeb-theme="dark"] .animeb-bg-tone legend,
+body[data-animeb-theme="dark"] .animeb-bg-color-options summary,
+body[data-animeb-theme="dark"] .animeb-bg-fit-row,
+body[data-animeb-theme="dark"] .animeb-bg-color-row,
+body[data-animeb-theme="dark"] .animeb-bg-frame-note{color:#d4e2d9}
+body[data-animeb-theme="dark"] .animeb-bg-tone-choice,
+body[data-animeb-theme="dark"] .animeb-bg-fit,
+body[data-animeb-theme="dark"] .animeb-bg-color-actions button,
+body[data-animeb-theme="dark"] .animeb-theme-preview-button{background:#2b4446;border-color:#55746b;color:#e0eee3}
+body[data-animeb-theme="dark"] .animeb-bg-tone-choice[aria-pressed="true"]{background:#406451}
+@media(max-width:380px){
+ .animeb-bg-frame{gap:7px}
+ .animeb-theme-preview-button{font-size:9px;padding:5px}
+ .animeb-bg-scope-button{font-size:8.6px}
+}
+/* Tile is opt-in and only suitable for textures or repeatable pattern art. */
+body[data-animeb-theme="image"][data-animeb-full-fit="tile"][data-animeb-image-scope="header"] .wrapper::before,
+body[data-animeb-theme="image"][data-animeb-full-fit="tile"][data-animeb-image-scope="hero"] .wrapper::before{
+  background-repeat:no-repeat,repeat;
+}
+
+/* Stable full-page background: pin ONE picture to the device viewport. The
+   article can be tall without requesting a multi-thousand-pixel-wide image. */
+body[data-animeb-theme="image"][data-animeb-image-scope="full"]{
+  position:relative;isolation:isolate;background-image:none!important;background-color:#5c756a;
+}
+body[data-animeb-theme="image"][data-animeb-image-scope="full"]::before{
+  content:"";position:fixed;z-index:0;inset:0;pointer-events:none;
+  background-image:linear-gradient(rgba(255,253,239,var(--animeb-image-wash)),rgba(255,253,239,var(--animeb-image-wash))),var(--animeb-theme-photo,none);
+  background-size:100% 100%,var(--animeb-image-size,cover);
+  background-position:center,var(--animeb-image-x,50%) var(--animeb-image-y,40%);
+  background-repeat:no-repeat;
+}
+body[data-animeb-theme="image"][data-animeb-image-scope="full"][data-animeb-full-fit="tile"]::before{background-repeat:no-repeat,repeat}
+body[data-animeb-theme="image"][data-animeb-image-scope="full"] > .wrapper{position:relative;z-index:1}
+body[data-animeb-theme="image"][data-animeb-image-scope="full"][data-animeb-image-tone="dark"]::before{
+  background-image:linear-gradient(rgba(14,25,31,calc(var(--animeb-image-wash) + .10)),rgba(14,25,31,calc(var(--animeb-image-wash) + .10))),var(--animeb-theme-photo,none)
+}
+body[data-animeb-theme="image"][data-animeb-image-scope="full"][data-animeb-image-tone="dark"] .wrapper{
+  background:rgba(20,33,39,.87);color:#e5eee8;border-color:#435b57;
+}
+body[data-animeb-theme="image"][data-animeb-image-scope="full"][data-animeb-image-tone="dark"] .entry,
+body[data-animeb-theme="image"][data-animeb-image-scope="full"][data-animeb-image-tone="dark"] .entry .info,
+body[data-animeb-theme="image"][data-animeb-image-scope="full"][data-animeb-image-tone="dark"] .entry .jp-title,
+body[data-animeb-theme="image"][data-animeb-image-scope="full"][data-animeb-image-tone="dark"] .table-header-mount{
+  background:transparent;color:#e9eee8;
+}
+/* Cross-browser zoom for the live preview (no unsupported CSS percentage multiplication). */
+.animeb-bg-live-preview{isolation:isolate;background-image:none;}
+.animeb-bg-live-preview::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
+  background-image:linear-gradient(rgba(255,253,245,calc(1 - var(--animeb-preview-visibility,.78))),rgba(255,253,245,calc(1 - var(--animeb-preview-visibility,.78)))),var(--animeb-preview-photo,none);
+  background-position:center,var(--animeb-preview-x,50%) var(--animeb-preview-y,40%);
+  background-size:100% 100%,cover;background-repeat:no-repeat;
+  transform:scale(var(--animeb-preview-zoom,1));transform-origin:center;
+}
+.animeb-bg-live-preview[data-tone="dark"]::before{background-image:linear-gradient(rgba(14,24,29,.35),rgba(14,24,29,.28)),var(--animeb-preview-photo,none)}
