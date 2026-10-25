@@ -3029,12 +3029,19 @@ body[data-animeb-week-style="auto"] .week-title.animeb-week-enhanced .animeb-wee
 }
 
 
+/* v4.37.2: one shared rose tint for episode titles and More Info values.
+   To tune it yourself, change the HEX below (only this one line). */
+body[data-animeb-theme="dark"],
+body[data-animeb-theme="image"][data-animeb-image-tone="dark"]{
+  --animeb-dark-meta-rose:#e3b9ca;
+}
+
 /* AnimeB v4.37.1 — dark ranking metadata legibility, CSS only.
    Readability improvements are scoped to DARK modes; Original/Light keep
    their original ranking text colors. Existing typography is untouched. */
 body[data-animeb-theme="dark"] .ranking-episode-line,
 body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .ranking-episode-line {
-  color:#cdd9d2 !important;
+  color:var(--animeb-dark-meta-rose,#e3b9ca) !important;
 }
 body[data-animeb-theme="dark"] .ranking-episode-separator,
 body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .ranking-episode-separator {
@@ -3042,7 +3049,7 @@ body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .ranking-episode-
 }
 body[data-animeb-theme="dark"] .entry .more-info dd,
 body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .entry .more-info dd {
-  color:#cbd8d0 !important;
+  color:var(--animeb-dark-meta-rose,#e3b9ca) !important;
   text-shadow:none !important;
 }
 body[data-animeb-theme="dark"] .entry .more-info dt,
