@@ -2574,3 +2574,97 @@ body[data-animeb-theme="dark"] .animeb-bg-item[aria-pressed="true"]{background:#
 body[data-animeb-theme="dark"] .animeb-bg-gallery-note{color:#a1b6ac}
 body[data-animeb-theme="dark"] .animeb-bg-refresh{background:#304a44;border-color:#55746a}
 @media(max-width:380px){.animeb-bg-item img{height:58px}.animeb-theme-panel{padding:11px}}
+
+
+/* AnimeB v4.35 — viewport-safe theme gallery + visible, scoped image background.
+   The DEFAULT image is a hero behind the header/status/intro, never behind rankings.
+   The user may opt in to the full-page treatment. No other themes are changed. */
+.animeb-theme-panel-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:8px;}
+.animeb-theme-panel-head .animeb-theme-panel-title{margin:0;}
+.animeb-theme-close{width:28px;height:28px;flex:0 0 28px;display:grid;place-items:center;
+  background:transparent;border:1px solid #d5dacd;border-radius:50%;font:400 22px/1 sans-serif;
+  color:#496052;cursor:pointer;}
+.animeb-bg-placement{border:1px solid #dce2d5;border-radius:9px;padding:9px 10px 10px;margin:4px 0 12px;min-width:0;}
+.animeb-bg-placement legend{font:600 10px/1.35 'Fira Sans',sans-serif;color:#3a604e;padding:0 4px;}
+.animeb-bg-scope-choices{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px;}
+.animeb-bg-scope-button{cursor:pointer;border:1px solid #cbd8cc;background:#f7f8f1;color:#435a4b;
+  font:500 10px/1.4 'Fira Sans','Yu Gothic UI',sans-serif;border-radius:6px;padding:7px 4px;}
+.animeb-bg-scope-button[aria-pressed="true"]{border-color:#5e9676;background:#e2eee4;color:#29543b;box-shadow:inset 0 0 0 1px #88ab8f;}
+.animeb-bg-visibility-label{display:grid;grid-template-columns:1fr auto;column-gap:10px;row-gap:4px;
+  align-items:center;margin:12px 0 0;font:500 10px/1.3 'Fira Sans',sans-serif;color:#405b4d;}
+.animeb-bg-visibility-label .animeb-bg-visibility-value{font-weight:600;}
+.animeb-bg-visibility-label .animeb-bg-visibility-range{grid-column:1/-1;width:100%;margin:0;accent-color:#557b65;}
+.animeb-bg-scope-note{font:400 10px/1.5 'Fira Sans','Yu Gothic UI',sans-serif;color:#66796b;margin:6px 0 0;}
+/* Mobile: anchor to VISUAL VIEWPORT, not the theme button's 112px right-offset.
+   The old positioned child clipped ~90px off the left on an iPhone. */
+@media (max-width:768px){
+  .animeb-theme-panel{
+    position:fixed;
+    top:calc(env(safe-area-inset-top,0px) + 84px);
+    left:max(10px,env(safe-area-inset-left,0px));
+    right:max(10px,env(safe-area-inset-right,0px));
+    width:auto;max-width:440px;box-sizing:border-box;margin:0 auto;
+    max-height:calc(100vh - env(safe-area-inset-top,0px) - env(safe-area-inset-bottom,0px) - 104px);
+    max-height:calc(100dvh - env(safe-area-inset-top,0px) - env(safe-area-inset-bottom,0px) - 104px);
+    overflow-x:hidden;overflow-y:auto;-webkit-overflow-scrolling:touch;
+  }
+}
+@media (max-width:380px){.animeb-theme-panel{padding:11px;}}
+body[data-animeb-theme="dark"] .animeb-bg-placement{border-color:#4e675f;}
+body[data-animeb-theme="dark"] .animeb-bg-placement legend,
+body[data-animeb-theme="dark"] .animeb-bg-visibility-label,
+body[data-animeb-theme="dark"] .animeb-bg-scope-note{color:#d0ded2;}
+body[data-animeb-theme="dark"] .animeb-bg-scope-button,
+body[data-animeb-theme="dark"] .animeb-theme-close{background:#263e41;color:#e0e9e1;border-color:#58756a;}
+body[data-animeb-theme="dark"] .animeb-bg-scope-button[aria-pressed="true"]{background:#406650;border-color:#9ab49c;}
+/* Clear the old full-body image background when 'Header area' is selected. */
+body[data-animeb-theme="image"]{
+  --animeb-image-wash:.25;
+  background:#ffffed;
+  background-image:none;
+  background-attachment:scroll;
+}
+body[data-animeb-theme="image"] .wrapper{
+  background:#ffffed;
+  border-color:#d4ddd0;
+  box-shadow:none;
+}
+body[data-animeb-theme="image"][data-animeb-image-scope="header"] .wrapper{
+  position:relative;isolation:isolate;
+}
+body[data-animeb-theme="image"][data-animeb-image-scope="header"] .wrapper::before{
+  content:"";position:absolute;left:0;right:0;top:0;
+  height:var(--animeb-image-header-height,410px);
+  z-index:0;pointer-events:none;
+  background-image:linear-gradient(180deg,rgba(255,252,239,calc(var(--animeb-image-wash) + .13)) 0%,
+    rgba(255,252,239,var(--animeb-image-wash)) 75%,rgba(255,252,239,.33) 100%),var(--animeb-theme-photo,none);
+  background-size:cover;background-position:50% 38%;background-repeat:no-repeat;
+  -webkit-mask-image:linear-gradient(to bottom,#000 0%,#000 78%,transparent 100%);
+  mask-image:linear-gradient(to bottom,#000 0%,#000 78%,transparent 100%);
+}
+body[data-animeb-theme="image"][data-animeb-image-scope="header"] .wrapper > .header,
+body[data-animeb-theme="image"][data-animeb-image-scope="header"] .wrapper > .sub-header,
+body[data-animeb-theme="image"][data-animeb-image-scope="header"] .wrapper > .watch-status-wrapper,
+body[data-animeb-theme="image"][data-animeb-image-scope="header"] .wrapper > .animeb-weekly-intro,
+body[data-animeb-theme="image"][data-animeb-image-scope="header"] .wrapper > .overview-section{
+  position:relative;z-index:1;
+}
+/* A translucent reading surface, but enough image shows behind it. */
+body[data-animeb-theme="image"] .ws-modern-toggle,
+body[data-animeb-theme="image"] .ws-modern-details{
+  background:rgba(255,253,246,.87);
+  backdrop-filter:blur(5px);-webkit-backdrop-filter:blur(5px);
+}
+body[data-animeb-theme="image"] .animeb-weekly-intro{
+  background:rgba(255,254,248,.79);
+  backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px);
+  box-shadow:0 6px 17px rgba(18,35,27,.12);
+}
+body[data-animeb-theme="image"][data-animeb-image-scope="full"]{
+  background-color:#667f76;
+  background-image:linear-gradient(rgba(255,252,239,var(--animeb-image-wash)),rgba(255,252,239,var(--animeb-image-wash))),var(--animeb-theme-photo,none);
+  background-attachment:fixed;background-size:cover;background-position:center center;
+}
+body[data-animeb-theme="image"][data-animeb-image-scope="full"] .wrapper{
+  background:rgba(255,253,245,.75);box-shadow:0 9px 38px rgba(20,40,33,.19);
+}

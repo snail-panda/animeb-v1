@@ -230,26 +230,38 @@ function animebInitWeeklyThemes(){
   const IMG='animeb-weekly-theme-image-v1';
   const SOURCE='animeb-weekly-theme-image-source-v1';
   const LOCAL_KEY='animeb-weekly-theme-local-key-v1';
+  const SCOPE_KEY='animeb-weekly-image-scope-v1';
+  const VIS_KEY='animeb-weekly-image-visibility-v1';
   const MIGRATED='animeb-weekly-v434-legacy-gallery-migrated';
   const API='https://api.github.com/repos/snail-panda/animeb-v1/contents/images/backgrounds?ref=main';
   const scriptSrc=Array.from(document.scripts).find(s=>/\/assets\/js\/ranking\/weekly\/main\.js(?:[?#]|$)/.test(s.src))?.src;
   const base=new URL('../../../../images/backgrounds/',scriptSrc||new URL('/animeb-v1/assets/js/ranking/weekly/main.js',location.origin));
   let theme='original',url='',source='url',localId='',localObjectUrl=null;
+  // Default image placement is confined to the area ABOVE the ranking table.
+  let imageScope='header', imageVisibility=78;
   let localThumbUrls=[],remoteItems=[],localItems=[];
   try {
     theme=localStorage.getItem(STORE)||'original';
     url=localStorage.getItem(IMG)||'';
     source=localStorage.getItem(SOURCE)||'url';
     localId=localStorage.getItem(LOCAL_KEY)||'';
+    imageScope=localStorage.getItem(SCOPE_KEY)||'header';
+    const savedVisibility=Number(localStorage.getItem(VIS_KEY));
+    if(Number.isFinite(savedVisibility)&&savedVisibility>=25&&savedVisibility<=100)imageVisibility=savedVisibility;
   }catch(_){}
   if(!['original','dark','image'].includes(theme))theme='original';
   if(!['url','local'].includes(source))source='url';
+  if(!['header','full'].includes(imageScope))imageScope='header';
   const ctr=document.createElement('div');ctr.id='animeb-theme-controls';ctr.className='animeb-theme-controls';
   const btn=document.createElement('button');btn.type='button';btn.className='animeb-theme-button';
   btn.textContent='◐';btn.setAttribute('aria-label','Theme / テーマ切替');
   btn.setAttribute('aria-expanded','false');btn.setAttribute('aria-controls','animeb-theme-panel');
   const panel=document.createElement('div');panel.className='animeb-theme-panel';panel.id='animeb-theme-panel';panel.hidden=true;
+  const panelHead=document.createElement('div');panelHead.className='animeb-theme-panel-head';
   const header=document.createElement('p');header.className='animeb-theme-panel-title';header.textContent='THEME / テーマ';
+  const closeBtn=document.createElement('button');closeBtn.type='button';closeBtn.className='animeb-theme-close';
+  closeBtn.textContent='×';closeBtn.setAttribute('aria-label','Close theme settings / テーマ設定を閉じる');
+  panelHead.append(header,closeBtn);
   const choices=document.createElement('div');choices.className='animeb-theme-choices';
   const buttons={};
   [['original','Original'],['dark','Dark'],['image','Image']].forEach(([id,name])=>{
@@ -258,6 +270,35 @@ function animebInitWeeklyThemes(){
     choices.append(el);buttons[id]=el;
   });
   const field=document.createElement('div');field.className='animeb-theme-image-field';
+  // Image extent and visibility, deliberately above the library so they are easy to find.
+  const imageOptions=document.createElement('fieldset');imageOptions.className='animeb-bg-placement';
+  const placementLegend=document.createElement('legend');placementLegend.textContent='IMAGE AREA / 背景の表示範囲';
+  const scopeChoices=document.createElement('div');scopeChoices.className='animeb-bg-scope-choices';
+  const scopeButtons={};
+  [['header','Header area / 上部のみ'],['full','Full page / ページ全体']].forEach(([key,label])=>{
+    const el=document.createElement('button');el.type='button';el.className='animeb-bg-scope-button';
+    el.textContent=label;el.dataset.scope=key;
+    el.addEventListener('click',()=>{
+      imageScope=key;try{localStorage.setItem(SCOPE_KEY,key);}catch(_){}
+      apply(theme,false);
+    });
+    scopeChoices.append(el);scopeButtons[key]=el;
+  });
+  const visibilityLabel=document.createElement('label');visibilityLabel.className='animeb-bg-visibility-label';
+  visibilityLabel.textContent='IMAGE VISIBILITY / 画像の見えやすさ';
+  const visibilityValue=document.createElement('output');visibilityValue.className='animeb-bg-visibility-value';
+  const visibilityRange=document.createElement('input');visibilityRange.className='animeb-bg-visibility-range';
+  visibilityRange.type='range';visibilityRange.min='25';visibilityRange.max='100';visibilityRange.step='5';
+  visibilityRange.value=String(imageVisibility);visibilityRange.setAttribute('aria-label','Background image visibility / 背景画像の見えやすさ');
+  visibilityLabel.append(visibilityValue,visibilityRange);
+  visibilityRange.addEventListener('input',()=>{
+    imageVisibility=Number(visibilityRange.value);
+    try{localStorage.setItem(VIS_KEY,String(imageVisibility));}catch(_){}
+    apply(theme,false);
+  });
+  const scopeHint=document.createElement('p');scopeHint.className='animeb-bg-scope-note';
+  scopeHint.textContent='Header area ends above the ranking table. / 上部のみ：ランキング表の直前まで。';
+  imageOptions.append(placementLegend,scopeChoices,visibilityLabel,scopeHint);
   const galleryTitle=document.createElement('div');galleryTitle.className='animeb-bg-gallery-head';
   const heading=document.createElement('strong');heading.textContent='BACKGROUND LIBRARY / 背景ギャラリー';
   const refresh=document.createElement('button');refresh.type='button';refresh.className='animeb-bg-refresh';refresh.textContent='↻ Refresh';
@@ -280,8 +321,8 @@ function animebInitWeeklyThemes(){
   const set=document.createElement('button');set.type='button';set.className='animeb-theme-apply';set.textContent='Use URL / URLを設定';
   details.append(summary,input,set);
   const message=document.createElement('p');message.className='animeb-theme-message';message.setAttribute('role','status');
-  field.append(galleryTitle,repoHeading,remoteGrid,repoStatus,localHeading,localGrid,localStatus,fileLabel,fileNote,details);
-  panel.append(header,choices,field,message);ctr.append(btn,panel);
+  field.append(imageOptions,galleryTitle,repoHeading,remoteGrid,repoStatus,localHeading,localGrid,localStatus,fileLabel,fileNote,details);
+  panel.append(panelHead,choices,field,message);ctr.append(btn,panel);
   const lang=document.querySelector('#animeb-weekly-language');
   if(lang)lang.before(ctr);else(document.querySelector('.nav-bar')||document.body).after(ctr);
   const validPath=v=>{
@@ -294,12 +335,40 @@ function animebInitWeeklyThemes(){
     if(value)document.body.style.setProperty('--animeb-theme-photo',`url("${value}")`);
     else document.body.style.removeProperty('--animeb-theme-photo');
   }
+  function updateHeroExtent(){
+    if(theme!=='image'||imageScope!=='header')return;
+    const wrapper=document.querySelector('.wrapper');
+    const ranking=document.querySelector('.table-header-mount')||document.querySelector('.entry-list');
+    if(!wrapper)return;
+    // The height includes the actual weekly intro/Viewing Status, even after
+    // the JSON has been mounted and an explanation panel is expanded.
+    const wrapperTop=wrapper.getBoundingClientRect().top;
+    const bottom=ranking?ranking.getBoundingClientRect().top:wrapperTop+410;
+    const height=Math.max(180,Math.round(bottom-wrapperTop-8));
+    wrapper.style.setProperty('--animeb-image-header-height',height+'px');
+  }
+  let heroFrame=0;
+  function scheduleHeroExtent(){
+    cancelAnimationFrame(heroFrame);
+    heroFrame=requestAnimationFrame(updateHeroExtent);
+  }
   function apply(id,persist){
     theme=id;document.body.dataset.animebTheme=id;
+    document.body.dataset.animebImageScope=imageScope;
+    // A lighter overlay makes the selected illustration visible while
+    // preserving enough contrast for the headline and reading panels.
+    const wash=(0.10+((100-imageVisibility)/100)*0.68).toFixed(3);
+    document.body.style.setProperty('--animeb-image-wash',wash);
+    visibilityValue.textContent=imageVisibility+'%';
+    Object.entries(scopeButtons).forEach(([key,element])=>element.setAttribute('aria-pressed',String(key===imageScope)));
+    scopeHint.textContent=imageScope==='header'
+      ?'Header area ends above the ranking table. / 上部のみ：ランキング表の直前まで。'
+      :'Full-page image; readability depends on your picture. / 全面表示：画像によって読みやすさが変わります。';
     photo(source==='local'?localObjectUrl:validPath(url));
     Object.entries(buttons).forEach(([key,element])=>element.setAttribute('aria-pressed',String(key===id)));
     field.hidden=id!=='image';
     if(persist)try{localStorage.setItem(STORE,id);}catch(_){}
+    scheduleHeroExtent();
     highlight();
   }
   function savePref(next){
@@ -449,12 +518,25 @@ function animebInitWeeklyThemes(){
     try{await verifyImage(checked);}catch(_){message.textContent='Cannot load this image. A Reddit post URL is not a direct image. / この画像は読み込めません。Reddit投稿ページのURLは使用できません。';return;}
     await useRemote({url:checked,name:'Custom image / 指定URLの画像'});
   });
-  btn.addEventListener('click',()=>{
-    panel.hidden=!panel.hidden;btn.setAttribute('aria-expanded',String(!panel.hidden));
-    if(!panel.hidden){loadGallery();}
-  });
-  document.addEventListener('pointerdown',e=>{if(!ctr.contains(e.target)&&!panel.hidden){panel.hidden=true;btn.setAttribute('aria-expanded','false');}});
-  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!panel.hidden){panel.hidden=true;btn.setAttribute('aria-expanded','false');btn.focus();}});
+  function setPanelOpen(open){
+    panel.hidden=!open;btn.setAttribute('aria-expanded',String(open));
+    if(open){loadGallery();scheduleHeroExtent();}
+  }
+  btn.addEventListener('click',()=>setPanelOpen(panel.hidden));
+  closeBtn.addEventListener('click',()=>{setPanelOpen(false);btn.focus();});
+  document.addEventListener('pointerdown',e=>{if(!ctr.contains(e.target)&&!panel.hidden)setPanelOpen(false);});
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!panel.hidden){setPanelOpen(false);btn.focus();}});
+  // Listen for dynamic weekly content and image-scope changes, without
+  // modifying the old ranking renderer or adding duplicate UI elements.
+  window.addEventListener('resize',scheduleHeroExtent,{passive:true});
+  window.addEventListener('load',scheduleHeroExtent);
+  const wrapper=document.querySelector('.wrapper');
+  if(wrapper && 'ResizeObserver' in window){
+    const ro=new ResizeObserver(scheduleHeroExtent);
+    for(const sel of ['.animeb-weekly-intro','.watch-status-wrapper','.overview-section','.table-header-mount']){
+      const el=wrapper.querySelector(sel);if(el)ro.observe(el);
+    }
+  }
   apply(theme,false);
   if(source==='local')restoreLocal().then(blob=>{
     if(blob)setLocalPreview(blob);
