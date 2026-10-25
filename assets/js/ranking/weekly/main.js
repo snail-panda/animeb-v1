@@ -221,14 +221,29 @@ function animebEnsureWeeklyControls() {
   }
 }
 
-/* AnimeB v4.32 optional, user-controllable weekly theme selector.
-   Uses browser-local preferences; the JSON, rankings and Excel are untouched. */
+/* AnimeB v4.34 — Image-theme library: thumbnail picker for repo backgrounds and local photos.
+   Static GitHub Pages has no server upload: repository gallery is read-only from the public site.
+   Local browser images are stored in IndexedDB; nothing is sent to GitHub. */
 function animebInitWeeklyThemes(){
   if(document.querySelector('#animeb-theme-controls'))return;
-  const STORE='animeb-weekly-theme-v1', IMG='animeb-weekly-theme-image-v1';
-  let theme='original',url='';
-  try {theme=localStorage.getItem(STORE)||'original';url=localStorage.getItem(IMG)||'';}catch(_){}
+  const STORE='animeb-weekly-theme-v1';
+  const IMG='animeb-weekly-theme-image-v1';
+  const SOURCE='animeb-weekly-theme-image-source-v1';
+  const LOCAL_KEY='animeb-weekly-theme-local-key-v1';
+  const MIGRATED='animeb-weekly-v434-legacy-gallery-migrated';
+  const API='https://api.github.com/repos/snail-panda/animeb-v1/contents/images/backgrounds?ref=main';
+  const scriptSrc=Array.from(document.scripts).find(s=>/\/assets\/js\/ranking\/weekly\/main\.js(?:[?#]|$)/.test(s.src))?.src;
+  const base=new URL('../../../../images/backgrounds/',scriptSrc||new URL('/animeb-v1/assets/js/ranking/weekly/main.js',location.origin));
+  let theme='original',url='',source='url',localId='',localObjectUrl=null;
+  let localThumbUrls=[],remoteItems=[],localItems=[];
+  try {
+    theme=localStorage.getItem(STORE)||'original';
+    url=localStorage.getItem(IMG)||'';
+    source=localStorage.getItem(SOURCE)||'url';
+    localId=localStorage.getItem(LOCAL_KEY)||'';
+  }catch(_){}
   if(!['original','dark','image'].includes(theme))theme='original';
+  if(!['url','local'].includes(source))source='url';
   const ctr=document.createElement('div');ctr.id='animeb-theme-controls';ctr.className='animeb-theme-controls';
   const btn=document.createElement('button');btn.type='button';btn.className='animeb-theme-button';
   btn.textContent='◐';btn.setAttribute('aria-label','Theme / テーマ切替');
@@ -239,47 +254,214 @@ function animebInitWeeklyThemes(){
   const buttons={};
   [['original','Original'],['dark','Dark'],['image','Image']].forEach(([id,name])=>{
     const el=document.createElement('button');el.type='button';el.className='animeb-theme-choice';el.textContent=name;
-    el.dataset.theme=id;el.addEventListener('click',()=>apply(id,true));choices.append(el);buttons[id]=el;
+    el.dataset.theme=id;el.addEventListener('click',()=>{apply(id,true);if(id==='image')loadGallery();});
+    choices.append(el);buttons[id]=el;
   });
   const field=document.createElement('div');field.className='animeb-theme-image-field';
-  const label=document.createElement('label');label.textContent='Background image URL / 背景画像URL';
-  const input=document.createElement('input');input.type='url';input.placeholder='https://…  または images/…';
-  input.value=url;label.appendChild(input);
-  const set=document.createElement('button');set.type='button';set.className='animeb-theme-apply';set.textContent='Apply image / 画像を設定';
-  const message=document.createElement('p');message.className='animeb-theme-message';
-  message.textContent='Theme is saved in this browser. / このブラウザに保存されます。';
-  field.append(label,set);panel.append(header,choices,field,message);ctr.append(btn,panel);
+  const galleryTitle=document.createElement('div');galleryTitle.className='animeb-bg-gallery-head';
+  const heading=document.createElement('strong');heading.textContent='BACKGROUND LIBRARY / 背景ギャラリー';
+  const refresh=document.createElement('button');refresh.type='button';refresh.className='animeb-bg-refresh';refresh.textContent='↻ Refresh';
+  galleryTitle.append(heading,refresh);
+  const repoHeading=document.createElement('p');repoHeading.className='animeb-bg-subheading';repoHeading.textContent='Saved on AnimeB / サイトに保存済み';
+  const remoteGrid=document.createElement('div');remoteGrid.className='animeb-bg-gallery';remoteGrid.setAttribute('aria-label','AnimeB background images');
+  const repoStatus=document.createElement('p');repoStatus.className='animeb-bg-gallery-note';
+  const localHeading=document.createElement('p');localHeading.className='animeb-bg-subheading';localHeading.textContent='On this device / この端末';
+  const localGrid=document.createElement('div');localGrid.className='animeb-bg-gallery';localGrid.setAttribute('aria-label','Background images saved in this browser');
+  const localStatus=document.createElement('p');localStatus.className='animeb-bg-gallery-note';
+  const fileLabel=document.createElement('label');fileLabel.className='animeb-theme-file-label';
+  fileLabel.textContent='＋ Add from photos / ファイルから追加';
+  const fileInput=document.createElement('input');fileInput.type='file';fileInput.accept='image/jpeg,image/png,image/webp,image/gif,image/avif';
+  fileLabel.appendChild(fileInput);
+  const fileNote=document.createElement('p');fileNote.className='animeb-theme-local-note';
+  fileNote.textContent='Device images stay in this browser; they do not sync to other devices. / 端末の画像はこのブラウザにのみ保存され、他端末には同期しません。';
+  const details=document.createElement('details');details.className='animeb-bg-manual-url';
+  const summary=document.createElement('summary');summary.textContent='Advanced: direct image URL / URLを直接指定';
+  const input=document.createElement('input');input.type='url';input.placeholder='https://…/image.webp';input.value=url;
+  const set=document.createElement('button');set.type='button';set.className='animeb-theme-apply';set.textContent='Use URL / URLを設定';
+  details.append(summary,input,set);
+  const message=document.createElement('p');message.className='animeb-theme-message';message.setAttribute('role','status');
+  field.append(galleryTitle,repoHeading,remoteGrid,repoStatus,localHeading,localGrid,localStatus,fileLabel,fileNote,details);
+  panel.append(header,choices,field,message);ctr.append(btn,panel);
   const lang=document.querySelector('#animeb-weekly-language');
-  if(lang)lang.before(ctr); else (document.querySelector('.nav-bar')||document.body).after(ctr);
-  const validPath=(v)=>{
-    if(!v)return '';
-    if(/[\\"'\n\r<>]/.test(v))return null;
-    try {const parsed=new URL(v,location.href);if(!['https:','http:'].includes(parsed.protocol))return null;return parsed.href;}
-    catch(_){return null;}
+  if(lang)lang.before(ctr);else(document.querySelector('.nav-bar')||document.body).after(ctr);
+  const validPath=v=>{
+    if(!v||/[\\"'\n\r<>]/.test(v))return null;
+    try{const p=new URL(v,location.href);return ['https:','http:'].includes(p.protocol)?p.href:null;}catch(_){return null;}
   };
+  const safeName=n=>typeof n==='string'&&n.length<170&&/^[^/\\\\<>:;?*\x00-\x1f]+\.(?:jpe?g|png|webp|gif|avif)$/i.test(n)&&n!=='.'&&n!=='..';
+  const repoUrl=name=>new URL(encodeURIComponent(name),base).href;
+  function photo(value){
+    if(value)document.body.style.setProperty('--animeb-theme-photo',`url("${value}")`);
+    else document.body.style.removeProperty('--animeb-theme-photo');
+  }
   function apply(id,persist){
     theme=id;document.body.dataset.animebTheme=id;
-    const active=validPath(url);
-    if(active)document.body.style.setProperty('--animeb-theme-photo',`url("${active}")`);
-    else document.body.style.removeProperty('--animeb-theme-photo');
+    photo(source==='local'?localObjectUrl:validPath(url));
     Object.entries(buttons).forEach(([key,element])=>element.setAttribute('aria-pressed',String(key===id)));
     field.hidden=id!=='image';
     if(persist)try{localStorage.setItem(STORE,id);}catch(_){}
+    highlight();
   }
-  set.addEventListener('click',()=>{
-    const candidate=input.value.trim(),checked=validPath(candidate);
-    if(candidate&&!checked){message.textContent='Use an http(s) image address. / http(s) の画像URLを指定してください。';return;}
-    url=candidate;try{localStorage.setItem(IMG,url)}catch(_){}
-    apply('image',true);
-    message.textContent=url?'Image URL saved. / 背景URLを保存しました。':'No image: gradient background. / 画像なしの背景です。';
+  function savePref(next){
+    try{localStorage.setItem(SOURCE,next);localStorage.setItem(LOCAL_KEY,localId);if(next==='url')localStorage.setItem(IMG,url);}catch(_){}
+  }
+  function setLocalPreview(blob){
+    if(localObjectUrl)URL.revokeObjectURL(localObjectUrl);
+    localObjectUrl=URL.createObjectURL(blob);
+    if(source==='local')apply(theme,false);
+  }
+  function database(){return new Promise((resolve,reject)=>{
+    if(!('indexedDB' in window))return reject(new Error('IndexedDB unavailable'));
+    const req=indexedDB.open('animeb-weekly-backgrounds',2);
+    req.onupgradeneeded=()=>{
+      if(!req.result.objectStoreNames.contains('images'))req.result.createObjectStore('images');
+      if(!req.result.objectStoreNames.contains('gallery'))req.result.createObjectStore('gallery',{keyPath:'id'});
+    };
+    req.onsuccess=()=>resolve(req.result);req.onerror=()=>reject(req.error);req.onblocked=()=>reject(new Error('Database blocked'));
+  });}
+  async function withDB(store,mode,fn){
+    const db=await database();
+    try{return await new Promise((resolve,reject)=>{
+      const tx=db.transaction(store,mode);let req;
+      try{req=fn(tx.objectStore(store));}catch(err){reject(err);return;}
+      if(req){req.onsuccess=()=>resolve(req.result);req.onerror=()=>reject(req.error);}
+      else tx.oncomplete=()=>resolve();
+      tx.onerror=()=>reject(tx.error);tx.onabort=()=>reject(tx.error);
+    });}finally{db.close();}
+  }
+  async function saveLocal(blob,name){
+    const id='local-'+Date.now()+'-'+Math.random().toString(36).slice(2,8);
+    await withDB('gallery','readwrite',os=>os.put({id,name,blob,created:Date.now()}));
+    await withDB('images','readwrite',os=>os.put(blob,'background'));
+    return id;
+  }
+  async function restoreLocal(){
+    if(localId){const item=await withDB('gallery','readonly',os=>os.get(localId));if(item?.blob)return item.blob;}
+    return withDB('images','readonly',os=>os.get('background'));
+  }
+  function verifyImage(address){return new Promise((resolve,reject)=>{
+    const probe=new Image();const timer=setTimeout(()=>{probe.onload=probe.onerror=null;reject(new Error('timeout'));},12000);
+    probe.onload=()=>{clearTimeout(timer);resolve()};probe.onerror=()=>{clearTimeout(timer);reject(new Error('not an image'))};probe.src=address;
+  });}
+  async function useRemote(item){
+    message.textContent='Loading… / 画像を読み込み中…';
+    try{await verifyImage(item.url);}catch(_){message.textContent='Could not open this image. / 画像を開けませんでした。';return;}
+    url=item.url;source='url';localId='';input.value=url;
+    savePref('url');apply('image',true);message.textContent=`Selected: ${item.name}`;
+  }
+  async function useLocal(item){
+    if(!item?.blob)return;
+    source='local';localId=item.id;setLocalPreview(item.blob);
+    try{await withDB('images','readwrite',os=>os.put(item.blob,'background'))}catch(_){}
+    savePref('local');apply('image',true);message.textContent=`Selected: ${item.name}`;
+  }
+  function highlight(){
+    panel.querySelectorAll('.animeb-bg-item[data-source]').forEach(el=>{
+      const active=el.dataset.source===source&&(source==='url'?el.dataset.identifier===url:el.dataset.identifier===localId);
+      el.setAttribute('aria-pressed',String(active));
+    });
+  }
+  function tile(item,where,kind){
+    const box=document.createElement('div');box.className='animeb-bg-tile';
+    const choose=document.createElement('button');choose.type='button';choose.className='animeb-bg-item';
+    choose.dataset.source=kind;choose.dataset.identifier=kind==='url'?item.url:item.id;
+    choose.setAttribute('aria-label',(kind==='url'?'Select AnimeB background: ':'Select device background: ')+item.name);
+    const img=document.createElement('img');img.loading='lazy';img.alt='';img.src=item.thumb;
+    const label=document.createElement('span');label.className='animeb-bg-name';label.textContent=item.name.replace(/\.[^.]+$/,'').replace(/[-_]/g,' ');
+    const check=document.createElement('span');check.className='animeb-bg-selected';check.textContent='✓';check.setAttribute('aria-hidden','true');
+    choose.append(img,label,check);choose.addEventListener('click',()=>kind==='url'?useRemote(item):useLocal(item));box.append(choose);
+    if(kind==='local'){
+      const del=document.createElement('button');del.type='button';del.className='animeb-bg-delete';del.textContent='×';
+      del.setAttribute('aria-label','Remove saved image / 保存画像を削除: '+item.name);
+      del.addEventListener('click',async()=>{
+        try{await withDB('gallery','readwrite',os=>os.delete(item.id));
+          if(item.id==='legacy-background')try{await withDB('images','readwrite',os=>os.delete('background'))}catch(_){}
+          if(source==='local'&&localId===item.id){source='url';localId='';url='';savePref('url');apply('original',true);}
+          message.textContent='Removed from this browser. / この端末の保存画像を削除しました。';await loadLocalGallery();
+        }catch(_){message.textContent='Could not remove saved image. / 削除できませんでした。';}
+      });box.append(del);
+    }
+    where.append(box);
+  }
+  function renderRemote(){remoteGrid.replaceChildren();for(const item of remoteItems)tile({...item,thumb:item.url},remoteGrid,'url');highlight();}
+  async function loadRepoGallery(){
+    repoStatus.textContent='Loading AnimeB gallery… / サイトの画像を検索中…';
+    remoteItems=[];
+    let raw=null,reason='';
+    try{
+      const response=await fetch(API,{cache:'no-store',headers:{'Accept':'application/vnd.github+json'}});
+      if(response.ok){const v=await response.json();if(Array.isArray(v))raw=v.filter(x=>x.type==='file').map(x=>x.name);}
+      else reason=`GitHub API: ${response.status}`;
+    }catch(_){reason='GitHub API unavailable';}
+    if(raw===null){
+      try{
+        const r=await fetch(new URL('gallery.json',base),{cache:'no-store'});
+        if(r.ok){const data=await r.json();if(Array.isArray(data))raw=data.map(v=>typeof v==='string'?v:v?.filename);}
+      }catch(_){}
+    }
+    remoteItems=(raw||[]).filter(safeName).slice(0,90).map(name=>({name,url:repoUrl(name)}));
+    renderRemote();
+    if(remoteItems.length)repoStatus.textContent=`${remoteItems.length} images — tap a thumbnail. / サムネイルをタップして選択。`;
+    else if(raw!==null)repoStatus.textContent='No backgrounds saved yet. Add images to images/backgrounds/ and Push. / まだ画像がありません。画像を保存してPushしてください。';
+    else repoStatus.textContent='Could not list GitHub images ('+reason+'). Add filenames to gallery.json if needed. / 自動取得できません。必要ならgallery.jsonに画像名を記載してください。';
+  }
+  async function loadLocalGallery(){
+    for(const u of localThumbUrls)URL.revokeObjectURL(u);localThumbUrls=[];
+    localGrid.replaceChildren();localItems=[];
+    try{
+      const all=await withDB('gallery','readonly',os=>os.getAll());
+      localItems=all.filter(x=>x.blob).sort((a,b)=>b.created-a.created).slice(0,30);
+      // v4.33 already saved a single image under 'background': preserve it for upgrades.
+      let migrationDone=false;try{migrationDone=localStorage.getItem(MIGRATED)==='yes'}catch(_){}
+      if(!localItems.length&&!migrationDone){
+        const legacy=await withDB('images','readonly',os=>os.get('background'));
+        if(legacy){const entry={id:'legacy-background',name:'Previously selected image / 以前の画像',blob:legacy,created:0};
+          await withDB('gallery','readwrite',os=>os.put(entry));localItems=[entry];
+        }
+        try{localStorage.setItem(MIGRATED,'yes')}catch(_){}
+      }
+      for(const entry of localItems){const thumb=URL.createObjectURL(entry.blob);localThumbUrls.push(thumb);tile({...entry,thumb},localGrid,'local');}
+      localStatus.textContent=localItems.length?'Tap to reuse; × removes a saved image. / 再選択はタップ、削除は×。':'No images saved on this device yet. / この端末には保存画像がありません。';
+      highlight();
+    }catch(_){localStatus.textContent='Browser storage is unavailable. / 端末の保存領域を利用できません。';}
+  }
+  let lastGalleryLoad=0;
+  async function loadGallery(force=false){
+    await loadLocalGallery();
+    if(force||Date.now()-lastGalleryLoad>90000){lastGalleryLoad=Date.now();await loadRepoGallery();}
+  }
+  refresh.addEventListener('click',()=>loadGallery(true));
+  fileInput.addEventListener('change',async()=>{
+    const f=fileInput.files?.[0];if(!f)return;
+    if(!/^image\/(?:jpe?g|png|webp|gif|avif)$/.test(f.type)||f.size>20*1024*1024){
+      message.textContent='JPEG / PNG / WebP / GIF / AVIF only, up to 20 MB. / 対応画像20MB以下でお試しください。';fileInput.value='';return;}
+    const testURL=URL.createObjectURL(f);
+    try{await verifyImage(testURL);}catch(_){message.textContent='Image cannot be displayed in this browser. / この画像を表示できません。';URL.revokeObjectURL(testURL);fileInput.value='';return;}
+    URL.revokeObjectURL(testURL);
+    source='local';setLocalPreview(f);localId='';savePref('local');apply('image',true);
+    try{localId=await saveLocal(f,f.name);savePref('local');message.textContent=f.name+' — Saved in this browser. / この端末のギャラリーに保存しました。';}
+    catch(_){message.textContent=f.name+' — Shown now but not saved; storage may be full. / 表示中ですが保存できませんでした。';}
+    await loadLocalGallery();fileInput.value='';
   });
-  btn.addEventListener('click',()=>{panel.hidden=!panel.hidden;btn.setAttribute('aria-expanded',String(!panel.hidden))});
-  document.addEventListener('pointerdown',e=>{if(!ctr.contains(e.target)&&!panel.hidden){panel.hidden=true;btn.setAttribute('aria-expanded','false')}});
-  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!panel.hidden){panel.hidden=true;btn.setAttribute('aria-expanded','false');btn.focus()}});
+  set.addEventListener('click',async()=>{
+    const candidate=input.value.trim(),checked=validPath(candidate);
+    if(!candidate||!checked){message.textContent='Enter a direct image URL. / 画像の直接URLを入力してください。';return;}
+    try{await verifyImage(checked);}catch(_){message.textContent='Cannot load this image. A Reddit post URL is not a direct image. / この画像は読み込めません。Reddit投稿ページのURLは使用できません。';return;}
+    await useRemote({url:checked,name:'Custom image / 指定URLの画像'});
+  });
+  btn.addEventListener('click',()=>{
+    panel.hidden=!panel.hidden;btn.setAttribute('aria-expanded',String(!panel.hidden));
+    if(!panel.hidden){loadGallery();}
+  });
+  document.addEventListener('pointerdown',e=>{if(!ctr.contains(e.target)&&!panel.hidden){panel.hidden=true;btn.setAttribute('aria-expanded','false');}});
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!panel.hidden){panel.hidden=true;btn.setAttribute('aria-expanded','false');btn.focus();}});
   apply(theme,false);
+  if(source==='local')restoreLocal().then(blob=>{
+    if(blob)setLocalPreview(blob);
+    else message.textContent='Saved image not found. Select an image again. / 保存画像が見つかりません。再選択してください。';
+  }).catch(()=>{message.textContent='Browser storage not available. / 保存領域にアクセスできません。';});
 }
 animebInitWeeklyThemes();
-
 // The legacy Note 1/2 HTML is retained as the authoritative English version.
 // A Japanese counterpart is mounted only when required, without changing shared-index.html.
 const animebNoteJaGeneral = `
@@ -687,13 +869,19 @@ function animebMountRankingCoverage(status, publishedCount) {
       label.append(text(en,ja));
       if(descriptions[key]) {
         const hint=helpButton(...descriptions[key], 'ws-modern-item-info');
-        hint.addEventListener('click',()=>{
-          const msg=LANG()==='ja'?descriptions[key][1]:descriptions[key][0];
-          const other=row.querySelector('.ws-modern-inline-tip');
-          if(other){other.remove();return;}
+        hint.setAttribute('aria-expanded','false');
+        hint.addEventListener('click',(event)=>{
+          event.stopPropagation();
+          // Tip lives AFTER the row, not INSIDE it. Find it in the correct place.
+          const sibling=row.nextElementSibling;
+          const alreadyOpen=Boolean(sibling?.classList.contains('ws-modern-inline-tip'));
+          detail.querySelectorAll('.ws-modern-inline-tip').forEach(el=>el.remove());
+          detail.querySelectorAll('.ws-modern-item-info[aria-expanded="true"]').forEach(el=>el.setAttribute('aria-expanded','false'));
+          if(alreadyOpen)return; // same ⓘ toggles it off
           const p=document.createElement('div');p.className='ws-modern-inline-tip';
-          p.dataset.en=descriptions[key][0];p.dataset.ja=descriptions[key][1];p.textContent=msg;
-          row.after(p);
+          p.dataset.en=descriptions[key][0];p.dataset.ja=descriptions[key][1];
+          p.textContent=LANG()==='ja'?p.dataset.ja:p.dataset.en;
+          row.after(p);hint.setAttribute('aria-expanded','true');
         });
         label.append(hint);
       }
@@ -716,9 +904,18 @@ function animebMountRankingCoverage(status, publishedCount) {
     ['backOnList','Back on List','復帰（混合集計）','icon-back']
   ]);
   modern.append(detail);
+  function clearInlineTips(){
+    detail.querySelectorAll('.ws-modern-inline-tip').forEach(el=>el.remove());
+    detail.querySelectorAll('.ws-modern-item-info[aria-expanded="true"]').forEach(el=>el.setAttribute('aria-expanded','false'));
+  }
+  document.addEventListener('pointerdown',event=>{
+    if(!event.target.closest('.ws-modern-item-info, .ws-modern-inline-tip'))clearInlineTips();
+  });
+  document.addEventListener('keydown',event=>{if(event.key==='Escape')clearInlineTips();});
   toggle.addEventListener('click',()=>{
     const open=toggle.getAttribute('aria-expanded')==='true';
     toggle.setAttribute('aria-expanded',String(!open));detail.hidden=open;
+    if(open)clearInlineTips();
     modern.classList.toggle('ws-modern-open',!open);
   });
   legacy.replaceWith(modern);wrapper.classList.add('ws-modern-wrapper');
@@ -1717,11 +1914,11 @@ function setupInfoTriggers() {
     el.dataset.animebInfoBound = '1';
 
     el.addEventListener('mouseenter', (e) => {
-      showTooltip(e, animebWeeklyTooltipFor(key));
+      if(window.matchMedia('(hover:hover)').matches)showTooltip(e, animebWeeklyTooltipFor(key));
     });
 
     el.addEventListener('mousemove', (e) => {
-      moveTooltip(e);
+      if(window.matchMedia('(hover:hover)').matches)moveTooltip(e);
     });
 
     el.addEventListener('mouseleave', () => {
@@ -1729,7 +1926,14 @@ function setupInfoTriggers() {
     });
 
     el.addEventListener('click', (e) => {
-      showTooltip(e, animebWeeklyTooltipFor(key));
+      e.stopPropagation();
+      const content=animebWeeklyTooltipFor(key);
+      const tooltip=document.getElementById('tooltip');
+      if(tooltip?.style.display==='block' && tooltip.dataset.animebOpenKey===key){
+        hideTooltip();return;
+      }
+      showTooltip(e,content);
+      if(tooltip)tooltip.dataset.animebOpenKey=key;
     });
   });
 }
@@ -1988,6 +2192,10 @@ function animebWeeklyTooltipFor(key) {
 
 // Bind the initial icons once. Dynamically mounted header icons are bound after JSON loading.
 setupInfoTriggers();
+document.addEventListener('click', e=>{
+  if(!e.target.closest('.info-trigger, #tooltip'))hideTooltip();
+});
+document.addEventListener('keydown', e=>{if(e.key==='Escape')hideTooltip();});
 
 
 function showTooltip(event, text) {
@@ -2039,7 +2247,9 @@ function moveTooltip(event) {
 
 function hideTooltip() {
   const tooltip = document.getElementById('tooltip');
+  if(!tooltip)return;
   tooltip.style.display = 'none';
+  delete tooltip.dataset.animebOpenKey;
 }
 
 
