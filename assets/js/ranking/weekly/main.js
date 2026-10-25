@@ -232,6 +232,8 @@ function animebInitWeeklyThemes(){
   const LOCAL_KEY='animeb-weekly-theme-local-key-v1';
   const SCOPE_KEY='animeb-weekly-image-scope-v1';
   const VIS_KEY='animeb-weekly-image-visibility-v1';
+  const PHOTO_OPACITY_KEY='animeb-weekly-image-photo-opacity-v1';
+  const WEEK_STYLE_KEY='animeb-weekly-week-number-style-v1';
   // v4.36: image framing / tone / reading-surface controls remain local to this browser.
   const ZOOM_KEY='animeb-weekly-image-zoom-v1';
   const POSX_KEY='animeb-weekly-image-posx-v1';
@@ -246,7 +248,7 @@ function animebInitWeeklyThemes(){
   const base=new URL('../../../../images/backgrounds/',scriptSrc||new URL('/animeb-v1/assets/js/ranking/weekly/main.js',location.origin));
   let theme='original',url='',source='url',localId='',localObjectUrl=null;
   // Default image placement is confined to the area ABOVE the ranking table.
-  let imageScope='header', imageVisibility=78;
+  let imageScope='header', imageVisibility=78, photoOpacity=100, weekStyle='auto';
   let imageZoom=100, imagePosX=50, imagePosY=40, introOpacity=84;
   let imageTone='light', fullFit='cover', imageNatural=null;
   let customColors={};
@@ -257,6 +259,9 @@ function animebInitWeeklyThemes(){
     source=localStorage.getItem(SOURCE)||'url';
     localId=localStorage.getItem(LOCAL_KEY)||'';
     imageScope=localStorage.getItem(SCOPE_KEY)||'header';
+    const savedPhotoOpacity=Number(localStorage.getItem(PHOTO_OPACITY_KEY));
+    if(localStorage.getItem(PHOTO_OPACITY_KEY)!==null&&Number.isFinite(savedPhotoOpacity)) photoOpacity=Math.max(15,Math.min(100,savedPhotoOpacity));
+    weekStyle=localStorage.getItem(WEEK_STYLE_KEY)||'auto';
     const savedVisibility=Number(localStorage.getItem(VIS_KEY));
     if(Number.isFinite(savedVisibility)&&savedVisibility>=25&&savedVisibility<=100)imageVisibility=savedVisibility;
     const clamped=(key,min,max,fallback)=>{const n=Number(localStorage.getItem(key));return localStorage.getItem(key)!==null&&Number.isFinite(n)?Math.max(min,Math.min(max,n)):fallback;};
@@ -273,6 +278,7 @@ function animebInitWeeklyThemes(){
   if(!['url','local'].includes(source))source='url';
   if(!['header','hero','full'].includes(imageScope))imageScope='header';
   if(!['light','dark'].includes(imageTone))imageTone='light';
+  if(!['auto','filled','outline'].includes(weekStyle))weekStyle='auto';
   if(!['cover','contain','tile'].includes(fullFit))fullFit='cover';
   const ctr=document.createElement('div');ctr.id='animeb-theme-controls';ctr.className='animeb-theme-controls';
   const btn=document.createElement('button');btn.type='button';btn.className='animeb-theme-button';
@@ -284,7 +290,16 @@ function animebInitWeeklyThemes(){
   const closeBtn=document.createElement('button');closeBtn.type='button';closeBtn.className='animeb-theme-close';
   closeBtn.setAttribute('aria-label','Close theme settings / テーマ設定を閉じる');
   const previewBtn=document.createElement('button');previewBtn.type='button';previewBtn.className='animeb-theme-preview-button';
-  previewBtn.textContent='↗ Preview page / 画面で確認';
+  const previewSvg=document.createElementNS('http://www.w3.org/2000/svg','svg');
+  previewSvg.setAttribute('viewBox','0 0 24 24');previewSvg.setAttribute('width','15');previewSvg.setAttribute('height','15');
+  previewSvg.setAttribute('fill','none');previewSvg.setAttribute('stroke','currentColor');
+  previewSvg.setAttribute('stroke-width','1.8');previewSvg.setAttribute('stroke-linecap','round');
+  previewSvg.setAttribute('stroke-linejoin','round');previewSvg.setAttribute('aria-hidden','true');
+  const previewPath=document.createElementNS('http://www.w3.org/2000/svg','path');
+  previewPath.setAttribute('d','M8 3H5a2 2 0 0 0-2 2v3m13-5h3a2 2 0 0 1 2 2v3M3 16v3a2 2 0 0 0 2 2h3m13-5v3a2 2 0 0 1-2 2h-3');
+  previewSvg.append(previewPath);
+  const previewText=document.createElement('span');previewText.textContent='Preview page / 画面で確認';
+  previewBtn.append(previewSvg,previewText);
   panelHead.append(header,previewBtn,closeBtn);
   const choices=document.createElement('div');choices.className='animeb-theme-choices';
   const buttons={};
@@ -293,6 +308,18 @@ function animebInitWeeklyThemes(){
     el.dataset.theme=id;el.addEventListener('click',()=>{apply(id,true);if(id==='image')loadGallery();});
     choices.append(el);buttons[id]=el;
   });
+  // Independent editorial override; AUTO keeps the Converter/JSON presentation.
+  const weekStylePanel=document.createElement('div');weekStylePanel.className='animeb-week-style-control';
+  const weekStyleLabel=document.createElement('span');weekStyleLabel.textContent='WEEK NUMBER / 週番号のスタイル';
+  const weekStyleGroup=document.createElement('div');weekStyleGroup.className='animeb-week-style-buttons';
+  const weekStyleButtons={};
+  for(const [key,label] of [['auto','Auto / JSON'],['filled','Filled / 塗り'],['outline','Outline / 輪郭']]){
+    const b=document.createElement('button');b.type='button';b.className='animeb-week-style-choice';
+    b.textContent=label;b.setAttribute('aria-pressed',String(key===weekStyle));
+    b.addEventListener('click',()=>{weekStyle=key;try{localStorage.setItem(WEEK_STYLE_KEY,key);}catch(_){}apply(theme,false);});
+    weekStyleGroup.append(b);weekStyleButtons[key]=b;
+  }
+  weekStylePanel.append(weekStyleLabel,weekStyleGroup);
   const field=document.createElement('div');field.className='animeb-theme-image-field';
   // Image extent and visibility, deliberately above the library so they are easy to find.
   const imageOptions=document.createElement('fieldset');imageOptions.className='animeb-bg-placement';
@@ -309,12 +336,24 @@ function animebInitWeeklyThemes(){
     scopeChoices.append(el);scopeButtons[key]=el;
   });
   const visibilityLabel=document.createElement('label');visibilityLabel.className='animeb-bg-visibility-label';
-  visibilityLabel.textContent='IMAGE VISIBILITY / 画像の見えやすさ';
+  visibilityLabel.textContent='IMAGE CLARITY / 明暗・色調';
   const visibilityValue=document.createElement('output');visibilityValue.className='animeb-bg-visibility-value';
   const visibilityRange=document.createElement('input');visibilityRange.className='animeb-bg-visibility-range';
   visibilityRange.type='range';visibilityRange.min='25';visibilityRange.max='100';visibilityRange.step='5';
   visibilityRange.value=String(imageVisibility);visibilityRange.setAttribute('aria-label','Background image visibility / 背景画像の見えやすさ');
   visibilityLabel.append(visibilityValue,visibilityRange);
+  const opacityLabel=document.createElement('label');opacityLabel.className='animeb-bg-visibility-label';
+  opacityLabel.textContent='IMAGE OPACITY / 画像そのものの不透明度';
+  const opacityValue=document.createElement('output');opacityValue.className='animeb-bg-visibility-value';
+  const opacityRange=document.createElement('input');opacityRange.className='animeb-bg-visibility-range';
+  opacityRange.type='range';opacityRange.min='15';opacityRange.max='100';opacityRange.step='5';
+  opacityRange.value=String(photoOpacity);opacityRange.setAttribute('aria-label','Photo opacity / 写真そのものの不透明度');
+  opacityLabel.append(opacityValue,opacityRange);
+  opacityRange.addEventListener('input',()=>{
+    photoOpacity=Number(opacityRange.value);
+    try{localStorage.setItem(PHOTO_OPACITY_KEY,String(photoOpacity));}catch(_){}
+    apply(theme,false);
+  });
   visibilityRange.addEventListener('input',()=>{
     imageVisibility=Number(visibilityRange.value);
     try{localStorage.setItem(VIS_KEY,String(imageVisibility));}catch(_){}
@@ -388,7 +427,7 @@ function animebInitWeeklyThemes(){
   onRange(introCtl,INTRO_KEY,()=>introOpacity,n=>introOpacity=n);
   const scopeHint=document.createElement('p');scopeHint.className='animeb-bg-scope-note';
   scopeHint.textContent='Header area ends above the ranking table. / 上部のみ：ランキング表の直前まで。';
-  imageOptions.append(placementLegend,scopeChoices,visibilityLabel,scopeHint,previewStage,frame,toneBox,fitRow,frameNote,colorDetails);
+  imageOptions.append(placementLegend,scopeChoices,visibilityLabel,opacityLabel,scopeHint,previewStage,frame,toneBox,fitRow,frameNote,colorDetails);
   const galleryTitle=document.createElement('div');galleryTitle.className='animeb-bg-gallery-head';
   const heading=document.createElement('strong');heading.textContent='BACKGROUND LIBRARY / 背景ギャラリー';
   const refresh=document.createElement('button');refresh.type='button';refresh.className='animeb-bg-refresh';refresh.textContent='↻ Refresh';
@@ -412,7 +451,7 @@ function animebInitWeeklyThemes(){
   details.append(summary,input,set);
   const message=document.createElement('p');message.className='animeb-theme-message';message.setAttribute('role','status');
   field.append(imageOptions,galleryTitle,repoHeading,remoteGrid,repoStatus,localHeading,localGrid,localStatus,fileLabel,fileNote,details);
-  panel.append(panelHead,choices,field,message);ctr.append(btn,panel);
+  panel.append(panelHead,choices,weekStylePanel,field,message);ctr.append(btn,panel);
   const lang=document.querySelector('#animeb-weekly-language');
   if(lang)lang.before(ctr);else(document.querySelector('.nav-bar')||document.body).after(ctr);
   const validPath=v=>{
@@ -423,7 +462,7 @@ function animebInitWeeklyThemes(){
   const repoUrl=name=>new URL(encodeURIComponent(name),base).href;
   const heroSpacer=document.createElement('div');heroSpacer.className='animeb-image-hero-spacer';heroSpacer.setAttribute('aria-hidden','true');
   // Insert as a sibling of the established heading. No cards, notes, ranking rows or JSON are altered.
-  document.querySelector('.sub-header')?.after(heroSpacer);
+  document.querySelector('.wrapper > .header')?.before(heroSpacer);
   const colorStyle=document.createElement('style');colorStyle.id='animeb-theme-custom-colors';document.head.append(colorStyle);
   const saveColors=()=>{try{localStorage.setItem(COLORS_KEY,JSON.stringify(customColors));}catch(_){}};
   function applyColors(){
@@ -435,6 +474,10 @@ function animebInitWeeklyThemes(){
     };
     colorStyle.textContent=Object.keys(selectors).filter(key=>/^#[0-9a-fA-F]{6}$/.test(customColors[key]||''))
       .map(key=>`body ${selectors[key].split(', ').join(', body ')}{color:${customColors[key]} !important;}`).join('\n');
+    // The editable WEEK color must also drive outline STROKE and filled number.
+    // A !important custom property overrides the presentation JSON's inline fallback.
+    if(/^#[0-9a-fA-F]{6}$/.test(customColors.week||''))
+      colorStyle.textContent+=`\nbody .wrapper .header .week-title{--animeb-week-accent:${customColors.week} !important;--animeb-week-label-color:${customColors.week} !important;}`;
   }
   applyColors();
   function rememberNaturalSize(address){
@@ -481,6 +524,8 @@ function animebInitWeeklyThemes(){
   }
   function apply(id,persist){
     theme=id;document.body.dataset.animebTheme=id;
+    document.body.dataset.animebWeekStyle=weekStyle;
+    Object.entries(weekStyleButtons).forEach(([key,b])=>b.setAttribute('aria-pressed',String(key===weekStyle)));
     document.body.dataset.animebImageScope=imageScope;
     document.body.dataset.animebImageTone=imageTone;
     document.body.dataset.animebFullFit=fullFit;
@@ -494,6 +539,8 @@ function animebInitWeeklyThemes(){
     document.body.style.setProperty('--animeb-image-x',imagePosX+'%');
     document.body.style.setProperty('--animeb-image-y',imagePosY+'%');
     document.body.style.setProperty('--animeb-intro-opacity',(introOpacity/100).toFixed(2));
+    document.body.style.setProperty('--animeb-image-photo-opacity',(photoOpacity/100).toFixed(2));
+    opacityValue.textContent=photoOpacity+'%';
     // A lighter overlay makes the selected illustration visible while
     // preserving enough contrast for the headline and reading panels.
     const wash=(0.10+((100-imageVisibility)/100)*0.68).toFixed(3);
@@ -509,6 +556,7 @@ function animebInitWeeklyThemes(){
     photo(activePhoto);
     previewStage.style.setProperty('--animeb-preview-photo',activePhoto?`url("${activePhoto}")`:'none');
     previewStage.style.setProperty('--animeb-preview-visibility',String(imageVisibility/100));
+    previewStage.style.setProperty('--animeb-preview-photo-opacity',String(photoOpacity/100));
     previewStage.style.setProperty('--animeb-preview-x',imagePosX+'%');
     previewStage.style.setProperty('--animeb-preview-y',imagePosY+'%');
     previewStage.style.setProperty('--animeb-preview-zoom',String(imageZoom/100));
