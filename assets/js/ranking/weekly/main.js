@@ -1173,7 +1173,7 @@ if (reviewAnchor) {
     updateWatchStatus(data.meta.status);
     // v4.29 DESIGN A (optional / backwards-compatible): the new card appears ONLY
     // when Converter JSON provides both verified values. Old articles stay unchanged.
-    animebMountRankingCoverage(data.meta.status, Array.isArray(data.entries) ? data.entries.length : 0);
+    animebMountRankingCoverage(data.meta.status, Array.isArray(data.entries) ? data.entries.filter(e => typeof e.rank === "number").length : 0);
     animebApplyWeeklyLanguage();
     adjustScoreBars();
     setTimeout(() => {
