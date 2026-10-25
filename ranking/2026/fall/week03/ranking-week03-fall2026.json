@@ -5,19 +5,23 @@
     "season": "2026 Fall",
     "ep_range": "ep.3-4",
     "status": {
-      "watching": 29,
+      "watching": 27,
       "droppedThisWeek": 4,
-      "droppedTotal": 5,
+      "droppedTotal": 6,
       "backOnList": 0,
       "noAir": 0,
       "completed": 0,
-      "total": 35,
+      "total": 36,
+      "ratedThisWeek": 27,
+      "currentLineup": 28,
+      "seasonPool": 36,
+      "addedThisWeek": 0,
       "notAiredYet": 1,
       "startedAiringThisWeek": 1
     },
     "weekly_intro": {
-      "en": "We’ve now reached Week 03 of the fall 2026 anime season.\nWith most shows hitting Episodes 3 or 4, the stories are pushing toward the first check point—and many have kicked into second gear to make the cut for further stages. (That said, a handful still feel stubbornly slow-burn or simply, dumpster fire…) With mid-point coming close around the corner, how did this week’s ranking shake out?\n\nLet’s dive in and take a look!",
-      "ja": "2026年夏アニメもいよいよ第3週目となりました。\n話数としては大体第3話から4話あたりに差し掛かっていることもあり、ストーリー的にも初回のチェックポイントに差し掛かってきて多くの作品が一段ギアを上げてきています。（それでも未だにスローバーンに感じたり、とにかくカオスな作品も多々ありますが・・・）中盤が遠くに見えてて来つつある今週、ランキングはどの様な動きを見せたのでしょうか？\n\n早速見ていきましょう！"
+      "en": "We’ve now reached <strong>Week 03 of the fall 2026 anime season</strong>.\nWith most shows hitting <strong>Episodes 3 or 4</strong>, the stories are pushing toward the first check point—and many have kicked into second gear to make the cut for further stages. (That said, a handful still feel stubbornly slow-burn or simply, dumpster fire…) With mid-point coming close around the corner, how did this week’s ranking shake out?\n\nLet’s dive in and take a look!",
+      "ja": "<strong>2026年秋アニメ</strong>もいよいよ<strong>第3週目</strong>となりました。\n話数としては大体<strong>第3話から4話</strong>あたりに差し掛かっていることもあり、ストーリー的にも初回のチェックポイントに差し掛かってきて多くの作品が一段ギアを上げてきています。（それでも未だにスローバーンに感じたり、とにかくカオスな作品も多々ありますが・・・）中盤が遠くに見えてて来つつある今週、ランキングはどの様な動きを見せたのでしょうか？\n\n早速見ていきましょう！"
     },
     "presentation": {
       "header": {
@@ -26,7 +30,7 @@
         "fill": "outline",
         "color": "red",
         "customColor": "#8e2222",
-        "specialColorMode": "split",
+        "specialColorMode": "unified",
         "labelColor": "red",
         "customLabelColor": "#215973",
         "midSeasonLabel": "auto",
@@ -42,15 +46,14 @@
     {
       "rank": 1,
       "trend": "up",
-      "title": "Super Psychic Policeman Chojo",
-      "jpTitle": "超巡！超条先輩",
-      "kv": "choujou",
+      "title": "Tetsuryou! Meet with Tetsudou Musume",
+      "jpTitle": "てつりょー！meet with 鉄道むすめ",
+      "kv": "tetsuryo",
       "episode": 3,
       "genre": [
-        "Comedy",
         "Slice of Life"
       ],
-      "wrp_score": 9,
+      "wrp_score": 9.3,
       "score": 9,
       "review": {
         "en": "<strong>Episode #2: No One Should Feel Sorry for Me</strong>",
@@ -59,10 +62,65 @@
       "wrp_breakdown": {
         "base_score": 5,
         "animation": 0.65,
-        "script": 0.65,
-        "direction": 0.7,
-        "charm": 0.55,
-        "overall": 1.45
+        "script": 0.75,
+        "direction": 0.75,
+        "charm": 0.6,
+        "overall": 1.55
+      },
+      "romanized_title": "Tetsuryou! Meet with Tetsudou Musume",
+      "release_date": "10/8/2026",
+      "based_on": "Original",
+      "studios": "East Fish Studio",
+      "creators": "Misuzu Hoshino",
+      "external_scores": "",
+      "streaming_services": "",
+      "synopsis": "Misaki, a university student, feeling the weight of everyday life and uncertain about her future, she longs for adventure and something she can be truly passionate about.\n\nAt the start of the new day on campus, members of the Travel Train Club (commonly known as the Tetsuryo Club) invite Misaki to join them, as she steps into the world of railways, Misaki's heart beats with excitement for the journey that awaits her.\n\n(Source: MAL News)",
+      "studios_ja": "イーストフィッシュスタジオ",
+      "director_ja": "星野美鈴",
+      "series_composition_ja": "",
+      "synopsis_ja": "日常を飛び出して、どこかに旅に出掛けたい。そう思ったことは何度もあった。\n将来何になりたいのかもわからない日々。でもいつか、夢中になれるものを見つけたい。\n\n新しい日々のはじまりに沸き立つキャンパスの中で、みさきに手を差し伸べたのは、鉄道旅行同好会(通称：てつりょー会)の面々。\n線路を通して広がっていく世界に、みさきの胸は高鳴りだす！\n\n20周年を迎える『鉄道むすめ』たちが働く世界を、てつりょー会が「トキメキ」を探しに旅をしていく。\n\n※本作は、トミーテックによるキャラクターコンテンツ『鉄道むすめ』から生まれた完全オリジナルTVアニメです。",
+      "original_creator_publisher_ja": "",
+      "original_creator_publisher_en": "",
+      "broadcast": "",
+      "broadcast_ja": "",
+      "streaming_services_ja": "",
+      "official_website": "https://tetsuryo-anime.com/",
+      "original_creator_publisher": "トミーテック（原作）／原作協力：森田季節",
+      "director": "Misuzu Hoshino",
+      "series_composition": "Aya Satsuki",
+      "episode_count": "",
+      "total_eps_this_season": "",
+      "seasons_total_ep_cnt": "",
+      "cast": "佐多みさき：橘めい\n折原こだま：庄子真央\n矢神うしお：福嶋晴菜\n春立うさ：月城日花\n中野弥生：和泉風花\n西浦ありさ：安齋由香里\n朝倉ちはや：中島由貴\n足尾さきえ：瀬戸麻沙美\n井草しいな：菱川花菜\n大桑じゅり：大橋彩香\n春日部しあ：遠野ひかる\n神井みしゃ：天麻ゆうき\n川越いぶき：久保ユリカ\n鬼怒川みやび：久野美咲\n栗橋あかな：熊崎愛\n神代みさき：髙橋ミナミ\n桜沢みなの：岩田陽葵\n柴口このみ：稗田寧々\n高島あざみ：佐伯伊織\n立川いずみ：瀬川美沙\n外川つくし：原涼歌\n松風かれん：市ノ瀬加那\n渡瀬きぬ：三上枝織",
+      "opening_theme": "「GO! GO! RAILWAY!!」亜咲花",
+      "ending_theme": "「わたし未来線」てつりょー会（橘めい・庄子真央・福嶋晴菜・月城日花）",
+      "air_timing": "",
+      "air_date": "2026-10-08"
+    },
+    {
+      "rank": 2,
+      "trend": "up",
+      "title": "Super Psychic Policeman Chojo",
+      "jpTitle": "超巡！超条先輩",
+      "kv": "choujou",
+      "episode": 3,
+      "genre": [
+        "Comedy",
+        "Slice of Life"
+      ],
+      "wrp_score": 9.25,
+      "score": 9,
+      "review": {
+        "en": "<strong>Episode #2: They're Like Gunpowder</strong>",
+        "jp": "第2話: 火薬のようなやつら"
+      },
+      "wrp_breakdown": {
+        "base_score": 5,
+        "animation": 0.7,
+        "script": 0.7,
+        "direction": 0.75,
+        "charm": 0.6,
+        "overall": 1.5
       },
       "romanized_title": "Choujun! Choujou-senpai",
       "release_date": "10/6/2026",
@@ -95,7 +153,7 @@
       "air_date": "2026-10-06"
     },
     {
-      "rank": 2,
+      "rank": 3,
       "trend": "up",
       "title": "A Returner's Magic Should Be Special Season 2",
       "jpTitle": "『帰還者の魔法は特別です』第二期",
@@ -109,8 +167,8 @@
       "wrp_score": 8.4,
       "score": 8,
       "review": {
-        "en": "<strong>Episode #2: They're Like Gunpowder</strong>",
-        "jp": "第2話: 火薬のようなやつら"
+        "en": "<strong>Episode #3: Kokoro's Heart: Draw This, Then Die!!!!</strong>",
+        "jp": "第3話: 心の心~これ描いて死ね!!!『個人的にはパロディはあまり好きじゃないがまぁよし。先生の過去と生徒の現状のオーバーラップと未来に対する想いの対比など非常に良かった。』"
       },
       "wrp_breakdown": {
         "base_score": 5,
@@ -151,7 +209,119 @@
       "air_date": "2026-10-07"
     },
     {
-      "rank": 3,
+      "rank": 4,
+      "trend": "up",
+      "title": "The Ramparts of Ice Season 2",
+      "jpTitle": "『氷の城壁』第2期",
+      "kv": "jouheki",
+      "episode": 4,
+      "genre": [
+        "Comedy",
+        "Drama",
+        "Romance",
+        "Slice of Life"
+      ],
+      "wrp_score": 8.3,
+      "score": 8,
+      "review": {
+        "en": "<strong>Episode #2: Dilemma of a Winter's Night</strong>",
+        "jp": "第2話: 冬の夜のジレンマ"
+      },
+      "wrp_breakdown": {
+        "base_score": 5,
+        "animation": 0.6,
+        "script": 0.6,
+        "direction": 0.6,
+        "charm": 0.4,
+        "overall": 1.1
+      },
+      "romanized_title": "Koori no Jouheki 2nd Season",
+      "release_date": "10/1/2026",
+      "based_on": "Manga",
+      "studios": "Studio KAI",
+      "creators": "Mankyu",
+      "external_scores": "",
+      "streaming_services": "Netflix",
+      "synopsis": "Second season of Koori no Jouheki.",
+      "studios_ja": "スタジオKAI",
+      "director_ja": "まんきゅう",
+      "series_composition_ja": "中西やすひろ",
+      "synopsis_ja": "人と接するのが苦手で、他人との間に壁を作ってしまう高校生・氷川小雪。幼なじみの安曇美姫以外誰ともつるまず、静かに日々を過ごしていた彼女の前に、なぜかぐいぐい距離を詰めてくる男子・雨宮湊が現れて――？親交を深めていく内に、お互いに友達以上の感情を抱くようになった小雪と湊。\n長年抱えていた想いを美姫に伝えた陽太。想いを伝える者、心の内に秘める者、それぞれの矢印はすれ違いを加速していく。孤高の女子・小雪、元学校のアイドル・美姫、距離ナシ男子・湊、優しく穏やかなバスケ部員・陽太。不器用で、じれったくて、それでも愛おしい。青春のすれ違いが織りなす群像劇は進んでいく。",
+      "original_creator_publisher_ja": "",
+      "original_creator_publisher_en": "",
+      "broadcast": "TBS系全国28局 毎週木曜23:56",
+      "broadcast_ja": "",
+      "streaming_services_ja": "",
+      "official_website": "https://korinojoheki-pr.com",
+      "original_creator_publisher": "阿賀沢紅茶（集英社ジャンプ コミックス刊）",
+      "director": "Mankyu",
+      "series_composition": "Yasuhiro Nakanishi",
+      "episode_count": "",
+      "total_eps_this_season": "",
+      "seasons_total_ep_cnt": "",
+      "cast": "氷川小雪：永瀬アンナ\n安曇美姫：和泉風花\n雨宮 湊：千葉翔也\n日野陽太：猪股慧士\n霜島月子：新福 桜\n五十嵐 翼：小林千晃\n栗木桃香：鬼頭明里\n安曇優希：波多野 翔\n熱川秋音：川井田夏海",
+      "opening_theme": "「エスコート」THE BEAT GARDEN",
+      "ending_theme": "「花蔭」Superfly",
+      "air_timing": "",
+      "air_date": "2026-10-01"
+    },
+    {
+      "rank": 5,
+      "trend": "up",
+      "title": "The Apothecary Diaries Season 3",
+      "jpTitle": "『薬屋のひとりごと』第3期",
+      "kv": "kusuriya",
+      "episode": 52,
+      "genre": [
+        "Drama",
+        "Mystery"
+      ],
+      "wrp_score": 8,
+      "score": 8,
+      "review": {
+        "en": "<strong>Episode #3: The Laws of Forbidden Ground</strong>",
+        "jp": "第3話: 禁足地の掟『相変わらず楽ししい姉弟（変態先生）との関わり方に加えて、霊能者コンビを絡めた霊界、神隠しの見せ方、また祭りを楽しみながらも不届きで禁忌に触れるYouTuberへの制裁と二人の母親の想いなども見事な構成と演出だった。今季とても好きな作品。』"
+      },
+      "wrp_breakdown": {
+        "base_score": 5,
+        "animation": 0.6,
+        "script": 0.6,
+        "direction": 0.55,
+        "charm": 0.4,
+        "overall": 0.85
+      },
+      "romanized_title": "Kusuriya no Hitorigoto 3rd Season",
+      "release_date": "10/2/2026",
+      "based_on": "Light Novel",
+      "studios": "OLM",
+      "creators": "Akinori Fudesaka",
+      "external_scores": "",
+      "streaming_services": "",
+      "synopsis": "In the aftermath of the Shi Clan's rebellion, things have finally settled down, and Maomao has returned to her old life as a pharmacist in the pleasure district. One day, triggered by a breakfast served at the Verdigris House, Maomao senses an anomaly and begins investigating its true nature. Meanwhile, Jinshi, who has revealed his true identity as the Imperial brother and begun to face his heavy responsibilities, is deeply troubled by the final message left by Loulan: a warning of an impending \"disaster that will strike the nation.\" To make matters worse, rumors of a mysterious shrine maiden who deceives the people begin to spread, casting a dark shadow over the country of Li once again. From the depths of the inner court to the city streets, and across foreign borders—the world grows wider, and the stakes even higher for Maomao and Jinshi.\n\n(Source: Crunchyroll)",
+      "studios_ja": "OLM",
+      "director_ja": "筆坂明規",
+      "series_composition_ja": "長沼範裕",
+      "synopsis_ja": "子の一族が起こした反乱の後始末も落ち着き、猫猫は花街の薬師としての日常へと戻っていた。ある日、緑青館で出された朝餉をきっかけに、猫猫はとある“違和感”を覚え、その正体を探し始めていた。\n一方、本来の身分・皇弟であることを明かし、その責務に向き合い始めた壬氏は、楼蘭から最後に託された≪国を襲う災害の予兆≫に頭を悩ませていた。さらにそこへ、人々を惑わす謎の仙女の噂も飛び交いはじめ、茘国にはふたたび影が落ち始めていた。\n物語の舞台は後宮から市井、さらに隣国へと広がり、猫猫と壬氏には新たなる試練が待ち受ける。",
+      "original_creator_publisher_ja": "",
+      "original_creator_publisher_en": "",
+      "broadcast": "日本テレビ系「フラアニ」毎週金曜23:00～全国30局ネット",
+      "broadcast_ja": "",
+      "streaming_services_ja": "",
+      "official_website": "https://kusuriyanohitorigoto.jp/season3/",
+      "original_creator_publisher": "日向夏（ヒーロー文庫／イマジカインフォス刊）",
+      "director": "Akinori Fudesaka",
+      "series_composition": "Norihiro Naganuma",
+      "episode_count": "",
+      "total_eps_this_season": "",
+      "seasons_total_ep_cnt": "",
+      "cast": "猫猫：悠木碧\n壬氏：大塚剛央\n高順：小西克幸\n馬閃：橘龍丸\n羅半：豊永利行\n陸孫：内山昂輝\n趙迂：藤原夏海\n白娘々：上田麗奈\nナレーション：島本須美",
+      "opening_theme": "「雲を抜け風下へ私だけ」ヨルシカ",
+      "ending_theme": "「AIYOU」Eve",
+      "air_timing": "",
+      "air_date": "2026-10-02"
+    },
+    {
+      "rank": 6,
       "trend": "up",
       "title": "So What's Wrong with Getting Reborn as a Goblin?",
       "jpTitle": "転生ゴブリンだけど質問ある？",
@@ -166,8 +336,8 @@
       "wrp_score": 7.5,
       "score": 7,
       "review": {
-        "en": "<strong>Episode #3: Kokoro's Heart: Draw This, Then Die!!!!</strong>",
-        "jp": "第3話: 心の心~これ描いて死ね!!!"
+        "en": "<strong>Episode #3: The Laws of Forbidden Ground</strong>",
+        "jp": "第3話: 禁足地の掟『相変わらず楽ししい姉弟（変態先生）との関わり方に加えて、霊能者コンビを絡めた霊界、神隠しの見せ方、また祭りを楽しみながらも不届きで禁忌に触れるYouTuberへの制裁と二人の母親の想いなども見事な構成と演出だった。今季とても好きな作品。』"
       },
       "wrp_breakdown": {
         "base_score": 5,
@@ -208,7 +378,7 @@
       "air_date": "2026-10-05"
     },
     {
-      "rank": 4,
+      "rank": 7,
       "trend": "down",
       "title": "Hotel Inhumans Season 2",
       "jpTitle": "『ホテル・インヒューマンズ』第2期",
@@ -221,8 +391,8 @@
       "wrp_score": 7.4,
       "score": 7,
       "review": {
-        "en": "<strong>Episode #2: Dilemma of a Winter's Night</strong>",
-        "jp": "第2話: 冬の夜のジレンマ"
+        "en": "<strong>Episode #3: The Laws of Forbidden Ground</strong>",
+        "jp": "第3話: 禁足地の掟『相変わらず楽ししい姉弟（変態先生）との関わり方に加えて、霊能者コンビを絡めた霊界、神隠しの見せ方、また祭りを楽しみながらも不届きで禁忌に触れるYouTuberへの制裁と二人の母親の想いなども見事な構成と演出だった。今季とても好きな作品。』"
       },
       "wrp_breakdown": {
         "base_score": 5,
@@ -263,8 +433,8 @@
       "air_date": "2026-10-04"
     },
     {
-      "rank": 5,
-      "trend": "up",
+      "rank": 8,
+      "trend": "down",
       "title": "Chitose Is in the Ramune Bottle Part 2",
       "jpTitle": "『千歳くんはラムネ瓶のなか』第2クール",
       "kv": "chitose",
@@ -277,7 +447,7 @@
       "score": 7,
       "review": {
         "en": "<strong>Episode #3: The Laws of Forbidden Ground</strong>",
-        "jp": "第3話: 禁足地の掟"
+        "jp": "第3話: 禁足地の掟『相変わらず楽ししい姉弟（変態先生）との関わり方に加えて、霊能者コンビを絡めた霊界、神隠しの見せ方、また祭りを楽しみながらも不届きで禁忌に触れるYouTuberへの制裁と二人の母親の想いなども見事な構成と演出だった。今季とても好きな作品。』"
       },
       "wrp_breakdown": {
         "base_score": 5,
@@ -318,7 +488,7 @@
       "air_date": "2026-10-13"
     },
     {
-      "rank": 6,
+      "rank": 9,
       "trend": "up",
       "title": "Psyren",
       "jpTitle": "PSYREN -サイレン-",
@@ -333,7 +503,7 @@
       "score": 6,
       "review": {
         "en": "<strong>Episode #3: The Laws of Forbidden Ground</strong>",
-        "jp": "第3話: 禁足地の掟"
+        "jp": "第3話: 禁足地の掟『相変わらず楽ししい姉弟（変態先生）との関わり方に加えて、霊能者コンビを絡めた霊界、神隠しの見せ方、また祭りを楽しみながらも不届きで禁忌に触れるYouTuberへの制裁と二人の母親の想いなども見事な構成と演出だった。今季とても好きな作品。』"
       },
       "wrp_breakdown": {
         "base_score": 5,
@@ -374,7 +544,7 @@
       "air_date": "2026-10-05"
     },
     {
-      "rank": 7,
+      "rank": 10,
       "trend": "up",
       "title": "Blue Box Season 2",
       "jpTitle": "『アオのハコ』Season2",
@@ -389,7 +559,7 @@
       "score": 6,
       "review": {
         "en": "<strong>Episode #3: The Laws of Forbidden Ground</strong>",
-        "jp": "第3話: 禁足地の掟"
+        "jp": "第3話: 禁足地の掟『相変わらず楽ししい姉弟（変態先生）との関わり方に加えて、霊能者コンビを絡めた霊界、神隠しの見せ方、また祭りを楽しみながらも不届きで禁忌に触れるYouTuberへの制裁と二人の母親の想いなども見事な構成と演出だった。今季とても好きな作品。』"
       },
       "wrp_breakdown": {
         "base_score": 5,
@@ -430,7 +600,7 @@
       "air_date": "2026-10-04"
     },
     {
-      "rank": 8,
+      "rank": "spotlight",
       "trend": "up",
       "title": "Full Clearing Another World under a Goddess with Zero Believers",
       "jpTitle": "信者ゼロの女神サマと始める異世界攻略",
@@ -443,8 +613,8 @@
       "wrp_score": 6.7,
       "score": 6,
       "review": {
-        "en": "<strong>Episode #3: The Laws of Forbidden Ground</strong>",
-        "jp": "第3話: 禁足地の掟"
+        "en": "<strong>Episode #2: The Mysteries of the Catalog</strong>",
+        "jp": "第2話: 目録の謎"
       },
       "wrp_breakdown": {
         "base_score": 5,
@@ -485,7 +655,7 @@
       "air_date": "2026-10-11"
     },
     {
-      "rank": 9,
+      "rank": "editor's pick",
       "trend": "up",
       "title": "Nia Liston: The Merciless Maiden",
       "jpTitle": "凶乱令嬢ニア・リストン 病弱令嬢に転生した神殺しの武人の華麗なる無双録",
@@ -497,8 +667,8 @@
       "wrp_score": 6.45,
       "score": 6,
       "review": {
-        "en": "<strong>Episode #3: The Laws of Forbidden Ground</strong>",
-        "jp": "第3話: 禁足地の掟"
+        "en": "<strong>Episode #1: Though I Am an Inept Villainess</strong>",
+        "jp": "第1話: ふつつかな悪女ではございますが"
       },
       "wrp_breakdown": {
         "base_score": 5,
@@ -539,7 +709,7 @@
       "air_date": "2026-10-06"
     },
     {
-      "rank": 10,
+      "rank": "dookie",
       "trend": "up",
       "title": "Even Though I'm a Super Timid Noble Girl, I Accepted the Bet From My Cunning Fiancé",
       "jpTitle": "弱気MAX令嬢なのに、辣腕婚約者様の賭けに乗ってしまった",
@@ -552,16 +722,16 @@
       "wrp_score": 6,
       "score": 6,
       "review": {
-        "en": "<strong>Episode #3: The Laws of Forbidden Ground</strong>",
-        "jp": "第3話: 禁足地の掟"
+        "en": "<strong>Episode #3: Overkill</strong>",
+        "jp": "第3話: 外道 -OVERKILL-『それにしても兄生きてるんかーい!母とあの親父の間の子ども?それにしてもクズな父と異母兄だがそれも処刑にとか色々忙しいですね。無茶苦茶だけど、それでいいと思います。面白くさえあれば。』"
       },
       "wrp_breakdown": {
         "base_score": 5,
         "animation": 0.5,
-        "script": 0.4,
-        "direction": 0.4,
+        "script": 0.3,
+        "direction": 0.3,
         "charm": 0.2,
-        "overall": -0.5
+        "overall": -1.5
       },
       "romanized_title": "Yowaki Max Reijou nanoni, Ratsuwan Konyakusha-sama no Kake ni Notte Shimatta",
       "release_date": "10/4/2026",
@@ -592,173 +762,6 @@
       "ending_theme": "「夜明けまでに」伊藤美来",
       "air_timing": "",
       "air_date": "2026-10-04"
-    },
-    {
-      "rank": "spotlight",
-      "trend": "up",
-      "title": "The Cold Sato-san is Only Sweet to Me",
-      "jpTitle": "塩対応の佐藤さんが俺にだけ甘い",
-      "kv": "shiotaiou",
-      "episode": 3,
-      "genre": [
-        "Comedy",
-        "Romance"
-      ],
-      "wrp_score": 5.2,
-      "score": 5,
-      "review": {
-        "en": "<strong>Episode #2: The Mysteries of the Catalog</strong>",
-        "jp": "第2話: 目録の謎"
-      },
-      "wrp_breakdown": {
-        "base_score": 5,
-        "animation": 0.55,
-        "script": 0.3,
-        "direction": 0.3,
-        "charm": 0.1,
-        "overall": -1.05
-      },
-      "romanized_title": "Shiotaiou no Satou-san ga Ore ni dake Amai",
-      "release_date": "10/6/2026",
-      "based_on": "Light Novel",
-      "studios": "Tezuka Productions",
-      "creators": "Fumihiro Yoshimura",
-      "external_scores": "",
-      "streaming_services": "",
-      "synopsis": "Koharu Satou is known to her classmates as the \"unattainable flower\" a cold and distant girl whose refusal to smile keeps everyone at arm's length.\n\nHowever, Souta Oshio accidentally stumbles upon Satou's secret at her family's cafe. It turns out the \"icy Satou-san\" is actually an incredibly shy and clumsy girl who struggles even with something as simple as taking photos of sweets for the cafe's social media.\n\nBonding over their shared love for cameras and desserts, the distance between the two gradually shrinks. This charming romantic comedy follows two socially awkward people as they navigate their feelings in a story that is as sweet as it is endearing.\n\n(Source: MAL News)",
-      "studios_ja": "手塚プロダクション",
-      "director_ja": "吉村文宏",
-      "series_composition_ja": "",
-      "synopsis_ja": "クラス中の高嶺の花、佐藤こはる。\n誰にも笑顔を見せない、通称“塩対応の佐藤さん”。\n\nでもある日、同じクラスの押尾颯太が、実家が営むカフェで見た佐藤さんの姿は……\nスイーツの写真を撮るため奮闘する、隙だらけの姿で!?\n\n本当は人見知りで不器用なだけの佐藤さんと、そんな佐藤さんのことが好きな押尾君。\n二人の距離は、スイーツとカメラをきっかけに、少しずつ縮まっていく。\n\nもどかしくて、愛おしい。\n世界で一番甘い両片想いに、きっとあなたもとろけてしまう――。\n\n不器用な二人が織りなす“甘くてしょっぱい”青春ラブコメディ！",
-      "original_creator_publisher_ja": "",
-      "original_creator_publisher_en": "",
-      "broadcast": "",
-      "broadcast_ja": "",
-      "streaming_services_ja": "",
-      "official_website": "https://shioama-anime.com/",
-      "original_creator_publisher": "猿渡かざみ「塩対応の佐藤さんが俺にだけ甘い」（小学館「ガガガ文庫」刊）",
-      "director": "Fumihiro Yoshimura",
-      "series_composition": "Takashi Aoshima",
-      "episode_count": "",
-      "total_eps_this_season": "",
-      "seasons_total_ep_cnt": "",
-      "cast": "押尾颯太：石橋陽彩\n佐藤こはる：伊藤美来\n須藤凛香：富田美憂\n三園 蓮：小林千晃\n三園 雫：青山吉能\n根津麻世：金元寿子\n押尾清左衛門：松本保典\n村崎円花：若井友希",
-      "opening_theme": "「シュガーソルト」オーイシマサヨシ",
-      "ending_theme": "「初恋リプライ」HoneyWorks feat.星川サラ",
-      "air_timing": "",
-      "air_date": "2026-10-06"
-    },
-    {
-      "rank": "editor's pick",
-      "trend": "stay",
-      "title": "From Far Away",
-      "jpTitle": "彼方から",
-      "kv": "kanata",
-      "episode": 3,
-      "genre": [
-        "Adventure",
-        "Fantasy",
-        "Romance"
-      ],
-      "wrp_score": 5,
-      "score": 5,
-      "review": {
-        "en": "<strong>Episode #1: Though I Am an Inept Villainess</strong>",
-        "jp": "第1話: ふつつかな悪女ではございますが"
-      },
-      "wrp_breakdown": {
-        "base_score": 5,
-        "animation": 0.3,
-        "script": 0.35,
-        "direction": 0.4,
-        "charm": 0.15,
-        "overall": -1.2
-      },
-      "romanized_title": "Kanata kara",
-      "release_date": "10/4/2026",
-      "based_on": "Manga",
-      "studios": "Studio DEEN",
-      "creators": "Noriyuki Abe",
-      "external_scores": "",
-      "streaming_services": "",
-      "synopsis": "Noriko Tachiki has dreamt of a beautiful fantasy land for some time, though her friends think it is only her imagination. One day, on her way home, Noriko stumbles upon a bomb disguised as a paper bag that explodes right in front of her. However, instead of dying, she is transported to a mysterious forest full of strange plants and creatures.\n\nAs she begins navigating through the woods, Noriko is suddenly attacked by a giant, worm-like monster. Fortunately, she is saved by Izark Kia Tarj, a swordsman who does not speak her language. Lacking the strength to survive on her own, Noriko decides to follow her stoic savior, taking the opportunity to learn the foreign land's language and be more useful to Izark.\n\nUnbeknownst to her, Noriko is a crucial piece of an ancient prophecy. She is \"The Awakening\"—a being destined to unleash the greatest evil known as the \"Sky Demon.\" With influential people plotting to capture Noriko for her supposed powers, both she and Izark must fend for themselves and overcome a future laced with chaos.\n\n[Written by MAL Rewrite]",
-      "studios_ja": "スタジオディーン",
-      "director_ja": "阿部記之",
-      "series_composition_ja": "",
-      "synopsis_ja": "ごく普通の日々を送っていた女子高生・立木典子（たちき のりこ）は、ある朝見た不思議な夢に誘われるように、見知らぬ異世界へと迷い込んでしまう。言葉も常識も通用しないこの世界で、行く当てもなく彷徨う典子を救ったのは、たった一人で旅を続ける渡り戦士・イザークだった。\n時を同じくして、世界中では「破壊をもたらす“天上鬼”を目覚めさせる者が現れる」「どの国よりも早く手に入れろ」と囁かれていた。目覚めとは、そして天上鬼とは何なのか——その答えを知るかのように、イザークは典子を見て呟く。\n「この娘を殺さなければならない」言葉も文化も異なる二人の間には、それでも少しずつ小さな絆が芽生えていく。\nそんな二人は、やがて壮大な運命の渦へと飲み込まれていく——。",
-      "original_creator_publisher_ja": "",
-      "original_creator_publisher_en": "",
-      "broadcast": "",
-      "broadcast_ja": "",
-      "streaming_services_ja": "",
-      "official_website": "https://kanatakara-anime.com/",
-      "original_creator_publisher": "ひかわきょうこ「彼方から」（白泉社）",
-      "director": "Noriyuki Abe",
-      "series_composition": "Rika Takasugi",
-      "episode_count": "",
-      "total_eps_this_season": "",
-      "seasons_total_ep_cnt": "",
-      "cast": "立木典子：黒沢ともよ\nイザーク・キア・タージ：熊谷健太郎\nラチェフ：梅原裕一郎\nケイモス・リー・ゴーダ：竹内栄治\nガーヤ：斉藤貴美子\nゴーリヤ：宮澤正\nアゴル：中野泰佑\nジーナハース：伊藤美来",
-      "opening_theme": "「逃光行」原因は自分にある。",
-      "ending_theme": "「光の側で」名無し之太郎",
-      "air_timing": "",
-      "air_date": "2026-10-04"
-    },
-    {
-      "rank": "dookie",
-      "trend": "up",
-      "title": "The World's Strongest Witch",
-      "jpTitle": "世界最強の魔女、始めました",
-      "kv": "saikyou",
-      "episode": 3,
-      "genre": [
-        "Adventure",
-        "Comedy",
-        "Fantasy"
-      ],
-      "wrp_score": 4.25,
-      "score": 4,
-      "review": {
-        "en": "<strong>Episode #3: Overkill</strong>",
-        "jp": "第3話: 外道 -OVERKILL-"
-      },
-      "wrp_breakdown": {
-        "base_score": 5,
-        "animation": 0.5,
-        "script": 0.3,
-        "direction": 0.3,
-        "charm": 0.2,
-        "overall": -1.5
-      },
-      "romanized_title": "Sekai Saikyou no Majo, Hajimemashita",
-      "release_date": "10/7/2026",
-      "based_on": "Light Novel",
-      "studios": "AisleBridge",
-      "creators": "Joji Furuta",
-      "external_scores": "",
-      "streaming_services": "",
-      "synopsis": "When Lorna manifests a completely useless ability, she's labeled an embarrassment to her family and kicked out of the house. With no money or food, she's about to hit rock bottom. But then, she figures out how to use her supposedly worthless SSS-Rank skill, \"Internet.\" This cheat-level talent gives her the know-how to gather an unlimited amount of valuable items and easily acquire rare equipment. Armed with godlike knowledge, Lorna's free to do anything she wants! If only she could figure out what \"lmfao\" means...\n\n(Source: Yen Press)",
-      "studios_ja": "ブリッジ / アイル",
-      "director_ja": "古田丈司",
-      "series_composition_ja": "米村正二",
-      "synopsis_ja": "最弱クラスのスキルを発現してしまい、追放された少女・ローナ。しかしそのスキルの正体は、この世界の『攻略サイト』を見ることができるＳＳＳランクのチートスキル【インターネット】だった――！自由で平和な生活を求めて旅する“世界最強の魔女”ローナの、ハチャメチャな冒険の日々がついにアニメ化！",
-      "original_creator_publisher_ja": "",
-      "original_creator_publisher_en": "",
-      "broadcast": "TOKYO MX 毎週水曜22:00〜",
-      "broadcast_ja": "",
-      "streaming_services_ja": "",
-      "official_website": "https://sekamajo-anime.com/",
-      "original_creator_publisher": "坂木持丸／riritto（SQEXノベル／スクウェア・エニックス刊）／漫画：戸賀 環",
-      "director": "Joji Furuta",
-      "series_composition": "Shoji Yonemura",
-      "episode_count": "",
-      "total_eps_this_season": "",
-      "seasons_total_ep_cnt": "",
-      "cast": "ローナ・ハーミット：橘 杏咲\nエリミナ・マナフレイム：ファイルーズあい\nエルナ：井上ほの花\nアリエス・ティア・ブルームーン：花澤香菜\nルル・ル・リエー：長縄まりあ\nラインハルテ・ハイウィンド：上村祐翔",
-      "opening_theme": "「影響力∞アイドル」HoneyWorks feat.ハコニワリリィ",
-      "ending_theme": "「星を巡る」ロクデナシ",
-      "air_timing": "",
-      "air_date": "2026-10-07"
     }
   ]
 }
