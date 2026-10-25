@@ -220,6 +220,66 @@ function animebEnsureWeeklyControls() {
     (document.querySelector('.nav-bar') || document.body).after(control);
   }
 }
+
+/* AnimeB v4.32 optional, user-controllable weekly theme selector.
+   Uses browser-local preferences; the JSON, rankings and Excel are untouched. */
+function animebInitWeeklyThemes(){
+  if(document.querySelector('#animeb-theme-controls'))return;
+  const STORE='animeb-weekly-theme-v1', IMG='animeb-weekly-theme-image-v1';
+  let theme='original',url='';
+  try {theme=localStorage.getItem(STORE)||'original';url=localStorage.getItem(IMG)||'';}catch(_){}
+  if(!['original','dark','image'].includes(theme))theme='original';
+  const ctr=document.createElement('div');ctr.id='animeb-theme-controls';ctr.className='animeb-theme-controls';
+  const btn=document.createElement('button');btn.type='button';btn.className='animeb-theme-button';
+  btn.textContent='◐';btn.setAttribute('aria-label','Theme / テーマ切替');
+  btn.setAttribute('aria-expanded','false');btn.setAttribute('aria-controls','animeb-theme-panel');
+  const panel=document.createElement('div');panel.className='animeb-theme-panel';panel.id='animeb-theme-panel';panel.hidden=true;
+  const header=document.createElement('p');header.className='animeb-theme-panel-title';header.textContent='THEME / テーマ';
+  const choices=document.createElement('div');choices.className='animeb-theme-choices';
+  const buttons={};
+  [['original','Original'],['dark','Dark'],['image','Image']].forEach(([id,name])=>{
+    const el=document.createElement('button');el.type='button';el.className='animeb-theme-choice';el.textContent=name;
+    el.dataset.theme=id;el.addEventListener('click',()=>apply(id,true));choices.append(el);buttons[id]=el;
+  });
+  const field=document.createElement('div');field.className='animeb-theme-image-field';
+  const label=document.createElement('label');label.textContent='Background image URL / 背景画像URL';
+  const input=document.createElement('input');input.type='url';input.placeholder='https://…  または images/…';
+  input.value=url;label.appendChild(input);
+  const set=document.createElement('button');set.type='button';set.className='animeb-theme-apply';set.textContent='Apply image / 画像を設定';
+  const message=document.createElement('p');message.className='animeb-theme-message';
+  message.textContent='Theme is saved in this browser. / このブラウザに保存されます。';
+  field.append(label,set);panel.append(header,choices,field,message);ctr.append(btn,panel);
+  const lang=document.querySelector('#animeb-weekly-language');
+  if(lang)lang.before(ctr); else (document.querySelector('.nav-bar')||document.body).after(ctr);
+  const validPath=(v)=>{
+    if(!v)return '';
+    if(/[\\"'\n\r<>]/.test(v))return null;
+    try {const parsed=new URL(v,location.href);if(!['https:','http:'].includes(parsed.protocol))return null;return parsed.href;}
+    catch(_){return null;}
+  };
+  function apply(id,persist){
+    theme=id;document.body.dataset.animebTheme=id;
+    const active=validPath(url);
+    if(active)document.body.style.setProperty('--animeb-theme-photo',`url("${active}")`);
+    else document.body.style.removeProperty('--animeb-theme-photo');
+    Object.entries(buttons).forEach(([key,element])=>element.setAttribute('aria-pressed',String(key===id)));
+    field.hidden=id!=='image';
+    if(persist)try{localStorage.setItem(STORE,id);}catch(_){}
+  }
+  set.addEventListener('click',()=>{
+    const candidate=input.value.trim(),checked=validPath(candidate);
+    if(candidate&&!checked){message.textContent='Use an http(s) image address. / http(s) の画像URLを指定してください。';return;}
+    url=candidate;try{localStorage.setItem(IMG,url)}catch(_){}
+    apply('image',true);
+    message.textContent=url?'Image URL saved. / 背景URLを保存しました。':'No image: gradient background. / 画像なしの背景です。';
+  });
+  btn.addEventListener('click',()=>{panel.hidden=!panel.hidden;btn.setAttribute('aria-expanded',String(!panel.hidden))});
+  document.addEventListener('pointerdown',e=>{if(!ctr.contains(e.target)&&!panel.hidden){panel.hidden=true;btn.setAttribute('aria-expanded','false')}});
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!panel.hidden){panel.hidden=true;btn.setAttribute('aria-expanded','false');btn.focus()}});
+  apply(theme,false);
+}
+animebInitWeeklyThemes();
+
 // The legacy Note 1/2 HTML is retained as the authoritative English version.
 // A Japanese counterpart is mounted only when required, without changing shared-index.html.
 const animebNoteJaGeneral = `
@@ -506,90 +566,151 @@ function animebApplyWeeklyPresentation(meta) {
 
 // v4.29 - Design A. The current season/week header, entries, and score columns are untouched.
 function animebMountRankingCoverage(status, publishedCount) {
-  const getCount = (value) => {
-    if(value === null || value === undefined || String(value).trim()==='') return null;
-    const num=Number(value);
-    return Number.isSafeInteger(num) && num >= 0 ? num : null;
+  const getCount = value => {
+    if(value === undefined || value === null || String(value).trim() === '') return null;
+    const n=Number(value);
+    return Number.isSafeInteger(n) && n >= 0 ? n : null;
   };
-  // Important: do not call legacy 'watching' a rated denominator before its formula
-  // has been checked. The new card is opt-in via new JSON fields only.
+  // Opt in only when explicit rated + lineup counts exist. Do NOT infer from legacy Watching.
   const rated=getCount(status?.ratedThisWeek);
   const lineup=getCount(status?.currentLineup);
   if(rated===null || lineup===null || !Number.isSafeInteger(publishedCount) || publishedCount<=0) return;
   const legacy=document.querySelector('.watch-status');
   const wrapper=document.querySelector('.watch-status-wrapper');
   if(!legacy || !wrapper) return;
-
-  const labels = (en, ja, cls='') => {
-    const el=document.createElement('span');
-    if(cls)el.className=cls;
-    el.dataset.en=en; el.dataset.ja=ja;
-    el.textContent=animebWeeklyLang==='ja'?ja:en;
-    return el;
+  const LANG=() => animebWeeklyLang === 'ja' ? 'ja' : 'en';
+  const text=(en, ja, cls) => {
+    const span=document.createElement('span');
+    if(cls)span.className=cls;
+    span.dataset.en=en;span.dataset.ja=ja;span.textContent=LANG()==='ja'?ja:en;
+    return span;
   };
-  const number = (n,cls='') => {
-    const el=document.createElement('strong');el.textContent=String(n);
-    if(cls)el.className=cls; return el;
+  const count=(n,cls) => {
+    const el=document.createElement('strong');if(cls)el.className=cls;
+    el.textContent=String(n);return el;
   };
-  const modern=document.createElement('section');
-  modern.className='ws-modern';
-  const toggle=document.createElement('button'); toggle.type='button';
-  toggle.className='ws-modern-toggle';toggle.setAttribute('aria-expanded','false');
+  const modern=document.createElement('section');modern.className='ws-modern';
+  const toggle=document.createElement('button');toggle.type='button';toggle.className='ws-modern-toggle';
   toggle.setAttribute('aria-controls','animeb-weekly-coverage-detail');
+  toggle.setAttribute('aria-expanded','false');
   toggle.setAttribute('aria-label','View ranking coverage details');
-  const crown=document.createElement('span');crown.className='ws-modern-crown';
-  crown.setAttribute('aria-hidden','true');crown.textContent='♛';
+  const mark=document.createElement('span');mark.className='ws-modern-crown';mark.setAttribute('aria-hidden','true');
+  mark.innerHTML='<svg viewBox="0 0 32 27" role="presentation" focusable="false"><path d="M3.6 8.5 9.3 16l6.6-11.5L22.7 16l5.8-7.5-2.3 13.2H6L3.6 8.5Zm3.1 16.1h18.6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"/><circle cx="3.6" cy="8.5" r="1.3" fill="currentColor"/><circle cx="15.9" cy="4.5" r="1.3" fill="currentColor"/><circle cx="28.5" cy="8.5" r="1.3" fill="currentColor"/></svg>';
   const hero=document.createElement('span');hero.className='ws-modern-main';
-  hero.append(number(`TOP ${publishedCount} / ${rated}`),labels('RATED THIS WEEK','今週の評価作品'));
-  const sep=document.createElement('span');sep.className='ws-modern-separator';
+  hero.append(count(`TOP ${publishedCount} / ${rated}`),text('RATED THIS WEEK','今週の評価作品'));
+  const divider=document.createElement('span');divider.className='ws-modern-separator';divider.setAttribute('aria-hidden','true');
   const line=document.createElement('span');line.className='ws-modern-lineup';
-  line.append(number(lineup),labels('CURRENT LINEUP','継続評価対象'));
-  const chevron=document.createElement('span');chevron.className='ws-modern-chevron';chevron.setAttribute('aria-hidden','true');chevron.textContent='⌄';
-  toggle.append(crown,hero,sep,line,chevron);
-  modern.append(toggle);
+  line.append(count(lineup),text('CURRENT LINEUP','継続評価対象'));
+  const chevron=document.createElement('span');chevron.className='ws-modern-chevron';chevron.setAttribute('aria-hidden','true');
+  toggle.append(mark,hero,divider,line,chevron);modern.append(toggle);
 
-  const detail=document.createElement('div');detail.id='animeb-weekly-coverage-detail';
-  detail.className='ws-modern-details';detail.hidden=true;
+  const detail=document.createElement('div');detail.id='animeb-weekly-coverage-detail';detail.className='ws-modern-details';detail.hidden=true;
+  const seasonPool=getCount(status?.seasonPool);
+  const initialPool=getCount(status?.initialSeasonPool);
   const metrics=document.createElement('div');metrics.className='ws-modern-metrics';
-  const seasonPool=getCount(status?.seasonPool); // No legacy total fallback: it may mean only Initial Pool.
   const kpis=[
-    ['Season Pool','シーズン候補総数',seasonPool,'pool'],
-    ['Current Lineup','継続評価対象',lineup,'lineup'],
-    ['Rated This Week','今週の評価作品',rated,'rated']
+    { en:'Season Pool', ja:'シーズン候補総数', n:seasonPool, key:'pool' },
+    { en:'Current Lineup', ja:'継続評価対象', n:lineup, key:'lineup' },
+    { en:'Rated This Week', ja:'今週の評価作品', n:rated, key:'rated' }
   ];
-  for(const [en,ja,n,cls] of kpis) {
-    if(n===null)continue;
-    const box=document.createElement('div');box.className='ws-modern-metric ws-modern-metric-'+cls;
-    box.append(number(n),labels(en,ja));metrics.append(box);
+  for(const k of kpis){
+    if(k.n===null)continue;
+    const box=document.createElement('div');box.className='ws-modern-metric ws-modern-metric-'+k.key;
+    box.append(count(k.n),text(k.en,k.ja));
+    if(k.key==='pool' && initialPool!==null){
+      const difference=k.n-initialPool;
+      const sign=difference>0?'+':'';
+      box.append(text(`Initial: ${initialPool}${difference ? `  (${sign}${difference})` : ''}`,`初期: ${initialPool}${difference ? `  (${sign}${difference})` : ''}`,'ws-modern-metric-note'));
+    } else if(k.key==='rated' && lineup>0) {
+      const ratio=(100*k.n/lineup).toFixed(1);
+      box.append(text(`${ratio}% of lineup`,`対象の${ratio}%`,'ws-modern-metric-note'));
+    } else if(k.key==='lineup') {
+      box.append(text('Includes weekly breaks','今週の放送休止を含む','ws-modern-metric-note'));
+    }
+    metrics.append(box);
   }
   detail.append(metrics);
-  const makeGroup=(en,ja,items) => {
-    const valid=items.filter(x=>getCount(status?.[x[0]])!==null);
-    if(!valid.length)return;
-    const group=document.createElement('section');group.className='ws-modern-group';
-    group.append(labels(en,ja,'ws-modern-group-title'));
+
+  const glossary={
+    pool: ['Season Pool is the total number of selected titles, including later additions. It does not shrink when titles are dropped or completed.', 'シーズン候補総数は、途中追加を含む累計の選定作品数です。視聴中止や完結では減りません。'],
+    lineup: ['Current Lineup counts titles targeted for evaluation this week, including titles on a one-week broadcast break. It excludes those not yet airing or previously removed.', '継続評価対象は今週の対象作品数です。今週だけの放送休止は含み、未放送開始や前週までに対象外となった作品は含みません。'],
+    rated: ['Rated This Week counts titles scored for this week’s ranking. It is the denominator in TOP 10 / 27.', '今週の評価作品は、今週ランキング用に採点した作品数。TOP 10 / 27 の分母です。'],
+    seasonHalted: ['No further episodes are planned for this season because broadcasting was halted, deferred or canceled. Ordinary completion is not included.', '今期の続きが中断・延期・中止され、今期中の続話放送がなくなった作品。通常の完結は含みません。'],
+    dropped: ['This week’s exclusion count reflects decisions made in the previous week. Those titles are no longer in the current lineup.', '今週から対象外になった作品数。基本的に前週の判断が今週の対象数に反映されます。'],
+    unrated: ['Titles dropped during this week without receiving a ranking score, whether watched or not. They leave next week’s lineup; this is not necessarily included in this week’s exclusion count.', '今週、ランキング評価を付けずに対象外と決めた作品数。視聴したかどうかは問いません。原則として翌週から対象外になります。'],
+    back: ['This legacy count may combine a return after a broadcast break and the restoration of a previously dropped title.', '従来の混合集計です。放送休止からの復帰と、過去に対象外とした作品の再採用が含まれる場合があります。']
+  };
+  const helpButton=(en,ja,cls='ws-modern-info')=>{
+    const btn=document.createElement('button');btn.type='button';btn.className=cls;
+    btn.setAttribute('aria-label',LANG()==='ja' ? ja:en);
+    btn.title=LANG()==='ja'?ja:en;btn.textContent='ⓘ';return btn;
+  };
+  const helpBar=document.createElement('div');helpBar.className='ws-modern-helpbar';
+  const helpTrigger=helpButton('Explain these counts','数値の意味を説明');
+  helpTrigger.classList.add('ws-modern-help-toggle');helpTrigger.setAttribute('aria-expanded','false');
+  helpBar.append(text('How to read these figures','この数値について','ws-modern-help-caption'),helpTrigger);
+  const helpContent=document.createElement('div');helpContent.className='ws-modern-glossary';helpContent.hidden=true;
+  for(const key of ['rated','lineup','pool','dropped','unrated','seasonHalted','back']){
+    const names={rated:['Rated This Week','今週の評価作品'],lineup:['Current Lineup','継続評価対象'],pool:['Season Pool','シーズン候補総数'],dropped:['Dropped This Week','今週からの対象外'],unrated:['Dropped (Unrated)','未評価での視聴中止'],seasonHalted:['Season Halted','シーズン中断'],back:['Back on List','復帰']};
+    const p=document.createElement('p');p.className='ws-modern-glossary-entry';
+    const b=document.createElement('b');b.append(text(...names[key]));
+    const d=text(...glossary[key]);p.append(b,d);helpContent.append(p);
+  }
+  helpTrigger.addEventListener('click',()=>{
+    helpContent.hidden=!helpContent.hidden;
+    helpTrigger.setAttribute('aria-expanded',String(!helpContent.hidden));
+  });
+  detail.append(helpBar,helpContent);
+  // A compact micro-note appears even when glossary is closed.
+  const note=document.createElement('p');note.className='ws-modern-footnote';
+  note.append(text('Ranking denominator = rated titles. Other counts can overlap and are not meant to add up.', 'ランキングの分母は評価作品数。ほかの項目は重複するため、足し引きで一致するとは限りません。'));
+  detail.append(note);
+  const descriptions={
+    seasonHalted:glossary.seasonHalted,
+    droppedThisWeekUnrated:glossary.unrated,
+    droppedThisWeek:glossary.dropped,
+    backOnList:glossary.back
+  };
+  const group=(headingEn, headingJa, rows) => {
+    const existing=rows.filter(([key])=>getCount(status?.[key])!==null);
+    if(!existing.length)return;
+    const section=document.createElement('section');section.className='ws-modern-group';
+    section.append(text(headingEn,headingJa,'ws-modern-group-title'));
     const grid=document.createElement('div');grid.className='ws-modern-grid';
-    for(const [key,titleEn,titleJa,icon] of valid){
+    for(const [key,en,ja,icon] of existing){
       const row=document.createElement('div');row.className='ws-modern-row';
       const pict=document.createElement('span');pict.className='ws-modern-icon '+icon;pict.setAttribute('aria-hidden','true');
       if(icon==='ws-glyph-added')pict.textContent='+';
-      if(icon==='ws-glyph-deferred')pict.textContent='»';
-      if(icon==='ws-glyph-canceled')pict.textContent='×';
-      row.append(pict,labels(titleEn,titleJa),number(getCount(status[key])));
-      grid.append(row);
+      if(icon==='ws-glyph-halted')pict.textContent='Ⅱ';
+      if(icon==='ws-glyph-unrated')pict.textContent='×';
+      const label=document.createElement('span');label.className='ws-modern-item-label';
+      label.append(text(en,ja));
+      if(descriptions[key]) {
+        const hint=helpButton(...descriptions[key], 'ws-modern-item-info');
+        hint.addEventListener('click',()=>{
+          const msg=LANG()==='ja'?descriptions[key][1]:descriptions[key][0];
+          const other=row.querySelector('.ws-modern-inline-tip');
+          if(other){other.remove();return;}
+          const p=document.createElement('div');p.className='ws-modern-inline-tip';
+          p.dataset.en=descriptions[key][0];p.dataset.ja=descriptions[key][1];p.textContent=msg;
+          row.after(p);
+        });
+        label.append(hint);
+      }
+      row.append(pict,label,count(getCount(status[key])));grid.append(row);
     }
-    group.append(grid);detail.append(group);
+    section.append(grid);detail.insertBefore(section,helpBar);
   };
-  makeGroup('THIS WEEK','今週の変化',[
-    ['startedAiringThisWeek','Started This Week','今週放送開始','icon-startedairing'],
+  group('THIS WEEK · CHANGES','今週の変化',[
+    ['startedAiringThisWeek','Started Airing','今週放送開始','icon-startedairing'],
     ['noAir','No Episode This Week','今週放送なし','icon-noair'],
     ['notAiredYet','Not Aired Yet','未放送（開始前）','icon-notairedyet'],
-    ['addedThisWeek','Added This Week','今週新規追加','ws-glyph-added'],
+    ['addedThisWeek','Added to Pool','今週新規追加','ws-glyph-added'],
     ['droppedThisWeek','Dropped This Week','今週の視聴中止','icon-drop'],
-    ['deferredToAnotherSeason','Deferred to Another Season','他シーズンへ延期','ws-glyph-deferred'],
-    ['canceled','Canceled','放送中止','ws-glyph-canceled']
+    ['droppedThisWeekUnrated','Dropped (Unrated)','未評価で視聴中止','ws-glyph-unrated'],
+    ['seasonHalted','Season Halted','シーズン中断','ws-glyph-halted']
   ]);
-  makeGroup('SEASON / HISTORY','シーズン・累計',[
+  group('SEASON · HISTORY','シーズン・累計',[
     ['completed','Previously Completed','前週までに完結','icon-completed'],
     ['droppedTotal','Total Dropped','視聴中止累計','icon-trash'],
     ['backOnList','Back on List','復帰（混合集計）','icon-back']
@@ -597,10 +718,9 @@ function animebMountRankingCoverage(status, publishedCount) {
   modern.append(detail);
   toggle.addEventListener('click',()=>{
     const open=toggle.getAttribute('aria-expanded')==='true';
-    toggle.setAttribute('aria-expanded',String(!open)); detail.hidden=open;
+    toggle.setAttribute('aria-expanded',String(!open));detail.hidden=open;
     modern.classList.toggle('ws-modern-open',!open);
   });
-  // Replace only this self-contained area; do NOT replace the global page header.
   legacy.replaceWith(modern);wrapper.classList.add('ws-modern-wrapper');
   const intro=document.querySelector('.animeb-weekly-intro:not([hidden])');
   if(intro)intro.before(wrapper);
