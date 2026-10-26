@@ -43,7 +43,39 @@
         "value10": 6,
         "displayScale": 5
       }
-    }
+    },
+    "drop_decisions": [
+      {
+        "title": "Cyberpunk: Edgerunners 2",
+        "jpTitle": "Cyberpunk: Edgerunners 2",
+        "kv": "cyber",
+        "mode": "unrated",
+        "reason": {
+          "en": "I did watch it, but honestly, I wasn't really sure what to make of it, and I figured I didn't need to include it in my rankings. Besides, all the episodes were released at once...\n\nSo, no rating, no review—just a quick goodbye!\n\nOh, but I'll probably still watch all the episodes.",
+          "ja": "視聴はしたんですけど、なんかよくわかんないっていうかランキングの対象にしなくってもいいかなって…思いました。全話一気に公開されてるし・・・。てなわけで評価もレビューも無しでバイナラです。あ、でも全話見ると思います。"
+        }
+      },
+      {
+        "title": "Psyren",
+        "jpTitle": "PSYREN -サイレン-",
+        "kv": "psyren",
+        "mode": "rated",
+        "reason": {
+          "en": "I don't know... It just feels sloppy, or maybe overly simplistic... I imagine the original source material handles things a bit more carefully, but the anime adaptation is pretty underwhelming. And the introduction of that woman who had cleared it before... yeah, that too.\n\nAn occult sci-fi version of *Kaiji*, perhaps?\n\nI really can't justify keeping this one in my rankings, so I've decided to say goodbye right here.",
+          "ja": "なんだろう・・・雑っていうか大雑把っていうか…。原作はもうちょっとちゃんと描いてるんだろうけど、アニメはなんだか微妙です。かつてのクリア者の女性の登場もね。オカルトSF版“カイジ”？評価対象としては厳しいので、ここでお別れ決定です。"
+        }
+      },
+      {
+        "title": "Vertex Force",
+        "jpTitle": "バーテックスフォース",
+        "kv": "vertex",
+        "mode": "rated",
+        "reason": {
+          "en": "I don't dislike it, but... this one feels way too rough around the edges as well. It's disappointing in pretty much every aspect, sometimes just a little, sometimes quite a lot. Even the MC's mech? Equipment? Whatever that thing is, it feels completely out of place...\n\nSo, I've decided to say goodbye to this one after this week.",
+          "ja": "嫌いではないんだけど…これも大雑把過ぎというか、あらゆる面で少しずつというか結構残念な作品。MCのメカ？装備？も浮いてるし…。というわけで今週でお別れです。"
+        }
+      }
+    ]
   },
   "entries": [
     {
