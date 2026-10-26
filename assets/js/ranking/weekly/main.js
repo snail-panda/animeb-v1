@@ -868,6 +868,7 @@ function animebApplyWeeklyLanguage() {
     label.textContent=ja ? (original.startsWith('Final')?'最終WRP（6要素）*':'週間ランキングポイント*') : original;
   });
   animebUpdateWeeklyNotes();
+  animebRefreshDropLanguage();
   if (typeof hideTooltip === 'function') hideTooltip();
   const headerScore=document.querySelector('.table-header-mount .header-totalscore');
   if(headerScore) {
@@ -1229,6 +1230,109 @@ function animebMountRankingCoverage(status, publishedCount) {
   const intro=document.querySelector('.animeb-weekly-intro:not([hidden])');
   if(intro)intro.before(wrapper);
   else document.querySelector('.sub-header')?.after(wrapper);
+}
+
+// v4.38: title-level drop decisions (distinct from the legacy weekly status counters).
+function animebDropKey(title){return String(title||'').normalize('NFKC').toLowerCase().replace(/\s+/g,' ').trim();}
+function animebDropText(en,ja,cls=''){
+  const el=document.createElement('span');if(cls)el.className=cls;
+  el.dataset.en=en;el.dataset.ja=ja;el.textContent=animebWeeklyLang==='ja'?ja:en;return el;
+}
+function animebDropCross(){
+  // The X spans all four corners of the poster; SVG content is constant, not JSON.
+  const layer=document.createElement('span');layer.className='animeb-drop-visual';layer.setAttribute('aria-hidden','true');
+  layer.innerHTML='<svg viewBox="0 0 100 100" preserveAspectRatio="none" focusable="false"><path d="M0 0 L100 100 M100 0 L0 100" fill="none" stroke="rgba(255,255,255,.43)" stroke-width="13"/></svg>';
+  const sticker=document.createElement('span');sticker.className='animeb-drop-sticker';sticker.textContent='DROPPED';
+  layer.appendChild(sticker);return layer;
+}
+function animebDropPortrait(info, mini=false){
+  const box=document.createElement('span');box.className='animeb-drop-poster'+(mini?' animeb-drop-poster-mini':'');
+  const id=String(info.kv||'').trim();
+  if(/^[\w-]+$/.test(id)&&id){
+    const img=document.createElement('img');img.loading='lazy';img.alt='';
+    img.src=`../../../../images/key-visuals/${window.year}/${window.season}/${id}.webp`;
+    img.addEventListener('error',()=>{img.remove();box.classList.add('animeb-drop-poster-missing');});
+    box.append(img);
+  }else box.classList.add('animeb-drop-poster-missing');
+  box.append(animebDropCross());return box;
+}
+function animebMountDroppedTitles(data,clones){
+  const rows=Array.isArray(data?.meta?.drop_decisions)?data.meta.drop_decisions:[];
+  if(!rows.length)return;
+  const entries=Array.isArray(data.entries)?data.entries:[];
+  const decisions=[];const seen=new Set();
+  rows.forEach(row=>{
+    if(!row || typeof row.title!=='string'||!row.title.trim())return;
+    const key=animebDropKey(row.title);if(seen.has(key))return;seen.add(key);
+    const i=entries.findIndex(entry=>animebDropKey(entry.title)===key);
+    const match=i>=0?entries[i]:null;
+    decisions.push({title:match?.title||row.title,jpTitle:match?.jpTitle||row.jpTitle||'',kv:match?.kv||row.kv||'',episode:match?.episode||'',ranked:i>=0,index:i,reason:row.reason||{}});
+  });
+  if(!decisions.length)return;
+  const list=document.querySelector('.entry-list');if(!list)return;
+  const section=document.createElement('section');section.className='animeb-dropped-titles';section.id='animeb-dropped-titles';
+  const heading=document.createElement('div');heading.className='animeb-dropped-heading';
+  const mark=document.createElement('span');mark.className='animeb-dropped-heading-x';mark.textContent='×';mark.setAttribute('aria-hidden','true');
+  heading.append(mark,animebDropText('DROPPED TITLES','今週でさよならする作品','animeb-dropped-heading-title'));
+  const total=document.createElement('span');total.className='animeb-dropped-heading-count';total.textContent=String(decisions.length);
+  heading.append(total);section.append(heading);
+  const explanation=animebDropText('Titles leaving the ranking from next week (including unrated decisions).','来週からランキング対象外になる作品（未評価も含む）。','animeb-dropped-explanation');section.append(explanation);
+  const holder=document.createElement('div');holder.className='animeb-dropped-list';
+  decisions.forEach((decision,index)=>{
+    const card=document.createElement('article');card.className='animeb-dropped-card';card.id=`animeb-drop-card-${index}`;
+    const thumb=animebDropPortrait(decision);
+    const copy=document.createElement('div');copy.className='animeb-dropped-copy';
+    const title=document.createElement('strong');title.className='animeb-dropped-name';
+    title.append(animebDropText(decision.title,decision.jpTitle||decision.title));
+    const sub=decision.jpTitle && decision.jpTitle!==decision.title ? animebDropText(decision.jpTitle,decision.title,'animeb-dropped-alt-title'):null;
+    const flag=animebDropText(decision.ranked?'RATED · Ranked this week':'UNRATED · No score this week',decision.ranked?'評価済み · 今週のランキング掲載':'未評価 · 今週の採点なし','animeb-drop-rating');
+    flag.classList.add(decision.ranked?'is-rated':'is-unrated');
+    copy.append(title);if(sub)copy.append(sub);copy.append(flag);
+    const en=String(decision.reason?.en||'').trim(),ja=String(decision.reason?.ja||'').trim();
+    if(en||ja){const p=document.createElement('p');p.className='animeb-dropped-reason';p.append(animebDropText(en||ja,ja||en));copy.append(p);}
+    if(decision.ranked){const link=document.createElement('a');link.className='animeb-dropped-go';link.href=`#animeb-drop-ranked-${decision.index}`;link.append(animebDropText('View ranked entry ↑','ランキングの作品へ ↑'));copy.append(link);}
+    card.append(thumb,copy);holder.append(card);
+    if(decision.ranked){
+      const clone=clones[decision.index];if(clone){
+        clone.id=`animeb-drop-ranked-${decision.index}`;clone.classList.add('animeb-entry-dropped');
+        const poster=clone.querySelector('.kv-thumb');if(poster){poster.classList.add('animeb-kv-dropped');poster.append(animebDropCross());}
+        const info=clone.querySelector('.more-info');
+        if(info){const note=document.createElement('div');note.className='animeb-drop-more-notice';
+          const strong=document.createElement('strong');strong.append(animebDropText('DROPPED THIS WEEK','今週で対象外にしました'));
+          note.append(strong);
+          if(en||ja){const p=document.createElement('p');p.append(animebDropText(en||ja,ja||en));note.append(p);}
+          info.prepend(note);
+        }
+      }
+    }
+  });
+  section.append(holder);list.after(section);
+  // The viewing-status panel is a separate navigation surface; the existing metrics remain unchanged.
+  const status=document.querySelector('.ws-modern-details');
+  if(status){
+    const group=document.createElement('section');group.className='ws-modern-group animeb-drop-status-group';
+    const head=document.createElement('div');head.className='animeb-drop-status-header';
+    const label=animebDropText('DECIDED TO DROP THIS WEEK','今週対象外にすると決めた作品','ws-modern-group-title');
+    const count=document.createElement('strong');count.textContent=String(decisions.length);
+    const go=document.createElement('a');go.href='#animeb-dropped-titles';go.className='animeb-drop-status-jump';go.setAttribute('aria-label','Go to Dropped Titles / Dropped Titlesへ移動');go.textContent='›';
+    head.append(label,count,go);group.append(head);
+    const thumbs=document.createElement('div');thumbs.className='animeb-drop-status-thumbs';
+    decisions.forEach((decision,index)=>{
+      const a=document.createElement('a');a.className='animeb-drop-status-link';a.href=decision.ranked?`#animeb-drop-ranked-${decision.index}`:`#animeb-drop-card-${index}`;
+      a.append(animebDropPortrait(decision,true));
+      const name=animebDropText(decision.title,decision.jpTitle||decision.title,'animeb-drop-status-name');a.append(name);
+      a.title=(decision.jpTitle||decision.title)+' · '+(decision.ranked?'RATED':'UNRATED');thumbs.append(a);
+    });
+    group.append(thumbs);
+    const helpbar=status.querySelector('.ws-modern-helpbar');if(helpbar)status.insertBefore(group,helpbar);else status.append(group);
+  }
+  // Language switching updates every new label without re-rendering the page.
+  animebRefreshDropLanguage();
+}
+function animebRefreshDropLanguage(){
+  document.querySelectorAll('.animeb-dropped-titles [data-en][data-ja], .animeb-drop-status-group [data-en][data-ja], .animeb-drop-more-notice [data-en][data-ja]').forEach(el=>{
+    el.textContent=animebWeeklyLang==='ja'?el.dataset.ja:el.dataset.en;
+  });
 }
 
 // ========== JSON読み込み & DOM更新 =========
@@ -1798,6 +1902,7 @@ if (reviewAnchor) {
     // v4.29 DESIGN A (optional / backwards-compatible): the new card appears ONLY
     // when Converter JSON provides both verified values. Old articles stay unchanged.
     animebMountRankingCoverage(data.meta.status, Array.isArray(data.entries) ? data.entries.filter(e => typeof e.rank === "number").length : 0);
+    animebMountDroppedTitles(data, clones);
     animebApplyWeeklyLanguage();
     adjustScoreBars();
     setTimeout(() => {

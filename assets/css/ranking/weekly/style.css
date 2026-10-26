@@ -3060,3 +3060,84 @@ body[data-animeb-theme="dark"] .entry .more-info a,
 body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .entry .more-info a {
   color:#a7cfe0 !important;
 }
+
+
+/* === AnimeB v4.38 — Weekly Drop Decisions (opt-in: meta.drop_decisions only) === */
+.animeb-kv-dropped { isolation:isolate; }
+.animeb-kv-dropped > img:hover { transform:none; }
+.animeb-drop-visual { position:absolute;inset:0;display:block;pointer-events:none;z-index:3;overflow:hidden;border-radius:2px; }
+.animeb-drop-visual svg {display:block;position:absolute;inset:0;width:100%;height:100%;pointer-events:none;}
+/* Clear the rank/trend top-left and Ep.N bottom-right: sticker belongs at bottom-left. */
+.animeb-kv-dropped .rank-wrapper {z-index:5;}
+.animeb-kv-dropped .title-ep {z-index:5;}
+.animeb-drop-sticker {position:absolute;bottom:17%;left:-6%;display:inline-block;background:#c7283f;color:#fff;
+  font:900 clamp(9px,1.6vw,13px)/1 'Arial Narrow','Anton',Impact,sans-serif;letter-spacing:.055em;
+  padding:.38em .67em .4em;transform:rotate(-13deg);box-shadow:0 2px 5px #0005;white-space:nowrap;
+  text-shadow:0 1px 1px #50101a66;}
+.animeb-dropped-titles {max-width:100%;box-sizing:border-box;margin:22px 0 28px;padding:16px 18px 12px;
+  border:1px solid #dfc4c8;border-radius:14px;background:rgba(255,253,244,.95);color:#393137;
+  box-shadow:0 5px 18px rgba(0,0,0,.06);scroll-margin-top:80px;}
+.animeb-dropped-heading{display:flex;align-items:center;gap:10px;padding-bottom:7px;border-bottom:1px solid #e6d4d4;}
+.animeb-dropped-heading-x{display:grid;place-items:center;border-radius:3px;background:#b43d62;color:white;font:800 1.5rem/1 system-ui;width:28px;height:28px;}
+.animeb-dropped-heading-title{font:800 clamp(1.12rem,2.6vw,1.46rem)/1.15 'Anton',system-ui,sans-serif;letter-spacing:.015em;color:#8c3148;}
+.animeb-dropped-heading-count{margin-left:auto;border-radius:99px;background:#f4dde4;color:#8c3148;padding:2px 11px;font:700 .84rem system-ui;}
+.animeb-dropped-explanation{display:block;margin:9px 0;color:#77636b;font:400 .83rem/1.4 system-ui;}
+.animeb-dropped-card{display:grid;grid-template-columns:88px minmax(0,1fr);gap:12px;align-items:center;padding:13px 3px;border-top:1px solid #eee0e1;scroll-margin-top:80px;}
+.animeb-drop-poster{display:block;position:relative;width:88px;aspect-ratio:4/5;border-radius:4px;overflow:hidden;background:#e5ddd9;box-shadow:0 2px 5px #0002;}
+.animeb-drop-poster img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+.animeb-drop-poster .animeb-drop-sticker{font-size:9px;bottom:14%;left:-5%;}
+.animeb-drop-poster-missing{background:linear-gradient(145deg,#d3d7d2,#9a9b9f);}
+.animeb-drop-poster-missing::before{content:'NO KV';position:absolute;inset:0;display:grid;place-items:center;font:700 .8rem system-ui;letter-spacing:.09em;color:#fff8;}
+.animeb-dropped-copy{min-width:0;}
+.animeb-dropped-name{display:block;font:750 1rem/1.3 system-ui,sans-serif;color:#342d34;overflow-wrap:anywhere;}
+.animeb-dropped-alt-title{display:block;font:700 .79rem/1.3 system-ui;color:#897b7e;margin-top:3px;overflow-wrap:anywhere;}
+.animeb-drop-rating{display:inline-block;margin:6px 0 0;padding:3px 9px;border-radius:99px;font:700 .72rem/1.3 system-ui;}
+.animeb-drop-rating.is-unrated{background:#f7d9e3;color:#9a3b61;}
+.animeb-drop-rating.is-rated{background:#dcece6;color:#376e5e;}
+.animeb-dropped-reason{font:400 .87rem/1.48 system-ui;margin:7px 0 2px;color:#524951;white-space:pre-line;overflow-wrap:anywhere;}
+.animeb-dropped-go{display:inline-block;font:700 .75rem/1.5 system-ui;margin:6px 0 0;color:#97607a;text-decoration:underline;text-underline-offset:3px;}
+.animeb-drop-more-notice{border:1px solid #b35a7f;border-radius:8px;background:rgba(176,63,104,.085);color:#c4769b;
+  margin:8px 0 13px;padding:10px 12px;font:500 .85rem/1.5 system-ui;text-transform:none;}
+.animeb-drop-more-notice strong{display:block;color:#b25a7d;font-weight:800;}
+.animeb-drop-more-notice p{margin:4px 0 0;white-space:pre-line;}
+.animeb-drop-status-header{display:flex;align-items:center;gap:8px;margin:2px 0 10px;}
+.animeb-drop-status-header .ws-modern-group-title{margin-right:auto;}
+.animeb-drop-status-header strong{font:800 1.1rem system-ui;color:#b34b73;}
+.animeb-drop-status-jump{display:grid;place-items:center;width:30px;height:30px;border:1px solid #d2d7cf;border-radius:50%;
+  color:#49736d;background:#f3f7f2;font:700 1.6rem/1 system-ui;text-decoration:none;}
+.animeb-drop-status-thumbs{display:flex;gap:12px;overflow-x:auto;padding:2px 1px 10px;scrollbar-width:thin;}
+.animeb-drop-status-link{display:flex;flex-direction:column;gap:5px;flex:0 0 77px;min-width:0;text-decoration:none;color:inherit;align-items:center;}
+.animeb-drop-poster-mini{width:66px;}
+.animeb-drop-poster-mini .animeb-drop-sticker{font-size:7px;}
+.animeb-drop-status-name{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden;
+  max-width:100%;height:2.7em;text-align:center;font:600 .68rem/1.3 system-ui;overflow-wrap:anywhere;}
+.animeb-entry-dropped{scroll-margin-top:80px;}
+/* Dark is the real theme; the background image remains optional. */
+body[data-animeb-theme='dark'] .animeb-dropped-titles,
+body[data-animeb-image-tone='dark'][data-animeb-theme='image'] .animeb-dropped-titles,
+body.animeb-theme-dark .animeb-dropped-titles{background:#14242beF;border-color:#39515a;color:#f0e8e8;}
+body[data-animeb-theme='dark'] .animeb-dropped-name,
+body[data-animeb-image-tone='dark'][data-animeb-theme='image'] .animeb-dropped-name,
+body.animeb-theme-dark .animeb-dropped-name{color:#f0edef;}
+body[data-animeb-theme='dark'] .animeb-dropped-reason,
+body[data-animeb-image-tone='dark'][data-animeb-theme='image'] .animeb-dropped-reason,
+body.animeb-theme-dark .animeb-dropped-reason{color:#ddc3d1;}
+body[data-animeb-theme='dark'] .animeb-dropped-alt-title,
+body[data-animeb-image-tone='dark'][data-animeb-theme='image'] .animeb-dropped-alt-title,
+body.animeb-theme-dark .animeb-dropped-alt-title{color:#dab5c6;}
+body[data-animeb-theme='dark'] .animeb-dropped-explanation,
+body[data-animeb-image-tone='dark'][data-animeb-theme='image'] .animeb-dropped-explanation,
+body.animeb-theme-dark .animeb-dropped-explanation{color:#d5b8c4;}
+body[data-animeb-theme='dark'] .animeb-dropped-heading-title,
+body[data-animeb-image-tone='dark'][data-animeb-theme='image'] .animeb-dropped-heading-title,
+body.animeb-theme-dark .animeb-dropped-heading-title{color:#eac4d3;}
+@media(max-width:450px){
+  .animeb-dropped-titles{margin:18px 9px 24px;padding:13px 12px;}
+  .animeb-dropped-card{grid-template-columns:76px minmax(0,1fr);gap:9px;}
+  .animeb-drop-poster{width:76px;}
+  .animeb-drop-poster-mini{width:62px;}
+  .animeb-drop-status-link{flex-basis:72px;}
+  .animeb-dropped-name{font-size:.93rem;}
+  .animeb-dropped-reason{font-size:.8rem;}
+  .animeb-kv-dropped .animeb-drop-sticker{font-size:10px;}
+}
