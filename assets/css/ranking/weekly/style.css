@@ -3103,7 +3103,7 @@ body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .entry .more-info
 .animeb-drop-status-header{display:flex;align-items:center;gap:8px;margin:2px 0 10px;}
 .animeb-drop-status-header .ws-modern-group-title{margin-right:auto;}
 .animeb-drop-status-header strong{font:800 1.1rem system-ui;color:#b34b73;}
-.animeb-drop-status-jump{display:grid;place-items:center;width:30px;height:30px;border:1px solid #d2d7cf;border-radius:50%;
+.animeb-drop-status-jump{display:grid;place-items:center;width:25px;height:25px;border:1px solid #d2d7cf;border-radius:50%;
   color:#49736d;background:#f3f7f2;font:700 1.6rem/1 system-ui;text-decoration:none;}
 .animeb-drop-status-thumbs{display:flex;gap:12px;overflow-x:auto;padding:2px 1px 10px;scrollbar-width:thin;}
 .animeb-drop-status-link{display:flex;flex-direction:column;gap:5px;flex:0 0 77px;min-width:0;text-decoration:none;color:inherit;align-items:center;}
@@ -3181,16 +3181,21 @@ body[data-animeb-theme="dark"] .ws-modern-metric-rated .ws-modern-metric-note,
 body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .ws-modern-metric-rated .ws-modern-metric-note{color:#dec3cc;}
 /* Center the status jump chevron geometrically instead of depending on the
    font glyph › (whose shape sits off-center in iOS fonts). */
+/* Match the 25px Viewing Status toggle badge. The link retains a text glyph
+   for fallback/accessibility, but the visible arrow is positioned absolutely:
+   a 0-size glyph must not become a second grid item and displace the arrow. */
 .animeb-drop-status-jump{
   position:relative;font-size:0;line-height:0;
-  flex:0 0 30px;
+  width:25px;height:25px;flex:0 0 25px;
+  padding:0;box-sizing:border-box;
 }
 .animeb-drop-status-jump::after{
-  content:"";display:block;width:9px;height:9px;
-  border-right:2.5px solid currentColor;
-  border-top:2.5px solid currentColor;
-  border-radius:1px;
-  transform:translateX(-2px) rotate(45deg);
+  content:"";display:block;position:absolute;
+  left:50%;top:50%;width:8px;height:8px;
+  border-right:2px solid currentColor;
+  border-top:2px solid currentColor;
+  border-radius:.5px;
+  transform:translate(-63%,-50%) rotate(45deg);
 }
 /* Secondary title has the same neutral text family as the main title.
    Body copy keeps only a very slight rose hint rather than solid pink. */
