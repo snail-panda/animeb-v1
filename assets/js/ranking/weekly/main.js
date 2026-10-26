@@ -1373,9 +1373,13 @@ function animebMountDroppedTitles(data,clones){
   rows.forEach(row=>{
     if(!row || typeof row.title!=='string'||!row.title.trim())return;
     const key=animebDropKey(row.title);if(seen.has(key))return;seen.add(key);
-    const i=entries.findIndex(entry=>animebDropKey(entry.title)===key);
+    const rowKv=String(row.kv||'').trim();
+    const i=entries.findIndex(entry=>animebDropKey(entry.title)===key || (rowKv && String(entry.kv||'').trim()===rowKv));
     const match=i>=0?entries[i]:null;
-    decisions.push({title:match?.title||row.title,jpTitle:match?.jpTitle||row.jpTitle||'',kv:match?.kv||row.kv||'',episode:match?.episode||'',ranked:i>=0,index:i,reason:row.reason||{}});
+    // Rated/Unrated is an explicit drop decision, not a consequence of current ranking inclusion.
+    // Legacy JSON without a mode falls back to the old inclusion-based heuristic.
+    const ratingMode=['rated','unrated'].includes(row.mode)?row.mode:(i>=0?'rated':'unrated');
+    decisions.push({title:match?.title||row.title,jpTitle:match?.jpTitle||row.jpTitle||'',kv:match?.kv||row.kv||'',episode:match?.episode||'',ranked:i>=0,ratingMode,index:i,reason:row.reason||{}});
   });
   if(!decisions.length)return;
   const list=document.querySelector('.entry-list');if(!list)return;
@@ -1394,8 +1398,9 @@ function animebMountDroppedTitles(data,clones){
     const title=document.createElement('strong');title.className='animeb-dropped-name';
     title.append(animebDropText(decision.title,decision.jpTitle||decision.title));
     const sub=decision.jpTitle && decision.jpTitle!==decision.title ? animebDropText(decision.jpTitle,decision.title,'animeb-dropped-alt-title'):null;
-    const flag=animebDropText(decision.ranked?'RATED · Ranked this week':'UNRATED · No score this week',decision.ranked?'評価済み · 今週のランキング掲載':'未評価 · 今週の採点なし','animeb-drop-rating');
-    flag.classList.add(decision.ranked?'is-rated':'is-unrated');
+    const isRated=decision.ratingMode==='rated';
+    const flag=animebDropText(isRated?(decision.ranked?'RATED · Ranked this week':'RATED · Scored this week (not ranked)'):'UNRATED · No score this week',isRated?(decision.ranked?'評価済み · 今週のランキング掲載':'評価済み · 今週のランキング掲載なし'):'未評価 · 今週の採点なし','animeb-drop-rating');
+    flag.classList.add(isRated?'is-rated':'is-unrated');
     copy.append(title);if(sub)copy.append(sub);copy.append(flag);
     const en=String(decision.reason?.en||'').trim(),ja=String(decision.reason?.ja||'').trim();
     if(en||ja){const p=document.createElement('p');p.className='animeb-dropped-reason';p.append(animebDropText(en||ja,ja||en));copy.append(p);}
@@ -1430,7 +1435,7 @@ function animebMountDroppedTitles(data,clones){
       const a=document.createElement('a');a.className='animeb-drop-status-link';a.href=decision.ranked?`#animeb-drop-ranked-${decision.index}`:`#animeb-drop-card-${index}`;
       a.append(animebDropPortrait(decision,true));
       const name=animebDropText(decision.title,decision.jpTitle||decision.title,'animeb-drop-status-name');a.append(name);
-      a.title=(decision.jpTitle||decision.title)+' · '+(decision.ranked?'RATED':'UNRATED');thumbs.append(a);
+      a.title=(decision.jpTitle||decision.title)+' · '+(decision.ratingMode==='rated'?'RATED':'UNRATED');thumbs.append(a);
     });
     group.append(thumbs);
     const helpbar=status.querySelector('.ws-modern-helpbar');if(helpbar)status.insertBefore(group,helpbar);else status.append(group);
