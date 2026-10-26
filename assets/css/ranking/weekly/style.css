@@ -3141,3 +3141,62 @@ body.animeb-theme-dark .animeb-dropped-heading-title{color:#eac4d3;}
   .animeb-dropped-reason{font-size:.8rem;}
   .animeb-kv-dropped .animeb-drop-sticker{font-size:10px;}
 }
+
+/* === v4.38.1 — iPhone feedback polish; keep all v4.38 data/links intact. ===
+   The poster-list X stays at v4.38 strength. Only RANKED posters get
+   a modestly stronger white X, between the faint live v4.38 and the mockup. */
+.animeb-kv-dropped .animeb-drop-visual svg path{
+  stroke:rgba(255,255,255,.60);
+}
+/* The old left:-6% cropped DROPPED inside the overflow-hidden poster.
+   Keep a smaller sticker entirely within the ranked key visual. */
+.animeb-kv-dropped .animeb-drop-sticker{
+  left:9%;bottom:17%;
+  font-size:10px;
+}
+@media(max-width:450px){
+  .animeb-kv-dropped .animeb-drop-sticker{font-size:9px;left:9%;}
+}
+/* In dark themes, restore the familiar light rank corner and ink for 4+.
+   Top 1–3 keep gold/silver/bronze; image badges (Dookie, etc.) keep theirs. */
+body[data-animeb-theme="dark"] .kv-thumb .rank-wrapper:has(.rank-number:not(.rank-number-first):not(.rank-number-second):not(.rank-number-third):not(:has(img))),
+body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .kv-thumb .rank-wrapper:has(.rank-number:not(.rank-number-first):not(.rank-number-second):not(.rank-number-third):not(:has(img))){
+  background:#ffffed;color:#505451;
+}
+body[data-animeb-theme="dark"] .kv-thumb .rank-number:not(.rank-number-first):not(.rank-number-second):not(.rank-number-third):not(:has(img)),
+body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .kv-thumb .rank-number:not(.rank-number-first):not(.rank-number-second):not(.rank-number-third):not(:has(img)){
+  color:#505451;
+}
+/* Bottom line of the 3 Viewing Status metrics: readable but subdued,
+   with a faint cool/green/rose echo of each card's own headline color. */
+body[data-animeb-theme="dark"] .ws-modern-metric-note,
+body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .ws-modern-metric-note{
+  opacity:1;
+}
+body[data-animeb-theme="dark"] .ws-modern-metric-pool .ws-modern-metric-note,
+body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .ws-modern-metric-pool .ws-modern-metric-note{color:#b4cbd6;}
+body[data-animeb-theme="dark"] .ws-modern-metric-lineup .ws-modern-metric-note,
+body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .ws-modern-metric-lineup .ws-modern-metric-note{color:#b8d2c3;}
+body[data-animeb-theme="dark"] .ws-modern-metric-rated .ws-modern-metric-note,
+body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .ws-modern-metric-rated .ws-modern-metric-note{color:#dec3cc;}
+/* Center the status jump chevron geometrically instead of depending on the
+   font glyph › (whose shape sits off-center in iOS fonts). */
+.animeb-drop-status-jump{
+  position:relative;font-size:0;line-height:0;
+  flex:0 0 30px;
+}
+.animeb-drop-status-jump::after{
+  content:"";display:block;width:9px;height:9px;
+  border-right:2.5px solid currentColor;
+  border-top:2.5px solid currentColor;
+  border-radius:1px;
+  transform:translateX(-2px) rotate(45deg);
+}
+/* Secondary title has the same neutral text family as the main title.
+   Body copy keeps only a very slight rose hint rather than solid pink. */
+body[data-animeb-theme="dark"] .animeb-dropped-alt-title,
+body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .animeb-dropped-alt-title,
+body.animeb-theme-dark .animeb-dropped-alt-title{color:#e0e3e3;}
+body[data-animeb-theme="dark"] .animeb-dropped-reason,
+body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .animeb-dropped-reason,
+body.animeb-theme-dark .animeb-dropped-reason{color:#e0d5da;}
