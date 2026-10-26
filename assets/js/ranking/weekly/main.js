@@ -1232,6 +1232,115 @@ function animebMountRankingCoverage(status, publishedCount) {
   else document.querySelector('.sub-header')?.after(wrapper);
 }
 
+// AnimeB v4.38.2 — One full-screen key-visual viewer for all weekly ranked
+// titles, including DROPPED posters, and for the Dropped Titles list.
+// We display the source <img> in a separate layer: the source rank/episode
+// badges and its DROPPED X/sticker are never detached or mutated.
+function animebSetupKeyVisualViewer(){
+  if(document.getElementById('animeb-kv-lightbox'))return;
+
+  const sources=document.querySelectorAll('.entry-list .kv-thumb, .animeb-dropped-list .animeb-drop-poster');
+  if(!sources.length)return;
+  sources.forEach(thumb=>{
+    const photo=thumb.querySelector(':scope > img');
+    if(!photo || !photo.getAttribute('src'))return;
+    const entry=thumb.closest('.entry');
+    const dropCard=thumb.closest('.animeb-dropped-card');
+    const title=(entry?.querySelector('.info-top')?.textContent || dropCard?.querySelector('.animeb-dropped-name')?.textContent || photo.alt || '').trim();
+    thumb.classList.add('animeb-kv-view-trigger');
+    thumb.setAttribute('role','button');
+    thumb.setAttribute('tabindex','0');
+    thumb.setAttribute('aria-label',`View large key visual: ${title || 'anime'} / キービジュアルを拡大`);
+  });
+
+  const viewer=document.createElement('div');
+  viewer.id='animeb-kv-lightbox';
+  viewer.className='animeb-kv-lightbox';
+  viewer.hidden=true;
+  viewer.innerHTML=`
+    <div class="animeb-kv-lightbox-backdrop" data-kv-close="1"></div>
+    <section class="animeb-kv-lightbox-dialog" role="dialog" aria-modal="true" aria-label="Key visual / キービジュアル">
+      <button class="animeb-kv-lightbox-close" type="button" data-kv-close="1" aria-label="Close image / 画像を閉じる">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M5 5l14 14M19 5L5 19"/></svg>
+      </button>
+      <figure class="animeb-kv-lightbox-figure">
+        <img class="animeb-kv-lightbox-photo" alt="" data-kv-close="1">
+        <figcaption class="animeb-kv-lightbox-caption"></figcaption>
+      </figure>
+    </section>`;
+  document.body.append(viewer);
+  const fullPhoto=viewer.querySelector('.animeb-kv-lightbox-photo');
+  const caption=viewer.querySelector('.animeb-kv-lightbox-caption');
+  const closeButton=viewer.querySelector('.animeb-kv-lightbox-close');
+  let lastFocus=null;
+  let previousScroll=0;
+  let savedBody=null;
+  let savedRootOverflow='';
+
+  function close(){
+    if(viewer.hidden)return;
+    viewer.hidden=true;
+    fullPhoto.removeAttribute('src');
+    fullPhoto.alt='';
+    caption.textContent='';
+    if(savedBody){
+      for(const [name,value] of Object.entries(savedBody))document.body.style[name]=value;
+      savedBody=null;
+    }
+    document.documentElement.style.overflow=savedRootOverflow;
+    window.scrollTo(0,previousScroll);
+    if(lastFocus?.isConnected)lastFocus.focus({preventScroll:true});
+    lastFocus=null;
+  }
+  function open(thumb){
+    const photo=thumb.querySelector(':scope > img');
+    if(!photo || !photo.getAttribute('src'))return;
+    // Do not use a screenshot of the thumbnail; reuse the unmodified image URL.
+    const src=photo.currentSrc || photo.src;
+    const title=(thumb.closest('.entry')?.querySelector('.info-top')?.textContent ||
+      thumb.closest('.animeb-dropped-card')?.querySelector('.animeb-dropped-name')?.textContent || photo.alt || '').trim();
+    lastFocus=thumb;
+    previousScroll=window.scrollY;
+    savedRootOverflow=document.documentElement.style.overflow;
+    savedBody={position:document.body.style.position,top:document.body.style.top,
+      left:document.body.style.left,right:document.body.style.right,
+      width:document.body.style.width,overflow:document.body.style.overflow};
+    // Safari needs a fixed-body scroll lock so the article does not drift.
+    document.documentElement.style.overflow='hidden';
+    document.body.style.position='fixed';
+    document.body.style.top=`-${previousScroll}px`;
+    document.body.style.left='0';
+    document.body.style.right='0';
+    document.body.style.width='100%';
+    document.body.style.overflow='hidden';
+    fullPhoto.src=src;
+    fullPhoto.alt=photo.alt || title;
+    caption.textContent=title;
+    viewer.hidden=false;
+    closeButton.focus({preventScroll:true});
+  }
+  document.addEventListener('click',event=>{
+    if(!viewer.hidden)return; // Viewer controls are handled on the viewer itself.
+    const thumb=event.target.closest?.('.animeb-kv-view-trigger');
+    if(!thumb || !thumb.contains(event.target))return;
+    event.preventDefault();event.stopPropagation();open(thumb);
+  },true);
+  document.addEventListener('keydown',event=>{
+    if(!viewer.hidden){
+      if(event.key==='Escape'){event.preventDefault();close();}
+      else if(event.key==='Tab'){event.preventDefault();closeButton.focus({preventScroll:true});}
+      return;
+    }
+    if(event.key!=='Enter'&&event.key!==' ')return;
+    const thumb=event.target.closest?.('.animeb-kv-view-trigger');
+    if(!thumb)return;
+    event.preventDefault();open(thumb);
+  },true);
+  viewer.addEventListener('click',event=>{
+    if(event.target===viewer || event.target.closest?.('[data-kv-close]')){event.preventDefault();close();}
+  });
+}
+
 // v4.38: title-level drop decisions (distinct from the legacy weekly status counters).
 function animebDropKey(title){return String(title||'').normalize('NFKC').toLowerCase().replace(/\s+/g,' ').trim();}
 function animebDropText(en,ja,cls=''){
@@ -1903,6 +2012,7 @@ if (reviewAnchor) {
     // when Converter JSON provides both verified values. Old articles stay unchanged.
     animebMountRankingCoverage(data.meta.status, Array.isArray(data.entries) ? data.entries.filter(e => typeof e.rank === "number").length : 0);
     animebMountDroppedTitles(data, clones);
+    animebSetupKeyVisualViewer();
     animebApplyWeeklyLanguage();
     adjustScoreBars();
     setTimeout(() => {

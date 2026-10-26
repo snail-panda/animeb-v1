@@ -3200,3 +3200,113 @@ body.animeb-theme-dark .animeb-dropped-alt-title{color:#e0e3e3;}
 body[data-animeb-theme="dark"] .animeb-dropped-reason,
 body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .animeb-dropped-reason,
 body.animeb-theme-dark .animeb-dropped-reason{color:#e0d5da;}
+
+
+/* === AnimeB v4.38.2 — centered, clean key-visual viewing ===
+   Ranked posters and the Dropped Titles list open the ORIGINAL image;
+   the original row retains all rank, episode and DROPPED decorations. */
+.kv-thumb.animeb-kv-view-trigger,
+.animeb-drop-poster.animeb-kv-view-trigger{
+  cursor:zoom-in;
+  -webkit-tap-highlight-color:transparent;
+}
+.kv-thumb.animeb-kv-view-trigger:focus-visible,
+.animeb-drop-poster.animeb-kv-view-trigger:focus-visible{
+  outline:3px solid #70b3a9;
+  outline-offset:3px;
+}
+/* Retire legacy 150% inline-hover scaling on iPhone and desktop. */
+.kv-thumb > img,
+.kv-thumb > img:hover{
+  transform:none !important;
+  position:static !important;
+  box-shadow:1px 1.2px 2px rgba(0,0,0,.35);
+  transition:none !important;
+  will-change:auto;
+}
+.animeb-kv-lightbox[hidden]{display:none !important;}
+.animeb-kv-lightbox{
+  position:fixed;
+  inset:0;
+  z-index:2147483000;
+  display:grid;
+  place-items:center;
+  padding:calc(env(safe-area-inset-top,0px) + 10px) 12px calc(env(safe-area-inset-bottom,0px) + 10px);
+  isolation:isolate;
+}
+.animeb-kv-lightbox-backdrop{
+  position:absolute;
+  inset:0;
+  background:rgba(8,16,22,.91);
+  -webkit-backdrop-filter:blur(4px);
+  backdrop-filter:blur(4px);
+}
+.animeb-kv-lightbox-dialog{
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  max-width:100%;
+  max-height:100%;
+  outline:none;
+}
+.animeb-kv-lightbox-figure{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:10px;
+  width:auto;
+  max-width:100%;
+  margin:0;
+}
+.animeb-kv-lightbox-photo{
+  display:block;
+  width:min(90vw,700px);
+  height:auto;
+  max-width:100%;
+  max-height:calc(100vh - 126px);
+  max-height:calc(100dvh - 126px);
+  object-fit:contain;
+  border-radius:5px;
+  box-shadow:0 10px 36px rgba(0,0,0,.55);
+  cursor:zoom-out;
+}
+.animeb-kv-lightbox-caption{
+  font:500 .82rem/1.35 system-ui,sans-serif;
+  color:#f2eae5;
+  max-width:min(90vw,700px);
+  text-align:center;
+  text-shadow:0 1px 2px #000a;
+  overflow-wrap:anywhere;
+}
+.animeb-kv-lightbox-close{
+  position:absolute;
+  z-index:2;
+  top:-12px;
+  right:-12px;
+  display:grid;
+  place-items:center;
+  width:40px;
+  height:40px;
+  padding:0;
+  border:1px solid rgba(255,255,255,.32);
+  border-radius:50%;
+  background:#243238;
+  color:#fff;
+  box-shadow:0 3px 12px #0008;
+  cursor:pointer;
+}
+.animeb-kv-lightbox-close:hover,
+.animeb-kv-lightbox-close:focus-visible{
+  background:#425b63;
+  outline:2px solid #e2edf0;
+  outline-offset:2px;
+}
+@media(max-width:450px){
+  .animeb-kv-lightbox-photo{width:90vw;}
+  .animeb-kv-lightbox-close{right:-3px;top:-17px;width:38px;height:38px;}
+}
+@media(prefers-reduced-motion:reduce){
+  .animeb-kv-lightbox *, .animeb-kv-lightbox *::before,
+  .animeb-kv-lightbox *::after{animation:none !important;transition:none !important;}
+}
