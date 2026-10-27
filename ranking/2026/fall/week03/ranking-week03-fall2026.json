@@ -51,7 +51,7 @@
         "kv": "cyber",
         "mode": "unrated",
         "reason": {
-          "en": "I did watch it, but honestly, I wasn't really sure what to make of it, and I figured I didn't need to include it in my rankings. Besides, all the episodes were released at once...\n\nSo, no rating, no review—just a quick goodbye!\n\nOh, but I'll probably still watch all the episodes.",
+          "en": "I did watch it, but honestly, I wasn't really sure what to make of it, and I figured I didn't need to include it in my rankings. Besides, all the episodes were released at once...\n\nSo, no rating, no review—just a quick goodbye! Oh, but I'll probably still watch all the episodes.",
           "ja": "視聴はしたんですけど、なんかよくわかんないっていうかランキングの対象にしなくってもいいかなって…思いました。全話一気に公開されてるし・・・。てなわけで評価もレビューも無しでバイナラです。あ、でも全話見ると思います。"
         }
       },
@@ -61,7 +61,7 @@
         "kv": "psyren",
         "mode": "rated",
         "reason": {
-          "en": "I don't know... It just feels sloppy, or maybe overly simplistic... I imagine the original source material handles things a bit more carefully, but the anime adaptation is pretty underwhelming. And the introduction of that woman who had cleared it before... yeah, that too.\n\nAn occult sci-fi version of *Kaiji*, perhaps?\n\nI really can't justify keeping this one in my rankings, so I've decided to say goodbye right here.",
+          "en": "I don't know... It just feels sloppy, or maybe overly simplistic... I imagine the original source material handles things a bit more carefully, but the anime adaptation is pretty underwhelming. And the introduction of that woman who had cleared it before... yeah, that too.\n\nAn occult sci-fi? supernatural version of *Kaiji*, perhaps? I really can't justify keeping this one in my rankings, so I've decided to say goodbye right here.",
           "ja": "なんだろう・・・雑っていうか大雑把っていうか…。原作はもうちょっとちゃんと描いてるんだろうけど、アニメはなんだか微妙です。かつてのクリア者の女性の登場もね。オカルトSF版“カイジ”？評価対象としては厳しいので、ここでお別れ決定です。"
         }
       },
@@ -201,6 +201,18 @@
         },
         {
           "rank": 11,
+          "title": "Magic Knight Rayearth (2026)",
+          "trend": "up",
+          "episode": "ep.3",
+          "wrp_score": 7.55,
+          "score": 7,
+          "prev_rank": 19,
+          "status": "UR1",
+          "jpTitle": "魔法騎士レイアース",
+          "kv": "rayearth"
+        },
+        {
+          "rank": 12,
           "title": "So What's Wrong with Getting Reborn as a Goblin?",
           "trend": "up",
           "episode": "ep.4",
@@ -212,7 +224,7 @@
           "kv": "goblin"
         },
         {
-          "rank": 12,
+          "rank": 13,
           "title": "Hotel Inhumans Season 2",
           "trend": "down",
           "episode": "ep.3",
@@ -224,7 +236,7 @@
           "kv": "hotel"
         },
         {
-          "rank": 13,
+          "rank": 14,
           "title": "Chitose Is in the Ramune Bottle Part 2",
           "trend": "down",
           "episode": "ep.2",
@@ -236,7 +248,7 @@
           "kv": "chitose"
         },
         {
-          "rank": 14,
+          "rank": 15,
           "title": "Psyren",
           "trend": "up",
           "episode": "ep.3",
@@ -248,7 +260,7 @@
           "kv": "psyren"
         },
         {
-          "rank": 15,
+          "rank": 16,
           "title": "Blue Box Season 2",
           "trend": "up",
           "episode": "ep.3",
@@ -260,9 +272,9 @@
           "kv": "hako"
         },
         {
-          "rank": 16,
+          "rank": 17,
           "title": "Vertex Force",
-          "trend": "stay",
+          "trend": "down",
           "episode": "ep.4",
           "wrp_score": 6.7,
           "score": 6,
@@ -272,7 +284,7 @@
           "kv": "vertex"
         },
         {
-          "rank": 17,
+          "rank": 18,
           "title": "The Iceblade Sorcerer Shall Rule the World II",
           "trend": "up",
           "episode": "ep.3",
@@ -284,7 +296,7 @@
           "kv": "hyouken"
         },
         {
-          "rank": 18,
+          "rank": 19,
           "title": "Magic Repo Man: Dumped by My Party, I'll Cash In With a Cute Support Fairy to Become the Strongest!",
           "trend": "up",
           "episode": "ep.4",
@@ -296,9 +308,9 @@
           "kv": "revo"
         },
         {
-          "rank": 19,
+          "rank": 20,
           "title": "Full Clearing Another World under a Goddess with Zero Believers",
-          "trend": "up",
+          "trend": "stay",
           "episode": "ep.2",
           "wrp_score": 6.5,
           "score": 6,
@@ -308,7 +320,7 @@
           "kv": "shinja"
         },
         {
-          "rank": 20,
+          "rank": 21,
           "title": "Nia Liston: The Merciless Maiden",
           "trend": "up",
           "episode": "ep.3",
@@ -320,7 +332,7 @@
           "kv": "kyouran"
         },
         {
-          "rank": 21,
+          "rank": 22,
           "title": "FX Fighter Kurumi-chan",
           "trend": "down",
           "episode": "ep.4",
@@ -332,7 +344,7 @@
           "kv": "fx"
         },
         {
-          "rank": 22,
+          "rank": 23,
           "title": "Even Though I'm a Super Timid Noble Girl, I Accepted the Bet From My Cunning Fiancé",
           "trend": "down",
           "episode": "ep.3",
@@ -344,7 +356,7 @@
           "kv": "max"
         },
         {
-          "rank": 23,
+          "rank": 24,
           "title": "Tokyo Revengers: War of the Three Titan Arc",
           "trend": "down",
           "episode": "ep.4",
@@ -356,7 +368,7 @@
           "kv": "tokyo"
         },
         {
-          "rank": 24,
+          "rank": 25,
           "title": "The Cold Sato-san is Only Sweet to Me",
           "trend": "up",
           "episode": "ep.3",
@@ -368,7 +380,7 @@
           "kv": "shiotaiou"
         },
         {
-          "rank": 25,
+          "rank": 26,
           "title": "From Far Away",
           "trend": "down",
           "episode": "ep.3",
@@ -380,7 +392,7 @@
           "kv": "kanata"
         },
         {
-          "rank": 26,
+          "rank": 27,
           "title": "A Tale of the Secret Saint",
           "trend": "down",
           "episode": "ep.4",
@@ -392,7 +404,7 @@
           "kv": "hitakakusu"
         },
         {
-          "rank": 27,
+          "rank": 28,
           "title": "The World's Strongest Witch",
           "trend": "down",
           "episode": "ep.3",
@@ -415,13 +427,13 @@
         },
         {
           "title": "A Tale of the Secret Saint",
-          "en": "Episode #4: The Fourth Monster Knights\n\"Looks like I was completely wrong to rate last week's episode so highly... This is awful. Absolutely awful. What the hell is this supposed to be? The whole thing takes its ridiculous antics way too far. It's just another overpowered MC steamrolling everything, with zero entertainment value or charm.\"\n\n[I think I've had enough... Last week, I actually thought this show might be pretty good, but apparently I was mistaken. It's just unbelievably bad. Seriously, what the hell is this supposed to be? It's nothing but a ridiculous display of overwhelming power, and there's absolutely nothing entertaining or appealing about it.]",
-          "ja": "第4話: 第四魔物騎士団\n先週の高評価は勘違いでした…。酷い、とにかく凄く酷い。何のノリ？悪ノリが過ぎる。ただの無双だけど…面白くもないし魅力もない。\n『もういいかな・・・、先週結構良いかも？と思ったが勘違いだった。とにかく凄く酷い。何のノリ？ただの無双で、面白くもないし魅力もない。"
+          "en": "Episode #4: The Fourth Monster Knights\n\"Looks like I was completely wrong to rate last week's episode so highly... This is awful. Absolutely awful. What the hell is this supposed to be? The whole thing takes its ridiculous antics way too far. It's just another overpowered MC steamrolling everything, with zero entertainment value or charm.\"",
+          "ja": "第4話: 第四魔物騎士団\n先週の高評価は勘違いでした…。酷い、とにかく凄く酷い。何のノリ？悪ノリが過ぎる。ただの無双だけど…面白くもないし魅力もない。"
         },
         {
           "title": "From Far Away",
           "en": "Episode #3: Nightmare\nWhat the hell is this? Some kind of joke? No, it's a nightmare! For more details, check out my review of Dookie in the rankings.",
-          "ja": "第3話: 悪夢\nこれは何だ？ジョークか？いや悪夢だ!詳しくは、ランキングのDookieのReviewをご覧ください。"
+          "ja": "第3話: 悪夢\nこれは何だ？ジョークか？いや悪夢だ! 詳しくは、ランキングのDookieのReviewをご覧ください。"
         }
       ]
     }
