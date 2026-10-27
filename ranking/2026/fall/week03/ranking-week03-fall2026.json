@@ -5,15 +5,15 @@
     "season": "2026 Fall",
     "ep_range": "ep.3-4",
     "status": {
-      "watching": 26,
+      "watching": 28,
       "droppedThisWeek": 4,
       "droppedTotal": 7,
       "backOnList": 0,
       "noAir": 0,
       "completed": 0,
       "total": 35,
-      "ratedThisWeek": 26,
-      "currentLineup": 27,
+      "ratedThisWeek": 28,
+      "currentLineup": 29,
       "seasonPool": 35,
       "addedThisWeek": 0,
       "seasonHalted": 0,
@@ -87,7 +87,9 @@
           "wrp_score": 9.5,
           "score": 10,
           "prev_rank": 4,
-          "status": "Cont."
+          "status": "Cont.",
+          "jpTitle": "#ゾンビさがしてます",
+          "kv": "zombie"
         },
         {
           "rank": 2,
@@ -97,7 +99,9 @@
           "wrp_score": 9.4,
           "score": 9,
           "prev_rank": 10,
-          "status": "Cont."
+          "status": "Cont.",
+          "jpTitle": "マロニエ王国の七人の騎士",
+          "kv": "oukoku"
         },
         {
           "rank": 3,
@@ -107,7 +111,9 @@
           "wrp_score": 9.3,
           "score": 9,
           "prev_rank": 18,
-          "status": "Cont."
+          "status": "Cont.",
+          "jpTitle": "てつりょー！meet with 鉄道むすめ",
+          "kv": "tetsuryo"
         },
         {
           "rank": 4,
@@ -117,7 +123,9 @@
           "wrp_score": 9.25,
           "score": 9,
           "prev_rank": 9,
-          "status": "Cont."
+          "status": "Cont.",
+          "jpTitle": "超巡！超条先輩",
+          "kv": "choujou"
         },
         {
           "rank": 5,
@@ -127,7 +135,9 @@
           "wrp_score": 8.5,
           "score": 8,
           "prev_rank": 14,
-          "status": "Cont."
+          "status": "Cont.",
+          "jpTitle": "『帰還者の魔法は特別です』第二期",
+          "kv": "kikansha"
         },
         {
           "rank": 6,
@@ -137,7 +147,9 @@
           "wrp_score": 8.45,
           "score": 8,
           "prev_rank": 5,
-          "status": "Cont."
+          "status": "Cont.",
+          "jpTitle": "目覚めたら最強装備と宇宙船持ちだったので、一戸建て目指して傭兵として自由に生きたい",
+          "kv": "mezametara"
         },
         {
           "rank": 7,
@@ -147,7 +159,9 @@
           "wrp_score": 8.3,
           "score": 8,
           "prev_rank": 7,
-          "status": "Cont."
+          "status": "Cont.",
+          "jpTitle": "『氷の城壁』第2期",
+          "kv": "jouheki"
         },
         {
           "rank": 8,
@@ -157,7 +171,9 @@
           "wrp_score": 8.2,
           "score": 8,
           "prev_rank": 11,
-          "status": "UR1"
+          "status": "UR1",
+          "jpTitle": "ロメリア戦記",
+          "kv": "romelia"
         },
         {
           "rank": 9,
@@ -167,7 +183,9 @@
           "wrp_score": 8.1,
           "score": 8,
           "prev_rank": 2,
-          "status": "Cont."
+          "status": "Cont.",
+          "jpTitle": "生徒会にも穴はある！",
+          "kv": "seitokai"
         },
         {
           "rank": 10,
@@ -177,7 +195,9 @@
           "wrp_score": 8,
           "score": 8,
           "prev_rank": 8,
-          "status": "Cont."
+          "status": "Cont.",
+          "jpTitle": "『薬屋のひとりごと』第3期",
+          "kv": "kusuriya"
         },
         {
           "rank": 11,
@@ -187,7 +207,9 @@
           "wrp_score": 7.5,
           "score": 7,
           "prev_rank": 13,
-          "status": "Cont."
+          "status": "Cont.",
+          "jpTitle": "転生ゴブリンだけど質問ある？",
+          "kv": "goblin"
         },
         {
           "rank": 12,
@@ -197,7 +219,9 @@
           "wrp_score": 7.4,
           "score": 7,
           "prev_rank": 1,
-          "status": "Cont."
+          "status": "Cont.",
+          "jpTitle": "『ホテル・インヒューマンズ』第2期",
+          "kv": "hotel"
         },
         {
           "rank": 13,
@@ -207,7 +231,9 @@
           "wrp_score": 7.3,
           "score": 7,
           "prev_rank": 6,
-          "status": "Cont."
+          "status": "Cont.",
+          "jpTitle": "『千歳くんはラムネ瓶のなか』第2クール",
+          "kv": "chitose"
         },
         {
           "rank": 14,
@@ -217,7 +243,9 @@
           "wrp_score": 6.9,
           "score": 6,
           "prev_rank": 27,
-          "status": "N/A"
+          "status": "N/A",
+          "jpTitle": "PSYREN -サイレン-",
+          "kv": "psyren"
         },
         {
           "rank": 15,
@@ -227,7 +255,9 @@
           "wrp_score": 6.8,
           "score": 6,
           "prev_rank": 23,
-          "status": "Cont."
+          "status": "Cont.",
+          "jpTitle": "『アオのハコ』Season2",
+          "kv": "hako"
         },
         {
           "rank": 16,
@@ -237,7 +267,9 @@
           "wrp_score": 6.7,
           "score": 6,
           "prev_rank": 16,
-          "status": "N/A"
+          "status": "N/A",
+          "jpTitle": "バーテックスフォース",
+          "kv": "vertex"
         },
         {
           "rank": 17,
@@ -247,7 +279,9 @@
           "wrp_score": 6.6,
           "score": 6,
           "prev_rank": 25,
-          "status": "UR2"
+          "status": "UR2",
+          "jpTitle": "冰剣の魔術師が世界を統べるⅡ",
+          "kv": "hyouken"
         },
         {
           "rank": 18,
@@ -257,7 +291,9 @@
           "wrp_score": 6.55,
           "score": 6,
           "prev_rank": 28,
-          "status": "UR2"
+          "status": "UR2",
+          "jpTitle": "貸した魔力は【リボ払い】で強制徴収",
+          "kv": "revo"
         },
         {
           "rank": 19,
@@ -267,7 +303,9 @@
           "wrp_score": 6.5,
           "score": 6,
           "prev_rank": 20,
-          "status": "Cont."
+          "status": "Cont.",
+          "jpTitle": "信者ゼロの女神サマと始める異世界攻略",
+          "kv": "shinja"
         },
         {
           "rank": 20,
@@ -277,7 +315,9 @@
           "wrp_score": 6.45,
           "score": 6,
           "prev_rank": 29,
-          "status": "UR1"
+          "status": "UR1",
+          "jpTitle": "凶乱令嬢ニア・リストン 病弱令嬢に転生した神殺しの武人の華麗なる無双録",
+          "kv": "kyouran"
         },
         {
           "rank": 21,
@@ -287,7 +327,9 @@
           "wrp_score": 6.3,
           "score": 6,
           "prev_rank": 15,
-          "status": "UR3"
+          "status": "UR3",
+          "jpTitle": "FX戦士くるみちゃん",
+          "kv": "fx"
         },
         {
           "rank": 22,
@@ -297,7 +339,9 @@
           "wrp_score": 6,
           "score": 6,
           "prev_rank": 17,
-          "status": "Cont."
+          "status": "Cont.",
+          "jpTitle": "弱気MAX令嬢なのに、辣腕婚約者様の賭けに乗ってしまった",
+          "kv": "max"
         },
         {
           "rank": 23,
@@ -307,7 +351,9 @@
           "wrp_score": 5.95,
           "score": 5,
           "prev_rank": 21,
-          "status": "UR3"
+          "status": "UR3",
+          "jpTitle": "『東京リベンジャーズ』三天戦争編",
+          "kv": "tokyo"
         },
         {
           "rank": 24,
@@ -317,7 +363,9 @@
           "wrp_score": 5.2,
           "score": 5,
           "prev_rank": 30,
-          "status": "UR3"
+          "status": "UR3",
+          "jpTitle": "塩対応の佐藤さんが俺にだけ甘い",
+          "kv": "shiotaiou"
         },
         {
           "rank": 25,
@@ -327,7 +375,9 @@
           "wrp_score": 5,
           "score": 5,
           "prev_rank": 12,
-          "status": "UR3"
+          "status": "UR3",
+          "jpTitle": "彼方から",
+          "kv": "kanata"
         },
         {
           "rank": 26,
@@ -337,7 +387,9 @@
           "wrp_score": 4.95,
           "score": 4,
           "prev_rank": 3,
-          "status": "UR3"
+          "status": "UR3",
+          "jpTitle": "転生した大聖女は、聖女であることをひた隠す",
+          "kv": "hitakakusu"
         },
         {
           "rank": 27,
@@ -347,12 +399,31 @@
           "wrp_score": 4.25,
           "score": 4,
           "prev_rank": 26,
-          "status": "UR3"
+          "status": "UR3",
+          "jpTitle": "世界最強の魔女、始めました",
+          "kv": "saikyou"
         }
       ]
     },
     "bottom_of_week": {
-      "count": 3
+      "count": 3,
+      "comments": [
+        {
+          "title": "The World's Strongest Witch",
+          "en": "Episode #3: I Tried Looking At Message Boards!\nFairouz's hilariously over-the-top, rage-fueled performance was enough to get me through the last episode, but that worked exactly once. I've already had my fill. This is nothing but a slideshow of endless monologues. This ain't anime, this ain't anime~♪",
+          "ja": "第3話: 掲示板を見てみた！\nファイルーズさんのブチギレかましキャラで見れたのも前回1回のみ、もうお腹いっぱい。ただのモノローグ紙芝居、アニメじゃない、アニメじゃない～♬"
+        },
+        {
+          "title": "A Tale of the Secret Saint",
+          "en": "Episode #4: The Fourth Monster Knights\n\"Looks like I was completely wrong to rate last week's episode so highly... This is awful. Absolutely awful. What the hell is this supposed to be? The whole thing takes its ridiculous antics way too far. It's just another overpowered MC steamrolling everything, with zero entertainment value or charm.\"\n\n[I think I've had enough... Last week, I actually thought this show might be pretty good, but apparently I was mistaken. It's just unbelievably bad. Seriously, what the hell is this supposed to be? It's nothing but a ridiculous display of overwhelming power, and there's absolutely nothing entertaining or appealing about it.]",
+          "ja": "第4話: 第四魔物騎士団\n先週の高評価は勘違いでした…。酷い、とにかく凄く酷い。何のノリ？悪ノリが過ぎる。ただの無双だけど…面白くもないし魅力もない。\n『もういいかな・・・、先週結構良いかも？と思ったが勘違いだった。とにかく凄く酷い。何のノリ？ただの無双で、面白くもないし魅力もない。"
+        },
+        {
+          "title": "From Far Away",
+          "en": "Episode #3: Nightmare\nWhat the hell is this? Some kind of joke? No, it's a nightmare! For more details, check out my review of Dookie in the rankings.",
+          "ja": "第3話: 悪夢\nこれは何だ？ジョークか？いや悪夢だ!詳しくは、ランキングのDookieのReviewをご覧ください。"
+        }
+      ]
     }
   },
   "entries": [
