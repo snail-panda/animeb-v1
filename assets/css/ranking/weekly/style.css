@@ -3365,3 +3365,36 @@ body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .animeb-bottom-sc
  .animeb-bottom-rank{min-width:31px;font-size:1.2rem;}
  .animeb-bottom-score{font-size:.65rem;}
 }
+
+/* === v4.38.5 — compact Bottom cards, locale-aware ranks, and last-place identity === */
+.animeb-bottom-item{display:grid;grid-template-columns:76px minmax(0,1fr);gap:12px;align-items:start;padding:15px 3px;}
+.animeb-bottom-poster{width:76px;aspect-ratio:4/5;position:relative;display:block;background:#dce0dc;border-radius:5px;overflow:hidden;box-shadow:0 2px 5px #0002;cursor:zoom-in;}
+.animeb-bottom-poster>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+.animeb-bottom-no-poster::before{content:'NO KV';position:absolute;inset:0;display:grid;place-items:center;font:700 .65rem system-ui;color:#57636a;}
+.animeb-bottom-poster:focus-visible{outline:3px solid #b16b85;outline-offset:3px;}
+.animeb-bottom-poster-rank{position:absolute;left:0;top:0;z-index:2;padding:5px 6px;background:rgba(255,255,240,.95);color:#8c6779;border-radius:0 0 7px 0;font:800 .85rem/1.1 'Antonio','Fira Sans',system-ui,sans-serif;}
+.animeb-bottom-last .animeb-bottom-poster-rank{color:#ad3f67;}
+.animeb-bottom-last-sticker{position:absolute;z-index:2;left:4px;top:29px;padding:2px 4px;border-radius:2px;background:#a8365f;color:#fff;font:850 .58rem/1.1 'Fira Sans',system-ui,sans-serif;letter-spacing:.025em;box-shadow:0 1px 2px #0004;}
+.animeb-bottom-episode{position:absolute;z-index:2;right:0;bottom:0;background:#177729;color:#fff;padding:3px 5px;font:700 .64rem/1.1 system-ui;max-width:95%;white-space:nowrap;}
+.animeb-bottom-text{min-width:0;font:600 .87rem/1.35 system-ui,sans-serif;}
+.animeb-bottom-name{display:block;font-weight:780;line-height:1.32;overflow-wrap:anywhere;}
+.animeb-bottom-alt{display:block;font:600 .72rem/1.34 system-ui;margin-top:3px;color:#81757c;overflow-wrap:anywhere;}
+.animeb-bottom-score{margin-top:6px;font-size:.7rem;white-space:normal;}
+.animeb-bottom-comment{margin:8px 0 0;color:#69555e;font:450 .79rem/1.45 system-ui;white-space:pre-line;overflow-wrap:anywhere;}
+body[data-animeb-theme='dark'] .animeb-bottom-comment,
+body[data-animeb-theme='image'][data-animeb-image-tone='dark'] .animeb-bottom-comment{color:#e0cdd4;}
+body[data-animeb-theme='dark'] .animeb-bottom-alt,
+body[data-animeb-theme='image'][data-animeb-image-tone='dark'] .animeb-bottom-alt{color:#d7dadd;}
+.kv-thumb .rank-wrapper:has(.animeb-extra-reference-rank){width:auto;max-width:60px;min-width:48px;box-sizing:border-box;}
+.kv-thumb .animeb-extra-reference-rank{font:760 .64rem/1.15 'Fira Sans','Yu Gothic',system-ui,sans-serif;white-space:nowrap;}
+.kv-thumb .rank-number:has(.animeb-extra-reference-rank){gap:3px;}
+.kv-thumb .animeb-extra-last-label{display:block;width:max-content;max-width:52px;margin:1px auto 0;border-radius:2px;padding:2px 3px;background:#a8365f;color:#fff;font:800 .45rem/1 system-ui;letter-spacing:0;white-space:nowrap;}
+.kv-thumb .rank-wrapper:has(.animeb-extra-last-label){max-width:63px;}
+@media(max-width:450px){
+ .animeb-bottom-item{grid-template-columns:70px minmax(0,1fr);gap:10px;}
+ .animeb-bottom-poster{width:70px;}
+ .animeb-bottom-name{font-size:.82rem;}
+ .animeb-bottom-comment{font-size:.75rem;}
+ .kv-thumb .rank-wrapper:has(.animeb-extra-reference-rank){min-width:46px;max-width:55px;}
+ .kv-thumb .animeb-extra-reference-rank{font-size:.6rem;}
+}

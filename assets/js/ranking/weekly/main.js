@@ -1298,7 +1298,8 @@ function animebSetupKeyVisualViewer(){
     // Do not use a screenshot of the thumbnail; reuse the unmodified image URL.
     const src=photo.currentSrc || photo.src;
     const title=(thumb.closest('.entry')?.querySelector('.info-top')?.textContent ||
-      thumb.closest('.animeb-dropped-card')?.querySelector('.animeb-dropped-name')?.textContent || photo.alt || '').trim();
+      thumb.closest('.animeb-dropped-card')?.querySelector('.animeb-dropped-name')?.textContent ||
+      thumb.closest('.animeb-bottom-item')?.querySelector('.animeb-bottom-name')?.textContent || photo.alt || '').trim();
     lastFocus=thumb;
     previousScroll=window.scrollY;
     savedRootOverflow=document.documentElement.style.overflow;
@@ -1349,12 +1350,42 @@ function animebRefLookup(data,title){
   if(!Array.isArray(records))return null;
   return records.find(r=>animebRefKey(r.title)===animebRefKey(title))||null;
 }
+function animebReferenceLastRank(data){
+  const list=data?.meta?.weekly_ranking_reference?.entries||[];
+  return Math.max(0,...list.map(r=>Number(r.rank)||0));
+}
+function animebBottomNote(data,title){
+  const comments=data?.meta?.bottom_of_week?.comments;
+  const rows=Array.isArray(comments)?comments:[];
+  return rows.find(row=>animebRefKey(row.title)===animebRefKey(title))||{};
+}
+function animebBottomPoster(row, lastRank){
+  const box=document.createElement('span');box.className='animeb-bottom-poster animeb-kv-view-trigger';
+  box.setAttribute('role','button');box.tabIndex=0;
+  const imgId=String(row.kv||'').trim();
+  if(imgId && /^[\w-]+$/.test(imgId)){
+    const img=document.createElement('img');img.loading='lazy';img.alt=row.title+' key visual';
+    img.src=`../../../../images/key-visuals/${window.year}/${window.season}/${imgId}.webp`;
+    img.addEventListener('error',()=>{img.remove();box.classList.add('animeb-bottom-no-poster');});
+    box.append(img);
+  }else box.classList.add('animeb-bottom-no-poster');
+  const rank=animebDropText('No.'+row.rank,row.rank+'位','animeb-bottom-poster-rank');
+  box.append(rank);
+  if(row.rank===lastRank){
+    box.classList.add('animeb-bottom-last');
+    box.append(animebDropText('LAST','最下位','animeb-bottom-last-sticker'));
+  }
+  const ep=String(row.episode||'').trim();
+  if(ep){const label=document.createElement('span');label.className='animeb-bottom-episode';label.textContent=ep.toUpperCase();box.append(label);}
+  return box;
+}
 function animebMountBottomOfWeek(data){
   const count=Number(data?.meta?.bottom_of_week?.count||0);
   const rows=data?.meta?.weekly_ranking_reference?.entries;
   if(![1,3,5].includes(count)||!Array.isArray(rows)||!rows.length)return;
   const ranked=rows.filter(r=>Number.isSafeInteger(r.rank)&&r.rank>0).sort((a,b)=>a.rank-b.rank);
   if(!ranked.length)return;
+  const lastRank=ranked.at(-1).rank;
   const section=document.createElement('section');section.className='animeb-bottom-week';section.id='animeb-bottom-of-week';
   const head=document.createElement('header');head.className='animeb-bottom-head';
   head.append(animebDropText('BOTTOM OF THE WEEK','今週の下位作品','animeb-bottom-heading'));
@@ -1363,14 +1394,21 @@ function animebMountBottomOfWeek(data){
   const items=document.createElement('div');items.className='animeb-bottom-items';
   ranked.slice(-count).reverse().forEach(row=>{
     const card=document.createElement('article');card.className='animeb-bottom-item';
-    const number=document.createElement('strong');number.className='animeb-bottom-rank';number.textContent='#'+row.rank;
-    const text=document.createElement('div');text.className='animeb-bottom-text';
-    const title=document.createElement('strong');title.textContent=row.title;text.append(title);
-    const sub=animebDropText('Ranked this week','今週の総合順位','animeb-bottom-sub');text.append(sub);
-    const score=document.createElement('div');score.className='animeb-bottom-score';
+    const poster=animebBottomPoster(row,lastRank);
+    const body=document.createElement('div');body.className='animeb-bottom-text';
+    const title=document.createElement('strong');title.className='animeb-bottom-name';
+    title.append(animebDropText(row.title,row.jpTitle||row.title));body.append(title);
+    if(row.jpTitle && animebRefKey(row.jpTitle)!==animebRefKey(row.title)){
+      const alternate=animebDropText(row.jpTitle,row.title,'animeb-bottom-alt');body.append(alternate);
+    }
+    const values=document.createElement('div');values.className='animeb-bottom-score';
     const wrp=Number(row.wrp_score);
-    score.textContent=`WRP ${Number.isFinite(wrp)?wrp.toFixed(2):'—'} · ${row.score??'—'}pt`;
-    card.append(number,text,score);items.append(card);
+    values.textContent=`WRP ${Number.isFinite(wrp)?wrp.toFixed(2):'—'} · ${row.score??'—'}pt`;
+    body.append(values);
+    const comment=animebBottomNote(data,row.title);
+    const en=String(comment.en||'').trim(),ja=String(comment.ja||'').trim();
+    if(en||ja){const note=document.createElement('p');note.className='animeb-bottom-comment';note.append(animebDropText(en||ja,ja||en));body.append(note);}
+    card.append(poster,body);items.append(card);
   });
   section.append(items);
   // Called AFTER Dropped Titles; insert exactly before it (after ranked entries).
@@ -1442,7 +1480,7 @@ function animebMountDroppedTitles(data,clones){
     // Rated but not part of Top10/Extra can still be #13, #15 in the full weekly ranking.
     if(isRated && Number.isSafeInteger(decision.ref?.rank)){
       const rankNote=document.createElement('span');rankNote.className='animeb-drop-full-rank';
-      rankNote.append(animebDropText('Overall #'+decision.ref.rank,'総合 '+decision.ref.rank+'位'));
+      rankNote.append(animebDropText('This week: #'+decision.ref.rank,'今週'+decision.ref.rank+'位'));
       copy.append(rankNote);
     }
     const en=String(decision.reason?.en||'').trim(),ja=String(decision.reason?.ja||'').trim();
@@ -1487,7 +1525,7 @@ function animebMountDroppedTitles(data,clones){
   animebRefreshDropLanguage();
 }
 function animebRefreshDropLanguage(){
-  document.querySelectorAll('.animeb-dropped-titles [data-en][data-ja], .animeb-drop-status-group [data-en][data-ja], .animeb-drop-more-notice [data-en][data-ja], .animeb-bottom-week [data-en][data-ja]').forEach(el=>{
+  document.querySelectorAll('.animeb-dropped-titles [data-en][data-ja], .animeb-drop-status-group [data-en][data-ja], .animeb-drop-more-notice [data-en][data-ja], .animeb-bottom-week [data-en][data-ja], .animeb-extra-reference-rank[data-en][data-ja], .animeb-extra-last-label[data-en][data-ja]').forEach(el=>{
     el.textContent=animebWeeklyLang==='ja'?el.dataset.ja:el.dataset.en;
   });
 }
@@ -1873,8 +1911,14 @@ if (typeof rankVal === "string") {
     const fullRank=animebRefLookup(data,entryData.title);
     if(fullRank && Number.isSafeInteger(fullRank.rank) && fullRank.rank>0){
       const rankText=document.createElement('span');rankText.className='animeb-extra-reference-rank';
-      rankText.textContent='#'+fullRank.rank;
-      rankText.title='Overall weekly rank / 週間総合順位';rankEl.append(rankText);
+      rankText.dataset.en='No.'+fullRank.rank;
+      rankText.dataset.ja=fullRank.rank+'位';
+      rankText.textContent=animebWeeklyLang==='ja'?rankText.dataset.ja:rankText.dataset.en;
+      rankText.title='Weekly rank / 今週の順位';rankEl.append(rankText);
+      if(fullRank.rank===animebReferenceLastRank(data)){
+        const last=animebDropText('LAST','最下位','animeb-extra-last-label');
+        rankEl.append(last);rankEl.closest('.rank-wrapper')?.classList.add('animeb-extra-last');
+      }
     }
 
   }
