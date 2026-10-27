@@ -76,6 +76,197 @@
         }
       }
     ],
+    "bottom_of_week": {
+      "count": 3,
+      "comment_source": "excel",
+      "source_entries": [
+        {
+          "trend": "down",
+          "title": "The World's Strongest Witch",
+          "jpTitle": "世界最強の魔女、始めました",
+          "kv": "saikyou",
+          "episode": 3,
+          "genre": [
+            "Adventure",
+            "Comedy",
+            "Fantasy"
+          ],
+          "wrp_score": 4.25,
+          "score": 4,
+          "review": {
+            "en": "<strong>Episode #3: Nightmare</strong>\n<p>\"The animation is... low-quality and wildly inconsistent. How many studios are working on this thing? The story goes nowhere, it's not entertaining, and honestly, watching it is the real nightmare.\"</p>\n<p>The animation... actually, pretty much everything about this production... Is it even okay? The quality varies so drastically from scene to scene that I have to wonder whether they've outsourced different parts to different studios. Not that even the better-looking parts are particularly good, mind you. I guess the male lead's flashback scenes were relatively decent. But more than anything, the story just refuses to move forward. Some woman shows up out of nowhere after apparently being transported here, and now she's traveling around with this guy. That's it. That's literally all that's happened. And we're already three episodes in...? Are you freaking kidding me?<br><br>Then there's the animation of MH's movements, especially when it's running. That scene where it apparently charges straight into an enemy and sends them flying? Holy crap, that looked awful. And somehow it can carry a man that huge? Come on, none of this makes any sense. Oh, and apparently the flying squirrel is *that* important, huh...? Seriously, I have no idea what the hell is going on here.<br><br>I gave this show a little credit last tiEpisode #3: I Tried Looking At Message Boards!<br>Fairouz's hilariously over-the-top, rage-fueled performance was enough to get me through the last episode, but that worked exactly once. I've already had my fill. This is nothing but a slideshow of endless monologues. This ain't anime, this ain't anime~♪me, but... yeah, I don't think this is going to work out. I'll give it just one more episode to see if things improve.</p>",
+            "jp": "第3話: 掲示板を見てみた!\n<p>ファイルーズさんのブチギレかましキャラで見れたのも前回1回のみ、もうお腹いっぱい。ただのモノローグ紙芝居、アニメじゃない、アニメじゃない~♬</p>"
+          },
+          "wrp_breakdown": {
+            "base_score": 5,
+            "animation": 0.5,
+            "script": 0.3,
+            "direction": 0.3,
+            "charm": 0.2,
+            "overall": -1.5
+          },
+          "romanized_title": "Sekai Saikyou no Majo, Hajimemashita",
+          "release_date": "10/7/2026",
+          "based_on": "Light Novel",
+          "studios": "AisleBridge",
+          "creators": "Joji Furuta",
+          "external_scores": "",
+          "streaming_services": "",
+          "synopsis": "When Lorna manifests a completely useless ability, she's labeled an embarrassment to her family and kicked out of the house. With no money or food, she's about to hit rock bottom. But then, she figures out how to use her supposedly worthless SSS-Rank skill, \"Internet.\" This cheat-level talent gives her the know-how to gather an unlimited amount of valuable items and easily acquire rare equipment. Armed with godlike knowledge, Lorna's free to do anything she wants! If only she could figure out what \"lmfao\" means...\n\n(Source: Yen Press)",
+          "studios_ja": "ブリッジ / アイル",
+          "director_ja": "古田丈司",
+          "series_composition_ja": "米村正二",
+          "synopsis_ja": "最弱クラスのスキルを発現してしまい、追放された少女・ローナ。しかしそのスキルの正体は、この世界の『攻略サイト』を見ることができるＳＳＳランクのチートスキル【インターネット】だった――！自由で平和な生活を求めて旅する“世界最強の魔女”ローナの、ハチャメチャな冒険の日々がついにアニメ化！",
+          "original_creator_publisher_ja": "",
+          "original_creator_publisher_en": "",
+          "broadcast": "TOKYO MX 毎週水曜22:00〜",
+          "broadcast_ja": "",
+          "streaming_services_ja": "",
+          "official_website": "https://sekamajo-anime.com/",
+          "original_creator_publisher": "坂木持丸／riritto（SQEXノベル／スクウェア・エニックス刊）／漫画：戸賀 環",
+          "director": "Joji Furuta",
+          "series_composition": "Shoji Yonemura",
+          "episode_count": "",
+          "total_eps_this_season": "",
+          "seasons_total_ep_cnt": "",
+          "cast": "ローナ・ハーミット：橘 杏咲\nエリミナ・マナフレイム：ファイルーズあい\nエルナ：井上ほの花\nアリエス・ティア・ブルームーン：花澤香菜\nルル・ル・リエー：長縄まりあ\nラインハルテ・ハイウィンド：上村祐翔",
+          "opening_theme": "「影響力∞アイドル」HoneyWorks feat.ハコニワリリィ",
+          "ending_theme": "「星を巡る」ロクデナシ",
+          "air_timing": "",
+          "air_date": "2026-10-07",
+          "last_slot": 1
+        },
+        {
+          "trend": "down",
+          "title": "A Tale of the Secret Saint",
+          "jpTitle": "転生した大聖女は、聖女であることをひた隠す",
+          "kv": "hitakakusu",
+          "episode": 4,
+          "genre": [
+            "Action",
+            "Adventure",
+            "Fantasy"
+          ],
+          "wrp_score": 4.95,
+          "score": 4,
+          "review": {
+            "en": "<strong>Episode #4: The Fourth Monster Knights</strong>\n<p>\"Looks like I was completely wrong to rate last week's episode so highly... This is awful. Absolutely awful. What the hell is this supposed to be? The whole thing takes its ridiculous antics way too far. It's just another overpowered MC steamrolling everything, with zero entertainment value or charm.\"</p>",
+            "jp": "第4話: 第四魔物騎士団\n<p>先週の高評価は勘違いでした…。酷い、とにかく凄く酷い。何のノリ?悪ノリが過ぎる。ただの無双だけど…面白くもないし魅力もない。</p>"
+          },
+          "wrp_breakdown": {
+            "base_score": 5,
+            "animation": 0.5,
+            "script": 0.3,
+            "direction": 0.3,
+            "charm": 0.2,
+            "overall": -1.5
+          },
+          "romanized_title": "Tensei shita Daiseijo wa, Seijo de Aru Koto wo Hitakakusu",
+          "release_date": "10/3/2026",
+          "based_on": "Light Novel",
+          "studios": "Felix Film",
+          "creators": "Tomoe Makino",
+          "external_scores": "",
+          "streaming_services": "ABEMA・Prime Video",
+          "synopsis": "Fia always dreamed of becoming a knight. Born into a family of knights, she's the least talented among them, but she still clutches to her hope and trains with everything she has. When the day comes for her to slay a small demon and prove her worth, she ends up face to face with a dragon instead! A deadly injury makes her life flash before her eyes... and she suddenly remembers her former life, when she was a powerful Saint in a bygone era who defeated the Demon King. That life ended in pain because of who she was, making her fear ever becoming a Saint again. Now that the magic from her previous life has been rekindled, she may become a more powerful knight than she ever dreamed–if only she can survive long enough!\n\n(Source: Seven Seas Entertainment)",
+          "studios_ja": "FelixFilm",
+          "director_ja": "牧野友映",
+          "series_composition_ja": "赤尾でこ",
+          "synopsis_ja": "「剣の才能がない」と言われながらも騎士を目指す少女・フィーア。死にかけた彼女が思い出したのは、なんと規格外のチート能力を持つ「大聖女」としての前世で！？大聖女として騎士とともに戦い、最後に魔王の右腕によって無残に殺された300年前の過去だった――記憶を思い出したことで、「大聖女」の力も蘇ったフィーアだったが、前世で魔王の右腕から「聖女として生まれ変わったら殺す」と脅されたことを思い出し、その力を隠しながら騎士として生きていくことを決意する。しかし傷ついている人を見たら放っておけないフィーアは、度々遭遇する事件で頻繁に力を使ってしまう。果たして聖女であることをひた隠し続けることができるのか…！？",
+          "original_creator_publisher_ja": "",
+          "original_creator_publisher_en": "",
+          "broadcast": "",
+          "broadcast_ja": "",
+          "streaming_services_ja": "",
+          "official_website": "https://daiseijo-anime.com",
+          "original_creator_publisher": "十夜（アース・スターノベル／アース・スター エンターテイメント刊）",
+          "director": "Tomoe Makino",
+          "series_composition": "Deko Akao",
+          "episode_count": "",
+          "total_eps_this_season": "",
+          "seasons_total_ep_cnt": "",
+          "cast": "フィーア・ルード：若山詩音\nザビリア：徳留慎乃佑\nサヴィス・ナーヴ：梅原裕一郎\nシリル・サザランド：島﨑信長\nデズモンド・ローナン：畠中 祐\nザカリー・タウンゼント：濱野大輝\nクェンティン・アガター：杉田智和\nクラリッサ・アバネシー：田村ゆかり\nイーノック：土岐隼一\nファビアン・ワイナー：山下大輝\nシャーロット：島袋美由利\nカーティス・バニスター：戸谷菊之介",
+          "opening_theme": "「Flare of Soul」花耶",
+          "ending_theme": "「STELLAR」ウタヒメドリーム オールスターズ",
+          "air_timing": "",
+          "air_date": "2026-10-03",
+          "last_slot": 2
+        },
+        {
+          "trend": "down",
+          "title": "From Far Away",
+          "jpTitle": "彼方から",
+          "kv": "kanata",
+          "episode": 3,
+          "genre": [
+            "Adventure",
+            "Fantasy",
+            "Romance"
+          ],
+          "wrp_score": 5,
+          "score": 5,
+          "review": {
+            "en": "<strong>Episode #3: Nightmare</strong>\n<p>What the hell is this? Some kind of joke? No, it's a nightmare! For more details, check out my review of Dookie in the rankings.</p>",
+            "jp": "第3話: 悪夢\n<p>これは何だ?ジョークか?いや悪夢だ! 詳しくは、ランキングのDookieのReviewをご覧ください。</p>"
+          },
+          "wrp_breakdown": {
+            "base_score": 5,
+            "animation": 0.5,
+            "script": 0.3,
+            "direction": 0.3,
+            "charm": 0.2,
+            "overall": -1.5
+          },
+          "romanized_title": "Kanata kara",
+          "release_date": "10/4/2026",
+          "based_on": "Manga",
+          "studios": "Studio DEEN",
+          "creators": "Noriyuki Abe",
+          "external_scores": "",
+          "streaming_services": "",
+          "synopsis": "Noriko Tachiki has dreamt of a beautiful fantasy land for some time, though her friends think it is only her imagination. One day, on her way home, Noriko stumbles upon a bomb disguised as a paper bag that explodes right in front of her. However, instead of dying, she is transported to a mysterious forest full of strange plants and creatures.\n\nAs she begins navigating through the woods, Noriko is suddenly attacked by a giant, worm-like monster. Fortunately, she is saved by Izark Kia Tarj, a swordsman who does not speak her language. Lacking the strength to survive on her own, Noriko decides to follow her stoic savior, taking the opportunity to learn the foreign land's language and be more useful to Izark.\n\nUnbeknownst to her, Noriko is a crucial piece of an ancient prophecy. She is \"The Awakening\"—a being destined to unleash the greatest evil known as the \"Sky Demon.\" With influential people plotting to capture Noriko for her supposed powers, both she and Izark must fend for themselves and overcome a future laced with chaos.\n\n[Written by MAL Rewrite]",
+          "studios_ja": "スタジオディーン",
+          "director_ja": "阿部記之",
+          "series_composition_ja": "",
+          "synopsis_ja": "ごく普通の日々を送っていた女子高生・立木典子（たちき のりこ）は、ある朝見た不思議な夢に誘われるように、見知らぬ異世界へと迷い込んでしまう。言葉も常識も通用しないこの世界で、行く当てもなく彷徨う典子を救ったのは、たった一人で旅を続ける渡り戦士・イザークだった。\n時を同じくして、世界中では「破壊をもたらす“天上鬼”を目覚めさせる者が現れる」「どの国よりも早く手に入れろ」と囁かれていた。目覚めとは、そして天上鬼とは何なのか——その答えを知るかのように、イザークは典子を見て呟く。\n「この娘を殺さなければならない」言葉も文化も異なる二人の間には、それでも少しずつ小さな絆が芽生えていく。\nそんな二人は、やがて壮大な運命の渦へと飲み込まれていく——。",
+          "original_creator_publisher_ja": "",
+          "original_creator_publisher_en": "",
+          "broadcast": "",
+          "broadcast_ja": "",
+          "streaming_services_ja": "",
+          "official_website": "https://kanatakara-anime.com/",
+          "original_creator_publisher": "ひかわきょうこ「彼方から」（白泉社）",
+          "director": "Noriyuki Abe",
+          "series_composition": "Rika Takasugi",
+          "episode_count": "",
+          "total_eps_this_season": "",
+          "seasons_total_ep_cnt": "",
+          "cast": "立木典子：黒沢ともよ\nイザーク・キア・タージ：熊谷健太郎\nラチェフ：梅原裕一郎\nケイモス・リー・ゴーダ：竹内栄治\nガーヤ：斉藤貴美子\nゴーリヤ：宮澤正\nアゴル：中野泰佑\nジーナハース：伊藤美来",
+          "opening_theme": "「逃光行」原因は自分にある。",
+          "ending_theme": "「光の側で」名無し之太郎",
+          "air_timing": "",
+          "air_date": "2026-10-04",
+          "last_slot": 3
+        }
+      ],
+      "comments": [
+        {
+          "title": "The World's Strongest Witch",
+          "en": "Episode #3: I Tried Looking At Message Boards!\nFairouz's hilariously over-the-top, rage-fueled performance was enough to get me through the last episode, but that worked exactly once. I've already had my fill. This is nothing but a slideshow of endless monologues. This ain't anime, this ain't anime~♪",
+          "ja": "第3話: 掲示板を見てみた！\nファイルーズさんのブチギレかましキャラで見れたのも前回1回のみ、もうお腹いっぱい。ただのモノローグ紙芝居、アニメじゃない、アニメじゃない～♬"
+        },
+        {
+          "title": "A Tale of the Secret Saint",
+          "en": "Episode #4: The Fourth Monster Knights\n\"Looks like I was completely wrong to rate last week's episode so highly... This is awful. Absolutely awful. What the hell is this supposed to be? The whole thing takes its ridiculous antics way too far. It's just another overpowered MC steamrolling everything, with zero entertainment value or charm.\"",
+          "ja": "第4話: 第四魔物騎士団\n先週の高評価は勘違いでした…。酷い、とにかく凄く酷い。何のノリ？悪ノリが過ぎる。ただの無双だけど…面白くもないし魅力もない。"
+        },
+        {
+          "title": "From Far Away",
+          "en": "Episode #3: Nightmare\nWhat the hell is this? Some kind of joke? No, it's a nightmare! For more details, check out my review of Dookie in the rankings.",
+          "ja": "第3話: 悪夢\nこれは何だ？ジョークか？いや悪夢だ! 詳しくは、ランキングのDookieのReviewをご覧ください。"
+        }
+      ]
+    },
     "weekly_ranking_reference": {
       "version": 1,
       "entries": [
@@ -414,26 +605,6 @@
           "status": "UR3",
           "jpTitle": "世界最強の魔女、始めました",
           "kv": "saikyou"
-        }
-      ]
-    },
-    "bottom_of_week": {
-      "count": 3,
-      "comments": [
-        {
-          "title": "The World's Strongest Witch",
-          "en": "Episode #3: I Tried Looking At Message Boards!\nFairouz's hilariously over-the-top, rage-fueled performance was enough to get me through the last episode, but that worked exactly once. I've already had my fill. This is nothing but a slideshow of endless monologues. This ain't anime, this ain't anime~♪",
-          "ja": "第3話: 掲示板を見てみた！\nファイルーズさんのブチギレかましキャラで見れたのも前回1回のみ、もうお腹いっぱい。ただのモノローグ紙芝居、アニメじゃない、アニメじゃない～♬"
-        },
-        {
-          "title": "A Tale of the Secret Saint",
-          "en": "Episode #4: The Fourth Monster Knights\n\"Looks like I was completely wrong to rate last week's episode so highly... This is awful. Absolutely awful. What the hell is this supposed to be? The whole thing takes its ridiculous antics way too far. It's just another overpowered MC steamrolling everything, with zero entertainment value or charm.\"",
-          "ja": "第4話: 第四魔物騎士団\n先週の高評価は勘違いでした…。酷い、とにかく凄く酷い。何のノリ？悪ノリが過ぎる。ただの無双だけど…面白くもないし魅力もない。"
-        },
-        {
-          "title": "From Far Away",
-          "en": "Episode #3: Nightmare\nWhat the hell is this? Some kind of joke? No, it's a nightmare! For more details, check out my review of Dookie in the rankings.",
-          "ja": "第3話: 悪夢\nこれは何だ？ジョークか？いや悪夢だ! 詳しくは、ランキングのDookieのReviewをご覧ください。"
         }
       ]
     }
