@@ -75,7 +75,285 @@
           "ja": "嫌いではないんだけど…これも大雑把過ぎというか、あらゆる面で少しずつというか結構残念な作品。MCのメカ？装備？も浮いてるし…。というわけで今週でお別れです。"
         }
       }
-    ]
+    ],
+    "weekly_ranking_reference": {
+      "version": 1,
+      "entries": [
+        {
+          "rank": 1,
+          "title": "#I'm Looking For a Zombie",
+          "trend": "up",
+          "episode": "ep.4",
+          "wrp_score": 9.5,
+          "score": 10,
+          "prev_rank": 4,
+          "status": "Cont."
+        },
+        {
+          "rank": 2,
+          "title": "The Seven Knights of the Marronnier Kingdom",
+          "trend": "up",
+          "episode": "ep.4",
+          "wrp_score": 9.4,
+          "score": 9,
+          "prev_rank": 10,
+          "status": "Cont."
+        },
+        {
+          "rank": 3,
+          "title": "Tetsuryou! Meet with Tetsudou Musume",
+          "trend": "up",
+          "episode": "ep.3",
+          "wrp_score": 9.3,
+          "score": 9,
+          "prev_rank": 18,
+          "status": "Cont."
+        },
+        {
+          "rank": 4,
+          "title": "Super Psychic Policeman Chojo",
+          "trend": "up",
+          "episode": "ep.3",
+          "wrp_score": 9.25,
+          "score": 9,
+          "prev_rank": 9,
+          "status": "Cont."
+        },
+        {
+          "rank": 5,
+          "title": "A Returner's Magic Should Be Special Season 2",
+          "trend": "up",
+          "episode": "ep.15",
+          "wrp_score": 8.5,
+          "score": 8,
+          "prev_rank": 14,
+          "status": "Cont."
+        },
+        {
+          "rank": 6,
+          "title": "Reborn as a Space Mercenary: I Woke Up Piloting the Strongest Starship!",
+          "trend": "down",
+          "episode": "ep.3",
+          "wrp_score": 8.45,
+          "score": 8,
+          "prev_rank": 5,
+          "status": "Cont."
+        },
+        {
+          "rank": 7,
+          "title": "The Ramparts of Ice Season 2",
+          "trend": "stay",
+          "episode": "ep.4",
+          "wrp_score": 8.3,
+          "score": 8,
+          "prev_rank": 7,
+          "status": "Cont."
+        },
+        {
+          "rank": 8,
+          "title": "Romelia War Chronicle",
+          "trend": "up",
+          "episode": "ep.4",
+          "wrp_score": 8.2,
+          "score": 8,
+          "prev_rank": 11,
+          "status": "UR1"
+        },
+        {
+          "rank": 9,
+          "title": "Even the Student Council Has Its Holes!",
+          "trend": "down",
+          "episode": "ep.4",
+          "wrp_score": 8.1,
+          "score": 8,
+          "prev_rank": 2,
+          "status": "Cont."
+        },
+        {
+          "rank": 10,
+          "title": "The Apothecary Diaries Season 3",
+          "trend": "down",
+          "episode": "ep.52",
+          "wrp_score": 8,
+          "score": 8,
+          "prev_rank": 8,
+          "status": "Cont."
+        },
+        {
+          "rank": 11,
+          "title": "So What's Wrong with Getting Reborn as a Goblin?",
+          "trend": "up",
+          "episode": "ep.4",
+          "wrp_score": 7.5,
+          "score": 7,
+          "prev_rank": 13,
+          "status": "Cont."
+        },
+        {
+          "rank": 12,
+          "title": "Hotel Inhumans Season 2",
+          "trend": "down",
+          "episode": "ep.3",
+          "wrp_score": 7.4,
+          "score": 7,
+          "prev_rank": 1,
+          "status": "Cont."
+        },
+        {
+          "rank": 13,
+          "title": "Chitose Is in the Ramune Bottle Part 2",
+          "trend": "down",
+          "episode": "ep.2",
+          "wrp_score": 7.3,
+          "score": 7,
+          "prev_rank": 6,
+          "status": "Cont."
+        },
+        {
+          "rank": 14,
+          "title": "Psyren",
+          "trend": "up",
+          "episode": "ep.3",
+          "wrp_score": 6.9,
+          "score": 6,
+          "prev_rank": 27,
+          "status": "N/A"
+        },
+        {
+          "rank": 15,
+          "title": "Blue Box Season 2",
+          "trend": "up",
+          "episode": "ep.3",
+          "wrp_score": 6.8,
+          "score": 6,
+          "prev_rank": 23,
+          "status": "Cont."
+        },
+        {
+          "rank": 16,
+          "title": "Vertex Force",
+          "trend": "stay",
+          "episode": "ep.4",
+          "wrp_score": 6.7,
+          "score": 6,
+          "prev_rank": 16,
+          "status": "N/A"
+        },
+        {
+          "rank": 17,
+          "title": "The Iceblade Sorcerer Shall Rule the World II",
+          "trend": "up",
+          "episode": "ep.3",
+          "wrp_score": 6.6,
+          "score": 6,
+          "prev_rank": 25,
+          "status": "UR2"
+        },
+        {
+          "rank": 18,
+          "title": "Magic Repo Man: Dumped by My Party, I'll Cash In With a Cute Support Fairy to Become the Strongest!",
+          "trend": "up",
+          "episode": "ep.4",
+          "wrp_score": 6.55,
+          "score": 6,
+          "prev_rank": 28,
+          "status": "UR2"
+        },
+        {
+          "rank": 19,
+          "title": "Full Clearing Another World under a Goddess with Zero Believers",
+          "trend": "up",
+          "episode": "ep.2",
+          "wrp_score": 6.5,
+          "score": 6,
+          "prev_rank": 20,
+          "status": "Cont."
+        },
+        {
+          "rank": 20,
+          "title": "Nia Liston: The Merciless Maiden",
+          "trend": "up",
+          "episode": "ep.3",
+          "wrp_score": 6.45,
+          "score": 6,
+          "prev_rank": 29,
+          "status": "UR1"
+        },
+        {
+          "rank": 21,
+          "title": "FX Fighter Kurumi-chan",
+          "trend": "down",
+          "episode": "ep.4",
+          "wrp_score": 6.3,
+          "score": 6,
+          "prev_rank": 15,
+          "status": "UR3"
+        },
+        {
+          "rank": 22,
+          "title": "Even Though I'm a Super Timid Noble Girl, I Accepted the Bet From My Cunning Fiancé",
+          "trend": "down",
+          "episode": "ep.3",
+          "wrp_score": 6,
+          "score": 6,
+          "prev_rank": 17,
+          "status": "Cont."
+        },
+        {
+          "rank": 23,
+          "title": "Tokyo Revengers: War of the Three Titan Arc",
+          "trend": "down",
+          "episode": "ep.4",
+          "wrp_score": 5.95,
+          "score": 5,
+          "prev_rank": 21,
+          "status": "UR3"
+        },
+        {
+          "rank": 24,
+          "title": "The Cold Sato-san is Only Sweet to Me",
+          "trend": "up",
+          "episode": "ep.3",
+          "wrp_score": 5.2,
+          "score": 5,
+          "prev_rank": 30,
+          "status": "UR3"
+        },
+        {
+          "rank": 25,
+          "title": "From Far Away",
+          "trend": "down",
+          "episode": "ep.3",
+          "wrp_score": 5,
+          "score": 5,
+          "prev_rank": 12,
+          "status": "UR3"
+        },
+        {
+          "rank": 26,
+          "title": "A Tale of the Secret Saint",
+          "trend": "down",
+          "episode": "ep.4",
+          "wrp_score": 4.95,
+          "score": 4,
+          "prev_rank": 3,
+          "status": "UR3"
+        },
+        {
+          "rank": 27,
+          "title": "The World's Strongest Witch",
+          "trend": "down",
+          "episode": "ep.3",
+          "wrp_score": 4.25,
+          "score": 4,
+          "prev_rank": 26,
+          "status": "UR3"
+        }
+      ]
+    },
+    "bottom_of_week": {
+      "count": 3
+    }
   },
   "entries": [
     {
