@@ -3473,3 +3473,13 @@ body[data-animeb-theme="dark"] .animeb-bottom-details a,
 body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .animeb-bottom-details a {
   color: #a7cfe0 !important;
 }
+
+/* Bottom & Dropped — Match main ranking EP badges */
+
+.animeb-bottom-poster .animeb-bottom-episode,
+.animeb-drop-poster .animeb-drop-episode {
+  font-family: 'Antonio', sans-serif;
+  font-weight: 500;
+  border-top-left-radius: 9px;
+  text-shadow: none;
+}
