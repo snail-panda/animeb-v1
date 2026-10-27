@@ -11,9 +11,16 @@
       "backOnList": 0,
       "noAir": 0,
       "completed": 0,
+      "total": 35,
+      "ratedThisWeek": 32,
+      "currentLineup": 32,
+      "seasonPool": 35,
+      "addedThisWeek": 0,
+      "seasonHalted": 0,
+      "droppedThisWeekUnrated": 0,
+      "initialSeasonPool": 35,
       "notAiredYet": 2,
-      "startedAiringThisWeek": 2,
-      "total": 35
+      "startedAiringThisWeek": 2
     },
     "weekly_intro": {
       "en": "After being completely overwhelmed by the sheer number of shows during the prelim round and Week 1, things have finally started to settle down a bit as we head into <strong>Week 2</strong> of the <strong>Fall 2026 season</strong>. It feels like we’re hitting the reset button here—time to catch our breath and really dig in.\n\nQuite unlike usual seasons, this season is NOT packed with so much buzzworthy titles, but lots of returning series. So then, how did things shake out in <strong>Week 2</strong>? Let’s take a look.\n\nThat said, this week marks the beginning of the true competition. From here on out, each episode will be judged week by week — and compared directly against its peers within the same 7-day window.\n\nWith that, let’s take a look at how things stood in this first week of the main round.",
@@ -32,7 +39,651 @@
         "midSeasonLabel": "auto",
         "midSeasonPlacement": "below"
       }
-    }
+    },
+    "bottom_of_week": {
+      "source_entries": [
+        {
+          "trend": "down",
+          "title": "The Laid-Off Cheat-Granting Mage Enjoys a Second Lease on Life",
+          "jpTitle": "追放されたチート付与魔術師は気ままなセカンドライフを謳歌する。 ～俺は武器だけじゃなく、あらゆるものに『強化ポイント』を付与できるし、俺の意思でいつでも効果を解除できるけど、残った人たち大丈夫？～",
+          "kv": "fuyoshi",
+          "episode": 2,
+          "genre": [
+            "Adventure",
+            "Comedy",
+            "Fantasy",
+            "Slice of Life"
+          ],
+          "wrp_score": 4.5,
+          "score": 4,
+          "review": {
+            "en": "<strong>Episode #2</strong>\n<p>N/A</p>",
+            "jp": "第2話:\n<p>P.A.WORKSだから様子見で残そうと思ったけど、無理。酷すぎる。漫画原作のようですが、いわゆるジャンプ系単純脳だが情に厚い発言で感動を誘う主人公キャラがウザい。何も面白くない。悪役は脳みそを使わないがしつこく粘着質で超横暴。どうでもいいので対象外。</p>"
+          },
+          "wrp_breakdown": {
+            "base_score": 5,
+            "animation": 0.5,
+            "script": 0.3,
+            "direction": 0.3,
+            "charm": 0.2,
+            "overall": -1.5
+          },
+          "romanized_title": "Tsuihou sareta Cheat Fuyo Majutsushi wa Kimama na Second Life wo Ouka suru. Ore wa Buki dake ja Naku, Arayuru Mono ni \"Kyouka Point\" wo Fuyo Dekiru shi, Ore no Ishi de Itsudemo Kouka wo Kaijo Dekiru kedo, Nokotta Hitotachi Daijoubu?",
+          "release_date": "10/6/2026",
+          "based_on": "Manga",
+          "studios": "P.A. Works",
+          "creators": "Shuu Honma",
+          "external_scores": "",
+          "streaming_services": "",
+          "synopsis": "Rein, an enchanter who strengthens equipment with his magic, is suddenly expelled from his guild, simply because every piece of gear in the guild has already been enhanced enough. Outraged by the absurd treatment, Rein decides to take back the enormous amount of mana he had poured into their equipment. When he casually channels it into a random copper sword, it transforms into a cheat-level weapon with 10,000 enhancement points!\n\nWith zero combat experience but armed with magic that can turn anything into overpowered gear, this enchanter sets off to enjoy a new, carefree life as an adventurer!\n\n(Source: Shochiku)",
+          "studios_ja": "P.A.WORKS",
+          "director_ja": "本間修",
+          "series_composition_ja": "",
+          "synopsis_ja": "強化付与魔術師のレインは、ある日突然ギルドを追放される。\nだが彼は絶望するどころか、「今なら何でもできるな」と、これまでギルドメンバーの装備に付与した大量の強化ポイントを回収し、冒険者として新たな道を歩き始める。\n\n彼のもとに集まるのは、仲間を皆殺しにされ心を閉ざした天才冒険者、家族を奪われた戦士、人殺しとして育てられた暗殺者――誰もが、簡単には消えない傷を抱えた者ばかり。\nそれでもレインは、過去も傷も否定せず、まっすぐに明るく受け入れていく。\n\n舞台となるのは、ウージー短機関銃やパチンコ、ヤクザまで存在する異色のファンタジー世界。\nしかしこの世界では、便利な科学技術に頼るほど魔力が落ち、冒険者は弱くなってしまう。\n\n知性を持つ凶悪なモンスターが跋扈し、裏社会ではアウトローたちが欲望と野心を剥き出しにしながら、謀略と策略を張り巡らせる。\n理想も正義も簡単に踏み潰される世界で、冒険者たちは己の魔力と信念だけを武器に戦い抜く。\n\nこれは、居場所を失った者たちが、自分の生き方を掴み取っていく物語。\nレインとその仲間たちの、破天荒で気ままなセカンドライフが、今始まる――!!",
+          "original_creator_publisher_ja": "",
+          "original_creator_publisher_en": "",
+          "broadcast": "",
+          "broadcast_ja": "",
+          "streaming_services_ja": "",
+          "official_website": "https://sh-anime.shochiku.co.jp/chiifuyo-anime | https://sh-anime.shochiku.co.jp/chiifuyo-anime/en",
+          "original_creator_publisher": "六志麻あさ／業務用餅／kisui（講談社「月マガ基地」連載）",
+          "director": "Shuu Honma",
+          "series_composition": "Youko Yonaiyama",
+          "episode_count": "",
+          "total_eps_this_season": "",
+          "seasons_total_ep_cnt": "",
+          "cast": "レイン・ガーランド：山下大輝\nリリィ・フラムベル：Lynn\nマーガレット・エルス：青山吉能\nミラベル：富田美憂\nエルシー・ゾラ：潘めぐみ\nニーナ：小原好美\nどんぐり：山崎たくみ\nバリオス：楠大典\nコーネリアス：古川 慎\nグレンダ：豊口めぐみ\n半分：岡本信彦\n暗殺の母：柴田理恵",
+          "opening_theme": "「エンバートーチ」sumika",
+          "ending_theme": "",
+          "air_timing": "",
+          "air_date": "2026-10-06",
+          "last_slot": 1
+        },
+        {
+          "trend": "down",
+          "title": "The Detective Is Already Dead Season 2",
+          "jpTitle": "探偵はもう、死んでいる。Season2",
+          "kv": "tanmoshi",
+          "episode": 2,
+          "genre": [
+            "Comedy",
+            "Drama",
+            "Mystery",
+            "Romance"
+          ],
+          "wrp_score": 4.8,
+          "score": 4,
+          "review": {
+            "en": "<strong>Episode #2: This anime is already dead — kidding: 'A Story of That Day No One Knows'</strong>\n<p>N/A</p>",
+            "jp": "第2話: この作品はもう、死んでいるーウソ→(真) 誰も知らないあの日の話\n<p>この作品はもう、死んでいるーウソ<br>もともと面白くもなく興味もなかったのに5年間?も間を空けたのがイケないのでしょう、てか無理で<br>もう何も内容が頭に入ってきませんでした。0.1ミリも興味が持てないのでとりあえず切ります。見たい気も起きないので。ただ万が一今後面白くなった、などの情報が拡散されたりした日には確認のために見て、その結果次第で戻ってくる可能性が無いこともないでしょう!?</p>"
+          },
+          "wrp_breakdown": {
+            "base_score": 5,
+            "animation": 0.5,
+            "script": 0.3,
+            "direction": 0.3,
+            "charm": 0.2,
+            "overall": -1.5
+          },
+          "romanized_title": "Tantei wa Mou, Shindeiru. Season 2",
+          "release_date": "10/7/2026",
+          "based_on": "Light Novel",
+          "studios": "ENGI",
+          "creators": "Manabu Kurihara",
+          "external_scores": "",
+          "streaming_services": "",
+          "synopsis": "Second season of Tantei wa Mou, Shindeiru.",
+          "studios_ja": "ENGI",
+          "director_ja": "栗原 学",
+          "series_composition_ja": "",
+          "synopsis_ja": "「君、私の助手になってよ」\n巻き込まれ体質の少年・君塚君彦は、上空一万メートルを飛ぶ飛行機の中、《世界の敵》と戦う《名探偵》の少女・シエスタの助手となった。それから二人は、三年にもわたって世界中を飛び回り、目も眩むような冒険劇を繰り広げ、そして激闘の果てに――死に別れた。\nシエスタの死から一年。一人生き残ってしまった君塚の元に、依頼人を名乗る少女・夏凪渚が現れる。彼女の依頼を受けて再び助手となった君塚は、やがて《名探偵》の死の真相に辿り着いた――。\nしかし、その真相に触れて、君塚たちは知っていく。完全無欠の名探偵が犯したミスを。《名探偵》の遺志を継ぐことの真の意味を。\n探偵はもう、死んでいる。死の真相も明かされた。\nでも、エピローグにはまだ早い。",
+          "original_creator_publisher_ja": "",
+          "original_creator_publisher_en": "",
+          "broadcast": "",
+          "broadcast_ja": "",
+          "streaming_services_ja": "",
+          "official_website": "https://tanmoshi-anime.jp/Season2/",
+          "original_creator_publisher": "二語十／キャラクター原案：うみぼうず（KADOKAWA／MF文庫J刊）",
+          "director": "Manabu Kurihara",
+          "series_composition": "Deko Akao",
+          "episode_count": "",
+          "total_eps_this_season": "",
+          "seasons_total_ep_cnt": "",
+          "cast": "君塚君彦：長井 新\nシエスタ：宮下早紀\n夏凪 渚：竹達彩奈\n斎川 唯：高尾奏音\nシャーロット・有坂・アンダーソン：白砂沙帆\n加瀬風靡：渕上 舞\nヘル：花守ゆみり\nアリシア：長縄まりあ\nコウモリ：松岡禎丞\nノーチェス：宮下早紀\nミア・ウィットロック：小宮山あかり\nスカーレット：岡本信彦",
+          "opening_theme": "「この心臓に花束を」心梅",
+          "ending_theme": "「白昼夢」カグラナナ",
+          "air_timing": "",
+          "air_date": "2026-10-07",
+          "last_slot": 2
+        },
+        {
+          "trend": "down",
+          "title": "The Cold Sato-san is Only Sweet to Me",
+          "jpTitle": "塩対応の佐藤さんが俺にだけ甘い",
+          "kv": "shiotaiou",
+          "episode": 2,
+          "genre": [
+            "Comedy",
+            "Romance"
+          ],
+          "wrp_score": 5,
+          "score": 5,
+          "review": {
+            "en": "<strong>Episode #2</strong>\n<p>UR3</p>",
+            "jp": "第2話:\n<p>\"脳みそがスカスカ穴開きスイーツです、拷問レベルでひどい作品\"</p>\n<p>酷すぎる…ただただ酷い。ただただこのヒロインがコミュ症的なこじらせキャラで超絶不器用なだけ。MCはデザート狂のスィーツ店を営む家の息子、筋肉親父もネタのためだろうし、都合でしか登場しないし深みもない。この学園を代表する可愛い子ちゃんが入試の昼に金平糖をくれて初恋、また今回キュンとした、それだけ。それもMCは「週末は店の手伝いがあって・・・」と言えばいいのにそれを絶対に言わない。というか寧ろ初期設定で店の手伝いしてるってヒロインだって分かってるのに…。全く意味がわからない。制作側も視聴者も脳みそが溶けているのかババロアなのか?ツライ。</p>"
+          },
+          "wrp_breakdown": {
+            "base_score": 5,
+            "animation": 0.5,
+            "script": 0.3,
+            "direction": 0.3,
+            "charm": 0.2,
+            "overall": -1.5
+          },
+          "romanized_title": "Shiotaiou no Satou-san ga Ore ni dake Amai",
+          "release_date": "10/6/2026",
+          "based_on": "Light Novel",
+          "studios": "Tezuka Productions",
+          "creators": "Fumihiro Yoshimura",
+          "external_scores": "",
+          "streaming_services": "",
+          "synopsis": "Koharu Satou is known to her classmates as the \"unattainable flower\" a cold and distant girl whose refusal to smile keeps everyone at arm's length.\n\nHowever, Souta Oshio accidentally stumbles upon Satou's secret at her family's cafe. It turns out the \"icy Satou-san\" is actually an incredibly shy and clumsy girl who struggles even with something as simple as taking photos of sweets for the cafe's social media.\n\nBonding over their shared love for cameras and desserts, the distance between the two gradually shrinks. This charming romantic comedy follows two socially awkward people as they navigate their feelings in a story that is as sweet as it is endearing.\n\n(Source: MAL News)",
+          "studios_ja": "手塚プロダクション",
+          "director_ja": "吉村文宏",
+          "series_composition_ja": "",
+          "synopsis_ja": "クラス中の高嶺の花、佐藤こはる。\n誰にも笑顔を見せない、通称“塩対応の佐藤さん”。\n\nでもある日、同じクラスの押尾颯太が、実家が営むカフェで見た佐藤さんの姿は……\nスイーツの写真を撮るため奮闘する、隙だらけの姿で!?\n\n本当は人見知りで不器用なだけの佐藤さんと、そんな佐藤さんのことが好きな押尾君。\n二人の距離は、スイーツとカメラをきっかけに、少しずつ縮まっていく。\n\nもどかしくて、愛おしい。\n世界で一番甘い両片想いに、きっとあなたもとろけてしまう――。\n\n不器用な二人が織りなす“甘くてしょっぱい”青春ラブコメディ！",
+          "original_creator_publisher_ja": "",
+          "original_creator_publisher_en": "",
+          "broadcast": "",
+          "broadcast_ja": "",
+          "streaming_services_ja": "",
+          "official_website": "https://shioama-anime.com/",
+          "original_creator_publisher": "猿渡かざみ「塩対応の佐藤さんが俺にだけ甘い」（小学館「ガガガ文庫」刊）",
+          "director": "Fumihiro Yoshimura",
+          "series_composition": "Takashi Aoshima",
+          "episode_count": "",
+          "total_eps_this_season": "",
+          "seasons_total_ep_cnt": "",
+          "cast": "押尾颯太：石橋陽彩\n佐藤こはる：伊藤美来\n須藤凛香：富田美憂\n三園 蓮：小林千晃\n三園 雫：青山吉能\n根津麻世：金元寿子\n押尾清左衛門：松本保典\n村崎円花：若井友希",
+          "opening_theme": "「シュガーソルト」オーイシマサヨシ",
+          "ending_theme": "「初恋リプライ」HoneyWorks feat.星川サラ",
+          "air_timing": "",
+          "air_date": "2026-10-06",
+          "last_slot": 3
+        }
+      ],
+      "count": 3,
+      "comment_source": "excel",
+      "comments": [
+        {
+          "title": "The Laid-Off Cheat-Granting Mage Enjoys a Second Lease on Life",
+          "en": "",
+          "ja": "P.A.WORKSだから様子見で残そうと思ったけど、無理。酷すぎる。漫画原作のようですが、いわゆるジャンプ系単純脳だが情に厚い発言で感動を誘う主人公キャラがウザい。何も面白くない。悪役は脳みそを使わないがしつこく粘着質で超横暴。どうでもいいので対象外。"
+        },
+        {
+          "title": "The Detective Is Already Dead Season 2",
+          "en": "",
+          "ja": "\"この作品はもう、死んでいる\"\nもともと面白くもなく興味もなかったのに5年間？も間を空けたのがイケないのでしょう、てか無理で\nもう何も内容が頭に入ってきませんでした。0.1ミリも興味が持てないのでとりあえず切ります。見たい気も起きないので。ただ万が一今後面白くなった、などの情報が拡散されたりした日には確認のために見て、その結果次第で戻ってくる可能性が無いこともないでしょう!?"
+        },
+        {
+          "title": "The Cold Sato-san is Only Sweet to Me",
+          "en": "",
+          "ja": "\"脳みそがスカスカ穴開きスイーツです、拷問レベルでひどい作品\"\n酷すぎる…ただただ酷い。ただただこのヒロインがコミュ症的なこじらせキャラで超絶不器用なだけ。MCはデザート狂のスィーツ店を営む家の息子、筋肉親父もネタのためだろうし、都合でしか登場しないし深みもない。この学園を代表する可愛い子ちゃんが入試の昼に金平糖をくれて初恋、また今回キュンとした、それだけ。それもMCは「週末は店の手伝いがあって・・・」と言えばいいのにそれを絶対に言わない。というか寧ろ初期設定で店の手伝いしてるってヒロインだって分かってるのに…。全く意味がわからない。制作側も視聴者も脳みそが溶けているのかババロアなのか？ツライ。"
+        }
+      ],
+      "display": [
+        {
+          "title": "The Laid-Off Cheat-Granting Mage Enjoys a Second Lease on Life",
+          "show_comment": true,
+          "show_review": false
+        },
+        {
+          "title": "The Detective Is Already Dead Season 2",
+          "show_comment": true,
+          "show_review": false
+        },
+        {
+          "title": "The Cold Sato-san is Only Sweet to Me",
+          "show_comment": true,
+          "show_review": false
+        }
+      ]
+    },
+    "weekly_ranking_reference": {
+      "version": 1,
+      "entries": [
+        {
+          "rank": 1,
+          "title": "Hotel Inhumans Season 2",
+          "trend": "up",
+          "episode": "ep.2",
+          "wrp_score": 9.7,
+          "score": 10,
+          "prev_rank": 5,
+          "status": "Cont.",
+          "jpTitle": "『ホテル・インヒューマンズ』第2期",
+          "kv": "hotel"
+        },
+        {
+          "rank": 2,
+          "title": "Even the Student Council Has Its Holes!",
+          "trend": "stay",
+          "episode": "ep.3",
+          "wrp_score": 9.2,
+          "score": 9,
+          "prev_rank": 2,
+          "status": "Cont.",
+          "jpTitle": "生徒会にも穴はある！",
+          "kv": "seitokai"
+        },
+        {
+          "rank": 3,
+          "title": "A Tale of the Secret Saint",
+          "trend": "up",
+          "episode": "ep.3",
+          "wrp_score": 9.05,
+          "score": 9,
+          "prev_rank": 21,
+          "status": "Cont.",
+          "jpTitle": "転生した大聖女は、聖女であることをひた隠す",
+          "kv": "hitakakusu"
+        },
+        {
+          "rank": 4,
+          "title": "#I'm Looking For a Zombie",
+          "trend": "up",
+          "episode": "ep.3",
+          "wrp_score": 8.7,
+          "score": 8,
+          "prev_rank": 7,
+          "status": "Cont.",
+          "jpTitle": "#ゾンビさがしてます",
+          "kv": "zombie"
+        },
+        {
+          "rank": 5,
+          "title": "Reborn as a Space Mercenary: I Woke Up Piloting the Strongest Starship!",
+          "trend": "up",
+          "episode": "ep.2",
+          "wrp_score": 8.5,
+          "score": 8,
+          "prev_rank": 20,
+          "status": "Cont.",
+          "jpTitle": "目覚めたら最強装備と宇宙船持ちだったので、一戸建て目指して傭兵として自由に生きたい",
+          "kv": "mezametara"
+        },
+        {
+          "rank": 6,
+          "title": "Chitose Is in the Ramune Bottle Part 2",
+          "trend": "none",
+          "episode": "ep.1",
+          "wrp_score": 8.4,
+          "score": 8,
+          "prev_rank": null,
+          "status": "TBA",
+          "jpTitle": "『千歳くんはラムネ瓶のなか』第2クール",
+          "kv": "chitose"
+        },
+        {
+          "rank": 7,
+          "title": "The Ramparts of Ice Season 2",
+          "trend": "up",
+          "episode": "ep.3",
+          "wrp_score": 8.35,
+          "score": 8,
+          "prev_rank": 8,
+          "status": "Cont.",
+          "jpTitle": "『氷の城壁』第2期",
+          "kv": "jouheki"
+        },
+        {
+          "rank": 8,
+          "title": "The Apothecary Diaries Season 3",
+          "trend": "down",
+          "episode": "ep.51",
+          "wrp_score": 8.3,
+          "score": 8,
+          "prev_rank": 4,
+          "status": "Cont.",
+          "jpTitle": "『薬屋のひとりごと』第3期",
+          "kv": "kusuriya"
+        },
+        {
+          "rank": 9,
+          "title": "Super Psychic Policeman Chojo",
+          "trend": "up",
+          "episode": "ep.2",
+          "wrp_score": 8.2,
+          "score": 8,
+          "prev_rank": 10,
+          "status": "Cont.",
+          "jpTitle": "超巡！超条先輩",
+          "kv": "choujou"
+        },
+        {
+          "rank": 10,
+          "title": "The Seven Knights of the Marronnier Kingdom",
+          "trend": "down",
+          "episode": "ep.3",
+          "wrp_score": 8.1,
+          "score": 8,
+          "prev_rank": 3,
+          "status": "Cont.",
+          "jpTitle": "マロニエ王国の七人の騎士",
+          "kv": "oukoku"
+        },
+        {
+          "rank": 11,
+          "title": "Romelia War Chronicle",
+          "trend": "down",
+          "episode": "ep.3",
+          "wrp_score": 8,
+          "score": 8,
+          "prev_rank": 6,
+          "status": "Cont.",
+          "jpTitle": "ロメリア戦記",
+          "kv": "romelia"
+        },
+        {
+          "rank": 12,
+          "title": "From Far Away",
+          "trend": "up",
+          "episode": "ep.2",
+          "wrp_score": 7.9,
+          "score": 7,
+          "prev_rank": 18,
+          "status": "Cont.",
+          "jpTitle": "彼方から",
+          "kv": "kanata"
+        },
+        {
+          "rank": 13,
+          "title": "So What's Wrong with Getting Reborn as a Goblin?",
+          "trend": "up",
+          "episode": "ep.3",
+          "wrp_score": 7.8,
+          "score": 7,
+          "prev_rank": 14,
+          "status": "Cont.",
+          "jpTitle": "転生ゴブリンだけど質問ある？",
+          "kv": "goblin"
+        },
+        {
+          "rank": 14,
+          "title": "A Returner's Magic Should Be Special Season 2",
+          "trend": "up",
+          "episode": "ep.14",
+          "wrp_score": 7.7,
+          "score": 7,
+          "prev_rank": 28,
+          "status": "Cont.",
+          "jpTitle": "『帰還者の魔法は特別です』第二期",
+          "kv": "kikansha"
+        },
+        {
+          "rank": 15,
+          "title": "FX Fighter Kurumi-chan",
+          "trend": "up",
+          "episode": "ep.3",
+          "wrp_score": 7.65,
+          "score": 7,
+          "prev_rank": 26,
+          "status": "UR",
+          "jpTitle": "FX戦士くるみちゃん",
+          "kv": "fx"
+        },
+        {
+          "rank": 16,
+          "title": "Vertex Force",
+          "trend": "down",
+          "episode": "ep.3",
+          "wrp_score": 7.4,
+          "score": 7,
+          "prev_rank": 12,
+          "status": "Cont.",
+          "jpTitle": "バーテックスフォース",
+          "kv": "vertex"
+        },
+        {
+          "rank": 17,
+          "title": "Even Though I'm a Super Timid Noble Girl, I Accepted the Bet From My Cunning Fiancé",
+          "trend": "up",
+          "episode": "ep.2",
+          "wrp_score": 7.3,
+          "score": 7,
+          "prev_rank": 24,
+          "status": "Cont.",
+          "jpTitle": "弱気MAX令嬢なのに、辣腕婚約者様の賭けに乗ってしまった",
+          "kv": "max"
+        },
+        {
+          "rank": 18,
+          "title": "Tetsuryou! Meet with Tetsudou Musume",
+          "trend": "up",
+          "episode": "ep.2",
+          "wrp_score": 7.25,
+          "score": 7,
+          "prev_rank": 27,
+          "status": "UR",
+          "jpTitle": "てつりょー！meet with 鉄道むすめ",
+          "kv": "tetsuryo"
+        },
+        {
+          "rank": 19,
+          "title": "Magic Knight Rayearth (2026)",
+          "trend": "down",
+          "episode": "ep.2",
+          "wrp_score": 7.2,
+          "score": 7,
+          "prev_rank": 9,
+          "status": "UR1",
+          "jpTitle": "魔法騎士レイアース",
+          "kv": "rayearth"
+        },
+        {
+          "rank": 20,
+          "title": "Full Clearing Another World under a Goddess with Zero Believers",
+          "trend": "none",
+          "episode": "ep.1",
+          "wrp_score": 7,
+          "score": 7,
+          "prev_rank": null,
+          "status": "TBA",
+          "jpTitle": "信者ゼロの女神サマと始める異世界攻略",
+          "kv": "shinja"
+        },
+        {
+          "rank": 21,
+          "title": "Tokyo Revengers: War of the Three Titan Arc",
+          "trend": "down",
+          "episode": "ep.3",
+          "wrp_score": 6.9,
+          "score": 6,
+          "prev_rank": 16,
+          "status": "UR",
+          "jpTitle": "『東京リベンジャーズ』三天戦争編",
+          "kv": "tokyo"
+        },
+        {
+          "rank": 22,
+          "title": "Aoki Denshou Welsh & Shedar",
+          "trend": "down",
+          "episode": "ep.3",
+          "wrp_score": 6.85,
+          "score": 6,
+          "prev_rank": 15,
+          "status": "N/A",
+          "jpTitle": "蒼き伝承 – Welsh & Shedar",
+          "kv": "aoki"
+        },
+        {
+          "rank": 23,
+          "title": "Blue Box Season 2",
+          "trend": "down",
+          "episode": "ep.2",
+          "wrp_score": 6.8,
+          "score": 6,
+          "prev_rank": 17,
+          "status": "Cont.",
+          "jpTitle": "『アオのハコ』Season2",
+          "kv": "hako"
+        },
+        {
+          "rank": 24,
+          "title": "A Certain Dark Item",
+          "trend": "down",
+          "episode": "ep.2",
+          "wrp_score": 6.75,
+          "score": 6,
+          "prev_rank": 11,
+          "status": "N/A",
+          "jpTitle": "とある暗部の少女共棲",
+          "kv": "toaru"
+        },
+        {
+          "rank": 25,
+          "title": "The Iceblade Sorcerer Shall Rule the World II",
+          "trend": "up",
+          "episode": "ep.2",
+          "wrp_score": 6.7,
+          "score": 6,
+          "prev_rank": 29,
+          "status": "UR1",
+          "jpTitle": "冰剣の魔術師が世界を統べるⅡ",
+          "kv": "hyouken"
+        },
+        {
+          "rank": 26,
+          "title": "The World's Strongest Witch",
+          "trend": "up",
+          "episode": "ep.2",
+          "wrp_score": 6.5,
+          "score": 6,
+          "prev_rank": 30,
+          "status": "Cont.",
+          "jpTitle": "世界最強の魔女、始めました",
+          "kv": "saikyou"
+        },
+        {
+          "rank": 27,
+          "title": "Psyren",
+          "trend": "down",
+          "episode": "ep.2",
+          "wrp_score": 6.2,
+          "score": 6,
+          "prev_rank": 19,
+          "status": "Cont.",
+          "jpTitle": "PSYREN -サイレン-",
+          "kv": "psyren"
+        },
+        {
+          "rank": 28,
+          "title": "Magic Repo Man: Dumped by My Party, I'll Cash In With a Cute Support Fairy to Become the Strongest!",
+          "trend": "down",
+          "episode": "ep.3",
+          "wrp_score": 6.05,
+          "score": 6,
+          "prev_rank": 13,
+          "status": "Cont.",
+          "jpTitle": "貸した魔力は【リボ払い】で強制徴収",
+          "kv": "revo"
+        },
+        {
+          "rank": 29,
+          "title": "Nia Liston: The Merciless Maiden",
+          "trend": "down",
+          "episode": "ep.2",
+          "wrp_score": 6,
+          "score": 6,
+          "prev_rank": 1,
+          "status": "UR1",
+          "jpTitle": "凶乱令嬢ニア・リストン 病弱令嬢に転生した神殺しの武人の華麗なる無双録",
+          "kv": "kyouran"
+        },
+        {
+          "rank": 30,
+          "title": "The Cold Sato-san is Only Sweet to Me",
+          "trend": "down",
+          "episode": "ep.2",
+          "wrp_score": 5,
+          "score": 5,
+          "prev_rank": 25,
+          "status": "UR3",
+          "jpTitle": "塩対応の佐藤さんが俺にだけ甘い",
+          "kv": "shiotaiou"
+        },
+        {
+          "rank": 31,
+          "title": "The Detective Is Already Dead Season 2",
+          "trend": "down",
+          "episode": "ep.2",
+          "wrp_score": 4.8,
+          "score": 4,
+          "prev_rank": 22,
+          "status": "N/A",
+          "jpTitle": "探偵はもう、死んでいる。Season2",
+          "kv": "tanmoshi"
+        },
+        {
+          "rank": 32,
+          "title": "The Laid-Off Cheat-Granting Mage Enjoys a Second Lease on Life",
+          "trend": "down",
+          "episode": "ep.2",
+          "wrp_score": 4.5,
+          "score": 4,
+          "prev_rank": 23,
+          "status": "N/A",
+          "jpTitle": "追放されたチート付与魔術師は気ままなセカンドライフを謳歌する。 ～俺は武器だけじゃなく、あらゆるものに『強化ポイント』を付与できるし、俺の意思でいつでも効果を解除できるけど、残った人たち大丈夫？～",
+          "kv": "fuyoshi"
+        }
+      ]
+    },
+    "drop_decisions": [
+      {
+        "title": "Aoki Denshou Welsh & Shedar",
+        "jpTitle": "蒼き伝承 – Welsh & Shedar",
+        "kv": "aoki",
+        "episode": "3",
+        "mode": "rated",
+        "reason": {
+          "en": "",
+          "ja": "そこまで酷くないけど、というよりまとも？ではあるけど、フランっすぽいのか、結構大雑把というか…。いずれにしても、もういいかな。"
+        }
+      },
+      {
+        "title": "A Certain Dark Item",
+        "jpTitle": "とある暗部の少女共棲",
+        "kv": "toaru",
+        "episode": "2",
+        "mode": "rated",
+        "reason": {
+          "en": "",
+          "ja": "もともと「とあるシリーズ」は苦手だけど、これはまぁそこまででもなかったんだけど、単純にもういいかな…といったところ。"
+        }
+      },
+      {
+        "title": "The Detective Is Already Dead Season 2",
+        "jpTitle": "探偵はもう、死んでいる。Season2",
+        "kv": "tanmoshi",
+        "episode": "2",
+        "mode": "rated",
+        "reason": {
+          "en": "",
+          "ja": "いや、マジで無理。っていうか覚えてないし、思い出したくもないし…。"
+        }
+      },
+      {
+        "title": "The Laid-Off Cheat-Granting Mage Enjoys a Second Lease on Life",
+        "jpTitle": "追放されたチート付与魔術師は気ままなセカンドライフを謳歌する。 ～俺は武器だけじゃなく、あらゆるものに『強化ポイント』を付与できるし、俺の意思でいつでも効果を解除できるけど、残った人たち大丈夫？～",
+        "kv": "fuyoshi",
+        "episode": "2",
+        "mode": "rated",
+        "reason": {
+          "en": "",
+          "ja": "コレ…酷いね。P.A.WORKSだからクオリティはそこそこ高いのが逆に辛い。無理っす。"
+        }
+      }
+    ]
   },
   "entries": [
     {
@@ -443,7 +1094,7 @@
       "score": 8,
       "review": {
         "en": "<strong>Episode #51: Let Them Eat Cake</strong>\n<p>\"As excellent as ever, but since this is a transitional episode still laying the groundwork, I'm keeping my rating relatively modest.\"</p>\n<p>As entertaining as always. This show is simply in a league of its own. That said, this is more of a transitional episode, with the story still building toward something bigger, so I'm holding back a little on the score. Even so, there's plenty of depth here, and I love how the connections to earlier developments continue to come together so naturally.</p>",
-        "jp": "第51話(今期第3話): 麺麭がなければ\n<p>\"普段通りにとてもよいが途中階で積み上げ中によりそこそこの評価\"</p>\n<p>『いつも通り面白い。格が違う。ただし、途中回、今は積み上げている最中なので控えめ。それでも深い。以前からの繋がりもいい感じ。』</p>"
+        "jp": "第51話: 麺麭がなければ\n<p>\"普段通りにとてもよいが途中階で積み上げ中によりそこそこの評価\"</p>\n<p>『いつも通り面白い。格が違う。ただし、途中回、今は積み上げている最中なので控えめ。それでも深い。以前からの繋がりもいい感じ。』</p>"
       },
       "wrp_breakdown": {
         "base_score": 5,
