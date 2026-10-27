@@ -49,6 +49,7 @@
         "title": "Cyberpunk: Edgerunners 2",
         "jpTitle": "Cyberpunk: Edgerunners 2",
         "kv": "cyber",
+        "episode": "1",
         "mode": "unrated",
         "reason": {
           "en": "I did watch it, but honestly, I wasn't really sure what to make of it, and I figured I didn't need to include it in my rankings. Besides, all the episodes were released at once...\n\nSo, no rating, no review—just a quick goodbye! Oh, but I'll probably still watch all the episodes.",
@@ -59,6 +60,7 @@
         "title": "Psyren",
         "jpTitle": "PSYREN -サイレン-",
         "kv": "psyren",
+        "episode": "ep.3",
         "mode": "rated",
         "reason": {
           "en": "I don't know... It just feels sloppy, or maybe overly simplistic... I imagine the original source material handles things a bit more carefully, but the anime adaptation is pretty underwhelming. And the introduction of that woman who had cleared it before... yeah, that too.\n\nAn occult sci-fi? supernatural version of *Kaiji*, perhaps? I really can't justify keeping this one in my rankings, so I've decided to say goodbye right here.",
@@ -69,6 +71,7 @@
         "title": "Vertex Force",
         "jpTitle": "バーテックスフォース",
         "kv": "vertex",
+        "episode": "ep.4",
         "mode": "rated",
         "reason": {
           "en": "I don't dislike it, but... this one feels way too rough around the edges as well. It's disappointing in pretty much every aspect, sometimes just a little, sometimes quite a lot. Even the MC's mech? Equipment? Whatever that thing is, it feels completely out of place...\n\nSo, I've decided to say goodbye to this one after this week.",
@@ -264,6 +267,23 @@
           "title": "From Far Away",
           "en": "Episode #3: Nightmare\nWhat the hell is this? Some kind of joke? No, it's a nightmare! For more details, check out my review of Dookie in the rankings.",
           "ja": "第3話: 悪夢\nこれは何だ？ジョークか？いや悪夢だ! 詳しくは、ランキングのDookieのReviewをご覧ください。"
+        }
+      ],
+      "display": [
+        {
+          "title": "The World's Strongest Witch",
+          "show_comment": true,
+          "show_review": false
+        },
+        {
+          "title": "A Tale of the Secret Saint",
+          "show_comment": true,
+          "show_review": false
+        },
+        {
+          "title": "From Far Away",
+          "show_comment": true,
+          "show_review": false
         }
       ]
     },
