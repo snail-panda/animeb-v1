@@ -12,8 +12,15 @@
       "noAir": 0,
       "completed": 0,
       "total": 35,
+      "ratedThisWeek": 30,
+      "currentLineup": 30,
+      "seasonPool": 35,
+      "addedThisWeek": 0,
+      "seasonHalted": 0,
+      "droppedThisWeekUnrated": 0,
+      "initialSeasonPool": 35,
       "notAiredYet": 4,
-      "startedAiringThisWeek": 0
+      "startedAiringThisWeek": 13
     },
     "weekly_intro": {
       "en": "The main phase of the season has officially begun — welcome to <strong>Week 1</strong> of the Weekly Rankings.\n\nBack in the Preliminary Round, I started with <strong>35 titles</strong>. After some tough decisions, I’ve narrowed them down to a tighter list of <strong>30 shows</strong> going forward.\n\nSince many of the titles in this round were already evaluated during the Prelim, I won’t be going over the same impressions in detail here. Most of what needed to be said has already been shared there.\n\nThat said, this week marks the beginning of the true competition. From here on out, each episode will be judged week by week — and compared directly against its peers within the same 7-day window.\n\nWith that, let’s take a look at how things stood in this <strong>first week</strong> of the <strong>main round</strong>.",
@@ -36,6 +43,579 @@
         "value10": 7,
         "displayScale": 5
       }
+    },
+    "bottom_of_week": {
+      "source_entries": [
+        {
+          "trend": "new",
+          "title": "The World's Strongest Witch",
+          "jpTitle": "世界最強の魔女、始めました",
+          "kv": "saikyou",
+          "episode": 1,
+          "genre": [
+            "Adventure",
+            "Comedy",
+            "Fantasy"
+          ],
+          "wrp_score": 3.95,
+          "score": 3,
+          "review": {
+            "en": "<strong>Episode #1: I Tried Using the Internet!</strong>",
+            "jp": "第1話: インターネットを使ってみた!\n<p>ゴミクズ</p>"
+          },
+          "wrp_breakdown": {
+            "base_score": 5,
+            "animation": 0.5,
+            "script": 0.2,
+            "direction": 0.2,
+            "charm": 0.05,
+            "overall": -2
+          },
+          "romanized_title": "Sekai Saikyou no Majo, Hajimemashita",
+          "release_date": "10/7/2026",
+          "based_on": "Light Novel",
+          "studios": "AisleBridge",
+          "creators": "Joji Furuta",
+          "external_scores": "",
+          "streaming_services": "",
+          "synopsis": "When Lorna manifests a completely useless ability, she's labeled an embarrassment to her family and kicked out of the house. With no money or food, she's about to hit rock bottom. But then, she figures out how to use her supposedly worthless SSS-Rank skill, \"Internet.\" This cheat-level talent gives her the know-how to gather an unlimited amount of valuable items and easily acquire rare equipment. Armed with godlike knowledge, Lorna's free to do anything she wants! If only she could figure out what \"lmfao\" means...\n\n(Source: Yen Press)",
+          "studios_ja": "ブリッジ / アイル",
+          "director_ja": "古田丈司",
+          "series_composition_ja": "米村正二",
+          "synopsis_ja": "最弱クラスのスキルを発現してしまい、追放された少女・ローナ。しかしそのスキルの正体は、この世界の『攻略サイト』を見ることができるＳＳＳランクのチートスキル【インターネット】だった――！自由で平和な生活を求めて旅する“世界最強の魔女”ローナの、ハチャメチャな冒険の日々がついにアニメ化！",
+          "original_creator_publisher_ja": "",
+          "original_creator_publisher_en": "",
+          "broadcast": "TOKYO MX 毎週水曜22:00〜",
+          "broadcast_ja": "",
+          "streaming_services_ja": "",
+          "official_website": "https://sekamajo-anime.com/",
+          "original_creator_publisher": "坂木持丸／riritto（SQEXノベル／スクウェア・エニックス刊）／漫画：戸賀 環",
+          "director": "Joji Furuta",
+          "series_composition": "Shoji Yonemura",
+          "episode_count": "",
+          "total_eps_this_season": "",
+          "seasons_total_ep_cnt": "",
+          "cast": "ローナ・ハーミット：橘 杏咲\nエリミナ・マナフレイム：ファイルーズあい\nエルナ：井上ほの花\nアリエス・ティア・ブルームーン：花澤香菜\nルル・ル・リエー：長縄まりあ\nラインハルテ・ハイウィンド：上村祐翔",
+          "opening_theme": "「影響力∞アイドル」HoneyWorks feat.ハコニワリリィ",
+          "ending_theme": "「星を巡る」ロクデナシ",
+          "air_timing": "",
+          "air_date": "2026-10-07",
+          "last_slot": 1
+        },
+        {
+          "trend": "new",
+          "title": "The Iceblade Sorcerer Shall Rule the World II",
+          "jpTitle": "冰剣の魔術師が世界を統べるⅡ",
+          "kv": "hyouken",
+          "episode": 1,
+          "genre": [
+            "Action",
+            "Adventure",
+            "Fantasy"
+          ],
+          "wrp_score": 5.35,
+          "score": 5,
+          "review": {
+            "en": "",
+            "jp": "第1話:\n<p>KVを見た時から嫌な予感がしたが的中。キャラの魅力が激減。クオリティが低下したのは何故だろう?そして数年の間を開けたのにこれまでの紹介もないまま、アホなノリだけ前よりマシマシで続行。そして全ての女子キャラがMCにゾッコン（師匠を含む）ノリも増し増しの増しで、これまた酷い…。第2期のスタートとしてかなりヤバかった。この作品が何についての作品で、主人公が何者であり、現時点での、または最終的な目的は何なのか?などが、初見の人にはまるで伝わる可能性すらない仕様。完璧なまでに酷過ぎる。本作の第1期を好きだった人（自分を含む）にとってはツラかったはず。</p>"
+          },
+          "wrp_breakdown": {
+            "base_score": 5,
+            "animation": 0.35,
+            "script": 0.35,
+            "direction": 0.4,
+            "charm": 0.2,
+            "overall": -0.95
+          },
+          "romanized_title": "Hyouken no Majutsushi ga Sekai wo Suberu II",
+          "release_date": "10/8/2026",
+          "based_on": "Light Novel",
+          "studios": "Zero-G",
+          "creators": "Masahiro Takata",
+          "external_scores": "",
+          "streaming_services": "",
+          "synopsis": "Second season of Hyouken no Majutsushi ga Sekai wo Suberu.",
+          "studios_ja": "ゼロジー",
+          "director_ja": "たかたまさひろ",
+          "series_composition_ja": "",
+          "synopsis_ja": "七大魔術師の一人にして、世界最強と謳われる“冰剣の魔術師”\n\nその称号を受け継いだレイ＝ホワイトは、自身の強大すぎる力に苦悩し、深い心の傷と共に戦場から姿を消した……。\n\n時は流れ3年後―――\n\n世界中からエリート魔術師が集まるアーノルド魔術学院に学院唯一の一般家庭（オーディナリー）出身として入学したレイ。\n\n入学当初は貴族出身の魔術師たちから軽蔑の眼差しを向けられるレイだったが、エリート魔術師たちを狙う組織・優生機関（ユーゼニクス）の陰謀に立ち向かう中で、周囲に実力を証明し、信頼を勝ち取っていく。\n\n数々の試練を乗り越え、かけがえのない仲間との居場所を手に入れたレイが次に挑むのは、学院の垣根を越えて三人一組のチームで戦う大規模魔術戦（マギクス・ウォー）！\n\nしかし、レイや仲間たちに忍び寄る不穏な影……。さらに、レイ以外の七大魔術師たちも次々と行動を開始して！？\n\n最強魔術師の友情と波乱に満ちた学園生活の幕が今、再び上がる！！",
+          "original_creator_publisher_ja": "",
+          "original_creator_publisher_en": "",
+          "broadcast": "",
+          "broadcast_ja": "",
+          "streaming_services_ja": "",
+          "official_website": "https://hyouken-anime.com/",
+          "original_creator_publisher": "御子柴奈々（講談社ラノベ文庫刊）",
+          "director": "Masahiro Takata",
+          "series_composition": "Masahiro Takata",
+          "episode_count": "",
+          "total_eps_this_season": "",
+          "seasons_total_ep_cnt": "",
+          "cast": "レイ＝ホワイト：榎木淳弥\nアメリア＝ローズ：佐伯伊織\nアリアーヌ＝オルグレン：関根明良\nエリサ＝グリフィス：久保田未夢\nレベッカ＝ブラッドリィ：和氣あず未\nクラリス＝クリーヴランド：本渡 楓\nリディア＝エインズワース：種﨑敦美\nアビー＝ガーネット：森なな子\nキャロル＝キャロライン：内田真礼\nエヴィ＝アームストロング：梅原裕一郎\nアルバート＝アリウム：天﨑滉平\nマリア＝ブラッドリィ：青木志貴\nルーカス＝フォルスト：保志総一朗\nリーゼロッテ＝エーデン：白石晴香\nオリヴィア＝アーノルド：菱川花菜\nステラ＝ホワイト：種﨑敦美\nマリウス＝バセット：興津和幸\nユリウス＝オルフェ：木村良平\nビアンカ＝ミラー：古賀 葵\nエマ＝クラーク：小原好美",
+          "opening_theme": "「Diamond Dust」Sizuk",
+          "ending_theme": "「COMPRESSION :[」内田真礼",
+          "air_timing": "",
+          "air_date": "2026-10-08",
+          "last_slot": 2
+        },
+        {
+          "trend": "up",
+          "title": "A Returner's Magic Should Be Special Season 2",
+          "jpTitle": "『帰還者の魔法は特別です』第二期",
+          "kv": "kikansha",
+          "episode": 13,
+          "genre": [
+            "Action",
+            "Adventure",
+            "Fantasy"
+          ],
+          "wrp_score": 5.75,
+          "score": 5,
+          "review": {
+            "en": "",
+            "jp": "第13話:\n<p>もともと好きな作品だったし、楽しみにしてただけに残念。この話を見たところでこれまでが全くわからないので何をどう思えばわからない状況。とにかくただ戦闘が行われたりして話が進む。結構入り組んだ事情などあったり、そこそこキャラも多いので、誰が誰でどこで何をしていて何が過去にあったのか・・・一つもわからないというのはあまりに置いてけぼり過ぎて酷い。なんとか2話やこれからちゃんと回復して見せて欲しいものだ。せっかく1期が良かったのだから。また、そんな中あの寡黙な激強剣士がMCにちょっとグイグイ迫って来てるのも、1期にはなかったのでイキナリ過ぎて萎える。作画やクオリティの向上など二の次でいいから、以前のいい流れをせめて保って欲しい。</p>"
+          },
+          "wrp_breakdown": {
+            "base_score": 5,
+            "animation": 0.6,
+            "script": 0.45,
+            "direction": 0.45,
+            "charm": 0.25,
+            "overall": -1
+          },
+          "romanized_title": "Kikansha no Mahou wa Tokubetsu desu 2nd Season",
+          "release_date": "10/7/2026",
+          "based_on": "Web Comics",
+          "studios": "Arvo Animation",
+          "creators": "Taishi Kawaguchi",
+          "external_scores": "",
+          "streaming_services": "",
+          "synopsis": "Second season of Kikansha no Mahou wa Tokubetsu desu.",
+          "studios_ja": "アルボアニメーション",
+          "director_ja": "川口太詩",
+          "series_composition_ja": "",
+          "synopsis_ja": "絶えず世界を侵食する異次元空間「影の世界」。\n最悪の災害「影の迷宮」による世界の滅亡を回避するためデジール・アルマンは13年前の世界で学園生活を送っていた。\n\n＜風属性の魔法使い＞ロマンティカ・エル、＜俊足の剣士＞プラム・シュナイザー、＜氷属性の魔剣士＞アゼスト・キングスクラウン。\nへブリオン学園での生活を経て3人の仲間を得たデジールは、突如出現した影の世界の攻略のため奔走する。\n\n束の間訪れた平穏の中、デジールを襲う“ロマンティカの死”の悪夢。\n現れたのは＜破滅の悪魔＞ダデニュフの姿。\n\n「分かってる……あいつは……ロマンティカの仇だ」\n\nデジールの次なる“逆算（たたかい）”が始まる――！",
+          "original_creator_publisher_ja": "",
+          "original_creator_publisher_en": "",
+          "broadcast": "",
+          "broadcast_ja": "",
+          "streaming_services_ja": "",
+          "official_website": "https://returners-magic.com/",
+          "original_creator_publisher": "Wookjakga、Usonan（D&C MEDIA 発行）",
+          "director": "Taishi Kawaguchi",
+          "series_composition": "Takamitsu Kouno",
+          "episode_count": "",
+          "total_eps_this_season": "",
+          "seasons_total_ep_cnt": "",
+          "cast": "デジール・アルマン：寺島拓篤\nロマンティカ・エル：鈴代紗弓\nプラム・シュナイザー：藤原夏海\nアゼスト・キングスクラウン：瀬戸麻沙美",
+          "opening_theme": "「Sorrow」FLOW",
+          "ending_theme": "「Everlasting」krage",
+          "air_timing": "",
+          "air_date": "2026-10-07",
+          "last_slot": 3
+        }
+      ],
+      "count": 3,
+      "comment_source": "excel",
+      "comments": [
+        {
+          "title": "The World's Strongest Witch",
+          "en": "Absolute garbage.",
+          "ja": "ゴミクズ"
+        },
+        {
+          "title": "The Iceblade Sorcerer Shall Rule the World II",
+          "en": "I had a bad feeling when I saw the key visual, and unfortunately, I was right. The characters have lost much of their charm, and the overall quality has noticeably declined. After several years away, Season 2 returns without any recap, while cranking up the ridiculous antics and having every female character—including the MC's mentor—fall head over heels for him. What a mess. Newcomers wouldn't have a clue what the story is about, who the MC is, or what he's trying to achieve. An absolutely disastrous premiere, and a painful disappointment for those of us who loved Season 1.",
+          "ja": "KVを見た時から嫌な予感がしたが的中。キャラの魅力が激減。クオリティが低下したのは何故だろう?そして数年の間を開けたのにこれまでの紹介もないまま、アホなノリだけ前よりマシマシで続行。そして全ての女子キャラがMCにゾッコン（師匠を含む）ノリも増し増しの増しで、これまた酷い…。第2期のスタートとしてかなりヤバかった。この作品が何についての作品で、主人公が何者であり、現時点での、または最終的な目的は何なのか?などが、初見の人にはまるで伝わる可能性すらない仕様。完璧なまでに酷過ぎる。本作の第1期を好きだった人（自分を含む）にとってはツラかったはず。"
+        },
+        {
+          "title": "A Returner's Magic Should Be Special Season 2",
+          "en": "I've always liked this series and was looking forward to its return, so this was disappointing. The episode throws us straight into battles and ongoing events without enough context to remember who's who, where they are, what they're doing, or what happened before. With such a large cast and complicated relationships, being left this completely in the dark is frustrating. I really hope the next few episodes can get things back on track, because the first season was genuinely good.\n\nAnd what's with Ajest, the quiet powerful swordswoman suddenly coming on so strong to the Desir? There was nothing like that in Season 1, so it feels forced and off-putting. Forget improving the animation or production quality for now. I'd much rather they preserve what made the first season so enjoyable.",
+          "ja": "もともと好きな作品だったし、楽しみにしてただけに残念。この話を見たところでこれまでが全くわからないので何をどう思えばわからない状況。とにかくただ戦闘が行われたりして話が進む。結構入り組んだ事情などあったり、そこそこキャラも多いので、誰が誰でどこで何をしていて何が過去にあったのか・・・一つもわからないというのはあまりに置いてけぼり過ぎて酷い。なんとか2話やこれからちゃんと回復して見せて欲しいものだ。せっかく1期が良かったのだから。また、そんな中あの寡黙なアゼストがデジールに積極的にグイグイ来てるのも、1期にはなかったのでイキナリ過ぎて萎える。作画やクオリティの向上など二の次でいいから、以前のいい流れをせめて保って欲しい。"
+        }
+      ],
+      "display": [
+        {
+          "title": "The World's Strongest Witch",
+          "show_comment": true,
+          "show_review": false
+        },
+        {
+          "title": "The Iceblade Sorcerer Shall Rule the World II",
+          "show_comment": true,
+          "show_review": false
+        },
+        {
+          "title": "A Returner's Magic Should Be Special Season 2",
+          "show_comment": true,
+          "show_review": false
+        }
+      ]
+    },
+    "weekly_ranking_reference": {
+      "version": 1,
+      "entries": [
+        {
+          "rank": 1,
+          "title": "Nia Liston: The Merciless Maiden",
+          "trend": "none",
+          "episode": "ep.1",
+          "wrp_score": 9.45,
+          "score": 9,
+          "prev_rank": null,
+          "status": "TBA",
+          "jpTitle": "凶乱令嬢ニア・リストン 病弱令嬢に転生した神殺しの武人の華麗なる無双録",
+          "kv": "kyouran"
+        },
+        {
+          "rank": 2,
+          "title": "Even the Student Council Has Its Holes!",
+          "trend": "down",
+          "episode": "ep.2",
+          "wrp_score": 9.3,
+          "score": 9,
+          "prev_rank": 1,
+          "status": "Cont.",
+          "jpTitle": "生徒会にも穴はある！",
+          "kv": "seitokai"
+        },
+        {
+          "rank": 3,
+          "title": "The Seven Knights of the Marronnier Kingdom",
+          "trend": "up",
+          "episode": "ep.2",
+          "wrp_score": 9.1,
+          "score": 9,
+          "prev_rank": 4,
+          "status": "Cont.",
+          "jpTitle": "マロニエ王国の七人の騎士",
+          "kv": "oukoku"
+        },
+        {
+          "rank": 4,
+          "title": "The Apothecary Diaries Season 3",
+          "trend": "down",
+          "episode": "ep.50",
+          "wrp_score": 9.05,
+          "score": 9,
+          "prev_rank": 3,
+          "status": "Cont.",
+          "jpTitle": "『薬屋のひとりごと』第3期",
+          "kv": "kusuriya"
+        },
+        {
+          "rank": 5,
+          "title": "Hotel Inhumans Season 2",
+          "trend": "none",
+          "episode": "ep.1",
+          "wrp_score": 8.8,
+          "score": 8,
+          "prev_rank": null,
+          "status": "TBA",
+          "jpTitle": "『ホテル・インヒューマンズ』第2期",
+          "kv": "hotel"
+        },
+        {
+          "rank": 6,
+          "title": "Romelia War Chronicle",
+          "trend": "down",
+          "episode": "ep.2",
+          "wrp_score": 8.4,
+          "score": 8,
+          "prev_rank": 5,
+          "status": "Cont.",
+          "jpTitle": "ロメリア戦記",
+          "kv": "romelia"
+        },
+        {
+          "rank": 7,
+          "title": "#I'm Looking For a Zombie",
+          "trend": "up",
+          "episode": "ep.2",
+          "wrp_score": 8.35,
+          "score": 8,
+          "prev_rank": 12,
+          "status": "Cont.",
+          "jpTitle": "#ゾンビさがしてます",
+          "kv": "zombie"
+        },
+        {
+          "rank": 8,
+          "title": "The Ramparts of Ice Season 2",
+          "trend": "down",
+          "episode": "ep.2",
+          "wrp_score": 8.2,
+          "score": 8,
+          "prev_rank": 2,
+          "status": "Cont.",
+          "jpTitle": "『氷の城壁』第2期",
+          "kv": "jouheki"
+        },
+        {
+          "rank": 9,
+          "title": "Magic Knight Rayearth (2026)",
+          "trend": "none",
+          "episode": "ep.1",
+          "wrp_score": 8,
+          "score": 8,
+          "prev_rank": null,
+          "status": "TBA",
+          "jpTitle": "魔法騎士レイアース",
+          "kv": "rayearth"
+        },
+        {
+          "rank": 10,
+          "title": "Super Psychic Policeman Chojo",
+          "trend": "none",
+          "episode": "ep.1",
+          "wrp_score": 7.95,
+          "score": 7,
+          "prev_rank": null,
+          "status": "TBA",
+          "jpTitle": "超巡！超条先輩",
+          "kv": "choujou"
+        },
+        {
+          "rank": 11,
+          "title": "A Certain Dark Item",
+          "trend": "none",
+          "episode": "ep.1",
+          "wrp_score": 7.9,
+          "score": 7,
+          "prev_rank": null,
+          "status": "TBA",
+          "jpTitle": "とある暗部の少女共棲",
+          "kv": "toaru"
+        },
+        {
+          "rank": 12,
+          "title": "Vertex Force",
+          "trend": "down",
+          "episode": "ep.2",
+          "wrp_score": 7.6,
+          "score": 7,
+          "prev_rank": 10,
+          "status": "Cont.",
+          "jpTitle": "バーテックスフォース",
+          "kv": "vertex"
+        },
+        {
+          "rank": 13,
+          "title": "Magic Repo Man: Dumped by My Party, I'll Cash In With a Cute Support Fairy to Become the Strongest!",
+          "trend": "stay",
+          "episode": "ep.2",
+          "wrp_score": 7.5,
+          "score": 7,
+          "prev_rank": 13,
+          "status": "Cont.",
+          "jpTitle": "貸した魔力は【リボ払い】で強制徴収",
+          "kv": "revo"
+        },
+        {
+          "rank": 14,
+          "title": "So What's Wrong with Getting Reborn as a Goblin?",
+          "trend": "down",
+          "episode": "ep.2",
+          "wrp_score": 7.45,
+          "score": 7,
+          "prev_rank": 9,
+          "status": "Cont.",
+          "jpTitle": "転生ゴブリンだけど質問ある？",
+          "kv": "goblin"
+        },
+        {
+          "rank": 15,
+          "title": "Aoki Denshou Welsh & Shedar",
+          "trend": "down",
+          "episode": "ep.2",
+          "wrp_score": 7.4,
+          "score": 7,
+          "prev_rank": 7,
+          "status": "UR",
+          "jpTitle": "蒼き伝承 – Welsh & Shedar",
+          "kv": "aoki"
+        },
+        {
+          "rank": 16,
+          "title": "Tokyo Revengers: War of the Three Titan Arc",
+          "trend": "down",
+          "episode": "ep.2",
+          "wrp_score": 7.25,
+          "score": 7,
+          "prev_rank": 8,
+          "status": "UR",
+          "jpTitle": "『東京リベンジャーズ』三天戦争編",
+          "kv": "tokyo"
+        },
+        {
+          "rank": 17,
+          "title": "Blue Box Season 2",
+          "trend": "none",
+          "episode": "ep.1",
+          "wrp_score": 7.1,
+          "score": 7,
+          "prev_rank": null,
+          "status": "TBA",
+          "jpTitle": "『アオのハコ』Season2",
+          "kv": "hako"
+        },
+        {
+          "rank": 18,
+          "title": "From Far Away",
+          "trend": "none",
+          "episode": "ep.1",
+          "wrp_score": 7.05,
+          "score": 7,
+          "prev_rank": null,
+          "status": "TBA",
+          "jpTitle": "彼方から",
+          "kv": "kanata"
+        },
+        {
+          "rank": 19,
+          "title": "Psyren",
+          "trend": "none",
+          "episode": "ep.1",
+          "wrp_score": 7,
+          "score": 7,
+          "prev_rank": null,
+          "status": "TBA",
+          "jpTitle": "PSYREN -サイレン-",
+          "kv": "psyren"
+        },
+        {
+          "rank": 20,
+          "title": "Reborn as a Space Mercenary: I Woke Up Piloting the Strongest Starship!",
+          "trend": "none",
+          "episode": "ep.1",
+          "wrp_score": 6.8,
+          "score": 6,
+          "prev_rank": null,
+          "status": "TBA",
+          "jpTitle": "目覚めたら最強装備と宇宙船持ちだったので、一戸建て目指して傭兵として自由に生きたい",
+          "kv": "mezametara"
+        },
+        {
+          "rank": 21,
+          "title": "A Tale of the Secret Saint",
+          "trend": "down",
+          "episode": "ep.2",
+          "wrp_score": 6.65,
+          "score": 6,
+          "prev_rank": 11,
+          "status": "Cont.",
+          "jpTitle": "転生した大聖女は、聖女であることをひた隠す",
+          "kv": "hitakakusu"
+        },
+        {
+          "rank": 22,
+          "title": "The Detective Is Already Dead Season 2",
+          "trend": "none",
+          "episode": "ep.1",
+          "wrp_score": 6.5,
+          "score": 6,
+          "prev_rank": null,
+          "status": "TBA",
+          "jpTitle": "探偵はもう、死んでいる。Season2",
+          "kv": "tanmoshi"
+        },
+        {
+          "rank": 23,
+          "title": "The Laid-Off Cheat-Granting Mage Enjoys a Second Lease on Life",
+          "trend": "none",
+          "episode": "ep.1",
+          "wrp_score": 6.4,
+          "score": 6,
+          "prev_rank": null,
+          "status": "TBA",
+          "jpTitle": "追放されたチート付与魔術師は気ままなセカンドライフを謳歌する。 ～俺は武器だけじゃなく、あらゆるものに『強化ポイント』を付与できるし、俺の意思でいつでも効果を解除できるけど、残った人たち大丈夫？～",
+          "kv": "fuyoshi"
+        },
+        {
+          "rank": 24,
+          "title": "Even Though I'm a Super Timid Noble Girl, I Accepted the Bet From My Cunning Fiancé",
+          "trend": "none",
+          "episode": "ep.1",
+          "wrp_score": 6.2,
+          "score": 6,
+          "prev_rank": null,
+          "status": "TBA",
+          "jpTitle": "弱気MAX令嬢なのに、辣腕婚約者様の賭けに乗ってしまった",
+          "kv": "max"
+        },
+        {
+          "rank": 25,
+          "title": "The Cold Sato-san is Only Sweet to Me",
+          "trend": "none",
+          "episode": "ep.1",
+          "wrp_score": 6.15,
+          "score": 6,
+          "prev_rank": null,
+          "status": "TBA",
+          "jpTitle": "塩対応の佐藤さんが俺にだけ甘い",
+          "kv": "shiotaiou"
+        },
+        {
+          "rank": 26,
+          "title": "FX Fighter Kurumi-chan",
+          "trend": "down",
+          "episode": "ep.2",
+          "wrp_score": 6,
+          "score": 6,
+          "prev_rank": 6,
+          "status": "UR",
+          "jpTitle": "FX戦士くるみちゃん",
+          "kv": "fx"
+        },
+        {
+          "rank": 27,
+          "title": "Tetsuryou! Meet with Tetsudou Musume",
+          "trend": "none",
+          "episode": "ep.1",
+          "wrp_score": 5.9,
+          "score": 5,
+          "prev_rank": null,
+          "status": "TBA",
+          "jpTitle": "てつりょー！meet with 鉄道むすめ",
+          "kv": "tetsuryo"
+        },
+        {
+          "rank": 28,
+          "title": "A Returner's Magic Should Be Special Season 2",
+          "trend": "up",
+          "episode": "ep.13",
+          "wrp_score": 5.75,
+          "score": 5,
+          "prev_rank": null,
+          "status": "TBA",
+          "jpTitle": "『帰還者の魔法は特別です』第二期",
+          "kv": "kikansha"
+        },
+        {
+          "rank": 29,
+          "title": "The Iceblade Sorcerer Shall Rule the World II",
+          "trend": "none",
+          "episode": "ep.1",
+          "wrp_score": 5.35,
+          "score": 5,
+          "prev_rank": null,
+          "status": "TBA",
+          "jpTitle": "冰剣の魔術師が世界を統べるⅡ",
+          "kv": "hyouken"
+        },
+        {
+          "rank": 30,
+          "title": "The World's Strongest Witch",
+          "trend": "none",
+          "episode": "ep.1",
+          "wrp_score": 3.95,
+          "score": 3,
+          "prev_rank": null,
+          "status": "TBA",
+          "jpTitle": "世界最強の魔女、始めました",
+          "kv": "saikyou"
+        }
+      ]
     }
   },
   "entries": [
@@ -220,7 +800,7 @@
       "score": 9,
       "review": {
         "en": "<strong>Episode #2: Fire Rat's Cloak</strong>\n<p>\"Even an understated episode is on a completely different level—such depth that slowly but surely sinks in.\"</p>\n<p>What a great episode. This series (along with *The Fragrant Flower Blooms with Dignity*) is simply in a league of its own compared to everything else. There's nothing particularly flashy about this episode either, yet it remains fascinating from beginning to end. How could I possibly get bored of this? The first half, with the story of the fire-rat robe and the mystery surrounding it, was thoroughly engaging, while the second half brought us a long-awaited dose of Jinshi and Maomao together again. Their interactions felt so wonderfully familiar, yet there was also a sense of just how deep their bond has become. The way Jinshi wanted her to sing him a lullaby and then almost immediately drifted off to sleep, completely at ease... There's really no doubt that she's the woman he truly loves. I've lost count of how many times I've said this, but seriously, what a fantastic episode.</p>",
-        "jp": "第50話(今期第2話): 火鼠の皮衣\n<p>\"派手さのないい回ですら桁違いの面白さ、じわじわと来る深さよ\"</p>\n<p>『面白い。この作品（と「氷の城壁」）だけが他の作品とレベルが段違い。今回も派手さはないがずーっと見ていて面白い。飽きるはずがない。前半の火鼠の皮衣の話しと謎解きも面白かったし、後半の久々の人士とマオマオの絡みもなんとも慣れ親しんだ中に深結びつきを感じるいいものでよかった。子守唄を唄ってほしくてそれですぐに安心して寝てしま威厳気になるのは本当に想っている女性（ひと）で間違いないでしょうね。何回言ったかわからないが、面白かった。』</p>"
+        "jp": "第50話: 火鼠の皮衣\n<p>\"派手さのないい回ですら桁違いの面白さ、じわじわと来る深さよ\"</p>\n<p>『面白い。この作品（と「氷の城壁」）だけが他の作品とレベルが段違い。今回も派手さはないがずーっと見ていて面白い。飽きるはずがない。前半の火鼠の皮衣の話しと謎解きも面白かったし、後半の久々の人士とマオマオの絡みもなんとも慣れ親しんだ中に深結びつきを感じるいいものでよかった。子守唄を唄ってほしくてそれですぐに安心して寝てしま威厳気になるのは本当に想っている女性（ひと）で間違いないでしょうね。何回言ったかわからないが、面白かった。』</p>"
       },
       "wrp_breakdown": {
         "base_score": 5,
