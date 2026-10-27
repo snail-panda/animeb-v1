@@ -3398,3 +3398,46 @@ body[data-animeb-theme='image'][data-animeb-image-tone='dark'] .animeb-bottom-al
  .kv-thumb .rank-wrapper:has(.animeb-extra-reference-rank){min-width:46px;max-width:55px;}
  .kv-thumb .animeb-extra-reference-rank{font-size:.6rem;}
 }
+
+
+/* v4.38.6 — Bottom cards: reader-first typography + accessible details */
+.animeb-bottom-poster{width:88px;}
+.animeb-bottom-item{grid-template-columns:88px minmax(0,1fr);gap:12px;}
+.animeb-bottom-poster-rank{font-weight:650;font-size:.82rem;}
+.animeb-bottom-episode{font-weight:450;font-size:.7rem;}
+.animeb-bottom-last-sticker{left:3px;top:30px;transform:rotate(-8deg);transform-origin:center;font-weight:700;font-size:.54rem;}
+.animeb-bottom-text{font-weight:440;}
+.animeb-bottom-name{font-weight:760;}
+.animeb-bottom-score{color:#57756e;font-weight:650;}
+.animeb-bottom-comment{color:#504e50;font-weight:430;white-space:pre-line;}
+.animeb-bottom-episode-title{color:#777980;font-size:.73rem;line-height:1.43;margin-top:9px;white-space:normal;font-weight:450;}
+.animeb-bottom-details{display:block;max-width:100%;margin:7px 0 0;color:inherit;}
+.animeb-bottom-details summary{list-style:none;cursor:pointer;display:inline-flex;align-items:center;font:650 .69rem/1.3 system-ui,sans-serif;letter-spacing:.035em;color:#8a6960;border-bottom:1px solid currentColor;}
+.animeb-bottom-details summary::-webkit-details-marker{display:none;}
+.animeb-bottom-details summary::after{content:'⌄';margin-left:5px;}
+.animeb-bottom-details[open] summary::after{content:'⌃';}
+.animeb-bottom-actions{margin-top:8px;display:flex;gap:8px 16px;flex-wrap:wrap;align-items:flex-start;}
+.animeb-bottom-details[open]{flex:1 0 100%;}
+.animeb-bottom-details dl{display:grid;grid-template-columns:minmax(100px,32%) 1fr;gap:7px 10px;font:440 .71rem/1.45 system-ui;margin:10px 0;overflow-wrap:anywhere;}
+.animeb-bottom-details dt{font-weight:650;color:#78685c;}
+.animeb-bottom-details dd{margin:0;}
+.animeb-bottom-synopsis,.animeb-bottom-full-review{display:block;font:440 .78rem/1.55 system-ui;white-space:pre-line;margin:10px 0;overflow-wrap:anywhere;}
+body[data-animeb-theme='dark'] .animeb-bottom-comment,
+body[data-animeb-theme='image'][data-animeb-image-tone='dark'] .animeb-bottom-comment{color:#e4e8e7;}
+body[data-animeb-theme='dark'] .animeb-bottom-score,
+body[data-animeb-theme='image'][data-animeb-image-tone='dark'] .animeb-bottom-score{color:#a8c6b7;}
+body[data-animeb-theme='dark'] .animeb-bottom-episode-title,
+body[data-animeb-theme='image'][data-animeb-image-tone='dark'] .animeb-bottom-episode-title{color:#bec7cc;}
+body[data-animeb-theme='dark'] .animeb-bottom-details dt,
+body[data-animeb-theme='image'][data-animeb-image-tone='dark'] .animeb-bottom-details dt{color:#bdcaca;}
+body[data-animeb-theme='dark'] .animeb-bottom-details summary,
+body[data-animeb-theme='image'][data-animeb-image-tone='dark'] .animeb-bottom-details summary{color:#e0bfaa;}
+/* The rank cutout remains light even on dark themes: all ranks 1-3 included. */
+body[data-animeb-theme='dark'] .kv-thumb .rank-wrapper .trend-label,
+body[data-animeb-theme='image'][data-animeb-image-tone='dark'] .kv-thumb .rank-wrapper .trend-label{color:#585652!important;opacity:1!important;text-shadow:none!important;}
+@media(max-width:450px){
+ .animeb-bottom-item{grid-template-columns:82px minmax(0,1fr);gap:11px;}
+ .animeb-bottom-poster{width:82px;}
+ .animeb-bottom-episode-title{font-size:.71rem;}
+ .animeb-bottom-comment{font-size:.76rem;}
+}
