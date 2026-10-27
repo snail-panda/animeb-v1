@@ -1363,6 +1363,23 @@ function animebBottomNote(data,title){
   const rows=Array.isArray(comments)?comments:[];
   return rows.find(row=>animebRefKey(row.title)===animebRefKey(title))||{};
 }
+// Display choices are keyed to a title, never to the mutable weekly rank.
+function animebBottomDisplay(data,title){
+  const list=data?.meta?.bottom_of_week?.display;
+  return (Array.isArray(list)?list:[]).find(x=>animebRefKey(x.title)===animebRefKey(title))||null;
+}
+// The Excel review remains a *whole review*. Preserve its line breaks but don't
+// divide it into summary/detail according to quotes, brackets or paragraphs.
+function animebBottomReviewFull(markup){
+  if(!markup)return '';
+  const template=document.createElement('template');template.innerHTML=String(markup);
+  template.content.querySelectorAll('br').forEach(el=>el.replaceWith('\n'));
+  template.content.querySelectorAll('p,div,li').forEach(el=>el.after(document.createTextNode('\n\n')));
+  const text=String(template.content.textContent||'').replace(/\r/g,'').replace(/\n[ \t]+/g,'\n').replace(/\n{3,}/g,'\n\n').trim();
+  const lines=text.split('\n');
+  if(/^(?:Episode\s*(?:#|＃)?\s*\d+|第\s*[0-9０-９]+\s*話)\s*(?:\([^)]*\))?\s*[:：]?/i.test(lines[0]||''))lines.shift();
+  return lines.join('\n').trim();
+}
 function animebBottomPoster(row, lastRank){
   const box=document.createElement('span');box.className='animeb-bottom-poster animeb-kv-view-trigger';
   box.setAttribute('role','button');box.tabIndex=0;
@@ -1380,7 +1397,7 @@ function animebBottomPoster(row, lastRank){
     box.append(animebDropText('LAST','最下位','animeb-bottom-last-sticker'));
   }
   const ep=String(row.episode||'').trim();
-  if(ep){const label=document.createElement('span');label.className='animeb-bottom-episode';label.textContent=ep.toUpperCase();box.append(label);}
+  if(ep){const label=document.createElement('span');label.className='animeb-bottom-episode';label.textContent=/^(?:ep\.?|episode\s*#?|第)/i.test(ep)?ep.toUpperCase():'EP.'+ep.toUpperCase();box.append(label);}
   return box;
 }
 // Bottom cards are the ranking's editorial extension. The Excel Last rows
@@ -1407,8 +1424,7 @@ function animebBottomDetails(entry, label){
     if(synopsis.textContent)d.append(synopsis);
     const dl=document.createElement('dl');d.append(dl);d._animebBottomInfoEntry=entry;animebFillWeeklyInfo(dl,entry);
   }else{
-    const bitsEN=animebBottomReviewBits(entry.review?.en||'');const bitsJA=animebBottomReviewBits(entry.review?.jp||'');
-    const text=animebBottomSafeText(bitsEN.detail||bitsEN.summary,bitsJA.detail||bitsJA.summary,'animeb-bottom-full-review');
+    const text=animebBottomSafeText(animebBottomReviewFull(entry.review?.en||''),animebBottomReviewFull(entry.review?.jp||''),'animeb-bottom-full-review');
     d.append(text);
   }
   return d;
@@ -1420,7 +1436,7 @@ function animebMountBottomOfWeek(data){
   const ranked=rows.filter(r=>Number.isSafeInteger(r.rank)&&r.rank>0).sort((a,b)=>a.rank-b.rank);
   if(!ranked.length)return;
   const lastRank=ranked.at(-1).rank;
-  const section=document.createElement('section');section.className='animeb-bottom-week';section.id='animeb-bottom-of-week';
+  const section=document.createElement('section');section.className='animeb-bottom-week';section.id='animeb-bottom-of-week';section.dataset.animebBottomLang=animebWeeklyLang;
   const head=document.createElement('header');head.className='animeb-bottom-head';
   head.append(animebDropText('BOTTOM OF THE WEEK','今週の（最）下位作品','animeb-bottom-heading'));
   const countBadge=document.createElement('span');countBadge.className='animeb-bottom-count';countBadge.textContent=String(Math.min(count,ranked.length));
@@ -1451,19 +1467,25 @@ function animebMountBottomOfWeek(data){
         ep.append(animebBottomSafeText(enHead,jaHead));body.append(ep);}
     }
     const comment=animebBottomNote(data,row.title);
+    const selected=animebBottomDisplay(data,row.title); // null for legacy v4.38.6 JSON
     const enManual=String(comment.en||'').trim(),jaManual=String(comment.ja||'').trim();
-    const bitsEn=animebBottomReviewBits(source?.review?.en||'');
-    const bitsJa=animebBottomReviewBits(source?.review?.jp||'');
-    const excelFirst=data?.meta?.bottom_of_week?.comment_source!=='manual';
-    const en=excelFirst?(bitsEn.summary||enManual):(enManual||bitsEn.summary);
-    const ja=excelFirst?(bitsJa.summary||jaManual):(jaManual||bitsJa.summary);
-    if(en||ja){const note=document.createElement('p');note.className='animeb-bottom-comment';
-      note.append(animebBottomSafeText(en,ja));body.append(note);}
+    // Older JSON remains visually compatible until a user explicitly applies
+    // independent visibility switches in the Converter.
+    const legacySource=data?.meta?.bottom_of_week?.comment_source!=='manual';
+    const enLegacy=animebBottomReviewBits(source?.review?.en||'').summary;
+    const jaLegacy=animebBottomReviewBits(source?.review?.jp||'').summary;
+    const en=selected?(enManual):(legacySource?(enLegacy||enManual):(enManual||enLegacy));
+    const ja=selected?(jaManual):(legacySource?(jaLegacy||jaManual):(jaManual||jaLegacy));
+    if((selected?.show_comment!==false)&&(en||ja)){
+      const note=document.createElement('p');note.className='animeb-bottom-comment';
+      note.append(animebBottomSafeText(en,ja));body.append(note);
+    }
     if(source){
       const buttons=document.createElement('div');buttons.className='animeb-bottom-actions';
       const hasInfo=Boolean(source.synopsis||source.synopsis_ja||source.studios||source.based_on||source.director||source.creators||source.cast||source.official_website);
       if(hasInfo)buttons.append(animebBottomDetails(source,'info'));
-      if(bitsEn.detail||bitsJa.detail)buttons.append(animebBottomDetails(source,'review'));
+      const hasReview=Boolean(animebBottomReviewFull(source.review?.en||'')||animebBottomReviewFull(source.review?.jp||''));
+      if(hasReview && selected?.show_review!==false)buttons.append(animebBottomDetails(source,'review'));
       if(buttons.children.length)body.append(buttons);
     }
     card.append(poster,body);items.append(card);
@@ -1495,7 +1517,10 @@ function animebDropPortrait(info, mini=false){
     img.addEventListener('error',()=>{img.remove();box.classList.add('animeb-drop-poster-missing');});
     box.append(img);
   }else box.classList.add('animeb-drop-poster-missing');
-  box.append(animebDropCross());return box;
+  box.append(animebDropCross());
+  const ep=String(info.episode||'').trim();
+  if(!mini && ep){const badge=document.createElement('span');badge.className='animeb-drop-episode';badge.textContent=/^(?:ep\.?|episode\s*#?|第)/i.test(ep)?ep.toUpperCase():'EP.'+ep.toUpperCase();box.append(badge);}
+  return box;
 }
 function animebMountDroppedTitles(data,clones){
   const rows=Array.isArray(data?.meta?.drop_decisions)?data.meta.drop_decisions:[];
@@ -1511,7 +1536,7 @@ function animebMountDroppedTitles(data,clones){
     // Rated/Unrated is an explicit drop decision, not a consequence of current ranking inclusion.
     // Legacy JSON without a mode falls back to the old inclusion-based heuristic.
     const ratingMode=['rated','unrated'].includes(row.mode)?row.mode:(i>=0?'rated':'unrated');
-    decisions.push({title:match?.title||row.title,jpTitle:match?.jpTitle||row.jpTitle||'',kv:match?.kv||row.kv||'',episode:match?.episode||'',ranked:i>=0,ratingMode,index:i,reason:row.reason||{},ref:animebRefLookup(data,row.title)});
+    decisions.push({title:match?.title||row.title,jpTitle:match?.jpTitle||row.jpTitle||'',kv:match?.kv||row.kv||'',episode:String(row.episode||match?.episode||animebRefLookup(data,row.title)?.episode||'').trim(),ranked:i>=0,ratingMode,index:i,reason:row.reason||{},ref:animebRefLookup(data,row.title)});
   });
   if(!decisions.length)return;
   const list=document.querySelector('.entry-list');if(!list)return;
@@ -1583,6 +1608,7 @@ function animebMountDroppedTitles(data,clones){
   animebRefreshDropLanguage();
 }
 function animebRefreshDropLanguage(){
+  document.querySelectorAll('.animeb-bottom-week').forEach(el=>el.dataset.animebBottomLang=animebWeeklyLang);
   document.querySelectorAll('.animeb-dropped-titles [data-en][data-ja], .animeb-drop-status-group [data-en][data-ja], .animeb-drop-more-notice [data-en][data-ja], .animeb-bottom-week [data-en][data-ja], .animeb-extra-reference-rank[data-en][data-ja], .animeb-extra-last-label[data-en][data-ja]').forEach(el=>{
     el.textContent=animebWeeklyLang==='ja'?el.dataset.ja:el.dataset.en;
   });
