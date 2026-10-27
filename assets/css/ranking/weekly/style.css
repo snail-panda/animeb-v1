@@ -3461,3 +3461,15 @@ body[data-animeb-theme='image'][data-animeb-image-tone='dark'] .note-mount .deta
 
 .animeb-bottom-week[data-animeb-bottom-lang='en'] .animeb-bottom-details summary{font-weight:500;font-size:.65rem;letter-spacing:.018em;}
 .animeb-bottom-week[data-animeb-bottom-lang='ja'] .animeb-bottom-details summary{font-weight:650;font-size:.69rem;letter-spacing:.035em;}
+
+/* Bottom of the Week — Official Website link */
+.animeb-bottom-details a {
+  color: #27627b;
+  overflow-wrap: anywhere;
+}
+
+/* Dark / Image Dark */
+body[data-animeb-theme="dark"] .animeb-bottom-details a,
+body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .animeb-bottom-details a {
+  color: #a7cfe0 !important;
+}
