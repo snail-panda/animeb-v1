@@ -1341,6 +1341,42 @@ function animebSetupKeyVisualViewer(){
   });
 }
 
+// v4.38.4 — supplementary full-week rank reference. Never rewrites entries.
+function animebRefKey(name){return String(name||'').normalize('NFKC').toLowerCase()
+  .replace(/[’‘`]/g,"'").replace(/\s+/g,' ').trim();}
+function animebRefLookup(data,title){
+  const records=data?.meta?.weekly_ranking_reference?.entries;
+  if(!Array.isArray(records))return null;
+  return records.find(r=>animebRefKey(r.title)===animebRefKey(title))||null;
+}
+function animebMountBottomOfWeek(data){
+  const count=Number(data?.meta?.bottom_of_week?.count||0);
+  const rows=data?.meta?.weekly_ranking_reference?.entries;
+  if(![1,3,5].includes(count)||!Array.isArray(rows)||!rows.length)return;
+  const ranked=rows.filter(r=>Number.isSafeInteger(r.rank)&&r.rank>0).sort((a,b)=>a.rank-b.rank);
+  if(!ranked.length)return;
+  const section=document.createElement('section');section.className='animeb-bottom-week';section.id='animeb-bottom-of-week';
+  const head=document.createElement('header');head.className='animeb-bottom-head';
+  head.append(animebDropText('BOTTOM OF THE WEEK','今週の下位作品','animeb-bottom-heading'));
+  const countBadge=document.createElement('span');countBadge.className='animeb-bottom-count';countBadge.textContent=String(Math.min(count,ranked.length));
+  head.append(countBadge);section.append(head);
+  const items=document.createElement('div');items.className='animeb-bottom-items';
+  ranked.slice(-count).reverse().forEach(row=>{
+    const card=document.createElement('article');card.className='animeb-bottom-item';
+    const number=document.createElement('strong');number.className='animeb-bottom-rank';number.textContent='#'+row.rank;
+    const text=document.createElement('div');text.className='animeb-bottom-text';
+    const title=document.createElement('strong');title.textContent=row.title;text.append(title);
+    const sub=animebDropText('Ranked this week','今週の総合順位','animeb-bottom-sub');text.append(sub);
+    const score=document.createElement('div');score.className='animeb-bottom-score';
+    const wrp=Number(row.wrp_score);
+    score.textContent=`WRP ${Number.isFinite(wrp)?wrp.toFixed(2):'—'} · ${row.score??'—'}pt`;
+    card.append(number,text,score);items.append(card);
+  });
+  section.append(items);
+  // Called AFTER Dropped Titles; insert exactly before it (after ranked entries).
+  const list=document.querySelector('.entry-list');if(list)list.after(section);
+}
+
 // v4.38: title-level drop decisions (distinct from the legacy weekly status counters).
 function animebDropKey(title){return String(title||'').normalize('NFKC').toLowerCase().replace(/\s+/g,' ').trim();}
 function animebDropText(en,ja,cls=''){
@@ -1379,7 +1415,7 @@ function animebMountDroppedTitles(data,clones){
     // Rated/Unrated is an explicit drop decision, not a consequence of current ranking inclusion.
     // Legacy JSON without a mode falls back to the old inclusion-based heuristic.
     const ratingMode=['rated','unrated'].includes(row.mode)?row.mode:(i>=0?'rated':'unrated');
-    decisions.push({title:match?.title||row.title,jpTitle:match?.jpTitle||row.jpTitle||'',kv:match?.kv||row.kv||'',episode:match?.episode||'',ranked:i>=0,ratingMode,index:i,reason:row.reason||{}});
+    decisions.push({title:match?.title||row.title,jpTitle:match?.jpTitle||row.jpTitle||'',kv:match?.kv||row.kv||'',episode:match?.episode||'',ranked:i>=0,ratingMode,index:i,reason:row.reason||{},ref:animebRefLookup(data,row.title)});
   });
   if(!decisions.length)return;
   const list=document.querySelector('.entry-list');if(!list)return;
@@ -1399,9 +1435,16 @@ function animebMountDroppedTitles(data,clones){
     title.append(animebDropText(decision.title,decision.jpTitle||decision.title));
     const sub=decision.jpTitle && decision.jpTitle!==decision.title ? animebDropText(decision.jpTitle,decision.title,'animeb-dropped-alt-title'):null;
     const isRated=decision.ratingMode==='rated';
-    const flag=animebDropText(isRated?(decision.ranked?'RATED · Ranked this week':'RATED · Scored this week (not ranked)'):'UNRATED · No score this week',isRated?(decision.ranked?'評価済み · 今週のランキング掲載':'評価済み · 今週のランキング掲載なし'):'未評価 · 今週の採点なし','animeb-drop-rating');
+    const hasOverallRank=Number.isSafeInteger(decision.ref?.rank);
+    const flag=animebDropText(isRated?(decision.ranked?'RATED · Ranked this week':hasOverallRank?'RATED · Outside featured entries':'RATED · Scored this week (not ranked)'):'UNRATED · No score this week',isRated?(decision.ranked?'評価済み · 今週のランキング掲載':hasOverallRank?'評価済み · ページ掲載外':'評価済み · 今週のランキング掲載なし'):'未評価 · 今週の採点なし','animeb-drop-rating');
     flag.classList.add(isRated?'is-rated':'is-unrated');
     copy.append(title);if(sub)copy.append(sub);copy.append(flag);
+    // Rated but not part of Top10/Extra can still be #13, #15 in the full weekly ranking.
+    if(isRated && Number.isSafeInteger(decision.ref?.rank)){
+      const rankNote=document.createElement('span');rankNote.className='animeb-drop-full-rank';
+      rankNote.append(animebDropText('Overall #'+decision.ref.rank,'総合 '+decision.ref.rank+'位'));
+      copy.append(rankNote);
+    }
     const en=String(decision.reason?.en||'').trim(),ja=String(decision.reason?.ja||'').trim();
     if(en||ja){const p=document.createElement('p');p.className='animeb-dropped-reason';p.append(animebDropText(en||ja,ja||en));copy.append(p);}
     if(decision.ranked){const link=document.createElement('a');link.className='animeb-dropped-go';link.href=`#animeb-drop-ranked-${decision.index}`;link.append(animebDropText('View ranked entry ↑','ランキングの作品へ ↑'));copy.append(link);}
@@ -1444,7 +1487,7 @@ function animebMountDroppedTitles(data,clones){
   animebRefreshDropLanguage();
 }
 function animebRefreshDropLanguage(){
-  document.querySelectorAll('.animeb-dropped-titles [data-en][data-ja], .animeb-drop-status-group [data-en][data-ja], .animeb-drop-more-notice [data-en][data-ja]').forEach(el=>{
+  document.querySelectorAll('.animeb-dropped-titles [data-en][data-ja], .animeb-drop-status-group [data-en][data-ja], .animeb-drop-more-notice [data-en][data-ja], .animeb-bottom-week [data-en][data-ja]').forEach(el=>{
     el.textContent=animebWeeklyLang==='ja'?el.dataset.ja:el.dataset.en;
   });
 }
@@ -1827,6 +1870,13 @@ if (typeof rankVal === "string") {
     img.alt = key;
     rankEl.innerHTML = ""; // 数字を消す
     rankEl.appendChild(img); // 画像は rank-number に入れる（数字の代替）
+    const fullRank=animebRefLookup(data,entryData.title);
+    if(fullRank && Number.isSafeInteger(fullRank.rank) && fullRank.rank>0){
+      const rankText=document.createElement('span');rankText.className='animeb-extra-reference-rank';
+      rankText.textContent='#'+fullRank.rank;
+      rankText.title='Overall weekly rank / 週間総合順位';rankEl.append(rankText);
+    }
+
   }
 }
 
@@ -2017,6 +2067,7 @@ if (reviewAnchor) {
     // when Converter JSON provides both verified values. Old articles stay unchanged.
     animebMountRankingCoverage(data.meta.status, Array.isArray(data.entries) ? data.entries.filter(e => typeof e.rank === "number").length : 0);
     animebMountDroppedTitles(data, clones);
+    animebMountBottomOfWeek(data);
     animebSetupKeyVisualViewer();
     animebApplyWeeklyLanguage();
     adjustScoreBars();
