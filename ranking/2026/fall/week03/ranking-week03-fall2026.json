@@ -7,18 +7,18 @@
     "status": {
       "watching": 28,
       "droppedThisWeek": 4,
-      "droppedTotal": 7,
+      "droppedTotal": 4,
       "backOnList": 0,
       "noAir": 0,
       "completed": 0,
-      "total": 35,
+      "total": 34,
       "ratedThisWeek": 28,
       "currentLineup": 29,
-      "seasonPool": 35,
+      "seasonPool": 34,
       "addedThisWeek": 0,
       "seasonHalted": 0,
       "droppedThisWeekUnrated": 1,
-      "initialSeasonPool": 35,
+      "initialSeasonPool": 34,
       "notAiredYet": 1,
       "startedAiringThisWeek": 1
     },
@@ -97,16 +97,16 @@
           "wrp_score": 4.25,
           "score": 4,
           "review": {
-            "en": "<strong>Episode #3: Nightmare</strong>\n<p>\"The animation is... low-quality and wildly inconsistent. How many studios are working on this thing? The story goes nowhere, it's not entertaining, and honestly, watching it is the real nightmare.\"</p>\n<p>The animation... actually, pretty much everything about this production... Is it even okay? The quality varies so drastically from scene to scene that I have to wonder whether they've outsourced different parts to different studios. Not that even the better-looking parts are particularly good, mind you. I guess the male lead's flashback scenes were relatively decent. But more than anything, the story just refuses to move forward. Some woman shows up out of nowhere after apparently being transported here, and now she's traveling around with this guy. That's it. That's literally all that's happened. And we're already three episodes in...? Are you freaking kidding me?<br><br>Then there's the animation of MH's movements, especially when it's running. That scene where it apparently charges straight into an enemy and sends them flying? Holy crap, that looked awful. And somehow it can carry a man that huge? Come on, none of this makes any sense. Oh, and apparently the flying squirrel is *that* important, huh...? Seriously, I have no idea what the hell is going on here.<br><br>I gave this show a little credit last tiEpisode #3: I Tried Looking At Message Boards!<br>Fairouz's hilariously over-the-top, rage-fueled performance was enough to get me through the last episode, but that worked exactly once. I've already had my fill. This is nothing but a slideshow of endless monologues. This ain't anime, this ain't anime~♪me, but... yeah, I don't think this is going to work out. I'll give it just one more episode to see if things improve.</p>",
-            "jp": "第3話: 掲示板を見てみた!\n<p>ファイルーズさんのブチギレかましキャラで見れたのも前回1回のみ、もうお腹いっぱい。ただのモノローグ紙芝居、アニメじゃない、アニメじゃない~♬</p>"
+            "en": "<strong>Episode #3: I Tried Looking At Message Boards!</strong>\n<p>UR3</p>",
+            "jp": "第3話: 掲示板を見てみた！\n<p>”ファイルーズさんのブチギレかましキャラで見れたのも前回1回のみ、もうお腹いっぱい”</p>\n<p>『ただのモノローグ紙芝居、アニメじゃない、アニメじゃない～♬』</p>"
           },
           "wrp_breakdown": {
             "base_score": 5,
-            "animation": 0.5,
-            "script": 0.3,
-            "direction": 0.3,
-            "charm": 0.2,
-            "overall": -1.5
+            "animation": 0.45,
+            "script": 0.25,
+            "direction": 0.25,
+            "charm": 0.05,
+            "overall": -1.75
           },
           "romanized_title": "Sekai Saikyou no Majo, Hajimemashita",
           "release_date": "10/7/2026",
@@ -153,16 +153,16 @@
           "wrp_score": 4.95,
           "score": 4,
           "review": {
-            "en": "<strong>Episode #4: The Fourth Monster Knights</strong>\n<p>\"Looks like I was completely wrong to rate last week's episode so highly... This is awful. Absolutely awful. What the hell is this supposed to be? The whole thing takes its ridiculous antics way too far. It's just another overpowered MC steamrolling everything, with zero entertainment value or charm.\"</p>",
-            "jp": "第4話: 第四魔物騎士団\n<p>先週の高評価は勘違いでした…。酷い、とにかく凄く酷い。何のノリ?悪ノリが過ぎる。ただの無双だけど…面白くもないし魅力もない。</p>"
+            "en": "<strong>Episode #4: The Fourth Monster Knights</strong>\n<p>UR3</p>",
+            "jp": "第4話: 第四魔物騎士団\n<p>”先週の高評価は勘違いでした・・・酷い・・・もう無理かも”</p>\n<p>『もういいかな・・・、先週結構良いかも？と思ったが勘違いだった。とにかく凄く酷い。何のノリ？ただの無双だけど…面白くもないし魅力もない。知らない間に消えてるかも？』</p>"
           },
           "wrp_breakdown": {
             "base_score": 5,
             "animation": 0.5,
-            "script": 0.3,
-            "direction": 0.3,
-            "charm": 0.2,
-            "overall": -1.5
+            "script": 0.35,
+            "direction": 0.35,
+            "charm": 0.15,
+            "overall": -1.4
           },
           "romanized_title": "Tensei shita Daiseijo wa, Seijo de Aru Koto wo Hitakakusu",
           "release_date": "10/3/2026",
@@ -209,16 +209,16 @@
           "wrp_score": 5,
           "score": 5,
           "review": {
-            "en": "<strong>Episode #3: Nightmare</strong>\n<p>What the hell is this? Some kind of joke? No, it's a nightmare! For more details, check out my review of Dookie in the rankings.</p>",
-            "jp": "第3話: 悪夢\n<p>これは何だ?ジョークか?いや悪夢だ! 詳しくは、ランキングのDookieのReviewをご覧ください。</p>"
+            "en": "<strong>Episode #3: Nightmare</strong>\n<p>UR3</p>",
+            "jp": "第3話: 悪夢\n<p>”作画が・・・クオリティ低いしバラバラ、何社でやってる？進行しないし面白くもない、これが悪夢だよ”</p>\n<p>『作画・・・っていうか全部・・・大丈夫か？部分部分で下請けが違うのか？ってくらいクオリティがバラバラ・・・。まぁいい部分も決して良いわけじゃないけど。メインの男の回想シーンはマシな方だったかな。ただとにかく話が進まん。この女が何だか知らないけど転移してきて、男と一緒に移動してるだけ。ただそれだけ。それで3話か・・・マジですか？って感じです。MHの動きのアニメーション（特に走ってるところとか的に体当たり？してふっとばしたりの所ヤバいよ）や、こんなおっきな男を運べたりとか、おかしいだろ。そしてモモンガがそんなに重要なのね・・・。マジ意味わかんねぇ。前回ちょっと評価しちゃったけどこれはダメかな・・・。あと1話だけ様子見ます。』</p>"
           },
           "wrp_breakdown": {
             "base_score": 5,
-            "animation": 0.5,
-            "script": 0.3,
-            "direction": 0.3,
-            "charm": 0.2,
-            "overall": -1.5
+            "animation": 0.3,
+            "script": 0.35,
+            "direction": 0.4,
+            "charm": 0.15,
+            "overall": -1.2
           },
           "romanized_title": "Kanata kara",
           "release_date": "10/4/2026",
@@ -924,7 +924,7 @@
       "wrp_score": 8.45,
       "score": 8,
       "review": {
-        "en": "<strong>Episode #3: Elma</strong>\n<p>\"A swimsuit episode? Not quite! A great episode that reassured me my positive impression of the previous season wasn't misplaced—and made me feel the production team's passion for this series.\"</p>\n<p>The opening beach volleyball scene had me thinking, \"Oh, come on... We're already getting a swimsuit episode just three episodes into the season?\" But instead, what followed was an incredibly rich, substantial episode, packed with content and clearly made with a tremendous amount of care and passion.<br><br>I could really feel the anguish of our MC, Desir Arman, who already knows the horrific, devastating future—or rather, past—that awaits everyone if nothing is done to change it. The episode also takes its time carefully portraying how he gradually deepens his relationships with the other characters, each in their own way, which I really appreciate.<br><br>This episode reaffirmed that my fondness for the previous season wasn't misplaced after all. And more than that, it left me with the impression that the people making this anime genuinely love the series themselves. You can practically feel their enthusiasm coming through in the work. A thoroughly satisfying episode.</p>",
+        "en": "<strong>Episode #3: Elma</strong>\n<p>\"Gen Z's Cowboy Bebop? Definitely not. But surprisingly, it's a genuinely enjoyable, reasonably well-made dumb anime—in the best possible sense.\"</p>\n<p>Who would've thought that ridiculous collision with the mothership near the end of last week's episode would lead to such serious consequences? That arrogant character suddenly finds herself facing the complete collapse of her life... And once again, I really liked how the MC handled it, much like he did with the girl he rescued last time. The fact that he's willing to sacrifice practically everything he owns to save her, while also taking responsibility for her afterward, is a nice touch. I also like how the crew is gradually coming together as a group. This is one way a deliberately ridiculous anime can actually get things right.<br><br>And of course, they end up getting rather intimate, too... Oh, so she's making the first move this time? Nice!</p>",
         "jp": "第3話: エルマ\n<p>\"ジェンZ世代のカウボーイビバップ?では決してない、いい意味で楽しめる意外にまともなバカアニメ\"</p>\n<p>『先週の最後の方のあのふざけた展開での、母艦への衝突がこんな深刻な事態に結びつくとは・・・。あの偉そうなキャラが一気に人生の終末へ落ちていく・・・。それに対するMCの対応も前回助けた女子同様なかなかいい感じだった。ほぼ全財産を投げ売っても救う代わりに責任を持つ感じもいいし、こうやって少しずつ仲間として形ができていくのもいい。ふざけた作品があるべき姿の一つだろうとも思う。なんだかんだでねんごろになるのも・・・。今回は攻めるのね・・・よし!』</p>"
       },
       "wrp_breakdown": {
@@ -1094,7 +1094,7 @@
       "score": 8,
       "review": {
         "en": "<strong>Episode #4: Komaro and the Suggestion Box / Terui-senpai's Secret♪ / Kouki-chan and the Light Music Club / Rendezvous in the Gym Storage Room!!</strong>\n<p>\"Am I already starting to get a little bored? I wouldn't quite call it repetitive yet, but I can definitely feel the early signs...\"</p>\n<p>I'm not entirely sure what to make of this episode. Nothing in particular really stuck with me, and the whole thing just felt a little... underwhelming. It's not that any specific segment was especially bad. Maybe the show is simply starting to feel a bit repetitive. Up until now, I've been enjoying the constant introduction of new characters and the surprisingly bold, outrageous ways it keeps pushing the boundaries. But inevitably, you get used to that sort of thing. And the whole getting-locked-in-the-gym-storage-room scenario—or rather, somehow managing to lock themselves in?—just made me think, \"Oh, come on... I've had enough of this already.\"<br><br>Still, the overall quality remains high, and I'm enjoying it well enough. So I'm definitely not writing it off just yet. I'm still hoping it has plenty more surprises in store.</p>",
-        "jp": "第4話: こまろと目安箱\n<p>\"既に少し飽きてきた?マンネリ化?とまでは行かないが、その兆候は確かに感じた\"</p>\n<p>『何だかあんまり良くわからなかったと言うか、これと言って印象残って無くて、というか全体的に薄かった・・・といったところ。これは特定のものが悪かったと言うよりかは、ただ単に少しマンネリ化してきた・・・ってことかも。これまでは毎回新しいキャラが出てきたり、なかなかに斬新な思い切ったレベルの表現で楽しんできたけど、結局はそういったものにはいずれ慣れるわけで、体育倉庫に閉じ込められる?勝手に自らを閉じ込める?展開もね・・・もう・・・お腹いっぱい。それでもレベルは高いし、それなりに楽しめてはるので今後にまだまだ期待したい。』</p>"
+        "jp": "第4話: こまろと目安箱<br>照井先輩の秘密♪<br>こうきちゃんと軽音部<br>体育倉庫でランデブー！！\n<p>\"既に少し飽きてきた?マンネリ化?とまでは行かないが、その兆候は確かに感じた\"</p>\n<p>『何だかあんまり良くわからなかったと言うか、これと言って印象残って無くて、というか全体的に薄かった・・・といったところ。これは特定のものが悪かったと言うよりかは、ただ単に少しマンネリ化してきた・・・ってことかも。これまでは毎回新しいキャラが出てきたり、なかなかに斬新な思い切ったレベルの表現で楽しんできたけど、結局はそういったものにはいずれ慣れるわけで、体育倉庫に閉じ込められる?勝手に自らを閉じ込める?展開もね・・・もう・・・お腹いっぱい。それでもレベルは高いし、それなりに楽しめてはるので今後にまだまだ期待したい。』</p>"
       },
       "wrp_breakdown": {
         "base_score": 5,
@@ -1322,11 +1322,11 @@
       },
       "wrp_breakdown": {
         "base_score": 5,
-        "animation": 0.5,
-        "script": 0.3,
-        "direction": 0.3,
-        "charm": 0.2,
-        "overall": -1.5
+        "animation": 0.3,
+        "script": 0.35,
+        "direction": 0.4,
+        "charm": 0.15,
+        "overall": -1.2
       },
       "romanized_title": "Kanata kara",
       "release_date": "10/4/2026",
