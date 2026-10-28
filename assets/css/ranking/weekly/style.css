@@ -3049,7 +3049,7 @@ body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .ranking-episode-
 }
 body[data-animeb-theme="dark"] .entry .more-info dd,
 body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .entry .more-info dd {
-  color:#ebc7d6 !important;
+  color:#f7e4ed !important;
   /*before color:var(--animeb-dark-meta-rose,#e3b9ca) !important;*/
   text-shadow:none !important;
 }
