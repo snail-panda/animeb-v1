@@ -3050,7 +3050,7 @@ body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .ranking-episode-
 body[data-animeb-theme="dark"] .entry .more-info dd,
 body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .entry .more-info dd {
   color:#ebc7d6 !important;
-  /*before color:var(--animeb-dark-meta-rose,#e3b9ca) !important; or another choice: #f7e4ed */
+  /*before color:var(--animeb-dark-meta-rose,#e3b9ca) !important; or another choice: #f7e4ed or FAE8F0*/
   text-shadow:none !important;
 }
 body[data-animeb-theme="dark"] .entry .more-info dt,
