@@ -132,9 +132,15 @@ function animebFillWeeklyInfo(dl, entry) {
     const dd=document.createElement('dd');
     if(options.cast) {
       const grid=document.createElement('div'); grid.className='animeb-weekly-cast';
-      val.split(/\r?\n/).map(x=>x.trim()).filter(Boolean).forEach(item=>{
-        const span=document.createElement('span'); span.textContent=item; grid.appendChild(span);
-      });
+      // Regular ranking uses its existing CSS grid. Bottom More Info lives
+      // outside .entry, so inline <span>s used to run together: render each
+      // role/voice-actor pair as its own block there, without changing ranking.
+      const inBottom=Boolean(dl.closest('.animeb-bottom-details'));
+      val.replace(/<br\s*\/?>/gi,'\n').replace(/\\n/g,'\n')
+        .split(/\r?\n/).map(x=>x.trim()).filter(Boolean).forEach(item=>{
+          const person=document.createElement(inBottom?'div':'span');
+          person.textContent=item;grid.appendChild(person);
+        });
       dd.appendChild(grid);
     } else if(options.url) {
       for(const url of [...new Set(val.split('|').map(x=>x.trim()).filter(Boolean))]) {
@@ -1421,7 +1427,16 @@ function animebBottomDetails(entry, label){
   const summary=document.createElement('summary');summary.append(animebDropText(label==='info'?'MORE INFO':'REVIEW',label==='info'?'作品情報':'レビュー'));d.append(summary);
   if(label==='info'){
     const synopsis=animebBottomSafeText(entry.synopsis,entry.synopsis_ja,'animeb-bottom-synopsis');
-    if(synopsis.textContent)d.append(synopsis);
+    if(synopsis.textContent){
+      // An explicit bilingual heading distinguishes the synopsis from the
+      // metadata below. Reuse the current Bottom typography and theme colors.
+      const intro=document.createElement('section');
+      intro.className='animeb-bottom-synopsis-section';
+      const heading=document.createElement('strong');
+      heading.className='animeb-bottom-synopsis-heading';
+      heading.append(animebDropText('Synopsis','あらすじ'));
+      intro.append(heading,synopsis);d.append(intro);
+    }
     const dl=document.createElement('dl');d.append(dl);d._animebBottomInfoEntry=entry;animebFillWeeklyInfo(dl,entry);
   }else{
     const text=animebBottomSafeText(animebBottomReviewFull(entry.review?.en||''),animebBottomReviewFull(entry.review?.jp||''),'animeb-bottom-full-review');
@@ -1501,14 +1516,14 @@ function animebDropText(en,ja,cls=''){
   const el=document.createElement('span');if(cls)el.className=cls;
   el.dataset.en=en;el.dataset.ja=ja;el.textContent=animebWeeklyLang==='ja'?ja:en;return el;
 }
-function animebDropCross(){
+function animebDropCross(stickerText="DROPPED"){
   // The X spans all four corners of the poster; SVG content is constant, not JSON.
   const layer=document.createElement('span');layer.className='animeb-drop-visual';layer.setAttribute('aria-hidden','true');
   layer.innerHTML='<svg viewBox="0 0 100 100" preserveAspectRatio="none" focusable="false"><path d="M0 0 L100 100 M100 0 L0 100" fill="none" stroke="rgba(255,255,255,.43)" stroke-width="13"/></svg>';
-  const sticker=document.createElement('span');sticker.className='animeb-drop-sticker';sticker.textContent='DROPPED';
+  const sticker=document.createElement('span');sticker.className='animeb-drop-sticker';sticker.textContent=stickerText;
   layer.appendChild(sticker);return layer;
 }
-function animebDropPortrait(info, mini=false){
+function animebDropPortrait(info, mini=false, stickerText="DROPPED"){
   const box=document.createElement('span');box.className='animeb-drop-poster'+(mini?' animeb-drop-poster-mini':'');
   const id=String(info.kv||'').trim();
   if(/^[\w-]+$/.test(id)&&id){
@@ -1517,14 +1532,18 @@ function animebDropPortrait(info, mini=false){
     img.addEventListener('error',()=>{img.remove();box.classList.add('animeb-drop-poster-missing');});
     box.append(img);
   }else box.classList.add('animeb-drop-poster-missing');
-  box.append(animebDropCross());
+  box.append(animebDropCross(stickerText));
   const ep=String(info.episode||'').trim();
   if(!mini && ep){const badge=document.createElement('span');badge.className='animeb-drop-episode';badge.textContent=/^(?:ep\.?|episode\s*#?|第)/i.test(ep)?ep.toUpperCase():'EP.'+ep.toUpperCase();box.append(badge);}
   return box;
 }
 function animebMountDroppedTitles(data,clones){
-  const rows=Array.isArray(data?.meta?.drop_decisions)?data.meta.drop_decisions:[];
+  const prelim=String(data?.meta?.week||'').toLowerCase().includes('prelim');
+  const eligible=prelim && Array.isArray(data?.meta?.prelim_selection?.eliminated_entries)
+    ? data.meta.prelim_selection.eliminated_entries : [];
+  const rows=prelim ? eligible : (Array.isArray(data?.meta?.drop_decisions)?data.meta.drop_decisions:[]);
   if(!rows.length)return;
+  const stickerText='DROPPED'; // Retain the diagonal DROPPED sticker in Prelim too.
   const entries=Array.isArray(data.entries)?data.entries:[];
   const decisions=[];const seen=new Set();
   rows.forEach(row=>{
@@ -1535,22 +1554,22 @@ function animebMountDroppedTitles(data,clones){
     const match=i>=0?entries[i]:null;
     // Rated/Unrated is an explicit drop decision, not a consequence of current ranking inclusion.
     // Legacy JSON without a mode falls back to the old inclusion-based heuristic.
-    const ratingMode=['rated','unrated'].includes(row.mode)?row.mode:(i>=0?'rated':'unrated');
+    const ratingMode=prelim?'rated':(['rated','unrated'].includes(row.mode)?row.mode:(i>=0?'rated':'unrated'));
     decisions.push({title:match?.title||row.title,jpTitle:match?.jpTitle||row.jpTitle||'',kv:match?.kv||row.kv||'',episode:String(row.episode||match?.episode||animebRefLookup(data,row.title)?.episode||'').trim(),ranked:i>=0,ratingMode,index:i,reason:row.reason||{},ref:animebRefLookup(data,row.title)});
   });
   if(!decisions.length)return;
   const list=document.querySelector('.entry-list');if(!list)return;
-  const section=document.createElement('section');section.className='animeb-dropped-titles';section.id='animeb-dropped-titles';
+  const section=document.createElement('section');section.className='animeb-dropped-titles'+(prelim?' animeb-prelim-eliminated':'');section.id='animeb-dropped-titles';
   const heading=document.createElement('div');heading.className='animeb-dropped-heading';
   const mark=document.createElement('span');mark.className='animeb-dropped-heading-x';mark.textContent='×';mark.setAttribute('aria-hidden','true');
-  heading.append(mark,animebDropText('DROPPED TITLES','今週でさよならする作品','animeb-dropped-heading-title'));
+  heading.append(mark,animebDropText(prelim?'ELIMINATED AFTER PRELIM':'DROPPED TITLES',prelim?'プレリム選考落ち作品':'今週でさよならする作品','animeb-dropped-heading-title'));
   const total=document.createElement('span');total.className='animeb-dropped-heading-count';total.textContent=String(decisions.length);
   heading.append(total);section.append(heading);
-  const explanation=animebDropText('Titles leaving the ranking from next week (including unrated decisions).','来週からランキング対象外になる作品（未評価も含む）。','animeb-dropped-explanation');section.append(explanation);
+  const explanation=animebDropText(prelim?'Titles that did not qualify for the main season. Not counted as regular-season drops.':'Titles leaving the ranking from next week (including unrated decisions).',prelim?'本戦出場を逃した作品。本戦の視聴中止数には含まれません。':'来週からランキング対象外になる作品（未評価も含む）。','animeb-dropped-explanation');section.append(explanation);
   const holder=document.createElement('div');holder.className='animeb-dropped-list';
   decisions.forEach((decision,index)=>{
     const card=document.createElement('article');card.className='animeb-dropped-card';card.id=`animeb-drop-card-${index}`;
-    const thumb=animebDropPortrait(decision);
+    const thumb=animebDropPortrait(decision,false,stickerText);
     const copy=document.createElement('div');copy.className='animeb-dropped-copy';
     const title=document.createElement('strong');title.className='animeb-dropped-name';
     title.append(animebDropText(decision.title,decision.jpTitle||decision.title));
@@ -1559,7 +1578,7 @@ function animebMountDroppedTitles(data,clones){
     const hasOverallRank=Number.isSafeInteger(decision.ref?.rank);
     const flag=animebDropText(isRated?(decision.ranked?'RATED · Ranked this week':hasOverallRank?'RATED · Outside featured entries':'RATED · Scored this week (not ranked)'):'UNRATED · No score this week',isRated?(decision.ranked?'評価済み · 今週のランキング掲載':hasOverallRank?'評価済み · ページ掲載外':'評価済み · 今週のランキング掲載なし'):'未評価 · 今週の採点なし','animeb-drop-rating');
     flag.classList.add(isRated?'is-rated':'is-unrated');
-    copy.append(title);if(sub)copy.append(sub);copy.append(flag);
+    copy.append(title);if(sub)copy.append(sub);if(!prelim)copy.append(flag);
     // Rated but not part of Top10/Extra can still be #13, #15 in the full weekly ranking.
     if(isRated && Number.isSafeInteger(decision.ref?.rank)){
       const rankNote=document.createElement('span');rankNote.className='animeb-drop-full-rank';
@@ -1573,10 +1592,10 @@ function animebMountDroppedTitles(data,clones){
     if(decision.ranked){
       const clone=clones[decision.index];if(clone){
         clone.id=`animeb-drop-ranked-${decision.index}`;clone.classList.add('animeb-entry-dropped');
-        const poster=clone.querySelector('.kv-thumb');if(poster){poster.classList.add('animeb-kv-dropped');poster.append(animebDropCross());}
+        const poster=clone.querySelector('.kv-thumb');if(poster){poster.classList.add('animeb-kv-dropped');poster.append(animebDropCross(stickerText));}
         const info=clone.querySelector('.more-info');
         if(info){const note=document.createElement('div');note.className='animeb-drop-more-notice';
-          const strong=document.createElement('strong');strong.append(animebDropText('DROPPED THIS WEEK','今週で対象外にしました'));
+          const strong=document.createElement('strong');strong.append(animebDropText(prelim?'ELIMINATED AFTER PRELIM':'DROPPED THIS WEEK',prelim?'プレリム選考落ち':'今週で対象外にしました'));
           note.append(strong);
           if(en||ja){const p=document.createElement('p');p.append(animebDropText(en||ja,ja||en));note.append(p);}
           info.prepend(note);
@@ -1590,14 +1609,14 @@ function animebMountDroppedTitles(data,clones){
   if(status){
     const group=document.createElement('section');group.className='ws-modern-group animeb-drop-status-group';
     const head=document.createElement('div');head.className='animeb-drop-status-header';
-    const label=animebDropText('DECIDED TO DROP THIS WEEK','今週対象外にすると決めた作品','ws-modern-group-title');
+    const label=animebDropText(prelim?'ELIMINATED AFTER PRELIM':'DECIDED TO DROP THIS WEEK',prelim?'本戦進出を逃した作品':'今週対象外にすると決めた作品','ws-modern-group-title');
     const count=document.createElement('strong');count.textContent=String(decisions.length);
     const go=document.createElement('a');go.href='#animeb-dropped-titles';go.className='animeb-drop-status-jump';go.setAttribute('aria-label','Go to Dropped Titles / Dropped Titlesへ移動');go.textContent='›';
     head.append(label,count,go);group.append(head);
     const thumbs=document.createElement('div');thumbs.className='animeb-drop-status-thumbs';
     decisions.forEach((decision,index)=>{
       const a=document.createElement('a');a.className='animeb-drop-status-link';a.href=decision.ranked?`#animeb-drop-ranked-${decision.index}`:`#animeb-drop-card-${index}`;
-      a.append(animebDropPortrait(decision,true));
+      a.append(animebDropPortrait(decision,true,stickerText));
       const name=animebDropText(decision.title,decision.jpTitle||decision.title,'animeb-drop-status-name');a.append(name);
       a.title=(decision.jpTitle||decision.title)+' · '+(decision.ratingMode==='rated'?'RATED':'UNRATED');thumbs.append(a);
     });

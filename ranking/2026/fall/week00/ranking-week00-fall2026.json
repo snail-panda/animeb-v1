@@ -5,13 +5,13 @@
     "season": "2026 Fall",
     "ep_range": "ep.0-1",
     "status": {
-      "watching": 35,
+      "watching": 38,
       "droppedThisWeek": 0,
       "droppedTotal": 0,
       "backOnList": 0,
       "noAir": 0,
       "completed": 0,
-      "total": 35
+      "total": 38
     },
     "weekly_intro": {
       "en": "The 2026 Fall Season is finally here—and we’re kicking things off with a jam-packed <strong>Top 35 Prelim Ranking</strong> to get the excitement rolling.\n\nI started by checking out nearly <strong>60</strong> titles—some closely, some just briefly—and from there, narrowed them down to <strong>35</strong> for this opening round.\n\nIt’s not quite the <strong>“main event”</strong> just yet. Consider this a transitional step: a pre-selection phase before the core weekly rankings truly begin. From next week on, the pool will be further refined to fewer than 30 titles, with consistent evaluation week by week.\n\nSo here it is—the <strong>Top 35 Prelim Ranking</strong>. Which title made the strongest first impression? How did your favorites perform? Let's dive in.\n\n<small>*Although officially labeled as “Week **,” this round functions as a preliminary selection phase based on early impressions—mostly from episodes 1 and 2. The true core lineup will be locked in from next week.</small>",
@@ -34,6 +34,95 @@
         "value10": 7,
         "displayScale": 5
       }
+    },
+    "prelim_selection": {
+      "rated": 38,
+      "advanced_to_main_season": 30,
+      "eliminated_after_prelim": 8,
+      "eliminated_entries": [
+        {
+          "slot": "Drop 1",
+          "title": "Ao Ashi Season 2",
+          "rank": 28,
+          "kv": "aoashi",
+          "reason": {
+            "en": "Episode #1: Starting Line",
+            "ja": "第1話: スタート・ライン\n対象外です。酷い出来だったから、視聴もしないと思います。即切り切り決定す。１期結構好きだったんだけどな。"
+          }
+        },
+        {
+          "slot": "Drop 2",
+          "title": "My Girlfriend's Friend",
+          "rank": 34,
+          "kv": "tomodachi",
+          "reason": {
+            "en": "Episode #1: My Girlfriend's Friend",
+            "ja": "第1話: 彼女の友達\n訥々に告白されて可愛い彼女が出来たという主人公、謎にその友達のエロい女子から性行為を誘われ続ける、というかエグいアプローチをされ続けるという謎。何だこれ? 切り決定。"
+          }
+        },
+        {
+          "slot": "Drop 3",
+          "title": "Sasaki and Peeps Season 2",
+          "rank": 12,
+          "kv": "sasaki",
+          "reason": {
+            "en": "Episode #1: Mother and Child",
+            "ja": "第1話: 母と子\n本作ってそんなに人気なのか?「あれ?なんか長くない?って思ったら初回1時間スペシャルだった」。コレって意外と登場キャラも多くて、いろんな世界線が複雑に絡んでるし・・・でよくわからないんだよね。でも1時間スペなのにあまりそういった所が説明されてないし、見てたら理解できる・・・ってものでも全然ないから、1期を見ていて気に入っていて・・・でもないと覚えてないし、コレ何?ってだけになると思う。そういう意味で残念。面白くないわけじゃないし、それなりに良く出来てるけど、ただついていけないってだけ。勿体ない。個人的にはそこそこ好きだったので見るとは思うけど・・・。ピーちゃんがもともと誰で・・・とかも覚えてないなぁ。文鳥とか鳥萌えむけなのだろうか? 様子見ようかと思ったけど、やっぱいいや。"
+          }
+        },
+        {
+          "slot": "Drop 4",
+          "title": "The Vermilion Mask",
+          "rank": 38,
+          "kv": "shuiro",
+          "reason": {
+            "en": "Episode #1: Peru the Mask Maker",
+            "ja": "第1話: 仮面屋ペル\nまさかここまで酷いものが存在しうるとは想像もしなかった。鬼滅の仮面—アベンジャーズ…さらば！"
+          }
+        },
+        {
+          "slot": "Drop 5",
+          "title": "Tank Chair",
+          "rank": 35,
+          "kv": "chair",
+          "reason": {
+            "en": "",
+            "ja": "第1話:\n意味不明、ずっと動いてないと腕の筋力も落ちるよー2秒で切り決定。"
+          }
+        },
+        {
+          "slot": "Drop 6",
+          "title": "Firefly Wedding",
+          "rank": 36,
+          "kv": "totaru",
+          "reason": {
+            "en": "",
+            "ja": "酷い。酷い。酷い。この世も末。ー対象外"
+          }
+        },
+        {
+          "slot": "Drop 7",
+          "title": "Magical★Explorer",
+          "rank": 25,
+          "kv": "magical",
+          "reason": {
+            "en": "",
+            "ja": "いわゆるク◯アニメ枠だが、その馬鹿さを楽しめそうでもあるのでとりあえずキープ。あんま・・・っていうか覚えてない・・・なんかスカーフ巻いてたような・・ってくらいってか無理過ぎるのでサヨウナラ。"
+          }
+        },
+        {
+          "slot": "Drop 8",
+          "title": "Mahou Shoujo Ikusei Keikaku: Restart",
+          "rank": 19,
+          "kv": "ikusei",
+          "reason": {
+            "en": "",
+            "ja": "クオリティは高いし女の子はみんな可愛いけど・・・あとは想像がつくような・・・。また1期をちゃんと見てないかも知れないし、そもそも覚えてないからただ謎に大量の女子＝魔法少女がいて、きっとデスゲームするんだけどっていう前提で…ってだけで、いつも通りのコテコテが見えるので面白みも興味もわかない。途中でなんか色々ひねってきたり、キツイ流れに持っていったりするんだろうな…とか思うけど。多分切るだろうな…。"
+          }
+        }
+      ],
+      "main_season_pool": 34,
+      "preselected_not_yet_aired": 4
     }
   },
   "entries": [
@@ -266,7 +355,7 @@
       "title": "The Apothecary Diaries Season 3",
       "jpTitle": "『薬屋のひとりごと』第3期",
       "kv": "kusuriya",
-      "episode": 50,
+      "episode": 2,
       "genre": [
         "Drama",
         "Mystery"
@@ -1043,6 +1132,63 @@
     {
       "rank": 19,
       "trend": "re",
+      "title": "Mahou Shoujo Ikusei Keikaku: Restart",
+      "jpTitle": "魔法少女育成計画restart",
+      "kv": "ikusei",
+      "episode": 1,
+      "genre": [
+        "Action",
+        "Fantasy",
+        "Mahou Shoujo",
+        "Thriller"
+      ],
+      "wrp_score": 7.35,
+      "score": 7,
+      "review": {
+        "en": "",
+        "jp": "クオリティは高いし女の子はみんな可愛いけど・・・あとは想像がつくような・・・。また1期をちゃんと見てないかも知れないし、そもそも覚えてないからただ謎に大量の女子＝魔法少女がいて、きっとデスゲームするんだけどっていう前提で・・・ってだけで面白みも興味もわかない。途中でなんか色々ひねってきたり、キツイ流れに持っていったりするんだろうな・・・とか思うけど・・・。多分切るだろうな。ー検討"
+      },
+      "wrp_breakdown": {
+        "base_score": 5,
+        "animation": 0.6,
+        "script": 0.55,
+        "direction": 0.5,
+        "charm": 0.25,
+        "overall": 0.45
+      },
+      "romanized_title": "Mahou Shoujo Ikusei Keikaku: Restart",
+      "release_date": "10/5/2026",
+      "based_on": "Light Novel",
+      "studios": "SynergySP",
+      "creators": "Hiroyuki Hashimoto",
+      "external_scores": "",
+      "streaming_services": "",
+      "synopsis": "The deadly game is back!\n\nOnce again, sixteen Magical Girls have been assembled for a high-stakes challenge. Every three days, their Magical Phone pulls them into an RPG-like simulation where they have to work together to fight enemies, solve puzzles, and earn Magical Candy to advance. A staggering ten billion yen reward awaits them at the end—but only for the players who land the finishing blow. With such a tantalizing prize on the line, it's only a matter of time before the girls turn on each other—and if their hit points drop to zero, a game over will be the least of their worries...\n\n(Source: Mahou Shoujo Ikusei Keikaku Wiki, edited)",
+      "studios_ja": "SynergySP",
+      "director_ja": "橋本裕之",
+      "series_composition_ja": "",
+      "synopsis_ja": "",
+      "original_creator_publisher_ja": "",
+      "original_creator_publisher_en": "",
+      "broadcast": "",
+      "broadcast_ja": "",
+      "streaming_services_ja": "",
+      "official_website": "https://mahoiku.com/anime/restart",
+      "original_creator_publisher": "遠藤浅蜊（このライトノベルがすごい！文庫／宝島社刊）",
+      "director": "Hiroyuki Hashimoto",
+      "series_composition": "Takao Yoshioka",
+      "episode_count": "",
+      "total_eps_this_season": "",
+      "seasons_total_ep_cnt": "",
+      "cast": "ペチカ：井上ほの花\nプフレ：南條愛乃\nシャドウゲール：近藤玲奈\nラピス・ラズリーヌ：悠木碧\nマジカルデイジー：内田真礼\nアカネ：小清水亜美\nクランテイル：伊瀬茉莉也\nメルヴィル：三上枝織\n御世方那子：ジェーニャ\nリオネッタ：M·A·O\n＠娘々：鬼頭明里\nチェルナー・マウス：長縄まりあ\nディティック・ベル：富田美憂\n夢ノ島ジェノサイ子：鈴代紗弓\nマスクド・ワンダー：ファイルーズあい\nのっこちゃん：澤田姫\nキーク：潘めぐみ\nファル：かないみか\nスノーホワイト：東山奈央",
+      "opening_theme": "「No tears here」茅原実里",
+      "ending_theme": "「ReMind」Daisy×Daisy",
+      "air_timing": "",
+      "air_date": "2026-10-05"
+    },
+    {
+      "rank": 20,
+      "trend": "new",
       "title": "Blue Box Season 2",
       "jpTitle": "『アオのハコ』Season2",
       "kv": "hako",
@@ -1097,7 +1243,7 @@
       "air_date": "2026-10-04"
     },
     {
-      "rank": 20,
+      "rank": 21,
       "trend": "new",
       "title": "From Far Away",
       "jpTitle": "彼方から",
@@ -1153,7 +1299,7 @@
       "air_date": "2026-10-04"
     },
     {
-      "rank": 21,
+      "rank": 22,
       "trend": "new",
       "title": "Psyren",
       "jpTitle": "PSYREN -サイレン-",
@@ -1209,7 +1355,7 @@
       "air_date": "2026-10-05"
     },
     {
-      "rank": 22,
+      "rank": 23,
       "trend": "new",
       "title": "Reborn as a Space Mercenary: I Woke Up Piloting the Strongest Starship!",
       "jpTitle": "目覚めたら最強装備と宇宙船持ちだったので、一戸建て目指して傭兵として自由に生きたい",
@@ -1228,12 +1374,12 @@
         "jp": "第1話:\n<p>なんか無茶苦茶やってたような・・・あんまり覚えてないけど、ク◯アニメ枠として楽しめそうではあるのでキープ。</p>"
       },
       "wrp_breakdown": {
-        "base_score": 5,
-        "animation": 0.5,
-        "script": 0.45,
-        "direction": 0.45,
-        "charm": 0.25,
-        "overall": 0.15
+        "base_score": 0,
+        "animation": 0,
+        "script": 0,
+        "direction": 0,
+        "charm": 0,
+        "overall": 0
       },
       "romanized_title": "Mezametara Saikyou Soubi to Uchuusen-mochi datta node, Ikkodate Mezashite Youhei to shite Jiyuu ni Ikitai",
       "release_date": "10/4/2026",
@@ -1266,8 +1412,8 @@
       "air_date": "2026-10-04"
     },
     {
-      "rank": 23,
-      "trend": "new",
+      "rank": 24,
+      "trend": "re",
       "title": "A Tale of the Secret Saint",
       "jpTitle": "転生した大聖女は、聖女であることをひた隠す",
       "kv": "hitakakusu",
@@ -1289,7 +1435,7 @@
         "script": 0.4,
         "direction": 0.35,
         "charm": 0.3,
-        "overall": 0.15
+        "overall": 0.05
       },
       "romanized_title": "Tensei shita Daiseijo wa, Seijo de Aru Koto wo Hitakakusu",
       "release_date": "10/3/2026",
@@ -1322,7 +1468,64 @@
       "air_date": "2026-10-03"
     },
     {
-      "rank": 24,
+      "rank": 25,
+      "trend": "new",
+      "title": "Magical★Explorer",
+      "jpTitle": "マジカル★エクスプローラー",
+      "kv": "magical",
+      "episode": 1,
+      "genre": [
+        "Action",
+        "Adventure",
+        "Ecchi",
+        "Fantasy"
+      ],
+      "wrp_score": 6.6,
+      "score": 6,
+      "review": {
+        "en": "",
+        "jp": "いわゆるク◯アニメ枠だが、その馬鹿さを楽しめそうでもあるのでとりあえずキープ。あんま・・・っていうか覚えてない・・・なんかスカーフ巻いてたような・・ってくらい。"
+      },
+      "wrp_breakdown": {
+        "base_score": 5,
+        "animation": 0.5,
+        "script": 0.4,
+        "direction": 0.45,
+        "charm": 0.2,
+        "overall": 0.05
+      },
+      "romanized_title": "Magical★Explorer",
+      "release_date": "10/3/2026",
+      "based_on": "Light Novel",
+      "studios": "White Fox",
+      "creators": "Kazuki Oohashi",
+      "external_scores": "",
+      "streaming_services": "",
+      "synopsis": "Reincarnated as a character in the legendary erotic game, \"Magical Explorer,\" it doesn't take long for our hero to discover that he's been designated the unlucky side-character rather than the game's lady-killer protagonist. Not to worry, though! Armed with his vast knowledge of the game (and a few cheats) he'll do whatever it takes to win the hearts of the game's heroines and emerge as the most accomplished student at the Sorcerer's Academy!\n\n(Source: Yen Press)",
+      "studios_ja": "WHITE FOX",
+      "director_ja": "大橋一輝",
+      "series_composition_ja": "",
+      "synopsis_ja": "伝説の美少女ゲーム『マジカル★エクスプローラー』\n俺が転生したのは、チート能力でヒロインに囲まれる主人公――ではなく、その横で愛想笑いを浮かべる不遇な友人キャラ・瀧音幸助だった…！原作ゲーム内では目立たず、報われず、最後まで脇役。だが俺には、このゲームを隅々までやり込んだ前世の知識がある！！\nさらに、この友人キャラには隠れ設定“世界最高峰の魔力量”があり、主人公すら凌駕できるポテンシャルも…？\nこの世界で出会った憧れのヒロイン達をハッピーエンドに導くため、友人キャラの幸助がこの世界で奮闘する―――！",
+      "original_creator_publisher_ja": "",
+      "original_creator_publisher_en": "",
+      "broadcast": "",
+      "broadcast_ja": "",
+      "streaming_services_ja": "",
+      "official_website": "https://majieku.com/",
+      "original_creator_publisher": "入栖（KADOKAWA 角川スニーカー文庫刊）／コミック：緋賀ゆかり",
+      "director": "Kazuki Oohashi",
+      "series_composition": "Satoko Sekine",
+      "episode_count": "",
+      "total_eps_this_season": "",
+      "seasons_total_ep_cnt": "",
+      "cast": "瀧音幸助：島﨑信長\nリュディ：加隈亜衣\n水守雪音：大西沙織\nななみ：M・A・O\n花邑毬乃：渕上舞\n花邑はつみ：津田美波\nクラリス：紡木吏佐\n聖伊織：結川あさき\n加藤里菜：遠野ひかる",
+      "opening_theme": "「Remedy」ASCA",
+      "ending_theme": "「Double Wings」ASCA",
+      "air_timing": "",
+      "air_date": "2026-10-03"
+    },
+    {
+      "rank": 26,
       "trend": "re",
       "title": "The Detective Is Already Dead Season 2",
       "jpTitle": "探偵はもう、死んでいる。Season2",
@@ -1379,7 +1582,7 @@
       "air_date": "2026-10-07"
     },
     {
-      "rank": 25,
+      "rank": 27,
       "trend": "new",
       "title": "The Laid-Off Cheat-Granting Mage Enjoys a Second Lease on Life",
       "jpTitle": "追放されたチート付与魔術師は気ままなセカンドライフを謳歌する。 ～俺は武器だけじゃなく、あらゆるものに『強化ポイント』を付与できるし、俺の意思でいつでも効果を解除できるけど、残った人たち大丈夫？～",
@@ -1436,8 +1639,8 @@
       "air_date": "2026-10-06"
     },
     {
-      "rank": 26,
-      "trend": "re",
+      "rank": 28,
+      "trend": "new",
       "title": "Ao Ashi Season 2",
       "jpTitle": "『アオアシ Season2』第1クール",
       "kv": "aoashi",
@@ -1490,7 +1693,7 @@
       "air_date": "2026-10-04"
     },
     {
-      "rank": 27,
+      "rank": 29,
       "trend": "new",
       "title": "Even Though I'm a Super Timid Noble Girl, I Accepted the Bet From My Cunning Fiancé",
       "jpTitle": "弱気MAX令嬢なのに、辣腕婚約者様の賭けに乗ってしまった",
@@ -1545,8 +1748,8 @@
       "air_date": "2026-10-04"
     },
     {
-      "rank": 28,
-      "trend": "new",
+      "rank": 30,
+      "trend": "re",
       "title": "The Cold Sato-san is Only Sweet to Me",
       "jpTitle": "塩対応の佐藤さんが俺にだけ甘い",
       "kv": "shiotaiou",
@@ -1600,8 +1803,8 @@
       "air_date": "2026-10-06"
     },
     {
-      "rank": 29,
-      "trend": "new",
+      "rank": 31,
+      "trend": "re",
       "title": "Tetsuryou! Meet with Tetsudou Musume",
       "jpTitle": "てつりょー！meet with 鉄道むすめ",
       "kv": "tetsuryo",
@@ -1654,8 +1857,8 @@
       "air_date": "2026-10-08"
     },
     {
-      "rank": 30,
-      "trend": "re",
+      "rank": 32,
+      "trend": "new",
       "title": "A Returner's Magic Should Be Special Season 2",
       "jpTitle": "『帰還者の魔法は特別です』第二期",
       "kv": "kikansha",
@@ -1710,8 +1913,8 @@
       "air_date": "2026-10-07"
     },
     {
-      "rank": 31,
-      "trend": "re",
+      "rank": 33,
+      "trend": "new",
       "title": "The Iceblade Sorcerer Shall Rule the World II",
       "jpTitle": "冰剣の魔術師が世界を統べるⅡ",
       "kv": "hyouken",
@@ -1766,7 +1969,7 @@
       "air_date": "2026-10-08"
     },
     {
-      "rank": 32,
+      "rank": 34,
       "trend": "new",
       "title": "My Girlfriend's Friend",
       "jpTitle": "彼女の友達",
@@ -1822,7 +2025,7 @@
       "air_date": "2026-10-04"
     },
     {
-      "rank": 33,
+      "rank": 35,
       "trend": "new",
       "title": "Tank Chair",
       "jpTitle": "TANK CHAIR-戦車椅子-",
@@ -1877,7 +2080,62 @@
       "air_date": "2026-10-04"
     },
     {
-      "rank": 34,
+      "rank": 36,
+      "trend": "new",
+      "title": "Firefly Wedding",
+      "jpTitle": "ホタルの嫁入り",
+      "kv": "totaru",
+      "episode": 1,
+      "genre": [
+        "Drama",
+        "Romance"
+      ],
+      "wrp_score": 4.65,
+      "score": 4,
+      "review": {
+        "en": "",
+        "jp": "酷い。酷い。酷い。この世も末。ー対象外"
+      },
+      "wrp_breakdown": {
+        "base_score": 5,
+        "animation": 0.55,
+        "script": 0.3,
+        "direction": 0.25,
+        "charm": 0,
+        "overall": -1.45
+      },
+      "romanized_title": "Hotaru no Yomeiri",
+      "release_date": "10/9/2026",
+      "based_on": "Manga",
+      "studios": "David Production",
+      "creators": "Takahiro Kamei",
+      "external_scores": "",
+      "streaming_services": "",
+      "synopsis": "Satoko, the eldest daughter of the honorable Kirigaya family, has received many marriage proposals from men captivated by her beauty and grace. However, she has turned them all down due to her secret heart defect. Despite her condition, Satoko is still willing to find a husband to ease her beloved father's concerns.\n\nWhile on a stroll, Satoko is kidnapped by a group of mercenaries, one of them being Shinpei Gotou—a legendary assassin tasked with executing her. Satoko tries to bribe Gotou into freeing her, but it proves unsuccessful. Out of options, Satoko makes a desperate gamble: under the pretense of love at first sight, she asks him to marry her.\n\nUnexpectedly, Gotou takes the bait and vows to protect her. As the couple escapes to freedom, Satoko struggles to keep up the ruse and make sense of the mysterious man she has eloped with.\n\n[Written by MAL Rewrite]",
+      "studios_ja": "david production",
+      "director_ja": "亀井隆広",
+      "series_composition_ja": "",
+      "synopsis_ja": "愛が重すぎる殺し屋×余命わずかな令嬢の狂愛ストーリー\n女は家の財産とされた時代――\n\n名家に生まれ美貌に恵まれるも、余命わずかと言われている伯爵家の令嬢・桐ヶ谷紗都子。\nそんな彼女の夢は名家に嫁ぎ、父の誇りになること。\nしかしある夜、何者かの企てによって連れ去られてしまう。\n\n絶体絶命の場面に居合わせた殺し屋・後藤進平に「私たち結婚しましょう。私と一緒になれば全てが手に入ります。」と咄嗟の嘘をつく紗都子。\n\n「運命の相手だ」と紗都子を狂愛する進平と自らの使命と進平への想いの間で揺れる紗都子の一途で許されぬ愛のかたち。",
+      "original_creator_publisher_ja": "",
+      "original_creator_publisher_en": "",
+      "broadcast": "",
+      "broadcast_ja": "",
+      "streaming_services_ja": "",
+      "official_website": "https://hotaru-anime.com/",
+      "original_creator_publisher": "橘オレコ「ホタルの嫁入り」（小学館「マンガワンコミックス」刊）",
+      "director": "Takahiro Kamei",
+      "series_composition": "Yuuko Kakihara",
+      "episode_count": "",
+      "total_eps_this_season": "",
+      "seasons_total_ep_cnt": "",
+      "cast": "桐ヶ谷紗都子：Lynn\n後藤進平：内山昂輝\n小川康太郎：伊東健人\n三枝：津田健次郎",
+      "opening_theme": "「Period」iri",
+      "ending_theme": "「夢心地」TOOBOE",
+      "air_timing": "",
+      "air_date": "2026-10-09"
+    },
+    {
+      "rank": 37,
       "trend": "new",
       "title": "The World's Strongest Witch",
       "jpTitle": "世界最強の魔女、始めました",
@@ -1933,7 +2191,7 @@
       "air_date": "2026-10-07"
     },
     {
-      "rank": 35,
+      "rank": 38,
       "trend": "new",
       "title": "The Vermilion Mask",
       "jpTitle": "朱色の仮面",

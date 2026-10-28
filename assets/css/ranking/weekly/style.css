@@ -3483,3 +3483,9 @@ body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .animeb-bottom-de
   border-top-left-radius: 9px;
   text-shadow: none;
 }
+/* Prelim selection and Bottom cast: preserve all current site CSS above. */
+.animeb-bottom-details .animeb-weekly-cast{display:grid;grid-template-columns:minmax(0,1fr);gap:.36rem;min-width:0;}
+.animeb-bottom-details .animeb-weekly-cast > div,
+.animeb-bottom-details .animeb-weekly-cast > span{display:block;min-width:0;white-space:normal;overflow-wrap:anywhere;line-height:1.48;}
+.animeb-bottom-details dd{min-width:0;overflow-wrap:anywhere;}
+.animeb-prelim-eliminated .animeb-dropped-heading-title{letter-spacing:.012em;}
