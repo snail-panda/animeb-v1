@@ -3536,6 +3536,30 @@ body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .animeb-bottom-sy
 body[data-animeb-theme="dark"] .animeb-bottom-synopsis-section .animeb-bottom-synopsis,
 body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .animeb-bottom-synopsis-section .animeb-bottom-synopsis { color:#e5e4df; }
 @media (max-width:768px) {
-  .animeb-bottom-synopsis-heading { font-size:.69rem; margin-bottom:13px; }
-  .animeb-bottom-synopsis-section .animeb-bottom-synopsis { font-size:.72rem; line-height:1.7; }
+  .animeb-bottom-synopsis-heading { font-size:.79rem; font-weight:550; margin-bottom:12px; }
+  .animeb-bottom-synopsis-section .animeb-bottom-synopsis { font-size:.82rem; line-height:1.67; }
+}
+
+/* AnimeB UI Patch r2 2026-10-28 — stable archival camera, meaning-first Final status. */
+body[data-animeb-theme="image"][data-animeb-image-scope="header"] .wrapper::before,
+body[data-animeb-theme="image"][data-animeb-image-scope="hero"] .wrapper::before {
+  background-position:var(--animeb-image-x,50%) var(--animeb-image-y-fixed,var(--animeb-image-y,40%));
+}
+/* Historical results: distinct documented values, never guessed as Season Pool. */
+.ws-modern-metric-archive-completed{background:linear-gradient(145deg,#e5eee7,#dbe8df);color:#37694e}
+.ws-modern-metric-archive-dropped{background:linear-gradient(145deg,#f3e7df,#eee0d5);color:#815b49}
+.ws-modern-metric-archive-total{background:linear-gradient(145deg,#e8edf1,#e0e9ee);color:#49667a}
+.ws-modern-metric-legacy{background:linear-gradient(145deg,#e9f1e9,#e0eee3);color:#446d55}
+.ws-modern-metrics:empty{display:none}
+/* Final F.WRP explanatory snippets: a warmer inline formula rather than cold grey. */
+body[data-animeb-final-week="true"] .note-mount code {
+  background:#f5efe1;color:#5b554b;border-radius:4px;
+  padding:.12em .33em;-webkit-box-decoration-break:clone;box-decoration-break:clone;
+  overflow-wrap:anywhere;white-space:normal;
+}
+@media(max-width:768px){
+  body[data-animeb-final-week="true"] .note-mount .animeb-note-jp .detail-content p,
+  body[data-animeb-final-week="true"] .note-mount .animeb-note-jp .detail-content > ul{
+    font-size:.95em;line-height:1.74;
+  }
 }

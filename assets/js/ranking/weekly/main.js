@@ -515,7 +515,16 @@ function animebInitWeeklyThemes(){
     const width=Math.max(1,wrapper.getBoundingClientRect().width);
     const viewportHeight=Math.max(1,window.innerHeight);
     const targetWidth=imageScope==='full'?window.innerWidth:width;
-    const targetHeight=imageScope==='full'?viewportHeight:height;
+    // Image framing used to be recomputed from the variable header height.
+    // No "THIS WEEK" made the hero short, changing BOTH image zoom and
+    // background-position percentage; the featured face slid out of view.
+    // Keep a common visual camera height for short archived weeks. When a
+    // modern week already has a taller intro, retain its existing framing.
+    const cameraFloor=window.innerWidth<=768
+      ? Math.min(560,Math.max(500,Math.round(window.innerWidth*1.31)))
+      : Math.min(780,Math.max(590,Math.round(window.innerWidth*.68)));
+    const cameraHeight=imageScope==='full'?viewportHeight:Math.max(height,cameraFloor);
+    const targetHeight=cameraHeight;
     let sizing='cover';
     if(imageNatural?.width&&imageNatural?.height){
       const ratio=fullFit==='tile'?Math.min(1,240/imageNatural.width):
@@ -525,6 +534,17 @@ function animebInitWeeklyThemes(){
       sizing=`${Math.round(imageNatural.width*factor)}px ${Math.round(imageNatural.height*factor)}px`;
     }
     document.body.style.setProperty('--animeb-image-size',sizing);
+    if(imageScope==='header'||imageScope==='hero') {
+      // A CSS percentage uses the *visible layer height*, so % is not a
+      // stable crop for short vs long weeks. Anchor y to the shared camera.
+      // x stays user-controlled and unchanged; Full Page retains its setting.
+      const scaledHeight = imageNatural?.height && imageNatural?.width
+        ? Number(sizing.split(' ')[1]?.replace('px','')) : null;
+      const yOffset = scaledHeight!==null && Number.isFinite(scaledHeight)
+        ? (cameraHeight-scaledHeight)*(imagePosY/100) : null;
+      if(yOffset!==null)document.body.style.setProperty('--animeb-image-y-fixed',`${yOffset.toFixed(2)}px`);
+      else document.body.style.removeProperty('--animeb-image-y-fixed');
+    }else document.body.style.removeProperty('--animeb-image-y-fixed');
   
   }
   let heroFrame=0;
@@ -1135,8 +1155,14 @@ function animebMountRankingCoverage(status, publishedCount, weekLabel) {
     { en:'Season Pool', ja:'シーズン候補総数', n:seasonPool, key:'pool' },
     { en:'Current Lineup', ja:'継続評価対象', n:lineup, key:'lineup' },
     { en:'Rated This Week', ja:'今週の評価作品', n:rated, key:'rated' },
-    ...(rated===null && legacyWatching!==null && !isLegacyFinal ? [{en:'Watching (legacy)',ja:'視聴中（旧集計）',n:legacyWatching,key:'legacy'}] : []),
-    ...(lineup===null && legacyWatching===null && legacyTotal!==null ? [{en:'Total (legacy)',ja:'合計（旧集計）',n:legacyTotal,key:'legacy'}] : [])
+    ...(isLegacyFinal ? [
+      {en:'Completed',ja:'完走作品',n:completed,key:'archive-completed'},
+      {en:'Dropped',ja:'視聴中止',n:getCount(status?.droppedTotal),key:'archive-dropped'},
+      {en:'Recorded Total',ja:'旧記録の合計',n:legacyTotal,key:'archive-total'}
+    ] : rated===null && lineup===null ? [
+      ...(legacyWatching!==null?[{en:'Watching (legacy)',ja:'視聴中（旧集計）',n:legacyWatching,key:'legacy'}]:[]),
+      ...(legacyTotal!==null?[{en:'Recorded Total',ja:'旧記録の合計',n:legacyTotal,key:'archive-total'}]:[])
+    ] : [])
   ];
   for(const k of kpis){
     if(k.n===null)continue;
@@ -1175,11 +1201,26 @@ function animebMountRankingCoverage(status, publishedCount, weekLabel) {
   helpTrigger.classList.add('ws-modern-help-toggle');helpTrigger.setAttribute('aria-expanded','false');
   helpBar.append(text('How to read these figures','この数値について','ws-modern-help-caption'),helpTrigger);
   const helpContent=document.createElement('div');helpContent.className='ws-modern-glossary';helpContent.hidden=true;
-  for(const key of ['rated','lineup','pool','dropped','unrated','seasonHalted','back']){
-    const names={rated:['Rated This Week','今週の評価作品'],lineup:['Current Lineup','継続評価対象'],pool:['Season Pool','シーズン候補総数'],dropped:['Dropped This Week','今週からの対象外'],unrated:['Dropped (Unrated)','未評価での視聴中止'],seasonHalted:['Season Halted','シーズン中断'],back:['Back on List','復帰']};
+  const modernGlossaryNames={rated:['Rated This Week','今週の評価作品'],lineup:['Current Lineup','継続評価対象'],pool:['Season Pool','シーズン候補総数'],dropped:['Dropped This Week','今週からの対象外'],unrated:['Dropped (Unrated)','未評価での視聴中止'],seasonHalted:['Season Halted','シーズン中断'],back:['Back on List','復帰']};
+  const archiveGlossary={
+    watching: [['Watching (legacy)','視聴中（旧記録）'],['The original Watching counter, recorded under the older system. It is not a modern Current Lineup.', '旧形式で記録したWatching。新しい「継続評価対象」とは同一視しません。']],
+    total: [['Recorded Total','旧記録の合計'],['Historical total stored in this week’s JSON. It is not automatically the modern Season Pool.', '当時のJSONに記録された合計。新しいSeason Poolと同一とは限りません。']],
+    completed: [['Completed','完走作品'],['Recorded completed count for the season. On the Final page this is the season result, not "previously completed this week".', '当時の完走作品数。Finalではシーズン最終結果であり、単なる前週までの完結数ではありません。']],
+    droppedTotal: [['Total Dropped','視聴中止累計'],['Cumulative count of excluded titles recorded under the old system.', '旧形式で記録された視聴中止作品の累計です。']],
+    noAir: [['No Episode This Week','今週放送なし'],['Recorded no-broadcast count for that week. It is not the number of shows ranked.', 'その週に放送がなかった作品の記録数。ランキング掲載数とは異なります。']],
+    droppedThisWeek: [['Dropped This Week','今週の対象外'],['Historical weekly exclusion count. Its timing may differ from a drop decision made after this week’s viewing.', '旧週次集計の対象外作品数。今週視聴後に決めた来週からの除外とはタイミングが異なる場合があります。']],
+    backOnList: [['Back on List','復帰'],glossary.back]
+  };
+  const isOldFormat=rated===null && lineup===null;
+  const glossaryKeys=isOldFormat
+    ? ['watching','completed','droppedTotal','total',...(!isLegacyFinal?['noAir','droppedThisWeek','backOnList']:[])]
+    : ['rated','lineup','pool','dropped','unrated','seasonHalted','back'];
+  for(const key of glossaryKeys){
+    if(isOldFormat && getCount(status?.[key])===null)continue;
+    const [name,definition]=isOldFormat?archiveGlossary[key]:[modernGlossaryNames[key],glossary[key]];
     const p=document.createElement('p');p.className='ws-modern-glossary-entry';
-    const b=document.createElement('b');b.append(text(...names[key]));
-    const d=text(...glossary[key]);p.append(b,d);helpContent.append(p);
+    const b=document.createElement('b');b.append(text(...name));
+    p.append(b,text(...definition));helpContent.append(p);
   }
   helpTrigger.addEventListener('click',()=>{
     helpContent.hidden=!helpContent.hidden;
@@ -1190,15 +1231,12 @@ function animebMountRankingCoverage(status, publishedCount, weekLabel) {
   const note=document.createElement('p');note.className='ws-modern-footnote';
   note.append(rated!==null && lineup!==null
     ? text('Ranking denominator = rated titles. Other counts can overlap and are not meant to add up.', 'ランキングの分母は評価作品数。ほかの項目は重複するため、足し引きで一致するとは限りません。')
-    : text('Historical data: only recorded counters are shown. Missing Rated This Week / Current Lineup are not inferred from Watching.',
-      '旧データ：記録されている数値だけを表示。未登録の「今週の評価作品」「継続評価対象」は視聴中から推定していません。'));
+    : isLegacyFinal
+      ? text('Final season results from archived counters. The old Watching value does not represent a current lineup.',
+        '最終週の記録に基づくシーズン結果です。旧Watchingは現在の視聴数として扱いません。')
+      : text('Archived counters only; no new metrics have been inferred from Watching.',
+        '旧記録にある数値のみを表示。Watchingから新しい指標は推定していません。'));
   detail.append(note);
-  if(isLegacyFinal && legacyWatching!==null){
-    const archival=document.createElement('p');archival.className='ws-modern-footnote';
-    archival.append(text(`Final archive: Watching = ${legacyWatching} (historical field, not a current lineup).`,
-      `最終週の旧記録：Watching = ${legacyWatching}（旧フィールドであり、現在の視聴数ではありません）。`));
-    detail.append(archival);
-  }
   const descriptions={
     seasonHalted:glossary.seasonHalted,
     droppedThisWeekUnrated:glossary.unrated,
@@ -1241,7 +1279,7 @@ function animebMountRankingCoverage(status, publishedCount, weekLabel) {
     }
     section.append(grid);detail.insertBefore(section,helpBar);
   };
-  group('THIS WEEK · CHANGES','今週の変化',[
+  if(!isLegacyFinal) group('THIS WEEK · CHANGES','今週の変化',[
     ['startedAiringThisWeek','Started Airing','今週放送開始','icon-startedairing'],
     ['noAir','No Episode This Week','今週放送なし','icon-noair'],
     ['notAiredYet','Not Aired Yet','未放送（開始前）','icon-notairedyet'],
@@ -1250,8 +1288,8 @@ function animebMountRankingCoverage(status, publishedCount, weekLabel) {
     ['droppedThisWeekUnrated','Dropped (Unrated)','未評価で視聴中止','ws-glyph-unrated'],
     ['seasonHalted','Season Halted','シーズン中断','ws-glyph-halted']
   ]);
-  group('SEASON · HISTORY','シーズン・累計',[
-    ['completed','Previously Completed','前週までに完結','icon-completed'],
+  if(!isLegacyFinal) group('SEASON · HISTORY','シーズン・累計',[
+    ['completed','Completed (recorded)','完走作品（旧記録）','icon-completed'],
     ['droppedTotal','Total Dropped','視聴中止累計','icon-trash'],
     ['backOnList','Back on List','復帰（混合集計）','icon-back']
   ]);
@@ -1679,6 +1717,7 @@ fetch(jsonPath)
   console.log(`✅ Successfully fetched: ranking-${currentWeek}-${season}${year}.json`);
   
   const isFinalWeek = (data.meta.week || "").toLowerCase().includes("final");
+  document.body.dataset.animebFinalWeek=String(isFinalWeek);
 
   
   // ここから通常処理
@@ -2779,6 +2818,24 @@ window.initOverviewSection = function() {
           const style=document.createElement('style');style.textContent=original.textContent;
           shadow.append(style);
         });
+        // Append the reading-scale override AFTER archive CSS, so the legacy
+        // HTML's paragraphs and headings are preserved but can no longer be
+        // clipped or oddly justified in narrow mobile layouts.
+        host.setAttribute('lang',lang==='EN'?'en':'ja');
+        const reading=document.createElement('style');
+        reading.textContent=`
+          .weekly-overview{width:100%;max-width:680px;margin:0 auto 20px;padding:0 clamp(10px,2.5vw,18px) 16px;box-sizing:border-box}
+          .weekly-overview p,.weekly-overview ul{width:100%;max-width:100%;margin-left:0;margin-right:0;text-align:left;overflow-wrap:break-word}
+          .weekly-overview img,.weekly-overview table{max-width:100%}
+          @media(max-width:768px){
+            .weekly-overview p{font-size:.90rem;line-height:1.72}
+            .weekly-overview ul{font-size:.88rem;line-height:1.75;padding-left:1rem}
+            .weekly-overview .section-title{margin-top:2.25rem;margin-bottom:1.6rem}
+            :host([lang=ja]) .weekly-overview p{font-size:.83rem;line-height:1.79}
+            :host([lang=ja]) .weekly-overview ul{font-size:.82rem;line-height:1.85}
+          }
+        `;
+        shadow.append(reading);
         shadow.append(document.importNode(article,true));
         container.replaceChildren(host);
         // Page-wide EN / 日本語 control also switches this legacy Overview.
