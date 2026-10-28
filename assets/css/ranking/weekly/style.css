@@ -3508,3 +3508,34 @@ body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .ws-modern-metric
 }
 body[data-animeb-theme="dark"] .ws-modern-metric-legacy .ws-modern-metric-note,
 body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .ws-modern-metric-legacy .ws-modern-metric-note{color:#cad8ce;}
+
+/* v4.35.12 — scoped improvements: archived Overview + Bottom typography.
+   The archive's own overview stylesheet loads in an isolated ShadowRoot.
+   Do not alter ranking cards, current-week styles or metadata. */
+#overview-container.expanded { max-height:none; overflow:visible; }
+#overview-container .animeb-overview-isolated { display:block; width:100%; min-width:0; }
+@media (max-width:768px) {
+  .overview-section { min-width:0; max-width:100%; padding:0 9px; }
+  #overview-container { max-width:100%; }
+}
+/* An absent weekly comment should not collapse the entire header rhythm. */
+.wrapper.animeb-no-weekly-intro > .sub-header { margin-bottom:clamp(30px,3.5vw,44px); }
+/* Only Bottom/Last More Info, not normal ranked cards. */
+.animeb-bottom-synopsis-section { margin:15px 0 17px; }
+.animeb-bottom-synopsis-heading {
+  display:block; margin:0 0 12px;
+  font:500 .72rem/1.35 'Fira Sans','Hiragino Kaku Gothic ProN','Yu Gothic UI','Noto Sans CJK JP',system-ui,sans-serif;
+  color:#827268; letter-spacing:.018em;
+}
+.animeb-bottom-synopsis-section .animeb-bottom-synopsis {
+  font:400 .75rem/1.67 'Hiragino Kaku Gothic ProN','Yu Gothic UI','Noto Sans CJK JP',system-ui,sans-serif;
+  color:#54514c; margin:0;
+}
+body[data-animeb-theme="dark"] .animeb-bottom-synopsis-heading,
+body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .animeb-bottom-synopsis-heading { color:#c4b2a2; }
+body[data-animeb-theme="dark"] .animeb-bottom-synopsis-section .animeb-bottom-synopsis,
+body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .animeb-bottom-synopsis-section .animeb-bottom-synopsis { color:#e5e4df; }
+@media (max-width:768px) {
+  .animeb-bottom-synopsis-heading { font-size:.69rem; margin-bottom:13px; }
+  .animeb-bottom-synopsis-section .animeb-bottom-synopsis { font-size:.72rem; line-height:1.7; }
+}

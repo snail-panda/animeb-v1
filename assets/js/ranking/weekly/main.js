@@ -506,7 +506,11 @@ function animebInitWeeklyThemes(){
     // the JSON has been mounted and an explanation panel is expanded.
     const wrapperTop=wrapper.getBoundingClientRect().top;
     const bottom=ranking?ranking.getBoundingClientRect().top:wrapperTop+410;
-    const height=Math.max(180,Math.round(bottom-wrapperTop-8));
+    // Opening a historical Overview expands the document but must never resize
+    // or zoom the header photograph. The picture ends above the overview body.
+    const openOverview=document.querySelector('#overview-container.expanded');
+    const expandedOverviewHeight=openOverview?openOverview.getBoundingClientRect().height:0;
+    const height=Math.max(180,Math.round(bottom-wrapperTop-expandedOverviewHeight-8));
     wrapper.style.setProperty('--animeb-image-header-height',height+'px');
     const width=Math.max(1,wrapper.getBoundingClientRect().width);
     const viewportHeight=Math.max(1,window.innerHeight);
@@ -1061,7 +1065,7 @@ function animebApplyWeeklyPresentation(meta) {
 }
 
 // v4.29 - Design A. The current season/week header, entries, and score columns are untouched.
-function animebMountRankingCoverage(status, publishedCount) {
+function animebMountRankingCoverage(status, publishedCount, weekLabel) {
   const getCount = value => {
     if(value === undefined || value === null || String(value).trim() === '') return null;
     const n=Number(value);
@@ -1074,6 +1078,10 @@ function animebMountRankingCoverage(status, publishedCount) {
   const lineup=getCount(status?.currentLineup);
   const legacyWatching=getCount(status?.watching);
   const legacyTotal=getCount(status?.total);
+  const completed=getCount(status?.completed);
+  // Final rankings summarize a completed season. A historical Watching field
+  // (sometimes 0, sometimes another archival value) is NOT an active lineup.
+  const isLegacyFinal=rated===null && lineup===null && /\bfinal\b/i.test(String(weekLabel||''));
   if(!Number.isSafeInteger(publishedCount) || publishedCount<=0) return;
   const legacy=document.querySelector('.watch-status');
   const wrapper=document.querySelector('.watch-status-wrapper');
@@ -1109,10 +1117,10 @@ function animebMountRankingCoverage(status, publishedCount) {
   const divider=document.createElement('span');divider.className='ws-modern-separator';divider.setAttribute('aria-hidden','true');
   const line=document.createElement('span');line.className='ws-modern-lineup';
   // The old Watching count is shown under its OWN label, not as Current Lineup.
-  const sideCount=lineup!==null?lineup:legacyWatching!==null?legacyWatching:legacyTotal;
+  const sideCount=lineup!==null?lineup:isLegacyFinal?completed:legacyWatching!==null?legacyWatching:legacyTotal;
   if(sideCount!==null){
-    line.append(count(sideCount),text(lineup!==null?'CURRENT LINEUP':legacyWatching!==null?'WATCHING':'TOTAL (LEGACY)',
-      lineup!==null?'継続評価対象':legacyWatching!==null?'視聴中（旧集計）':'合計（旧集計）'));
+    line.append(count(sideCount),text(lineup!==null?'CURRENT LINEUP':isLegacyFinal?'COMPLETED':legacyWatching!==null?'WATCHING':'TOTAL (LEGACY)',
+      lineup!==null?'継続評価対象':isLegacyFinal?'完走作品':legacyWatching!==null?'視聴中（旧集計）':'合計（旧集計）'));
   }
   const chevron=document.createElement('span');chevron.className='ws-modern-chevron';chevron.setAttribute('aria-hidden','true');
   toggle.append(mark,hero);
@@ -1127,7 +1135,7 @@ function animebMountRankingCoverage(status, publishedCount) {
     { en:'Season Pool', ja:'シーズン候補総数', n:seasonPool, key:'pool' },
     { en:'Current Lineup', ja:'継続評価対象', n:lineup, key:'lineup' },
     { en:'Rated This Week', ja:'今週の評価作品', n:rated, key:'rated' },
-    ...(rated===null && legacyWatching!==null ? [{en:'Watching (legacy)',ja:'視聴中（旧集計）',n:legacyWatching,key:'legacy'}] : []),
+    ...(rated===null && legacyWatching!==null && !isLegacyFinal ? [{en:'Watching (legacy)',ja:'視聴中（旧集計）',n:legacyWatching,key:'legacy'}] : []),
     ...(lineup===null && legacyWatching===null && legacyTotal!==null ? [{en:'Total (legacy)',ja:'合計（旧集計）',n:legacyTotal,key:'legacy'}] : [])
   ];
   for(const k of kpis){
@@ -1185,6 +1193,12 @@ function animebMountRankingCoverage(status, publishedCount) {
     : text('Historical data: only recorded counters are shown. Missing Rated This Week / Current Lineup are not inferred from Watching.',
       '旧データ：記録されている数値だけを表示。未登録の「今週の評価作品」「継続評価対象」は視聴中から推定していません。'));
   detail.append(note);
+  if(isLegacyFinal && legacyWatching!==null){
+    const archival=document.createElement('p');archival.className='ws-modern-footnote';
+    archival.append(text(`Final archive: Watching = ${legacyWatching} (historical field, not a current lineup).`,
+      `最終週の旧記録：Watching = ${legacyWatching}（旧フィールドであり、現在の視聴数ではありません）。`));
+    detail.append(archival);
+  }
   const descriptions={
     seasonHalted:glossary.seasonHalted,
     droppedThisWeekUnrated:glossary.unrated,
@@ -1925,6 +1939,7 @@ if (epRangeEl && data.meta.ep_range) {
     const introRaw=data.meta.weekly_intro || {};
     const introEn=animebInfoValue(typeof introRaw==='object'?introRaw.en:data.meta.weekly_intro_en);
     const introJa=animebInfoValue(typeof introRaw==='object'?introRaw.ja:data.meta.weekly_intro_ja);
+    document.querySelector('.wrapper')?.classList.toggle('animeb-no-weekly-intro',!(introEn || introJa));
     if(introEn || introJa) {
       let intro=document.querySelector('.animeb-weekly-intro');
       if(!intro) {
@@ -2232,7 +2247,7 @@ if (reviewAnchor) {
     updateWatchStatus(data.meta.status);
     // v4.39: All weeks use modern styling. Historical missing counters stay undefined;
     // only counters actually present in JSON receive labels and values.
-    animebMountRankingCoverage(data.meta.status, Array.isArray(data.entries) ? data.entries.filter(e => typeof e.rank === "number").length : 0);
+    animebMountRankingCoverage(data.meta.status, Array.isArray(data.entries) ? data.entries.filter(e => typeof e.rank === "number").length : 0, data.meta.week);
     animebMountDroppedTitles(data, clones);
     animebMountBottomOfWeek(data);
     animebSetupKeyVisualViewer();
@@ -2733,8 +2748,39 @@ window.initOverviewSection = function() {
       })
       .then((html) => {
         if(requestId!==overviewRequest || !container.classList.contains('expanded')) return;
-        container.innerHTML = html;
-
+        // The archived files are complete HTML documents. Injecting the entire
+        // document via innerHTML drops/misplaces <head> styles and lets generic
+        // CSS collide with ranking styles. Mount ONLY the content in a shadow
+        // root, loading the CSS referenced by that specific archived document.
+        const doc=new DOMParser().parseFromString(html,'text/html');
+        const article=doc.querySelector('.weekly-overview');
+        if(!article) throw new Error('Overview content missing');
+        const host=document.createElement('div');
+        host.className='animeb-overview-isolated';
+        const shadow=host.attachShadow({mode:'open'});
+        const sizing=document.createElement('style');
+        sizing.textContent=':host{display:block;max-width:100%;min-width:0}*,*::before,*::after{box-sizing:border-box}.weekly-overview{max-width:100%;overflow-wrap:anywhere}.weekly-overview p,.weekly-overview ul{max-width:100%;box-sizing:border-box}.weekly-overview img,.weekly-overview iframe{max-width:100%;height:auto}';
+        shadow.append(sizing);
+        const sourceStyles=[...doc.head.querySelectorAll('link[rel~="stylesheet"]')];
+        const cssBase='/animeb-v1/assets/css/ranking/overview/';
+        for(const original of sourceStyles){
+          try{
+            const href=new URL(original.getAttribute('href'),new URL(file,location.href));
+            // Week 08 EN archive has a double slash before /assets/.
+            href.pathname=href.pathname.replace(/\/{2,}/g,'/');
+            // Limit to the known archived overview styles; do not load page-wide CSS.
+            if(href.origin!==location.origin || !href.pathname.startsWith(cssBase))continue;
+            const link=document.createElement('link');link.rel='stylesheet';link.href=href.href;
+            shadow.append(link);
+          }catch(_){}
+        }
+        // Some archived pages used inline styles rather than a stylesheet.
+        doc.head.querySelectorAll('style').forEach(original=>{
+          const style=document.createElement('style');style.textContent=original.textContent;
+          shadow.append(style);
+        });
+        shadow.append(document.importNode(article,true));
+        container.replaceChildren(host);
         // Page-wide EN / 日本語 control also switches this legacy Overview.
       })
       .catch(() => {
