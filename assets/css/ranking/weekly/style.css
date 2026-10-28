@@ -2038,7 +2038,7 @@ body[data-animeb-lang="ja"] .entry .info-top {
 
 @media (max-width: 768px) {
   /* English ONLY: THIS WEEK label +6%; keep weight/color/JA/desktop unchanged. */
-  body[data-animeb-lang="en"] .animeb-intro-label { font-size: .70rem; }
+  body[data-animeb-lang="en"] .animeb-intro-label { font-size: .72rem; }
 
   /* Normal week's six-item WRP list only, EN and JA. Include both labels
      and descriptions so font sizes do not jump within one list item.
@@ -3576,4 +3576,19 @@ body[data-animeb-final-week="true"] .note-mount code {
   body[data-animeb-lang="ja"] .ws-modern-wrapper + .animeb-weekly-intro .animeb-intro-label {
     font-size: 12.5px;
   }
+}
+
+/* THIS WEEK / 今週のひと言 — iPhone body text only */
+@media (max-width: 768px) {
+
+  /* English */
+  body[data-animeb-lang="en"] .animeb-intro-text {
+    font-size: .85rem;
+  }
+
+  /* Japanese */
+  body[data-animeb-lang="ja"] .animeb-intro-text {
+    font-size: .74rem;
+  }
+
 }
