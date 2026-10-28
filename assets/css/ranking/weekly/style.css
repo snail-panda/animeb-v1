@@ -3536,8 +3536,9 @@ body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .animeb-bottom-sy
 body[data-animeb-theme="dark"] .animeb-bottom-synopsis-section .animeb-bottom-synopsis,
 body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .animeb-bottom-synopsis-section .animeb-bottom-synopsis { color:#e5e4df; }
 @media (max-width:768px) {
-  .animeb-bottom-synopsis-heading { font-size:.79rem; font-weight:550; margin-bottom:12px; }
-  .animeb-bottom-synopsis-section .animeb-bottom-synopsis { font-size:.82rem; line-height:1.67; }
+  /* Bottom More Info only: balance Synopsis with the compact review and metadata. */
+  .animeb-bottom-synopsis-heading { font-size:.76rem; font-weight:550; margin-bottom:12px; }
+  .animeb-bottom-synopsis-section .animeb-bottom-synopsis { font-size:.77rem; line-height:1.67; }
 }
 
 /* AnimeB UI Patch r2 2026-10-28 — stable archival camera, meaning-first Final status. */

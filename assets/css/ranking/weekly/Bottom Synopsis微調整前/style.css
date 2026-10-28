@@ -1,0 +1,3565 @@
+html {
+  font-size: 16px; /* 基本フォントサイズ */
+  }
+
+/* =========================
+   1. Global Reset & Base
+========================= */
+
+body {
+  margin: 0;
+  padding: 0.65rem;
+  font-family: 'Arial Nova Cond Light', sans-serif;
+  background: #ffffed;
+}
+
+.wrapper {
+  max-width: 740px;
+  margin: 0 auto;
+  background: #ffffed;
+  padding: 1.875rem;
+  border: solid 0.5px #d4ddd0;
+  /*box-shadow: 0 0 12px rgba(0, 0, 0, 0.08);*/
+  /*box-sizing: border-box; ← 一回消してみる*/
+  width: 100%; 
+}
+
+/* =============================
+   2. HEADER & SUB-HEADER STYLING 
+   ============================= */
+
+.header {
+  display: flex;
+  align-items: baseline;
+  gap: 0;
+}
+
+.header h1 {
+  font-family: 'Alfa Slab One', serif;
+  font-size: 2rem;
+  color: #404040;
+  letter-spacing: -0.2px;
+  transform: scale(0.75, 1.1);
+  margin: 0;
+  margin-top: 1.5rem;
+  margin-right: -0.6rem;
+  margin-left: -0.5rem;
+}
+
+.header .week-title {
+  font-family: 'Anton', sans-serif;
+  font-size: 1.19rem;
+  letter-spacing: -0.03rem;
+  word-spacing: -0.13rem;
+  color: #8E2222;
+  padding-right: 0.6px;
+}
+
+.week-title.final {
+  color: #882D6B;
+}
+
+.week-title.mid {
+  color: #215973; /* f39c12; 折り返し（橙） */
+}
+
+.week-title.prelim {
+  color: #b5b725;
+}
+
+.week-title.normal {
+  color: #8E2222;
+}
+
+.duration {
+  font-family: 'Antonio', 'Special Gothic Condensed One', 'Bebas Neue', sans-serif;
+  font-size: 0.74rem;
+  font-weight: 400;
+  color: #a04343;
+  letter-spacing: -0.02rem;
+  word-spacing: -0.1rem;
+  margin-left: 1.1px;
+}
+
+.sub-header {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 207px;
+  max-width: 247px;
+  font-family: 'Special Gothic Condensed One', 'Bebas Neue', 'sans-serif';
+  color: #999999;
+  font-weight: 500;
+  letter-spacing: -0.03rem;
+  word-spacing: -0.08rem;
+  font-size: 1.125rem;
+  margin-top: -0.31rem;
+  margin-left: 0.31rem;
+}
+/* 🛠️ TEMP: Used for Final week long header width (247px max) */
+.sub-header.wide {
+  width: 247px;
+}
+/* 🛠️ TEMP: Used for regular week header width */
+.sub-header.normal {
+  width: 207px;
+}
+
+.season-title {
+   margin-right: 0.08rem;
+}
+
+.year {
+  color: #a67d23;
+}
+
+.season-spring {
+  color: #5ba058;
+}
+
+.season-summer {
+  color: #499bad;
+}
+.season-fall {
+  color: #c2572a;
+}
+.season-winter {
+  color: #cdd4db;
+}
+
+.final {
+	color: #215973;
+}
+
+.title-ranking {
+  color: #bb6c94;
+}
+
+.ep-range {
+  font-family: 'Special Gothic Condensed One', 'Bebas Neue', sans-serif;
+  font-size: .955rem;
+  font-weight: 500;
+  color: #749277;
+  vertical-align: 0.8px;
+  letter-spacing: 0.01rem;
+  margin-left: auto;
+  text-align: right;
+    
+}
+
+/*============================
+VIEWING STATUS ZONE
+==============================*/
+.watch-status-wrapper {
+  display: flex;
+  justify-content: flex-end; /* 右寄せ */
+}
+
+.watch-status { 
+  max-width: 95px;
+  width: 21vw; /* 横幅を25vwに設定 */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* 左寄せ */
+  gap: 0.05rem; /* タイトルとボタンの間にスペース */
+  position: relative; 
+  font-family: 'Abel', 'Orbitron', 'sans-serif';
+  font-size: 0.9rem; }
+
+.ws-title {
+  position: static; /* ← 絶対配置を解除 */
+  margin-right: auto;
+  text-align: left; /* タイトルを左寄せ */
+  font-family: 'Abel', 'Orbitron', 'sans-serif';
+  font-size: 0.65rem;          /* 小さく控えめに */
+  color: #545454;
+  font-weight: 500;
+}
+
+.ws-toggle {
+  display: flex; 
+  position: static; /* ← 絶対配置を解除 */
+  right: 0;
+  align-items: center; 
+  gap: .35rem;
+  padding: 0 0.1rem 0 .25rem ;
+  border-radius: .25rem;
+  transition: background .2s;
+  border: none; 
+  background: none; 
+  cursor: pointer;
+}
+
+.ws-caret { 
+  display: inline-block;
+  height: 0.65em;
+  position: relative;
+  vertical-align: middle;
+  top: -1.5px; /* 微調整 */
+  transition: transform .25s;
+}
+
+.ws-toggle[aria-expanded="true"] .ws-caret { transform: rotate(180deg); }
+
+.ws-toggle:hover { background: rgba(0,0,0,.05); }
+
+
+
+/* 展開パネル */
+.ws-panel {
+  position: absolute;
+  right: 0; 
+  left: auto; 
+  top: 100%;
+  background: #ffffed; 
+  color: #4f5261; 
+  padding: .5rem .5rem;
+  border-radius: .5rem; 
+  box-shadow: 0 4px 12px rgba(0,0,0,.25);
+  width: max-content; /* コンテンツの幅に合わせる */
+  line-height: 1.4;
+  max-height: 0; 
+  overflow: hidden; 
+  transition: max-height .25s ease;
+  z-index: 10;
+}
+
+.ws-item {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  white-space: nowrap; /* 折り返させない（必要なら） */
+  margin-bottom: 0.25rem;
+  line-height: 1.3;
+  font-size: 0.7rem;
+  font-family: 'Abel', 'Orbitron', sans-serif;
+}
+
+.view-count {
+  font-family: 'Abel', 'Agency FB' sans-serif;
+  font-size: 0.65rem;
+  font-weight: 500;
+  color: #4f5261;
+}
+.ws-panel.open { 
+  max-height: 290px; /* v4.28: optional two additional status rows */
+} /* 中身に合わせて調整 */
+
+/* ✅ 共通ルール：すべてのアイコンに共通の見た目 */
+[class^="icon-"] {
+  display: inline-block;
+  vertical-align: middle;
+  width: 0.65rem;
+  height: 0.65rem;
+  background-size: contain;
+  background-repeat: no-repeat;
+  flex-shrink: 0; /* ← 縮まないように */
+}
+
+/* 🎯 個別の画像だけ分ける */
+.icon-tv {
+  background-image: url(../../../../images/icons/watch.svg); /* ←自分の画像に差し替え */
+  height: 1.5em !important;
+  background-size: 100% 100%; /* or contain, cover */
+  position: relative;
+  top: -0.2px;              /* 必要に応じて -1px 〜 0px の間で微調整 */
+}
+
+.icon-drop {
+  background-image: url(../../../../images/icons/drop.png); /* ←自分の画像に差し替え */
+}
+.icon-trash {
+  background-image: url(../../../../images/icons/droptotal.svg); /* ←自分の画像に差し替え */
+}
+.icon-back {
+  background-image: url(../../../../images/icons/back.svg); /* ←自分の画像に差し替え */
+}
+.icon-noair {
+  background-image: url(../../../../images/icons/noair.svg); /* ←自分の画像に差し替え */
+}
+.icon-completed {
+  background-image: url(../../../../images/icons/completed.png); /* ←自分の画像に差し替え */
+}
+.icon-total {
+  background-image: url(../../../../images/icons/total.svg); /* ←自分の画像に差し替え */
+}
+/* v4.28 optional Viewing Status icons, same dimensions as existing badges. */
+.icon-notairedyet { background-image: url(../../../../images/icons/not-aired-yet.svg); }
+.icon-startedairing { background-image: url(../../../../images/icons/started-airing.svg); }
+
+
+
+/*=============================
+2.1 OVERVIEW ZONE
+==============================*/
+
+.overview-section {
+  margin: 0px auto;
+  max-width: 800px;
+  padding: 0 1rem;
+}
+
+#overview-toggle-btn {
+  display: flex;
+  justify-content: center;
+  margin: 0.01rem auto;
+  margin-bottom: 0.5rem;
+  align-items: center;
+  font-size:0.55rem;
+  font-family: 'Fira Sans', sans-serif;
+  color: #405040;
+  font-weight: 300;
+  padding: 0.188rem 0.5rem 0.22rem 0.5rem;
+  cursor: pointer;
+  border: none;
+  border-radius: 8px;
+  background-color: transparent;
+  transition: background-color 0.3s;
+}
+
+#overview-toggle-btn:hover {
+  background-color: #f3f4ef;
+}
+
+.triangle-icon {
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 0.125rem;
+  font-size: 0.6rem;
+  animation: bounce 1.2s ease-in-out infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: rotate(0deg) translateY(0); }
+  50%      { transform: rotate(0deg) translateY(3px); }
+}
+
+.triangle-icon.rotate {
+  animation: bounce-rotated 1.2s ease-in-out infinite;
+}
+
+@keyframes bounce-rotated {
+  0%, 100% { transform: rotate(180deg) translateY(0); }
+  50%      { transform: rotate(180deg) translateY(3px); }
+}
+
+
+#overview-container {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.5s ease;
+}
+
+#overview-container.expanded {
+  max-height: 8000px; /* 任意で調整可能 */
+  transition: max-height 0.8s ease;
+}
+
+#lang-toggle {
+      display: block;
+	  font-family: 'Abel', sans-serif;
+	  color: #696666;
+	  background-color: #f5f5f5;
+	  border: 0px;
+      margin: 0.25rem auto 0.125rem auto;
+      padding: 0.188rem 0.375rem;
+      font-size: 0.55rem;
+      cursor: pointer;
+}
+
+
+.overview-notice {
+  color: #6e6e6e;
+  margin-top: 1.875rem;
+  font-size: 0.55rem;
+  font-style: italic;
+  text-align: center;
+}
+
+/* =============================
+   3. TABLE HEADER ZONE 
+   ============================= */
+
+.table {
+  display: grid;
+  grid-template-columns: 38px 1fr 30px;
+  border-bottom: 2px solid #ccc;
+  margin: 0;
+}
+
+.table-header {
+  font-family: 'Agency FB', 'Barlow Condensed', 'Pathway Gothic One', 'sans-serif';
+  font-size: 0.53rem;
+  font-weight: 600;
+  color: #6f6c6c;
+  text-transform: uppercase;
+  align-items: center;
+  justify-content: center;
+  padding: 0rem 0 0.2rem 0;
+}
+
+.table-header .header-rank {
+  text-align: right;
+  font-size: 0.53rem;
+  padding-right: 0.6rem;
+}
+
+.table-header .header-title {
+  text-align: left;
+  padding-left: 0.5rem;
+}
+
+
+.table-header .header-totalscore {
+  text-align: right;
+  margin-left: -1.6rem;
+  font-size: 0.52rem;
+}
+
+/* =============================
+   4. ENTRY MAIN AREA 
+   ============================= */
+
+.entry {
+  display: grid;
+  grid-template-columns: 38px 1fr 30px;
+  grid-template-rows: auto auto auto;
+  grid-template-areas:
+    "rank title score"
+    ". synopsis ."
+    ". moreinfo .";
+  gap: 0.5rem;
+  align-items: center;
+  min-height: 65px;  /* 仮、全体の高さ感調整 */
+  font-family: 'Agency FB', sans-serif;
+  font-size: 0.625rem; /* 10px */
+  font-weight: bold;
+  color: #595959;
+  text-transform: uppercase;
+  border-bottom: 1px solid #ccc; /* 細めの内枠線 */
+  padding: 0.5rem 0 0.063rem 0;
+}
+
+/* とりあえず今はいらない */
+.entry-list .entry:last-of-type {
+  border-bottom: 2px solid #ccc; /* none !important; 2px #999; 最後のエントリーの下線を消す */
+}
+
+.rank-wrapper {
+  grid-area: rank;
+}
+.title {
+  grid-area: title;
+}
+.score {
+  grid-area: score;
+}
+.synopsis {
+  grid-area: synopsis;
+}
+.more-info {
+  grid-area: moreinfo;
+}
+
+/* =============================
+   5. RANK AREA (LEFT COLUMN)
+   ============================= */
+
+    .rank-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+  margin-right: 0.8rem; /* adjustable per alignment needs */  
+  padding-top: 0.25rem; /* 4px */
+}
+
+.rank-top {
+  display: flex;
+  align-items: center;
+  gap: 0.2rem; /* tweak as needed for spacing between crown and rank number */
+}
+
+/* Crowns, Icons for Rank Top */
+
+     .crown-gold {
+  width: 12px;
+  height: auto;
+  margin-top: 0.125rem; /* adjust to align vertically with other crowns */     
+}
+
+ .crown-silver {
+  width: auto;
+  height: 14px;
+  margin-top: 2px; /* adjust to align vertically with other crowns */     
+}
+
+ .crown-bronze {
+  width: auto;
+  height: 11.5px;
+  margin-top: 2px; /* adjust to align vertically with other crowns */     
+}
+
+.light {
+  width: 34px;
+  height: auto;
+}
+
+.editor-pick {
+  width: 34px;
+  height: auto;
+}
+
+.dookie-skull {
+  width: 34px;
+  height: auto;
+  margin-top: 1.5px;
+}
+
+/* === 6. RANK NUMBER STYLE === */
+
+     .rank-number {
+  font-size: 1.15rem;
+  font-family: 'Roboto Condensed', 'Barlow Condensed', 'Agency FB', 'Pathway Gothic One', 'sans-serif';
+  font-weight: 600;
+  letter-spacing: 0.1px;
+  text-transform: none;
+  text-shadow: 0.1px 0.1px #333;
+  letter-spacing: -0.05rem;     
+}
+
+.rank-number-first {
+  font-size: 1.15rem;
+  font-weight: 700;
+  font-style: normal;
+  color: #9E8234;
+  text-shadow: none;
+}
+
+.rank-number-second {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #A8A79D;
+  text-shadow: none;
+}
+
+.rank-number-third {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #7A6212;
+  text-shadow: none;
+}
+
+.rank-number .label-big {
+  font-family: 'Agency FB', 'Pathway Gothic One', 'Barlow Condensed Light', 'sans-serif';
+  font-size: 1.3rem;
+  font-weight: 500;
+  letter-spacing: 0;
+  text-shadow: 0.1px 0.1px #333;
+}
+
+.rank-number .label-rest {
+  font-family: 'Pathway Gothic One', 'Agency FB','Barlow Condensed Light', 'Oswald Light', 'sans-serif';
+  font-size: 1rem;
+  font-weight: 400;
+  letter-spacing: -0.5px;
+  position: relative;;
+  top: px; /* 必要なら微調整 */
+}
+
+.pick {
+  text-align: right;
+}
+
+/* === 7. TREND LABELS === */
+
+.rank-trend {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.125rem; /* 2px */
+  text-transform: uppercase;
+  margin-top: 0.125rem; /* 2px */
+  margin-bottom: 0.25rem; /* 4px */
+}
+
+.trend-icon-up {
+  width: auto;
+  height: 6px;
+}
+
+.trend-icon-stay {
+  width: auto;
+  height: 6px;
+}
+
+.trend-icon-down {
+  width: auto;
+  height: 6px;
+}
+
+.trend-icon-new {
+  width: auto;
+  height: 12px;
+  object-fit: contain;
+  vertical-align: middle;
+}
+
+
+.trend-label {
+  font-family: 'Pathway Gothic One', 'Agency FB', 'sans-serif';
+  font-size: 0.6rem;
+  font-weight: 500;
+  text-align: right;
+}
+
+/* 8. ENTRY MAIN AREA 〜 Title + Bar + Score */
+
+     /* タイトル行（右サイドの恒常余白は消す） */
+     .entry .title {
+  display: flex;
+  align-items: flex-start;
+  font-family: 'Special Gothic Expanded One', 'sans-serif';
+  font-size: 0.6rem;
+  color: #404040;
+  letter-spacing: 0.03em;
+  word-spacing: 0.13em;
+  padding-top: 0.125rem;
+  padding-right: 6px; /* 右の余白 0,4,6,8*/
+}
+
+.jp-title {
+  font-size: 0.5rem; /* 8px */
+  font-family: 'Yu Gothic UI', sans-serif;
+  font-weight: 500;
+  color: #6a6a6a;
+  margin-top: -1px;
+  margin-right: 0.125rem; /* 2px */
+  margin-left: 0;
+  margin-bottom: 0.094rem; /* 1.5px */
+  line-height: 1.2;
+  padding-left: 0;
+  display: block;
+}
+
+/* Key Visual, Genre Tags, Collapse Area*/
+
+/* タイトル内のフレックス行が列いっぱいに広がるように */
+.title-container {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+  align-items: flex-start;
+  position: relative;
+  width: 100%;
+  min-width: 0;
+}
+
+/* info-box を“余白を飲む役”に */
+.info-box {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  flex: 1 1 auto;
+  min-width: 0;
+  /* max-width を残したいなら例：max-width: clamp(170px, 40vw, 260px); */
+}
+
+@media (max-width: 390px) {
+  .info-box {
+    max-width: 140px;
+  }
+}
+@media (min-width: 430px) {
+  .info-box {
+    max-width: 180px;
+  }
+}
+
+
+.kv-thumb {
+  position: relative; /* ← imgとoverlayをレイヤーに */
+  width: 80px; /* imgサイズと一致 */
+  aspect-ratio: 4/5; /* 縦横比が一致するなら */
+}
+
+.kv-thumb img {
+  width: 80px;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  margin-right: 0.313rem; /* 5px */
+  border-radius: 0.125rem; /* 2px */
+  border-top-left-radius: 40%;
+  box-shadow: 1px 1.2px 2px rgba(0, 0, 0, 0.35);
+  /* Initial state */
+  transform: scale(1); 
+  /* Defines the transition for the transform property over 0.4 seconds with ease timing */
+  transition: transform 0.4s ease;
+  will-change: transform;
+}
+
+.kv-thumb img:hover {
+  transform: scale(1.5);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  z-index: 10;
+  position: relative;
+}
+
+
+.title-ep {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      background-color: #116d0d; /* #3d6f15 緑1, #2a2926 黒っぽい*/
+      font-size: 0.55rem;
+      font-family: 'Antonio', sans-serif;
+      color: #e6e0d3; /* #e6e0d3 赤っぽい白？ */
+      font-weight: 500;
+      padding: 0.125rem 0.18rem 0.18rem 0.43rem;
+      border-top-left-radius: 9px;
+      display: flex;
+      align-items: center;
+      gap: 2px;
+      pointer-events: none; /* ホバー邪魔しない */
+      z-index: 2;
+}
+
+.info-bottom {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem; /* タグとボタンの間に余白 */
+}
+
+/* タグの折返しガード（必要時） */
+.genre-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.188rem;
+  min-width: 0;
+}
+
+.genre-tag {
+  /*background: #e39fb6;*/
+  font-family: 'Fira Sans', sans-serif;
+  font-size: 0.43rem;
+  font-weight: 500;
+  /*text-shadow: 0.1px 0.1px #686868;*/
+  color: #bd8397;
+  word-spacing: -0.3px;
+  padding: 0.05rem 0.29rem;
+  border-radius: 0.375rem; /* 6px */
+  border: solid 1px #bd8397;
+  margin-top: 0.125rem; /* 2px */
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+.collapse-wrapper {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.collapse-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 0.45rem;
+  color: #686868;
+    /* ↓これを削除またはコメントアウト */
+  /* position: absolute;
+  left: 0;
+  bottom: 1; */
+  margin-left: 0;
+  padding-left: 0;
+}
+
+/* More info collapsible エリア*/
+
+.more-info {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.6s ease;
+  background: transparent; /*色つけるなら　#faf8f0*/
+  padding: 0 0.5rem;
+  font-size: 0.6rem;        /* 少し小さめで情報密度を高める */
+  line-height: 1.3;/* 行間は読みやすさ優先 */
+  margin-bottom: 0.5rem;
+  align-self: start;
+}
+
+.more-info.active {
+  max-height: 1500px; /* 適宜調整 */
+  /*border-top: 1px solid #ddd;*/
+  padding: 0.5rem 0;
+}
+
+.more-info dl {
+  display: grid;
+  grid-template-columns: 1fr 2fr;  /* 左：項目、右：値 */
+  row-gap: 0.375rem; /* 6px */
+  column-gap: 0.625rem; /* 10px */
+  margin: 0;
+}
+.more-info dt {
+  font-size: 0.58rem;
+  font-weight: bold;
+  text-align: left;
+  white-space: nowrap;
+  border-left: 3px solid #e1c179;  /* 軽い強調 */
+  padding-left: 0.375rem; /* 6px */
+}
+.more-info dd {
+  font-family: 'Abel', sans-serif;
+  font-weight: 500;
+  color: #686868;
+  text-shadow: 0 -0.3px #686868;
+  margin: 0;
+  text-align: left;
+  padding-left: 0.5rem; /* 4px */
+  word-break: break-word;
+}
+
+
+.synopsis {
+  /* 将来的に必要になったらここにスタイル追加 */
+  font-family: 'Barlow Condensed', 'Abel', sans-serif;
+  font-weight: 500;
+  font-size: 0.719rem; /* 11.5px */
+  color: #404040;
+  line-height: 1.6;
+  letter-spacing: 0.2px;
+  word-spacing: 0.25px;
+  margin: 0;
+  text-align: left;
+  padding-left: 0;
+  word-break: break-word;
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.6s ease;
+  align-self: start;
+  text-transform: none;
+}
+
+.synopsis.active {
+  max-height: 1500px;
+  padding: 0.3rem 0.5rem 0.5rem 0;
+}
+
+
+/* WEEKLY RANKING POINT BAR CHART AREA*/
+
+.bar-wrapper {
+  display: flex;
+  width: 100%;
+  align-items: center; /* 🔥縦方向中央揃え */
+  height: 100%; /* 親に依存するので必要なら明示 */
+  margin-bottom: 0.063rem; /* 1px */
+}
+
+    .bar {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  justify-content: flex-start;/* same with or without this*/
+  gap: 1px;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 0.75rem; /* 12px */
+  font-weight: normal;
+  text-transform: uppercase;
+  color: #5D7430;
+}
+
+.bar-inner {
+  display: flex;
+  align-items: center;       /* 縦だけ中央揃え */
+  position: relative;
+}
+
+.bar-label {
+  margin-left: 0.063rem; /* 1px */
+  margin-bottom: -0.12rem;
+  padding-bottom: 0.063rem; /* 1px */
+  font-size: 0.531rem; /* 8.5px */
+  letter-spacing: 0.3px;
+  text-transform: none;
+  color: #5D7430;
+}
+
+
+.bar-track {
+  width: 100%;
+  /*max-width: 170px; */ 
+  background: #dceccb;
+  height: 11px;
+  flex: 1;
+  position: relative;
+  margin-right: 0.125rem; /* 2px */
+  overflow: visible; /* ⬅️ Crucial: let it spill */
+ 
+}
+
+.bar-fill {
+  position: relative;
+  height: 100%;
+  display: flex; /* or block if needed */
+  width: 100%;
+  left: 0;
+  top: 0;
+}
+
+.bar-main,
+.bar-overflow {
+  width: 0%; /* default fallback */
+}
+
+.bar-main {
+  background-color: #b8d9a7; /* Your regular green */
+  height: 100%;
+}
+
+.bar-overflow {
+  background-color: #f7dfa4;  /* Overflow part */
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 100%;
+}
+
+.wrp-score {
+  font-family: 'Roboto Condensed Medium','Tuffy', 'sans-serif';
+  font-weight: 500;
+  font-size: 0.52rem;
+  letter-spacing: -0.05em;
+  transform: scaleY(1.2);
+  display: inline-block; /* これ重要！transformが効くようにする */
+  text-transform: none !important;
+  margin-left: 0.25rem; /* 4px */
+  position: relative;
+  z-index: 1;
+  white-space: nowrap;
+  top: -1px;
+}
+
+.wrp-score-unit {
+  font-family: 'Roboto Condensed Medium','Tuffy', 'sans-serif';
+  font-weight: 500;
+  font-size: 0.45rem;
+  letter-spacing: -0.02rem;
+  transform: scaleY(1.2);
+}
+
+.score {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  aspect-ratio: 4/5;
+  /*border-bottom-right-radius: 40%;
+  box-shadow: 1.5px 1.5px 2px rgba(0, 0, 0, 0.1);*/
+  font-family: 'Barlow Condensed', 'Agency FB', 'Pathway Gothic One', sans-serif;
+  font-size: 1.125rem; /* 18px */
+  font-weight: 400;
+  text-transform: lowercase;
+}
+
+.score-number {
+  position: relative;
+  z-index: 1;
+}
+
+.score-unit {
+  position: relative;
+  top: 0.25rem;   /* 下にズラす量を調整してOK */
+  font-size: 0.625rem; /* 10px */
+  margin-left: 0;  /* 数字との間の微調整 */
+}
+
+
+
+
+/* 9. REVIEW TAG + POPUP ZONE */
+.popup {
+  position: absolute;
+  background: #fffdec;
+  border: 1px solid #bbb;
+  padding: 1.25rem 1.375rem 1.125rem 1.875rem;
+  border-radius: 6px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  font-family: 'Barlow Condensed', 'sans-serif';
+  font-size: 0.688;
+  font-weight: 400;
+  line-height: 1.4;
+  color: #333;
+  max-width: 260px;
+  z-index: 9999;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.popup.active {
+  display: block;
+  opacity: 1;
+}
+
+/* --- ポップアップ本文 --- */
+.popup-review-text {
+  font-family: 'Barlow Condensed', 'Fira Sans', sans-serif;
+  font-size: 0.85rem; /* 13.6px */
+  font-weight: 400;
+  color: #333;
+  margin-top: 0.125rem; /* 2px */
+  margin-bottom: 0.75rem; /* 12px */
+  line-height: 1.6;
+  padding: 0.625rem 0.313rem 0.625rem 0.625rem;
+}
+
+/* --- スイッチボタン（レビュー言語切替） --- */
+.review-switch-btn {
+  font-family: 'Fira Sans', sans-serif;
+  font-size: 0.594rem; /* 9.5px */
+  background-color: #f0f0f0;
+  color: #444;
+  padding: 0.188rem 0.438rem; /* 3px 7px */
+  border: none;
+  border-radius: 0.375rem; /* 6px */
+  margin-right: 0.375rem; /* 6px */
+  margin-left: 0.6rem; /* 9.6px originally 30px */
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.review-switch-btn:hover {
+  background-color: #ddd;
+}
+
+/* --- クローズボタン --- */
+.popup-close-btn {
+  font-family: 'Fira Sans', sans-serif;
+  font-size: 0.594rem; /* 9.5px */
+  background-color: #f0f0f0;
+  color: #444;
+  padding: 0.188rem 0.438rem; /* 3px 7px */
+  border: none;
+  border-radius: 0.375rem; /* 6px */
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.lang-en {
+  font-family: 'Barlow Condensed', 'Fira Sans', sans-serif;
+  font-size: 0.813rem; /* 13px */
+  color: #333;
+  font-weight: 400;
+  letter-spacing: 0.015em;
+}
+
+.lang-jp {
+  font-family: 'Yu Gothic UI', 'Noto Sans JP', sans-serif;
+  font-weight: 400;
+  font-size: 0.719rem; /* 11.5px */
+  letter-spacing: 0.04em; /* ←ちょっとゆったり */
+  line-height: 1.8;      /* ←行間やや広めもアリ */
+}
+
+
+.popup-close-btn:hover {
+  background-color: #ddd;
+}
+
+@media screen and (max-width: 480px) {
+  .popup-review-text {
+    /*font-size: 0.781rem; /* 12.5px */
+    line-height: 1.7;
+  }
+}
+
+
+/* レビュー用 POPUP */
+.review-popup {
+  font-size: 0.688rem; /* 11px */
+  line-height: 1.4;
+  color: #333;
+}
+
+
+.popup.review-popup {
+  background-image: url('../../../../images/popup/vintage_parchment_paper009.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-color: #fffdec;
+  border: 1px solid #bbb;
+  padding: 1.25rem 0.938rem 1.938rem 0.938rem;
+  border-radius: 6px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+.popup-review-text {
+  position: relative;
+  z-index: 1;
+}
+
+.popup-review-text,
+.review-switch-btn,
+.popup-close-btn {
+  position: relative;
+  z-index: 2; /* ボタン類は上に */
+}
+
+.popup.review-popup {
+  min-height: 50px;
+  min-width: 210px;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+
+.review-flower {
+  position: absolute;
+  pointer-events: none;
+  opacity: 0.8;
+  z-index: 0;
+}
+
+.review-flower.top-left {
+  top: 4%;
+  left: 1%;
+  opacity: 0.5;
+  width: auto; /* これでJS側の制御に任せる */
+}
+
+.review-flower.bottom-right {
+  bottom: 4%;
+  right: 2%;
+  opacity: 0.7;
+  width: auto; /* これでJS側の制御に任せる */
+}
+
+
+/* WRP Breakdown用 POPUP*/
+.wrp-popup {
+  font-size: 0.656rem; /* 10.5px */
+  line-height: 1.4;
+  letter-spacing: 0.008rem;
+  color: #555;
+  padding: 0.625rem 0.75rem;
+}
+
+/* 既存の .wrp-popup の幅ガードはそのままにしてOK（min-width / max-width） */
+/* 追加で “横位置だけ” を右に寄せる */
+@media (max-width: 480px) {
+  .wrp-popup {
+    position: fixed;                 /* 画面基準 */
+    right: 16px;                     /* 右端から少し内側に固定 */
+    left: auto !important;           /* JS の left を無効化（横位置のみ上書き） */
+    transform: none !important;      /* 念のため（中央寄せtransformが残っていたら消す） */
+
+    /* ここは以前入れた“細くならない”“はみ出さない”ガードのままでOK */
+    min-width: 86.54px;
+    width: max-content;
+    max-width: min(calc(100vw - 32px), calc(100dvw - 32px));
+    box-sizing: border-box;
+    white-space: normal;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+    z-index: 9999;                   /* 念のため */
+  }
+}
+
+
+/* レビューバッジ */
+.review-tag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+  line-height: 1;
+  border: 1px solid #bb9054;
+  background: transparent;
+  font-family: 'Fira Sans', 'sans-serif';
+  font-size: 0.48rem;
+  font-weight: 500;
+  color: #b78e52;
+  margin-left: 2px;
+  padding: 0.09rem 0.3rem 0.04rem 0.3rem;
+  border-radius: 5px;
+  box-shadow: none;
+  cursor: pointer;
+  transform: translateY(-0.5px);
+}
+
+.review-tag:hover {
+  background-color: rgba(222, 183, 126, 0.15);
+}
+
+
+/* WRP詳細アイコン   background: url('../../../../images/badges/info-green.svg') no-repeat center;
+  background-size: contain;*/
+ .wrp-detail-btn {
+  position: absolute;
+  top: 0.07rem;
+  right: -15px;
+  width: 8px;
+  height: 8px;
+  cursor: pointer;
+  border: none;
+}
+
+.wrp-score img {
+  vertical-align: -1.5px;  /* 上下微調整 */
+  margin-left: 2px;        /* 数字とアイコンの間隔調整 */
+  height: 8px;          /* サイズは現行維持 */
+  cursor: pointer;
+}
+
+
+/* 10. NAVIGATION & NOTE ZONE */
+
+/* ナビゲーションバー */
+
+.nav-bar {
+  display: flex;
+  width: 100%;
+  max-width: 800px;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'Abel', sans-serif;
+  font-size: 0.75rem;
+  margin: 0 auto 0 auto;
+  padding: 0;
+  box-sizing: border-box;
+  color: #444;
+  background-color: #6b896b;
+}
+
+.nav-link {
+  flex: 1;
+  text-align: center;
+  color: #ffffed;
+}
+
+.nav-link a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.nav-link a:hover {
+  text-decoration: none;
+}
+
+.nav-link.left {
+  text-align: left;
+  padding-left: 8px;
+}
+
+.nav-link.right {
+  text-align: right;
+  padding-right: 8px;
+}
+
+.nav-link.center a {
+  display: inline-block;
+  padding: 0.35rem 0.8rem;
+}
+
+.nav-link a.disabled {
+  color: #aaa;
+  cursor: default; /* not-allowed */
+  text-decoration: none;
+  /* pointer-events: none; ← コメントアウト */
+
+}
+
+
+/* 注意書きエリア */
+
+    .note {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 300;
+      font-size: 0.8rem; /* 12.8px */
+      color: #333;
+      letter-spacing: 0.13px;
+      line-height: 1.6;
+      max-width: 75ch;
+      margin-top: 1.25rem; /* 20px */
+      padding-bottom: 8px;
+    }
+
+    .note-jp {
+      font-family: 'Noto Sans JP', 'Yu Gothic UI', sans-serif;
+      font-size: 0.63rem;    
+    }
+ 
+    .note-title {
+      font-weight: 500;
+      color: #716f6f;
+    }
+
+    .note ul {
+  margin-left: -1rem;
+  margin-bottom: 1.5rem;
+}
+
+.about-vax,
+.six-element-summary {
+  list-style-type: circle;
+}
+
+.note li {
+  line-height: 1.8;
+}
+
+.six-element-detail {
+  margin-left: 2rem;
+}
+
+.total {
+  margin-left: 1.8rem;
+  margin-bottom: 1.5rem;
+}
+
+.note code {
+  font-family: monospace;
+  font-size: 0.63rem;
+  background-color: #f6f6f6;
+  padding: 0.1rem 0.4rem;
+  border-radius: 3px;
+}
+
+.disclosure-reason {
+  margin-bottom: 2rem;
+}
+
+.hairline {
+  height: 0.5px;
+  border-width:100%;
+  background-color: #cbcbc3;
+  margin: 0.5rem 0;
+}
+
+.note-continued {
+  font-size: 0.7rem;
+  opacity: 0.7;
+}
+
+/* detail-content 開閉トグル*/
+
+.detail-content {
+  display: none;
+  margin-top: 10px;
+}
+
+.detail-content.open{
+  display: block;
+}
+
+.detail-toggle {
+  cursor: pointer;
+  color: #747070;
+  font-weight: 400;
+  font-size: 0.75rem; /* 12px */
+  text-decoration: none;
+  margin-top: 0.125rem;
+  margin-bottom: 1rem;
+}
+
+/* ツールチップ*/	
+	.tooltip {
+  position: absolute;
+  background-color: #fbfbe9;
+  border: 0.5px solid #b8c6b7;
+  color: #5f5b5b;
+  padding: 0.625rem 0.75rem;
+  font-size: 0.719rem; /* 11.5px */
+  font-family: 'Barlow Condensed', 'Abel', 'sans-serf';
+  font-weight: 300;
+  border-radius: 4px;
+  display: none;
+  z-index: 9999;
+  pointer-events: none;
+  max-width: 280px;
+  letter-spacing: 0.01rem;
+  line-height: 1.4;
+}
+
+.tooltip-heading {
+  font-weight: 500;
+  font-size: 0.719rem; /* 11.5px */
+  margin-bottom: 6px;
+}
+
+.tooltip-list {
+  margin-top: 6px;
+  padding-left: 20px;
+}
+
+.tooltip-list li {
+  margin-bottom: 4px;
+}
+
+.tooltip-note {
+  margin-top: 10px;
+  font-weight: 400;
+  font-style: italic;
+  color: #666;
+}
+
+.tooltip-bottom-note {
+  margin-top: 6px;
+  font-size: 0.75rem; /* 12px */
+  font-style: italic;
+  font-weight: 400;
+  color: #999;
+}
+
+.key {
+  font-weight: 500;
+}
+
+.trigger-icon {
+   align-items: center;
+   }   
+
+/* 汎用アイコン（現状未使用領域） */
+
+    .icon {
+      width: 18px;
+      height: 18px;
+      margin-right: 6px;
+    }
+
+
+/* 11. FONT FACE EMBEDDING */
+
+/* Google FontsはHTML <head>で読み込み済み
+   - Alfa Slab One
+   - Special Gothic Expanded One
+   - Agency FB
+   - Roboto Condensed Medium
+   - Special Gothic
+   - Oswald
+   - Tuffy
+   - Pathway Gothic One
+   - Barlow Condensed Medium
+   - Bebas Neue
+   - Anton
+   - Abel
+   - Fira Sans
+   - Barlow Condensed
+   - Special Elite
+*/
+
+/* ローカル埋め込みフォント (Bahnschrift Semibold Condensed) */
+
+@font-face {
+  font-family: 'Bahnschrift Semibold Condensed';
+  src: url('https://snail-panda.github.io/animeb-v1/Fonts/bahnschrift.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/*@メディアクエリ */
+
+@media screen and (max-width: 768px) {
+  .wrapper {
+    width: 100%;
+    padding: 0 0.625rem; /* 余白確保のため */
+    box-sizing: border-box;
+  }
+
+  .html {
+    font-size: 14px; /* スマホ用の基本フォントサイズ */
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .html {
+    font-size: 12px; /* スマホ用の基本フォントサイズ */
+  }
+  .wrapper {
+    padding: 0.5rem; /* スマホ用のパディング */
+  } 
+}
+
+@media screen and (max-width: 480px) {
+  .popup.review-popup {
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    right: auto !important;
+    width: 75vw;
+    max-width: 90vw;
+    box-sizing: border-box;
+  }
+}
+
+/* === Layout experiment v1: rank integrated with key visual === */
+*, *::before, *::after { box-sizing: border-box; }
+body { padding: 0; }
+.wrapper { width: 100%; max-width: 920px; padding: clamp(10px, 2.4vw, 26px); }
+.table { grid-template-columns: minmax(0, 1fr) max-content; column-gap: 8px; }
+.table-header .header-rank { display: none; }
+.table-header .header-title { padding-left: 0; }
+.table-header .header-title::before { content: 'RANK (Δ) / '; }
+.table-header .header-totalscore { margin-left: 0; }
+.entry { grid-template-columns: minmax(0, 1fr) max-content; grid-template-areas: 'title score' 'synopsis synopsis' 'moreinfo moreinfo'; column-gap: 6px; }
+.entry > .rank-wrapper { display: none; }
+.entry .title { min-width: 0; padding-right: 0; font-size: clamp(.66rem, 1.45vw, .83rem); }
+.title-container { gap: clamp(7px, 1.6vw, 14px); }
+.info-box { max-width: none !important; }
+.kv-thumb { flex: 0 0 clamp(104px, 19vw, 160px); width: clamp(104px, 19vw, 160px); height: auto; aspect-ratio: auto; align-self: flex-start; }
+.kv-thumb > img { width: 100%; margin-right: 0; border-top-left-radius: 26%; }
+.kv-thumb .rank-wrapper { position: absolute; top: 0; left: 0; z-index: 2; margin: 0; padding: 5px 7px 6px 5px; min-width: 47px; max-width: 86%; align-items: flex-start; justify-content: flex-start; background: #ffffed; border-radius: 0 0 13px 0; box-shadow: 1px 1px 2px rgba(0,0,0,.12); pointer-events: none; }
+.kv-thumb .rank-top { gap: 2px; }
+.kv-thumb .rank-number { font-size: 1.35rem; line-height: 1.05; }
+.kv-thumb .rank-trend { margin: 3px 0 0; justify-content: flex-start; }
+.kv-thumb .trend-label { font-size: .58rem; line-height: 1; }
+.kv-thumb .rank-wrapper img.light, .kv-thumb .rank-wrapper img.editor-pick, .kv-thumb .rank-wrapper img.dookie-skull { max-width: 38px; }
+.entry .jp-title { font-size: clamp(.55rem, 1.15vw, .69rem); }
+@media (max-width: 768px) {
+ .wrapper { padding: 8px 7px; max-width: none; }
+ .entry { gap: 6px; }
+ .entry .title { font-size: clamp(.68rem, 2.7vw, .8rem); }
+ .kv-thumb { flex-basis: clamp(105px, 29vw, 155px); width: clamp(105px, 29vw, 155px); }
+ .info-box { min-width: 0; }
+ .kv-thumb .rank-number { font-size: 1.25rem; }
+}
+@media (max-width: 390px) {
+ .wrapper { padding: 7px 5px; }
+ .title-container { gap: 7px; }
+ .kv-thumb { flex-basis: 29vw; width: 29vw; }
+ .kv-thumb .rank-wrapper { padding: 3px 5px; min-width: 40px; }
+ .kv-thumb .rank-trend { gap: 1px; }
+ .kv-thumb .trend-label { font-size: .51rem; }
+}
+
+/* === Layout experiment v3: compact rank corner, readable scale === */
+.table-header { font-size: .66rem; }
+.table-header .header-title, .table-header .header-totalscore { font-size: .66rem; line-height: 1.25; }
+.kv-thumb .rank-wrapper {
+  min-width: 0; max-width: 48px; padding: 3px 4px 4px;
+  border-radius: 0 0 10px 0; box-shadow: none;
+  background: #ffffed; gap: 1px; overflow: hidden;
+}
+.kv-thumb .rank-top { gap: 0; }
+.kv-thumb .rank-number { font-size: 1.08rem; line-height: 1.05; }
+.kv-thumb .rank-trend { margin: 1px 0 0; gap: 2px; flex-wrap: wrap; }
+.kv-thumb .rank-trend img,
+.kv-thumb .rank-wrapper img.trend-icon-up,
+.kv-thumb .rank-wrapper img.trend-icon-down,
+.kv-thumb .rank-wrapper img.trend-icon-stay,
+.kv-thumb .rank-wrapper img.trend-icon-new {
+  display: inline-block; width: auto; max-width: 24px; height: 12px;
+  max-height: 12px; object-fit: contain; margin: 0; padding: 0;
+  border-radius: 0; box-shadow: none; transform: none;
+  position: static; will-change: auto;
+}
+.kv-thumb .rank-wrapper img.light,
+.kv-thumb .rank-wrapper img.editor-pick,
+.kv-thumb .rank-wrapper img.dookie-skull { width: auto; max-width: 30px; height: auto; max-height: 24px; box-shadow: none; transform: none; border-radius: 0; }
+.kv-thumb .rank-wrapper img:hover { transform: none; box-shadow: none; }
+.kv-thumb .trend-label { font-size: .53rem; line-height: 1.05; }
+.kv-thumb .title-ep { font-size: .7rem; padding: .16rem .23rem .2rem .42rem; }
+.entry .title { font-size: clamp(.74rem, 1.5vw, .89rem); }
+.entry .jp-title { font-size: clamp(.62rem, 1.2vw, .74rem); }
+.bar-wrapper { max-width: 540px; }
+@media (max-width: 768px) {
+  .table-header .header-title, .table-header .header-totalscore { font-size: .6rem; }
+  .entry .title { font-size: clamp(.72rem, 2.8vw, .86rem); }
+  .kv-thumb .rank-wrapper { max-width: 40px; padding: 2px 3px 3px; }
+  .kv-thumb .rank-number { font-size: 1rem; }
+  .kv-thumb .rank-trend img { max-width: 21px; max-height: 11px; }
+  .bar-wrapper { max-width: 100%; }
+}
+
+/* === Layout experiment v4: refined A, comfortably spaced corner === */
+/* Keep the existing generous cutout; refine the contents rather than shrinking it. */
+.kv-thumb .rank-wrapper {
+  min-width: 49px; max-width: 60px;
+  padding: 6px 6px 8px 5px;
+  gap: 4px;
+  overflow: visible;
+  border-radius: 0 0 14px 0;
+  background: #ffffed;
+  box-shadow: none;
+}
+.kv-thumb .rank-number { font-size: 1.22rem; line-height: 1.12; }
+.kv-thumb .rank-trend { margin: 3px 0 0; gap: 4px; flex-direction: column; flex-wrap: nowrap; align-items: flex-start; }
+.kv-thumb .rank-trend img,
+.kv-thumb .rank-wrapper img.trend-icon-up,
+.kv-thumb .rank-wrapper img.trend-icon-down,
+.kv-thumb .rank-wrapper img.trend-icon-stay,
+.kv-thumb .rank-wrapper img.trend-icon-new {
+  max-width: 21px; max-height: 11px; height: 11px;
+  object-fit: contain;
+}
+.kv-thumb .trend-label { font-size: .55rem; line-height: 1.2; white-space: nowrap; }
+/* Specialty badges retain their distinct identity and proportions. */
+.kv-thumb .rank-wrapper img.light,
+.kv-thumb .rank-wrapper img.editor-pick,
+.kv-thumb .rank-wrapper img.dookie-skull { max-width: 32px; max-height: 26px; height: auto; }
+/* Readability adjustments, focused on desktop. */
+@media (min-width: 769px) {
+  .table-header .header-title, .table-header .header-totalscore { font-size: .73rem; }
+  .entry .jp-title { font-size: clamp(.68rem, 1.3vw, .79rem); }
+  .entry .title { font-size: clamp(.79rem, 1.55vw, .94rem); }
+  .entry .genre-tag, .entry .review-tag { font-size: .57rem; }
+  .entry .more-info-toggle, .entry .wrp-label { font-size: .77rem; }
+  .entry .wrp-score { font-size: .75rem; }
+}
+@media (max-width: 768px) {
+  .kv-thumb .rank-wrapper { min-width: 47px; max-width: 56px; padding: 5px 5px 7px 4px; gap: 3px; }
+  .kv-thumb .rank-number { font-size: 1.16rem; }
+  .kv-thumb .rank-trend { margin-top: 3px; gap: 3px; }
+  .kv-thumb .rank-trend img { max-width: 19px; max-height: 10px; height: 10px; }
+  .kv-thumb .trend-label { font-size: .53rem; }
+}
+@media (max-width: 390px) {
+  .kv-thumb .rank-wrapper { min-width: 44px; max-width: 53px; padding: 4px 5px 6px 4px; }
+}
+
+/* === Layout experiment v5: C proportions + B breathing room ===
+   Numeric ranks are primary; landscape trend icons and labels are secondary.
+   This overrides only the visual corner, leaving special badges and scoring intact. */
+.kv-thumb .rank-wrapper {
+  min-width: 0;
+  width: fit-content;
+  max-width: 58px;
+  padding: 3px 6px 6px 5px;
+  gap: 0;
+  align-items: center;
+  justify-content: flex-start;
+  border-radius: 0 0 12px 0;
+  box-shadow: none;
+  overflow: visible;
+}
+.kv-thumb .rank-top { gap: 1px; justify-content: center; }
+.kv-thumb .rank-number { font-size: 2.05rem; line-height: .98; }
+.kv-thumb .rank-trend {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: nowrap;
+  gap: 2px;
+  margin: 2px 0 0;
+}
+.kv-thumb .rank-trend img,
+.kv-thumb .rank-wrapper img.trend-icon-up,
+.kv-thumb .rank-wrapper img.trend-icon-down,
+.kv-thumb .rank-wrapper img.trend-icon-stay,
+.kv-thumb .rank-wrapper img.trend-icon-new {
+  width: auto;
+  max-width: 20px;
+  height: 8px;
+  max-height: 8px;
+  object-fit: contain;
+  box-shadow: none;
+}
+.kv-thumb .trend-label { font-size: .47rem; line-height: 1.1; white-space: nowrap; }
+/* Non-numeric rank emblems should retain their own proportions. */
+.kv-thumb .rank-wrapper:has(.rank-number img) { max-width: 58px; }
+.kv-thumb .rank-wrapper:has(.rank-number img) .rank-number { line-height: 1; }
+@media (max-width: 768px) {
+  .kv-thumb .rank-wrapper { max-width: 51px; padding: 3px 5px 5px 4px; }
+  .kv-thumb .rank-number { font-size: 1.82rem; }
+  .kv-thumb .rank-trend { margin-top: 2px; gap: 2px; }
+  .kv-thumb .rank-trend img { max-width: 18px; height: 7px; max-height: 7px; }
+  .kv-thumb .trend-label { font-size: .45rem; }
+}
+
+/* === Layout experiment v6: wider rank corner, slightly smaller numeral, square key visual === */
+.kv-thumb > img { border-top-left-radius: 0; }
+.kv-thumb .rank-wrapper {
+  min-width: 48px;
+  width: 48px;
+  max-width: 58px;
+  box-sizing: border-box;
+  padding: 3px 6px 6px 5px;
+}
+.kv-thumb .rank-number { font-size: 1.93rem; }
+@media (max-width: 768px) {
+  .kv-thumb .rank-wrapper {
+    min-width: 44px;
+    width: 44px;
+    max-width: 51px;
+    padding: 3px 5px 5px 4px;
+  }
+  .kv-thumb .rank-number { font-size: 1.72rem; }
+}
+
+/* === Layout experiment v7: fine adjustment only ===
+   Slightly narrow the rank corner; add breathing room beneath special emblems. */
+.kv-thumb .rank-wrapper { min-width: 45px; width: 45px; }
+.kv-thumb .rank-wrapper:has(.rank-number img) .rank-trend { margin-top: 5px; }
+@media (max-width: 768px) {
+  .kv-thumb .rank-wrapper { min-width: 42px; width: 42px; }
+  .kv-thumb .rank-wrapper:has(.rank-number img) .rank-trend { margin-top: 4px; }
+}
+
+/* === Layout experiment v8: final fine tuning ===
+   One-pixel corner refinement, synopsis readability, rightward visual zoom. */
+.kv-thumb .rank-wrapper { min-width: 44px; width: 44px; }
+.synopsis { font-size: .75rem; } /* 12px instead of 11.5px */
+/* Anchor enlargement at the left edge so the key visual expands to the right. */
+.kv-thumb > img { transform-origin: left center; }
+@media (max-width: 768px) {
+  .kv-thumb .rank-wrapper { min-width: 41px; width: 41px; }
+}
+
+/* v10: EP range size only; retain v9 header adjustments */
+@media (max-width: 768px) {
+  .ep-range { font-size: 1rem; }
+}
+
+/* v14: Match desktop ranking navigation to the main bordered wrapper.
+   Keep the existing mobile navigation unchanged. */
+@media (min-width: 769px) {
+  .nav-bar { max-width: 920px; }
+}
+
+/* Review language selector: top-center, compact and unobtrusive. */
+.popup.review-popup .review-language-bar {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  gap: 4px;
+  margin: 0 0 10px;
+}
+.popup.review-popup .review-language-choice {
+  appearance: none;
+  border: 1px solid #d7d1c5;
+  border-radius: 10px;
+  padding: 0 7px;
+  min-width: 36px;
+  height: 19px;
+  box-sizing: border-box;
+  font-size: 10px;
+  line-height: 1.2;
+  font-weight: 500;
+  color: #77736c;
+  background: #fcfbf4;
+  cursor: pointer;
+}
+.popup.review-popup .review-language-en.is-selected {
+  background: #fdf4f7;
+  border-color: #f0d6df;
+  color: #a18a93;
+}
+.popup.review-popup .review-language-jp.is-selected {
+  background: #f2f8f3;
+  border-color: #cfe1d2;
+  color: #68816d;
+}
+.popup.review-popup .review-language-choice:focus-visible {
+  outline: 2px solid #536f5b;
+  outline-offset: 2px;
+}
+
+/* v19: mouse/trackpad desktop, including narrow windows; preserve touch iPhone sizing. */
+@media (hover: hover) and (pointer: fine) {
+  .popup.review-popup .review-language-choice {
+    font-size: 8px;
+    min-width: 30px;
+    height: 16px;
+    padding: 0 4px;
+    line-height: 1;
+    border-radius: 9px;
+  }
+  .popup.review-popup .review-language-bar { gap: 3px; }
+}
+
+/* v20: bilingual episode metadata in the ranking list */
+.ranking-episode-line {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  column-gap: .4rem;
+  row-gap: .12rem;
+  margin: .22rem 0 .38rem;
+  color: #777267;
+  font-family: 'Fira Sans', 'Yu Gothic UI', sans-serif;
+  font-size: clamp(.55rem, .95vw, .68rem);
+  font-weight: 400;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+}
+.ranking-episode-separator { color: #b7ad99; }
+/* v20: hierarchy within the existing parchment review popup */
+.popup-review-text .review-episode-heading {
+  font-weight: 600;
+  margin: 0 0 1.15em;
+  line-height: 1.55;
+}
+.popup-review-text .review-standfirst { margin-bottom: 0; }
+.popup-review-text .review-section-divider {
+  height: 0;
+  width: calc(100% - 38px);
+  border-top: 1px solid rgba(142, 121, 88, .245);
+  transform: scaleY(.65);
+  transform-origin: center;
+  margin: 1.7em 0 2em;
+}
+.popup-review-text .review-section-divider + p { margin-top: 0; }
+
+
+/* === AnimeB weekly More Info expansion: actual content height, flexible cast === */
+.entry .more-info, .entry .synopsis { display:none; max-height:none; overflow:visible; transition:none; }
+.entry .more-info.active { display:block; max-height:none; padding:.55rem 0; }
+.entry .synopsis.active:not(.animeb-empty-synopsis) { display:block; max-height:none; padding:.4rem .5rem .5rem 0; }
+.entry .synopsis.active:not(.animeb-empty-synopsis)::before {
+  content:'SYNOPSIS'; display:block; font-weight:700; letter-spacing:.055em;
+  font-size:.7rem; color:#716444; padding-bottom:.25rem; margin-bottom:.35rem;
+  border-bottom:1px solid #e5dfcb;
+}
+.entry .more-info dl { min-width:0; }
+.entry .more-info dt { white-space:normal; overflow-wrap:anywhere; }
+.entry .more-info dd { min-width:0; padding-left:0; white-space:pre-line; }
+.entry .more-info .animeb-weekly-cast { display:grid; grid-template-columns:minmax(0,1fr); gap:.25rem; }
+.entry .more-info .animeb-weekly-cast span { min-width:0; overflow-wrap:anywhere; }
+.entry .more-info a { color:#27627b; overflow-wrap:anywhere; }
+@media (max-width:620px) {
+  .entry .more-info dl { grid-template-columns:minmax(100px,1fr) minmax(0,2fr); }
+}
+
+
+/* === AnimeB Weekly presentation v3: persistent navigation & page language === */
+.nav-bar { position:sticky; top:0; z-index:110; min-height:31px; }
+.animeb-weekly-language {
+  position:fixed;
+  top:calc(env(safe-area-inset-top, 0px) + 47px);
+  right:max(12px, calc((100vw - 920px)/2 + 13px));
+  z-index:105;
+  display:flex; gap:2px;
+  padding:3px;
+  background:rgba(247,240,252,.96);
+  border:1px solid #dfcbea;
+  border-radius:18px;
+  box-shadow:0 2px 8px rgba(75,43,98,.10);
+  font-family:'Fira Sans', 'Yu Gothic UI', sans-serif;
+  white-space:nowrap;
+}
+.animeb-weekly-language button {
+  appearance:none; border:0; background:transparent; border-radius:14px;
+  color:#7d678e; font-family:inherit; font-size:11px; font-weight:600;
+  padding:4px 10px; min-height:27px; cursor:pointer; line-height:1.25;
+}
+.animeb-weekly-language button.selected {
+  background:#78549b; color:#fff;
+}
+.animeb-weekly-language button:focus-visible { outline:2px solid #55347b; outline-offset:2px; }
+/* Keep the title/duration together, increase breathing room below the title group. */
+.sub-header { margin-bottom:clamp(20px, 3vw, 39px); }
+.animeb-weekly-intro {
+  margin: 4px 0 clamp(24px, 3.5vw, 42px) 5px;
+  max-width:75ch;
+  font-family:'Barlow Condensed','Yu Gothic UI',sans-serif;
+  text-transform:none;
+}
+.animeb-weekly-intro[hidden] { display:none; }
+.animeb-intro-label { font-family:'Fira Sans','Yu Gothic UI',sans-serif; font-size:.72rem;
+  color:#78549b; font-weight:700; margin-bottom:7px; letter-spacing:.045em; }
+.animeb-intro-text { font-size:clamp(.78rem,1.15vw,.9rem); line-height:1.65;
+  color:#504b51; white-space:pre-line; margin:0; font-weight:400; }
+/* Desktop-only preview lives *inside* the KV's right-side information block. */
+.animeb-synopsis-preview { font-family:'Barlow Condensed','Yu Gothic UI',sans-serif;
+  font-size:clamp(.74rem,1.15vw,.86rem); line-height:1.52;
+  color:#5c5c57; font-weight:400; text-transform:none;
+  display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical;
+  line-clamp:3; overflow:hidden; margin-top:clamp(7px,1vw,12px);
+  overflow-wrap:anywhere; }
+.animeb-synopsis-preview[hidden] { display:none; }
+.entry.animeb-expanded .animeb-synopsis-preview { display:none; }
+body[data-animeb-lang="ja"] .entry .synopsis.active:not(.animeb-empty-synopsis)::before { content:'作品概要'; }
+/* Small, proportional adjustments only: do not disturb the historic card geometry. */
+.entry .genre-tag { font-size: .452rem; } /* base .43rem × 1.05 */
+.entry .collapse-btn { font-size: .477rem; } /* base .45rem × 1.06 */
+.entry .review-tag { font-size: .504rem; } /* base .48rem × 1.05 */
+@media (min-width:769px) {
+  .entry .genre-tag, .entry .review-tag { font-size:.599rem; } /* .57rem × 1.05 */
+}
+@media (max-width:768px) {
+  .animeb-synopsis-preview { display:none !important; }
+  .animeb-weekly-language { top:calc(env(safe-area-inset-top, 0px) + 43px);right:9px; }
+  .animeb-weekly-language button {font-size:10px; padding:4px 8px; min-height:28px;}
+  .nav-bar { min-height:32px; }
+  .nav-link { font-size:.72rem; }
+  .sub-header { margin-bottom:24px; }
+  .animeb-weekly-intro { margin-left:4px; margin-right:4px; }
+}
+@media (max-width:390px) {
+  .animeb-weekly-language {right:6px;}
+  .nav-link {font-size:.69rem;}
+}
+
+/* Use a Japanese face for the primary Japanese title without changing English mode. */
+body[data-animeb-lang="ja"] .entry .info-top {
+  font-family:'Yu Gothic UI','Hiragino Kaku Gothic ProN','Noto Sans JP',sans-serif;
+  font-weight:750; letter-spacing:0; word-spacing:normal;
+  text-transform:none; line-height:1.25;
+}
+body[data-animeb-lang="ja"] .entry .jp-title {
+  font-family:'Special Gothic Expanded One','Fira Sans',sans-serif;
+  font-weight:500; text-transform:uppercase;
+}
+.entry .jp-title.animeb-title-duplicate { display:none; }
+
+/* === AnimeB Weekly v3.1: micro-tune only (no layout or JS changes) === */
+/* Make the always-visible language switch a touch smaller, keeping its position. */
+.animeb-weekly-language {
+  gap: 1px;
+  padding: 2px;
+  border-radius: 16px;
+}
+.animeb-weekly-language button {
+  font-size: 10px;
+  padding: 3px 8px;
+  min-height: 25px;
+  line-height: 1.2;
+  border-radius: 12px;
+}
+@media (max-width: 768px) {
+  .animeb-weekly-language button {
+    font-size: 9.5px;
+    padding: 3px 7px;
+    min-height: 25px;
+  }
+}
+
+/* English genre chips + ~8%; preserve the Japanese chips' approved spacing. */
+body[data-animeb-lang="en"] .entry .genre-tag {
+  font-size: .488rem; /* v3 .452rem × 1.08 */
+  padding: .055rem .31rem;
+}
+
+/* Give the two adjacent controls comparable, subtly stronger presence. */
+.entry .collapse-btn { font-size: .515rem; } /* v3 .477rem × 1.08 */
+.entry .review-tag {
+  font-size: .544rem; /* v3 .504rem × 1.08 */
+  padding: .10rem .325rem .055rem;
+}
+@media (min-width: 769px) {
+  body[data-animeb-lang="en"] .entry .genre-tag { font-size: .647rem; } /* .599 × 1.08 */
+  .entry .review-tag { font-size: .647rem; } /* .599 × 1.08 */
+}
+
+
+/* === AnimeB Weekly v3.2: requested micro-tuning + bilingual explanatory copy === */
+/* A final subtle reduction: both outer capsule and its inner selected pill. */
+.animeb-weekly-language { gap:1px; padding:1px; border-radius:14px; }
+.animeb-weekly-language button { font-size:9.3px; padding:2.5px 7px; min-height:23px; border-radius:11px; }
+@media (max-width:768px) {
+  .animeb-weekly-language button { font-size:9px; padding:2.5px 6px; min-height:23px; }
+}
+/* THIS WEEK / 今週のひと言: quiet grey editorial note, not a purple callout. */
+.animeb-intro-label { color:#777674; font-size:.64rem; font-weight:650; letter-spacing:.02em; margin-bottom:5px; }
+.animeb-intro-text { color:#666561; font-size:clamp(.70rem, 1.03vw, .79rem); line-height:1.58; }
+/* Approximately 8% larger than v3.1, preserving the original badge proportions. */
+.entry .collapse-btn { font-size:.556rem; }  /* .515 × 1.08 */
+.entry .review-tag { font-size:.587rem; padding:.105rem .335rem .06rem; } /* .544 × 1.08 */
+@media (min-width:769px) { .entry .review-tag { font-size:.699rem; } } /* .647 × 1.08 */
+/* The alternate-language footnotes should replace—not duplicate—the originals. */
+.note-mount > [hidden] { display:none !important; }
+.animeb-weekly-notes-ja[hidden] { display:none !important; }
+.animeb-note-jp { font-family:'Noto Sans JP','Yu Gothic UI',sans-serif; font-size:.73rem; line-height:1.8; }
+
+
+/* === AnimeB Weekly v3.3: minimal editorial polish (CSS only) ===
+   Based on approved v3.2. Keep navigation, language switch, badges,
+   WRP, review controls and expanded More Info exactly as they are. */
+
+/* A small, empty rounded speech bubble: no dots, fill or extra image file. */
+.animeb-intro-label::before {
+  content: "";
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  margin-right: 6px;
+  vertical-align: -1px;
+  background: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%3E%3Cpath%20d%3D%22M12%203.8c-4.65%200-8.4%203.24-8.4%207.28%200%201.79.75%203.4%202.02%204.67L4.9%2020l4.03-2.04c.96.33%201.98.5%203.07.5%204.65%200%208.4-3.24%208.4-7.38S16.65%203.8%2012%203.8Z%22%20stroke%3D%22%2385837f%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%3C%2Fsvg%3E") center / contain no-repeat;
+}
+
+/* English intro body: ~6% larger, no change to Japanese body copy. */
+body[data-animeb-lang="en"] .animeb-intro-text {
+  font-size: clamp(.742rem, 1.092vw, .837rem);
+}
+
+/* Japanese intro heading: slightly larger and softer; SAME weight as v3.2. */
+body[data-animeb-lang="ja"] .animeb-intro-label {
+  font-size: .674rem; /* v3.2: .64rem, +5.3% */
+  font-weight: 650;  /* intentionally unchanged */
+  color: #807e7a;
+}
+
+/* Japanese-mode MAIN anime titles only: +8%, no weight change.
+   English-mode titles and the secondary English title are unchanged. */
+body[data-animeb-lang="ja"] .entry .info-top {
+  font-size: 1.08em;
+}
+
+
+/* === AnimeB Weekly v3.4: four approved micro-adjustments (CSS only) ===
+   Keep all v3.3 layout, title weight, language switch, badges and controls. */
+
+/* Slightly larger (+1px) speech bubble; optical baseline ~1–2px lower. */
+.animeb-intro-label::before {
+  width: 13px;  /* v3.3: 12px */
+  height: 13px;
+  vertical-align: -3px; /* v3.3: -1px */
+}
+
+/* English weekly intro body: +3.5% relative to v3.3 (JA body untouched). */
+body[data-animeb-lang="en"] .animeb-intro-text {
+  font-size: clamp(.768rem, 1.130vw, .866rem);
+}
+
+/* Japanese main anime title: +6% relative to v3.3; preserve weight. */
+body[data-animeb-lang="ja"] .entry .info-top {
+  font-size: 1.145em; /* v3.3: 1.08em */
+}
+
+/* Expanded synopsis BODY only: subtly soften #404040 -> #4e4e4e.
+   Existing SYNOPSIS/作品概要 heading ::before has its own color. */
+.entry .synopsis.active:not(.animeb-empty-synopsis) {
+  color: #4e4e4e;
+}
+
+
+/* === AnimeB Weekly v3.4b: narrow typography + English WRP label tune ===
+   v3.4 approved CSS is the baseline (not v3.4a/v3.5).
+   Desktop notes, other note paragraphs, badges and layouts stay unchanged. */
+
+/* Note 2 only: distinguish the italic expansion from running copy,
+   without making it as bold as the leading WRP abbreviation. */
+.note-mount .note .animeb-note-wrp-term { font-weight: 500; }
+
+@media (max-width: 768px) {
+  /* English ONLY: THIS WEEK label +6%; keep weight/color/JA/desktop unchanged. */
+  body[data-animeb-lang="en"] .animeb-intro-label { font-size: .678rem; }
+
+  /* Normal week's six-item WRP list only, EN and JA. Include both labels
+     and descriptions so font sizes do not jump within one list item.
+     Other notes, regular paragraphs and final-week explanatory lists unchanged. */
+  .note-mount .note .detail-content > ul:not(.about-vax):not(.six-element-summary) {
+    font-size: .90em;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+}
+
+
+/* === AnimeB Weekly v4.27: optional per-article presentation only ===
+   Absent meta.presentation.header = unchanged legacy header.
+   Existing TOP / duration / episode range and ranking cards are untouched. */
+.header .week-title.animeb-week-enhanced {
+  display:inline-flex; align-items:baseline; gap:.13rem;
+  position:relative; white-space:nowrap; line-height:1;
+  word-spacing:normal; letter-spacing:normal;
+}
+.week-title.animeb-week-enhanced .animeb-week-label {
+  color:var(--animeb-week-label-color,inherit);
+  font-size:1em; line-height:1; white-space:nowrap;
+}
+.week-title.animeb-week-enhanced .animeb-week-token {
+  color:var(--animeb-week-accent,inherit);
+  font-size:1.42em; line-height:1; letter-spacing:-.018em;
+  white-space:nowrap; paint-order:stroke fill;
+}
+.week-title.animeb-week-enhanced .animeb-week-token.animeb-outline {
+  color:transparent;
+  -webkit-text-stroke:1.0px var(--animeb-week-accent,currentColor);
+}
+/* Prelim / Final text has more characters than the numerical week. */
+.week-title.animeb-week-enhanced.animeb-special-token .animeb-week-token {
+  font-size:1.17em;
+}
+.week-title.animeb-week-enhanced.animeb-special-token .animeb-week-token.animeb-outline {
+  -webkit-text-stroke:.85px var(--animeb-week-accent,currentColor);
+}
+.week-title.animeb-week-enhanced.animeb-mid-below { padding-bottom:.50rem; }
+.week-title.animeb-week-enhanced .animeb-mid-under {
+  position:absolute; bottom:-.22rem; left:calc(100% - 2.1rem);
+  transform:translateX(-45%); font-family:'Antonio','Anton',sans-serif;
+  color:#377bd2; font-size:.50rem; font-weight:700;
+  letter-spacing:0; line-height:1; white-space:nowrap;
+}
+.week-title.animeb-week-enhanced .animeb-mid-inline {
+  font-family:'Antonio','Anton',sans-serif;
+  color:#377bd2; font-size:.58rem; line-height:1; letter-spacing:0;
+  margin-left:.1rem; white-space:nowrap;
+}
+/* Alternative A: MID-SEASON / duration share two lines at the original duration position. */
+.header .animeb-mid-stack {
+  display:inline-flex; flex-direction:column; align-items:flex-start;
+  justify-content:center; gap:1px; margin-left:2px;
+}
+.header .animeb-mid-stack .animeb-mid-stack-label {
+  font:700 .54rem/1 'Antonio','Anton',sans-serif;
+  color:#377bd2; letter-spacing:0; white-space:nowrap;
+}
+.header .animeb-mid-stack .duration { margin:0; }
+/* Optional single-face weekly satisfaction. No tinted card/background. */
+.animeb-weekly-satisfaction {
+  width:max-content; max-width:44%;
+  text-align:right; color:#41464a;
+  font-family:'Fira Sans','Yu Gothic UI',sans-serif;
+}
+/* v4.27.1 — approved A placement: the satisfaction summary sits at the
+   TOP/WEEK heading's upper-right, never inside or beside the intro text.
+   The extra 10px above the title group clears the fixed language selector.
+   All unrelated pages and legacy JSON keep their existing geometry. */
+.header.animeb-has-satisfaction { position:relative; }
+.header.animeb-has-satisfaction h1 { margin-top:calc(1.5rem + 10px); }
+.header.animeb-has-satisfaction > .animeb-weekly-satisfaction {
+  position:absolute; top:calc(1.5rem + 16px); right:1px;
+  float:none; margin:0;
+}
+/* Narrow or unusually long first-row headings (e.g. PRELIM/FINAL):
+   right align the summary on its own row instead of colliding with the title. */
+.animeb-weekly-satisfaction.animeb-sat-inline-fallback {
+  position:static; float:none; margin:0 1px 12px auto;
+}
+.animeb-weekly-satisfaction .animeb-sat-label-ja,
+.animeb-weekly-satisfaction .animeb-sat-label-en {
+  display:block; font-size:.61rem; line-height:1.23; letter-spacing:0;
+  font-weight:500; color:#656766;
+}
+.animeb-weekly-satisfaction .animeb-sat-main {
+  display:flex; justify-content:flex-end; align-items:center; gap:6px; margin-top:3px;
+}
+.animeb-weekly-satisfaction svg { width:30px;height:30px;flex:none; }
+.animeb-weekly-satisfaction .animeb-sat-score {
+  font-size:1.47rem; font-weight:800;line-height:1;letter-spacing:-.05em;
+}
+.animeb-weekly-satisfaction .animeb-sat-denominator {
+  font-size:.70rem; font-weight:500;letter-spacing:normal;color:#777;
+}
+@media(max-width:390px) {
+ .week-title.animeb-week-enhanced .animeb-week-token{font-size:1.32em;}
+ .week-title.animeb-week-enhanced.animeb-special-token .animeb-week-token{font-size:1.08em;}
+ .animeb-weekly-satisfaction .animeb-sat-main{gap:4px;}
+ .animeb-weekly-satisfaction svg{width:26px;height:26px;}
+ .animeb-weekly-satisfaction .animeb-sat-score{font-size:1.30rem;}
+}
+
+
+/* ===== v4.29 DESIGN A / opt-in Ranking Coverage; all other pages unchanged ===== */
+.watch-status-wrapper.ws-modern-wrapper {
+  width: 100%; justify-content:flex-end;
+  margin: 1px 0 clamp(17px, 2.4vw, 27px);
+  position:relative; z-index:2;
+}
+.ws-modern {
+  width: min(100%, 370px);
+  --ws-ink:#3f4344; --ws-accent:#3e795c; --ws-paper:#ffffed;
+  font-family:'Barlow Condensed','Yu Gothic UI',sans-serif;
+  color:var(--ws-ink); box-sizing:border-box;
+}
+.ws-modern-toggle {
+  display:flex; align-items:center; width:100%; min-height:59px; padding:7px 12px;
+  border:1px solid #dadfd2; border-radius:12px; color:inherit;
+  background:#fffef1; box-shadow:0 3px 11px rgba(49,62,38,.09);
+  text-align:left; cursor:pointer; font-family:inherit; gap:10px;
+}
+.ws-modern-toggle:focus-visible {outline:2px solid #386b57; outline-offset:3px;}
+.ws-modern-crown {color:#d59f29; font-size:29px; flex:0 0 29px; line-height:1;}
+.ws-modern-main,.ws-modern-lineup {display:flex;flex-direction:column;justify-content:center; gap:1px;min-width:0;}
+.ws-modern-main{flex:1;}
+.ws-modern-main strong {
+  color:#393c3f; font-family:'Special Gothic Condensed One','Anton','Arial Narrow',sans-serif;
+  font-size:clamp(19px,4.6vw,24px); font-weight:800; letter-spacing:.015em; line-height:1.05;white-space:nowrap;
+}
+.ws-modern-main span, .ws-modern-lineup span {font-family:'Abel','Barlow Condensed',sans-serif;
+  font-size:clamp(9px,2.2vw,11px);letter-spacing:.045em;line-height:1.15;white-space:nowrap;}
+.ws-modern-separator{width:1px;height:30px;background:#cfd8cb;flex:none;}
+.ws-modern-lineup{min-width:78px;align-items:center;}
+.ws-modern-lineup strong {font-family:'Special Gothic Condensed One','Anton','Arial Narrow',sans-serif;
+  color:var(--ws-accent);font-size:clamp(23px,5.5vw,28px);line-height:1;}
+.ws-modern-chevron{background:#e6f0e4;color:#37745a;border-radius:50%;width:24px;height:24px;
+  display:grid;place-items:center; flex:none;font-size:23px;line-height:1;transition:transform .2s;}
+.ws-modern-open .ws-modern-chevron{transform:rotate(180deg);}
+.ws-modern-details[hidden]{display:none!important;}
+.ws-modern-details {background:var(--ws-paper);border:1px solid #e0e2d1; border-top:0;
+  border-radius:0 0 13px 13px;box-shadow:0 10px 22px rgba(34,44,30,.12);
+  margin:0 4px; padding:13px 12px 12px;}
+.ws-modern-open .ws-modern-toggle{border-radius:12px 12px 0 0;}
+.ws-modern-metrics{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;margin-bottom:12px;}
+.ws-modern-metric{display:flex;flex-direction:column;text-align:center;align-items:center;
+  justify-content:center;border-radius:8px;min-height:67px;padding:7px 3px;box-sizing:border-box;}
+.ws-modern-metric strong{font-family:'Special Gothic Condensed One','Anton',sans-serif;font-size:28px;line-height:1.05;}
+.ws-modern-metric span{font-family:'Abel','Barlow Condensed',sans-serif;font-size:10px;line-height:1.2;}
+.ws-modern-metric-pool{background:#e5edf1;color:#25516a;}
+.ws-modern-metric-lineup{background:#e5f0e3;color:#276749;}
+.ws-modern-metric-rated{background:#f6e8ed;color:#a04c6e;}
+.ws-modern-group{border-top:1px solid #d9ddce;padding:11px 0 2px;}
+.ws-modern-group-title{display:block;font-family:'Special Gothic Condensed One','Barlow Condensed',sans-serif;
+  font-size:12px;font-weight:700;letter-spacing:.055em;color:#486951;margin-bottom:8px;}
+.ws-modern-grid{display:grid;grid-template-columns:1fr;gap:5px;}
+.ws-modern-row{display:grid;grid-template-columns:18px minmax(0,1fr) 25px;gap:7px;align-items:center;
+  font-size:12px;line-height:1.25;min-height:21px;}
+.ws-modern-row strong{justify-self:end;font-family:'Abel',sans-serif;font-size:14px;}
+.ws-modern-icon{display:grid;place-items:center;width:16px;height:16px;background-size:contain;background-repeat:no-repeat;background-position:center;}
+.ws-glyph-added{background:#23a87d;border-radius:50%;color:white;font-size:16px;font-weight:700;line-height:1;}
+.ws-glyph-deferred{background:#9261b5;border-radius:50%;color:white;font-size:16px;font-weight:700;}
+.ws-glyph-canceled{background:#df4050;border-radius:50%;color:white;font-size:16px;font-weight:700;}
+/* No change to TOP10 WEEK typography or ranking row styles. */
+.ws-modern-wrapper + .animeb-weekly-intro .animeb-intro-label {display:flex;align-items:center;gap:7px;color:#555e59;letter-spacing:.015em;}
+.ws-modern-wrapper + .animeb-weekly-intro .animeb-intro-label::before {content:'•••';font-family:Arial,sans-serif;
+  display:grid;place-items:center;width:20px;height:20px;background:#219bdb;color:white;
+  border-radius:50%;font-size:10px;letter-spacing:0;line-height:1;flex:none;}
+@media(max-width:768px){
+  .watch-status-wrapper.ws-modern-wrapper {margin-top:1px;margin-bottom:18px;}
+  .ws-modern{width:100%;}
+  .ws-modern-toggle{min-height:56px;}
+  .ws-modern-details{margin-left:0;margin-right:0;}
+}
+@media(min-width:769px){
+  .ws-modern{width:min(100%,430px);}
+}
+
+/* ============================================================
+ AnimeB Weekly — Design A v4.31 / refined editorial pastel
+ Scoped to `.ws-modern` and its adjacent Weekly Intro only.
+ Do not modify the original TOP10/WEEK typography, scores or ranking rows.
+ ============================================================ */
+.watch-status-wrapper.ws-modern-wrapper {
+  margin: 2px 0 23px;
+  width:100%;
+  position:relative;
+  z-index:3;
+}
+.ws-modern {
+  --ws-ink:#3c4541;--ws-muted:#717970;--ws-rule:#dce1d5;
+  --ws-paper:#fffef7;--ws-sage:#3a6e57;--ws-gold:#a88240;
+  --ws-blue:#e5f0f6;--ws-green:#e5efe5;--ws-rose:#f4e7eb;
+  width:min(100%,438px);
+  font-family:'Fira Sans','Helvetica Neue','Hiragino Kaku Gothic ProN','Yu Gothic UI',sans-serif;
+  font-variant-numeric: tabular-nums lining-nums;
+  color:var(--ws-ink);
+  font-size:12px;
+}
+.ws-modern *, .ws-modern *::before, .ws-modern *::after{box-sizing:border-box;}
+.ws-modern-toggle {
+  min-height:59px;gap:8px;padding:10px 12px;
+  background:linear-gradient(160deg,#fffefa 0%,#faf9f0 100%);
+  border:1px solid #dbe0d2;border-radius:12px;
+  box-shadow:0 2px 4px rgba(47,54,37,.025),0 11px 26px rgba(47,54,37,.075);
+  font-family:inherit;color:var(--ws-ink);
+}
+.ws-modern-toggle:hover{background:#fffefa;}
+.ws-modern-toggle:focus-visible,.ws-modern-info:focus-visible,.ws-modern-item-info:focus-visible{outline:2px solid #668b76;outline-offset:2px;}
+.ws-modern-crown{width:23px;flex:0 0 23px;font-size:0;color:var(--ws-gold);line-height:1;}
+.ws-modern-crown svg{width:23px;height:22px;display:block;}
+.ws-modern-main{flex:1 1 auto;min-width:0;gap:3px;}
+.ws-modern-main strong{
+  font-family:'Roboto Condensed','Arial Narrow','Helvetica Neue',sans-serif;
+  font-size:clamp(20px,5.4vw,24px);
+  font-weight:600;letter-spacing:-.035em;line-height:1.04;white-space:nowrap;
+  color:#404540;
+}
+.ws-modern-main > span,.ws-modern-lineup > span {
+  font-family:'Fira Sans','Hiragino Kaku Gothic ProN',sans-serif;
+  font-size:clamp(9px,2.18vw,10px);font-weight:400;
+  color:#777c74;letter-spacing:.012em;line-height:1.22;white-space:normal;
+}
+.ws-modern-separator{height:28px;background:#d6dbd1;}
+.ws-modern-lineup{min-width:80px;gap:3px;align-items:center;flex:0 0 auto;}
+.ws-modern-lineup strong{
+  font-family:'Roboto Condensed','Arial Narrow','Helvetica Neue',sans-serif;
+  font-size:clamp(22px,5.6vw,27px);font-weight:600;
+  line-height:1.04;letter-spacing:-.02em;color:#3d775b;
+}
+.ws-modern-chevron {
+  border:1px solid #d5e3d9;border-radius:50%;
+  background:#eaf1e9;color:#4c7a64;width:25px;height:25px;
+  flex:0 0 25px;display:grid;place-items:center;font-size:0;
+  transition:background .2s ease;
+}
+.ws-modern-chevron::after {
+  content:'';display:block;width:7px;height:7px;
+  border-right:1.6px solid currentColor;border-bottom:1.6px solid currentColor;
+  transform:translateY(-2px) rotate(45deg);transition:transform .18s ease;
+}
+.ws-modern-open .ws-modern-chevron{transform:none;background:#e7eee7;}
+.ws-modern-open .ws-modern-chevron::after{transform:translateY(2px) rotate(225deg);}
+.ws-modern-open .ws-modern-toggle {border-radius:12px;}
+.ws-modern-details{
+  margin:8px 0 0;padding:12px 13px 13px;
+  background:var(--ws-paper);
+  border:1px solid #dce0d4;border-radius:13px;
+  box-shadow:0 11px 32px rgba(42,51,39,.095);
+}
+.ws-modern-details[hidden],.ws-modern-glossary[hidden]{display:none!important;}
+.ws-modern-metrics{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px;margin:0 0 11px;}
+.ws-modern-metric{
+  min-height:91px;padding:9px 4px 9px;gap:5px;
+  border-radius:9px;border:1px solid rgba(113,126,115,.10);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.56);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-align:center;
+}
+.ws-modern-metric-pool{background:linear-gradient(165deg,#e7f0f5,#e4eef3);color:#345a70;}
+.ws-modern-metric-lineup{background:linear-gradient(165deg,#e8efe6,#e1ede0);color:#386c52;}
+.ws-modern-metric-rated{background:linear-gradient(165deg,#f6e9ed,#f3e6ea);color:#9b576d;}
+.ws-modern-metric strong{
+  font-family:'Roboto Condensed','Arial Narrow','Helvetica Neue',sans-serif;
+  font-size:clamp(27px,7vw,32px);font-weight:500;
+  letter-spacing:-.04em;line-height:.98;color:inherit;
+}
+.ws-modern-metric > span:not(.ws-modern-metric-note){
+  font-family:'Fira Sans','Hiragino Kaku Gothic ProN',sans-serif;
+  font-weight:500;font-size:clamp(9px,2.25vw,10px);
+  line-height:1.18;letter-spacing:-.015em;color:inherit;
+}
+.ws-modern-metric-note {
+  font:400 clamp(8px,2vw,9px)/1.18 'Fira Sans','Hiragino Kaku Gothic ProN',sans-serif;
+  letter-spacing:-.01em;color:#5c6964;opacity:.88;
+  max-width:100%;overflow-wrap:anywhere;
+}
+.ws-modern-group{border-top:1px solid #dfe3d9;padding:11px 0 5px;}
+.ws-modern-group-title{
+  font-family:'Fira Sans','Hiragino Kaku Gothic ProN',sans-serif;
+  font-size:10px;font-weight:600;letter-spacing:.065em;color:#53725f;line-height:1.3;margin:0 0 9px;
+}
+.ws-modern-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px 12px;}
+.ws-modern-row{
+  display:grid;grid-template-columns:18px minmax(0,1fr) auto;gap:6px;align-items:center;
+  font:400 10.5px/1.25 'Fira Sans','Hiragino Kaku Gothic ProN',sans-serif;
+  min-height:23px;color:#535d56;
+}
+.ws-modern-row strong{
+  justify-self:end;font:600 12.5px/1 'Roboto Condensed','Arial Narrow',sans-serif;
+  color:#3a4540;
+}
+.ws-modern-icon{width:17px;height:17px;background-size:contain;background-position:center;background-repeat:no-repeat;}
+.ws-glyph-added,.ws-glyph-halted,.ws-glyph-unrated{font-family:Arial,sans-serif!important;font-size:13px;font-weight:500;}
+.ws-glyph-added{background:#4b9b7f;border-radius:50%;color:#fff;}
+.ws-glyph-halted{background:#6e7d87;border-radius:50%;color:#fff;font-size:11px;}
+.ws-glyph-unrated{background:#bf697a;border-radius:50%;color:#fff;font-size:14px;}
+.ws-modern-item-label{display:inline;min-width:0;overflow-wrap:anywhere;}
+.ws-modern-item-info,.ws-modern-info{appearance:none;border:0;background:transparent;display:inline-grid;
+  place-items:center;color:#84958a;cursor:pointer;line-height:1;padding:0;}
+.ws-modern-item-info{margin-left:4px;font-size:10px;vertical-align:middle;}
+.ws-modern-info{font-size:14px;}
+.ws-modern-helpbar{display:flex;align-items:center;justify-content:flex-end;gap:7px;
+  margin:6px 0 0;padding:8px 3px 0;border-top:1px solid #e2e5d9;}
+.ws-modern-help-caption{font-size:10px;color:#6c7a71;font-weight:500;}
+.ws-modern-glossary{background:#f8f8ef;border:1px solid #e5e5da;border-radius:9px;padding:7px 10px;margin:6px 0 2px;}
+.ws-modern-glossary-entry{margin:8px 0;display:grid;grid-template-columns:minmax(92px,.40fr) minmax(0,1fr);
+  gap:8px;color:#6b756d;line-height:1.45;font-size:10px;}
+.ws-modern-glossary-entry b{font-weight:600;color:#476554;}
+.ws-modern-inline-tip{grid-column:1/-1;font-size:10px;line-height:1.5;margin:-3px 0 3px 23px;
+  padding:7px 9px;background:#f5f7f0;border-left:2px solid #a7b8a9;color:#62736a;}
+.ws-modern-footnote{margin:4px 0 0;padding:0 3px;color:#889188;font:400 9px/1.55 'Fira Sans','Hiragino Kaku Gothic ProN',sans-serif;}
+/* Adjacent weekly intro only. Light mist-blue speech bubble, not a bright blue disc. */
+.ws-modern-wrapper + .animeb-weekly-intro{margin-top:22px;}
+.ws-modern-wrapper + .animeb-weekly-intro .animeb-intro-label{
+  display:flex;align-items:center;gap:7px;
+  color:#52665c;font:500 12px/1.2 'Fira Sans','Hiragino Kaku Gothic ProN',sans-serif;
+  letter-spacing:.02em;margin-bottom:10px;
+}
+.ws-modern-wrapper + .animeb-weekly-intro .animeb-intro-label::before {
+  content:'•••';display:grid;place-items:center;
+  width:21px;height:20px;flex:0 0 21px;
+  background:#a7cddd;color:#436c81;
+  border-radius:9px 9px 8px 4px;
+  clip-path:polygon(0 0,100% 0,100% 83%,31% 83%,11% 100%,12% 80%,0 80%);
+  font:600 12px/1 Arial,sans-serif;letter-spacing:-1px;
+}
+@media(max-width:768px){
+ .watch-status-wrapper.ws-modern-wrapper{margin:1px 0 17px;}
+ .ws-modern{width:100%;}
+ .ws-modern-details{margin:8px 0 0;}
+ .ws-modern-toggle{min-height:58px;}
+ .ws-modern-grid{column-gap:9px;}
+}
+@media(min-width:769px){.ws-modern{width:min(100%,438px);}}
+@media(max-width:355px){
+ .ws-modern-toggle{padding:9px;gap:6px;}
+ .ws-modern-main strong{font-size:18px;}
+ .ws-modern-lineup{min-width:64px;}
+ .ws-modern-grid{grid-template-columns:1fr;}
+ .ws-modern-row{font-size:11px;}
+}
+
+
+/* =========================================================
+ AnimeB Ranking • v4.32: editorial coverage + 3 optional themes
+ This override is additive. TOP10/WEEK03 and rank-card typography are untouched.
+ ========================================================= */
+.ws-modern {
+  --ws-ink:#333b38; --ws-muted:#68716c; --ws-gold:#c58b26;
+  --ws-paper:#fffdf4; --ws-rule:#dedfd1;
+  font-family:'Fira Sans','Helvetica Neue','Yu Gothic UI',sans-serif;
+}
+.ws-modern-toggle {
+  background:linear-gradient(165deg,#fffdf6,#f9f7ec);
+  border:1px solid #dddccb;
+  box-shadow:0 7px 20px rgba(45,48,29,.09),0 1px 2px rgba(45,48,29,.03);
+}
+.ws-modern-main strong {
+  font-family:'Roboto Condensed','Barlow Condensed',Arial,sans-serif;
+  font-weight:600;color:#3f4542;font-size:clamp(20px,5.4vw,25px);
+}
+.ws-modern-lineup strong {
+  font-family:'Roboto Condensed','Barlow Condensed',Arial,sans-serif;
+  font-weight:600;color:#306a4c;
+}
+.ws-modern-main > span, .ws-modern-lineup > span {
+  font-family:'Fira Sans','Yu Gothic UI',sans-serif;
+  font-weight:400;color:#67756c;
+}
+.ws-modern-crown{color:#c68f25}
+.ws-modern-details{background:linear-gradient(165deg,#fffdf7,#faf9ee);border-color:#e2dfd0;
+  box-shadow:0 12px 31px rgba(55,57,38,.105)}
+.ws-modern-metric {min-height:88px;border-radius:10px;gap:5px;border:1px solid rgba(255,255,255,.55)}
+.ws-modern-metric-pool {background:linear-gradient(145deg,#e9f2f8,#deebf3);color:#285975}
+.ws-modern-metric-lineup {background:linear-gradient(145deg,#e8f1e8,#dceadf);color:#356c52}
+.ws-modern-metric-rated {background:linear-gradient(145deg,#faeff1,#f4e1e8);color:#9b5572}
+.ws-modern-metric strong {font-family:'Roboto Condensed','Barlow Condensed',Arial,sans-serif;
+  font-weight:500;font-size:clamp(28px,7vw,33px);letter-spacing:-.035em}
+.ws-modern-metric > span:not(.ws-modern-metric-note) {font-family:'Fira Sans','Yu Gothic UI',sans-serif;font-weight:500;
+  color:inherit;font-size:clamp(9px,2.3vw,11px)}
+.ws-modern-metric-note{font-size:clamp(8px,2vw,9px);color:#58645f}
+.ws-modern-group-title{font-family:'Fira Sans','Yu Gothic UI',sans-serif;font-weight:600;letter-spacing:.018em;
+  color:#496c56;font-size:10.5px}
+.ws-modern-row{font-family:'Fira Sans','Yu Gothic UI',sans-serif;font-size:clamp(10px,2.6vw,11px);color:#464e49}
+.ws-modern-row strong{font-family:'Roboto Condensed','Fira Sans',sans-serif;font-weight:600;font-size:13px;color:#36443a}
+.ws-modern-glossary{background:linear-gradient(155deg,#f9f9ee,#f4f5eb);border-color:#dfdfce}
+.ws-modern-footnote{color:#6d736b;font-size:9.5px}
+/* Muted, unmistakably speech-bubble-shaped, not a flat blue disc. */
+.ws-modern-wrapper + .animeb-weekly-intro .animeb-intro-label{
+  color:#3f5a4c;font-family:'Fira Sans','Yu Gothic UI',sans-serif;font-size:12px;font-weight:600}
+.ws-modern-wrapper + .animeb-weekly-intro .animeb-intro-label::before{
+  width:22px;height:22px;flex-basis:22px;background:#d4e9f3;color:#38687e;
+  border-radius:10px 10px 9px 4px;
+  clip-path:polygon(0 0,100% 0,100% 83%,34% 83%,9% 100%,10% 82%,0 82%);
+  font-size:11px;letter-spacing:-1.4px;
+}
+/* The independent theme control stays beside the existing EN/日本語 selector. */
+.animeb-theme-controls{position:fixed;z-index:104;top:calc(env(safe-area-inset-top,0px) + 47px);
+  right:max(120px,calc((100vw - 920px)/2 + 126px));font-family:'Fira Sans','Yu Gothic UI',sans-serif}
+.animeb-theme-button{appearance:none;display:flex;align-items:center;justify-content:center;
+  width:33px;height:33px;cursor:pointer;border-radius:18px;color:#4c6658;
+  border:1px solid #d5d9ce;background:rgba(255,254,245,.97);font:600 19px/1 sans-serif;
+  box-shadow:0 2px 7px rgba(31,40,28,.09)}
+.animeb-theme-button:focus-visible,.animeb-theme-panel button:focus-visible,
+.animeb-theme-panel input:focus-visible{outline:2px solid #55816b;outline-offset:3px}
+.animeb-theme-panel{position:absolute;right:0;top:40px;width:min(290px,calc(100vw - 16px));
+  background:#fffdf4;border:1px solid #dadccc;border-radius:13px;
+  color:#35463e;box-shadow:0 12px 32px rgba(23,37,26,.18);padding:14px}
+.animeb-theme-panel[hidden],.animeb-theme-image-field[hidden]{display:none!important}
+.animeb-theme-panel-title{font-size:12px;letter-spacing:.05em;font-weight:700;margin:0 0 9px}
+.animeb-theme-choices{display:flex;gap:5px;margin-bottom:10px}
+.animeb-theme-choice{flex:1;min-width:0;font:600 10.5px/1.25 'Fira Sans',sans-serif;
+  border:1px solid #d7dcce;border-radius:7px;padding:9px 4px;color:#3f5a4c;
+  background:#f8f8ee;cursor:pointer}
+.animeb-theme-choice[aria-pressed="true"]{background:#dce9df;color:#244e38;border-color:#8cac96}
+.animeb-theme-image-field label{display:block;font-size:10px;margin-bottom:6px}
+.animeb-theme-image-field input{font-size:12px;width:100%;box-sizing:border-box;padding:8px;
+  border:1px solid #c4ccbe;border-radius:6px;background:#fffdf8;color:#35463e}
+.animeb-theme-apply{margin-top:7px;cursor:pointer;padding:7px 9px;border:1px solid #9eae9e;
+  background:#e9f2e8;color:#264935;border-radius:6px;font-size:11px}
+.animeb-theme-message{font-size:10px;color:#6b776c;margin:8px 0 0;line-height:1.45}
+/* Dark mode: alter the overall reading canvas and the new panel, not the historic headline's typeface. */
+body[data-animeb-theme="dark"]{background:#101c22;color:#e6e6db}
+body[data-animeb-theme="dark"] .wrapper{background:#14242c;border-color:#455451}
+body[data-animeb-theme="dark"] .header h1{color:#f2eee3}
+body[data-animeb-theme="dark"] .entry .info-top,body[data-animeb-theme="dark"] .entry .jp-title,
+body[data-animeb-theme="dark"] .entry .info,body[data-animeb-theme="dark"] .entry {color:#f1eee6}
+body[data-animeb-theme="dark"] .animeb-weekly-intro .animeb-intro-text,
+body[data-animeb-theme="dark"] .animeb-weekly-satisfaction,
+body[data-animeb-theme="dark"] .table-header-mount {color:#e0e0d9}
+body[data-animeb-theme="dark"] .entry,body[data-animeb-theme="dark"] .ranking-item {background:#14242c}
+body[data-animeb-theme="dark"] .ws-modern{--ws-paper:#1d2e34;--ws-ink:#e4e9e2;--ws-muted:#aebdb7}
+body[data-animeb-theme="dark"] .ws-modern-toggle,
+body[data-animeb-theme="dark"] .ws-modern-details{background:#1d3038;border-color:#4b5c5c;
+  color:#e9ede7;box-shadow:0 12px 29px rgba(0,0,0,.24)}
+body[data-animeb-theme="dark"] .ws-modern-main strong{color:#f0eee5}
+body[data-animeb-theme="dark"] .ws-modern-lineup strong{color:#81bea1}
+body[data-animeb-theme="dark"] .ws-modern-main > span,
+body[data-animeb-theme="dark"] .ws-modern-lineup > span,
+body[data-animeb-theme="dark"] .ws-modern-footnote,
+body[data-animeb-theme="dark"] .ws-modern-row{color:#ccd5d1}
+body[data-animeb-theme="dark"] .ws-modern-group{border-color:#4b5d5d}
+body[data-animeb-theme="dark"] .ws-modern-row strong{color:#ecf0ed}
+body[data-animeb-theme="dark"] .ws-modern-group-title{color:#a2c0af}
+body[data-animeb-theme="dark"] .ws-modern-metric-pool{background:#2b4559;color:#b6ddf6}
+body[data-animeb-theme="dark"] .ws-modern-metric-lineup{background:#274c40;color:#b6e4ca}
+body[data-animeb-theme="dark"] .ws-modern-metric-rated{background:#513948;color:#f4c6d4}
+body[data-animeb-theme="dark"] .ws-modern-metric-note{color:#d8d9cf}
+body[data-animeb-theme="dark"] .ws-modern-helpbar{border-color:#4d5a55}
+body[data-animeb-theme="dark"] .ws-modern-glossary,
+body[data-animeb-theme="dark"] .ws-modern-inline-tip{background:#1a2930;color:#cbd3ce;border-color:#4d5a55}
+body[data-animeb-theme="dark"] .ws-modern-glossary-entry,
+body[data-animeb-theme="dark"] .ws-modern-glossary-entry b{color:#dce8dc}
+body[data-animeb-theme="dark"] .ws-modern-wrapper + .animeb-weekly-intro .animeb-intro-label{color:#e9efeb}
+body[data-animeb-theme="dark"] .animeb-theme-panel{background:#1c3037;color:#e8ede7;border-color:#50665d}
+body[data-animeb-theme="dark"] .animeb-theme-choice{background:#2a4146;color:#e4eae8;border-color:#50635e}
+body[data-animeb-theme="dark"] .animeb-theme-choice[aria-pressed="true"]{background:#395e52;color:#fff}
+body[data-animeb-theme="dark"] .animeb-theme-message{color:#cad5ce}
+/* Image Accent: optional user-selected image; never force a default anime picture. */
+body[data-animeb-theme="image"]{background:#667f76;color:#37403b;background-image:
+  linear-gradient(rgba(17,41,43,.29),rgba(17,41,43,.34)),var(--animeb-theme-photo,none);
+  background-size:cover;background-position:center center;background-attachment:fixed}
+body[data-animeb-theme="image"] .wrapper{background:rgba(255,253,245,.91);
+  border-color:rgba(246,248,239,.76);box-shadow:0 9px 38px rgba(20,40,33,.19)}
+body[data-animeb-theme="image"] .ws-modern-toggle,
+body[data-animeb-theme="image"] .ws-modern-details{background:rgba(255,253,246,.94);
+  box-shadow:0 8px 25px rgba(20,40,33,.13)}
+body[data-animeb-theme="image"] .animeb-weekly-intro{padding:11px 12px;
+  border-radius:12px;background:rgba(255,254,248,.77);
+  box-shadow:0 7px 22px rgba(24,36,25,.08)}
+@media(max-width:768px){
+ .animeb-theme-controls{top:calc(env(safe-area-inset-top,0px) + 43px);right:112px}
+ .animeb-theme-button{width:30px;height:30px}
+ .ws-modern-metrics{gap:7px}
+ .ws-modern-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:355px){.animeb-theme-controls{right:105px}}
+@media(prefers-reduced-motion:reduce){.ws-modern-chevron,.animeb-theme-button{transition:none!important}}
+
+/* v4.33: image theme device picker + single inline tooltip. No ranking styles changed. */
+.animeb-theme-file-label{display:block;font-size:11px;font-weight:600;color:#344e42;margin-top:6px}
+.animeb-theme-file-label input[type="file"]{display:block;width:100%;margin-top:6px;
+  padding:6px;font:11px/1.4 sans-serif;background:#f6f8f1}
+.animeb-theme-local-note{font-size:10px;line-height:1.4;color:#68756c;margin:6px 0 12px}
+.animeb-theme-url-label{border-top:1px solid #e0e4d7;padding-top:10px}
+.animeb-theme-panel .animeb-theme-file-label input[type="file"]::file-selector-button{
+  background:#e7eee6;color:#345c49;border:1px solid #a8bba9;border-radius:5px;
+  padding:6px 9px;margin-right:8px;cursor:pointer}
+.ws-modern-inline-tip{grid-column:1/-1;max-width:100%;overflow-wrap:anywhere}
+body[data-animeb-theme="dark"] .animeb-theme-local-note{color:#68756c}
+
+/* AnimeB v4.34: thumbnail background gallery — contained inside the existing theme panel. */
+.animeb-theme-panel{width:min(366px,calc(100vw - 22px));max-height:min(75vh,670px);overflow-y:auto;overscroll-behavior:contain}
+.animeb-bg-gallery-head{display:flex;align-items:center;justify-content:space-between;gap:8px;
+  border-top:1px solid #dce0d5;padding-top:11px;margin:2px 0 10px;font-size:10px;letter-spacing:.025em}
+.animeb-bg-refresh{font:500 10px/1.3 'Fira Sans',sans-serif;color:#3d6957;
+  background:#eff3eb;border:1px solid #d1decf;border-radius:6px;padding:5px 8px;cursor:pointer}
+.animeb-bg-subheading{font:600 10px/1.4 'Fira Sans',sans-serif;color:#466253;
+  margin:11px 0 7px;letter-spacing:.01em}
+.animeb-bg-gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px;}
+.animeb-bg-tile{position:relative;min-width:0}
+.animeb-bg-item{position:relative;display:flex;flex-direction:column;width:100%;padding:3px;
+  background:#fbfaf3;border:1px solid #d7dcce;border-radius:9px;
+  color:#4c5953;cursor:pointer;text-align:left;overflow:hidden;min-width:0}
+.animeb-bg-item img{display:block;width:100%;height:66px;object-fit:cover;
+  background:linear-gradient(120deg,#d8e0d5,#d0d9da);border-radius:6px;}
+.animeb-bg-name{display:block;width:100%;box-sizing:border-box;padding:4px 2px 1px;
+  font:500 9px/1.25 'Fira Sans',sans-serif;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+.animeb-bg-selected{display:none;position:absolute;top:6px;right:6px;border-radius:50%;
+  width:18px;height:18px;background:#2c6951;color:#fff;text-align:center;
+  font:700 13px/18px sans-serif;box-shadow:0 1px 5px rgba(0,0,0,.25)}
+.animeb-bg-item[aria-pressed="true"]{border-color:#3b7c61;outline:2px solid #88ae97;outline-offset:-2px;background:#eaf1e6}
+.animeb-bg-item[aria-pressed="true"] .animeb-bg-selected{display:block}
+.animeb-bg-delete{position:absolute;top:4px;left:4px;background:rgba(34,43,41,.78);color:#fff;
+  border:0;border-radius:50%;width:19px;height:19px;font:600 15px/19px Arial,sans-serif;cursor:pointer;padding:0}
+.animeb-bg-gallery-note{font:400 10px/1.45 'Fira Sans',sans-serif;color:#77847a;margin:5px 0 8px}
+.animeb-bg-manual-url{margin-top:10px;padding-top:8px;border-top:1px solid #dce0d5}
+.animeb-bg-manual-url summary{cursor:pointer;font:500 10px 'Fira Sans',sans-serif;color:#677870}
+.animeb-bg-manual-url input{display:block;width:100%;margin:8px 0 0;border:1px solid #c2cdbf;
+  padding:7px;font-size:11px;border-radius:5px;background:#fffdf8;color:#3c4740}
+.animeb-theme-file-label{margin-top:12px}
+body[data-animeb-theme="dark"] .animeb-bg-gallery-head,
+body[data-animeb-theme="dark"] .animeb-bg-manual-url{border-color:#4f6660}
+body[data-animeb-theme="dark"] .animeb-bg-subheading,
+body[data-animeb-theme="dark"] .animeb-bg-refresh,
+body[data-animeb-theme="dark"] .animeb-bg-manual-url summary{color:#c7dfd1}
+body[data-animeb-theme="dark"] .animeb-bg-item{background:#284047;color:#e0e7e4;border-color:#4d6b64}
+body[data-animeb-theme="dark"] .animeb-bg-item[aria-pressed="true"]{background:#3a5c50;border-color:#92bfa0}
+body[data-animeb-theme="dark"] .animeb-bg-gallery-note{color:#a1b6ac}
+body[data-animeb-theme="dark"] .animeb-bg-refresh{background:#304a44;border-color:#55746a}
+@media(max-width:380px){.animeb-bg-item img{height:58px}.animeb-theme-panel{padding:11px}}
+
+
+/* AnimeB v4.35 — viewport-safe theme gallery + visible, scoped image background.
+   The DEFAULT image is a hero behind the header/status/intro, never behind rankings.
+   The user may opt in to the full-page treatment. No other themes are changed. */
+.animeb-theme-panel-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:8px;}
+.animeb-theme-panel-head .animeb-theme-panel-title{margin:0;}
+.animeb-theme-close{width:28px;height:28px;flex:0 0 28px;display:grid;place-items:center;
+  background:transparent;border:1px solid #d5dacd;border-radius:50%;font:400 22px/1 sans-serif;
+  color:#496052;cursor:pointer;}
+.animeb-bg-placement{border:1px solid #dce2d5;border-radius:9px;padding:9px 10px 10px;margin:4px 0 12px;min-width:0;}
+.animeb-bg-placement legend{font:600 10px/1.35 'Fira Sans',sans-serif;color:#3a604e;padding:0 4px;}
+.animeb-bg-scope-choices{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px;}
+.animeb-bg-scope-button{cursor:pointer;border:1px solid #cbd8cc;background:#f7f8f1;color:#435a4b;
+  font:500 10px/1.4 'Fira Sans','Yu Gothic UI',sans-serif;border-radius:6px;padding:7px 4px;}
+.animeb-bg-scope-button[aria-pressed="true"]{border-color:#5e9676;background:#e2eee4;color:#29543b;box-shadow:inset 0 0 0 1px #88ab8f;}
+.animeb-bg-visibility-label{display:grid;grid-template-columns:1fr auto;column-gap:10px;row-gap:4px;
+  align-items:center;margin:12px 0 0;font:500 10px/1.3 'Fira Sans',sans-serif;color:#405b4d;}
+.animeb-bg-visibility-label .animeb-bg-visibility-value{font-weight:600;}
+.animeb-bg-visibility-label .animeb-bg-visibility-range{grid-column:1/-1;width:100%;margin:0;accent-color:#557b65;}
+.animeb-bg-scope-note{font:400 10px/1.5 'Fira Sans','Yu Gothic UI',sans-serif;color:#66796b;margin:6px 0 0;}
+/* Mobile: anchor to VISUAL VIEWPORT, not the theme button's 112px right-offset.
+   The old positioned child clipped ~90px off the left on an iPhone. */
+@media (max-width:768px){
+  .animeb-theme-panel{
+    position:fixed;
+    top:calc(env(safe-area-inset-top,0px) + 84px);
+    left:max(10px,env(safe-area-inset-left,0px));
+    right:max(10px,env(safe-area-inset-right,0px));
+    width:auto;max-width:440px;box-sizing:border-box;margin:0 auto;
+    max-height:calc(100vh - env(safe-area-inset-top,0px) - env(safe-area-inset-bottom,0px) - 104px);
+    max-height:calc(100dvh - env(safe-area-inset-top,0px) - env(safe-area-inset-bottom,0px) - 104px);
+    overflow-x:hidden;overflow-y:auto;-webkit-overflow-scrolling:touch;
+  }
+}
+@media (max-width:380px){.animeb-theme-panel{padding:11px;}}
+body[data-animeb-theme="dark"] .animeb-bg-placement{border-color:#4e675f;}
+body[data-animeb-theme="dark"] .animeb-bg-placement legend,
+body[data-animeb-theme="dark"] .animeb-bg-visibility-label,
+body[data-animeb-theme="dark"] .animeb-bg-scope-note{color:#d0ded2;}
+body[data-animeb-theme="dark"] .animeb-bg-scope-button,
+body[data-animeb-theme="dark"] .animeb-theme-close{background:#263e41;color:#e0e9e1;border-color:#58756a;}
+body[data-animeb-theme="dark"] .animeb-bg-scope-button[aria-pressed="true"]{background:#406650;border-color:#9ab49c;}
+/* Clear the old full-body image background when 'Header area' is selected. */
+body[data-animeb-theme="image"]{
+  --animeb-image-wash:.25;
+  background:#ffffed;
+  background-image:none;
+  background-attachment:scroll;
+}
+body[data-animeb-theme="image"] .wrapper{
+  background:#ffffed;
+  border-color:#d4ddd0;
+  box-shadow:none;
+}
+body[data-animeb-theme="image"][data-animeb-image-scope="header"] .wrapper{
+  position:relative;isolation:isolate;
+}
+body[data-animeb-theme="image"][data-animeb-image-scope="header"] .wrapper::before{
+  content:"";position:absolute;left:0;right:0;top:0;
+  height:var(--animeb-image-header-height,410px);
+  z-index:0;pointer-events:none;
+  background-image:linear-gradient(180deg,rgba(255,252,239,calc(var(--animeb-image-wash) + .13)) 0%,
+    rgba(255,252,239,var(--animeb-image-wash)) 75%,rgba(255,252,239,.33) 100%),var(--animeb-theme-photo,none);
+  background-size:cover;background-position:50% 38%;background-repeat:no-repeat;
+  -webkit-mask-image:linear-gradient(to bottom,#000 0%,#000 78%,transparent 100%);
+  mask-image:linear-gradient(to bottom,#000 0%,#000 78%,transparent 100%);
+}
+body[data-animeb-theme="image"][data-animeb-image-scope="header"] .wrapper > .header,
+body[data-animeb-theme="image"][data-animeb-image-scope="header"] .wrapper > .sub-header,
+body[data-animeb-theme="image"][data-animeb-image-scope="header"] .wrapper > .watch-status-wrapper,
+body[data-animeb-theme="image"][data-animeb-image-scope="header"] .wrapper > .animeb-weekly-intro,
+body[data-animeb-theme="image"][data-animeb-image-scope="header"] .wrapper > .overview-section{
+  position:relative;z-index:1;
+}
+/* A translucent reading surface, but enough image shows behind it. */
+body[data-animeb-theme="image"] .ws-modern-toggle,
+body[data-animeb-theme="image"] .ws-modern-details{
+  background:rgba(255,253,246,.87);
+  backdrop-filter:blur(5px);-webkit-backdrop-filter:blur(5px);
+}
+body[data-animeb-theme="image"] .animeb-weekly-intro{
+  background:rgba(255,254,248,.79);
+  backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px);
+  box-shadow:0 6px 17px rgba(18,35,27,.12);
+}
+body[data-animeb-theme="image"][data-animeb-image-scope="full"]{
+  background-color:#667f76;
+  background-image:linear-gradient(rgba(255,252,239,var(--animeb-image-wash)),rgba(255,252,239,var(--animeb-image-wash))),var(--animeb-theme-photo,none);
+  background-attachment:fixed;background-size:cover;background-position:center center;
+}
+body[data-animeb-theme="image"][data-animeb-image-scope="full"] .wrapper{
+  background:rgba(255,253,245,.75);box-shadow:0 9px 38px rgba(20,40,33,.19);
+}
+
+/* ================================================================
+ AnimeB v4.36 — image studio: framing, page preview, 3 placements,
+ readable hero, adjustable crop, subtle control corrections.
+ Small-scope addendum to v4.35. Original page and ranking stay intact.
+ ================================================================= */
+.animeb-image-hero-spacer[hidden]{display:none!important}
+.animeb-image-hero-spacer{display:none;pointer-events:none}
+body[data-animeb-theme="image"][data-animeb-image-scope="hero"] .animeb-image-hero-spacer{
+  display:block;height:clamp(146px,24vw,230px);position:relative;z-index:1;
+}
+/* Image-only variants use the same bounded wrapper layer; the hero option
+   simply adds breathing room between the title and the coverage summary. */
+body[data-animeb-theme="image"][data-animeb-image-scope="hero"] .wrapper{
+  position:relative;isolation:isolate;
+}
+body[data-animeb-theme="image"][data-animeb-image-scope="hero"] .wrapper::before{
+  content:"";position:absolute;inset:0 0 auto 0;height:var(--animeb-image-header-height,560px);
+  z-index:0;pointer-events:none;
+  background-image:linear-gradient(180deg,rgba(255,252,239,calc(var(--animeb-image-wash) + .05)) 0%,
+    rgba(255,252,239,var(--animeb-image-wash)) 73%,rgba(255,252,239,.24) 100%),var(--animeb-theme-photo,none);
+  background-size:100% 100%,var(--animeb-image-size,cover);
+  background-position:center,var(--animeb-image-x,50%) var(--animeb-image-y,40%);
+  background-repeat:no-repeat;
+  -webkit-mask-image:linear-gradient(to bottom,#000 0%,#000 87%,transparent 100%);
+  mask-image:linear-gradient(to bottom,#000 0%,#000 87%,transparent 100%);
+}
+body[data-animeb-theme="image"][data-animeb-image-scope="hero"] .wrapper > .header,
+body[data-animeb-theme="image"][data-animeb-image-scope="hero"] .wrapper > .sub-header,
+body[data-animeb-theme="image"][data-animeb-image-scope="hero"] .wrapper > .watch-status-wrapper,
+body[data-animeb-theme="image"][data-animeb-image-scope="hero"] .wrapper > .animeb-weekly-intro,
+body[data-animeb-theme="image"][data-animeb-image-scope="hero"] .wrapper > .overview-section{
+  position:relative;z-index:1;
+}
+body[data-animeb-theme="image"][data-animeb-image-scope="header"] .wrapper::before{
+  background-size:100% 100%,var(--animeb-image-size,cover);
+  background-position:center,var(--animeb-image-x,50%) var(--animeb-image-y,40%);
+}
+/* Full-page image now fits the VIEWPORT, rather than stretching to match a
+   very tall document. The page scrolls over the fixed cover on desktop. */
+body[data-animeb-theme="image"][data-animeb-image-scope="full"]{
+  background-color:#546f66;
+  background-image:linear-gradient(rgba(255,252,239,var(--animeb-image-wash)),rgba(255,252,239,var(--animeb-image-wash))),var(--animeb-theme-photo,none);
+  background-size:100% 100%,var(--animeb-image-size,cover);
+  background-position:center,var(--animeb-image-x,50%) var(--animeb-image-y,40%);
+  background-repeat:no-repeat;
+  background-attachment:fixed,fixed;
+}
+body[data-animeb-theme="image"][data-animeb-image-scope="full"][data-animeb-full-fit="contain"]{
+  background-color:#5f736b;
+}
+body[data-animeb-theme="image"][data-animeb-image-scope="full"][data-animeb-full-fit="tile"]{
+  background-repeat:no-repeat,repeat;
+}
+/* On mobile Safari, fixed document backgrounds can shift on scroll. This
+   fixed viewport layer retains a stable crop without stretching the photo. */
+@supports (-webkit-touch-callout:none){
+ body[data-animeb-theme="image"][data-animeb-image-scope="full"]{
+   background-attachment:scroll; background-size:100% 100%,var(--animeb-image-size,cover);
+ }
+}
+body[data-animeb-theme="image"] .animeb-weekly-intro{
+  background:rgba(255,254,248,var(--animeb-intro-opacity,.84));
+  backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px);
+}
+/* For the dark-on-image variant, brighten text over the picture without
+   accidentally changing the existing ranking/card typography. */
+body[data-animeb-theme="image"][data-animeb-image-tone="dark"][data-animeb-image-scope="header"] .wrapper::before,
+body[data-animeb-theme="image"][data-animeb-image-tone="dark"][data-animeb-image-scope="hero"] .wrapper::before{
+  background-image:linear-gradient(180deg,rgba(17,30,36,calc(var(--animeb-image-wash) + .17)) 0%,
+    rgba(19,32,37,calc(var(--animeb-image-wash) + .11)) 73%,rgba(17,30,36,.36) 100%),var(--animeb-theme-photo,none);
+}
+body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .header h1{color:#fffdf3}
+body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .header .duration{color:#ffe0c8}
+body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .sub-header .season-title,
+body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .sub-header .ep-range{color:#e9f2e6}
+body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .animeb-weekly-satisfaction,
+body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .animeb-weekly-satisfaction .animeb-sat-label-ja,
+body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .animeb-weekly-satisfaction .animeb-sat-label-en,
+body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .animeb-weekly-satisfaction .animeb-sat-denominator{color:#fffdf3}
+body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .ws-modern-toggle,
+body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .ws-modern-details{
+  background:rgba(22,37,42,.87);border-color:rgba(203,227,216,.34);color:#f2f4ee;
+}
+body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .ws-modern-main strong,
+body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .ws-modern-row strong{color:#f6f4e7}
+body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .ws-modern-main > span,
+body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .ws-modern-row,
+body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .ws-modern-footnote{color:#d8e2da}
+body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .ws-modern-lineup strong{color:#a6d7c2}
+body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .ws-modern-metric-pool{background:#2a4454;color:#c6e2f0}
+body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .ws-modern-metric-lineup{background:#29493f;color:#c4e6ce}
+body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .ws-modern-metric-rated{background:#4d3744;color:#f9d7df}
+body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .ws-modern-group-title{color:#b7d4bd}
+body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .ws-modern-group{border-color:#4e6461}
+body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .ws-modern-lineup > span{color:#d4e0d8}
+body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .animeb-weekly-intro{
+  background:rgba(25,39,44,var(--animeb-intro-opacity,.84));
+  color:#ebefe9;
+}
+body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .animeb-weekly-intro .animeb-intro-text,
+body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .animeb-weekly-intro .animeb-intro-label{color:#ebefe9}
+/* Deliberately different sizing: TOP 10 dominates, / 26 reads as a denominator,
+   not a date. Keep the font FAMILY used in v4.35. */
+.ws-modern-headline{display:inline-flex;align-items:baseline;white-space:nowrap;gap:3px}
+.ws-modern-headline .ws-modern-ranked{font-size:1em;font-weight:600}
+.ws-modern-headline .ws-modern-denominator{font-size:.66em;font-weight:500;letter-spacing:-.025em;color:#707b75}
+body[data-animeb-theme="dark"] .ws-modern-denominator,
+body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .ws-modern-denominator{color:#c8d8ce}
+/* Palette controls: equal optical height to the already-accepted language pill. */
+.animeb-theme-button{width:29px;height:27px;min-height:27px;padding:0;font-size:16px;line-height:1;border-radius:18px}
+@media(max-width:768px){.animeb-theme-button{width:29px;height:27px}}
+.animeb-theme-panel-head{cursor:grab;touch-action:none;user-select:none;-webkit-user-select:none}
+.animeb-theme-panel-head:active{cursor:grabbing}
+.animeb-theme-panel-head button{cursor:pointer;touch-action:manipulation}
+.animeb-theme-preview-button{margin-left:auto;border:1px solid #cdd6ca;background:#edf3e9;
+  padding:5px 8px;font:500 10px/1.25 'Fira Sans','Yu Gothic UI',sans-serif;color:#395b49;border-radius:7px}
+/* Replace oversized font glyph close X with a mathematically centered cross. */
+.animeb-theme-close{position:relative;font-size:0!important;line-height:0!important;padding:0!important;display:block;flex:0 0 27px;width:27px;height:27px}
+.animeb-theme-close::before,.animeb-theme-close::after{content:"";position:absolute;display:block;
+  width:12px;height:1.6px;top:calc(50% - .8px);left:calc(50% - 6px);border-radius:1px;
+  background:currentColor;transform:rotate(45deg)}
+.animeb-theme-close::after{transform:rotate(-45deg)}
+.animeb-bg-scope-choices{grid-template-columns:repeat(3,minmax(0,1fr));gap:5px}
+.animeb-bg-scope-button{font-size:9.2px;padding:7px 3px}
+.animeb-bg-live-preview{height:95px;position:relative;overflow:hidden;margin:12px 0 10px;
+  border-radius:10px;border:1px solid #cbd8ca;display:flex;flex-direction:column;
+  justify-content:space-between;box-shadow:inset 0 0 0 1px rgba(255,255,255,.4);
+  background-color:#e3e9dd;color:#303d38;
+  background-image:linear-gradient(rgba(255,253,245,calc(1 - var(--animeb-preview-visibility,.78))),rgba(255,253,245,calc(1 - var(--animeb-preview-visibility,.78)))),var(--animeb-preview-photo,none);
+  background-size:100% 100%,calc(100% * var(--animeb-preview-zoom,1)) auto;
+  background-position:center,var(--animeb-preview-x,50%) var(--animeb-preview-y,40%);
+  background-repeat:no-repeat;padding:9px 13px;font-family:'Fira Sans',sans-serif}
+.animeb-bg-live-preview[data-tone="dark"]{color:#fff;
+  background-image:linear-gradient(rgba(14,24,29,.35),rgba(14,24,29,.28)),var(--animeb-preview-photo,none)}
+.animeb-bg-preview-title{font:800 20px/1 'Alfa Slab One',serif;letter-spacing:-.04em;text-shadow:0 1px 2px rgba(0,0,0,.08)}
+.animeb-bg-live-preview > span:last-child{font:600 9px/1.3 'Fira Sans',sans-serif;letter-spacing:.04em}
+.animeb-bg-frame{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px 12px;margin:4px 0 9px}
+.animeb-bg-frame-label{display:flex!important;flex-wrap:wrap;justify-content:space-between;gap:4px;
+  min-width:0;font:500 9.5px/1.25 'Fira Sans','Yu Gothic UI',sans-serif;color:#496153}
+.animeb-bg-frame-number{font-size:10px;font-weight:700}
+.animeb-bg-frame-label input[type="range"]{flex:0 0 100%;padding:0!important;margin:0!important;border:0!important;
+  height:20px;accent-color:#5c896c;background:transparent!important}
+.animeb-bg-tone{border:0;margin:7px 0;padding:0}
+.animeb-bg-tone legend{margin:0 0 6px;padding:0;font:600 10px/1.2 'Fira Sans',sans-serif;color:#476450}
+.animeb-bg-tone-buttons{display:grid;grid-template-columns:1fr 1fr;gap:7px}
+.animeb-bg-tone-choice{border:1px solid #d3dccc;border-radius:7px;padding:7px;background:#f7f8ed;
+  color:#426051;font:500 10px/1.4 'Fira Sans','Yu Gothic UI',sans-serif;cursor:pointer}
+.animeb-bg-tone-choice[aria-pressed="true"]{background:#dceadf;border-color:#80ac91;color:#24543c}
+.animeb-bg-fit-row{display:grid;gap:5px;margin:11px 0 0;font:600 10px/1.4 'Fira Sans',sans-serif;color:#476450}
+.animeb-bg-fit-row[hidden]{display:none!important}
+.animeb-bg-fit{font:500 11px/1.5 'Fira Sans',sans-serif;background:#fcfdf5;color:#315340;border:1px solid #c9d7ca;
+  padding:7px;border-radius:7px;max-width:100%}
+.animeb-bg-frame-note{font-size:10px;line-height:1.4;color:#68786c;margin:10px 0 0}
+.animeb-bg-color-options{border-top:1px solid #dce1d7;margin:12px 0 0;padding:11px 0 2px;font-size:11px}
+.animeb-bg-color-options summary{cursor:pointer;color:#406350;font-weight:650}
+.animeb-bg-color-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:11px 0}
+.animeb-bg-color-row{display:flex!important;align-items:center;gap:7px;justify-content:space-between;
+  font-size:10px!important;color:#496052}
+.animeb-bg-color-row input[type="color"]{padding:2px!important;width:34px!important;height:26px!important;
+  border-radius:6px;cursor:pointer}
+.animeb-bg-color-actions{display:flex;justify-content:flex-start;flex-wrap:wrap;gap:6px}
+.animeb-bg-color-actions button{padding:6px 8px;border:1px solid #c9d6cb;background:#f3f7f0;color:#46614d;
+  border-radius:6px;font:500 10px 'Fira Sans',sans-serif;cursor:pointer}
+.animeb-bg-color-options p{margin:8px 0;color:#7d8579;font-size:9.5px}
+body[data-animeb-theme="dark"] .animeb-bg-live-preview{border-color:#648075}
+body[data-animeb-theme="dark"] .animeb-bg-frame-label,
+body[data-animeb-theme="dark"] .animeb-bg-tone legend,
+body[data-animeb-theme="dark"] .animeb-bg-color-options summary,
+body[data-animeb-theme="dark"] .animeb-bg-fit-row,
+body[data-animeb-theme="dark"] .animeb-bg-color-row,
+body[data-animeb-theme="dark"] .animeb-bg-frame-note{color:#d4e2d9}
+body[data-animeb-theme="dark"] .animeb-bg-tone-choice,
+body[data-animeb-theme="dark"] .animeb-bg-fit,
+body[data-animeb-theme="dark"] .animeb-bg-color-actions button,
+body[data-animeb-theme="dark"] .animeb-theme-preview-button{background:#2b4446;border-color:#55746b;color:#e0eee3}
+body[data-animeb-theme="dark"] .animeb-bg-tone-choice[aria-pressed="true"]{background:#406451}
+@media(max-width:380px){
+ .animeb-bg-frame{gap:7px}
+ .animeb-theme-preview-button{font-size:9px;padding:5px}
+ .animeb-bg-scope-button{font-size:8.6px}
+}
+/* Tile is opt-in and only suitable for textures or repeatable pattern art. */
+body[data-animeb-theme="image"][data-animeb-full-fit="tile"][data-animeb-image-scope="header"] .wrapper::before,
+body[data-animeb-theme="image"][data-animeb-full-fit="tile"][data-animeb-image-scope="hero"] .wrapper::before{
+  background-repeat:no-repeat,repeat;
+}
+
+/* Stable full-page background: pin ONE picture to the device viewport. The
+   article can be tall without requesting a multi-thousand-pixel-wide image. */
+body[data-animeb-theme="image"][data-animeb-image-scope="full"]{
+  position:relative;isolation:isolate;background-image:none!important;background-color:#5c756a;
+}
+body[data-animeb-theme="image"][data-animeb-image-scope="full"]::before{
+  content:"";position:fixed;z-index:0;inset:0;pointer-events:none;
+  background-image:linear-gradient(rgba(255,253,239,var(--animeb-image-wash)),rgba(255,253,239,var(--animeb-image-wash))),var(--animeb-theme-photo,none);
+  background-size:100% 100%,var(--animeb-image-size,cover);
+  background-position:center,var(--animeb-image-x,50%) var(--animeb-image-y,40%);
+  background-repeat:no-repeat;
+}
+body[data-animeb-theme="image"][data-animeb-image-scope="full"][data-animeb-full-fit="tile"]::before{background-repeat:no-repeat,repeat}
+body[data-animeb-theme="image"][data-animeb-image-scope="full"] > .wrapper{position:relative;z-index:1}
+body[data-animeb-theme="image"][data-animeb-image-scope="full"][data-animeb-image-tone="dark"]::before{
+  background-image:linear-gradient(rgba(14,25,31,calc(var(--animeb-image-wash) + .10)),rgba(14,25,31,calc(var(--animeb-image-wash) + .10))),var(--animeb-theme-photo,none)
+}
+body[data-animeb-theme="image"][data-animeb-image-scope="full"][data-animeb-image-tone="dark"] .wrapper{
+  background:rgba(20,33,39,.87);color:#e5eee8;border-color:#435b57;
+}
+body[data-animeb-theme="image"][data-animeb-image-scope="full"][data-animeb-image-tone="dark"] .entry,
+body[data-animeb-theme="image"][data-animeb-image-scope="full"][data-animeb-image-tone="dark"] .entry .info,
+body[data-animeb-theme="image"][data-animeb-image-scope="full"][data-animeb-image-tone="dark"] .entry .jp-title,
+body[data-animeb-theme="image"][data-animeb-image-scope="full"][data-animeb-image-tone="dark"] .table-header-mount{
+  background:transparent;color:#e9eee8;
+}
+/* Cross-browser zoom for the live preview (no unsupported CSS percentage multiplication). */
+.animeb-bg-live-preview{isolation:isolate;background-image:none;}
+.animeb-bg-live-preview::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
+  background-image:linear-gradient(rgba(255,253,245,calc(1 - var(--animeb-preview-visibility,.78))),rgba(255,253,245,calc(1 - var(--animeb-preview-visibility,.78)))),var(--animeb-preview-photo,none);
+  background-position:center,var(--animeb-preview-x,50%) var(--animeb-preview-y,40%);
+  background-size:100% 100%,cover;background-repeat:no-repeat;
+  transform:scale(var(--animeb-preview-zoom,1));transform-origin:center;
+}
+.animeb-bg-live-preview[data-tone="dark"]::before{background-image:linear-gradient(rgba(14,24,29,.35),rgba(14,24,29,.28)),var(--animeb-preview-photo,none)}
+
+
+/* ============================================================================
+ AnimeB Weekly v4.37 — refined image studio / clear Full Page reading surfaces.
+ CSS only in themes, original ranking headline & fonts stay untouched.
+ ============================================================================ */
+/* A naturally drawn, thin-tail bubble with three separated SMALL dots. */
+.ws-modern-wrapper + .animeb-weekly-intro .animeb-intro-label::before{
+  content:"" !important; display:inline-block; width:23px;height:23px; flex:0 0 23px;
+  background:transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 26 26'%3E%3Cpath d='M6.5 3.7h13a4.3 4.3 0 0 1 4.3 4.3v6.5a4.3 4.3 0 0 1-4.3 4.3h-8.8l-6.9 4.2 1.6-5.1a4.3 4.3 0 0 1-3.2-4.2V8a4.3 4.3 0 0 1 4.3-4.3Z' fill='%23d4e8f1'/%3E%3Cg fill='%2349687a'%3E%3Ccircle cx='8.2' cy='11.1' r='1.25'/%3E%3Ccircle cx='13' cy='11.1' r='1.25'/%3E%3Ccircle cx='17.8' cy='11.1' r='1.25'/%3E%3C/g%3E%3C/svg%3E") center/contain no-repeat;
+  clip-path:none;border-radius:0;letter-spacing:normal;font-size:0;
+}
+.animeb-theme-button{width:34px;height:27px;min-height:27px;border-radius:13px}
+@media(max-width:768px){.animeb-theme-button{width:34px;height:27px}}
+.animeb-theme-preview-button{display:inline-flex;align-items:center;justify-content:center;gap:5px}
+.animeb-theme-preview-button svg{display:block;flex:0 0 15px;stroke-width:1.8;pointer-events:none}
+.animeb-week-style-control{margin:0 0 12px;padding:8px 0 11px;border-bottom:1px solid #e2e3d6}
+.animeb-week-style-control > span{display:block;font:600 10px/1.4 'Fira Sans','Yu Gothic UI',sans-serif;color:#496653;margin-bottom:7px}
+.animeb-week-style-buttons{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:5px}
+.animeb-week-style-choice{font:500 10px/1.3 'Fira Sans','Yu Gothic UI',sans-serif;border:1px solid #d5ddd1;border-radius:7px;padding:7px 3px;background:#f9faf2;color:#496653;cursor:pointer}
+.animeb-week-style-choice[aria-pressed="true"]{background:#dfece2;border-color:#8bad95;color:#244d37}
+body[data-animeb-theme="dark"] .animeb-week-style-control,
+body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .animeb-week-style-control{border-color:#52655f}
+body[data-animeb-theme="dark"] .animeb-week-style-control > span,
+body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .animeb-week-style-control > span{color:#d0e0d7}
+body[data-animeb-theme="dark"] .animeb-week-style-choice,
+body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .animeb-week-style-choice{background:#263e43;border-color:#526960;color:#e1e9e2}
+body[data-animeb-theme="dark"] .animeb-week-style-choice[aria-pressed="true"],
+body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .animeb-week-style-choice[aria-pressed="true"]{background:#476f5b;border-color:#9cbea7}
+/* User overrides ONLY the WEEK number, not TOP10 or WEEK label. Auto keeps JSON. */
+body[data-animeb-week-style="outline"] .week-title.animeb-week-enhanced .animeb-week-token,
+body[data-animeb-week-style="outline"] .header .week-title:not(.animeb-week-enhanced) b{
+  color:transparent!important;-webkit-text-stroke:1px var(--animeb-week-accent,#8e2222)!important;
+}
+body[data-animeb-week-style="filled"] .week-title.animeb-week-enhanced .animeb-week-token,
+body[data-animeb-week-style="filled"] .header .week-title:not(.animeb-week-enhanced) b{
+  color:var(--animeb-week-accent,#8e2222)!important;-webkit-text-stroke:0!important;
+}
+/* Hero's art-space belongs ABOVE the headline instead of below the title. */
+body[data-animeb-theme="image"][data-animeb-image-scope="hero"] .animeb-image-hero-spacer{
+  display:block;height:clamp(125px,27vw,190px);position:relative;z-index:2;
+}
+body[data-animeb-theme="image"][data-animeb-image-scope="hero"] .wrapper > .header{margin-top:0}
+body[data-animeb-theme="image"][data-animeb-image-scope="hero"] .wrapper > .animeb-weekly-intro{margin-bottom:19px}
+/* The user's image opacity is independent from the image wash slider.
+   The photo lives on ::before, the hue/contrast wash on ::after. */
+body[data-animeb-theme="image"]{--animeb-image-photo-opacity:1;--animeb-image-wash:.25}
+body[data-animeb-theme="image"][data-animeb-image-tone="light"]{--animeb-photo-wash-rgb:255,252,239}
+body[data-animeb-theme="image"][data-animeb-image-tone="dark"]{--animeb-photo-wash-rgb:16,27,33}
+body[data-animeb-theme="image"][data-animeb-image-scope="header"] .wrapper::before,
+body[data-animeb-theme="image"][data-animeb-image-scope="hero"] .wrapper::before{
+  background-image:var(--animeb-theme-photo,none)!important;
+  background-position:var(--animeb-image-x,50%) var(--animeb-image-y,40%);
+  background-size:var(--animeb-image-size,cover);
+  background-repeat:no-repeat;
+  opacity:var(--animeb-image-photo-opacity,1);
+}
+body[data-animeb-theme="image"][data-animeb-image-scope="header"] .wrapper::after,
+body[data-animeb-theme="image"][data-animeb-image-scope="hero"] .wrapper::after{
+  content:"";position:absolute;inset:0 0 auto 0;
+  height:var(--animeb-image-header-height,410px);
+  z-index:1;pointer-events:none;
+  background:linear-gradient(180deg,rgba(var(--animeb-photo-wash-rgb),var(--animeb-image-wash)) 0%,rgba(var(--animeb-photo-wash-rgb),calc(var(--animeb-image-wash) * .75)) 76%,transparent 100%);
+  -webkit-mask-image:linear-gradient(to bottom,#000 0%,#000 76%,transparent 100%);
+  mask-image:linear-gradient(to bottom,#000 0%,#000 76%,transparent 100%);
+}
+body[data-animeb-theme="image"][data-animeb-image-scope="header"] .wrapper > *,
+body[data-animeb-theme="image"][data-animeb-image-scope="hero"] .wrapper > *{position:relative;z-index:2}
+body[data-animeb-theme="image"][data-animeb-image-scope="full"]::before{
+  background-image:var(--animeb-theme-photo,none)!important;
+  opacity:var(--animeb-image-photo-opacity,1);
+}
+body[data-animeb-theme="image"][data-animeb-image-scope="full"]::after{
+  content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
+  background:rgba(var(--animeb-photo-wash-rgb),var(--animeb-image-wash));
+}
+/* Full Page: reliable reading contrast for every RANKED TITLE and its details.
+   Leave a touch of photograph visible between the card surfaces. */
+body[data-animeb-theme="image"][data-animeb-image-scope="full"][data-animeb-image-tone="light"] .wrapper{
+  background:rgba(255,252,242,.70)!important;color:#35423c;
+}
+body[data-animeb-theme="image"][data-animeb-image-scope="full"][data-animeb-image-tone="light"] :is(.entry,.ranking-item,.table-header,.table-header-mount,.note,.notes-section,.overview-section){
+  background-color:rgba(255,254,246,.95)!important;color:#35423c;
+}
+body[data-animeb-theme="image"][data-animeb-image-scope="full"] .entry{
+  border-radius:8px;box-shadow:0 2px 9px rgba(12,31,27,.08);
+}
+/* Dark + photo shares the real dark-site treatment, not only two translucent widgets. */
+body[data-animeb-theme="image"][data-animeb-image-tone="dark"]{
+  background-color:#101c22;color:#e3e9e2;
+}
+body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .wrapper{
+  background:#14242c;color:#e3e9e2;border-color:#425853;
+}
+body[data-animeb-theme="image"][data-animeb-image-tone="dark"][data-animeb-image-scope="full"] .wrapper{
+  background:rgba(15,29,35,.79)!important;
+}
+body[data-animeb-theme="image"][data-animeb-image-tone="dark"] :is(.entry,.ranking-item,.table-header,.table-header-mount,.note,.notes-section,.overview-section){
+  background-color:rgba(20,35,41,.96)!important;color:#e9efe9!important;
+}
+body[data-animeb-theme="image"][data-animeb-image-tone="dark"] :is(.entry .info,.entry .info-top,.entry .title,.entry .jp-title,.entry .synopsis,.entry .more-info,.entry .score,.entry .more-info-toggle,.entry .wrp-label,.table-header-mount,.header,.sub-header,.animeb-weekly-notes-ja){
+  color:#e9efe9!important;
+}
+body[data-animeb-theme="image"][data-animeb-image-tone="dark"] :is(.entry .episode,.entry .episode-label,.entry .info-bottom,.entry .description,.entry .wrp-score){color:#c5d4ca!important}
+body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .animeb-weekly-intro{background:rgba(20,35,41,var(--animeb-intro-opacity,.84));color:#e9efe9}
+body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .animeb-theme-panel{background:#1c3037;color:#e9efe9;border-color:#50665d}
+body[data-animeb-theme="image"][data-animeb-image-tone="dark"] :is(.animeb-theme-choice,.animeb-bg-scope-button,.animeb-bg-tone-choice,.animeb-bg-fit,.animeb-bg-item,.animeb-bg-refresh,.animeb-theme-preview-button){background:#2b4247;color:#e3eee6;border-color:#55746b}
+body[data-animeb-theme="image"][data-animeb-image-tone="dark"] :is(.animeb-bg-gallery-note,.animeb-bg-subheading,.animeb-bg-placement legend,.animeb-bg-scope-note,.animeb-bg-frame-label,.animeb-bg-color-row,.animeb-bg-fit-row,.animeb-bg-visibility-label){color:#d1dfd5}
+body[data-animeb-theme="image"][data-animeb-image-tone="dark"] :is(.animeb-theme-choice,.animeb-bg-scope-button,.animeb-bg-tone-choice)[aria-pressed="true"]{background:#406753;color:#fff}
+/* Adjust within a small screen, retaining independent scrolling in theme panel. */
+@media(max-width:768px){
+  .animeb-bg-visibility-label + .animeb-bg-visibility-label{margin-top:10px}
+  body[data-animeb-theme="image"][data-animeb-image-scope="hero"] .animeb-image-hero-spacer{height:clamp(132px,29vw,174px)}
+}
+/* v4.37 preview: photo opacity and wash remain independently visible. */
+.animeb-bg-live-preview{isolation:isolate}
+.animeb-bg-live-preview::before{
+  z-index:-2;
+  background-image:var(--animeb-preview-photo,none)!important;
+  background-position:var(--animeb-preview-x,50%) var(--animeb-preview-y,40%);
+  background-size:cover;
+  opacity:var(--animeb-preview-photo-opacity,1);
+}
+.animeb-bg-live-preview::after{
+  content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
+  background:rgba(255,253,245,var(--animeb-image-wash,.25));
+}
+.animeb-bg-live-preview[data-tone="dark"]::after{background:rgba(14,24,29,calc(var(--animeb-image-wash,.25) * .8))}
+body[data-animeb-theme="image"][data-animeb-image-scope="full"][data-animeb-full-fit="tile"]::before,
+body[data-animeb-theme="image"][data-animeb-full-fit="tile"]:is([data-animeb-image-scope="header"],[data-animeb-image-scope="hero"]) .wrapper::before{
+  background-repeat:repeat!important;
+}
+/* Auto continues honoring the Converter's OUTLINE even with a custom color. */
+body[data-animeb-week-style="auto"] .week-title.animeb-week-enhanced .animeb-week-token.animeb-outline{
+  color:transparent!important;
+}
+
+
+/* v4.37.2: one shared rose tint for episode titles and More Info values.
+   To tune it yourself, change the HEX below (only this one line). */
+body[data-animeb-theme="dark"],
+body[data-animeb-theme="image"][data-animeb-image-tone="dark"]{
+  --animeb-dark-meta-rose:#e3b9ca;
+}
+
+/* AnimeB v4.37.1 — dark ranking metadata legibility, CSS only.
+   Readability improvements are scoped to DARK modes; Original/Light keep
+   their original ranking text colors. Existing typography is untouched. */
+body[data-animeb-theme="dark"] .ranking-episode-line,
+body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .ranking-episode-line {
+  color:var(--animeb-dark-meta-rose,#e3b9ca) !important;
+}
+body[data-animeb-theme="dark"] .ranking-episode-separator,
+body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .ranking-episode-separator {
+  color:#94aca0 !important;
+}
+body[data-animeb-theme="dark"] .entry .more-info dd,
+body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .entry .more-info dd {
+  color:var(--animeb-dark-meta-rose,#e3b9ca) !important;
+  text-shadow:none !important;
+}
+body[data-animeb-theme="dark"] .entry .more-info dt,
+body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .entry .more-info dt {
+  color:#eef2e9 !important;
+}
+body[data-animeb-theme="dark"] .entry .more-info a,
+body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .entry .more-info a {
+  color:#a7cfe0 !important;
+}
+
+
+/* === AnimeB v4.38 — Weekly Drop Decisions (opt-in: meta.drop_decisions only) === */
+.animeb-kv-dropped { isolation:isolate; }
+.animeb-kv-dropped > img:hover { transform:none; }
+.animeb-drop-visual { position:absolute;inset:0;display:block;pointer-events:none;z-index:3;overflow:hidden;border-radius:2px; }
+.animeb-drop-visual svg {display:block;position:absolute;inset:0;width:100%;height:100%;pointer-events:none;}
+/* Clear the rank/trend top-left and Ep.N bottom-right: sticker belongs at bottom-left. */
+.animeb-kv-dropped .rank-wrapper {z-index:5;}
+.animeb-kv-dropped .title-ep {z-index:5;}
+.animeb-drop-sticker {position:absolute;bottom:17%;left:-6%;display:inline-block;background:#c7283f;color:#fff;
+  font:900 clamp(9px,1.6vw,13px)/1 'Arial Narrow','Anton',Impact,sans-serif;letter-spacing:.055em;
+  padding:.38em .67em .4em;transform:rotate(-13deg);box-shadow:0 2px 5px #0005;white-space:nowrap;
+  text-shadow:0 1px 1px #50101a66;}
+.animeb-dropped-titles {max-width:100%;box-sizing:border-box;margin:22px 0 28px;padding:16px 18px 12px;
+  border:1px solid #dfc4c8;border-radius:14px;background:rgba(255,253,244,.95);color:#393137;
+  box-shadow:0 5px 18px rgba(0,0,0,.06);scroll-margin-top:80px;}
+.animeb-dropped-heading{display:flex;align-items:center;gap:10px;padding-bottom:7px;border-bottom:1px solid #e6d4d4;}
+.animeb-dropped-heading-x{display:grid;place-items:center;border-radius:3px;background:#b43d62;color:white;font:800 1.5rem/1 system-ui;width:28px;height:28px;}
+.animeb-dropped-heading-title{font:800 clamp(1.12rem,2.6vw,1.46rem)/1.15 'Anton',system-ui,sans-serif;letter-spacing:.015em;color:#8c3148;}
+.animeb-dropped-heading-count{margin-left:auto;border-radius:99px;background:#f4dde4;color:#8c3148;padding:2px 11px;font:700 .84rem system-ui;}
+.animeb-dropped-explanation{display:block;margin:9px 0;color:#77636b;font:400 .83rem/1.4 system-ui;}
+.animeb-dropped-card{display:grid;grid-template-columns:88px minmax(0,1fr);gap:12px;align-items:center;padding:13px 3px;border-top:1px solid #eee0e1;scroll-margin-top:80px;}
+.animeb-drop-poster{display:block;position:relative;width:88px;aspect-ratio:4/5;border-radius:4px;overflow:hidden;background:#e5ddd9;box-shadow:0 2px 5px #0002;}
+.animeb-drop-poster img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+.animeb-drop-poster .animeb-drop-sticker{font-size:9px;bottom:14%;left:-5%;}
+.animeb-drop-poster-missing{background:linear-gradient(145deg,#d3d7d2,#9a9b9f);}
+.animeb-drop-poster-missing::before{content:'NO KV';position:absolute;inset:0;display:grid;place-items:center;font:700 .8rem system-ui;letter-spacing:.09em;color:#fff8;}
+.animeb-dropped-copy{min-width:0;}
+.animeb-dropped-name{display:block;font:750 1rem/1.3 system-ui,sans-serif;color:#342d34;overflow-wrap:anywhere;}
+.animeb-dropped-alt-title{display:block;font:700 .79rem/1.3 system-ui;color:#897b7e;margin-top:3px;overflow-wrap:anywhere;}
+.animeb-drop-rating{display:inline-block;margin:6px 0 0;padding:3px 9px;border-radius:99px;font:700 .72rem/1.3 system-ui;}
+.animeb-drop-rating.is-unrated{background:#f7d9e3;color:#9a3b61;}
+.animeb-drop-rating.is-rated{background:#dcece6;color:#376e5e;}
+.animeb-dropped-reason{font:400 .87rem/1.48 system-ui;margin:7px 0 2px;color:#524951;white-space:pre-line;overflow-wrap:anywhere;}
+.animeb-dropped-go{display:inline-block;font:700 .75rem/1.5 system-ui;margin:6px 0 0;color:#97607a;text-decoration:underline;text-underline-offset:3px;}
+.animeb-drop-more-notice{border:1px solid #b35a7f;border-radius:8px;background:rgba(176,63,104,.085);color:#c4769b;
+  margin:8px 0 13px;padding:10px 12px;font:500 .85rem/1.5 system-ui;text-transform:none;}
+.animeb-drop-more-notice strong{display:block;color:#b25a7d;font-weight:800;}
+.animeb-drop-more-notice p{margin:4px 0 0;white-space:pre-line;}
+.animeb-drop-status-header{display:flex;align-items:center;gap:8px;margin:2px 0 10px;}
+.animeb-drop-status-header .ws-modern-group-title{margin-right:auto;}
+.animeb-drop-status-header strong{font:800 1.1rem system-ui;color:#b34b73;}
+.animeb-drop-status-jump{display:grid;place-items:center;width:25px;height:25px;border:1px solid #d2d7cf;border-radius:50%;
+  color:#49736d;background:#f3f7f2;font:700 1.6rem/1 system-ui;text-decoration:none;}
+.animeb-drop-status-thumbs{display:flex;gap:12px;overflow-x:auto;padding:2px 1px 10px;scrollbar-width:thin;}
+.animeb-drop-status-link{display:flex;flex-direction:column;gap:5px;flex:0 0 77px;min-width:0;text-decoration:none;color:inherit;align-items:center;}
+.animeb-drop-poster-mini{width:66px;}
+.animeb-drop-poster-mini .animeb-drop-sticker{font-size:7px;}
+.animeb-drop-status-name{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden;
+  max-width:100%;height:2.7em;text-align:center;font:600 .68rem/1.3 system-ui;overflow-wrap:anywhere;}
+.animeb-entry-dropped{scroll-margin-top:80px;}
+/* Dark is the real theme; the background image remains optional. */
+body[data-animeb-theme='dark'] .animeb-dropped-titles,
+body[data-animeb-image-tone='dark'][data-animeb-theme='image'] .animeb-dropped-titles,
+body.animeb-theme-dark .animeb-dropped-titles{background:#14242beF;border-color:#39515a;color:#f0e8e8;}
+body[data-animeb-theme='dark'] .animeb-dropped-name,
+body[data-animeb-image-tone='dark'][data-animeb-theme='image'] .animeb-dropped-name,
+body.animeb-theme-dark .animeb-dropped-name{color:#f0edef;}
+body[data-animeb-theme='dark'] .animeb-dropped-reason,
+body[data-animeb-image-tone='dark'][data-animeb-theme='image'] .animeb-dropped-reason,
+body.animeb-theme-dark .animeb-dropped-reason{color:#ddc3d1;}
+body[data-animeb-theme='dark'] .animeb-dropped-alt-title,
+body[data-animeb-image-tone='dark'][data-animeb-theme='image'] .animeb-dropped-alt-title,
+body.animeb-theme-dark .animeb-dropped-alt-title{color:#dab5c6;}
+body[data-animeb-theme='dark'] .animeb-dropped-explanation,
+body[data-animeb-image-tone='dark'][data-animeb-theme='image'] .animeb-dropped-explanation,
+body.animeb-theme-dark .animeb-dropped-explanation{color:#d5b8c4;}
+body[data-animeb-theme='dark'] .animeb-dropped-heading-title,
+body[data-animeb-image-tone='dark'][data-animeb-theme='image'] .animeb-dropped-heading-title,
+body.animeb-theme-dark .animeb-dropped-heading-title{color:#eac4d3;}
+@media(max-width:450px){
+  .animeb-dropped-titles{margin:18px 9px 24px;padding:13px 12px;}
+  .animeb-dropped-card{grid-template-columns:76px minmax(0,1fr);gap:9px;}
+  .animeb-drop-poster{width:76px;}
+  .animeb-drop-poster-mini{width:62px;}
+  .animeb-drop-status-link{flex-basis:72px;}
+  .animeb-dropped-name{font-size:.93rem;}
+  .animeb-dropped-reason{font-size:.8rem;}
+  .animeb-kv-dropped .animeb-drop-sticker{font-size:10px;}
+}
+
+/* === v4.38.1 — iPhone feedback polish; keep all v4.38 data/links intact. ===
+   The poster-list X stays at v4.38 strength. Only RANKED posters get
+   a modestly stronger white X, between the faint live v4.38 and the mockup. */
+.animeb-kv-dropped .animeb-drop-visual svg path{
+  stroke:rgba(255,255,255,.60);
+}
+/* The old left:-6% cropped DROPPED inside the overflow-hidden poster.
+   Keep a smaller sticker entirely within the ranked key visual. */
+.animeb-kv-dropped .animeb-drop-sticker{
+  left:9%;bottom:17%;
+  font-size:10px;
+}
+@media(max-width:450px){
+  .animeb-kv-dropped .animeb-drop-sticker{font-size:9px;left:9%;}
+}
+/* In dark themes, restore the familiar light rank corner and ink for 4+.
+   Top 1–3 keep gold/silver/bronze; image badges (Dookie, etc.) keep theirs. */
+body[data-animeb-theme="dark"] .kv-thumb .rank-wrapper:has(.rank-number:not(.rank-number-first):not(.rank-number-second):not(.rank-number-third):not(:has(img))),
+body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .kv-thumb .rank-wrapper:has(.rank-number:not(.rank-number-first):not(.rank-number-second):not(.rank-number-third):not(:has(img))){
+  background:#ffffed;color:#505451;
+}
+body[data-animeb-theme="dark"] .kv-thumb .rank-number:not(.rank-number-first):not(.rank-number-second):not(.rank-number-third):not(:has(img)),
+body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .kv-thumb .rank-number:not(.rank-number-first):not(.rank-number-second):not(.rank-number-third):not(:has(img)){
+  color:#505451;
+}
+/* Bottom line of the 3 Viewing Status metrics: readable but subdued,
+   with a faint cool/green/rose echo of each card's own headline color. */
+body[data-animeb-theme="dark"] .ws-modern-metric-note,
+body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .ws-modern-metric-note{
+  opacity:1;
+}
+body[data-animeb-theme="dark"] .ws-modern-metric-pool .ws-modern-metric-note,
+body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .ws-modern-metric-pool .ws-modern-metric-note{color:#b4cbd6;}
+body[data-animeb-theme="dark"] .ws-modern-metric-lineup .ws-modern-metric-note,
+body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .ws-modern-metric-lineup .ws-modern-metric-note{color:#b8d2c3;}
+body[data-animeb-theme="dark"] .ws-modern-metric-rated .ws-modern-metric-note,
+body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .ws-modern-metric-rated .ws-modern-metric-note{color:#dec3cc;}
+/* Center the status jump chevron geometrically instead of depending on the
+   font glyph › (whose shape sits off-center in iOS fonts). */
+/* Match the 25px Viewing Status toggle badge. The link retains a text glyph
+   for fallback/accessibility, but the visible arrow is positioned absolutely:
+   a 0-size glyph must not become a second grid item and displace the arrow. */
+.animeb-drop-status-jump{
+  position:relative;font-size:0;line-height:0;
+  width:25px;height:25px;flex:0 0 25px;
+  padding:0;box-sizing:border-box;
+}
+.animeb-drop-status-jump::after{
+  content:"";display:block;position:absolute;
+  left:50%;top:50%;width:8px;height:8px;
+  border-right:2px solid currentColor;
+  border-top:2px solid currentColor;
+  border-radius:.5px;
+  transform:translate(-63%,-50%) rotate(45deg);
+}
+/* Secondary title has the same neutral text family as the main title.
+   Body copy keeps only a very slight rose hint rather than solid pink. */
+body[data-animeb-theme="dark"] .animeb-dropped-alt-title,
+body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .animeb-dropped-alt-title,
+body.animeb-theme-dark .animeb-dropped-alt-title{color:#e0e3e3;}
+body[data-animeb-theme="dark"] .animeb-dropped-reason,
+body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .animeb-dropped-reason,
+body.animeb-theme-dark .animeb-dropped-reason{color:#e0d5da;}
+
+
+/* === AnimeB v4.38.2 — centered, clean key-visual viewing ===
+   Ranked posters and the Dropped Titles list open the ORIGINAL image;
+   the original row retains all rank, episode and DROPPED decorations. */
+.kv-thumb.animeb-kv-view-trigger,
+.animeb-drop-poster.animeb-kv-view-trigger{
+  cursor:zoom-in;
+  -webkit-tap-highlight-color:transparent;
+}
+.kv-thumb.animeb-kv-view-trigger:focus-visible,
+.animeb-drop-poster.animeb-kv-view-trigger:focus-visible{
+  outline:3px solid #70b3a9;
+  outline-offset:3px;
+}
+/* Retire legacy 150% inline-hover scaling on iPhone and desktop. */
+.kv-thumb > img,
+.kv-thumb > img:hover{
+  transform:none !important;
+  position:static !important;
+  box-shadow:1px 1.2px 2px rgba(0,0,0,.35);
+  transition:none !important;
+  will-change:auto;
+}
+.animeb-kv-lightbox[hidden]{display:none !important;}
+.animeb-kv-lightbox{
+  position:fixed;
+  inset:0;
+  z-index:2147483000;
+  display:grid;
+  place-items:center;
+  padding:calc(env(safe-area-inset-top,0px) + 10px) 12px calc(env(safe-area-inset-bottom,0px) + 10px);
+  isolation:isolate;
+}
+.animeb-kv-lightbox-backdrop{
+  position:absolute;
+  inset:0;
+  background:rgba(8,16,22,.91);
+  -webkit-backdrop-filter:blur(4px);
+  backdrop-filter:blur(4px);
+}
+.animeb-kv-lightbox-dialog{
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  max-width:100%;
+  max-height:100%;
+  outline:none;
+}
+.animeb-kv-lightbox-figure{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:10px;
+  width:auto;
+  max-width:100%;
+  margin:0;
+}
+.animeb-kv-lightbox-photo{
+  display:block;
+  width:min(90vw,700px);
+  height:auto;
+  max-width:100%;
+  max-height:calc(100vh - 126px);
+  max-height:calc(100dvh - 126px);
+  object-fit:contain;
+  border-radius:5px;
+  box-shadow:0 10px 36px rgba(0,0,0,.55);
+  cursor:zoom-out;
+}
+.animeb-kv-lightbox-caption{
+  font:500 .82rem/1.35 system-ui,sans-serif;
+  color:#f2eae5;
+  max-width:min(90vw,700px);
+  text-align:center;
+  text-shadow:0 1px 2px #000a;
+  overflow-wrap:anywhere;
+}
+.animeb-kv-lightbox-close{
+  position:absolute;
+  z-index:2;
+  top:-12px;
+  right:-12px;
+  display:grid;
+  place-items:center;
+  width:40px;
+  height:40px;
+  padding:0;
+  border:1px solid rgba(255,255,255,.32);
+  border-radius:50%;
+  background:#243238;
+  color:#fff;
+  box-shadow:0 3px 12px #0008;
+  cursor:pointer;
+}
+.animeb-kv-lightbox-close:hover,
+.animeb-kv-lightbox-close:focus-visible{
+  background:#425b63;
+  outline:2px solid #e2edf0;
+  outline-offset:2px;
+}
+@media(max-width:450px){
+  .animeb-kv-lightbox-photo{width:90vw;}
+  .animeb-kv-lightbox-close{right:-3px;top:-17px;width:38px;height:38px;}
+}
+@media(prefers-reduced-motion:reduce){
+  .animeb-kv-lightbox *, .animeb-kv-lightbox *::before,
+  .animeb-kv-lightbox *::after{animation:none !important;transition:none !important;}
+}
+
+/* === v4.40 full ranking reference: optional display only === */
+/* Extra badges: retain their icon, add a small overall rank above the trend. */
+.kv-thumb .rank-number:has(.animeb-extra-reference-rank){display:flex;flex-direction:column;align-items:center;gap:1px;line-height:1;}
+.kv-thumb .animeb-extra-reference-rank{display:block;font:750 .73rem/1 'Antonio','Fira Sans',sans-serif;color:#6b604c;letter-spacing:0;text-shadow:none;white-space:nowrap;}
+.kv-thumb .rank-wrapper:has(.animeb-extra-reference-rank){min-width:49px;padding-bottom:4px;}
+.kv-thumb .rank-wrapper:has(.animeb-extra-reference-rank) .rank-trend{margin-top:2px;}
+@media(max-width:450px){.kv-thumb .animeb-extra-reference-rank{font-size:.69rem;}}
+/* Light rank badges on dark pages must also preserve readable UP/DOWN/STAY text. */
+body[data-animeb-theme="dark"] .kv-thumb .rank-wrapper:has(.rank-number:not(.rank-number-first):not(.rank-number-second):not(.rank-number-third)) .trend-label,
+body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .kv-thumb .rank-wrapper:has(.rank-number:not(.rank-number-first):not(.rank-number-second):not(.rank-number-third)) .trend-label{
+  color:#696c65!important;opacity:1!important;text-shadow:none;
+}
+body[data-animeb-theme="dark"] .kv-thumb .rank-wrapper .animeb-extra-reference-rank,
+body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .kv-thumb .rank-wrapper .animeb-extra-reference-rank{color:#766e5a!important;}
+/* More Info stays subdued but must be legible in both dark schemes. */
+body[data-animeb-theme="dark"] .entry .more-info-toggle,
+body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .entry .more-info-toggle{color:#b5b1b5!important;opacity:1;}
+.animeb-drop-full-rank{display:inline-block;margin:5px 0 0 7px;font:700 .75rem/1.5 system-ui,sans-serif;color:#745d69;white-space:nowrap;}
+body[data-animeb-theme="dark"] .animeb-drop-full-rank,
+body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .animeb-drop-full-rank{color:#d8b9c8;}
+/* Small optional bottom summary — no extra scores breakdown or reviews needed. */
+.animeb-bottom-week{margin:18px 12px 26px;border:1px solid #dcc7be;border-radius:18px;background:rgba(255,252,241,.95);padding:15px;color:#46443e;}
+.animeb-bottom-head{display:flex;align-items:center;gap:10px;border-bottom:1px solid #d8c6bd;padding:0 2px 10px;margin-bottom:5px;}
+.animeb-bottom-heading{font:800 1.12rem/1.3 'Fira Sans','Yu Gothic',system-ui,sans-serif;color:#795467;letter-spacing:.03em;}
+.animeb-bottom-count{margin-left:auto;background:#eddfe4;border-radius:99px;padding:2px 12px;font:800 .9rem system-ui;color:#975c73;}
+.animeb-bottom-item{display:flex;align-items:center;gap:10px;padding:12px 5px;border-bottom:1px solid rgba(147,130,121,.25);min-width:0;}
+.animeb-bottom-item:last-child{border-bottom:0;}
+.animeb-bottom-rank{font:800 1.4rem/1 'Antonio','Fira Sans',sans-serif;color:#96687b;min-width:38px;}
+.animeb-bottom-text{flex:1;min-width:0;font:650 .88rem/1.32 system-ui;overflow-wrap:anywhere;}
+.animeb-bottom-text>strong{display:block;}
+.animeb-bottom-sub{display:block;font-weight:400;font-size:.67rem;opacity:.72;margin-top:2px;}
+.animeb-bottom-score{font:650 .76rem/1.3 system-ui;white-space:nowrap;color:#78676c;}
+body[data-animeb-theme="dark"] .animeb-bottom-week,
+body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .animeb-bottom-week{background:#172a32ed;border-color:#435761;color:#e8e5e6;}
+body[data-animeb-theme="dark"] .animeb-bottom-head,
+body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .animeb-bottom-head{border-color:#4d5860;}
+body[data-animeb-theme="dark"] .animeb-bottom-heading,
+body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .animeb-bottom-heading{color:#e8c5d4;}
+body[data-animeb-theme="dark"] .animeb-bottom-rank,
+body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .animeb-bottom-rank{color:#d6aabb;}
+body[data-animeb-theme="dark"] .animeb-bottom-score,
+body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .animeb-bottom-score{color:#d4c3c6;}
+@media(max-width:450px){
+ .animeb-bottom-week{margin:16px 9px 22px;padding:12px 11px;border-radius:16px;}
+ .animeb-bottom-heading{font-size:1.03rem;}
+ .animeb-bottom-text{font-size:.79rem;}
+ .animeb-bottom-rank{min-width:31px;font-size:1.2rem;}
+ .animeb-bottom-score{font-size:.65rem;}
+}
+
+/* === v4.38.5 — compact Bottom cards, locale-aware ranks, and last-place identity === */
+.animeb-bottom-item{display:grid;grid-template-columns:76px minmax(0,1fr);gap:12px;align-items:start;padding:15px 3px;}
+.animeb-bottom-poster{width:76px;aspect-ratio:4/5;position:relative;display:block;background:#dce0dc;border-radius:5px;overflow:hidden;box-shadow:0 2px 5px #0002;cursor:zoom-in;}
+.animeb-bottom-poster>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+.animeb-bottom-no-poster::before{content:'NO KV';position:absolute;inset:0;display:grid;place-items:center;font:700 .65rem system-ui;color:#57636a;}
+.animeb-bottom-poster:focus-visible{outline:3px solid #b16b85;outline-offset:3px;}
+.animeb-bottom-poster-rank{position:absolute;left:0;top:0;z-index:2;padding:5px 6px;background:rgba(255,255,240,.95);color:#8c6779;border-radius:0 0 7px 0;font:800 .85rem/1.1 'Antonio','Fira Sans',system-ui,sans-serif;}
+.animeb-bottom-last .animeb-bottom-poster-rank{color:#ad3f67;}
+.animeb-bottom-last-sticker{position:absolute;z-index:2;left:4px;top:29px;padding:2px 4px;border-radius:2px;background:#a8365f;color:#fff;font:850 .58rem/1.1 'Fira Sans',system-ui,sans-serif;letter-spacing:.025em;box-shadow:0 1px 2px #0004;}
+.animeb-bottom-episode{position:absolute;z-index:2;right:0;bottom:0;background:#177729;color:#fff;padding:3px 5px;font:700 .64rem/1.1 system-ui;max-width:95%;white-space:nowrap;}
+.animeb-bottom-text{min-width:0;font:600 .87rem/1.35 system-ui,sans-serif;}
+.animeb-bottom-name{display:block;font-weight:780;line-height:1.32;overflow-wrap:anywhere;}
+.animeb-bottom-alt{display:block;font:600 .72rem/1.34 system-ui;margin-top:3px;color:#81757c;overflow-wrap:anywhere;}
+.animeb-bottom-score{margin-top:6px;font-size:.7rem;white-space:normal;}
+.animeb-bottom-comment{margin:8px 0 0;color:#69555e;font:450 .79rem/1.45 system-ui;white-space:pre-line;overflow-wrap:anywhere;}
+body[data-animeb-theme='dark'] .animeb-bottom-comment,
+body[data-animeb-theme='image'][data-animeb-image-tone='dark'] .animeb-bottom-comment{color:#e0cdd4;}
+body[data-animeb-theme='dark'] .animeb-bottom-alt,
+body[data-animeb-theme='image'][data-animeb-image-tone='dark'] .animeb-bottom-alt{color:#d7dadd;}
+.kv-thumb .rank-wrapper:has(.animeb-extra-reference-rank){width:auto;max-width:60px;min-width:48px;box-sizing:border-box;}
+.kv-thumb .animeb-extra-reference-rank{font:760 .64rem/1.15 'Fira Sans','Yu Gothic',system-ui,sans-serif;white-space:nowrap;}
+.kv-thumb .rank-number:has(.animeb-extra-reference-rank){gap:3px;}
+.kv-thumb .animeb-extra-last-label{display:block;width:max-content;max-width:52px;margin:1px auto 0;border-radius:2px;padding:2px 3px;background:#a8365f;color:#fff;font:800 .45rem/1 system-ui;letter-spacing:0;white-space:nowrap;}
+.kv-thumb .rank-wrapper:has(.animeb-extra-last-label){max-width:63px;}
+@media(max-width:450px){
+ .animeb-bottom-item{grid-template-columns:70px minmax(0,1fr);gap:10px;}
+ .animeb-bottom-poster{width:70px;}
+ .animeb-bottom-name{font-size:.82rem;}
+ .animeb-bottom-comment{font-size:.75rem;}
+ .kv-thumb .rank-wrapper:has(.animeb-extra-reference-rank){min-width:46px;max-width:55px;}
+ .kv-thumb .animeb-extra-reference-rank{font-size:.6rem;}
+}
+
+
+/* v4.38.6 — Bottom cards: reader-first typography + accessible details */
+.animeb-bottom-poster{width:88px;}
+.animeb-bottom-item{grid-template-columns:88px minmax(0,1fr);gap:12px;}
+.animeb-bottom-poster-rank{font-weight:650;font-size:.82rem;}
+.animeb-bottom-episode{font-weight:450;font-size:.7rem;}
+.animeb-bottom-last-sticker{left:3px;top:30px;transform:rotate(-8deg);transform-origin:center;font-weight:700;font-size:.54rem;}
+.animeb-bottom-text{font-weight:440;}
+.animeb-bottom-name{font-weight:760;}
+.animeb-bottom-score{color:#57756e;font-weight:650;}
+.animeb-bottom-comment{color:#504e50;font-weight:430;white-space:pre-line;}
+.animeb-bottom-episode-title{color:#777980;font-size:.73rem;line-height:1.43;margin-top:9px;white-space:normal;font-weight:450;}
+.animeb-bottom-details{display:block;max-width:100%;margin:7px 0 0;color:inherit;}
+.animeb-bottom-details summary{list-style:none;cursor:pointer;display:inline-flex;align-items:center;font:650 .69rem/1.3 system-ui,sans-serif;letter-spacing:.035em;color:#8a6960;border-bottom:1px solid currentColor;}
+.animeb-bottom-details summary::-webkit-details-marker{display:none;}
+.animeb-bottom-details summary::after{content:'⌄';margin-left:5px;}
+.animeb-bottom-details[open] summary::after{content:'⌃';}
+.animeb-bottom-actions{margin-top:8px;display:flex;gap:8px 16px;flex-wrap:wrap;align-items:flex-start;}
+.animeb-bottom-details[open]{flex:1 0 100%;}
+.animeb-bottom-details dl{display:grid;grid-template-columns:minmax(100px,32%) 1fr;gap:7px 10px;font:440 .71rem/1.45 system-ui;margin:10px 0;overflow-wrap:anywhere;}
+.animeb-bottom-details dt{font-weight:650;color:#78685c;}
+.animeb-bottom-details dd{margin:0;}
+.animeb-bottom-synopsis,.animeb-bottom-full-review{display:block;font:440 .78rem/1.55 system-ui;white-space:pre-line;margin:10px 0;overflow-wrap:anywhere;}
+body[data-animeb-theme='dark'] .animeb-bottom-comment,
+body[data-animeb-theme='image'][data-animeb-image-tone='dark'] .animeb-bottom-comment{color:#e4e8e7;}
+body[data-animeb-theme='dark'] .animeb-bottom-score,
+body[data-animeb-theme='image'][data-animeb-image-tone='dark'] .animeb-bottom-score{color:#a8c6b7;}
+body[data-animeb-theme='dark'] .animeb-bottom-episode-title,
+body[data-animeb-theme='image'][data-animeb-image-tone='dark'] .animeb-bottom-episode-title{color:#bec7cc;}
+body[data-animeb-theme='dark'] .animeb-bottom-details dt,
+body[data-animeb-theme='image'][data-animeb-image-tone='dark'] .animeb-bottom-details dt{color:#bdcaca;}
+body[data-animeb-theme='dark'] .animeb-bottom-details summary,
+body[data-animeb-theme='image'][data-animeb-image-tone='dark'] .animeb-bottom-details summary{color:#e0bfaa;}
+/* The rank cutout remains light even on dark themes: all ranks 1-3 included. */
+body[data-animeb-theme='dark'] .kv-thumb .rank-wrapper .trend-label,
+body[data-animeb-theme='image'][data-animeb-image-tone='dark'] .kv-thumb .rank-wrapper .trend-label{color:#585652!important;opacity:1!important;text-shadow:none!important;}
+@media(max-width:450px){
+ .animeb-bottom-item{grid-template-columns:82px minmax(0,1fr);gap:11px;}
+ .animeb-bottom-poster{width:82px;}
+ .animeb-bottom-episode-title{font-size:.71rem;}
+ .animeb-bottom-comment{font-size:.76rem;}
+}
+
+/* === AnimeB v4.38.7 — Bottom / Dropped editorial detail, accessibility polish === */
+.animeb-drop-poster .animeb-drop-episode{
+  position:absolute;right:0;bottom:0;z-index:5;background:#177729;color:#fff;
+  font:450 .69rem/1.15 system-ui,sans-serif;padding:3px 5px;
+  max-width:92%;white-space:nowrap;text-shadow:0 1px 1px #08291088;
+}
+/* The Bottom poster episode uses the same compact EP. convention as ranking posters. */
+.animeb-bottom-episode{font-weight:450;}
+/* Language-specific Bottom action typography is scoped to the live language on the section. */
+/* Both image+dark and plain dark themes: brighten note headers and read-more links. */
+body[data-animeb-theme='dark'] .note-mount .animeb-note-jp .note-title,
+body[data-animeb-theme='image'][data-animeb-image-tone='dark'] .note-mount .animeb-note-jp .note-title,
+body[data-animeb-theme='dark'] .note-mount .animeb-note-jp .note-title strong,
+body[data-animeb-theme='image'][data-animeb-image-tone='dark'] .note-mount .animeb-note-jp .note-title strong{color:#d5d7d6!important;opacity:1;}
+body[data-animeb-theme='dark'] .note-mount .detail-toggle,
+body[data-animeb-theme='image'][data-animeb-image-tone='dark'] .note-mount .detail-toggle{color:#aebabb!important;opacity:1;}
+
+.animeb-bottom-week[data-animeb-bottom-lang='en'] .animeb-bottom-details summary{font-weight:500;font-size:.65rem;letter-spacing:.018em;}
+.animeb-bottom-week[data-animeb-bottom-lang='ja'] .animeb-bottom-details summary{font-weight:650;font-size:.69rem;letter-spacing:.035em;}
+
+/* Bottom of the Week — Official Website link */
+.animeb-bottom-details a {
+  color: #27627b;
+  overflow-wrap: anywhere;
+}
+
+/* Dark / Image Dark */
+body[data-animeb-theme="dark"] .animeb-bottom-details a,
+body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .animeb-bottom-details a {
+  color: #a7cfe0 !important;
+}
+
+/* Bottom & Dropped — Match main ranking EP badges */
+
+.animeb-bottom-poster .animeb-bottom-episode,
+.animeb-drop-poster .animeb-drop-episode {
+  font-family: 'Antonio', sans-serif;
+  font-weight: 500;
+  border-top-left-radius: 9px;
+  text-shadow: none;
+}
+/* Prelim selection and Bottom cast: preserve all current site CSS above. */
+.animeb-bottom-details .animeb-weekly-cast{display:grid;grid-template-columns:minmax(0,1fr);gap:.36rem;min-width:0;}
+.animeb-bottom-details .animeb-weekly-cast > div,
+.animeb-bottom-details .animeb-weekly-cast > span{display:block;min-width:0;white-space:normal;overflow-wrap:anywhere;line-height:1.48;}
+.animeb-bottom-details dd{min-width:0;overflow-wrap:anywhere;}
+.animeb-prelim-eliminated .animeb-dropped-heading-title{letter-spacing:.012em;}
+
+
+/* v4.39 — shared viewing status for historical JSON as well as 2026+.
+   The old absolute overlay is replaced by the modern in-flow panel in JS.
+   Above rank cards without hiding them, even when open on mobile. */
+.watch-status-wrapper.ws-modern-wrapper{
+  position:relative; z-index:40; isolation:isolate;
+}
+.ws-modern-details{position:relative;z-index:1;}
+.ws-modern-metric-legacy{
+  background:linear-gradient(165deg,#edf0e9,#e6ebe2);
+  color:#52665b;
+}
+body[data-animeb-theme="dark"] .ws-modern-metric-legacy,
+body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .ws-modern-metric-legacy{
+  background:#344840;color:#d4e6d9;
+}
+body[data-animeb-theme="dark"] .ws-modern-metric-legacy .ws-modern-metric-note,
+body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .ws-modern-metric-legacy .ws-modern-metric-note{color:#cad8ce;}
+
+/* v4.35.12 — scoped improvements: archived Overview + Bottom typography.
+   The archive's own overview stylesheet loads in an isolated ShadowRoot.
+   Do not alter ranking cards, current-week styles or metadata. */
+#overview-container.expanded { max-height:none; overflow:visible; }
+#overview-container .animeb-overview-isolated { display:block; width:100%; min-width:0; }
+@media (max-width:768px) {
+  .overview-section { min-width:0; max-width:100%; padding:0 9px; }
+  #overview-container { max-width:100%; }
+}
+/* An absent weekly comment should not collapse the entire header rhythm. */
+.wrapper.animeb-no-weekly-intro > .sub-header { margin-bottom:clamp(30px,3.5vw,44px); }
+/* Only Bottom/Last More Info, not normal ranked cards. */
+.animeb-bottom-synopsis-section { margin:15px 0 17px; }
+.animeb-bottom-synopsis-heading {
+  display:block; margin:0 0 12px;
+  font:500 .72rem/1.35 'Fira Sans','Hiragino Kaku Gothic ProN','Yu Gothic UI','Noto Sans CJK JP',system-ui,sans-serif;
+  color:#827268; letter-spacing:.018em;
+}
+.animeb-bottom-synopsis-section .animeb-bottom-synopsis {
+  font:400 .75rem/1.67 'Hiragino Kaku Gothic ProN','Yu Gothic UI','Noto Sans CJK JP',system-ui,sans-serif;
+  color:#54514c; margin:0;
+}
+body[data-animeb-theme="dark"] .animeb-bottom-synopsis-heading,
+body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .animeb-bottom-synopsis-heading { color:#c4b2a2; }
+body[data-animeb-theme="dark"] .animeb-bottom-synopsis-section .animeb-bottom-synopsis,
+body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .animeb-bottom-synopsis-section .animeb-bottom-synopsis { color:#e5e4df; }
+@media (max-width:768px) {
+  .animeb-bottom-synopsis-heading { font-size:.79rem; font-weight:550; margin-bottom:12px; }
+  .animeb-bottom-synopsis-section .animeb-bottom-synopsis { font-size:.82rem; line-height:1.67; }
+}
+
+/* AnimeB UI Patch r2 2026-10-28 — stable archival camera, meaning-first Final status. */
+body[data-animeb-theme="image"][data-animeb-image-scope="header"] .wrapper::before,
+body[data-animeb-theme="image"][data-animeb-image-scope="hero"] .wrapper::before {
+  background-position:var(--animeb-image-x,50%) var(--animeb-image-y-fixed,var(--animeb-image-y,40%));
+}
+/* Historical results: distinct documented values, never guessed as Season Pool. */
+.ws-modern-metric-archive-completed{background:linear-gradient(145deg,#e5eee7,#dbe8df);color:#37694e}
+.ws-modern-metric-archive-dropped{background:linear-gradient(145deg,#f3e7df,#eee0d5);color:#815b49}
+.ws-modern-metric-archive-total{background:linear-gradient(145deg,#e8edf1,#e0e9ee);color:#49667a}
+.ws-modern-metric-legacy{background:linear-gradient(145deg,#e9f1e9,#e0eee3);color:#446d55}
+.ws-modern-metrics:empty{display:none}
+/* Final F.WRP explanatory snippets: a warmer inline formula rather than cold grey. */
+body[data-animeb-final-week="true"] .note-mount code {
+  background:#f5efe1;color:#5b554b;border-radius:4px;
+  padding:.12em .33em;-webkit-box-decoration-break:clone;box-decoration-break:clone;
+  overflow-wrap:anywhere;white-space:normal;
+}
+@media(max-width:768px){
+  body[data-animeb-final-week="true"] .note-mount .animeb-note-jp .detail-content p,
+  body[data-animeb-final-week="true"] .note-mount .animeb-note-jp .detail-content > ul{
+    font-size:.95em;line-height:1.74;
+  }
+}
