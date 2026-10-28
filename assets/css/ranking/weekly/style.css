@@ -3592,3 +3592,10 @@ body[data-animeb-final-week="true"] .note-mount code {
   }
 
 }
+
+/* iPhone only — speech bubble alignment */
+@media (max-width: 768px) {
+  .ws-modern-wrapper + .animeb-weekly-intro .animeb-intro-label::before {
+    transform: translateY(2px);
+  }
+}
