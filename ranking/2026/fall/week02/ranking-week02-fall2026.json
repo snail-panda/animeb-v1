@@ -7,23 +7,23 @@
     "status": {
       "watching": 32,
       "droppedThisWeek": 0,
-      "droppedTotal": 1,
+      "droppedTotal": 0,
       "backOnList": 0,
       "noAir": 0,
       "completed": 0,
-      "total": 35,
+      "total": 34,
       "ratedThisWeek": 32,
       "currentLineup": 32,
-      "seasonPool": 35,
+      "seasonPool": 34,
       "addedThisWeek": 0,
       "seasonHalted": 0,
       "droppedThisWeekUnrated": 0,
-      "initialSeasonPool": 35,
+      "initialSeasonPool": 34,
       "notAiredYet": 2,
       "startedAiringThisWeek": 2
     },
     "weekly_intro": {
-      "en": "After being completely overwhelmed by the sheer number of shows during the prelim round and Week 1, things have finally started to settle down a bit as we head into <strong>Week 2</strong> of the <strong>Fall 2026 season</strong>. It feels like we’re hitting the reset button here—time to catch our breath and really dig in.\n\nQuite unlike usual seasons, this season is NOT packed with so much buzzworthy titles, but lots of returning series. So then, how did things shake out in <strong>Week 2</strong>? Let’s take a look.\n\nThat said, this week marks the beginning of the true competition. From here on out, each episode will be judged week by week — and compared directly against its peers within the same 7-day window.\n\nWith that, let’s take a look at how things stood in this first week of the main round.",
+      "en": "After being completely overwhelmed by the sheer number of shows during the prelim round and Week 1, things have finally started to settle down a bit as we head into <strong>Week 2</strong> of the <strong>Fall 2026 season</strong>. It feels like we’re hitting the reset button here—time to catch our breath and really dig in.\n\nQuite unlike usual seasons, this season is NOT packed with so many buzzworthy titles, but lots of returning series.\n\nIn a way, <strong>Week 2</strong> is where the real weekly rankings begin for me. The Prelim covered two weeks, and Week 1 was still something of an extension of that process. But from here on out, I'll be ranking each episode strictly within its own <strong>seven-day window</strong>, comparing it directly against everything else I watched that week.\n\nSo, how did things shake out this time? Let's take a look!",
       "ja": "プレリム期間と第１週目では、いつも通り、対象(候補)作品数の多さに完全に圧倒されてしまいましたが、<strong>２０２６年秋アニメ</strong>シーズンも<strong>第２週</strong>に入り、ようやく少し落ち着きを取り戻しつつあります。ここで一旦リセット。深呼吸して、改めてじっくり向き合っていきたいところです。\n\nとはいえ、今季はシーズン前から史上稀に見る<strong>大不作</strong>と言われ、めぼしい大作・話題作にも事欠き、その代わり続編がひしめいているといったカオスな状態となっています。そんな中、<strong>第２週</strong>は一体どうなったのでしょうか？では、ランキングをご覧遊ばせ！"
     },
     "presentation": {
@@ -62,11 +62,11 @@
           },
           "wrp_breakdown": {
             "base_score": 5,
-            "animation": 0.5,
-            "script": 0.3,
-            "direction": 0.3,
-            "charm": 0.2,
-            "overall": -1.5
+            "animation": 0.65,
+            "script": 0.2,
+            "direction": 0.2,
+            "charm": 0.15,
+            "overall": -1.7
           },
           "romanized_title": "Tsuihou sareta Cheat Fuyo Majutsushi wa Kimama na Second Life wo Ouka suru. Ore wa Buki dake ja Naku, Arayuru Mono ni \"Kyouka Point\" wo Fuyo Dekiru shi, Ore no Ishi de Itsudemo Kouka wo Kaijo Dekiru kedo, Nokotta Hitotachi Daijoubu?",
           "release_date": "10/6/2026",
@@ -119,11 +119,11 @@
           },
           "wrp_breakdown": {
             "base_score": 5,
-            "animation": 0.5,
-            "script": 0.3,
-            "direction": 0.3,
-            "charm": 0.2,
-            "overall": -1.5
+            "animation": 0.6,
+            "script": 0.4,
+            "direction": 0.4,
+            "charm": 0.1,
+            "overall": -1.7
           },
           "romanized_title": "Tantei wa Mou, Shindeiru. Season 2",
           "release_date": "10/7/2026",
@@ -174,10 +174,10 @@
           },
           "wrp_breakdown": {
             "base_score": 5,
-            "animation": 0.5,
-            "script": 0.3,
-            "direction": 0.3,
-            "charm": 0.2,
+            "animation": 0.6,
+            "script": 0.4,
+            "direction": 0.35,
+            "charm": 0.15,
             "overall": -1.5
           },
           "romanized_title": "Shiotaiou no Satou-san ga Ore ni dake Amai",
@@ -668,7 +668,7 @@
         "episode": "2",
         "mode": "rated",
         "reason": {
-          "en": "",
+          "en": "This anime's already dead—kidding! (Maybe not!)\n\nAfter five years away, who even remembers the characters or what happened in the story? To be honest, who's been waiting for this sequel? Absolutely not me! I didn't even like the first season, which was already a total train wreck. So, this is a definite goodbye!",
           "ja": "いや、マジで無理。っていうか覚えてないし、思い出したくもないし…。"
         }
       },
@@ -757,7 +757,7 @@
       "score": 9,
       "review": {
         "en": "<strong>Episode #3: Pool Cleaning in Swimsuits! / Good for You!</strong>\n<p>\"Every segment delivers effortlessly, every character gets a chance to shine, and this might just be my favorite show of the season! Personally, the suppository and the missing panties were the highlights.\"</p>\n<p>Man, this is hilarious. Absolutely no complaints. The study session for the upcoming exams was genuinely enjoyable, the pool-cleaning segment was just as good, and the whole suppository exchange during the sick visit was comedy gold—especially the way they framed that scene! Then we got the introduction of yet another familiar trope, the older sister who's hopelessly obsessed with her little brother, but even that worked beautifully. The way it all played out, right down to the missing panties at the end, was fantastic.<br><br>Seriously, this show is something else. Every single character is wonderfully entertaining in their own way, and it's just an absolute joy to watch. Come to think of it, there might only be three shows this season that genuinely make me think, \"I can't wait to watch the next episode!\"—this one, *The Apothecary Diaries*, and *The Fragrant Flower Blooms with Dignity*. Damn, that's kind of crazy...</p>",
-        "jp": "第3話: プール掃除で水着回!/よかったな!\n<p>『いや、面白い。文句なし。定期試験の勉強サポートも、プール掃除も普通によかったし、お見舞いの座薬のやり取りも角度も最高、そして弟溺愛の姉というありきたりなキャラ登場だったが、その流れも締めのパンツがなくなるのもよかった。素晴らしいな・・・。全員見事に魅力的だし、見ていて楽しいし、今期見たい!と思える作品ってコレと「薬屋のひとりごと」、「氷の城壁」位しかないかも・・・ヤバ。』</p>"
+        "jp": "第3話: プール掃除で水着回!/よかったな!\n<p>\"どの話も卒無く面白い、全キャラ光ってるし今期一かも？個人的には座薬とパンツがよかった\"</p>\n<p>『いや、面白い。文句なし。定期試験の勉強サポートも、プール掃除も普通によかったし、お見舞いの座薬のやり取りも角度も最高、そして弟溺愛の姉というありきたりなキャラ登場だったが、その流れも締めのパンツがなくなるのもよかった。素晴らしいな・・・。全員見事に魅力的だし、見ていて楽しいし、今期見たい!と思える作品ってコレと「薬屋のひとりごと」、「氷の城壁」位しかないかも・・・ヤバ。』</p>"
       },
       "wrp_breakdown": {
         "base_score": 5,
@@ -1380,11 +1380,11 @@
       },
       "wrp_breakdown": {
         "base_score": 5,
-        "animation": 0.5,
-        "script": 0.3,
-        "direction": 0.3,
-        "charm": 0.2,
-        "overall": -1.5
+        "animation": 0.65,
+        "script": 0.2,
+        "direction": 0.2,
+        "charm": 0.15,
+        "overall": -1.7
       },
       "romanized_title": "Tsuihou sareta Cheat Fuyo Majutsushi wa Kimama na Second Life wo Ouka suru. Ore wa Buki dake ja Naku, Arayuru Mono ni \"Kyouka Point\" wo Fuyo Dekiru shi, Ore no Ishi de Itsudemo Kouka wo Kaijo Dekiru kedo, Nokotta Hitotachi Daijoubu?",
       "release_date": "10/6/2026",
