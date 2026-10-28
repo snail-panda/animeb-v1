@@ -6,25 +6,25 @@
     "ep_range": "ep.1-2",
     "status": {
       "watching": 30,
-      "droppedThisWeek": 1,
-      "droppedTotal": 1,
+      "droppedThisWeek": 0,
+      "droppedTotal": 0,
       "backOnList": 0,
       "noAir": 0,
       "completed": 0,
-      "total": 35,
+      "total": 34,
       "ratedThisWeek": 30,
       "currentLineup": 30,
-      "seasonPool": 35,
+      "seasonPool": 34,
       "addedThisWeek": 0,
       "seasonHalted": 0,
       "droppedThisWeekUnrated": 0,
-      "initialSeasonPool": 35,
+      "initialSeasonPool": 34,
       "notAiredYet": 4,
       "startedAiringThisWeek": 13
     },
     "weekly_intro": {
-      "en": "The main phase of the season has officially begun — welcome to <strong>Week 1</strong> of the Weekly Rankings.\n\nBack in the Preliminary Round, I started with <strong>35 titles</strong>. After some tough decisions, I’ve narrowed them down to a tighter list of <strong>30 shows</strong> going forward.\n\nSince many of the titles in this round were already evaluated during the Prelim, I won’t be going over the same impressions in detail here. Most of what needed to be said has already been shared there.\n\nThat said, this week marks the beginning of the true competition. From here on out, each episode will be judged week by week — and compared directly against its peers within the same 7-day window.\n\nWith that, let’s take a look at how things stood in this <strong>first week</strong> of the <strong>main round</strong>.",
-      "ja": "いよいよ本選がスタート！\n\nプレリムでの<strong>35本</strong>から本戦では視聴数を<strong>30作品</strong>に絞り込みました。また、今回のランキングは、プレリムと感想や評価が被る所も多少あり、全体の所感も概ね同様ですが、厳密には対象の放送週が異なっています。\nというわけで、今後の本戦では各話を毎週ごとに評価し、同じ週に放送された作品同士で比較していく形になります。プレリミナリ・ランキングがもし未見であれば、そちらで語っている作品については、こちらでは省略している場合もありますので、是非チェックしてみてください。\n\nそれでは、今週のランキングをどうぞ！"
+      "en": "The main phase of the season has officially begun — welcome to <strong>Week 1</strong> of the Weekly Rankings.\n\nBack in the Preliminary Round, I evaluated <strong>38 titles</strong>. Eight were eliminated, leaving <strong>30 shows</strong> to advance to the main round. Four previously selected titles that had not yet aired brought the initial <strong>Season Pool to 34</strong>.\n\nSince many of the titles in this round were already evaluated during the Prelim, I won’t be going over the same impressions in detail here. Most of what needed to be said has already been shared there.\n\nThat said, this week marks the beginning of the true competition. From here on out, each episode will be judged week by week — and compared directly against its peers within the same 7-day window.\n\nWith that, let’s take a look at how things stood in this <strong>first week</strong> of the <strong>main round</strong>.",
+      "ja": "いよいよ本選がスタート！\n\nプレリムで評価した<strong>38作品</strong>から<strong>8作品</strong>が選考落ちし、<strong>30作品</strong>が本戦に進出しました。これに放送前から選定していた<strong>4作品</strong>を加え、開始時の<strong>Season Poolは34作品</strong>となります。また、今回のランキングは、プレリムと感想や評価が被る所も多少あり、全体の所感も概ね同様ですが、厳密には対象の放送週が異なっています。\nというわけで、今後の本戦では各話を毎週ごとに評価し、同じ週に放送された作品同士で比較していく形になります。プレリミナリ・ランキングがもし未見であれば、そちらで語っている作品については、こちらでは省略している場合もありますので、是非チェックしてみてください。\n\nそれでは、今週のランキングをどうぞ！"
     },
     "presentation": {
       "header": {
@@ -910,8 +910,8 @@
       "wrp_score": 8.4,
       "score": 8,
       "review": {
-        "en": "<strong>Episode #2: Start of the Fortress Capture</strong>\n<p>\"Hey, this is pretty good!\"</p>\n<p>I think this is pretty good overall. The MC has a distinct presence, almost like a cross between Saber and Violet Evergarden, and the production quality is consistently high. But there's something that bothers me: it feels as though everything has been conveniently placed exactly where the plot needs it to be. We start with the protagonist already engaged to a prince and the story picking up just before the Demon Lord's defeat. Sure, I can tell she's supposed to be exceptionally capable, but how did she become powerful enough to be part of a frontline party taking on the Demon Lord—presumably one of the most formidable beings in this world? And why was she even there in the first place? We have practically no idea.<br><br>Then there's the place they arrive at in this episode. The local lord is simply established as a complete asshole, and among the soldiers, there's apparently some guy who already hates the MC for whatever reason—and naturally, he's one of their leaders. Meanwhile, the MC keeps demonstrating just how competent she is at every opportunity. It almost feels like nearly everything that should be sparking my curiosity or drawing me into the story has instead been reduced to a pre-established condition or a convenient piece of backstory, without actually showing us the things that would make those elements compelling in the first place.<br><br>Right after watching the episode, I thought,  But after letting it sink in for a while, I started having second thoughts. Wait a minute... Something feels off here. Am I just being dazzled by the production quality? Still, there's no denying that it's a well-crafted show with genuine appeal, so I'm sticking with this rating for now. Let's see where it goes from here.</p>",
-        "jp": "第2話: 砦攻略開始\n<p>\"魔王\"</p>\n<p>『なかなかいいと思う。MCもちょっとセイバーとヴァイオレット（エヴァーガーデン）を足して2で割ったようでたってるし、全体的なクオリティも高いし。ただ全てがプロットのためにそこにおいてあるかのように感じる。主人公と王子の婚約状態と、魔王討伐直前からのスタート。MCが優秀らしいのは分かるが、何故という恐らく最強?レベルのものを討伐する最前線のパーティにまでいられる実力があるのか、どんな理由でそこにいたのか?もまるでわからない。今回来た場所でも、領主が前提としてクソ、そして兵隊の中に前提としてMCを憎んでる?やつがいてそいつがリーダー格。MCはそこかしこで優秀さを見せる・・・・。基本、意欲を掻き立てるものはほぼ全て、見せておくべきものを見せてないで、前提条件、設定にしてしまっているだけ?という気もしてしまう。視聴直後はいいねぇと思ったけど、少し時間が立つと、いや・・・待てよ・・・なんかなぁ・・・クオリティに騙されてないか?と思い始めてしまう。ただ、それでもしっかりと作られているし、魅力もあるのは確かなので今のところはこの評価。今後に期待。』</p>"
+        "en": "<strong>Episode #2: Start of the Fortress Capture</strong>\n<p>I think this is pretty good overall. The MC has a distinct presence,   almost like a cross between Saber and Violet Evergarden, and the production   quality is consistently high. But there's something that bothers me: it feels   as though everything has been conveniently placed exactly where the plot   needs it to be. We start with the protagonist already engaged to a prince and   the story picking up just before the Demon Lord's defeat. Sure, I can tell   she's supposed to be exceptionally capable, but how did she become powerful   enough to be part of a frontline party taking on the Demon Lord—presumably   one of the most formidable beings in this world? And why was she even there   in the first place? We have practically no idea.<br><br>Then there's the place they arrive at in this episode. The local lord is   simply established as a complete asshole, and among the soldiers, there's   apparently some guy who already hates the MC for whatever reason—and   naturally, he's one of their leaders. Meanwhile, the MC keeps demonstrating   just how competent she is at every opportunity. It almost feels like nearly   everything that should be sparking my curiosity or drawing me into the story   has instead been reduced to a pre-established condition or a convenient piece   of backstory, without actually showing us the things that would make those   elements compelling in the first place.<br><br>Right after watching the episode, I thought, \"Hey, this is pretty   good!\" But after letting it sink in for a while, I started having second   thoughts. Wait a minute... Something feels off here. Am I just being dazzled   by the production quality? Still, there's no denying that it's a well-crafted   show with genuine appeal, so I'm sticking with this rating for now. Let's see   where it goes from here.</p>",
+        "jp": "第2話: 砦攻略開始\n<p>なかなかいいと思う。MCもちょっとセイバーとヴァイオレット（エヴァーガーデン）を足して2で割ったようでたってるし、全体的なクオリティも高いし。ただ全てがプロットのためにそこにおいてあるかのように感じる。主人公と王子の婚約状態と、魔王討伐直前からのスタート。MCが優秀らしいのは分かるが、何故\"魔王\"という恐らく最強?レベルのものを討伐する最前線のパーティにまでいられる実力があるのか、どんな理由でそこにいたのか?もまるでわからない。今回来た場所でも、領主が前提としてクソ、そして兵隊の中に前提としてMCを憎んでる?やつがいてそいつがリーダー格。MCはそこかしこで優秀さを見せる・・・・。基本、意欲を掻き立てるものはほぼ全て、見せておくべきものを見せてないで、前提条件、設定にしてしまっているだけ?という気もしてしまう。視聴直後はいいねぇと思ったけど、少し時間が立つと、いや・・・待てよ・・・なんかなぁ・・・クオリティに騙されてないか?と思い始めてしまう。ただ、それでもしっかりと作られているし、魅力もあるのは確かなので今のところはこの評価。今後に期待。</p>"
       },
       "wrp_breakdown": {
         "base_score": 5,
@@ -1079,7 +1079,7 @@
       "wrp_score": 8,
       "score": 8,
       "review": {
-        "en": "<strong>Episode #1: The Birth of the Legendary Magic Knights!</strong>\n<p>\"Oh, come on...\"</p>\n<p>That was pretty good! You can tell they put a lot of effort into it, and it strikes a nice balance between old-school charm and something fresh. The nostalgic character designs and overall atmosphere feel like they've been given a real upgrade in quality, which I really appreciate. What's especially impressive is how the whole thing manages to be completely over-the-top without ever making me go,  There's this strange, hard-to-explain sense of conviction that somehow makes it all work. I simply had a great time watching it. It was genuinely entertaining. Though, to be fair, I still have absolutely no idea what the hell is going on...</p>",
+        "en": "<strong>Episode #1: The Birth of the Legendary Magic Knights!</strong>\n<p>That was pretty good! You can tell they put a lot of effort into it, and   it strikes a nice balance between old-school charm and something fresh. The   nostalgic character designs and overall atmosphere feel like they've been   given a real upgrade in quality, which I really appreciate. What's especially   impressive is how the whole thing manages to be completely over-the-top   without ever making me go, \"Oh, come on...\" There's this strange,   hard-to-explain sense of conviction that somehow makes it all work. I simply   had a great time watching it. It was genuinely entertaining. Though, to be   fair, I still have absolutely no idea what the hell is going on...</p>",
         "jp": "第1話: 伝説の魔法騎士（マジックナイト）始動\n<p>『なかなか良かった。かなり気合はいってたし、ふるさと新しさをいい感じのバランスで見せていた。哀愁のデザインと雰囲気がクオリティアップしている感じでいいと思えた。ぶっ飛んでいるのにおいおい・・・とはならないよくわからない説得力が素晴らしい。単純に楽しめたし面白い。まぁそれでもナンノコッチャなんですけど・・・。』</p>"
       },
       "wrp_breakdown": {
@@ -1191,7 +1191,7 @@
       "wrp_score": 6.5,
       "score": 6,
       "review": {
-        "en": "<strong>Episode #1: To See You Once More</strong>\n<p>\"Well, then let's not make the anime—or the sequel—at all!\"</p>\n<p>This was painfully boring. Who's who again? I don't remember a damn thing. What exactly do the people behind this show think viewers are looking for? And what are we even supposed to be curious about? I couldn't care less about any of these characters, what happened to them, or what we're supposedly going to find out next. Tague... please, just put this thing out of its misery. The original was already terrible, and now you're bringing it back after what, five years? If you're going to make a sequel, at least do it while people still remember the damn story! Otherwise, nobody's going to watch it. Honestly, it was so awful that it almost made me wish we lived in a world where the response to that would simply be,</p>",
+        "en": "<strong>Episode #1: To See You Once More</strong>\n<p>This was painfully boring. Who's who again? I don't remember a damn thing.   What exactly do the people behind this show think viewers are looking for?   And what are we even supposed to be curious about? I couldn't care less about   any of these characters, what happened to them, or what we're supposedly   going to find out next. Tague... please, just put this thing out of its   misery. The original was already terrible, and now you're bringing it back   after what, five years? If you're going to make a sequel, at least do it   while people still remember the damn story! Otherwise, nobody's going to   watch it. Honestly, it was so awful that it almost made me wish we lived in a   world where the response to that would simply be, \"Well, then let's not   make the anime—or the sequel—at all!\"</p>",
         "jp": "第1話: もう一度、君に会うために\n<p>『非常につまらない。誰が誰?何も覚えてもいない。制作は、視聴者がこの作品に何を求めていると思っているのだろう?そして、人は何を知りたくて見るのだろう?どのキャラにも、何があったのかも、何がこのあと分かるのか?のにも興味も持てない。たぐえんよ・・・切ってくれ。もともと酷い作品だったのに…5年?も空けてさ、続きやるなら、せめて覚えてるうちにやれよ。そうじゃなきゃ誰も見ない…、じゃあアニメ化、続編制作もやめよう!という世の中だったらいいのに…とすら思うほど酷かったという話。』</p>"
       },
       "wrp_breakdown": {
@@ -1246,7 +1246,7 @@
       "wrp_score": 6.15,
       "score": 6,
       "review": {
-        "en": "<strong>Episode #1: The Cold Sato-San</strong>\n<p>\"please entertain me with how awful you are\"</p>\n<p>Wait, what? That was her first love?! Oh, come on... The MC is the son of a guy who runs this ridiculously stylish café, and his dad is an absolute mountain of muscle. Then there's the whole thing with him giving her konpeito candy while sitting next to her during the entrance exam. There's no way she'd forget something like that! And that photo is so absurdly blurry... It's all just so stupid. And of course, there's Miku Ito, too... This is terrible. Absolutely terrible. Looks like this one's going straight into my  category. Oh, and has Tezuka Productions actually stepped up its animation quality a bit?</p>",
+        "en": "<strong>Episode #1: The Cold Sato-San</strong>\n<p>Wait, what? That was her first love?! Oh, come on... The MC is the son of   a guy who runs this ridiculously stylish café, and his dad is an absolute   mountain of muscle. Then there's the whole thing with him giving her konpeito   candy while sitting next to her during the entrance exam. There's no way   she'd forget something like that! And that photo is so absurdly blurry...   It's all just so stupid. And of course, there's Miku Ito, too... This is   terrible. Absolutely terrible. Looks like this one's going straight into my   \"please entertain me with how awful you are\" category. Oh, and has   Tezuka Productions actually stepped up its animation quality a bit?</p>",
         "jp": "第1話: 塩対応の佐藤さん\n<p>『えっ?初恋だったの?もうさ・・・MC凄いおしゃれなカフェの息子で、父親超マッチョなデカい筋肉の塊だし・・・入学試験隣で金平糖あげてるし、そんなの忘れるわけないし、写真がぶれすぎだし・・・あほくさいし・・・伊藤美来だし・・・。酷い。酷さで楽しませてください枠ですね。手塚アニメーションはちょっと作画レベル上がったの?』</p>"
       },
       "wrp_breakdown": {
