@@ -3570,3 +3570,10 @@ body[data-animeb-final-week="true"] .note-mount code {
     font-size: 12.5px;
   }
 }
+
+/* Japanese ONLY: 今週のひと言 — desktop +4% */
+@media (min-width: 769px) {
+  body[data-animeb-lang="ja"] .ws-modern-wrapper + .animeb-weekly-intro .animeb-intro-label {
+    font-size: 12.5px;
+  }
+}
