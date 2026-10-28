@@ -3620,5 +3620,5 @@ body[data-animeb-final-week="true"] .note-mount code {
 /* Dark mode: MORE INFO button text */
 body[data-animeb-theme="dark"] .entry .collapse-btn,
 body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .entry .collapse-btn {
-  color: #f7e4ed !important;
+  color: #F5D7E4 !important;
 }
