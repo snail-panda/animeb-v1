@@ -1099,6 +1099,14 @@ function animebMountRankingCoverage(status, publishedCount, weekLabel) {
   const legacyWatching=getCount(status?.watching);
   const legacyTotal=getCount(status?.total);
   const completed=getCount(status?.completed);
+  const isPrelim=/prelim/i.test(String(weekLabel||''));
+  // Only explicitly present v2 counters trigger the new vocabulary. Archived
+  // JSON from earlier seasons (and currently published old-format weeks) retain
+  // their original meanings and display, with no fabricated values.
+  const hasNewDropCounts=getCount(status?.droppedLastWeek)!==null ||
+    getCount(status?.decidedToDropThisWeek)!==null;
+  const hasNewPrelimCounts=isPrelim && (getCount(status?.eliminatedInPrelim)!==null ||
+    getCount(status?.eliminatedTotal)!==null);
   // Final rankings summarize a completed season. A historical Watching field
   // (sometimes 0, sometimes another archival value) is NOT an active lineup.
   const isLegacyFinal=rated===null && lineup===null && /\bfinal\b/i.test(String(weekLabel||''));
@@ -1189,7 +1197,11 @@ function animebMountRankingCoverage(status, publishedCount, weekLabel) {
     seasonHalted: ['No further episodes are planned for this season because broadcasting was halted, deferred or canceled. Ordinary completion is not included.', '今期の続きが中断・延期・中止され、今期中の続話放送がなくなった作品。通常の完結は含みません。'],
     dropped: ['This week’s exclusion count reflects decisions made in the previous week. Those titles are no longer in the current lineup.', '今週から対象外になった作品数。基本的に前週の判断が今週の対象数に反映されます。'],
     unrated: ['Titles dropped during this week without receiving a ranking score, whether watched or not. They leave next week’s lineup; this is not necessarily included in this week’s exclusion count.', '今週、ランキング評価を付けずに対象外と決めた作品数。視聴したかどうかは問いません。原則として翌週から対象外になります。'],
-    back: ['This legacy count may combine a return after a broadcast break and the restoration of a previously dropped title.', '従来の混合集計です。放送休止からの復帰と、過去に対象外とした作品の再採用が含まれる場合があります。']
+    back: ['This legacy count may combine a return after a broadcast break and the restoration of a previously dropped title.', '従来の混合集計です。放送休止からの復帰と、過去に対象外とした作品の再採用が含まれる場合があります。'],
+    droppedLastWeek: ['Decisions made last week that are reflected in this week’s lineup as exclusions.', '先週除外を決め、今週からランキング対象外になった作品数です。'],
+    decidedToDropThisWeek: ['Titles decided for removal this week, whether viewed or scored or not. Their exclusion affects next week’s lineup. The unrated counter is separate and may be a subset.', '今週、次週からの対象外を決めた作品数。視聴・採点の有無は問いません。未評価での除外は別項目であり、この数の内数となる場合があります。'],
+    droppedTotalNew: ['Cumulative exclusions through LAST week; decisions made this week are not included.', '先週までに対象外になった作品の累計。今週の除外決定は含みません。'],
+    eliminatedInPrelim: ['Titles eliminated in the preliminary selection. These are not regular-season drops.', 'プレリム選考で本戦進出を逃した作品数。本戦の視聴中止には含めません。']
   };
   const helpButton=(en,ja,cls='ws-modern-info')=>{
     const btn=document.createElement('button');btn.type='button';btn.className=cls;
@@ -1201,7 +1213,11 @@ function animebMountRankingCoverage(status, publishedCount, weekLabel) {
   helpTrigger.classList.add('ws-modern-help-toggle');helpTrigger.setAttribute('aria-expanded','false');
   helpBar.append(text('How to read these figures','この数値について','ws-modern-help-caption'),helpTrigger);
   const helpContent=document.createElement('div');helpContent.className='ws-modern-glossary';helpContent.hidden=true;
-  const modernGlossaryNames={rated:['Rated This Week','今週の評価作品'],lineup:['Current Lineup','継続評価対象'],pool:['Season Pool','シーズン候補総数'],dropped:['Dropped This Week','今週からの対象外'],unrated:['Dropped (Unrated)','未評価での視聴中止'],seasonHalted:['Season Halted','シーズン中断'],back:['Back on List','復帰']};
+  const modernGlossaryNames={rated:['Rated This Week','今週の評価作品'],lineup:['Current Lineup','継続評価対象'],pool:['Season Pool','シーズン候補総数'],dropped:['Dropped This Week','今週からの対象外'],unrated:['Dropped (Unrated)','未評価での視聴中止'],seasonHalted:['Season Halted','シーズン中断'],back:['Back on List','復帰'],
+    droppedLastWeek:['Dropped Last Week','先週決定・今週から対象外'],
+    decidedToDropThisWeek:['Decided to Drop This Week','今週の除外決定'],
+    droppedTotalNew:['Dropped Total','先週までの除外累計'],
+    eliminatedInPrelim:['Eliminated in Prelim','プレリム選考落ち']};
   const archiveGlossary={
     watching: [['Watching (legacy)','視聴中（旧記録）'],['The original Watching counter, recorded under the older system. It is not a modern Current Lineup.', '旧形式で記録したWatching。新しい「継続評価対象」とは同一視しません。']],
     total: [['Recorded Total','旧記録の合計'],['Historical total stored in this week’s JSON. It is not automatically the modern Season Pool.', '当時のJSONに記録された合計。新しいSeason Poolと同一とは限りません。']],
@@ -1214,10 +1230,16 @@ function animebMountRankingCoverage(status, publishedCount, weekLabel) {
   const isOldFormat=rated===null && lineup===null;
   const glossaryKeys=isOldFormat
     ? ['watching','completed','droppedTotal','total',...(!isLegacyFinal?['noAir','droppedThisWeek','backOnList']:[])]
-    : ['rated','lineup','pool','dropped','unrated','seasonHalted','back'];
+    : hasNewPrelimCounts
+      ? ['rated','lineup','pool','eliminatedInPrelim','seasonHalted','back']
+      : hasNewDropCounts
+        ? ['rated','lineup','pool','droppedLastWeek','decidedToDropThisWeek','droppedTotalNew','unrated','seasonHalted','back']
+        : ['rated','lineup','pool','dropped','unrated','seasonHalted','back'];
   for(const key of glossaryKeys){
     if(isOldFormat && getCount(status?.[key])===null)continue;
-    const [name,definition]=isOldFormat?archiveGlossary[key]:[modernGlossaryNames[key],glossary[key]];
+    if(key==='eliminatedInPrelim' && getCount(status?.eliminatedInPrelim)===null)continue;
+    const [name,definition]=isOldFormat?archiveGlossary[key]:[modernGlossaryNames[key],
+      key==='droppedTotalNew'?glossary.droppedTotalNew:glossary[key]];
     const p=document.createElement('p');p.className='ws-modern-glossary-entry';
     const b=document.createElement('b');b.append(text(...name));
     p.append(b,text(...definition));helpContent.append(p);
@@ -1241,6 +1263,10 @@ function animebMountRankingCoverage(status, publishedCount, weekLabel) {
     seasonHalted:glossary.seasonHalted,
     droppedThisWeekUnrated:glossary.unrated,
     droppedThisWeek:glossary.dropped,
+    droppedLastWeek:glossary.droppedLastWeek,
+    decidedToDropThisWeek:glossary.decidedToDropThisWeek,
+    eliminatedInPrelim:glossary.eliminatedInPrelim,
+    droppedTotal:hasNewDropCounts?glossary.droppedTotalNew:null,
     backOnList:glossary.back
   };
   const group=(headingEn, headingJa, rows) => {
@@ -1284,13 +1310,22 @@ function animebMountRankingCoverage(status, publishedCount, weekLabel) {
     ['noAir','No Episode This Week','今週放送なし','icon-noair'],
     ['notAiredYet','Not Aired Yet','未放送（開始前）','icon-notairedyet'],
     ['addedThisWeek','Added to Pool','今週新規追加','ws-glyph-added'],
-    ['droppedThisWeek','Dropped This Week','今週の視聴中止','icon-drop'],
-    ['droppedThisWeekUnrated','Dropped (Unrated)','未評価で視聴中止','ws-glyph-unrated'],
+    ...(hasNewPrelimCounts ? [
+      ['eliminatedInPrelim','Eliminated in Prelim','プレリム選考落ち','icon-drop']
+    ] : hasNewDropCounts ? [
+      ['droppedLastWeek','Dropped Last Week','先週決定・今週から対象外','icon-drop'],
+      ['decidedToDropThisWeek','Decided to Drop This Week','今週の除外決定','icon-trash']
+    ] : [
+      ['droppedThisWeek','Dropped This Week','今週の視聴中止','icon-drop']
+    ]),
+    ...(!hasNewPrelimCounts ? [['droppedThisWeekUnrated','Dropped (Unrated)','未評価で視聴中止','ws-glyph-unrated']] : []),
     ['seasonHalted','Season Halted','シーズン中断','ws-glyph-halted']
   ]);
   if(!isLegacyFinal) group('SEASON · HISTORY','シーズン・累計',[
     ['completed','Completed (recorded)','完走作品（旧記録）','icon-completed'],
-    ['droppedTotal','Total Dropped','視聴中止累計','icon-trash'],
+    ...(hasNewPrelimCounts?[]:[
+      ['droppedTotal',hasNewDropCounts?'Dropped Total':'Total Dropped',hasNewDropCounts?'先週までの除外累計':'視聴中止累計','icon-trash']
+    ]),
     ['backOnList','Back on List','復帰（混合集計）','icon-back']
   ]);
   modern.append(detail);
