@@ -3621,4 +3621,5 @@ body[data-animeb-final-week="true"] .note-mount code {
 body[data-animeb-theme="dark"] .entry .collapse-btn,
 body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .entry .collapse-btn {
   color: #929292 !important;
+  /*original collapse button color is #686868*/
 }
