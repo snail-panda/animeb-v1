@@ -3600,3 +3600,19 @@ body[data-animeb-final-week="true"] .note-mount code {
     transform: translateY(4px);
   }
 }
+
+/* Mobile: unify Bottom and Dropped poster sizes */
+@media (max-width:450px) {
+  .animeb-dropped-card {
+    grid-template-columns:88px minmax(0,1fr);
+  }
+  .animeb-dropped-card .animeb-drop-poster {
+    width:88px;
+  }
+  .animeb-bottom-item {
+    grid-template-columns:88px minmax(0,1fr);
+  }
+  .animeb-bottom-item .animeb-bottom-poster {
+    width:88px;
+  }
+}
