@@ -1067,10 +1067,14 @@ function animebMountRankingCoverage(status, publishedCount) {
     const n=Number(value);
     return Number.isSafeInteger(n) && n >= 0 ? n : null;
   };
-  // Opt in only when explicit rated + lineup counts exist. Do NOT infer from legacy Watching.
+  // v4.39: Render the modern panel for ALL historical weeks. Missing modern
+  // counters remain missing: legacy watching/total are NOT Rated This Week or
+  // Current Lineup, and must never be silently converted to either metric.
   const rated=getCount(status?.ratedThisWeek);
   const lineup=getCount(status?.currentLineup);
-  if(rated===null || lineup===null || !Number.isSafeInteger(publishedCount) || publishedCount<=0) return;
+  const legacyWatching=getCount(status?.watching);
+  const legacyTotal=getCount(status?.total);
+  if(!Number.isSafeInteger(publishedCount) || publishedCount<=0) return;
   const legacy=document.querySelector('.watch-status');
   const wrapper=document.querySelector('.watch-status-wrapper');
   if(!legacy || !wrapper) return;
@@ -1095,14 +1099,25 @@ function animebMountRankingCoverage(status, publishedCount) {
   const hero=document.createElement('span');hero.className='ws-modern-main';
   const statement=document.createElement('strong');statement.className='ws-modern-headline';
   const rankingMain=document.createElement('span');rankingMain.className='ws-modern-ranked';rankingMain.textContent='TOP '+publishedCount;
-  const rankingBase=document.createElement('span');rankingBase.className='ws-modern-denominator';rankingBase.textContent=' / '+rated;
-  statement.append(rankingMain,rankingBase);
-  hero.append(statement,text('RATED THIS WEEK','今週の評価作品'));
+  statement.append(rankingMain);
+  if(rated!==null){
+    const rankingBase=document.createElement('span');rankingBase.className='ws-modern-denominator';
+    rankingBase.textContent=' / '+rated;statement.append(rankingBase);
+  }
+  hero.append(statement,text(rated!==null?'RATED THIS WEEK':'RANKED TITLES',
+    rated!==null?'今週の評価作品':'ランキング掲載作品'));
   const divider=document.createElement('span');divider.className='ws-modern-separator';divider.setAttribute('aria-hidden','true');
   const line=document.createElement('span');line.className='ws-modern-lineup';
-  line.append(count(lineup),text('CURRENT LINEUP','継続評価対象'));
+  // The old Watching count is shown under its OWN label, not as Current Lineup.
+  const sideCount=lineup!==null?lineup:legacyWatching!==null?legacyWatching:legacyTotal;
+  if(sideCount!==null){
+    line.append(count(sideCount),text(lineup!==null?'CURRENT LINEUP':legacyWatching!==null?'WATCHING':'TOTAL (LEGACY)',
+      lineup!==null?'継続評価対象':legacyWatching!==null?'視聴中（旧集計）':'合計（旧集計）'));
+  }
   const chevron=document.createElement('span');chevron.className='ws-modern-chevron';chevron.setAttribute('aria-hidden','true');
-  toggle.append(mark,hero,divider,line,chevron);modern.append(toggle);
+  toggle.append(mark,hero);
+  if(sideCount!==null)toggle.append(divider,line);
+  toggle.append(chevron);modern.append(toggle);
 
   const detail=document.createElement('div');detail.id='animeb-weekly-coverage-detail';detail.className='ws-modern-details';detail.hidden=true;
   const seasonPool=getCount(status?.seasonPool);
@@ -1111,7 +1126,9 @@ function animebMountRankingCoverage(status, publishedCount) {
   const kpis=[
     { en:'Season Pool', ja:'シーズン候補総数', n:seasonPool, key:'pool' },
     { en:'Current Lineup', ja:'継続評価対象', n:lineup, key:'lineup' },
-    { en:'Rated This Week', ja:'今週の評価作品', n:rated, key:'rated' }
+    { en:'Rated This Week', ja:'今週の評価作品', n:rated, key:'rated' },
+    ...(rated===null && legacyWatching!==null ? [{en:'Watching (legacy)',ja:'視聴中（旧集計）',n:legacyWatching,key:'legacy'}] : []),
+    ...(lineup===null && legacyWatching===null && legacyTotal!==null ? [{en:'Total (legacy)',ja:'合計（旧集計）',n:legacyTotal,key:'legacy'}] : [])
   ];
   for(const k of kpis){
     if(k.n===null)continue;
@@ -1163,7 +1180,10 @@ function animebMountRankingCoverage(status, publishedCount) {
   detail.append(helpBar,helpContent);
   // A compact micro-note appears even when glossary is closed.
   const note=document.createElement('p');note.className='ws-modern-footnote';
-  note.append(text('Ranking denominator = rated titles. Other counts can overlap and are not meant to add up.', 'ランキングの分母は評価作品数。ほかの項目は重複するため、足し引きで一致するとは限りません。'));
+  note.append(rated!==null && lineup!==null
+    ? text('Ranking denominator = rated titles. Other counts can overlap and are not meant to add up.', 'ランキングの分母は評価作品数。ほかの項目は重複するため、足し引きで一致するとは限りません。')
+    : text('Historical data: only recorded counters are shown. Missing Rated This Week / Current Lineup are not inferred from Watching.',
+      '旧データ：記録されている数値だけを表示。未登録の「今週の評価作品」「継続評価対象」は視聴中から推定していません。'));
   detail.append(note);
   const descriptions={
     seasonHalted:glossary.seasonHalted,
@@ -2210,8 +2230,8 @@ if (reviewAnchor) {
   // ✅ 必ず `.then(data => { ... })` の中にある必要がある
     animebApplyWeeklyLanguage();
     updateWatchStatus(data.meta.status);
-    // v4.29 DESIGN A (optional / backwards-compatible): the new card appears ONLY
-    // when Converter JSON provides both verified values. Old articles stay unchanged.
+    // v4.39: All weeks use modern styling. Historical missing counters stay undefined;
+    // only counters actually present in JSON receive labels and values.
     animebMountRankingCoverage(data.meta.status, Array.isArray(data.entries) ? data.entries.filter(e => typeof e.rank === "number").length : 0);
     animebMountDroppedTitles(data, clones);
     animebMountBottomOfWeek(data);

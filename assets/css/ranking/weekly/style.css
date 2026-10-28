@@ -3489,3 +3489,22 @@ body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .animeb-bottom-de
 .animeb-bottom-details .animeb-weekly-cast > span{display:block;min-width:0;white-space:normal;overflow-wrap:anywhere;line-height:1.48;}
 .animeb-bottom-details dd{min-width:0;overflow-wrap:anywhere;}
 .animeb-prelim-eliminated .animeb-dropped-heading-title{letter-spacing:.012em;}
+
+
+/* v4.39 — shared viewing status for historical JSON as well as 2026+.
+   The old absolute overlay is replaced by the modern in-flow panel in JS.
+   Above rank cards without hiding them, even when open on mobile. */
+.watch-status-wrapper.ws-modern-wrapper{
+  position:relative; z-index:40; isolation:isolate;
+}
+.ws-modern-details{position:relative;z-index:1;}
+.ws-modern-metric-legacy{
+  background:linear-gradient(165deg,#edf0e9,#e6ebe2);
+  color:#52665b;
+}
+body[data-animeb-theme="dark"] .ws-modern-metric-legacy,
+body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .ws-modern-metric-legacy{
+  background:#344840;color:#d4e6d9;
+}
+body[data-animeb-theme="dark"] .ws-modern-metric-legacy .ws-modern-metric-note,
+body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .ws-modern-metric-legacy .ws-modern-metric-note{color:#cad8ce;}
