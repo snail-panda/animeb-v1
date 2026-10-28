@@ -2013,7 +2013,7 @@ body[data-animeb-lang="ja"] .entry .info-top {
 
 /* English weekly intro body: +3.5% relative to v3.3 (JA body untouched). */
 body[data-animeb-lang="en"] .animeb-intro-text {
-  font-size: clamp(.768rem, 1.130vw, .866rem);
+  font-size: clamp(.82rem, 1.20vw, .92rem);
 }
 
 /* Japanese main anime title: +6% relative to v3.3; preserve weight. */
@@ -2038,7 +2038,7 @@ body[data-animeb-lang="ja"] .entry .info-top {
 
 @media (max-width: 768px) {
   /* English ONLY: THIS WEEK label +6%; keep weight/color/JA/desktop unchanged. */
-  body[data-animeb-lang="en"] .animeb-intro-label { font-size: .678rem; }
+  body[data-animeb-lang="en"] .animeb-intro-label { font-size: .70rem; }
 
   /* Normal week's six-item WRP list only, EN and JA. Include both labels
      and descriptions so font sizes do not jump within one list item.
@@ -3562,5 +3562,11 @@ body[data-animeb-final-week="true"] .note-mount code {
   body[data-animeb-final-week="true"] .note-mount .animeb-note-jp .detail-content p,
   body[data-animeb-final-week="true"] .note-mount .animeb-note-jp .detail-content > ul{
     font-size:.95em;line-height:1.74;
+  }
+}
+
+@media (min-width: 769px) {
+  body[data-animeb-lang="en"] .ws-modern-wrapper + .animeb-weekly-intro .animeb-intro-label {
+    font-size: 12.5px;
   }
 }
