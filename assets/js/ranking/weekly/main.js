@@ -3035,6 +3035,17 @@ window.initOverviewSection = function() {
   btn.dataset.animebInitialized='1';
   let currentLang = animebWeeklyLang === 'ja' ? 'JP' : 'EN';
   let overviewRequest = 0;
+  // Archive articles are inside Shadow DOM. A single observer per page mirrors
+  // the live theme onto the Shadow host: no reload, no mutation of old articles.
+  const overviewDarkMode=()=>document.body.dataset.animebTheme==='dark' ||
+    (document.body.dataset.animebTheme==='image' && document.body.dataset.animebImageTone==='dark');
+  const syncOverviewTheme=()=>{
+    container.querySelector('.animeb-overview-isolated')
+      ?.toggleAttribute('data-animeb-overview-dark',overviewDarkMode());
+  };
+  new MutationObserver(syncOverviewTheme).observe(document.body,{
+    attributes:true,attributeFilter:['data-animeb-theme','data-animeb-image-tone']
+  });
   window.animebWeeklyReloadOverview=()=>{
     currentLang=animebWeeklyLang === 'ja' ? 'JP' : 'EN';
     if(container.classList.contains('expanded')) loadOverview(currentLang);
@@ -3072,6 +3083,7 @@ window.initOverviewSection = function() {
         if(!article) throw new Error('Overview content missing');
         const host=document.createElement('div');
         host.className='animeb-overview-isolated';
+        host.toggleAttribute('data-animeb-overview-dark',overviewDarkMode());
         const shadow=host.attachShadow({mode:'open'});
         const sizing=document.createElement('style');
         sizing.textContent=':host{display:block;max-width:100%;min-width:0}*,*::before,*::after{box-sizing:border-box}.weekly-overview{max-width:100%;overflow-wrap:anywhere}.weekly-overview p,.weekly-overview ul{max-width:100%;box-sizing:border-box}.weekly-overview img,.weekly-overview iframe{max-width:100%;height:auto}';
@@ -3109,6 +3121,32 @@ window.initOverviewSection = function() {
             .weekly-overview .section-title{margin-top:2.25rem;margin-bottom:1.6rem}
             :host([lang=ja]) .weekly-overview p{font-size:.83rem;line-height:1.79}
             :host([lang=ja]) .weekly-overview ul{font-size:.82rem;line-height:1.85}
+          }
+          /* Keep the archive's original article typography and cream palette
+             completely untouched in light mode. Only the dark theme overrides. */
+          :host([data-animeb-overview-dark]) .weekly-overview{
+            background-color:var(--animeb-overview-paper,#172a31)!important;
+            color:var(--animeb-overview-ink,#e2eae6)!important;
+          }
+          :host([data-animeb-overview-dark]) .weekly-overview :is(p,ul,li,small,.dropped-list,.footnote){
+            color:var(--animeb-overview-ink,#e2eae6)!important;
+          }
+          :host([data-animeb-overview-dark]) .weekly-overview :is(h1,h2,h3,h4,h5,h6,.section-title,.section-top5,.three-picks,.overview-title){
+            color:var(--animeb-overview-heading,#d9e4de)!important;
+          }
+          :host([data-animeb-overview-dark]) .weekly-overview :is(.date,small,.footnote){
+            color:var(--animeb-overview-muted,#b9c8c2)!important;
+          }
+          :host([data-animeb-overview-dark]) .weekly-overview .week-number{
+            color:var(--animeb-overview-accent,#e5a98b)!important;
+          }
+          :host([data-animeb-overview-dark]) .weekly-overview :is(.overview-title,hr){
+            border-color:var(--animeb-overview-rule,#506965)!important;
+          }
+          :host([data-animeb-overview-dark]) .weekly-overview a{color:#b7dfcd!important;}
+          :host([data-animeb-overview-dark]) .weekly-overview :is(blockquote,pre,code){
+            color:var(--animeb-overview-ink,#e2eae6)!important;
+            background-color:#21383f!important;
           }
         `;
         shadow.append(reading);

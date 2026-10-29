@@ -11,6 +11,24 @@ body {
   padding: 0.65rem;
   font-family: 'Arial Nova Cond Light', sans-serif;
   background: #ffffed;
+  /* Article/navigation contrast belongs to the active theme, not the page mode. */
+  --animeb-table-ink: #6f6c6c;
+  --animeb-notes-ink: #333;
+  --animeb-notes-heading: #716f6f;
+  --animeb-notes-toggle: #747070;
+}
+body[data-animeb-theme="dark"],
+body[data-animeb-theme="image"][data-animeb-image-tone="dark"] {
+  --animeb-table-ink: #dce6e1;
+  --animeb-notes-ink: #e0e8e3;
+  --animeb-notes-heading: #e4e8e4;
+  --animeb-notes-toggle: #b8c6c0;
+  --animeb-overview-paper: #172a31;
+  --animeb-overview-ink: #e2eae6;
+  --animeb-overview-muted: #b9c8c2;
+  --animeb-overview-heading: #d9e4de;
+  --animeb-overview-rule: #506965;
+  --animeb-overview-accent: #e5a98b;
 }
 
 .wrapper {
@@ -402,11 +420,12 @@ body[data-animeb-theme="image"][data-animeb-image-tone="dark"] #overview-toggle-
   font-family: 'Agency FB', 'Barlow Condensed', 'Pathway Gothic One', 'sans-serif';
   font-size: 0.53rem;
   font-weight: 600;
-  color: #6f6c6c;
+  color: var(--animeb-table-ink, #6f6c6c);
   text-transform: uppercase;
   align-items: center;
   justify-content: center;
-  padding: 0rem 0 0.2rem 0;
+  /* Inset only this header, not the ranked rows or the full table width. */
+  padding: 0 6px 0.2rem;
 }
 
 .table-header .header-rank {
@@ -1308,7 +1327,7 @@ body[data-animeb-lang="ja"][data-animeb-theme="image"][data-animeb-image-tone="d
       font-family: 'Barlow Condensed', sans-serif;
       font-weight: 300;
       font-size: 0.8rem; /* 12.8px */
-      color: #333;
+      color: var(--animeb-notes-ink, #333);
       letter-spacing: 0.13px;
       line-height: 1.6;
       max-width: 75ch;
@@ -1323,7 +1342,7 @@ body[data-animeb-lang="ja"][data-animeb-theme="image"][data-animeb-image-tone="d
  
     .note-title {
       font-weight: 500;
-      color: #716f6f;
+      color: var(--animeb-notes-heading, #716f6f);
     }
 
     .note ul {
@@ -1386,7 +1405,7 @@ body[data-animeb-lang="ja"][data-animeb-theme="image"][data-animeb-image-tone="d
 
 .detail-toggle {
   cursor: pointer;
-  color: #747070;
+  color: var(--animeb-notes-toggle, #747070);
   font-weight: 400;
   font-size: 0.75rem; /* 12px */
   text-decoration: none;
@@ -1450,6 +1469,16 @@ body[data-animeb-lang="ja"][data-animeb-theme="image"][data-animeb-image-tone="d
 .trigger-icon {
    align-items: center;
    }   
+/* Original circled-i artwork stays unchanged in light mode. A dark surface
+   needs a light glyph; filter the existing PNG instead of replacing its shape. */
+body[data-animeb-theme="dark"] .table-header .trigger-icon,
+body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .table-header .trigger-icon {
+  filter: brightness(0) invert(.85);
+  opacity: 1;
+  width: 10px;
+  height: 10px;
+  vertical-align: -1px;
+}
 
 /* 汎用アイコン（現状未使用領域） */
 
@@ -3644,6 +3673,24 @@ body[data-animeb-theme="image"][data-animeb-image-scope="full"] .overview-sectio
   .overview-section { min-width:0; max-width:100%; padding:0 9px; }
   #overview-container { max-width:100%; }
 }
+/* Archived Overview: the reading mat and the article use ONE theme surface.
+   This acts only when an Overview is open; original/no-image layout is intact. */
+body[data-animeb-theme="dark"] .overview-section:has(#overview-container.expanded),
+body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .overview-section:has(#overview-container.expanded) {
+  background-color: var(--animeb-overview-paper, #172a31) !important;
+  color: var(--animeb-overview-ink, #e2eae6) !important;
+  padding: 14px clamp(10px, 2.6vw, 22px) 20px;
+  margin-block: 14px 18px;
+  border-radius: 12px;
+}
+body[data-animeb-theme="image"][data-animeb-image-tone="light"] .overview-section:has(#overview-container.expanded) {
+  background-color: #fffff0 !important;
+  padding: 14px clamp(10px, 2.6vw, 22px) 20px;
+  margin-block: 14px 18px;
+  border-radius: 12px;
+}
+/* A full-page dark photo previously provided only a backdrop on the wrapper,
+   not on the Shadow DOM article. Both now receive the same design tokens. */
 /* An absent weekly comment should not collapse the entire header rhythm. */
 .wrapper.animeb-no-weekly-intro > .sub-header { margin-bottom:clamp(30px,3.5vw,44px); }
 /* Only Bottom/Last More Info, not normal ranked cards. */
