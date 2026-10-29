@@ -3057,8 +3057,8 @@ body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .ranking-episode-
 }
 body[data-animeb-theme="dark"] .entry .more-info dd,
 body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .entry .more-info dd {
-  color:#f7e4ed !important;
-  /*before color:var(--animeb-dark-meta-rose,#e3b9ca) !important;*/
+  color:var(--animeb-dark-meta-rose,#e3b9ca) !important;
+  /* other choices: color:#f7e4ed !important; #ebc7d6 or FAE8F0*/
   text-shadow:none !important;
 }
 body[data-animeb-theme="dark"] .entry .more-info dt,
@@ -3659,4 +3659,11 @@ body[data-animeb-final-week="true"] .note-mount code {
   .animeb-bottom-item .animeb-bottom-poster {
     width:88px;
   }
+}
+
+/* Dark mode: MORE INFO button text */
+body[data-animeb-theme="dark"] .entry .collapse-btn,
+body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .entry .collapse-btn {
+  color: #929292 !important;
+  /*original collapse button color is #686868*/
 }
