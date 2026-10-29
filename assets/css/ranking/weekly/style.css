@@ -3889,6 +3889,28 @@ body[data-animeb-final-week="true"] .note-mount code {
   background-position:var(--animeb-preview-x,50%)
     calc(var(--animeb-preview-y-px,40%) - var(--animeb-preview-pan-y,0px))!important;
 }
+
+/* r8: actual page-top-to-Viewing-Status Image composition. The original/dark
+   preview styles and the live weekly ranking are deliberately unaffected. */
+.animeb-bg-live-preview[data-theme="image"]::before,
+.animeb-bg-live-preview[data-theme="image"]::after{display:none!important;}
+.animeb-bg-preview-scene{position:absolute;inset:0;z-index:0;pointer-events:none;overflow:hidden;}
+.animeb-bg-preview-scene[hidden]{display:none!important;}
+.animeb-bg-preview-photo-layer,.animeb-bg-preview-wash-layer{position:absolute;pointer-events:none;}
+.animeb-bg-preview-boundary{
+  position:absolute;box-sizing:border-box;height:1px;border-top:1px dashed rgba(246,246,234,.84);
+  color:#f7faf1;text-shadow:0 1px 2px rgba(0,0,0,.8);font:700 8px/1.2 'Fira Sans',sans-serif;
+  text-align:right;padding-right:4px;white-space:nowrap;z-index:2;
+}
+.animeb-bg-preview-boundary::after{
+  content:"VIEWING STATUS ▾";position:absolute;right:2px;bottom:2px;
+  padding:2px 4px;border-radius:3px;background:rgba(18,31,33,.62);
+}
+.animeb-bg-preview-boundary{font-size:0;}
+.animeb-theme-panel-pinned .animeb-bg-live-preview[data-theme="image"]{
+  height:var(--animeb-preview-composition-height,235px);min-height:0;
+  max-height:min(39dvh,315px);padding:0;
+}
 @media(max-width:768px){
   .animeb-theme-panel:not([hidden]){overflow:hidden;}
   .animeb-theme-panel-pinned .animeb-bg-live-preview{height:clamp(105px,17dvh,150px);min-height:105px;}

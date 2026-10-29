@@ -434,6 +434,15 @@ function animebInitWeeklyThemes(){
   const previewHeader=document.createElement('div');previewHeader.className='animeb-bg-preview-header';
   const previewDescription=document.createElement('span');previewDescription.className='animeb-bg-preview-description';
   previewDescription.textContent='LIVE PREVIEW  ·  設定中のヘッダー色を反映';
+  // The Image view renders the real page's photo and wash layers at one scale.
+  // This avoids stretching/cropping the artwork to the studio's box dimensions.
+  const previewScene=document.createElement('div');previewScene.className='animeb-bg-preview-scene';
+  const previewPhoto=document.createElement('div');previewPhoto.className='animeb-bg-preview-photo-layer';
+  const previewWash=document.createElement('div');previewWash.className='animeb-bg-preview-wash-layer';
+  const previewBoundary=document.createElement('div');previewBoundary.className='animeb-bg-preview-boundary';
+  previewBoundary.textContent='VIEWING STATUS ▾';
+  previewScene.append(previewPhoto,previewWash,previewBoundary);
+  previewStage.append(previewScene);
   // Keep live page headline duplicates out of document.querySelector() entirely.
   // The r6 emergency move fixed the first-selector bug; Shadow DOM makes it
   // impossible for future renderer selectors to mistake the preview for the page.
@@ -666,30 +675,69 @@ function animebInitWeeklyThemes(){
     const wrapper=document.querySelector('.wrapper');
     if(!wrapper)return;
     const pageBox=wrapper.getBoundingClientRect();
-    // Compact and Hero share the actual wrapper as their coordinate system;
-    // Hero includes the real spacer's height. Full Page uses the first screen
-    // at viewport width, not a fictional Compact header position.
-    const sourceWidth=imageScope==='full'?Math.max(1,window.innerWidth):Math.max(1,pageBox.width);
-    const scale=(previewStage.clientWidth||330)/sourceWidth;
+    // A photo is composed above Viewing Status, NOT just around the headline.
+    // Only the preview changes; the actual header/status/background are untouched.
+    const imageMode=theme==='image';
+    const full=imageScope==='full';
+    const firstStatus=wrapper.querySelector('.watch-status-wrapper.ws-modern-wrapper')
+      ||wrapper.querySelector('.watch-status-wrapper');
+    const heading=wrapper.querySelector(':scope > .header');
+    const statusEnd=firstStatus?.getBoundingClientRect().top;
+    const fallbackEnd=(heading?.getBoundingClientRect().bottom ?? pageBox.top+190)+70;
+    const sourceHeight=Math.max(125,Math.round((Number.isFinite(statusEnd)?statusEnd:fallbackEnd)-pageBox.top));
+    const sourceWidth=full?Math.max(1,window.innerWidth):Math.max(1,pageBox.width);
+    const stageWidth=Math.max(1,previewStage.clientWidth||330);
+    // On a small phone preserve space for the sliders under the pinned preview.
+    // If the header is unusually tall, FIT the whole view (never distort it).
+    const heightLimit=Math.min(310,Math.max(155,window.innerHeight*.36));
+    const scaleWidth=stageWidth/sourceWidth;
+    const scale=imageMode?Math.min(scaleWidth,heightLimit/sourceHeight):scaleWidth;
+    const drawnWidth=sourceWidth*scale,drawnHeight=sourceHeight*scale;
+    const offsetX=Math.max(0,(stageWidth-drawnWidth)/2);
+    if(imageMode){
+      const targetHeight=Math.max(165,Math.ceil(drawnHeight+7));
+      if(Math.abs((Number.parseFloat(previewStage.style.height)||0)-targetHeight)>.5)
+        previewStage.style.height=targetHeight+'px';
+    }else previewStage.style.removeProperty('height');
     previewCanvas.style.width=sourceWidth+'px';
-    // The Hero spacer places the real title far below the top of the photo.
-    // Pan the SAME image/title crop to show that area instead of silently
-    // pretending Hero is Compact. The pan does not affect the published page.
-    const realHeading=document.querySelector('.wrapper > .header');
-    const scaledHeadingY=realHeading?(realHeading.getBoundingClientRect().top-pageBox.top)*scale:0;
-    const panY=Math.max(0,scaledHeadingY-26);
-    previewCanvas.style.transform=`translateY(${-panY.toFixed(2)}px) scale(${scale.toFixed(5)})`;
-    previewStage.style.setProperty('--animeb-preview-pan-y',`${panY.toFixed(2)}px`);
-    const leftBase=imageScope==='full'?0:pageBox.left;
+    previewCanvas.style.transform=`translateX(${offsetX.toFixed(2)}px) scale(${scale.toFixed(5)})`;
+    const leftBase=full?0:pageBox.left;
     const topBase=pageBox.top;
-    const srcNodes=[document.querySelector('.wrapper > .header'),document.querySelector('.wrapper > .sub-header')].filter(Boolean);
-    const satisfaction=document.querySelector('.wrapper .animeb-weekly-satisfaction');
+
+    // Use computed backgrounds from the live wrapper's two pseudo-layers. They
+    // retain the REAL image zoom, focal point, transparency, mask and wash.
+    // For Full Page, the photo is viewport-fixed, so show the first viewport
+    // at the page's natural top (rather than pretending it follows content).
+    previewScene.hidden=!imageMode;
+    if(imageMode){
+      const root=full?document.body:wrapper;
+      const rootWidth=full?Math.max(1,window.innerWidth):sourceWidth;
+      const rawHeight=full?Math.max(1,window.innerHeight):
+        (Number.parseFloat(getComputedStyle(wrapper).getPropertyValue('--animeb-image-header-height'))||560);
+      const pageTopAtStart=pageBox.top+window.scrollY;
+      const layerTop=full?-pageTopAtStart:0;
+      const paintLayer=(element,pseudo,z)=>{
+        const st=getComputedStyle(root,pseudo);
+        element.style.cssText=`position:absolute;z-index:${z};left:${offsetX.toFixed(2)}px;top:${(layerTop*scale).toFixed(2)}px;`+
+          `width:${rootWidth}px;height:${rawHeight}px;transform-origin:0 0;transform:scale(${scale.toFixed(5)});pointer-events:none;`;
+        for(const key of ['backgroundImage','backgroundColor','backgroundSize','backgroundPosition',
+          'backgroundRepeat','opacity','maskImage','webkitMaskImage','maskSize','webkitMaskSize']){
+          const value=st[key];if(value)element.style[key]=value;
+        }
+      };
+      paintLayer(previewPhoto,'::before',0);
+      paintLayer(previewWash,'::after',1);
+      previewBoundary.hidden=!firstStatus;
+      previewBoundary.style.top=Math.max(0,drawnHeight-1).toFixed(1)+'px';
+      previewBoundary.style.left=offsetX.toFixed(1)+'px';
+      previewBoundary.style.width=drawnWidth.toFixed(1)+'px';
+    }
+    const srcNodes=[wrapper.querySelector(':scope > .header'),wrapper.querySelector(':scope > .sub-header')].filter(Boolean);
+    const satisfaction=wrapper.querySelector('.animeb-weekly-satisfaction');
     if(satisfaction&&!srcNodes.some(node=>node.contains(satisfaction)))srcNodes.push(satisfaction);
     const copyAppearance=(from,to)=>{
       if(from.nodeType!==1||to.nodeType!==1)return;
       const st=getComputedStyle(from);
-      // The ShadowRoot has no page CSS. Copy the computed typography AND
-      // layout properties, including transforms used by the real title.
       for(const prop of ['color','font-family','font-size','font-weight','font-style','line-height',
         'letter-spacing','word-spacing','text-align','white-space','vertical-align',
         '-webkit-text-stroke-width','-webkit-text-stroke-color','-webkit-text-fill-color',
@@ -707,12 +755,15 @@ function animebInitWeeklyThemes(){
       const clone=src.cloneNode(true);
       clone.removeAttribute('id');for(const el of clone.querySelectorAll('[id]'))el.removeAttribute('id');
       copyAppearance(src,clone);
-      // The measured coordinates already include margins. The clone uses a
-      // clean absolute origin so a Hero spacer is mirrored, not collapsed.
       clone.style.setProperty('position','absolute','important');
       clone.style.setProperty('top',`${(rect.top-topBase).toFixed(2)}px`,'important');
       clone.style.setProperty('left',`${(rect.left-leftBase).toFixed(2)}px`,'important');
       clone.style.setProperty('width',`${rect.width.toFixed(2)}px`,'important');
+      // Flex sub-headlines centre their children inside their measured height.
+      // An absolutely positioned clone with auto height collapses to 0, pulling
+      // the second row upward into TOP/WEEK. Preserve its live height in Image.
+      if(imageMode&&src.matches('.sub-header'))
+        clone.style.setProperty('height',`${rect.height.toFixed(2)}px`,'important');
       clone.style.setProperty('margin','0','important');
       fragment.append(clone);
     }
@@ -803,7 +854,7 @@ function animebInitWeeklyThemes(){
       if(yOffset!==null)document.body.style.setProperty('--animeb-image-y-fixed',`${yOffset.toFixed(2)}px`);
       else document.body.style.removeProperty('--animeb-image-y-fixed');
     }else document.body.style.removeProperty('--animeb-image-y-fixed');
-  
+    if(!panel.hidden)refreshPreviewHeader();
   }
   let heroFrame=0;
   function scheduleHeroExtent(){
