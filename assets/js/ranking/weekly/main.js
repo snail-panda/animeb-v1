@@ -248,6 +248,11 @@ function animebInitWeeklyThemes(){
   const TONE_KEY='animeb-weekly-image-tone-v1';
   const FIT_KEY='animeb-weekly-image-fit-v1';
   const COLORS_KEY='animeb-weekly-header-colors-v1';
+  // The new keys are independent: they do not rewrite the v1 image library/settings.
+  const RANK_OPACITY_KEY='animeb-weekly-rank-opacity-v1';
+  const STATUS_OPACITY_KEY='animeb-weekly-status-opacity-v1';
+  const SEASON_SETTINGS_KEY='animeb-weekly-season-type-v1';
+  const PRESETS_KEY='animeb-weekly-background-presets-v1';
   const MIGRATED='animeb-weekly-v434-legacy-gallery-migrated';
   const API='https://api.github.com/repos/snail-panda/animeb-v1/contents/images/backgrounds?ref=main';
   const scriptSrc=Array.from(document.scripts).find(s=>/\/assets\/js\/ranking\/weekly\/main\.js(?:[?#]|$)/.test(s.src))?.src;
@@ -256,6 +261,9 @@ function animebInitWeeklyThemes(){
   // Default image placement is confined to the area ABOVE the ranking table.
   let imageScope='header', imageVisibility=78, photoOpacity=100, weekStyle='auto';
   let imageZoom=100, imagePosX=50, imagePosY=40, introOpacity=84;
+  let rankOpacity=96, statusOpacity=87;
+  let seasonSettings={weight:'auto',style:'auto',size:100};
+  let presets=[];
   let imageTone='light', fullFit='cover', imageNatural=null;
   let customColors={};
   let localThumbUrls=[],remoteItems=[],localItems=[];
@@ -273,8 +281,18 @@ function animebInitWeeklyThemes(){
     const clamped=(key,min,max,fallback)=>{const n=Number(localStorage.getItem(key));return localStorage.getItem(key)!==null&&Number.isFinite(n)?Math.max(min,Math.min(max,n)):fallback;};
     imageZoom=clamped(ZOOM_KEY,75,250,100);
     imagePosX=clamped(POSX_KEY,0,100,50);
-    imagePosY=clamped(POSY_KEY,0,100,40);
-    introOpacity=clamped(INTRO_KEY,55,100,84);
+    imagePosY=clamped(POSY_KEY,0,200,40);
+    introOpacity=clamped(INTRO_KEY,20,100,84);
+    rankOpacity=clamped(RANK_OPACITY_KEY,20,100,96);
+    statusOpacity=clamped(STATUS_OPACITY_KEY,20,100,87);
+    const savedSeason=JSON.parse(localStorage.getItem(SEASON_SETTINGS_KEY)||'{}');
+    if(savedSeason && typeof savedSeason==='object' && !Array.isArray(savedSeason)){
+      seasonSettings.weight=['auto','normal','bold'].includes(savedSeason.weight)?savedSeason.weight:'auto';
+      seasonSettings.style=['auto','filled','outline'].includes(savedSeason.style)?savedSeason.style:'auto';
+      const n=Number(savedSeason.size);seasonSettings.size=Number.isFinite(n)?Math.max(80,Math.min(160,n)):100;
+    }
+    const savedPresets=JSON.parse(localStorage.getItem(PRESETS_KEY)||'[]');
+    if(Array.isArray(savedPresets))presets=savedPresets.filter(p=>p&&typeof p==='object'&&p.id&&p.state).slice(0,30);
     imageTone=localStorage.getItem(TONE_KEY)||'light';
     fullFit=localStorage.getItem(FIT_KEY)||'cover';
     const savedColors=JSON.parse(localStorage.getItem(COLORS_KEY)||'{}');
@@ -383,8 +401,10 @@ function animebInitWeeklyThemes(){
   };
   const zoomCtl=mkRange('ZOOM / 拡大・縮小',75,250,5);
   const posXCtl=mkRange('HORIZONTAL / 左右位置',0,100,5);
-  const posYCtl=mkRange('VERTICAL / 上下位置',0,100,5);
-  const introCtl=mkRange('THIS WEEK PANEL / 本文パネルの不透明度',55,100,5);
+  const posYCtl=mkRange('VERTICAL / 上下位置',0,200,5);
+  const introCtl=mkRange('THIS WEEK PANEL / 本文パネルの不透明度',20,100,5);
+  const statusCtl=mkRange('VIEWING STATUS / 上部パネルの不透明度',20,100,5);
+  const rankCtl=mkRange('RANKING CARDS / ランキング行の不透明度',20,100,5);
   const toneBox=document.createElement('fieldset');toneBox.className='animeb-bg-tone';
   const toneLabel=document.createElement('legend');toneLabel.textContent='IMAGE + COLOR / 背景との組み合わせ';
   const toneButtons={};const toneRow=document.createElement('div');toneRow.className='animeb-bg-tone-buttons';
@@ -406,22 +426,78 @@ function animebInitWeeklyThemes(){
   const colorDetails=document.createElement('details');colorDetails.className='animeb-bg-color-options';
   const colorSummary=document.createElement('summary');colorSummary.textContent='HEADER TEXT COLORS / 見出し文字色（詳細）';
   const colorRows=document.createElement('div');colorRows.className='animeb-bg-color-grid';
-  const colorDefs=[['top','TOP10 / メインタイトル','#414344'],['week','WEEK / 週番号','#8e2222'],['season','Season line / シーズン行','#587966'],['sat','Satisfaction / 満足度','#4c524e']];
+  const colorDefs=[
+    ['top','TOP 10 / トップ数','#414344'],
+    ['week','WEEK + number / 週の共通色','#8e2222'],
+    ['season','Season line / 下段の共通色','#587966'],
+    ['sat','Satisfaction / 満足度','#4c524e'],
+    ['weekLabel','WEEK label / WEEK文字','#8e2222'],
+    ['weekNumber','Week number / 週番号','#8e2222'],
+    ['duration','Dates / 日付','#a04343'],
+    ['year','Year / 年号','#a67d23'],
+    ['seasonName','Season name / 春夏秋冬','#c2572a'],
+    ['anime','ANIME / アニメ表記','#999999'],
+    ['ranking','RANKING / ランキング表記','#bb6c94'],
+    ['epRange','Episode range / 話数範囲','#749277']
+  ];
   const colorInputs={};
   for(const [key,label,defaultColor] of colorDefs){
     const row=document.createElement('label');row.className='animeb-bg-color-row';const name=document.createElement('span');name.textContent=label;
     const input=document.createElement('input');input.type='color';input.value=/^#[0-9a-fA-F]{6}$/.test(customColors[key])?customColors[key]:defaultColor;
-    input.addEventListener('input',()=>{customColors[key]=input.value;saveColors();applyColors();});
-    colorInputs[key]=input;row.append(name,input);colorRows.append(row);
+    const auto=document.createElement('button');auto.type='button';auto.className='animeb-bg-color-auto';auto.textContent='Auto';
+    auto.setAttribute('aria-label','Restore default color: '+label);
+    const refreshAuto=()=>auto.setAttribute('aria-pressed',String(!(/^#[0-9a-fA-F]{6}$/.test(customColors[key]||''))));
+    input.addEventListener('input',()=>{customColors[key]=input.value;saveColors();applyColors();refreshAuto();});
+    auto.addEventListener('click',()=>{delete customColors[key];input.value=defaultColor;saveColors();applyColors();refreshAuto();});
+    colorInputs[key]=input;row.append(name,input,auto);colorRows.append(row);refreshAuto();
   }
+  const refreshAllColorAuto=()=>colorRows.querySelectorAll('.animeb-bg-color-row').forEach((row,index)=>{
+    const key=colorDefs[index]?.[0],button=row.querySelector('.animeb-bg-color-auto');
+    if(button)button.setAttribute('aria-pressed',String(!(/^#[0-9a-fA-F]{6}$/.test(customColors[key]||''))));
+  });
   const colorActions=document.createElement('div');colorActions.className='animeb-bg-color-actions';
   const colorReset=document.createElement('button');colorReset.type='button';colorReset.textContent='Reset / 色の指定を解除';
   colorReset.addEventListener('click',()=>{customColors={};saveColors();applyColors();for(const [key,,defaultColor] of colorDefs)colorInputs[key].value=defaultColor;});
   const colorLight=document.createElement('button');colorLight.type='button';colorLight.textContent='White text / 白系';
-  colorLight.addEventListener('click',()=>{customColors={top:'#fffdf4',week:'#ffd6ca',season:'#f9ead1',sat:'#ffffff'};saveColors();applyColors();for(const [key] of colorDefs)colorInputs[key].value=customColors[key];});
+  colorLight.addEventListener('click',()=>{customColors={top:'#fffdf4',week:'#ffd6ca',season:'#f9ead1',sat:'#ffffff'};saveColors();applyColors();for(const [key,,fallback] of colorDefs)colorInputs[key].value=customColors[key]||fallback;refreshAllColorAuto();});
   colorActions.append(colorLight,colorReset);
-  const colorNote=document.createElement('p');colorNote.textContent='端末ごとの表示調整です。JSONとConverterは変更しません。';
+  const colorNote=document.createElement('p');colorNote.textContent='各色は独立。変更していない項目は従来色（季節名は春夏秋冬の標準色）です。色を元に戻す場合は Reset。';
   colorDetails.append(colorSummary,colorRows,colorActions,colorNote);
+  // Season name typography: Auto respects the season's original CSS palette.
+  const seasonBox=document.createElement('fieldset');seasonBox.className='animeb-season-studio';
+  const seasonLegend=document.createElement('legend');seasonLegend.textContent='SEASON NAME / 季節名だけの装飾';
+  seasonBox.append(seasonLegend);
+  const seasonGroups={};
+  const seasonButtonRow=(key,title,values)=>{
+    const wrap=document.createElement('div');wrap.className='animeb-season-style-row';
+    const label=document.createElement('span');label.textContent=title;wrap.append(label);
+    const actions=document.createElement('div');actions.className='animeb-bg-tone-buttons';
+    seasonGroups[key]={};
+    for(const [value,text] of values){
+      const button=document.createElement('button');button.type='button';button.className='animeb-season-choice';
+      button.textContent=text;button.addEventListener('click',()=>{
+        seasonSettings[key]=value;saveSeasonSettings();applyColors();refreshSeasonButtons();
+      });
+      actions.append(button);seasonGroups[key][value]=button;
+    }
+    wrap.append(actions);seasonBox.append(wrap);
+  };
+  seasonButtonRow('weight','WEIGHT / 太さ',[['auto','Auto'],['normal','Normal'],['bold','Bold']]);
+  seasonButtonRow('style','FILL / 表現',[['auto','Auto'],['filled','Filled'],['outline','Outline']]);
+  const seasonSizeRow=document.createElement('label');seasonSizeRow.className='animeb-season-size';
+  const seasonSizeText=document.createElement('span');seasonSizeText.textContent='SIZE / 季節名のサイズ';
+  const seasonSizeValue=document.createElement('output');
+  const seasonSizeInput=document.createElement('input');seasonSizeInput.type='range';seasonSizeInput.min=80;seasonSizeInput.max=160;seasonSizeInput.step=5;
+  seasonSizeRow.append(seasonSizeText,seasonSizeValue,seasonSizeInput);seasonBox.append(seasonSizeRow);
+  const saveSeasonSettings=()=>{try{localStorage.setItem(SEASON_SETTINGS_KEY,JSON.stringify(seasonSettings));}catch(_){}};
+  function refreshSeasonButtons(){
+    Object.entries(seasonGroups).forEach(([key,group])=>Object.entries(group).forEach(([value,b])=>b.setAttribute('aria-pressed',String(seasonSettings[key]===value))));
+    seasonSizeInput.value=String(seasonSettings.size);seasonSizeValue.textContent=seasonSettings.size+'%';
+  }
+  seasonSizeInput.addEventListener('input',()=>{seasonSettings.size=Number(seasonSizeInput.value);saveSeasonSettings();applyColors();refreshSeasonButtons();});
+  const seasonReset=document.createElement('button');seasonReset.type='button';seasonReset.className='animeb-season-choice';seasonReset.textContent='Reset season style / 季節名の装飾を元に戻す';
+  seasonReset.addEventListener('click',()=>{seasonSettings={weight:'auto',style:'auto',size:100};saveSeasonSettings();applyColors();refreshSeasonButtons();});
+  seasonBox.append(seasonReset);refreshSeasonButtons();
   const onRange=(ctl,key,get,set)=>{
     ctl.input.value=String(get());ctl.input.addEventListener('input',()=>{
       set(Number(ctl.input.value));try{localStorage.setItem(key,String(get()));}catch(_){}apply(theme,false);
@@ -431,9 +507,21 @@ function animebInitWeeklyThemes(){
   onRange(posXCtl,POSX_KEY,()=>imagePosX,n=>imagePosX=n);
   onRange(posYCtl,POSY_KEY,()=>imagePosY,n=>imagePosY=n);
   onRange(introCtl,INTRO_KEY,()=>introOpacity,n=>introOpacity=n);
+  onRange(statusCtl,STATUS_OPACITY_KEY,()=>statusOpacity,n=>statusOpacity=n);
+  onRange(rankCtl,RANK_OPACITY_KEY,()=>rankOpacity,n=>rankOpacity=n);
   const scopeHint=document.createElement('p');scopeHint.className='animeb-bg-scope-note';
   scopeHint.textContent='Header area ends above the ranking table. / 上部のみ：ランキング表の直前まで。';
-  imageOptions.append(placementLegend,scopeChoices,visibilityLabel,opacityLabel,scopeHint,previewStage,frame,toneBox,fitRow,frameNote,colorDetails);
+  imageOptions.append(placementLegend,scopeChoices,visibilityLabel,opacityLabel,scopeHint,previewStage,frame,toneBox,fitRow,frameNote,colorDetails,seasonBox);
+  // Presets live in the theme panel (outside the image-only field), so Original
+  // and Dark appearances can be saved as well. Photos are referenced by gallery ID.
+  const presetBox=document.createElement('fieldset');presetBox.className='animeb-bg-presets';
+  const presetLegend=document.createElement('legend');presetLegend.textContent='MY PRESETS / 保存済み設定（最大30件）';
+  const presetPick=document.createElement('select');presetPick.className='animeb-bg-presets-select';presetPick.setAttribute('aria-label','Saved background preset');
+  const presetName=document.createElement('input');presetName.type='text';presetName.maxLength=50;presetName.placeholder='New name / 新しいプリセット名';
+  const presetActions=document.createElement('div');presetActions.className='animeb-bg-presets-actions';
+  const presetStatus=document.createElement('p');presetStatus.className='animeb-bg-presets-status';presetStatus.setAttribute('role','status');
+  const presetButton=(title,handler)=>{const button=document.createElement('button');button.type='button';button.textContent=title;button.addEventListener('click',handler);presetActions.append(button);return button;};
+  presetBox.append(presetLegend,presetPick,presetName,presetActions,presetStatus);
   const galleryTitle=document.createElement('div');galleryTitle.className='animeb-bg-gallery-head';
   const heading=document.createElement('strong');heading.textContent='BACKGROUND LIBRARY / 背景ギャラリー';
   const refresh=document.createElement('button');refresh.type='button';refresh.className='animeb-bg-refresh';refresh.textContent='↻ Refresh';
@@ -457,7 +545,7 @@ function animebInitWeeklyThemes(){
   details.append(summary,input,set);
   const message=document.createElement('p');message.className='animeb-theme-message';message.setAttribute('role','status');
   field.append(imageOptions,galleryTitle,repoHeading,remoteGrid,repoStatus,localHeading,localGrid,localStatus,fileLabel,fileNote,details);
-  panel.append(panelHead,choices,weekStylePanel,field,message);ctr.append(btn,panel);
+  panel.append(panelHead,choices,weekStylePanel,presetBox,field,message);ctr.append(btn,panel);
   const lang=document.querySelector('#animeb-weekly-language');
   if(lang)lang.before(ctr);else(document.querySelector('.nav-bar')||document.body).after(ctr);
   const validPath=v=>{
@@ -476,14 +564,37 @@ function animebInitWeeklyThemes(){
       top:'.wrapper .header h1',
       week:'.wrapper .header .week-title, .wrapper .header .animeb-week-token',
       season:'.wrapper .sub-header, .wrapper .sub-header .season-title, .wrapper .sub-header .year, .wrapper .sub-header .title-ranking, .wrapper .sub-header .ep-range',
-      sat:'.wrapper .animeb-weekly-satisfaction, .wrapper .animeb-weekly-satisfaction .animeb-sat-label-ja, .wrapper .animeb-weekly-satisfaction .animeb-sat-label-en, .wrapper .animeb-weekly-satisfaction .animeb-sat-denominator'
+      sat:'.wrapper .animeb-weekly-satisfaction, .wrapper .animeb-weekly-satisfaction .animeb-sat-label-ja, .wrapper .animeb-weekly-satisfaction .animeb-sat-label-en, .wrapper .animeb-weekly-satisfaction .animeb-sat-denominator',
+      weekLabel:'.wrapper .header .week-title .animeb-week-label',
+      weekNumber:'.wrapper .header .week-title .animeb-week-token',
+      duration:'.wrapper .header .duration',
+      year:'.wrapper .sub-header .season-title .year',
+      seasonName:'.wrapper .sub-header .season-title .season',
+      anime:'.wrapper .sub-header .title-anime',
+      ranking:'.wrapper .sub-header .title-ranking',
+      epRange:'.wrapper .sub-header .ep-range'
     };
-    colorStyle.textContent=Object.keys(selectors).filter(key=>/^#[0-9a-fA-F]{6}$/.test(customColors[key]||''))
-      .map(key=>`body ${selectors[key].split(', ').join(', body ')}{color:${customColors[key]} !important;}`).join('\n');
-    // The editable WEEK color must also drive outline STROKE and filled number.
-    // A !important custom property overrides the presentation JSON's inline fallback.
-    if(/^#[0-9a-fA-F]{6}$/.test(customColors.week||''))
-      colorStyle.textContent+=`\nbody .wrapper .header .week-title{--animeb-week-accent:${customColors.week} !important;--animeb-week-label-color:${customColors.week} !important;}`;
+    // Group overrides apply FIRST, component-specific overrides SECOND.
+    let rules='';
+    const valid=color=>/^#[0-9a-fA-F]{6}$/.test(color||'');
+    for(const [key] of colorDefs){
+      if(!valid(customColors[key]))continue;
+      rules+=`\nbody ${selectors[key].split(', ').join(', body ')}{color:${customColors[key]} !important;}`;
+    }
+    if(valid(customColors.week))rules+=`\nbody .wrapper .header .week-title{--animeb-week-accent:${customColors.week} !important;--animeb-week-label-color:${customColors.week} !important;}`;
+    if(valid(customColors.weekLabel))rules+=`\nbody .wrapper .header .week-title .animeb-week-label{--animeb-week-label-color:${customColors.weekLabel}!important;color:${customColors.weekLabel}!important;}`;
+    if(valid(customColors.weekNumber)){
+      rules+=`\nbody .wrapper .header .week-title .animeb-week-token{--animeb-week-accent:${customColors.weekNumber}!important;}`;
+      rules+=`\nbody[data-animeb-week-style="filled"] .wrapper .header .week-title .animeb-week-token,body[data-animeb-week-style="auto"] .wrapper .header .week-title .animeb-week-token:not(.animeb-outline){color:${customColors.weekNumber}!important;}`;
+      rules+=`\nbody[data-animeb-week-style="outline"] .wrapper .header .week-title .animeb-week-token,body[data-animeb-week-style="auto"] .wrapper .header .week-title .animeb-week-token.animeb-outline{color:transparent!important;}`;
+    }
+    if(valid(customColors.seasonName))rules+=`\nbody{--animeb-season-paint:${customColors.seasonName}}`;
+    else rules+='\nbody .wrapper .sub-header .season-title .season{--animeb-season-paint:var(--animeb-season-default)}';
+    if(seasonSettings.weight!=='auto')rules+=`\nbody .wrapper .sub-header .season-title .season{font-weight:${seasonSettings.weight==='bold'?'800':'400'}!important;}`;
+    if(seasonSettings.size!==100)rules+=`\nbody .wrapper .sub-header .season-title .season{font-size:${seasonSettings.size}%!important;}`;
+    if(seasonSettings.style==='outline')rules+='\nbody .wrapper .sub-header .season-title .season{color:transparent!important;-webkit-text-stroke:1px var(--animeb-season-paint)!important;paint-order:stroke fill;}';
+    else if(seasonSettings.style==='filled')rules+='\nbody .wrapper .sub-header .season-title .season{-webkit-text-stroke:0!important;}';
+    colorStyle.textContent=rules;
   }
   applyColors();
   function rememberNaturalSize(address){
@@ -566,9 +677,13 @@ function animebInitWeeklyThemes(){
     zoomCtl.value.textContent=imageZoom+'%';
     posXCtl.value.textContent=imagePosX+'%';posYCtl.value.textContent=imagePosY+'%';
     introCtl.value.textContent=introOpacity+'%';
+    statusCtl.value.textContent=statusOpacity+'%';
+    rankCtl.value.textContent=rankOpacity+'%';
     document.body.style.setProperty('--animeb-image-x',imagePosX+'%');
     document.body.style.setProperty('--animeb-image-y',imagePosY+'%');
     document.body.style.setProperty('--animeb-intro-opacity',(introOpacity/100).toFixed(2));
+    document.body.style.setProperty('--animeb-status-opacity',(statusOpacity/100).toFixed(2));
+    document.body.style.setProperty('--animeb-rank-opacity',(rankOpacity/100).toFixed(2));
     document.body.style.setProperty('--animeb-image-photo-opacity',(photoOpacity/100).toFixed(2));
     opacityValue.textContent=photoOpacity+'%';
     // A lighter overlay makes the selected illustration visible while
@@ -624,6 +739,117 @@ function animebInitWeeklyThemes(){
       tx.onerror=()=>reject(tx.error);tx.onabort=()=>reject(tx.error);
     });}finally{db.close();}
   }
+  // The saved slots are snapshots, not live bindings to the sliders. A change to
+  // the controls never modifies a preset until Update is pressed explicitly.
+  function snapshot(){
+    return {theme,url,source,localId,imageScope,imageVisibility,photoOpacity,
+      weekStyle,imageZoom,imagePosX,imagePosY,introOpacity,statusOpacity,rankOpacity,
+      imageTone,fullFit,customColors:{...customColors},seasonSettings:{...seasonSettings}};
+  }
+  function savePresetList(){
+    try{localStorage.setItem(PRESETS_KEY,JSON.stringify(presets));return true;}
+    catch(_){presetStatus.textContent='Storage full/unavailable — nothing saved. / 保存できませんでした。';return false;}
+  }
+  function renderPresets(chosen=''){
+    presetPick.replaceChildren();
+    const blank=document.createElement('option');blank.value='';blank.textContent='Select a preset / 保存設定を選択';presetPick.append(blank);
+    presets.forEach(p=>{const opt=document.createElement('option');opt.value=p.id;opt.textContent=p.name;presetPick.append(opt);});
+    presetPick.value=chosen && presets.some(p=>p.id===chosen)?chosen:'';
+  }
+  function persistSnapshot(){
+    try{
+      for(const [key,val] of [[STORE,theme],[IMG,url],[SOURCE,source],[LOCAL_KEY,localId],
+        [SCOPE_KEY,imageScope],[VIS_KEY,imageVisibility],[PHOTO_OPACITY_KEY,photoOpacity],
+        [WEEK_STYLE_KEY,weekStyle],[ZOOM_KEY,imageZoom],[POSX_KEY,imagePosX],
+        [POSY_KEY,imagePosY],[INTRO_KEY,introOpacity],[STATUS_OPACITY_KEY,statusOpacity],
+        [RANK_OPACITY_KEY,rankOpacity],[TONE_KEY,imageTone],[FIT_KEY,fullFit]])localStorage.setItem(key,String(val));
+      saveColors();saveSeasonSettings();
+    }catch(_){presetStatus.textContent='Loaded for this page, but browser storage is unavailable. / 保存領域にアクセスできません。';}
+  }
+  function syncControls(){
+    visibilityRange.value=String(imageVisibility);opacityRange.value=String(photoOpacity);
+    zoomCtl.input.value=String(imageZoom);posXCtl.input.value=String(imagePosX);posYCtl.input.value=String(imagePosY);
+    introCtl.input.value=String(introOpacity);statusCtl.input.value=String(statusOpacity);rankCtl.input.value=String(rankOpacity);
+    fitSelect.value=fullFit;input.value=url;
+    for(const [key,,fallback] of colorDefs)colorInputs[key].value=/^#[0-9a-fA-F]{6}$/.test(customColors[key]||'')?customColors[key]:fallback;
+    refreshSeasonButtons();applyColors();refreshAllColorAuto();
+  }
+  async function loadSnapshot(state){
+    // Check the photo BEFORE changing settings; deleting it should never
+    // accidentally switch the active appearance to a broken empty preset.
+    let blob=null;
+    if(state.source==='local'){
+      const image=await withDB('gallery','readonly',os=>os.get(state.localId));
+      if(!image?.blob)throw new Error('This preset references a device photo that was deleted. / 参照画像が削除されています。');
+      blob=image.blob;
+    }else if(state.theme==='image' && state.url){
+      const address=validPath(state.url);if(!address)throw new Error('Stored image URL is invalid. / 保存URLが無効です。');
+      await verifyImage(address);
+    }
+    theme=['original','dark','image'].includes(state.theme)?state.theme:'original';
+    url=typeof state.url==='string'?state.url:'';
+    source=state.source==='local'?'local':'url';localId=typeof state.localId==='string'?state.localId:'';
+    imageScope=['header','hero','full'].includes(state.imageScope)?state.imageScope:'header';
+    imageVisibility=Math.max(25,Math.min(100,Number(state.imageVisibility)||78));
+    photoOpacity=Math.max(15,Math.min(100,Number(state.photoOpacity)||100));
+    weekStyle=['auto','filled','outline'].includes(state.weekStyle)?state.weekStyle:'auto';
+    imageZoom=Math.max(75,Math.min(250,Number(state.imageZoom)||100));
+    imagePosX=Math.max(0,Math.min(100,Number(state.imagePosX ?? 50)));
+    imagePosY=Math.max(0,Math.min(200,Number(state.imagePosY ?? 40)));
+    introOpacity=Math.max(20,Math.min(100,Number(state.introOpacity)||84));
+    statusOpacity=Math.max(20,Math.min(100,Number(state.statusOpacity)||87));
+    rankOpacity=Math.max(20,Math.min(100,Number(state.rankOpacity)||96));
+    imageTone=['light','dark'].includes(state.imageTone)?state.imageTone:'light';
+    fullFit=['cover','contain','tile'].includes(state.fullFit)?state.fullFit:'cover';
+    customColors=state.customColors && typeof state.customColors==='object'?{...state.customColors}:{};
+    seasonSettings={weight:['auto','normal','bold'].includes(state.seasonSettings?.weight)?state.seasonSettings.weight:'auto',
+      style:['auto','filled','outline'].includes(state.seasonSettings?.style)?state.seasonSettings.style:'auto',
+      size:Math.max(80,Math.min(160,Number(state.seasonSettings?.size)||100))};
+    imageNatural=null;
+    if(source==='local'&&blob)setLocalPreview(blob);
+    else if(source==='url'){if(localObjectUrl){URL.revokeObjectURL(localObjectUrl);localObjectUrl=null;}if(url)rememberNaturalSize(validPath(url));}
+    syncControls();persistSnapshot();apply(theme,false);
+    if(theme==='image')loadGallery();
+  }
+  const currentPreset=()=>presets.find(p=>p.id===presetPick.value);
+  presetButton('Load / 呼び出す',async()=>{
+    const p=currentPreset();if(!p){presetStatus.textContent='Select a preset. / 保存設定を選択してください。';return;}
+    presetStatus.textContent='Loading… / 読み込み中…';
+    try{await loadSnapshot(p.state);presetStatus.textContent='Loaded: '+p.name+' / 元の設定は変更されません。';}
+    catch(e){presetStatus.textContent=e.message||'Could not load preset. / 読み込み失敗。';}
+  });
+  presetButton('Save NEW / 新規保存',()=>{
+    if(source==='local'&&!localId){presetStatus.textContent='Save the device photo to the library first. / 先に端末画像をギャラリーに保存してください。';return;}
+    const name=presetName.value.trim();if(!name){presetStatus.textContent='Enter a name. / 名前を入力してください。';return;}
+    if(presets.length>=30){presetStatus.textContent='Maximum 30 presets. / 最大30件です。';return;}
+    if(presets.some(p=>p.name.toLocaleLowerCase()===name.toLocaleLowerCase())){presetStatus.textContent='Name already in use. / 同名があります。';return;}
+    const id='preset-'+Date.now()+'-'+Math.random().toString(36).slice(2,7);
+    presets.push({id,name,state:snapshot()});
+    if(savePresetList()){renderPresets(id);presetStatus.textContent='Saved: '+name+' / このブラウザに保存しました。';presetName.value='';}
+    else presets.pop();
+  });
+  presetButton('Update / 上書き',()=>{
+    if(source==='local'&&!localId){presetStatus.textContent='Save the device photo to the library first. / 先に端末画像をギャラリーに保存してください。';return;}
+    const p=currentPreset();if(!p){presetStatus.textContent='Select a preset first. / 保存設定を選択してください。';return;}
+    const before=p.state;p.state=snapshot();
+    if(savePresetList())presetStatus.textContent='Updated: '+p.name+' / 手動で更新しました。';else p.state=before;
+  });
+  presetButton('Rename / 名前変更',()=>{
+    const p=currentPreset();if(!p){presetStatus.textContent='Select a preset first. / 保存設定を選択してください。';return;}
+    const name=presetName.value.trim();if(!name){presetStatus.textContent='Enter a new name. / 新しい名前を入力してください。';return;}
+    if(presets.some(q=>q.id!==p.id && q.name.toLocaleLowerCase()===name.toLocaleLowerCase())){presetStatus.textContent='Name already in use. / 同名があります。';return;}
+    const previous=p.name;p.name=name;
+    if(savePresetList()){renderPresets(p.id);presetStatus.textContent='Renamed: '+name;presetName.value='';}
+    else p.name=previous;
+  });
+  presetButton('Delete / 削除',()=>{
+    const p=currentPreset();if(!p)return;
+    if(!confirm('Delete this preset (not its image)? / この設定を削除しますか？\n'+p.name))return;
+    const old=presets;presets=presets.filter(q=>q.id!==p.id);
+    if(savePresetList()){renderPresets();presetStatus.textContent='Preset deleted (photo retained). / 設定のみ削除しました。';}
+    else presets=old;
+  });
+  renderPresets();
   async function saveLocal(blob,name){
     const id='local-'+Date.now()+'-'+Math.random().toString(36).slice(2,8);
     await withDB('gallery','readwrite',os=>os.put({id,name,blob,created:Date.now()}));

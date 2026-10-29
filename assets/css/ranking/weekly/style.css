@@ -2652,7 +2652,7 @@ body[data-animeb-theme="image"][data-animeb-image-scope="header"] .wrapper > .ov
 /* A translucent reading surface, but enough image shows behind it. */
 body[data-animeb-theme="image"] .ws-modern-toggle,
 body[data-animeb-theme="image"] .ws-modern-details{
-  background:rgba(255,253,246,.87);
+  background:rgba(255,253,246,var(--animeb-status-opacity,.87));
   backdrop-filter:blur(5px);-webkit-backdrop-filter:blur(5px);
 }
 body[data-animeb-theme="image"] .animeb-weekly-intro{
@@ -2750,7 +2750,7 @@ body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .animeb-weekly-sa
 body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .animeb-weekly-satisfaction .animeb-sat-denominator{color:#fffdf3}
 body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .ws-modern-toggle,
 body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .ws-modern-details{
-  background:rgba(22,37,42,.87);border-color:rgba(203,227,216,.34);color:#f2f4ee;
+  background:rgba(22,37,42,var(--animeb-status-opacity,.87));border-color:rgba(203,227,216,.34);color:#f2f4ee;
 }
 body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .ws-modern-main strong,
 body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .ws-modern-row strong{color:#f6f4e7}
@@ -2863,6 +2863,7 @@ body[data-animeb-theme="image"][data-animeb-image-scope="full"]{
 }
 body[data-animeb-theme="image"][data-animeb-image-scope="full"]::before{
   content:"";position:fixed;z-index:0;inset:0;pointer-events:none;
+  background-color:var(--animeb-photo-stage-color,#ffffed);
   background-image:linear-gradient(rgba(255,253,239,var(--animeb-image-wash)),rgba(255,253,239,var(--animeb-image-wash))),var(--animeb-theme-photo,none);
   background-size:100% 100%,var(--animeb-image-size,cover);
   background-position:center,var(--animeb-image-x,50%) var(--animeb-image-y,40%);
@@ -2876,7 +2877,7 @@ body[data-animeb-theme="image"][data-animeb-image-scope="full"][data-animeb-imag
 body[data-animeb-theme="image"][data-animeb-image-scope="full"][data-animeb-image-tone="dark"] .wrapper{
   background:rgba(20,33,39,.87);color:#e5eee8;border-color:#435b57;
 }
-body[data-animeb-theme="image"][data-animeb-image-scope="full"][data-animeb-image-tone="dark"] .entry,
+/* The ranked card needs its OWN opaque surface; only child info remains transparent. */
 body[data-animeb-theme="image"][data-animeb-image-scope="full"][data-animeb-image-tone="dark"] .entry .info,
 body[data-animeb-theme="image"][data-animeb-image-scope="full"][data-animeb-image-tone="dark"] .entry .jp-title,
 body[data-animeb-theme="image"][data-animeb-image-scope="full"][data-animeb-image-tone="dark"] .table-header-mount{
@@ -2938,10 +2939,11 @@ body[data-animeb-theme="image"][data-animeb-image-scope="hero"] .wrapper > .anim
 /* The user's image opacity is independent from the image wash slider.
    The photo lives on ::before, the hue/contrast wash on ::after. */
 body[data-animeb-theme="image"]{--animeb-image-photo-opacity:1;--animeb-image-wash:.25}
-body[data-animeb-theme="image"][data-animeb-image-tone="light"]{--animeb-photo-wash-rgb:255,252,239}
-body[data-animeb-theme="image"][data-animeb-image-tone="dark"]{--animeb-photo-wash-rgb:16,27,33}
+body[data-animeb-theme="image"][data-animeb-image-tone="light"]{--animeb-photo-wash-rgb:255,252,239;--animeb-photo-stage-color:#ffffed}
+body[data-animeb-theme="image"][data-animeb-image-tone="dark"]{--animeb-photo-wash-rgb:16,27,33;--animeb-photo-stage-color:#101c22}
 body[data-animeb-theme="image"][data-animeb-image-scope="header"] .wrapper::before,
 body[data-animeb-theme="image"][data-animeb-image-scope="hero"] .wrapper::before{
+  background-color:var(--animeb-photo-stage-color,#ffffed);
   background-image:var(--animeb-theme-photo,none)!important;
   background-position:var(--animeb-image-x,50%) var(--animeb-image-y,40%);
   background-size:var(--animeb-image-size,cover);
@@ -2970,10 +2972,13 @@ body[data-animeb-theme="image"][data-animeb-image-scope="full"]::after{
 /* Full Page: reliable reading contrast for every RANKED TITLE and its details.
    Leave a touch of photograph visible between the card surfaces. */
 body[data-animeb-theme="image"][data-animeb-image-scope="full"][data-animeb-image-tone="light"] .wrapper{
-  background:rgba(255,252,242,.70)!important;color:#35423c;
+  background:transparent!important;color:#35423c;
 }
-body[data-animeb-theme="image"][data-animeb-image-scope="full"][data-animeb-image-tone="light"] :is(.entry,.ranking-item,.table-header,.table-header-mount,.note,.notes-section,.overview-section){
+body[data-animeb-theme="image"][data-animeb-image-scope="full"][data-animeb-image-tone="light"] :is(.ranking-item,.table-header,.table-header-mount,.note,.notes-section,.overview-section){
   background-color:rgba(255,254,246,.95)!important;color:#35423c;
+}
+body[data-animeb-theme="image"][data-animeb-image-scope="full"][data-animeb-image-tone="light"] .entry{
+  background-color:rgba(255,254,246,var(--animeb-rank-opacity,.96))!important;color:#35423c;
 }
 body[data-animeb-theme="image"][data-animeb-image-scope="full"] .entry{
   border-radius:8px;box-shadow:0 2px 9px rgba(12,31,27,.08);
@@ -2986,10 +2991,13 @@ body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .wrapper{
   background:#14242c;color:#e3e9e2;border-color:#425853;
 }
 body[data-animeb-theme="image"][data-animeb-image-tone="dark"][data-animeb-image-scope="full"] .wrapper{
-  background:rgba(15,29,35,.79)!important;
+  background:transparent!important;
 }
-body[data-animeb-theme="image"][data-animeb-image-tone="dark"] :is(.entry,.ranking-item,.table-header,.table-header-mount,.note,.notes-section,.overview-section){
+body[data-animeb-theme="image"][data-animeb-image-tone="dark"] :is(.ranking-item,.table-header,.table-header-mount,.note,.notes-section,.overview-section){
   background-color:rgba(20,35,41,.96)!important;color:#e9efe9!important;
+}
+body[data-animeb-theme="image"][data-animeb-image-tone="dark"][data-animeb-image-scope="full"] .entry{
+  background:rgba(20,35,41,var(--animeb-rank-opacity,.96))!important;color:#e9efe9!important;
 }
 body[data-animeb-theme="image"][data-animeb-image-tone="dark"] :is(.entry .info,.entry .info-top,.entry .title,.entry .jp-title,.entry .synopsis,.entry .more-info,.entry .score,.entry .more-info-toggle,.entry .wrp-label,.table-header-mount,.header,.sub-header,.animeb-weekly-notes-ja){
   color:#e9efe9!important;
@@ -3049,8 +3057,8 @@ body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .ranking-episode-
 }
 body[data-animeb-theme="dark"] .entry .more-info dd,
 body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .entry .more-info dd {
-  color:var(--animeb-dark-meta-rose,#e3b9ca) !important;
-  /* other choices: color:#f7e4ed !important; #ebc7d6 or FAE8F0*/
+  color:#f7e4ed !important;
+  /*before color:var(--animeb-dark-meta-rose,#e3b9ca) !important;*/
   text-shadow:none !important;
 }
 body[data-animeb-theme="dark"] .entry .more-info dt,
@@ -3510,6 +3518,42 @@ body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .ws-modern-metric
 body[data-animeb-theme="dark"] .ws-modern-metric-legacy .ws-modern-metric-note,
 body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .ws-modern-metric-legacy .ws-modern-metric-note{color:#cad8ce;}
 
+
+/* === Weekly Theme Studio: new controls only. Existing CSS remains authoritative. === */
+.animeb-bg-presets,.animeb-season-studio{border:1px solid #a3b6ad;border-radius:10px;margin:12px 0;padding:11px;min-width:0}
+.animeb-bg-presets legend,.animeb-season-studio legend{font:700 11px 'Fira Sans',sans-serif;color:#bdd4c8;padding:0 5px}
+.animeb-bg-presets select,.animeb-bg-presets input{display:block;box-sizing:border-box;width:100%;max-width:100%;padding:8px;margin:4px 0 8px;border-radius:6px;border:1px solid #98aea2;background:#fffdf4;color:#23362f;font:11px 'Fira Sans',sans-serif}
+.animeb-bg-presets-actions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:5px}
+.animeb-bg-presets-actions button,.animeb-season-choice{font:650 10px/1.35 'Fira Sans',sans-serif;color:#e6f0e9;background:#34584d;border:1px solid #6d9784;padding:8px 4px;border-radius:6px;cursor:pointer;min-width:0}
+.animeb-bg-presets-status{font:10px/1.45 'Fira Sans',sans-serif;margin:9px 0 1px;color:inherit;overflow-wrap:anywhere}
+.animeb-bg-color-grid{grid-template-columns:1fr}
+.animeb-bg-color-row > span{flex:1;min-width:0}
+.animeb-bg-color-auto{font:650 9px 'Fira Sans',sans-serif;border:1px solid #89a99b;background:#315348;color:#fff;border-radius:5px;padding:5px 6px;cursor:pointer}
+.animeb-bg-color-auto[aria-pressed="true"]{background:#647d70;color:#fff}
+.animeb-season-style-row{margin:8px 0 12px}
+.animeb-season-style-row > span,.animeb-season-size > span{display:block;font:700 10px/1.4 'Fira Sans',sans-serif;margin-bottom:5px;color:inherit}
+.animeb-season-style-row .animeb-bg-tone-buttons{display:flex;gap:5px}
+.animeb-season-style-row button{flex:1}
+.animeb-season-choice[aria-pressed="true"]{background:#577e64;border-color:#b6d2a9;color:white}
+.animeb-season-size{display:block;font:700 10px 'Fira Sans',sans-serif}
+.animeb-season-size output{float:right}
+.animeb-season-size input{display:block;width:100%;margin:7px 0}
+.animeb-season-studio > button{width:100%;margin-top:4px}
+body[data-animeb-theme="original"] .animeb-bg-presets legend,
+body[data-animeb-theme="original"] .animeb-season-studio legend{color:#52715e}
+/* Preserve natural season palette for Auto, even when an image is used. */
+.season-spring{--animeb-season-default:#5ba058}
+.season-summer{--animeb-season-default:#499bad}
+.season-fall{--animeb-season-default:#c2572a}
+.season-winter{--animeb-season-default:#cdd4db}
+/* A photo never replaces the reading surface; only the explicit ranked-card
+   opacity slider controls the FULL PAGE ranked-card background. */
+body[data-animeb-theme="image"][data-animeb-image-scope="full"] .entry-list > .entry{
+  position:relative;isolation:isolate;
+  backdrop-filter:blur(1px);-webkit-backdrop-filter:blur(1px);
+}
+@media(max-width:450px){.animeb-bg-presets-actions button{font-size:9.5px}}
+
 /* v4.35.12 — scoped improvements: archived Overview + Bottom typography.
    The archive's own overview stylesheet loads in an isolated ShadowRoot.
    Do not alter ranking cards, current-week styles or metadata. */
@@ -3615,11 +3659,4 @@ body[data-animeb-final-week="true"] .note-mount code {
   .animeb-bottom-item .animeb-bottom-poster {
     width:88px;
   }
-}
-
-/* Dark mode: MORE INFO button text */
-body[data-animeb-theme="dark"] .entry .collapse-btn,
-body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .entry .collapse-btn {
-  color: #929292 !important;
-  /*original collapse button color is #686868*/
 }
