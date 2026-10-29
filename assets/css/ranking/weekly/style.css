@@ -2900,7 +2900,10 @@ body[data-animeb-theme="image"][data-animeb-image-scope="full"]::before{
 body[data-animeb-theme="image"][data-animeb-image-scope="full"][data-animeb-full-fit="tile"]::before{background-repeat:no-repeat,repeat}
 /* One isolated page layer above the fixed photograph/wash. On iOS Safari,
    in-flow text below the ranking must not slip behind the fixed layers. */
-body[data-animeb-theme="image"][data-animeb-image-scope="full"] > .wrapper{
+/* The weekly index embeds shared-index.html under #app > div.
+   The wrapper is NOT a direct child of body; keep it above both fixed
+   body photo/wash layers even as long Legacy Overviews expand. */
+body[data-animeb-theme="image"][data-animeb-image-scope="full"] .wrapper{
   position:relative;z-index:1;isolation:isolate;
 }
 body[data-animeb-theme="image"][data-animeb-image-scope="full"][data-animeb-image-tone="dark"]::before{
