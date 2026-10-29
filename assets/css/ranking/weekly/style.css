@@ -2870,7 +2870,11 @@ body[data-animeb-theme="image"][data-animeb-image-scope="full"]::before{
   background-repeat:no-repeat;
 }
 body[data-animeb-theme="image"][data-animeb-image-scope="full"][data-animeb-full-fit="tile"]::before{background-repeat:no-repeat,repeat}
-body[data-animeb-theme="image"][data-animeb-image-scope="full"] > .wrapper{position:relative;z-index:1}
+/* One isolated page layer above the fixed photograph/wash. On iOS Safari,
+   in-flow text below the ranking must not slip behind the fixed layers. */
+body[data-animeb-theme="image"][data-animeb-image-scope="full"] > .wrapper{
+  position:relative;z-index:1;isolation:isolate;
+}
 body[data-animeb-theme="image"][data-animeb-image-scope="full"][data-animeb-image-tone="dark"]::before{
   background-image:linear-gradient(rgba(14,25,31,calc(var(--animeb-image-wash) + .10)),rgba(14,25,31,calc(var(--animeb-image-wash) + .10))),var(--animeb-theme-photo,none)
 }
@@ -2999,6 +3003,44 @@ body[data-animeb-theme="image"][data-animeb-image-tone="dark"] :is(.ranking-item
 body[data-animeb-theme="image"][data-animeb-image-tone="dark"][data-animeb-image-scope="full"] .entry{
   background:rgba(20,35,41,var(--animeb-rank-opacity,.96))!important;color:#e9efe9!important;
 }
+/* Full Page: the editorial extensions are siblings of .entry-list, NOT
+   ranking .entry elements. Keep each complete section (poster + COPY) in the
+   same foreground layer, and obey the EXISTING rank-opacity slider. */
+body[data-animeb-theme="image"][data-animeb-image-scope="full"] .wrapper > :is(
+  .header,.sub-header,.animeb-bottom-week,.animeb-dropped-titles,.note-mount
+){
+  position:relative;z-index:1;isolation:isolate;
+}
+body[data-animeb-theme="image"][data-animeb-image-scope="full"] :is(
+  .animeb-bottom-week,.animeb-dropped-titles
+){
+  backdrop-filter:blur(1px);-webkit-backdrop-filter:blur(1px);
+}
+body[data-animeb-theme="image"][data-animeb-image-scope="full"][data-animeb-image-tone="dark"] :is(
+  .animeb-bottom-week,.animeb-dropped-titles
+){
+  background-color:rgba(20,35,41,var(--animeb-rank-opacity,.96));
+}
+body[data-animeb-theme="image"][data-animeb-image-scope="full"][data-animeb-image-tone="light"] :is(
+  .animeb-bottom-week,.animeb-dropped-titles
+){
+  background-color:rgba(255,254,246,var(--animeb-rank-opacity,.96));
+}
+/* Notes are long-form text, not rank cards; protect readability independently
+   of the rank slider, for current weeks AND historical/Final weeks. */
+body[data-animeb-theme="image"][data-animeb-image-scope="full"] .note-mount:not(:empty){
+  padding:12px 13px;margin:16px 0 24px;border-radius:10px;
+  backdrop-filter:blur(2px);-webkit-backdrop-filter:blur(2px);
+}
+body[data-animeb-theme="image"][data-animeb-image-scope="full"][data-animeb-image-tone="dark"] .note-mount:not(:empty){
+  background-color:rgba(20,35,41,.96);
+  color:#e9efe9;
+}
+body[data-animeb-theme="image"][data-animeb-image-scope="full"][data-animeb-image-tone="light"] .note-mount:not(:empty){
+  background-color:rgba(255,254,246,.96);
+  color:#35423c;
+}
+
 body[data-animeb-theme="image"][data-animeb-image-tone="dark"] :is(.entry .info,.entry .info-top,.entry .title,.entry .jp-title,.entry .synopsis,.entry .more-info,.entry .score,.entry .more-info-toggle,.entry .wrp-label,.table-header-mount,.header,.sub-header,.animeb-weekly-notes-ja){
   color:#e9efe9!important;
 }
