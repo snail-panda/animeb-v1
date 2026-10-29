@@ -321,7 +321,6 @@ body {
   max-width: 80vw;
   position: absolute;
   right: 80%;
-  top: ;
   transform: scaleX(0);
   transform-origin: right;
   transition: transform 0.3s ease;
