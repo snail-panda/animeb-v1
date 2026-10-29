@@ -592,7 +592,10 @@ function animebInitWeeklyThemes(){
   field.append(imageOptions,galleryTitle,repoHeading,remoteGrid,repoStatus,localHeading,localGrid,localStatus,fileLabel,fileNote,details);
   panel.append(panelHead,choices,previewStage,weekStylePanel,colorDetails,seasonBox,presetBox,field,message);ctr.append(btn,panel);
   const lang=document.querySelector('#animeb-weekly-language');
-  if(lang)lang.before(ctr);else(document.querySelector('.nav-bar')||document.body).after(ctr);
+  // Append after the real page, so the preview's cloned .header/.sub-header
+  // cannot hijack generic document.querySelector() calls in the weekly renderer.
+  // Position is fixed by CSS; DOM order is for selector safety only.
+  document.body.append(ctr);
   const validPath=v=>{
     if(!v||/[\\"'\n\r<>]/.test(v))return null;
     try{const p=new URL(v,location.href);return ['https:','http:'].includes(p.protocol)?p.href:null;}catch(_){return null;}
