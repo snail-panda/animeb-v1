@@ -891,17 +891,27 @@ body[data-animeb-theme="image"][data-animeb-image-tone="dark"] #overview-toggle-
   margin-left: 0.063rem; /* 1px */
   margin-bottom: -0.12rem;
   padding-bottom: 0.063rem; /* 1px */
-  font-size: 0.531rem; /* 8.5px */
+  font-size: 0.55rem; /* English: original 0.531rem */
   letter-spacing: 0.3px;
   text-transform: none;
-  color: #5D7430;
+  color: #5D7430; /* Original color for light mode */
 }
-/* Japanese glyphs render darker at this tiny size than the English type.
-   Change only JA in dark/photo-dark; keep English and light-mode colors. */
+
+/* Japanese: keep original font size in all modes */
+body[data-animeb-lang="ja"] .bar-label {
+  font-size: 0.531rem;
+}
+
+/* Dark mode: same color for English and Japanese */
+body[data-animeb-theme="dark"] .bar-label,
+body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .bar-label {
+  color: #809D46; /* original dark green color: #5D7430 */
+}
+
+/* Japanese: slightly heavier in dark mode only */
 body[data-animeb-lang="ja"][data-animeb-theme="dark"] .bar-label,
-body[data-animeb-lang="ja"][data-animeb-theme="image"][data-animeb-image-tone="dark"] .bar-label{
-  color:#809d46;
-  font-weight:500;
+body[data-animeb-lang="ja"][data-animeb-theme="image"][data-animeb-image-tone="dark"] .bar-label {
+  font-weight: 500;
 }
 
 
