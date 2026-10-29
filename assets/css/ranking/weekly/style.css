@@ -3907,6 +3907,22 @@ body[data-animeb-final-week="true"] .note-mount code {
   padding:2px 4px;border-radius:3px;background:rgba(18,31,33,.62);
 }
 .animeb-bg-preview-boundary{font-size:0;}
+
+/* r9: optional status-anchored image framing (Theme Studio controls only). */
+.animeb-bg-status-anchor{display:flex;gap:9px;align-items:center;
+  padding:8px 9px;margin:5px 0 0;border-radius:7px;
+  border:1px solid #98b0a0;background:rgba(92,144,111,.10);
+  color:#365948;font:600 10px/1.45 'Fira Sans',sans-serif;}
+.animeb-bg-status-anchor input{width:17px;height:17px;flex:none;accent-color:#4e8364;}
+.animeb-bg-status-anchor input:disabled{opacity:.45;}
+.animeb-bg-anchor-help{margin:3px 4px 8px!important;
+  color:#657568!important;font:400 9.5px/1.45 'Fira Sans',sans-serif!important;}
+body[data-animeb-theme="dark"] .animeb-bg-status-anchor,
+body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .animeb-bg-status-anchor{
+  background:rgba(77,118,106,.22);border-color:#567a70;color:#d7e6dc;}
+body[data-animeb-theme="dark"] .animeb-bg-anchor-help,
+body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .animeb-bg-anchor-help{color:#b8c8c1!important;}
+
 .animeb-theme-panel-pinned .animeb-bg-live-preview[data-theme="image"]{
   height:var(--animeb-preview-composition-height,235px);min-height:0;
   max-height:min(39dvh,315px);padding:0;

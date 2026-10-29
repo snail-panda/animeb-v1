@@ -244,6 +244,7 @@ function animebInitWeeklyThemes(){
   const ZOOM_KEY='animeb-weekly-image-zoom-v1';
   const POSX_KEY='animeb-weekly-image-posx-v1';
   const POSY_KEY='animeb-weekly-image-posy-v1';
+  const ANCHOR_KEY='animeb-weekly-image-status-anchor-v1';
   const INTRO_KEY='animeb-weekly-image-intro-opacity-v1';
   const TONE_KEY='animeb-weekly-image-tone-v1';
   const FIT_KEY='animeb-weekly-image-fit-v1';
@@ -262,6 +263,9 @@ function animebInitWeeklyThemes(){
   // Default image placement is confined to the area ABOVE the ranking table.
   let imageScope='header', imageVisibility=78, photoOpacity=100, weekStyle='auto';
   let imageZoom=100, imagePosX=50, imagePosY=40, introOpacity=84;
+  // Optional lock captures a photo coordinate at the Viewing Status boundary.
+  // OFF by default: previously saved framing is never silently reinterpreted.
+  let statusAnchor={enabled:false,fraction:0,cameraRatio:0,sliderOrigin:40};
   let rankOpacity=96, statusOpacity=87;
   let seasonSettings={weight:'auto',style:'auto',size:100};
   let presets=[];
@@ -282,7 +286,15 @@ function animebInitWeeklyThemes(){
     const clamped=(key,min,max,fallback)=>{const n=Number(localStorage.getItem(key));return localStorage.getItem(key)!==null&&Number.isFinite(n)?Math.max(min,Math.min(max,n)):fallback;};
     imageZoom=clamped(ZOOM_KEY,60,320,100);
     imagePosX=clamped(POSX_KEY,-25,125,50);
-    imagePosY=clamped(POSY_KEY,-50,250,40);
+    imagePosY=clamped(POSY_KEY,-200,350,40);
+    const savedAnchor=JSON.parse(localStorage.getItem(ANCHOR_KEY)||'null');
+    if(savedAnchor?.enabled && Number.isFinite(savedAnchor.fraction) &&
+       Number.isFinite(savedAnchor.cameraRatio) && savedAnchor.cameraRatio>0 &&
+       Number.isFinite(savedAnchor.sliderOrigin)){
+      statusAnchor={enabled:true,fraction:Math.max(-10,Math.min(10,savedAnchor.fraction)),
+        cameraRatio:Math.max(.25,Math.min(12,savedAnchor.cameraRatio)),
+        sliderOrigin:Math.max(-200,Math.min(350,savedAnchor.sliderOrigin))};
+    }
     introOpacity=clamped(INTRO_KEY,20,100,84);
     rankOpacity=clamped(RANK_OPACITY_KEY,20,100,96);
     statusOpacity=clamped(STATUS_OPACITY_KEY,20,100,87);
@@ -463,7 +475,56 @@ function animebInitWeeklyThemes(){
   };
   const zoomCtl=mkRange('ZOOM / 拡大・縮小',60,320,5);
   const posXCtl=mkRange('HORIZONTAL / 左右位置',-25,125,5);
-  const posYCtl=mkRange('VERTICAL / 上下位置',-50,250,5);
+  const posYCtl=mkRange('VERTICAL / 上下位置',-200,350,5);
+  // Anchor only applies to image-as-page-header (Compact/Hero). Full Page
+  // keeps its viewport-fixed behavior, without changing a saved lock.
+  const anchorLabel=document.createElement('label');anchorLabel.className='animeb-bg-status-anchor';
+  const anchorInput=document.createElement('input');anchorInput.type='checkbox';anchorInput.checked=statusAnchor.enabled;
+  const anchorText=document.createElement('span');anchorText.textContent='LOCK TO VIEWING STATUS / 視聴状況の上端に構図を固定';
+  anchorLabel.append(anchorInput,anchorText);
+  const anchorHelp=document.createElement('p');anchorHelp.className='animeb-bg-anchor-help';
+  posYCtl.input.closest('label').after(anchorLabel,anchorHelp);
+  const saveStatusAnchor=()=>{try{localStorage.setItem(ANCHOR_KEY,JSON.stringify(statusAnchor));}catch(_){}};
+  function updateAnchorControls(){
+    anchorInput.checked=statusAnchor.enabled;
+    anchorInput.disabled=imageScope==='full';
+    anchorHelp.textContent=imageScope==='full'
+      ? 'Full Pageは画面固定背景のため対象外。Compact/Heroへ戻すと保存した固定位置を使います。'
+      :statusAnchor.enabled
+        ? '固定中。Compact/ Hero・別の週でも同じ画像の位置がViewing Status上端に来ます。上下スライダーで微調整できます。'
+        : '現在の構図をViewing Status上端で固定。既存の画像位置はチェックするまで変わりません。';
+  }
+  anchorInput.addEventListener('change',()=>{
+    if(!anchorInput.checked){statusAnchor.enabled=false;saveStatusAnchor();apply(theme,false);return;}
+    const wrapper=document.querySelector('.wrapper');
+    const marker=wrapper?.querySelector('.watch-status-wrapper.ws-modern-wrapper')||wrapper?.querySelector('.watch-status-wrapper');
+    if(imageScope==='full'||!wrapper||!marker||!marker.getClientRects().length||
+       !imageNatural?.height||fullFit==='tile'){
+      anchorInput.checked=false;
+      anchorHelp.textContent='先にCompact/Heroで画像とViewing Statusを表示してください（Tileは対象外）。';return;
+    }
+    // First read the CURRENT unlocked photo coordinates, so turning on Lock
+    // does not select an arbitrary focal point or overwrite existing sliders.
+    updateHeroExtent();
+    const size=document.body.style.getPropertyValue('--animeb-image-size').trim().split(/\s+/);
+    const photoHeight=Number.parseFloat(size[1]);
+    const photoTop=Number.parseFloat(document.body.style.getPropertyValue('--animeb-image-y-fixed'));
+    const wrapperBox=wrapper.getBoundingClientRect();
+    const cameraHeight=Math.max(1,Number.parseFloat(wrapper.style.getPropertyValue('--animeb-image-header-height'))||400);
+    const width=Math.max(1,wrapperBox.width);
+    const floor=window.innerWidth<=768
+      ?Math.min(560,Math.max(500,Math.round(window.innerWidth*1.31)))
+      :Math.min(780,Math.max(590,Math.round(window.innerWidth*.68)));
+    if(!Number.isFinite(photoHeight)||photoHeight<1||!Number.isFinite(photoTop)){
+      anchorInput.checked=false;anchorHelp.textContent='画像の寸法を読み込み後にもう一度お試しください。';return;
+    }
+    statusAnchor={enabled:true,
+      fraction:(marker.getBoundingClientRect().top-wrapperBox.top-photoTop)/photoHeight,
+      cameraRatio:Math.max(cameraHeight,floor)/width,
+      sliderOrigin:imagePosY};
+    saveStatusAnchor();apply(theme,false);
+  });
+  updateAnchorControls();
   const introCtl=mkRange('THIS WEEK PANEL / 本文パネルの不透明度',20,100,5);
   const statusCtl=mkRange('VIEWING STATUS / 上部パネルの不透明度',20,100,5);
   const rankCtl=mkRange('RANKING CARDS / ランキング行の不透明度',20,100,5);
@@ -831,7 +892,16 @@ function animebInitWeeklyThemes(){
     const cameraFloor=window.innerWidth<=768
       ? Math.min(560,Math.max(500,Math.round(window.innerWidth*1.31)))
       : Math.min(780,Math.max(590,Math.round(window.innerWidth*.68)));
-    const cameraHeight=imageScope==='full'?viewportHeight:Math.max(height,cameraFloor);
+    const marker=wrapper.querySelector('.watch-status-wrapper.ws-modern-wrapper')
+      ||wrapper.querySelector('.watch-status-wrapper');
+    const locked=statusAnchor.enabled && imageScope!=='full' && fullFit!=='tile' &&
+      marker && marker.getClientRects().length && imageNatural?.height &&
+      Number.isFinite(statusAnchor.cameraRatio) && statusAnchor.cameraRatio>0;
+    // Locked camera size is measured at the moment the user checks Lock.
+    // Thus a longer This Week never changes the photo's zoom in later weeks.
+    const cameraHeight=imageScope==='full'?viewportHeight:
+      locked?Math.max(1,Math.round(width*statusAnchor.cameraRatio)):
+      Math.max(height,cameraFloor);
     const targetHeight=cameraHeight;
     let sizing='cover';
     if(imageNatural?.width&&imageNatural?.height){
@@ -849,8 +919,19 @@ function animebInitWeeklyThemes(){
       // x stays user-controlled and unchanged; Full Page retains its setting.
       const scaledHeight = imageNatural?.height && imageNatural?.width
         ? Number(sizing.split(' ')[1]?.replace('px','')) : null;
-      const yOffset = scaledHeight!==null && Number.isFinite(scaledHeight)
-        ? (cameraHeight-scaledHeight)*(imagePosY/100) : null;
+      // In Lock mode preserve the SAME photo coordinate at the top of
+      // Viewing Status, even when Hero/Compact or intro length changes.
+      // The range slider remains a fine framing adjustment after locking.
+      const markerY=locked?marker.getBoundingClientRect().top-wrapperTop:null;
+      // In Lock mode sliders keep moving the art even if the image height
+      // happens to equal the camera height (where CSS %-position has no travel).
+      // A positive vertical value shifts the subject upward, as with 'cover'.
+      const lockTravel=scaledHeight!==null ? Math.max(cameraHeight*.60,Math.abs(cameraHeight-scaledHeight)) : 0;
+      const yOffset=scaledHeight!==null && Number.isFinite(scaledHeight)
+        ? locked
+          ? markerY-statusAnchor.fraction*scaledHeight-
+            lockTravel*((imagePosY-statusAnchor.sliderOrigin)/100)
+          : (cameraHeight-scaledHeight)*(imagePosY/100) : null;
       if(yOffset!==null)document.body.style.setProperty('--animeb-image-y-fixed',`${yOffset.toFixed(2)}px`);
       else document.body.style.removeProperty('--animeb-image-y-fixed');
     }else document.body.style.removeProperty('--animeb-image-y-fixed');
@@ -897,6 +978,7 @@ function animebInitWeeklyThemes(){
     document.body.style.setProperty('--animeb-image-wash',wash);
     visibilityValue.textContent=imageVisibility+'%';
     Object.entries(scopeButtons).forEach(([key,element])=>element.setAttribute('aria-pressed',String(key===imageScope)));
+    updateAnchorControls();
     scopeHint.textContent=imageScope==='header'
       ?'Compact: original header height, image ends at the ranking. / 通常：現在のヘッダーサイズ。'
       :imageScope==='hero'
@@ -958,7 +1040,7 @@ function animebInitWeeklyThemes(){
   // the controls never modifies a preset until Update is pressed explicitly.
   function snapshot(){
     return {theme,url,source,localId,imageScope,imageVisibility,photoOpacity,
-      weekStyle,imageZoom,imagePosX,imagePosY,introOpacity,statusOpacity,rankOpacity,
+      weekStyle,imageZoom,imagePosX,imagePosY,statusAnchor:{...statusAnchor},introOpacity,statusOpacity,rankOpacity,
       imageTone,fullFit,customColors:{...customColors},seasonSettings:{...seasonSettings}};
   }
   function savePresetList(){
@@ -978,7 +1060,7 @@ function animebInitWeeklyThemes(){
         [WEEK_STYLE_KEY,weekStyle],[ZOOM_KEY,imageZoom],[POSX_KEY,imagePosX],
         [POSY_KEY,imagePosY],[INTRO_KEY,introOpacity],[STATUS_OPACITY_KEY,statusOpacity],
         [RANK_OPACITY_KEY,rankOpacity],[TONE_KEY,imageTone],[FIT_KEY,fullFit]])localStorage.setItem(key,String(val));
-      saveHeaderProfile();
+      saveHeaderProfile();saveStatusAnchor();
     }catch(_){presetStatus.textContent='Loaded for this page, but browser storage is unavailable. / 保存領域にアクセスできません。';}
   }
   function syncControls(){
@@ -1012,7 +1094,16 @@ function animebInitWeeklyThemes(){
     weekStyle=['auto','filled','outline'].includes(state.weekStyle)?state.weekStyle:'auto';
     imageZoom=Math.max(60,Math.min(320,Number(state.imageZoom)||100));
     imagePosX=Math.max(-25,Math.min(125,Number(state.imagePosX ?? 50)));
-    imagePosY=Math.max(-50,Math.min(250,Number(state.imagePosY ?? 40)));
+    imagePosY=Math.max(-200,Math.min(350,Number(state.imagePosY ?? 40)));
+    // Presets written before r9 had no lock: load those in legacy (OFF) mode.
+    const lockedState=state.statusAnchor;
+    statusAnchor=lockedState?.enabled && Number.isFinite(lockedState.fraction) &&
+      Number.isFinite(lockedState.cameraRatio) && lockedState.cameraRatio>0 &&
+      Number.isFinite(lockedState.sliderOrigin)
+      ? {enabled:true,fraction:Math.max(-10,Math.min(10,lockedState.fraction)),
+         cameraRatio:Math.max(.25,Math.min(12,lockedState.cameraRatio)),
+         sliderOrigin:Math.max(-200,Math.min(350,lockedState.sliderOrigin))}
+      : {enabled:false,fraction:0,cameraRatio:0,sliderOrigin:imagePosY};
     introOpacity=Math.max(20,Math.min(100,Number(state.introOpacity)||84));
     statusOpacity=Math.max(20,Math.min(100,Number(state.statusOpacity)||87));
     rankOpacity=Math.max(20,Math.min(100,Number(state.rankOpacity)||96));
