@@ -275,9 +275,13 @@ function animebInitWeeklyThemes(){
   // r11: extra drag translation. On anchored images, vertical drag instead
   // edits the source-image fraction so VIEWING remains locked across modes.
   let imageDrag={x:0,y:0};
+  const strokeWidths=[0,.35,.7,1,1.5,2,3];
   const cleanLegibility=value=>({
-    shadow:[0,1,2,3].includes(value?.shadow)?value.shadow:0,
-    edge:[0,1,2].includes(value?.edge)?value.edge:0});
+    shadow:[0,1,2,3,4].includes(value?.shadow)?value.shadow:0,
+    edge:[0,1,2].includes(value?.edge)?value.edge:0,
+    strokeWidth:Number.isInteger(value?.strokeWidth) && value.strokeWidth>=0 && value.strokeWidth<strokeWidths.length?value.strokeWidth:0,
+    strokeColor:/^#[0-9a-fA-F]{6}$/.test(value?.strokeColor||'')?value.strokeColor:'#ffffff',
+    strokeBlur:[0,1,2,3].includes(value?.strokeBlur)?value.strokeBlur:0});
   const legibility={original:cleanLegibility(),dark:cleanLegibility(),image:cleanLegibility()};
   let rankOpacity=96, statusOpacity=87;
   let seasonSettings={weight:'auto',style:'auto',size:100};
@@ -498,8 +502,14 @@ function animebInitWeeklyThemes(){
   // Geometry is read from the scaled page layer rendered by r8.
   const saveImageDrag=()=>{try{localStorage.setItem(DRAG_KEY,JSON.stringify(imageDrag));}catch(_){}};
   const saveLegibility=()=>{try{localStorage.setItem(LEGIBILITY_KEY,JSON.stringify(legibility));}catch(_){}};
+  const dragSwitch=document.createElement('label');dragSwitch.className='animeb-preview-drag-toggle';
+  const dragInput=document.createElement('input');dragInput.type='checkbox';dragInput.checked=false;
+  const dragSwitchText=document.createElement('span');dragSwitchText.textContent='Move image / 画像をドラッグして調整';
+  dragSwitch.append(dragInput,dragSwitchText);
+  previewStage.dataset.drag='off';
+  dragInput.addEventListener('change',()=>{previewStage.dataset.drag=dragInput.checked?'on':'off';});
   let previewDrag=null,previewDragFrame=0;
-  const previewDragEnabled=()=>theme==='image' && !panel.hidden && imageScope!=='full' &&
+  const previewDragEnabled=()=>dragInput.checked && theme==='image' && !panel.hidden && imageScope!=='full' &&
     fullFit!=='tile' && imageNatural?.width>0 && imageNatural?.height>0;
   previewStage.addEventListener('pointerdown',event=>{
     if(!previewDragEnabled() || (event.pointerType==='mouse' && event.button!==0))return;
@@ -548,7 +558,21 @@ function animebInitWeeklyThemes(){
   };
   const zoomCtl=mkRange('ZOOM / 拡大・縮小',60,320,5);
   const posXCtl=mkRange('HORIZONTAL / 左右位置',-25,125,5);
-  const posYCtl=mkRange('VERTICAL / 上下位置',-450,650,5);
+  const posYCtl=mkRange('VERTICAL / 上下位置',-450,650,1);
+  const verticalFine=document.createElement('div');verticalFine.className='animeb-vertical-fine';
+  const verticalFineLabel=document.createElement('span');verticalFineLabel.textContent='Fine tune / 微調整';
+  verticalFine.append(verticalFineLabel);
+  for(const [text,amount] of [['−1',-1],['+1',1]]){
+    const button=document.createElement('button');button.type='button';button.textContent=text;
+    button.setAttribute('aria-label',(amount<0?'Decrease':'Increase')+' vertical position by 1%');
+    button.addEventListener('click',()=>{
+      const current=Number(posYCtl.input.value);
+      posYCtl.input.value=String(Math.max(-450,Math.min(650,current+amount)));
+      posYCtl.input.dispatchEvent(new Event('input',{bubbles:true}));
+    });
+    verticalFine.append(button);
+  }
+  frame.append(verticalFine);
   // Unified image-point anchors. The original r9 storage key stays untouched.
   // All three choices share one background renderer; Full Page stays independent.
   const anchorLabel=document.createElement('div');anchorLabel.className='animeb-bg-status-anchor animeb-bg-anchor-modes';
@@ -631,7 +655,9 @@ function animebInitWeeklyThemes(){
   const colorSummary=document.createElement('summary');colorSummary.textContent='HEADER TEXT COLORS / 見出し文字色（詳細）';
   const colorRows=document.createElement('div');colorRows.className='animeb-bg-color-grid';
   const colorDefs=[
-    ['top','TOP 10 / トップ数','#414344'],
+    ['top','TOP 10 / 共通色','#414344'],
+    ['topWord','TOP / TOP文字','#414344'],
+    ['topNumber','10 / TOPの数字','#414344'],
     ['week','WEEK + number / 週の共通色','#8e2222'],
     ['season','Season line / 下段の共通色','#587966'],
     ['sat','Satisfaction / 満足度','#4c524e'],
@@ -672,25 +698,52 @@ function animebInitWeeklyThemes(){
   const legibilityLegend=document.createElement('legend');legibilityLegend.textContent='HEADER LEGIBILITY / 見出しの読みやすさ';
   const legibilityControls={};legibilityBox.append(legibilityLegend);
   for(const [key,label,max,desc] of [
-    ['shadow','TEXT SHADOW / 文字の影',3,['Off','Soft','Medium','Strong']],
-    ['edge','TEXT EDGE / 文字の縁',2,['Off','Thin','Medium']]]){
+    ['shadow','TEXT SHADOW / 文字の影',4,['Off','Feather','Soft','Medium','Strong']],
+    ['edge','TEXT EDGE / 既存の縁',2,['Off','Thin','Medium']]]){
     const row=document.createElement('label');row.className='animeb-heading-legibility-row';
     const title=document.createElement('span');title.textContent=label;
     const output=document.createElement('output');
     const input=document.createElement('input');input.type='range';input.min=0;input.max=max;input.step=1;
-    legibilityControls[key]={input,output,desc};
+    // Preserve r11 values: the extra Feather setting uses stored value 4.
+    const order=key==='shadow'?[0,4,1,2,3]:[0,1,2];
+    legibilityControls[key]={input,output,desc,order};
     input.addEventListener('input',()=>{
-      legibility[theme][key]=Number(input.value);output.textContent=desc[Number(input.value)];
+      legibility[theme][key]=order[Number(input.value)];output.textContent=desc[Number(input.value)];
       saveLegibility();applyColors();
     });
     row.append(title,output,input);legibilityBox.append(row);
   }
-  const legibilityHelp=document.createElement('p');legibilityHelp.textContent='影と縁は見出し専用。既存のWEEK・季節名のOutline設定やランキング本文は維持します。';
+  // Real colored stroke can surround filled letters. Off preserves old WEEK/season styles.
+  const strokeRow=document.createElement('div');strokeRow.className='animeb-outline-controls';
+  const strokeTitle=document.createElement('strong');strokeTitle.textContent='COLORED OUTLINE / 色付き縁取り（塗りとは別）';
+  const strokeColorLabel=document.createElement('label');strokeColorLabel.textContent='Color / 色';
+  const strokeColorInput=document.createElement('input');strokeColorInput.type='color';strokeColorLabel.append(strokeColorInput);
+  const strokeWidthLabel=document.createElement('label');strokeWidthLabel.textContent='Width / 太さ';
+  const strokeWidthOutput=document.createElement('output');
+  const strokeWidthInput=document.createElement('input');strokeWidthInput.type='range';strokeWidthInput.min=0;strokeWidthInput.max=6;strokeWidthInput.step=1;
+  strokeWidthLabel.append(strokeWidthOutput,strokeWidthInput);
+  const strokeBlurLabel=document.createElement('label');strokeBlurLabel.textContent='Softness / ぼかし';
+  const strokeBlurOutput=document.createElement('output');
+  const strokeBlurInput=document.createElement('input');strokeBlurInput.type='range';strokeBlurInput.min=0;strokeBlurInput.max=3;strokeBlurInput.step=1;
+  strokeBlurLabel.append(strokeBlurOutput,strokeBlurInput);
+  strokeRow.append(strokeTitle,strokeColorLabel,strokeWidthLabel,strokeBlurLabel);legibilityBox.append(strokeRow);
+  function refreshStrokeControls(){
+    const state=legibility[theme];
+    strokeColorInput.value=state.strokeColor;
+    strokeWidthInput.value=String(state.strokeWidth);strokeWidthOutput.textContent=strokeWidths[state.strokeWidth]+'px';
+    strokeBlurInput.value=String(state.strokeBlur);strokeBlurOutput.textContent=state.strokeBlur===0?'Sharp / くっきり':state.strokeBlur+'px';
+  }
+  strokeColorInput.addEventListener('input',()=>{legibility[theme].strokeColor=strokeColorInput.value;saveLegibility();applyColors();});
+  strokeWidthInput.addEventListener('input',()=>{legibility[theme].strokeWidth=Number(strokeWidthInput.value);refreshStrokeControls();saveLegibility();applyColors();});
+  strokeBlurInput.addEventListener('input',()=>{legibility[theme].strokeBlur=Number(strokeBlurInput.value);refreshStrokeControls();saveLegibility();applyColors();});
+  const legibilityHelp=document.createElement('p');legibilityHelp.textContent='TEXT EDGEは従来の黒い細縁。COLORED OUTLINEは色・太さ・ぼかしを独立設定。Width=0でOFF。WEEK番号はFilledにすると塗り＋縁取りを重ねられます。';
   legibilityBox.append(legibilityHelp);
   function refreshLegibilityControls(){
     const state=legibility[theme];for(const [key,ctl] of Object.entries(legibilityControls)){
-      ctl.input.value=String(state[key]);ctl.output.textContent=ctl.desc[state[key]];
+      const index=ctl.order.indexOf(state[key]);
+      ctl.input.value=String(index);ctl.output.textContent=ctl.desc[index];
     }
+    refreshStrokeControls();
   }
   refreshLegibilityControls();
   // Season name typography: Auto respects the season's original CSS palette.
@@ -794,7 +847,7 @@ function animebInitWeeklyThemes(){
   // usable while adjusting the furthest sliders and the color picker.
   const panelPinned=document.createElement('div');panelPinned.className='animeb-theme-panel-pinned';
   const panelScroll=document.createElement('div');panelScroll.className='animeb-theme-panel-scroll';
-  panelPinned.append(panelHead,choices,previewStage);
+  panelPinned.append(panelHead,choices,previewStage,dragSwitch);
   panelScroll.append(weekStylePanel,colorDetails,legibilityBox,seasonBox,presetBox,field,message);
   panel.append(panelPinned,panelScroll);ctr.append(btn,panel);
   const lang=document.querySelector('#animeb-weekly-language');
@@ -811,11 +864,23 @@ function animebInitWeeklyThemes(){
   const heroSpacer=document.createElement('div');heroSpacer.className='animeb-image-hero-spacer';heroSpacer.setAttribute('aria-hidden','true');
   // Insert as a sibling of the established heading. No cards, notes, ranking rows or JSON are altered.
   document.querySelector('.wrapper > .header')?.before(heroSpacer);
+  // Keep the TOP/number heading intact; split only a plain-text TOP nn heading.
+  const topHeading=document.querySelector('.wrapper > .header h1');
+  if(topHeading && !topHeading.children.length){
+    const match=topHeading.textContent.match(/^\s*(TOP)\s*(\d+)\s*$/i);
+    if(match){
+      const word=document.createElement('span');word.className='animeb-top-word';word.textContent=match[1];
+      const number=document.createElement('span');number.className='animeb-top-number';number.textContent=match[2];
+      topHeading.replaceChildren(word,document.createTextNode(' '),number);
+    }
+  }
   const colorStyle=document.createElement('style');colorStyle.id='animeb-theme-custom-colors';document.head.append(colorStyle);
   const saveColors=()=>saveHeaderProfile();
   function applyColors(){
     const selectors={
       top:'.wrapper .header h1',
+      topWord:'.wrapper .header h1 .animeb-top-word',
+      topNumber:'.wrapper .header h1 .animeb-top-number',
       week:'.wrapper .header .week-title, .wrapper .header .animeb-week-token',
       season:'.wrapper .sub-header, .wrapper .sub-header .season-title, .wrapper .sub-header .year, .wrapper .sub-header .title-ranking, .wrapper .sub-header .ep-range',
       sat:'.wrapper .animeb-weekly-satisfaction, .wrapper .animeb-weekly-satisfaction .animeb-sat-label-ja, .wrapper .animeb-weekly-satisfaction .animeb-sat-label-en, .wrapper .animeb-weekly-satisfaction .animeb-sat-denominator',
@@ -850,14 +915,33 @@ function animebInitWeeklyThemes(){
     if(seasonSettings.style==='outline')rules+='\nbody .wrapper .sub-header .season-title .season{color:transparent!important;-webkit-text-stroke:1px var(--animeb-season-paint)!important;paint-order:stroke fill;}';
     else if(seasonSettings.style==='filled')rules+='\nbody .wrapper .sub-header .season-title .season{-webkit-text-stroke:0!important;}';
     const ink=legibility[theme];
+    const shadows=[];
     if(ink.shadow){
-      const blur=[0,1.5,3,5][ink.shadow],alpha=[0,.36,.55,.72][ink.shadow];
-      rules+=`\nbody .wrapper > .header h1,body .wrapper > .header .week-title,body .wrapper > .header .duration,body .wrapper > .sub-header,body .wrapper .animeb-weekly-satisfaction{text-shadow:0 1px ${blur}px rgba(0,0,0,${alpha})!important;}`;
+      const blur=[0,1.5,3,5,.8][ink.shadow],alpha=[0,.36,.55,.72,.18][ink.shadow];
+      shadows.push(`0 1px ${blur}px rgba(0,0,0,${alpha})`);
+    }
+    if(ink.strokeWidth && ink.strokeBlur){
+      shadows.push(`0 0 ${ink.strokeBlur}px ${ink.strokeColor}`);
+    }
+    if(shadows.length){
+      rules+=`\nbody .wrapper > .header h1,body .wrapper > .header .week-title,body .wrapper > .header .duration,body .wrapper > .sub-header,body .wrapper .animeb-weekly-satisfaction{text-shadow:${shadows.join(',')}!important;}`;
     }
     if(ink.edge){
       const width=ink.edge===1?'.45px':'.85px';
       // Do not override WEEK number / season-name Outline (they have their own controls).
       rules+=`\nbody .wrapper > .header h1,body .wrapper > .header .duration,body .wrapper > .header .animeb-week-label,body .wrapper > .sub-header .year,body .wrapper > .sub-header .title-ranking,body .wrapper > .sub-header .ep-range{-webkit-text-stroke:${width} rgba(0,0,0,.72)!important;paint-order:stroke fill;}`;
+    }
+    if(ink.strokeWidth){
+      // Explicit outline is opt-in. The fill stays independent of the stroke.
+      // WEEK outline-only keeps its transparent center; Filled supports both paints.
+      const targets=['.header h1 .animeb-top-word','.header h1 .animeb-top-number',
+        '.header .week-title .animeb-week-label','.header .week-title .animeb-week-token',
+        '.header .duration','.sub-header .year','.sub-header .season-title .season',
+        '.sub-header .title-anime','.sub-header .title-ranking','.sub-header .ep-range'];
+      rules+=`\nbody .wrapper :is(${targets.join(',')}){-webkit-text-stroke:${strokeWidths[ink.strokeWidth]}px ${ink.strokeColor}!important;paint-order:stroke fill!important;}`;
+      // If markup has not been split, TOP/10 still get a shared outline.
+      if(!topHeading?.querySelector('.animeb-top-word'))
+        rules+=`\nbody .wrapper .header h1{-webkit-text-stroke:${strokeWidths[ink.strokeWidth]}px ${ink.strokeColor}!important;paint-order:stroke fill!important;}`;
     }
     colorStyle.textContent=rules;
     refreshPreviewHeader();
@@ -1421,6 +1505,7 @@ function animebInitWeeklyThemes(){
   });
   function setPanelOpen(open){
     panel.hidden=!open;btn.setAttribute('aria-expanded',String(open));
+    if(!open){dragInput.checked=false;previewStage.dataset.drag='off';}
     if(open){
       loadGallery();
       requestAnimationFrame(()=>{refreshPreviewHeader();scheduleHeroExtent();});

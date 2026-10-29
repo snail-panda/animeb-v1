@@ -3908,10 +3908,31 @@ body[data-animeb-final-week="true"] .note-mount code {
 }
 .animeb-bg-preview-boundary{font-size:0;}
 /* r11 Theme Studio: drag is limited to the live image crop, not the UI or the live page. */
-.animeb-bg-live-preview[data-theme="image"]:not([data-scope="full"]):not([data-fit="tile"]){
+.animeb-bg-live-preview[data-theme="image"][data-drag="on"]:not([data-scope="full"]):not([data-fit="tile"]){
   cursor:grab;touch-action:none;
 }
 .animeb-bg-live-preview.animeb-preview-dragging{cursor:grabbing!important;}
+/* r12 Theme Studio controls: visible drag lock, precision positioning, real colored outline. */
+.animeb-preview-drag-toggle{display:flex;align-items:center;gap:7px;padding:5px 8px;
+  font:600 11px/1.4 'Fira Sans',sans-serif;cursor:pointer;user-select:none;}
+.animeb-preview-drag-toggle input{width:16px;height:16px;accent-color:#477f62;cursor:pointer;}
+.animeb-vertical-fine{display:flex;gap:8px;align-items:center;justify-content:flex-end;
+  margin:-1px 0 9px;font:600 11px/1.4 'Fira Sans',sans-serif;}
+.animeb-vertical-fine span{margin-right:auto;opacity:.85;}
+.animeb-vertical-fine button{font:700 13px/1 sans-serif;min-height:30px;min-width:50px;
+  padding:6px 8px;border:1px solid #93b4a4;border-radius:6px;background:#f5f9f2;color:#28473b;cursor:pointer;}
+.animeb-outline-controls{grid-column:1/-1;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:7px 10px;border-top:1px solid #b9c8bf;padding-top:9px;margin-top:3px;}
+.animeb-outline-controls strong{grid-column:1/-1;font-size:10px;letter-spacing:.025em;}
+.animeb-outline-controls label{display:flex;flex-direction:column;gap:4px;min-width:0;font-size:10px;}
+.animeb-outline-controls label:first-of-type{grid-column:1/-1;flex-direction:row;align-items:center;justify-content:space-between;}
+.animeb-outline-controls input[type="color"]{min-height:32px;width:56px;cursor:pointer;border:1px solid #9eb2a5;}
+.animeb-outline-controls input[type="range"]{width:100%;accent-color:#557e64;}
+.animeb-outline-controls output{font-weight:700;}
+body[data-animeb-theme="dark"] .animeb-vertical-fine button,
+body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .animeb-vertical-fine button{
+  background:#254139;border-color:#69877b;color:#eff8f3;}
+
 .animeb-heading-legibility{display:grid;grid-template-columns:1fr 1fr;gap:6px 12px;
   min-width:0;margin:12px 0;border:1px solid #bacdc1;border-radius:8px;padding:10px 12px;
   font:500 10px/1.4 'Fira Sans',sans-serif;color:inherit;}
