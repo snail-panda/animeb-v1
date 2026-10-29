@@ -3686,6 +3686,20 @@ body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .ws-modern-metric
 .animeb-season-studio > button{width:100%;margin-top:4px}
 body[data-animeb-theme="original"] .animeb-bg-presets legend,
 body[data-animeb-theme="original"] .animeb-season-studio legend{color:#52715e}
+/* Theme Studio r12b: labels must follow the Image mode's selected UI tone.
+   These are editor-control captions only; no live headline colors are changed. */
+body[data-animeb-theme="image"][data-animeb-image-tone="light"] .animeb-theme-panel :is(.animeb-bg-presets,.animeb-season-studio) > legend {
+  color:#355a48;
+}
+body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .animeb-theme-panel :is(.animeb-bg-presets,.animeb-season-studio) > legend {
+  color:#dceee3;
+}
+body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .animeb-theme-panel .animeb-bg-color-options > summary {
+  color:#dceee3;
+}
+body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .animeb-theme-panel :is(.animeb-bg-color-options > p,.animeb-bg-tone legend,.animeb-bg-frame-note) {
+  color:#ccded2;
+}
 /* Preserve natural season palette for Auto, even when an image is used. */
 .season-spring{--animeb-season-default:#5ba058}
 .season-summer{--animeb-season-default:#499bad}

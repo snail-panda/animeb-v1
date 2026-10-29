@@ -302,7 +302,7 @@ function animebInitWeeklyThemes(){
     if(Number.isFinite(savedVisibility)&&savedVisibility>=25&&savedVisibility<=100)imageVisibility=savedVisibility;
     const clamped=(key,min,max,fallback)=>{const n=Number(localStorage.getItem(key));return localStorage.getItem(key)!==null&&Number.isFinite(n)?Math.max(min,Math.min(max,n)):fallback;};
     imageZoom=clamped(ZOOM_KEY,60,320,100);
-    imagePosX=clamped(POSX_KEY,-25,125,50);
+    imagePosX=clamped(POSX_KEY,-450,650,50);
     imagePosY=clamped(POSY_KEY,-450,650,40);
     const savedAnchor=JSON.parse(localStorage.getItem(ANCHOR_KEY)||'null');
     if(savedAnchor?.enabled && Number.isFinite(savedAnchor.fraction) &&
@@ -557,7 +557,7 @@ function animebInitWeeklyThemes(){
     return {input,value};
   };
   const zoomCtl=mkRange('ZOOM / 拡大・縮小',60,320,5);
-  const posXCtl=mkRange('HORIZONTAL / 左右位置',-25,125,5);
+  const posXCtl=mkRange('HORIZONTAL / 左右位置',-450,650,1);
   const posYCtl=mkRange('VERTICAL / 上下位置',-450,650,1);
   const verticalFine=document.createElement('div');verticalFine.className='animeb-vertical-fine';
   const verticalFineLabel=document.createElement('span');verticalFineLabel.textContent='Fine tune / 微調整';
@@ -1313,7 +1313,7 @@ function animebInitWeeklyThemes(){
     photoOpacity=Math.max(15,Math.min(100,Number(state.photoOpacity)||100));
     weekStyle=['auto','filled','outline'].includes(state.weekStyle)?state.weekStyle:'auto';
     imageZoom=Math.max(60,Math.min(320,Number(state.imageZoom)||100));
-    imagePosX=Math.max(-25,Math.min(125,Number(state.imagePosX ?? 50)));
+    imagePosX=Math.max(-450,Math.min(650,Number(state.imagePosX ?? 50)));
     imagePosY=Math.max(-450,Math.min(650,Number(state.imagePosY ?? 40)));
     imageDrag=Number.isFinite(state.imageDrag?.x)&&Number.isFinite(state.imageDrag?.y)
       ? {x:Math.max(-3000,Math.min(3000,state.imageDrag.x)),
