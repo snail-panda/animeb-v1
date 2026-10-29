@@ -942,7 +942,7 @@ function animebInitWeeklyThemes(){
     // Anchor camera size is measured when the user selects the new target.
     // Thus This Week length and Compact/Hero changes do not resize the photo.
     const cameraHeight=imageScope==='full'?viewportHeight:
-      anchored?Math.max(1,Math.round(width*anchorModel.cameraRatio)):
+      anchored?Math.max(1,Math.round(targetWidth*anchorModel.cameraRatio)):
       Math.max(height,cameraFloor);
     wrapper.dataset.animebCameraHeight=String(cameraHeight);
     const targetHeight=cameraHeight;
