@@ -244,7 +244,8 @@ function animebInitWeeklyThemes(){
   const ZOOM_KEY='animeb-weekly-image-zoom-v1';
   const POSX_KEY='animeb-weekly-image-posx-v1';
   const POSY_KEY='animeb-weekly-image-posy-v1';
-  const ANCHOR_KEY='animeb-weekly-image-status-anchor-v1';
+  const ANCHOR_KEY='animeb-weekly-image-status-anchor-v1'; // r9 recovery copy, not overwritten by r10
+  const ANCHOR_V2_KEY='animeb-weekly-image-anchor-mode-v2';
   const INTRO_KEY='animeb-weekly-image-intro-opacity-v1';
   const TONE_KEY='animeb-weekly-image-tone-v1';
   const FIT_KEY='animeb-weekly-image-fit-v1';
@@ -265,7 +266,10 @@ function animebInitWeeklyThemes(){
   let imageZoom=100, imagePosX=50, imagePosY=40, introOpacity=84;
   // Optional lock captures a photo coordinate at the Viewing Status boundary.
   // OFF by default: previously saved framing is never silently reinterpreted.
-  let statusAnchor={enabled:false,fraction:0,cameraRatio:0,sliderOrigin:40};
+  let statusAnchor={enabled:false,fraction:0,cameraRatio:0,sliderOrigin:40}; // r9 backup only
+  // r10: a SOURCE-IMAGE point (fraction), a TARGET boundary (mode), and a
+  // stable camera aspect ratio. Never store a Compact/Hero-specific CSS offset.
+  let anchorModel={mode:'free',fraction:0,cameraRatio:0};
   let rankOpacity=96, statusOpacity=87;
   let seasonSettings={weight:'auto',style:'auto',size:100};
   let presets=[];
@@ -294,6 +298,16 @@ function animebInitWeeklyThemes(){
       statusAnchor={enabled:true,fraction:Math.max(-10,Math.min(10,savedAnchor.fraction)),
         cameraRatio:Math.max(.25,Math.min(12,savedAnchor.cameraRatio)),
         sliderOrigin:Math.max(-200,Math.min(350,savedAnchor.sliderOrigin))};
+    }
+    // New independent key: r9's inaccurate lock is retained unchanged for rollback.
+    // Do not silently reinterpret old, potentially misaligned anchor positions.
+    const storedAnchor=JSON.parse(localStorage.getItem(ANCHOR_V2_KEY)||'null');
+    if(storedAnchor && ['top','status'].includes(storedAnchor.mode) &&
+       Number.isFinite(storedAnchor.fraction) &&
+       Number.isFinite(storedAnchor.cameraRatio) && storedAnchor.cameraRatio>0){
+      anchorModel={mode:storedAnchor.mode,
+        fraction:Math.max(-10,Math.min(10,storedAnchor.fraction)),
+        cameraRatio:Math.max(.2,Math.min(15,storedAnchor.cameraRatio))};
     }
     introOpacity=clamped(INTRO_KEY,20,100,84);
     rankOpacity=clamped(RANK_OPACITY_KEY,20,100,96);
@@ -452,8 +466,9 @@ function animebInitWeeklyThemes(){
   const previewPhoto=document.createElement('div');previewPhoto.className='animeb-bg-preview-photo-layer';
   const previewWash=document.createElement('div');previewWash.className='animeb-bg-preview-wash-layer';
   const previewBoundary=document.createElement('div');previewBoundary.className='animeb-bg-preview-boundary';
+  const previewTopBoundary=document.createElement('div');previewTopBoundary.className='animeb-bg-preview-top-boundary';
   previewBoundary.textContent='VIEWING STATUS ▾';
-  previewScene.append(previewPhoto,previewWash,previewBoundary);
+  previewScene.append(previewPhoto,previewWash,previewBoundary,previewTopBoundary);
   previewStage.append(previewScene);
   // Keep live page headline duplicates out of document.querySelector() entirely.
   // The r6 emergency move fixed the first-selector bug; Shadow DOM makes it
@@ -476,54 +491,62 @@ function animebInitWeeklyThemes(){
   const zoomCtl=mkRange('ZOOM / 拡大・縮小',60,320,5);
   const posXCtl=mkRange('HORIZONTAL / 左右位置',-25,125,5);
   const posYCtl=mkRange('VERTICAL / 上下位置',-200,350,5);
-  // Anchor only applies to image-as-page-header (Compact/Hero). Full Page
-  // keeps its viewport-fixed behavior, without changing a saved lock.
-  const anchorLabel=document.createElement('label');anchorLabel.className='animeb-bg-status-anchor';
-  const anchorInput=document.createElement('input');anchorInput.type='checkbox';anchorInput.checked=statusAnchor.enabled;
-  const anchorText=document.createElement('span');anchorText.textContent='LOCK TO VIEWING STATUS / 視聴状況の上端に構図を固定';
-  anchorLabel.append(anchorInput,anchorText);
+  // Unified image-point anchors. The original r9 storage key stays untouched.
+  // All three choices share one background renderer; Full Page stays independent.
+  const anchorLabel=document.createElement('div');anchorLabel.className='animeb-bg-status-anchor animeb-bg-anchor-modes';
+  const anchorTitle=document.createElement('strong');anchorTitle.textContent='IMAGE ANCHOR / 画像内の基準点';
+  const anchorChoices=document.createElement('div');anchorChoices.className='animeb-bg-anchor-options';
+  const anchorButtons={};
   const anchorHelp=document.createElement('p');anchorHelp.className='animeb-bg-anchor-help';
-  posYCtl.input.closest('label').after(anchorLabel,anchorHelp);
-  const saveStatusAnchor=()=>{try{localStorage.setItem(ANCHOR_KEY,JSON.stringify(statusAnchor));}catch(_){}};
+  const saveAnchorModel=()=>{try{localStorage.setItem(ANCHOR_V2_KEY,JSON.stringify(anchorModel));}catch(_){}};
+  const anchorTargetY=(mode,wrapper,marker)=>mode==='top'?0:
+    marker?.getClientRects().length?marker.getBoundingClientRect().top-wrapper.getBoundingClientRect().top:null;
   function updateAnchorControls(){
-    anchorInput.checked=statusAnchor.enabled;
-    anchorInput.disabled=imageScope==='full';
-    anchorHelp.textContent=imageScope==='full'
-      ? 'Full Pageは画面固定背景のため対象外。Compact/Heroへ戻すと保存した固定位置を使います。'
-      :statusAnchor.enabled
-        ? '固定中。Compact/ Hero・別の週でも同じ画像の位置がViewing Status上端に来ます。上下スライダーで微調整できます。'
-        : '現在の構図をViewing Status上端で固定。既存の画像位置はチェックするまで変わりません。';
+    const full=imageScope==='full',tile=fullFit==='tile';
+    for(const [mode,button] of Object.entries(anchorButtons)){
+      button.setAttribute('aria-pressed',String(anchorModel.mode===mode));
+      button.disabled=(full||tile)&&mode!=='free';
+    }
+    anchorHelp.textContent=full
+      ? 'Full Pageは画面固定のため従来表示です。Compact/Heroへ戻ると選択した基準を使用します。'
+      :tile
+        ? 'Tileでは位置固定しません。Cover/Containで利用できます。'
+        :anchorModel.mode==='status'
+          ? 'Viewing Status上端（破線）に、選んだ画像内の一点を合わせます。週・Compact/Heroを切り替えても基準点は同じです。'
+          :anchorModel.mode==='top'
+            ? '背景表示域の上端に、選んだ画像内の一点を合わせます。'
+            : '従来の自由な画像位置調整です。Top／Viewing Statusを選ぶと、現在表示中の画像の地点を記憶します。';
   }
-  anchorInput.addEventListener('change',()=>{
-    if(!anchorInput.checked){statusAnchor.enabled=false;saveStatusAnchor();apply(theme,false);return;}
+  function captureAnchor(mode){
+    if(mode==='free'){anchorModel={mode:'free',fraction:0,cameraRatio:0};saveAnchorModel();apply(theme,false);return;}
+    if(theme!=='image'||imageScope==='full'||fullFit==='tile'||!imageNatural?.height||!imageNatural?.width){
+      anchorHelp.textContent='先にImage・Compact/Heroを選び、画像の読み込み後に設定してください。';return;
+    }
+    // Read the actual, current pseudo-element painting, not a prior slider
+    // percentage or a pre-layout camera estimate. r8 preview uses this same art.
+    updateHeroExtent();
     const wrapper=document.querySelector('.wrapper');
     const marker=wrapper?.querySelector('.watch-status-wrapper.ws-modern-wrapper')||wrapper?.querySelector('.watch-status-wrapper');
-    if(imageScope==='full'||!wrapper||!marker||!marker.getClientRects().length||
-       !imageNatural?.height||fullFit==='tile'){
-      anchorInput.checked=false;
-      anchorHelp.textContent='先にCompact/Heroで画像とViewing Statusを表示してください（Tileは対象外）。';return;
+    if(!wrapper)return;
+    const target=anchorTargetY(mode,wrapper,marker);
+    const height=Number.parseFloat(document.body.style.getPropertyValue('--animeb-image-size').trim().split(/\s+/)[1]);
+    const y=Number.parseFloat(document.body.style.getPropertyValue('--animeb-image-y-fixed'));
+    const wrapperWidth=wrapper.getBoundingClientRect().width;
+    const cameraHeight=Number.parseFloat(wrapper.dataset.animebCameraHeight);
+    if(target===null||![height,y,wrapperWidth,cameraHeight].every(Number.isFinite)||height<=0||wrapperWidth<=0||cameraHeight<=0){
+      anchorHelp.textContent='写真の読み込み・Viewing Statusの表示が完了したらもう一度選択してください。';return;
     }
-    // First read the CURRENT unlocked photo coordinates, so turning on Lock
-    // does not select an arbitrary focal point or overwrite existing sliders.
-    updateHeroExtent();
-    const size=document.body.style.getPropertyValue('--animeb-image-size').trim().split(/\s+/);
-    const photoHeight=Number.parseFloat(size[1]);
-    const photoTop=Number.parseFloat(document.body.style.getPropertyValue('--animeb-image-y-fixed'));
-    const wrapperBox=wrapper.getBoundingClientRect();
-    const cameraHeight=Math.max(1,Number.parseFloat(wrapper.style.getPropertyValue('--animeb-image-header-height'))||400);
-    const width=Math.max(1,wrapperBox.width);
-    const floor=window.innerWidth<=768
-      ?Math.min(560,Math.max(500,Math.round(window.innerWidth*1.31)))
-      :Math.min(780,Math.max(590,Math.round(window.innerWidth*.68)));
-    if(!Number.isFinite(photoHeight)||photoHeight<1||!Number.isFinite(photoTop)){
-      anchorInput.checked=false;anchorHelp.textContent='画像の寸法を読み込み後にもう一度お試しください。';return;
-    }
-    statusAnchor={enabled:true,
-      fraction:(marker.getBoundingClientRect().top-wrapperBox.top-photoTop)/photoHeight,
-      cameraRatio:Math.max(cameraHeight,floor)/width,
-      sliderOrigin:imagePosY};
-    saveStatusAnchor();apply(theme,false);
-  });
+    anchorModel={mode,fraction:Math.max(-10,Math.min(10,(target-y)/height)),
+      cameraRatio:Math.max(.2,Math.min(15,cameraHeight/wrapperWidth))};
+    saveAnchorModel();apply(theme,false);
+  }
+  for(const [mode,label] of [['free','FREE / 自由'],['top','TOP / 上端'],['status','VIEWING / 視聴状況']]){
+    const button=document.createElement('button');button.type='button';button.className='animeb-bg-anchor-choice';
+    button.textContent=label;button.addEventListener('click',()=>captureAnchor(mode));
+    anchorButtons[mode]=button;anchorChoices.append(button);
+  }
+  anchorLabel.append(anchorTitle,anchorChoices);
+  posYCtl.input.closest('label').after(anchorLabel,anchorHelp);
   updateAnchorControls();
   const introCtl=mkRange('THIS WEEK PANEL / 本文パネルの不透明度',20,100,5);
   const statusCtl=mkRange('VIEWING STATUS / 上部パネルの不透明度',20,100,5);
@@ -628,7 +651,21 @@ function animebInitWeeklyThemes(){
   };
   onRange(zoomCtl,ZOOM_KEY,()=>imageZoom,n=>imageZoom=n);
   onRange(posXCtl,POSX_KEY,()=>imagePosX,n=>imagePosX=n);
-  onRange(posYCtl,POSY_KEY,()=>imagePosY,n=>imagePosY=n);
+  onRange(posYCtl,POSY_KEY,()=>imagePosY,n=>{
+    const delta=n-imagePosY;
+    if(anchorModel.mode!=='free' && imageScope!=='full' && fullFit!=='tile' && imageNatural?.height){
+      const wrapper=document.querySelector('.wrapper');
+      const width=wrapper?.getBoundingClientRect().width||0;
+      const cameraHeight=width*anchorModel.cameraRatio;
+      const scaledHeight=Number.parseFloat(document.body.style.getPropertyValue('--animeb-image-size').trim().split(/\s+/)[1]);
+      if(Number.isFinite(scaledHeight)&&scaledHeight>0&&cameraHeight>0){
+        const travel=Math.max(cameraHeight*.60,Math.abs(cameraHeight-scaledHeight));
+        anchorModel.fraction=Math.max(-10,Math.min(10,anchorModel.fraction+delta*travel/(100*scaledHeight)));
+        saveAnchorModel();
+      }
+    }
+    imagePosY=n;
+  });
   onRange(introCtl,INTRO_KEY,()=>introOpacity,n=>introOpacity=n);
   onRange(statusCtl,STATUS_OPACITY_KEY,()=>statusOpacity,n=>statusOpacity=n);
   onRange(rankCtl,RANK_OPACITY_KEY,()=>rankOpacity,n=>rankOpacity=n);
@@ -792,6 +829,10 @@ function animebInitWeeklyThemes(){
       previewBoundary.style.top=Math.max(0,drawnHeight-1).toFixed(1)+'px';
       previewBoundary.style.left=offsetX.toFixed(1)+'px';
       previewBoundary.style.width=drawnWidth.toFixed(1)+'px';
+      previewStage.dataset.anchorMode=anchorModel.mode;
+      previewTopBoundary.hidden=anchorModel.mode!=='top';
+      previewTopBoundary.style.left=offsetX.toFixed(1)+'px';
+      previewTopBoundary.style.width=drawnWidth.toFixed(1)+'px';
     }
     const srcNodes=[wrapper.querySelector(':scope > .header'),wrapper.querySelector(':scope > .sub-header')].filter(Boolean);
     const satisfaction=wrapper.querySelector('.animeb-weekly-satisfaction');
@@ -894,14 +935,16 @@ function animebInitWeeklyThemes(){
       : Math.min(780,Math.max(590,Math.round(window.innerWidth*.68)));
     const marker=wrapper.querySelector('.watch-status-wrapper.ws-modern-wrapper')
       ||wrapper.querySelector('.watch-status-wrapper');
-    const locked=statusAnchor.enabled && imageScope!=='full' && fullFit!=='tile' &&
-      marker && marker.getClientRects().length && imageNatural?.height &&
-      Number.isFinite(statusAnchor.cameraRatio) && statusAnchor.cameraRatio>0;
-    // Locked camera size is measured at the moment the user checks Lock.
-    // Thus a longer This Week never changes the photo's zoom in later weeks.
+    const targetY=wrapper ? anchorTargetY(anchorModel.mode,wrapper,marker) : null;
+    const anchored=anchorModel.mode!=='free' && imageScope!=='full' && fullFit!=='tile' &&
+      targetY!==null && imageNatural?.height && imageNatural?.width &&
+      Number.isFinite(anchorModel.cameraRatio) && anchorModel.cameraRatio>0;
+    // Anchor camera size is measured when the user selects the new target.
+    // Thus This Week length and Compact/Hero changes do not resize the photo.
     const cameraHeight=imageScope==='full'?viewportHeight:
-      locked?Math.max(1,Math.round(width*statusAnchor.cameraRatio)):
+      anchored?Math.max(1,Math.round(width*anchorModel.cameraRatio)):
       Math.max(height,cameraFloor);
+    wrapper.dataset.animebCameraHeight=String(cameraHeight);
     const targetHeight=cameraHeight;
     let sizing='cover';
     if(imageNatural?.width&&imageNatural?.height){
@@ -919,19 +962,13 @@ function animebInitWeeklyThemes(){
       // x stays user-controlled and unchanged; Full Page retains its setting.
       const scaledHeight = imageNatural?.height && imageNatural?.width
         ? Number(sizing.split(' ')[1]?.replace('px','')) : null;
-      // In Lock mode preserve the SAME photo coordinate at the top of
-      // Viewing Status, even when Hero/Compact or intro length changes.
-      // The range slider remains a fine framing adjustment after locking.
-      const markerY=locked?marker.getBoundingClientRect().top-wrapperTop:null;
-      // In Lock mode sliders keep moving the art even if the image height
-      // happens to equal the camera height (where CSS %-position has no travel).
-      // A positive vertical value shifts the subject upward, as with 'cover'.
-      const lockTravel=scaledHeight!==null ? Math.max(cameraHeight*.60,Math.abs(cameraHeight-scaledHeight)) : 0;
+      // A single stable IMAGE-SPACE coordinate is projected onto the chosen
+      // PAGE-SPACE line every time. No per-mode CSS offsets or slider origins.
+      // For Status, targetY is relative to the same wrapper as ::before.
       const yOffset=scaledHeight!==null && Number.isFinite(scaledHeight)
-        ? locked
-          ? markerY-statusAnchor.fraction*scaledHeight-
-            lockTravel*((imagePosY-statusAnchor.sliderOrigin)/100)
-          : (cameraHeight-scaledHeight)*(imagePosY/100) : null;
+        ? anchored ? targetY-anchorModel.fraction*scaledHeight
+          : (cameraHeight-scaledHeight)*(imagePosY/100)
+        : null;
       if(yOffset!==null)document.body.style.setProperty('--animeb-image-y-fixed',`${yOffset.toFixed(2)}px`);
       else document.body.style.removeProperty('--animeb-image-y-fixed');
     }else document.body.style.removeProperty('--animeb-image-y-fixed');
@@ -1040,7 +1077,8 @@ function animebInitWeeklyThemes(){
   // the controls never modifies a preset until Update is pressed explicitly.
   function snapshot(){
     return {theme,url,source,localId,imageScope,imageVisibility,photoOpacity,
-      weekStyle,imageZoom,imagePosX,imagePosY,statusAnchor:{...statusAnchor},introOpacity,statusOpacity,rankOpacity,
+      weekStyle,imageZoom,imagePosX,imagePosY,statusAnchor:{...statusAnchor},
+      anchorModel:{...anchorModel},introOpacity,statusOpacity,rankOpacity,
       imageTone,fullFit,customColors:{...customColors},seasonSettings:{...seasonSettings}};
   }
   function savePresetList(){
@@ -1060,7 +1098,7 @@ function animebInitWeeklyThemes(){
         [WEEK_STYLE_KEY,weekStyle],[ZOOM_KEY,imageZoom],[POSX_KEY,imagePosX],
         [POSY_KEY,imagePosY],[INTRO_KEY,introOpacity],[STATUS_OPACITY_KEY,statusOpacity],
         [RANK_OPACITY_KEY,rankOpacity],[TONE_KEY,imageTone],[FIT_KEY,fullFit]])localStorage.setItem(key,String(val));
-      saveHeaderProfile();saveStatusAnchor();
+      saveHeaderProfile();saveAnchorModel();
     }catch(_){presetStatus.textContent='Loaded for this page, but browser storage is unavailable. / 保存領域にアクセスできません。';}
   }
   function syncControls(){
@@ -1095,15 +1133,14 @@ function animebInitWeeklyThemes(){
     imageZoom=Math.max(60,Math.min(320,Number(state.imageZoom)||100));
     imagePosX=Math.max(-25,Math.min(125,Number(state.imagePosX ?? 50)));
     imagePosY=Math.max(-200,Math.min(350,Number(state.imagePosY ?? 40)));
-    // Presets written before r9 had no lock: load those in legacy (OFF) mode.
-    const lockedState=state.statusAnchor;
-    statusAnchor=lockedState?.enabled && Number.isFinite(lockedState.fraction) &&
-      Number.isFinite(lockedState.cameraRatio) && lockedState.cameraRatio>0 &&
-      Number.isFinite(lockedState.sliderOrigin)
-      ? {enabled:true,fraction:Math.max(-10,Math.min(10,lockedState.fraction)),
-         cameraRatio:Math.max(.25,Math.min(12,lockedState.cameraRatio)),
-         sliderOrigin:Math.max(-200,Math.min(350,lockedState.sliderOrigin))}
-      : {enabled:false,fraction:0,cameraRatio:0,sliderOrigin:imagePosY};
+    // A v1/v9 preset lacking the r10 model loads in FREE mode, with no
+    // surprise remapping. The original preset object remains untouched.
+    const savedModel=state.anchorModel;
+    anchorModel=savedModel && ['top','status'].includes(savedModel.mode) &&
+      Number.isFinite(savedModel.fraction) && Number.isFinite(savedModel.cameraRatio) && savedModel.cameraRatio>0
+      ? {mode:savedModel.mode,fraction:Math.max(-10,Math.min(10,savedModel.fraction)),
+         cameraRatio:Math.max(.2,Math.min(15,savedModel.cameraRatio))}
+      : {mode:'free',fraction:0,cameraRatio:0};
     introOpacity=Math.max(20,Math.min(100,Number(state.introOpacity)||84));
     statusOpacity=Math.max(20,Math.min(100,Number(state.statusOpacity)||87));
     rankOpacity=Math.max(20,Math.min(100,Number(state.rankOpacity)||96));
@@ -1323,6 +1360,12 @@ function animebInitWeeklyThemes(){
   }
   window.addEventListener('load',scheduleHeroExtent);
   const wrapper=document.querySelector('.wrapper');
+  if(wrapper && 'MutationObserver' in window){
+    const contentsObserver=new MutationObserver(records=>{
+      if(records.some(record=>record.addedNodes.length||record.removedNodes.length))scheduleHeroExtent();
+    });
+    contentsObserver.observe(wrapper,{subtree:true,childList:true});
+  }
   if(wrapper && 'ResizeObserver' in window){
     const ro=new ResizeObserver(scheduleHeroExtent);
     for(const sel of ['.animeb-weekly-intro','.watch-status-wrapper','.table-header-mount']){

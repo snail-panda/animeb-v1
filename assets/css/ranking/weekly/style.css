@@ -3908,6 +3908,20 @@ body[data-animeb-final-week="true"] .note-mount code {
 }
 .animeb-bg-preview-boundary{font-size:0;}
 
+/* r10: anchored source point selector reuses r9 panel styling; no changes
+   to ranked cards, the real page header, or the r8 preview geometry. */
+.animeb-bg-anchor-modes{display:block!important;}
+.animeb-bg-anchor-modes strong{display:block;font-size:10px;letter-spacing:.03em;margin-bottom:7px;}
+.animeb-bg-anchor-options{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:5px;}
+.animeb-bg-anchor-choice{font:600 9.5px/1.3 'Fira Sans',sans-serif;padding:8px 3px;border-radius:6px;
+ border:1px solid #87a494;color:inherit;background:transparent;cursor:pointer;}
+.animeb-bg-anchor-choice[aria-pressed="true"]{background:#547a61;color:#fff;border-color:#8fb6a0;}
+.animeb-bg-anchor-choice:disabled{opacity:.45;cursor:default;}
+.animeb-bg-preview-top-boundary{position:absolute;top:0;box-sizing:border-box;height:1px;
+ border-top:1px dashed #f3f6dc;z-index:3;pointer-events:none;}
+.animeb-bg-preview-top-boundary::after{content:'TOP ANCHOR';position:absolute;top:1px;left:3px;
+ color:white;background:rgba(16,33,35,.72);padding:2px 4px;border-radius:3px;
+ font:700 8px/1.2 'Fira Sans',sans-serif;}
 /* r9: optional status-anchored image framing (Theme Studio controls only). */
 .animeb-bg-status-anchor{display:flex;gap:9px;align-items:center;
   padding:8px 9px;margin:5px 0 0;border-radius:7px;
