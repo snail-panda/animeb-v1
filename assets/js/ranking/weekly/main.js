@@ -247,7 +247,8 @@ function animebInitWeeklyThemes(){
   const INTRO_KEY='animeb-weekly-image-intro-opacity-v1';
   const TONE_KEY='animeb-weekly-image-tone-v1';
   const FIT_KEY='animeb-weekly-image-fit-v1';
-  const COLORS_KEY='animeb-weekly-header-colors-v1';
+  const COLORS_KEY='animeb-weekly-header-colors-v1'; // legacy: retained as an untouched recovery copy
+  const HEADER_PROFILES_KEY='animeb-weekly-header-profiles-v2';
   // The new keys are independent: they do not rewrite the v1 image library/settings.
   const RANK_OPACITY_KEY='animeb-weekly-rank-opacity-v1';
   const STATUS_OPACITY_KEY='animeb-weekly-status-opacity-v1';
@@ -279,9 +280,9 @@ function animebInitWeeklyThemes(){
     const savedVisibility=Number(localStorage.getItem(VIS_KEY));
     if(Number.isFinite(savedVisibility)&&savedVisibility>=25&&savedVisibility<=100)imageVisibility=savedVisibility;
     const clamped=(key,min,max,fallback)=>{const n=Number(localStorage.getItem(key));return localStorage.getItem(key)!==null&&Number.isFinite(n)?Math.max(min,Math.min(max,n)):fallback;};
-    imageZoom=clamped(ZOOM_KEY,75,250,100);
-    imagePosX=clamped(POSX_KEY,0,100,50);
-    imagePosY=clamped(POSY_KEY,0,200,40);
+    imageZoom=clamped(ZOOM_KEY,60,320,100);
+    imagePosX=clamped(POSX_KEY,-25,125,50);
+    imagePosY=clamped(POSY_KEY,-50,250,40);
     introOpacity=clamped(INTRO_KEY,20,100,84);
     rankOpacity=clamped(RANK_OPACITY_KEY,20,100,96);
     statusOpacity=clamped(STATUS_OPACITY_KEY,20,100,87);
@@ -304,6 +305,50 @@ function animebInitWeeklyThemes(){
   if(!['light','dark'].includes(imageTone))imageTone='light';
   if(!['auto','filled','outline'].includes(weekStyle))weekStyle='auto';
   if(!['cover','contain','tile'].includes(fullFit))fullFit='cover';
+  // Theme-specific header settings. On the first v2 visit, migrate the old
+  // shared overrides ONLY to the currently selected theme; never erase v1 keys.
+  const blankProfile=()=>({customColors:{},seasonSettings:{weight:'auto',style:'auto',size:100},weekStyle:'auto'});
+  const normalizeProfile=p=>{
+    const blank=blankProfile();
+    if(!p||typeof p!=='object'||Array.isArray(p))return blank;
+    const rawColors=p.customColors;
+    if(rawColors&&typeof rawColors==='object'&&!Array.isArray(rawColors)){
+      for(const [k,v] of Object.entries(rawColors))if(/^#[0-9a-fA-F]{6}$/.test(v||''))blank.customColors[k]=v;
+    }
+    const settings=p.seasonSettings||{};
+    blank.seasonSettings={weight:['auto','normal','bold'].includes(settings.weight)?settings.weight:'auto',
+      style:['auto','filled','outline'].includes(settings.style)?settings.style:'auto',
+      size:Number.isFinite(Number(settings.size))?Math.max(80,Math.min(160,Number(settings.size))):100};
+    blank.weekStyle=['auto','filled','outline'].includes(p.weekStyle)?p.weekStyle:'auto';
+    return blank;
+  };
+  let headerProfiles={original:blankProfile(),dark:blankProfile(),image:blankProfile()};
+  let profileOwner=theme;
+  try {
+    const stored=JSON.parse(localStorage.getItem(HEADER_PROFILES_KEY)||'null');
+    if(stored?.version===2 && stored.themes && typeof stored.themes==='object'){
+      for(const id of ['original','dark','image'])headerProfiles[id]=normalizeProfile(stored.themes[id]);
+    }else{
+      headerProfiles[theme]=normalizeProfile({customColors,seasonSettings,weekStyle});
+      localStorage.setItem(HEADER_PROFILES_KEY,JSON.stringify({version:2,themes:headerProfiles}));
+    }
+  }catch(_){headerProfiles[theme]=normalizeProfile({customColors,seasonSettings,weekStyle});}
+  function saveHeaderProfile(){
+    headerProfiles[profileOwner]=normalizeProfile({customColors,seasonSettings,weekStyle});
+    try{localStorage.setItem(HEADER_PROFILES_KEY,JSON.stringify({version:2,themes:headerProfiles}));}catch(_){}
+  }
+  function activateHeaderProfile(id){
+    if(profileOwner===id)return;
+    saveHeaderProfile();
+    profileOwner=id;
+    const profile=normalizeProfile(headerProfiles[id]);
+    customColors=profile.customColors;
+    seasonSettings=profile.seasonSettings;
+    weekStyle=profile.weekStyle;
+  }
+  // The initial UI and stylesheet must use this theme's own palette, not v1's global palette.
+  const initialProfile=normalizeProfile(headerProfiles[theme]);
+  customColors=initialProfile.customColors;seasonSettings=initialProfile.seasonSettings;weekStyle=initialProfile.weekStyle;
   const ctr=document.createElement('div');ctr.id='animeb-theme-controls';ctr.className='animeb-theme-controls';
   const btn=document.createElement('button');btn.type='button';btn.className='animeb-theme-button';
   btn.textContent='◐';btn.setAttribute('aria-label','Theme / テーマ切替');
@@ -340,7 +385,7 @@ function animebInitWeeklyThemes(){
   for(const [key,label] of [['auto','Auto / JSON'],['filled','Filled / 塗り'],['outline','Outline / 輪郭']]){
     const b=document.createElement('button');b.type='button';b.className='animeb-week-style-choice';
     b.textContent=label;b.setAttribute('aria-pressed',String(key===weekStyle));
-    b.addEventListener('click',()=>{weekStyle=key;try{localStorage.setItem(WEEK_STYLE_KEY,key);}catch(_){}apply(theme,false);});
+    b.addEventListener('click',()=>{weekStyle=key;saveHeaderProfile();apply(theme,false);});
     weekStyleGroup.append(b);weekStyleButtons[key]=b;
   }
   weekStylePanel.append(weekStyleLabel,weekStyleGroup);
@@ -386,10 +431,10 @@ function animebInitWeeklyThemes(){
   // Live framing preview: mirrors the same selected picture, tone, position and zoom.
   const previewStage=document.createElement('div');previewStage.className='animeb-bg-live-preview';
   previewStage.setAttribute('role','img');previewStage.setAttribute('aria-label','Live background crop preview / 背景のトリミングプレビュー');
-  const previewTitle=document.createElement('span');previewTitle.className='animeb-bg-preview-title';
-  previewTitle.textContent='TOP10  WEEK03';
-  const previewDescription=document.createElement('span');previewDescription.textContent='LIVE PREVIEW  ·  変更はすぐ反映';
-  previewStage.append(previewTitle,previewDescription);
+  const previewHeader=document.createElement('div');previewHeader.className='animeb-bg-preview-header';
+  const previewDescription=document.createElement('span');previewDescription.className='animeb-bg-preview-description';
+  previewDescription.textContent='LIVE PREVIEW  ·  設定中のヘッダー色を反映';
+  previewStage.append(previewHeader,previewDescription);
   const frame=document.createElement('div');frame.className='animeb-bg-frame';
   const mkRange=(name,min,max,step)=>{
     const row=document.createElement('label');row.className='animeb-bg-frame-label';
@@ -399,9 +444,9 @@ function animebInitWeeklyThemes(){
     row.append(title,value,input);frame.append(row);
     return {input,value};
   };
-  const zoomCtl=mkRange('ZOOM / 拡大・縮小',75,250,5);
-  const posXCtl=mkRange('HORIZONTAL / 左右位置',0,100,5);
-  const posYCtl=mkRange('VERTICAL / 上下位置',0,200,5);
+  const zoomCtl=mkRange('ZOOM / 拡大・縮小',60,320,5);
+  const posXCtl=mkRange('HORIZONTAL / 左右位置',-25,125,5);
+  const posYCtl=mkRange('VERTICAL / 上下位置',-50,250,5);
   const introCtl=mkRange('THIS WEEK PANEL / 本文パネルの不透明度',20,100,5);
   const statusCtl=mkRange('VIEWING STATUS / 上部パネルの不透明度',20,100,5);
   const rankCtl=mkRange('RANKING CARDS / ランキング行の不透明度',20,100,5);
@@ -457,11 +502,11 @@ function animebInitWeeklyThemes(){
   });
   const colorActions=document.createElement('div');colorActions.className='animeb-bg-color-actions';
   const colorReset=document.createElement('button');colorReset.type='button';colorReset.textContent='Reset / 色の指定を解除';
-  colorReset.addEventListener('click',()=>{customColors={};saveColors();applyColors();for(const [key,,defaultColor] of colorDefs)colorInputs[key].value=defaultColor;});
+  colorReset.addEventListener('click',()=>{customColors={};saveColors();applyColors();for(const [key,,defaultColor] of colorDefs)colorInputs[key].value=defaultColor;refreshAllColorAuto();});
   const colorLight=document.createElement('button');colorLight.type='button';colorLight.textContent='White text / 白系';
   colorLight.addEventListener('click',()=>{customColors={top:'#fffdf4',week:'#ffd6ca',season:'#f9ead1',sat:'#ffffff'};saveColors();applyColors();for(const [key,,fallback] of colorDefs)colorInputs[key].value=customColors[key]||fallback;refreshAllColorAuto();});
   colorActions.append(colorLight,colorReset);
-  const colorNote=document.createElement('p');colorNote.textContent='各色は独立。変更していない項目は従来色（季節名は春夏秋冬の標準色）です。色を元に戻す場合は Reset。';
+  const colorNote=document.createElement('p');colorNote.textContent='Original / Dark / Image は別々に保存。Auto は各テーマの標準色（季節名は春夏秋冬の色）です。Reset は今のテーマだけに適用。';
   colorDetails.append(colorSummary,colorRows,colorActions,colorNote);
   // Season name typography: Auto respects the season's original CSS palette.
   const seasonBox=document.createElement('fieldset');seasonBox.className='animeb-season-studio';
@@ -489,7 +534,7 @@ function animebInitWeeklyThemes(){
   const seasonSizeValue=document.createElement('output');
   const seasonSizeInput=document.createElement('input');seasonSizeInput.type='range';seasonSizeInput.min=80;seasonSizeInput.max=160;seasonSizeInput.step=5;
   seasonSizeRow.append(seasonSizeText,seasonSizeValue,seasonSizeInput);seasonBox.append(seasonSizeRow);
-  const saveSeasonSettings=()=>{try{localStorage.setItem(SEASON_SETTINGS_KEY,JSON.stringify(seasonSettings));}catch(_){}};
+  const saveSeasonSettings=()=>saveHeaderProfile();
   function refreshSeasonButtons(){
     Object.entries(seasonGroups).forEach(([key,group])=>Object.entries(group).forEach(([value,b])=>b.setAttribute('aria-pressed',String(seasonSettings[key]===value))));
     seasonSizeInput.value=String(seasonSettings.size);seasonSizeValue.textContent=seasonSettings.size+'%';
@@ -511,7 +556,7 @@ function animebInitWeeklyThemes(){
   onRange(rankCtl,RANK_OPACITY_KEY,()=>rankOpacity,n=>rankOpacity=n);
   const scopeHint=document.createElement('p');scopeHint.className='animeb-bg-scope-note';
   scopeHint.textContent='Header area ends above the ranking table. / 上部のみ：ランキング表の直前まで。';
-  imageOptions.append(placementLegend,scopeChoices,visibilityLabel,opacityLabel,scopeHint,previewStage,frame,toneBox,fitRow,frameNote,colorDetails,seasonBox);
+  imageOptions.append(placementLegend,scopeChoices,visibilityLabel,opacityLabel,scopeHint,frame,toneBox,fitRow,frameNote);
   // Presets live in the theme panel (outside the image-only field), so Original
   // and Dark appearances can be saved as well. Photos are referenced by gallery ID.
   const presetBox=document.createElement('fieldset');presetBox.className='animeb-bg-presets';
@@ -545,7 +590,7 @@ function animebInitWeeklyThemes(){
   details.append(summary,input,set);
   const message=document.createElement('p');message.className='animeb-theme-message';message.setAttribute('role','status');
   field.append(imageOptions,galleryTitle,repoHeading,remoteGrid,repoStatus,localHeading,localGrid,localStatus,fileLabel,fileNote,details);
-  panel.append(panelHead,choices,weekStylePanel,presetBox,field,message);ctr.append(btn,panel);
+  panel.append(panelHead,choices,previewStage,weekStylePanel,colorDetails,seasonBox,presetBox,field,message);ctr.append(btn,panel);
   const lang=document.querySelector('#animeb-weekly-language');
   if(lang)lang.before(ctr);else(document.querySelector('.nav-bar')||document.body).after(ctr);
   const validPath=v=>{
@@ -558,7 +603,7 @@ function animebInitWeeklyThemes(){
   // Insert as a sibling of the established heading. No cards, notes, ranking rows or JSON are altered.
   document.querySelector('.wrapper > .header')?.before(heroSpacer);
   const colorStyle=document.createElement('style');colorStyle.id='animeb-theme-custom-colors';document.head.append(colorStyle);
-  const saveColors=()=>{try{localStorage.setItem(COLORS_KEY,JSON.stringify(customColors));}catch(_){}};
+  const saveColors=()=>saveHeaderProfile();
   function applyColors(){
     const selectors={
       top:'.wrapper .header h1',
@@ -596,8 +641,56 @@ function animebInitWeeklyThemes(){
     if(seasonSettings.style==='outline')rules+='\nbody .wrapper .sub-header .season-title .season{color:transparent!important;-webkit-text-stroke:1px var(--animeb-season-paint)!important;paint-order:stroke fill;}';
     else if(seasonSettings.style==='filled')rules+='\nbody .wrapper .sub-header .season-title .season{-webkit-text-stroke:0!important;}';
     colorStyle.textContent=rules;
+    refreshPreviewHeader();
   }
   applyColors();
+  function refreshPreviewHeader(){
+    const srcNodes=[document.querySelector('.wrapper > .header'),document.querySelector('.wrapper > .sub-header')].filter(Boolean);
+    const satisfaction=document.querySelector('.wrapper .animeb-weekly-satisfaction');
+    if(satisfaction&&!srcNodes.some(node=>node.contains(satisfaction)))srcNodes.push(satisfaction);
+    const fragment=document.createDocumentFragment();
+    const copyAppearance=(from,to)=>{
+      if(from.nodeType!==1||to.nodeType!==1)return;
+      const st=getComputedStyle(from);
+      for(const prop of ['color','font-family','font-size','font-weight','font-style','line-height',
+        'letter-spacing','word-spacing','-webkit-text-stroke-width','-webkit-text-stroke-color',
+        '-webkit-text-fill-color','text-shadow','opacity']){
+        const val=st.getPropertyValue(prop);if(val)to.style.setProperty(prop,val,'important');
+      }
+      const fromKids=[...from.children],toKids=[...to.children];
+      for(let i=0;i<Math.min(fromKids.length,toKids.length);i++)copyAppearance(fromKids[i],toKids[i]);
+    };
+    for(const src of srcNodes){
+      const clone=src.cloneNode(true);
+      clone.removeAttribute('id');for(const el of clone.querySelectorAll('[id]'))el.removeAttribute('id');
+      copyAppearance(src,clone);
+      fragment.append(clone);
+    }
+    previewHeader.replaceChildren(fragment);
+  }
+  function updatePicturePreview(targetWidth,cameraHeight,sizing){
+    const previewWidth=previewStage.clientWidth||330;
+    const ratio=previewWidth/Math.max(1,targetWidth);
+    if(imageNatural?.width&&imageNatural?.height&&sizing!=='cover'){
+      const [w,h]=sizing.split(' ').map(v=>Number(v.replace('px','')));
+      if(Number.isFinite(w)&&Number.isFinite(h)){
+        previewStage.style.setProperty('--animeb-preview-size',`${(w*ratio).toFixed(1)}px ${(h*ratio).toFixed(1)}px`);
+        const yOffset=(cameraHeight-h)*(imagePosY/100);
+        previewStage.style.setProperty('--animeb-preview-y-px',`${(yOffset*ratio).toFixed(1)}px`);
+      }
+    }else{
+      previewStage.style.setProperty('--animeb-preview-size','cover');
+      previewStage.style.setProperty('--animeb-preview-y-px',imagePosY+'%');
+    }
+    previewStage.style.setProperty('--animeb-preview-repeat',fullFit==='tile'?'repeat':'no-repeat');
+  }
+  const pageHeader=document.querySelector('.wrapper > .header');
+  const pageSubHeader=document.querySelector('.wrapper > .sub-header');
+  if('MutationObserver' in window){
+    const observer=new MutationObserver(refreshPreviewHeader);
+    for(const el of [pageHeader,pageSubHeader])if(el)observer.observe(el,{childList:true,subtree:true,characterData:true,attributes:true,attributeFilter:['class','style']});
+  }
+  refreshPreviewHeader();
   function rememberNaturalSize(address){
     if(!address)return;
     const probe=new Image();probe.onload=()=>{
@@ -648,6 +741,7 @@ function animebInitWeeklyThemes(){
       sizing=`${Math.round(imageNatural.width*factor)}px ${Math.round(imageNatural.height*factor)}px`;
     }
     document.body.style.setProperty('--animeb-image-size',sizing);
+    updatePicturePreview(targetWidth,cameraHeight,sizing);
     if(imageScope==='header'||imageScope==='hero') {
       // A CSS percentage uses the *visible layer height*, so % is not a
       // stable crop for short vs long weeks. Anchor y to the shared camera.
@@ -667,7 +761,14 @@ function animebInitWeeklyThemes(){
     heroFrame=requestAnimationFrame(updateHeroExtent);
   }
   function apply(id,persist){
+    if(id!==profileOwner){
+      activateHeaderProfile(id);
+      for(const [key,,fallback] of colorDefs)
+        colorInputs[key].value=/^#[0-9a-fA-F]{6}$/.test(customColors[key]||'')?customColors[key]:fallback;
+      refreshAllColorAuto();refreshSeasonButtons();
+    }
     theme=id;document.body.dataset.animebTheme=id;
+    applyColors();
     document.body.dataset.animebWeekStyle=weekStyle;
     Object.entries(weekStyleButtons).forEach(([key,b])=>b.setAttribute('aria-pressed',String(key===weekStyle)));
     document.body.dataset.animebImageScope=imageScope;
@@ -708,11 +809,15 @@ function animebInitWeeklyThemes(){
     previewStage.style.setProperty('--animeb-preview-x',imagePosX+'%');
     previewStage.style.setProperty('--animeb-preview-y',imagePosY+'%');
     previewStage.style.setProperty('--animeb-preview-zoom',String(imageZoom/100));
-    previewStage.dataset.tone=imageTone;
+    previewStage.dataset.tone=id==='dark'?'dark':id==='original'?'light':imageTone;
+    previewStage.dataset.theme=id;
+    refreshPreviewHeader();
     Object.entries(buttons).forEach(([key,element])=>element.setAttribute('aria-pressed',String(key===id)));
     field.hidden=id!=='image';
     if(persist)try{localStorage.setItem(STORE,id);}catch(_){}
-    scheduleHeroExtent();
+    if(id!=='image')previewStage.style.removeProperty('--animeb-preview-photo');
+    if(id==='image')scheduleHeroExtent();
+    else updatePicturePreview(1,1,'cover');
     highlight();
   }
   function savePref(next){
@@ -766,7 +871,7 @@ function animebInitWeeklyThemes(){
         [WEEK_STYLE_KEY,weekStyle],[ZOOM_KEY,imageZoom],[POSX_KEY,imagePosX],
         [POSY_KEY,imagePosY],[INTRO_KEY,introOpacity],[STATUS_OPACITY_KEY,statusOpacity],
         [RANK_OPACITY_KEY,rankOpacity],[TONE_KEY,imageTone],[FIT_KEY,fullFit]])localStorage.setItem(key,String(val));
-      saveColors();saveSeasonSettings();
+      saveHeaderProfile();
     }catch(_){presetStatus.textContent='Loaded for this page, but browser storage is unavailable. / 保存領域にアクセスできません。';}
   }
   function syncControls(){
@@ -789,16 +894,18 @@ function animebInitWeeklyThemes(){
       const address=validPath(state.url);if(!address)throw new Error('Stored image URL is invalid. / 保存URLが無効です。');
       await verifyImage(address);
     }
+    saveHeaderProfile(); // Preserve the outgoing theme before loading a preset.
     theme=['original','dark','image'].includes(state.theme)?state.theme:'original';
+    profileOwner=theme;
     url=typeof state.url==='string'?state.url:'';
     source=state.source==='local'?'local':'url';localId=typeof state.localId==='string'?state.localId:'';
     imageScope=['header','hero','full'].includes(state.imageScope)?state.imageScope:'header';
     imageVisibility=Math.max(25,Math.min(100,Number(state.imageVisibility)||78));
     photoOpacity=Math.max(15,Math.min(100,Number(state.photoOpacity)||100));
     weekStyle=['auto','filled','outline'].includes(state.weekStyle)?state.weekStyle:'auto';
-    imageZoom=Math.max(75,Math.min(250,Number(state.imageZoom)||100));
-    imagePosX=Math.max(0,Math.min(100,Number(state.imagePosX ?? 50)));
-    imagePosY=Math.max(0,Math.min(200,Number(state.imagePosY ?? 40)));
+    imageZoom=Math.max(60,Math.min(320,Number(state.imageZoom)||100));
+    imagePosX=Math.max(-25,Math.min(125,Number(state.imagePosX ?? 50)));
+    imagePosY=Math.max(-50,Math.min(250,Number(state.imagePosY ?? 40)));
     introOpacity=Math.max(20,Math.min(100,Number(state.introOpacity)||84));
     statusOpacity=Math.max(20,Math.min(100,Number(state.statusOpacity)||87));
     rankOpacity=Math.max(20,Math.min(100,Number(state.rankOpacity)||96));
@@ -808,6 +915,7 @@ function animebInitWeeklyThemes(){
     seasonSettings={weight:['auto','normal','bold'].includes(state.seasonSettings?.weight)?state.seasonSettings.weight:'auto',
       style:['auto','filled','outline'].includes(state.seasonSettings?.style)?state.seasonSettings.style:'auto',
       size:Math.max(80,Math.min(160,Number(state.seasonSettings?.size)||100))};
+    saveHeaderProfile(); // Only the target theme gets this preset's header styling.
     imageNatural=null;
     if(source==='local'&&blob)setLocalPreview(blob);
     else if(source==='url'){if(localObjectUrl){URL.revokeObjectURL(localObjectUrl);localObjectUrl=null;}if(url)rememberNaturalSize(validPath(url));}

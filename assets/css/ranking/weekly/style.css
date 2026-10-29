@@ -3700,6 +3700,49 @@ body[data-animeb-theme="image"][data-animeb-image-scope="full"] .entry-list > .e
 }
 @media(max-width:450px){.animeb-bg-presets-actions button{font-size:9.5px}}
 
+/* Theme Studio v2: the preview is visible in Original, Dark and Image modes.
+   The real header is cloned with its live computed colors (not a hard-coded sample).
+   Keep this scoped to the settings pane; do not alter the published header. */
+.animeb-bg-live-preview{
+  box-sizing:border-box;height:176px;min-height:176px;display:flex;flex-direction:column;
+  justify-content:space-between;position:relative;overflow:hidden;margin:10px 0 12px;
+  padding:12px 13px;background-image:none!important;background-color:#ffffed;color:#39473f;
+}
+.animeb-bg-live-preview[data-theme="dark"],
+.animeb-bg-live-preview[data-theme="image"][data-tone="dark"]{
+  background-color:#182d34;color:#edf1eb;
+}
+.animeb-bg-live-preview::before{
+  transform:none!important;background-image:var(--animeb-preview-photo,none)!important;
+  background-size:var(--animeb-preview-size,cover)!important;
+  background-position:var(--animeb-preview-x,50%) var(--animeb-preview-y-px,40%)!important;
+  background-repeat:var(--animeb-preview-repeat,no-repeat)!important;
+  opacity:var(--animeb-preview-photo-opacity,1);
+}
+.animeb-bg-live-preview[data-theme="original"]::before,
+.animeb-bg-live-preview[data-theme="dark"]::before{background-image:none!important;opacity:0!important}
+.animeb-bg-live-preview[data-theme="original"]::after,
+.animeb-bg-live-preview[data-theme="dark"]::after{display:none!important}
+.animeb-bg-preview-header{position:relative;z-index:2;max-width:100%;min-height:72px;
+  overflow:visible;transform:scale(.93);transform-origin:left top;}
+.animeb-bg-preview-header .header,.animeb-bg-preview-header .sub-header{
+  max-width:100%;position:relative;z-index:2;
+}
+.animeb-bg-preview-header .header{gap:6px;align-items:baseline;white-space:nowrap;}
+.animeb-bg-preview-header .sub-header{width:340px!important;max-width:none!important;
+  display:flex!important;flex-wrap:wrap!important;align-items:baseline!important;
+  justify-content:flex-start!important;column-gap:5px!important;row-gap:1px!important;}
+.animeb-bg-preview-header .sub-header .season-title{white-space:nowrap;}
+.animeb-bg-preview-header .sub-header .ep-range{margin-left:2px!important;}
+.animeb-bg-preview-header .header h1{margin-top:6px;}
+.animeb-bg-preview-description{position:relative;z-index:2;align-self:flex-start;
+  border-radius:3px;background:rgba(240,244,237,.76);padding:2px 5px;
+  font:600 9px/1.35 'Fira Sans',sans-serif!important;color:#44534b!important;}
+.animeb-bg-live-preview[data-theme="dark"] .animeb-bg-preview-description,
+.animeb-bg-live-preview[data-theme="image"][data-tone="dark"] .animeb-bg-preview-description{
+  background:rgba(14,26,32,.76);color:#e2e9e4!important;
+}
+
 /* v4.35.12 — scoped improvements: archived Overview + Bottom typography.
    The archive's own overview stylesheet loads in an isolated ShadowRoot.
    Do not alter ranking cards, current-week styles or metadata. */
