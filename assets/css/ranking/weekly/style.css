@@ -320,6 +320,16 @@ VIEWING STATUS ZONE
 #overview-toggle-btn:hover {
   background-color: #f3f4ef;
 }
+/* The original green is retained, but brought above the dark-photo surface. */
+body[data-animeb-theme="dark"] #overview-toggle-btn,
+body[data-animeb-theme="image"][data-animeb-image-tone="dark"] #overview-toggle-btn{
+  color:#b5ccbb;
+  font-size:.64rem;
+}
+body[data-animeb-theme="dark"] #overview-toggle-btn:hover,
+body[data-animeb-theme="image"][data-animeb-image-tone="dark"] #overview-toggle-btn:hover{
+  background:rgba(186,213,194,.10);
+}
 
 .triangle-icon {
   width: 10px;
@@ -345,16 +355,16 @@ VIEWING STATUS ZONE
 }
 
 
+/* Overview is either in the document flow or absent from it.
+   A long archived article must not leave an interpolated 8000px scroll area
+   (or a stale compositing layer) when closed on mobile Safari. */
 #overview-container {
-  overflow: hidden;
-  max-height: 0;
-  transition: max-height 0.5s ease;
+  display:none;
+  max-height:none;
+  overflow:visible;
+  transition:none;
 }
-
-#overview-container.expanded {
-  max-height: 8000px; /* 任意で調整可能 */
-  transition: max-height 0.8s ease;
-}
+#overview-container.expanded { display:block; }
 
 #lang-toggle {
       display: block;
@@ -886,6 +896,14 @@ VIEWING STATUS ZONE
   text-transform: none;
   color: #5D7430;
 }
+/* Japanese glyphs render darker at this tiny size than the English type.
+   Change only JA in dark/photo-dark; keep English and light-mode colors. */
+body[data-animeb-lang="ja"][data-animeb-theme="dark"] .bar-label,
+body[data-animeb-lang="ja"][data-animeb-theme="image"][data-animeb-image-tone="dark"] .bar-label{
+  color:#8daa67;
+  font-weight:600;
+}
+
 
 
 .bar-track {
@@ -3011,11 +3029,8 @@ body[data-animeb-theme="image"][data-animeb-image-scope="full"] .wrapper > :is(
 ){
   position:relative;z-index:1;isolation:isolate;
 }
-body[data-animeb-theme="image"][data-animeb-image-scope="full"] :is(
-  .animeb-bottom-week,.animeb-dropped-titles
-){
-  backdrop-filter:blur(1px);-webkit-backdrop-filter:blur(1px);
-}
+/* Bottom/Dropped have their own RGBA reading backgrounds below. No
+   backdrop filter: avoid expensive extra GPU layers with fixed artwork. */
 body[data-animeb-theme="image"][data-animeb-image-scope="full"][data-animeb-image-tone="dark"] :is(
   .animeb-bottom-week,.animeb-dropped-titles
 ){
@@ -3030,7 +3045,6 @@ body[data-animeb-theme="image"][data-animeb-image-scope="full"][data-animeb-imag
    of the rank slider, for current weeks AND historical/Final weeks. */
 body[data-animeb-theme="image"][data-animeb-image-scope="full"] .note-mount:not(:empty){
   padding:12px 13px;margin:16px 0 24px;border-radius:10px;
-  backdrop-filter:blur(2px);-webkit-backdrop-filter:blur(2px);
 }
 body[data-animeb-theme="image"][data-animeb-image-scope="full"][data-animeb-image-tone="dark"] .note-mount:not(:empty){
   background-color:rgba(20,35,41,.96);
@@ -3591,16 +3605,28 @@ body[data-animeb-theme="original"] .animeb-season-studio legend{color:#52715e}
 /* A photo never replaces the reading surface; only the explicit ranked-card
    opacity slider controls the FULL PAGE ranked-card background. */
 body[data-animeb-theme="image"][data-animeb-image-scope="full"] .entry-list > .entry{
-  position:relative;isolation:isolate;
-  backdrop-filter:blur(1px);-webkit-backdrop-filter:blur(1px);
+  position:relative;
+  /* Per-row backdrop filters created dozens of separate compositing layers
+     over a fixed photo, exacerbated by tall Legacy Overview articles on iOS. */
 }
 @media(max-width:450px){.animeb-bg-presets-actions button{font-size:9.5px}}
 
 /* v4.35.12 — scoped improvements: archived Overview + Bottom typography.
    The archive's own overview stylesheet loads in an isolated ShadowRoot.
    Do not alter ranking cards, current-week styles or metadata. */
-#overview-container.expanded { max-height:none; overflow:visible; }
+/* Overview expanded/collapsed is defined once in the base overview rules. */
 #overview-container .animeb-overview-isolated { display:block; width:100%; min-width:0; }
+/* A long archived Overview is its own editorial reading surface, not a
+   full-bleed extension of the dark ranking background. */
+body[data-animeb-theme="image"][data-animeb-image-scope="full"] .overview-section:has(#overview-container.expanded){
+  padding:14px clamp(10px,2.6vw,22px) 20px;
+  margin-top:14px;
+  margin-bottom:18px;
+  border-radius:12px;
+}
+body[data-animeb-theme="image"][data-animeb-image-scope="full"] .overview-section:has(#overview-container.expanded) .animeb-overview-isolated{
+  max-width:100%;
+}
 @media (max-width:768px) {
   .overview-section { min-width:0; max-width:100%; padding:0 9px; }
   #overview-container { max-width:100%; }

@@ -592,6 +592,7 @@ function animebInitWeeklyThemes(){
     else rules+='\nbody .wrapper .sub-header .season-title .season{--animeb-season-paint:var(--animeb-season-default)}';
     if(seasonSettings.weight!=='auto')rules+=`\nbody .wrapper .sub-header .season-title .season{font-weight:${seasonSettings.weight==='bold'?'800':'400'}!important;}`;
     if(seasonSettings.size!==100)rules+=`\nbody .wrapper .sub-header .season-title .season{font-size:${seasonSettings.size}%!important;}`;
+    if(seasonSettings.size>115)rules+='\nbody .wrapper .sub-header{width:auto!important;max-width:100%!important;flex-wrap:wrap!important;row-gap:3px;}body .wrapper .sub-header .ep-range{margin-left:0;}';
     if(seasonSettings.style==='outline')rules+='\nbody .wrapper .sub-header .season-title .season{color:transparent!important;-webkit-text-stroke:1px var(--animeb-season-paint)!important;paint-order:stroke fill;}';
     else if(seasonSettings.style==='filled')rules+='\nbody .wrapper .sub-header .season-title .season{-webkit-text-stroke:0!important;}';
     colorStyle.textContent=rules;
@@ -611,21 +612,23 @@ function animebInitWeeklyThemes(){
   function updateHeroExtent(){
     if(theme!=='image')return;
     const wrapper=document.querySelector('.wrapper');
-    const ranking=document.querySelector('.table-header-mount')||document.querySelector('.entry-list');
     if(!wrapper)return;
-    // The height includes the actual weekly intro/Viewing Status, even after
-    // the JSON has been mounted and an explanation panel is expanded.
-    const wrapperTop=wrapper.getBoundingClientRect().top;
-    const bottom=ranking?ranking.getBoundingClientRect().top:wrapperTop+410;
-    // Opening a historical Overview expands the document but must never resize
-    // or zoom the header photograph. The picture ends above the overview body.
-    const openOverview=document.querySelector('#overview-container.expanded');
-    const expandedOverviewHeight=openOverview?openOverview.getBoundingClientRect().height:0;
-    const height=Math.max(180,Math.round(bottom-wrapperTop-expandedOverviewHeight-8));
-    wrapper.style.setProperty('--animeb-image-header-height',height+'px');
-    const width=Math.max(1,wrapper.getBoundingClientRect().width);
+    // Full Page is painted against the VIEWPORT. Do not read Overview height,
+    // rank mount positions, or write header-height when it is selected.
+    // Those values change during archived ShadowRoot stylesheet loading and
+    // previously caused repeated WebKit layout/repaint churn on open/close.
+    let height=0;
+    if(imageScope!=='full'){
+      const ranking=document.querySelector('.table-header-mount')||document.querySelector('.entry-list');
+      const wrapperTop=wrapper.getBoundingClientRect().top;
+      const bottom=ranking?ranking.getBoundingClientRect().top:wrapperTop+410;
+      const openOverview=document.querySelector('#overview-container.expanded');
+      const expandedOverviewHeight=openOverview?openOverview.getBoundingClientRect().height:0;
+      height=Math.max(180,Math.round(bottom-wrapperTop-expandedOverviewHeight-8));
+      wrapper.style.setProperty('--animeb-image-header-height',height+'px');
+    }
     const viewportHeight=Math.max(1,window.innerHeight);
-    const targetWidth=imageScope==='full'?window.innerWidth:width;
+    const targetWidth=imageScope==='full'?window.innerWidth:Math.max(1,wrapper.getBoundingClientRect().width);
     // Image framing used to be recomputed from the variable header height.
     // No "THIS WEEK" made the hero short, changing BOTH image zoom and
     // background-position percentage; the featured face slid out of view.
@@ -1009,9 +1012,14 @@ function animebInitWeeklyThemes(){
   const wrapper=document.querySelector('.wrapper');
   if(wrapper && 'ResizeObserver' in window){
     const ro=new ResizeObserver(scheduleHeroExtent);
-    for(const sel of ['.animeb-weekly-intro','.watch-status-wrapper','.overview-section','.table-header-mount']){
+    for(const sel of ['.animeb-weekly-intro','.watch-status-wrapper','.table-header-mount']){
       const el=wrapper.querySelector(sel);if(el)ro.observe(el);
     }
+    // Overview is not a camera input for Full Page. For Header/Hero, update
+    // once on toggle instead of observing every async Shadow DOM resize.
+    document.getElementById('overview-toggle-btn')?.addEventListener('click',()=>{
+      if(imageScope!=='full')scheduleHeroExtent();
+    });
   }
   apply(theme,false);
   if(source==='url'&&url)rememberNaturalSize(validPath(url));
@@ -3119,10 +3127,12 @@ window.initOverviewSection = function() {
 
   // トグル動作 ボタンクリックでアコーディオン開閉（innerHTML を使わない！）
   btn.addEventListener("click", () => {
-  container.classList.toggle("expanded");
-  triangle.classList.toggle("rotate");
-
-  const label = container.classList.contains("expanded") ? "CLOSE" : "OVERVIEW";
+  const isExpanded=container.classList.toggle("expanded");
+  triangle.classList.toggle("rotate",isExpanded);
+  btn.setAttribute('aria-expanded',String(isExpanded));
+  // Visibility is now an explicit two-state layout, not a multi-thousand-pixel
+  // max-height animation. On iPhone, no stale blank scroll area survives close.
+  const label = isExpanded ? "CLOSE" : "OVERVIEW";
 
   // span.triangle-icon を直接残したまま、テキストだけ変える
   const textNode = btn.querySelector('.label-text');
