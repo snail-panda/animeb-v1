@@ -900,7 +900,7 @@ body[data-animeb-theme="image"][data-animeb-image-tone="dark"] #overview-toggle-
    Change only JA in dark/photo-dark; keep English and light-mode colors. */
 body[data-animeb-lang="ja"][data-animeb-theme="dark"] .bar-label,
 body[data-animeb-lang="ja"][data-animeb-theme="image"][data-animeb-image-tone="dark"] .bar-label{
-  color:#708C3A;
+  color:#688138;
   font-weight:500;
 }
 
