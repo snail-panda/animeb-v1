@@ -348,6 +348,22 @@ body[data-animeb-theme="dark"] #overview-toggle-btn:hover,
 body[data-animeb-theme="image"][data-animeb-image-tone="dark"] #overview-toggle-btn:hover{
   background:rgba(186,213,194,.10);
 }
+/* In photo themes, the closed Overview is a compact control, never a full-width
+   opaque strip. Keep the expanded article reading mat unchanged. */
+body[data-animeb-theme="image"] .overview-section:not(:has(#overview-container.expanded)) {
+  background-color: transparent !important;
+}
+body[data-animeb-theme="image"] #overview-toggle-btn {
+  width: max-content;
+  padding: .26rem .85rem .3rem;
+  border: 1px solid rgba(97,121,103,.28);
+  border-radius: 999px;
+  background: rgba(255,254,246,.88);
+}
+body[data-animeb-theme="image"][data-animeb-image-tone="dark"] #overview-toggle-btn {
+  background: rgba(24,42,48,.86);
+  border-color: rgba(178,204,188,.3);
+}
 
 .triangle-icon {
   width: 10px;
@@ -425,7 +441,7 @@ body[data-animeb-theme="image"][data-animeb-image-tone="dark"] #overview-toggle-
   align-items: center;
   justify-content: center;
   /* Inset only this header, not the ranked rows or the full table width. */
-  padding: 0 6px 0.2rem;
+  padding: 0 8px 0.2rem;
 }
 
 .table-header .header-rank {
@@ -1865,12 +1881,21 @@ body { padding: 0; }
 
 /* === AnimeB weekly More Info expansion: actual content height, flexible cast === */
 .entry .more-info, .entry .synopsis { display:none; max-height:none; overflow:visible; transition:none; }
-.entry .more-info.active { display:block; max-height:none; padding:.55rem 0; }
-.entry .synopsis.active:not(.animeb-empty-synopsis) { display:block; max-height:none; padding:.4rem .5rem .5rem 0; }
+.entry .more-info.active { display:block; max-height:none; padding:.55rem .7rem .7rem; }
+.entry .synopsis.active:not(.animeb-empty-synopsis) { display:block; max-height:none; padding:.4rem .7rem .55rem; }
 .entry .synopsis.active:not(.animeb-empty-synopsis)::before {
   content:'SYNOPSIS'; display:block; font-weight:700; letter-spacing:.055em;
   font-size:.7rem; color:#716444; padding-bottom:.25rem; margin-bottom:.35rem;
   border-bottom:1px solid #e5dfcb;
+}
+/* Plain Dark synopsis used to inherit light-mode #404040 over a dark card.
+   Leave the already-approved Image Dark and Original palette untouched. */
+body[data-animeb-theme="dark"] .entry .synopsis.active:not(.animeb-empty-synopsis) {
+  color: #d0d8d3;
+}
+body[data-animeb-theme="dark"] .entry .synopsis.active:not(.animeb-empty-synopsis)::before {
+  color: #b7c7b4;
+  border-bottom-color: #52655e;
 }
 .entry .more-info dl { min-width:0; }
 .entry .more-info dt { white-space:normal; overflow-wrap:anywhere; }
@@ -3038,7 +3063,7 @@ body[data-animeb-theme="image"][data-animeb-image-scope="full"]::after{
 body[data-animeb-theme="image"][data-animeb-image-scope="full"][data-animeb-image-tone="light"] .wrapper{
   background:transparent!important;color:#35423c;
 }
-body[data-animeb-theme="image"][data-animeb-image-scope="full"][data-animeb-image-tone="light"] :is(.ranking-item,.table-header,.table-header-mount,.note,.notes-section,.overview-section){
+body[data-animeb-theme="image"][data-animeb-image-scope="full"][data-animeb-image-tone="light"] :is(.ranking-item,.table-header,.table-header-mount,.note,.notes-section){
   background-color:rgba(255,254,246,.95)!important;color:#35423c;
 }
 body[data-animeb-theme="image"][data-animeb-image-scope="full"][data-animeb-image-tone="light"] .entry{
@@ -3046,6 +3071,28 @@ body[data-animeb-theme="image"][data-animeb-image-scope="full"][data-animeb-imag
 }
 body[data-animeb-theme="image"][data-animeb-image-scope="full"] .entry{
   border-radius:8px;box-shadow:0 2px 9px rgba(12,31,27,.08);
+}
+/* Full-page ranking heading = cap of #1, not an unrelated skinny strip.
+   The existing rank opacity slider controls BOTH matching background surfaces. */
+body[data-animeb-theme="image"][data-animeb-image-scope="full"] .table-header-mount {
+  margin-top: 10px;
+  margin-bottom: 0;
+  border-radius: 10px 10px 0 0;
+}
+body[data-animeb-theme="image"][data-animeb-image-scope="full"] .table-header-mount .table-header {
+  padding: 7px 8px 7px;
+  background-color: transparent !important;
+}
+body[data-animeb-theme="image"][data-animeb-image-scope="full"][data-animeb-image-tone="light"] .table-header-mount {
+  background-color: rgba(255,254,246,var(--animeb-rank-opacity,.96)) !important;
+}
+body[data-animeb-theme="image"][data-animeb-image-scope="full"][data-animeb-image-tone="dark"] .table-header-mount {
+  background-color: rgba(20,35,41,var(--animeb-rank-opacity,.96)) !important;
+}
+body[data-animeb-theme="image"][data-animeb-image-scope="full"] .entry-list > .entry:first-child {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  margin-top: 0;
 }
 /* Dark + photo shares the real dark-site treatment, not only two translucent widgets. */
 body[data-animeb-theme="image"][data-animeb-image-tone="dark"]{
@@ -3057,7 +3104,7 @@ body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .wrapper{
 body[data-animeb-theme="image"][data-animeb-image-tone="dark"][data-animeb-image-scope="full"] .wrapper{
   background:transparent!important;
 }
-body[data-animeb-theme="image"][data-animeb-image-tone="dark"] :is(.ranking-item,.table-header,.table-header-mount,.note,.notes-section,.overview-section){
+body[data-animeb-theme="image"][data-animeb-image-tone="dark"] :is(.ranking-item,.table-header,.table-header-mount,.note,.notes-section){
   background-color:rgba(20,35,41,.96)!important;color:#e9efe9!important;
 }
 body[data-animeb-theme="image"][data-animeb-image-tone="dark"][data-animeb-image-scope="full"] .entry{
