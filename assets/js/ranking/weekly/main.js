@@ -434,6 +434,14 @@ function animebInitWeeklyThemes(){
   const previewHeader=document.createElement('div');previewHeader.className='animeb-bg-preview-header';
   const previewDescription=document.createElement('span');previewDescription.className='animeb-bg-preview-description';
   previewDescription.textContent='LIVE PREVIEW  ·  設定中のヘッダー色を反映';
+  // Keep live page headline duplicates out of document.querySelector() entirely.
+  // The r6 emergency move fixed the first-selector bug; Shadow DOM makes it
+  // impossible for future renderer selectors to mistake the preview for the page.
+  const previewShadow=previewHeader.attachShadow({mode:'open'});
+  const previewCanvas=document.createElement('div');
+  previewCanvas.className='animeb-preview-geometry';
+  previewCanvas.style.cssText='position:absolute;left:0;top:0;transform-origin:0 0;pointer-events:none;';
+  previewShadow.append(previewCanvas);
   previewStage.append(previewHeader,previewDescription);
   const frame=document.createElement('div');frame.className='animeb-bg-frame';
   const mkRange=(name,min,max,step)=>{
@@ -590,7 +598,14 @@ function animebInitWeeklyThemes(){
   details.append(summary,input,set);
   const message=document.createElement('p');message.className='animeb-theme-message';message.setAttribute('role','status');
   field.append(imageOptions,galleryTitle,repoHeading,remoteGrid,repoStatus,localHeading,localGrid,localStatus,fileLabel,fileNote,details);
-  panel.append(panelHead,choices,previewStage,weekStylePanel,colorDetails,seasonBox,presetBox,field,message);ctr.append(btn,panel);
+  // The stage and mode selector stay visible. Only the controls below scroll.
+  // This avoids Safari's nested-position:sticky behavior and makes the preview
+  // usable while adjusting the furthest sliders and the color picker.
+  const panelPinned=document.createElement('div');panelPinned.className='animeb-theme-panel-pinned';
+  const panelScroll=document.createElement('div');panelScroll.className='animeb-theme-panel-scroll';
+  panelPinned.append(panelHead,choices,previewStage);
+  panelScroll.append(weekStylePanel,colorDetails,seasonBox,presetBox,field,message);
+  panel.append(panelPinned,panelScroll);ctr.append(btn,panel);
   const lang=document.querySelector('#animeb-weekly-language');
   // Append after the real page, so the preview's cloned .header/.sub-header
   // cannot hijack generic document.querySelector() calls in the weekly renderer.
@@ -648,28 +663,60 @@ function animebInitWeeklyThemes(){
   }
   applyColors();
   function refreshPreviewHeader(){
+    const wrapper=document.querySelector('.wrapper');
+    if(!wrapper)return;
+    const pageBox=wrapper.getBoundingClientRect();
+    // Compact and Hero share the actual wrapper as their coordinate system;
+    // Hero includes the real spacer's height. Full Page uses the first screen
+    // at viewport width, not a fictional Compact header position.
+    const sourceWidth=imageScope==='full'?Math.max(1,window.innerWidth):Math.max(1,pageBox.width);
+    const scale=(previewStage.clientWidth||330)/sourceWidth;
+    previewCanvas.style.width=sourceWidth+'px';
+    // The Hero spacer places the real title far below the top of the photo.
+    // Pan the SAME image/title crop to show that area instead of silently
+    // pretending Hero is Compact. The pan does not affect the published page.
+    const realHeading=document.querySelector('.wrapper > .header');
+    const scaledHeadingY=realHeading?(realHeading.getBoundingClientRect().top-pageBox.top)*scale:0;
+    const panY=Math.max(0,scaledHeadingY-26);
+    previewCanvas.style.transform=`translateY(${-panY.toFixed(2)}px) scale(${scale.toFixed(5)})`;
+    previewStage.style.setProperty('--animeb-preview-pan-y',`${panY.toFixed(2)}px`);
+    const leftBase=imageScope==='full'?0:pageBox.left;
+    const topBase=pageBox.top;
     const srcNodes=[document.querySelector('.wrapper > .header'),document.querySelector('.wrapper > .sub-header')].filter(Boolean);
     const satisfaction=document.querySelector('.wrapper .animeb-weekly-satisfaction');
     if(satisfaction&&!srcNodes.some(node=>node.contains(satisfaction)))srcNodes.push(satisfaction);
-    const fragment=document.createDocumentFragment();
     const copyAppearance=(from,to)=>{
       if(from.nodeType!==1||to.nodeType!==1)return;
       const st=getComputedStyle(from);
+      // The ShadowRoot has no page CSS. Copy the computed typography AND
+      // layout properties, including transforms used by the real title.
       for(const prop of ['color','font-family','font-size','font-weight','font-style','line-height',
-        'letter-spacing','word-spacing','-webkit-text-stroke-width','-webkit-text-stroke-color',
-        '-webkit-text-fill-color','text-shadow','opacity']){
+        'letter-spacing','word-spacing','text-align','white-space','vertical-align',
+        '-webkit-text-stroke-width','-webkit-text-stroke-color','-webkit-text-fill-color',
+        'text-shadow','opacity','display','box-sizing','flex','flex-direction','flex-wrap',
+        'align-items','justify-content','gap','column-gap','row-gap','width','max-width','min-width',
+        'margin','padding','transform','transform-origin','position','top','right','bottom','left']){
         const val=st.getPropertyValue(prop);if(val)to.style.setProperty(prop,val,'important');
       }
       const fromKids=[...from.children],toKids=[...to.children];
       for(let i=0;i<Math.min(fromKids.length,toKids.length);i++)copyAppearance(fromKids[i],toKids[i]);
     };
+    const fragment=document.createDocumentFragment();
     for(const src of srcNodes){
+      const rect=src.getBoundingClientRect();
       const clone=src.cloneNode(true);
       clone.removeAttribute('id');for(const el of clone.querySelectorAll('[id]'))el.removeAttribute('id');
       copyAppearance(src,clone);
+      // The measured coordinates already include margins. The clone uses a
+      // clean absolute origin so a Hero spacer is mirrored, not collapsed.
+      clone.style.setProperty('position','absolute','important');
+      clone.style.setProperty('top',`${(rect.top-topBase).toFixed(2)}px`,'important');
+      clone.style.setProperty('left',`${(rect.left-leftBase).toFixed(2)}px`,'important');
+      clone.style.setProperty('width',`${rect.width.toFixed(2)}px`,'important');
+      clone.style.setProperty('margin','0','important');
       fragment.append(clone);
     }
-    previewHeader.replaceChildren(fragment);
+    previewCanvas.replaceChildren(fragment);
   }
   function updatePicturePreview(targetWidth,cameraHeight,sizing){
     const previewWidth=previewStage.clientWidth||330;
@@ -814,6 +861,12 @@ function animebInitWeeklyThemes(){
     previewStage.style.setProperty('--animeb-preview-zoom',String(imageZoom/100));
     previewStage.dataset.tone=id==='dark'?'dark':id==='original'?'light':imageTone;
     previewStage.dataset.theme=id;
+    previewStage.dataset.scope=imageScope;
+    previewDescription.textContent=imageScope==='full'
+      ? 'LIVE PREVIEW · FULL PAGE / 画面上部の構図'
+      : imageScope==='hero'
+        ? 'LIVE PREVIEW · HERO / 広い上部'
+        : 'LIVE PREVIEW · COMPACT / 通常上部';
     refreshPreviewHeader();
     Object.entries(buttons).forEach(([key,element])=>element.setAttribute('aria-pressed',String(key===id)));
     field.hidden=id!=='image';
@@ -1087,7 +1140,10 @@ function animebInitWeeklyThemes(){
   });
   function setPanelOpen(open){
     panel.hidden=!open;btn.setAttribute('aria-expanded',String(open));
-    if(open){loadGallery();scheduleHeroExtent();}
+    if(open){
+      loadGallery();
+      requestAnimationFrame(()=>{refreshPreviewHeader();scheduleHeroExtent();});
+    }
   }
   previewBtn.addEventListener('click',()=>{setPanelOpen(false);btn.focus();});
   // Drag settings by the title bar when they cover the selected image.
@@ -1118,7 +1174,11 @@ function animebInitWeeklyThemes(){
   document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!panel.hidden){setPanelOpen(false);btn.focus();}});
   // Listen for dynamic weekly content and image-scope changes, without
   // modifying the old ranking renderer or adding duplicate UI elements.
-  window.addEventListener('resize',scheduleHeroExtent,{passive:true});
+  window.addEventListener('resize',()=>{scheduleHeroExtent();refreshPreviewHeader();},{passive:true});
+  if('ResizeObserver' in window){
+    const stageObserver=new ResizeObserver(()=>{if(!panel.hidden)refreshPreviewHeader();});
+    stageObserver.observe(previewStage);
+  }
   window.addEventListener('load',scheduleHeroExtent);
   const wrapper=document.querySelector('.wrapper');
   if(wrapper && 'ResizeObserver' in window){

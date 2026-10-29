@@ -3863,6 +3863,41 @@ body[data-animeb-final-week="true"] .note-mount code {
   }
 }
 
+/* Theme Studio r7: pinned live preview and independent control scroll.
+   This changes only the settings UI, never the ranking, article, or header. */
+.animeb-theme-panel:not([hidden]){
+  display:flex;flex-direction:column;overflow:hidden;min-height:0;
+}
+.animeb-theme-panel-pinned{flex:0 0 auto;min-width:0;position:relative;z-index:1;}
+.animeb-theme-panel-scroll{
+  flex:1 1 auto;min-height:90px;overflow-y:auto;overflow-x:hidden;
+  overscroll-behavior:contain;-webkit-overflow-scrolling:touch;
+  scrollbar-gutter:stable;
+}
+.animeb-theme-panel-pinned .animeb-bg-live-preview{
+  height:clamp(112px,19dvh,172px);min-height:112px;margin:8px 0 9px;
+}
+/* Coordinates of real page header clones are measured in JS.
+   No duplicate .header/.sub-header selectors exist in the document:
+   they are isolated in the preview's ShadowRoot. */
+.animeb-bg-preview-header{
+  position:absolute;inset:0;min-height:0;max-width:none;
+  transform:none;overflow:hidden;pointer-events:none;z-index:2;
+}
+/* A Hero preview crops to the real header region: image and text pan together. */
+.animeb-bg-live-preview::before{
+  background-position:var(--animeb-preview-x,50%)
+    calc(var(--animeb-preview-y-px,40%) - var(--animeb-preview-pan-y,0px))!important;
+}
+@media(max-width:768px){
+  .animeb-theme-panel:not([hidden]){overflow:hidden;}
+  .animeb-theme-panel-pinned .animeb-bg-live-preview{height:clamp(105px,17dvh,150px);min-height:105px;}
+}
+@media(max-height:650px){
+  .animeb-theme-panel-pinned .animeb-bg-live-preview{height:100px;min-height:100px;}
+  .animeb-theme-panel-scroll{min-height:70px;}
+}
+
 /* Mobile: unify Bottom and Dropped poster sizes */
 @media (max-width:450px) {
   .animeb-dropped-card {
