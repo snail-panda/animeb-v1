@@ -4197,3 +4197,45 @@ body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .animeb-theme-pan
     .animeb-theme-preview-button{flex:0 0 29px;width:29px;min-width:29px;padding:5px;display:grid;place-items:center;}
   }
 }
+
+/* AnimeB Theme Studio r21: */
+/* Full Page keeps its fixed-viewport photo, but the title and Viewing Status
+   begin at the same vertical position as Hero. No change to camera/anchor math. */
+body[data-animeb-theme="image"][data-animeb-image-scope="full"] .animeb-image-hero-spacer{
+  display:block;height:clamp(125px,27vw,190px);position:relative;z-index:2;
+}
+body[data-animeb-theme="image"][data-animeb-image-scope="full"] .wrapper > .header{margin-top:0;}
+body[data-animeb-theme="image"][data-animeb-image-scope="full"] .wrapper > .animeb-weekly-intro{margin-bottom:19px;}
+@media (max-width:768px){
+  body[data-animeb-theme="image"][data-animeb-image-scope="full"] .animeb-image-hero-spacer{
+    height:clamp(132px,29vw,174px);
+  }
+}
+/* The long label stays available on mobile and in roomy desktop editors. */
+.animeb-theme-preview-button .animeb-preview-en-short{display:none;}
+@media (min-width:769px){
+  /* Push Hide/Show Preview and Preview page into ONE group at the right. */
+  .animeb-theme-panel-head .animeb-preview-desktop-toggle{margin-left:auto;white-space:nowrap;}
+  .animeb-theme-panel-head .animeb-theme-preview-button{margin-left:0;min-width:0;white-space:nowrap;}
+  /* The editor width, not browser width, determines the shortened labels. */
+  @container animeb-studio (max-width:490px){
+    .animeb-theme-panel .animeb-theme-preview-button .animeb-preview-ja{display:none;}
+  }
+  @container animeb-studio (max-width:425px){
+    /* Override r20's icon-only fallback: keep a meaningful Preview label. */
+    .animeb-theme-panel .animeb-theme-preview-button{
+      width:auto;min-width:0;flex:0 1 auto;display:inline-flex;align-items:center;gap:4px;padding:5px 6px;
+    }
+    .animeb-theme-panel .animeb-theme-preview-button .animeb-preview-label{display:inline;}
+    .animeb-theme-panel .animeb-theme-preview-button .animeb-preview-en-long{display:none;}
+    .animeb-theme-panel .animeb-theme-preview-button .animeb-preview-en-short{display:inline;}
+    .animeb-theme-panel .animeb-theme-preview-button .animeb-preview-ja{display:none;}
+  }
+  @container animeb-studio (max-width:380px){
+    /* Last-resort abbreviated button; not icon-only. */
+    .animeb-theme-panel .animeb-preview-desktop-toggle{font-size:0;padding:3px 6px;}
+    .animeb-theme-panel .animeb-preview-desktop-toggle::after{
+      content:attr(data-short-label);font:600 10px/1.2 'Fira Sans',sans-serif;
+    }
+  }
+}

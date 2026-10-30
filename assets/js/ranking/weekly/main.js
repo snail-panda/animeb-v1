@@ -430,7 +430,12 @@ function animebInitWeeklyThemes(){
   const previewPath=document.createElementNS('http://www.w3.org/2000/svg','path');
   previewPath.setAttribute('d','M8 3H5a2 2 0 0 0-2 2v3m13-5h3a2 2 0 0 1 2 2v3M3 16v3a2 2 0 0 0 2 2h3m13-5v3a2 2 0 0 1-2 2h-3');
   previewSvg.append(previewPath);
-  const previewText=document.createElement('span');previewText.textContent='Preview page / 画面で確認';
+  /* AnimeB Theme Studio r21 */
+  const previewText=document.createElement('span');previewText.className='animeb-preview-label';
+  const previewEnglish=document.createElement('span');previewEnglish.className='animeb-preview-en-long';previewEnglish.textContent='Preview page';
+  const previewEnglishShort=document.createElement('span');previewEnglishShort.className='animeb-preview-en-short';previewEnglishShort.textContent='Preview';
+  const previewJapanese=document.createElement('span');previewJapanese.className='animeb-preview-ja';previewJapanese.textContent=' / 画面で確認';
+  previewText.append(previewEnglish,previewEnglishShort,previewJapanese);
   previewBtn.append(previewSvg,previewText);
   panelHead.append(header,previewBtn,closeBtn);
   const choices=document.createElement('div');choices.className='animeb-theme-choices';
@@ -907,7 +912,7 @@ function animebInitWeeklyThemes(){
   // A desktop-only proxy leaves the actual Show/Hide handler single-sourced.
   const desktopPreviewButton=document.createElement('button');
   desktopPreviewButton.type='button';desktopPreviewButton.className='animeb-preview-desktop-toggle';
-  desktopPreviewButton.textContent='Hide';desktopPreviewButton.title='Hide preview / プレビュー非表示';
+  desktopPreviewButton.textContent='Hide Preview';desktopPreviewButton.dataset.shortLabel='Hide PV';desktopPreviewButton.title='Hide preview / プレビュー非表示';
   desktopPreviewButton.setAttribute('aria-label','Hide preview / プレビュー非表示');
   desktopPreviewButton.setAttribute('aria-pressed','false');
   desktopPreviewButton.addEventListener('click',()=>togglePreviewButton.click());
@@ -1253,7 +1258,7 @@ function animebInitWeeklyThemes(){
     document.body.dataset.animebImageScope=imageScope;
     document.body.dataset.animebImageTone=imageTone;
     document.body.dataset.animebFullFit=fullFit;
-    heroSpacer.hidden=!(id==='image'&&imageScope==='hero');
+    heroSpacer.hidden=!(id==='image'&&(imageScope==='hero'||imageScope==='full'));
     for(const [key,el] of Object.entries(toneButtons))el.setAttribute('aria-pressed',String(key===imageTone));
     fitRow.hidden=false;
     fitLabel.textContent=imageScope==='full'?'FULL PAGE FIT / 全面時の画像配置':'IMAGE FIT / 背景画像の収まり方';
@@ -1716,7 +1721,8 @@ function animebInitWeeklyThemes(){
     if(hidden){dragInput.checked=false;previewStage.dataset.drag='off';}
     togglePreviewButton.textContent=hidden?'Show preview / プレビュー表示':'Hide preview / プレビュー非表示';
     togglePreviewButton.setAttribute('aria-pressed',String(hidden));
-    desktopPreviewButton.textContent=hidden?'Show':'Hide';
+    desktopPreviewButton.textContent=hidden?'Show Preview':'Hide Preview';
+    desktopPreviewButton.dataset.shortLabel=hidden?'Show PV':'Hide PV';
     desktopPreviewButton.title=hidden?'Show preview / プレビュー表示':'Hide preview / プレビュー非表示';
     desktopPreviewButton.setAttribute('aria-label',desktopPreviewButton.title);
     desktopPreviewButton.setAttribute('aria-pressed',String(hidden));
