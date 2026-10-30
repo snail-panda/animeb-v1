@@ -886,6 +886,12 @@ function animebInitWeeklyThemes(){
   const panelPinned=document.createElement('div');panelPinned.className='animeb-theme-panel-pinned';
   const panelScroll=document.createElement('div');panelScroll.className='animeb-theme-panel-scroll';
   panelPinned.append(panelHead,choices,previewStage,dragSwitch);
+  // Mobile-only preview enlargement; never modifies saved image settings/presets.
+  const previewExpandButton=document.createElement('button');
+  previewExpandButton.type='button';previewExpandButton.className='animeb-preview-expand-button';
+  previewExpandButton.textContent='Expand preview / プレビュー拡大';
+  previewExpandButton.setAttribute('aria-pressed','false');
+  panelPinned.insertBefore(previewExpandButton,previewStage);
   panelScroll.append(weekStylePanel,colorDetails,legibilityBox,seasonBox,presetBox,field,message);
   panel.append(panelPinned,panelScroll);ctr.append(btn,panel);
   const lang=document.querySelector('#animeb-weekly-language');
@@ -1008,13 +1014,20 @@ function animebInitWeeklyThemes(){
     const stageWidth=Math.max(1,previewStage.clientWidth||330);
     // On a small phone preserve space for the sliders under the pinned preview.
     // If the header is unusually tall, FIT the whole view (never distort it).
-    const heightLimit=Math.min(310,Math.max(155,window.innerHeight*.36));
+    /* AnimeB Theme Studio r18 */
+    // Preview zoom is editor-only; the real header/photo/anchor are untouched.
+    const expandedPreview=panel.dataset.previewExpanded==='true' && window.innerWidth<=768;
+    const heightLimit=expandedPreview
+      ? Math.min(430,Math.max(260,window.innerHeight*.52))
+      : window.innerWidth>768
+        ? Math.min(480,Math.max(210,window.innerHeight*.54))
+        : Math.min(310,Math.max(155,window.innerHeight*.36));
     const scaleWidth=stageWidth/sourceWidth;
-    const scale=imageMode?Math.min(scaleWidth,heightLimit/sourceHeight):scaleWidth;
+    const scale=imageMode?Math.min(scaleWidth*(expandedPreview?1.32:1),heightLimit/sourceHeight):scaleWidth*(expandedPreview?1.32:1);
     const drawnWidth=sourceWidth*scale,drawnHeight=sourceHeight*scale;
-    const offsetX=Math.max(0,(stageWidth-drawnWidth)/2);
+    const offsetX=expandedPreview?(stageWidth-drawnWidth)/2:Math.max(0,(stageWidth-drawnWidth)/2);
     if(imageMode){
-      const targetHeight=Math.max(165,Math.ceil(drawnHeight+7));
+      const targetHeight=Math.max(expandedPreview?275:165,Math.ceil(drawnHeight+7));
       if(Math.abs((Number.parseFloat(previewStage.style.height)||0)-targetHeight)>.5)
         previewStage.style.height=targetHeight+'px';
     }else previewStage.style.removeProperty('height');
@@ -1646,6 +1659,7 @@ function animebInitWeeklyThemes(){
   });
   function setPanelOpen(open){
     panel.hidden=!open;btn.setAttribute('aria-expanded',String(open));
+    if(open)restoreThemePanelLayout();
     if(!open){dragInput.checked=false;previewStage.dataset.drag='off';}
     if(open){
       loadGallery();
@@ -1653,6 +1667,39 @@ function animebInitWeeklyThemes(){
     }
   }
   previewBtn.addEventListener('click',()=>{setPanelOpen(false);btn.focus();});
+  previewExpandButton.addEventListener('click',()=>{
+    const expanded=panel.dataset.previewExpanded!=='true';
+    panel.dataset.previewExpanded=String(expanded);
+    previewExpandButton.textContent=expanded?'Normal preview / 通常サイズ':'Expand preview / プレビュー拡大';
+    previewExpandButton.setAttribute('aria-pressed',String(expanded));
+    requestAnimationFrame(refreshPreviewHeader);
+  });
+  // Only the editor window's UI geometry is saved. Presets and photo positions are separate.
+  const themePanelLayoutKey='animeb-theme-panel-layout-r18';
+  const desktopThemePanel=()=>window.matchMedia('(min-width: 769px)').matches;
+  function saveThemePanelLayout(){
+    if(panel.hidden || !desktopThemePanel())return;
+    const r=panel.getBoundingClientRect();
+    try{localStorage.setItem(themePanelLayoutKey,JSON.stringify({
+      x:Math.round(r.left),y:Math.round(r.top),w:Math.round(r.width),h:Math.round(r.height)
+    }));}catch(_){}
+  }
+  function restoreThemePanelLayout(){
+    if(!desktopThemePanel()){
+      for(const key of ['left','right','top','width','height','margin'])panel.style.removeProperty(key);
+      return;
+    }
+    let stored=null;
+    try{stored=JSON.parse(localStorage.getItem(themePanelLayoutKey)||'null');}catch(_){}
+    if(stored && [stored.x,stored.y,stored.w,stored.h].every(Number.isFinite) &&
+       stored.w>=300 && stored.h>=200){
+      panel.style.width=Math.min(stored.w,window.innerWidth-16)+'px';
+      panel.style.height=Math.min(stored.h,window.innerHeight-16)+'px';
+      panel.style.right='auto';panel.style.margin='0';
+      panel.style.left=Math.max(8,Math.min(stored.x,window.innerWidth-panel.getBoundingClientRect().width-8))+'px';
+      panel.style.top=Math.max(8,Math.min(stored.y,window.innerHeight-panel.getBoundingClientRect().height-8))+'px';
+    }
+  }
   // Drag settings by the title bar when they cover the selected image.
   // Only the header is a drag handle; the settings remain independently scrollable.
   let drag=null;
@@ -1674,7 +1721,10 @@ function animebInitWeeklyThemes(){
     const y=Math.min(maxY,Math.max(8,drag.top+event.clientY-drag.y));
     panel.style.left=x+'px';panel.style.top=y+'px';
   });
-  for(const end of ['pointerup','pointercancel'])panelHead.addEventListener(end,()=>{drag=null;});
+  for(const end of ['pointerup','pointercancel'])panelHead.addEventListener(end,()=>{
+    if(drag)saveThemePanelLayout();
+    drag=null;
+  });
   btn.addEventListener('click',()=>setPanelOpen(panel.hidden));
   closeBtn.addEventListener('click',()=>{setPanelOpen(false);btn.focus();});
   document.addEventListener('pointerdown',e=>{if(!ctr.contains(e.target)&&!panel.hidden)setPanelOpen(false);});
@@ -1682,6 +1732,34 @@ function animebInitWeeklyThemes(){
   // Listen for dynamic weekly content and image-scope changes, without
   // modifying the old ranking renderer or adding duplicate UI elements.
   window.addEventListener('resize',()=>{scheduleHeroExtent();refreshPreviewHeader();},{passive:true});
+  // CSS provides the desktop resize handle. Observe its real dimensions to remember them.
+  let measuredPanelSize=null,savePanelSizeTimer=0,wasDesktopPanel=desktopThemePanel();
+  if('ResizeObserver' in window){
+    const panelSizeObserver=new ResizeObserver(()=>{
+      if(panel.hidden || !desktopThemePanel())return;
+      const r=panel.getBoundingClientRect();
+      if(measuredPanelSize && (Math.abs(r.width-measuredPanelSize.w)>2 ||
+          Math.abs(r.height-measuredPanelSize.h)>2)){
+        clearTimeout(savePanelSizeTimer);
+        savePanelSizeTimer=setTimeout(saveThemePanelLayout,250);
+      }
+      measuredPanelSize={w:r.width,h:r.height};
+    });
+    panelSizeObserver.observe(panel);
+  }
+  window.addEventListener('resize',()=>{
+    const nowDesktop=desktopThemePanel();
+    if(nowDesktop!==wasDesktopPanel){
+      wasDesktopPanel=nowDesktop;
+      if(!panel.hidden)restoreThemePanelLayout();
+    }else if(nowDesktop && !panel.hidden){
+      const r=panel.getBoundingClientRect();
+      if(r.right>window.innerWidth-6 && panel.style.left)
+        panel.style.left=Math.max(8,window.innerWidth-r.width-8)+'px';
+      if(r.bottom>window.innerHeight-6 && panel.style.top)
+        panel.style.top=Math.max(8,window.innerHeight-r.height-8)+'px';
+    }
+  },{passive:true});
   if('ResizeObserver' in window){
     const stageObserver=new ResizeObserver(()=>{if(!panel.hidden)refreshPreviewHeader();});
     stageObserver.observe(previewStage);
