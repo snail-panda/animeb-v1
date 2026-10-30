@@ -341,9 +341,9 @@ function animebInitWeeklyThemes(){
     const storedLegibility=JSON.parse(localStorage.getItem(LEGIBILITY_KEY)||'null');
     if(storedLegibility && typeof storedLegibility==='object')
       for(const t of ['original','dark','image'])legibility[t]=cleanLegibility(storedLegibility[t]);
-    introOpacity=clamped(INTRO_KEY,20,100,84);
-    rankOpacity=clamped(RANK_OPACITY_KEY,20,100,96);
-    statusOpacity=clamped(STATUS_OPACITY_KEY,20,100,87);
+    introOpacity=clamped(INTRO_KEY,0,100,84);
+    rankOpacity=clamped(RANK_OPACITY_KEY,0,100,96);
+    statusOpacity=clamped(STATUS_OPACITY_KEY,0,100,87);
     const savedSeason=JSON.parse(localStorage.getItem(SEASON_SETTINGS_KEY)||'{}');
     if(savedSeason && typeof savedSeason==='object' && !Array.isArray(savedSeason)){
       seasonSettings.weight=['auto','normal','bold'].includes(savedSeason.weight)?savedSeason.weight:'auto';
@@ -667,9 +667,9 @@ function animebInitWeeklyThemes(){
   anchorLabel.append(anchorTitle,anchorChoices);
   posYCtl.input.closest('label').after(anchorLabel,anchorHelp);
   updateAnchorControls();
-  const introCtl=mkRange('THIS WEEK PANEL / 本文パネルの不透明度',20,100,5);
-  const statusCtl=mkRange('VIEWING STATUS / 上部パネルの不透明度',20,100,5);
-  const rankCtl=mkRange('RANKING CARDS / ランキング行の不透明度',20,100,5);
+  const introCtl=mkRange('THIS WEEK PANEL / 本文パネルの不透明度',0,100,1);
+  const statusCtl=mkRange('VIEWING STATUS / 上部パネルの不透明度',0,100,1);
+  const rankCtl=mkRange('RANKING CARDS / ランキング行の不透明度',0,100,1);
   const toneBox=document.createElement('fieldset');toneBox.className='animeb-bg-tone';
   const toneLabel=document.createElement('legend');toneLabel.textContent='IMAGE + COLOR / 背景との組み合わせ';
   const toneButtons={};const toneRow=document.createElement('div');toneRow.className='animeb-bg-tone-buttons';
@@ -891,7 +891,18 @@ function animebInitWeeklyThemes(){
   previewExpandButton.type='button';previewExpandButton.className='animeb-preview-expand-button';
   previewExpandButton.textContent='Expand preview / プレビュー拡大';
   previewExpandButton.setAttribute('aria-pressed','false');
-  panelPinned.insertBefore(previewExpandButton,previewStage);
+  /* AnimeB Theme Studio r19 */
+  const previewTools=document.createElement('div');previewTools.className='animeb-preview-tools';
+  const togglePreviewButton=document.createElement('button');togglePreviewButton.type='button';
+  togglePreviewButton.className='animeb-preview-visibility-button';
+  togglePreviewButton.textContent='Hide preview / プレビュー非表示';
+  togglePreviewButton.setAttribute('aria-pressed','false');
+  const panelSizeButton=document.createElement('button');panelSizeButton.type='button';
+  panelSizeButton.className='animeb-panel-full-button';
+  panelSizeButton.textContent='Full panel / パネル拡大';
+  panelSizeButton.setAttribute('aria-pressed','false');
+  previewTools.append(togglePreviewButton,previewExpandButton,panelSizeButton);
+  panelPinned.insertBefore(previewTools,previewStage);
   panelScroll.append(weekStylePanel,colorDetails,legibilityBox,seasonBox,presetBox,field,message);
   panel.append(panelPinned,panelScroll);ctr.append(btn,panel);
   const lang=document.querySelector('#animeb-weekly-language');
@@ -997,6 +1008,7 @@ function animebInitWeeklyThemes(){
   }
   applyColors();
   function refreshPreviewHeader(){
+    if(previewStage.hidden)return;
     const wrapper=document.querySelector('.wrapper');
     if(!wrapper)return;
     const pageBox=wrapper.getBoundingClientRect();
@@ -1241,6 +1253,7 @@ function animebInitWeeklyThemes(){
     document.body.style.setProperty('--animeb-image-y',imagePosY+'%');
     document.body.style.setProperty('--animeb-intro-opacity',(introOpacity/100).toFixed(2));
     document.body.style.setProperty('--animeb-status-opacity',(statusOpacity/100).toFixed(2));
+    document.body.style.setProperty('--animeb-status-backdrop-blur',statusOpacity===0?'0px':'5px');
     document.body.style.setProperty('--animeb-rank-opacity',(rankOpacity/100).toFixed(2));
     document.body.style.setProperty('--animeb-image-photo-opacity',(photoOpacity/100).toFixed(2));
     opacityValue.textContent=photoOpacity+'%';
@@ -1383,9 +1396,14 @@ function animebInitWeeklyThemes(){
       ? {mode:savedModel.mode,fraction:Math.max(-10,Math.min(10,savedModel.fraction)),
          cameraRatio:Math.max(.2,Math.min(15,savedModel.cameraRatio))}
       : {mode:'free',fraction:0,cameraRatio:0};
-    introOpacity=Math.max(20,Math.min(100,Number(state.introOpacity)||84));
-    statusOpacity=Math.max(20,Math.min(100,Number(state.statusOpacity)||87));
-    rankOpacity=Math.max(20,Math.min(100,Number(state.rankOpacity)||96));
+    // Nullish fallback (not ||) is essential: zero must survive loading a preset.
+    const fromPresetOpacity=(value,fallback)=>{
+      const n=Number(value);
+      return value===null||value===undefined||!Number.isFinite(n)?fallback:Math.max(0,Math.min(100,n));
+    };
+    introOpacity=fromPresetOpacity(state.introOpacity,84);
+    statusOpacity=fromPresetOpacity(state.statusOpacity,87);
+    rankOpacity=fromPresetOpacity(state.rankOpacity,96);
     imageTone=['light','dark'].includes(state.imageTone)?state.imageTone:'light';
     fullFit=['cover','contain','tile'].includes(state.fullFit)?state.fullFit:'cover';
     customColors=state.customColors && typeof state.customColors==='object'?{...state.customColors}:{};
@@ -1659,6 +1677,7 @@ function animebInitWeeklyThemes(){
   });
   function setPanelOpen(open){
     panel.hidden=!open;btn.setAttribute('aria-expanded',String(open));
+    ctr.classList.toggle('animeb-editor-open',open);
     if(open)restoreThemePanelLayout();
     if(!open){dragInput.checked=false;previewStage.dataset.drag='off';}
     if(open){
@@ -1673,6 +1692,26 @@ function animebInitWeeklyThemes(){
     previewExpandButton.textContent=expanded?'Normal preview / 通常サイズ':'Expand preview / プレビュー拡大';
     previewExpandButton.setAttribute('aria-pressed',String(expanded));
     requestAnimationFrame(refreshPreviewHeader);
+  });
+  togglePreviewButton.addEventListener('click',()=>{
+    const hidden=panel.dataset.previewHidden!=='true';
+    panel.dataset.previewHidden=String(hidden);
+    previewStage.hidden=hidden;
+    dragSwitch.hidden=hidden;
+    previewExpandButton.hidden=hidden;
+    if(hidden){dragInput.checked=false;previewStage.dataset.drag='off';}
+    togglePreviewButton.textContent=hidden?'Show preview / プレビュー表示':'Hide preview / プレビュー非表示';
+    togglePreviewButton.setAttribute('aria-pressed',String(hidden));
+    if(!hidden)requestAnimationFrame(refreshPreviewHeader);
+  });
+  panelSizeButton.addEventListener('click',()=>{
+    const full=panel.dataset.mobileFull!=='true';
+    panel.dataset.mobileFull=String(full);
+    // r18 title-bar dragging can leave inline geometry; full-screen mode must override it.
+    for(const key of ['left','right','top','width','height','margin'])panel.style.removeProperty(key);
+    panelSizeButton.textContent=full?'Normal panel / 通常サイズ':'Full panel / パネル拡大';
+    panelSizeButton.setAttribute('aria-pressed',String(full));
+    if(!previewStage.hidden)requestAnimationFrame(refreshPreviewHeader);
   });
   // Only the editor window's UI geometry is saved. Presets and photo positions are separate.
   const themePanelLayoutKey='animeb-theme-panel-layout-r18';
@@ -1705,6 +1744,7 @@ function animebInitWeeklyThemes(){
   let drag=null;
   panelHead.addEventListener('pointerdown',event=>{
     if(event.target.closest('button')||event.button!==0)return;
+    if(panel.dataset.mobileFull==='true' && window.matchMedia('(max-width:768px)').matches)return;
     const rect=panel.getBoundingClientRect();
     drag={pointer:event.pointerId,x:event.clientX,y:event.clientY,left:rect.left,top:rect.top};
     panel.style.position='fixed';panel.style.left=rect.left+'px';panel.style.top=rect.top+'px';
