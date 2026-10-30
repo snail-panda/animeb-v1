@@ -573,6 +573,25 @@ function animebInitWeeklyThemes(){
     verticalFine.append(button);
   }
   frame.append(verticalFine);
+  // r12c: horizontal +/-1 buttons, directly under the horizontal slider.
+  // Group them in the existing grid cell so the vertical and anchor rows
+  // keep exactly the same placement; reuse the existing button styling.
+  const horizontalFine=document.createElement('div');horizontalFine.className='animeb-vertical-fine';
+  for(const [label,delta] of [['−1',-1],['+1',1]]){
+    const button=document.createElement('button');button.type='button';button.textContent=label;
+    button.setAttribute('aria-label',(delta<0?'Decrease':'Increase')+' horizontal position by 1%');
+    button.addEventListener('click',()=>{
+      const input=posXCtl.input;
+      const value=Math.max(Number(input.min),Math.min(Number(input.max),Number(input.value)+delta));
+      input.value=String(value);
+      input.dispatchEvent(new Event('input',{bubbles:true}));
+    });
+    horizontalFine.append(button);
+  }
+  const horizontalLabel=posXCtl.input.closest('label');
+  const horizontalGroup=document.createElement('div');horizontalGroup.style.minWidth='0';
+  horizontalLabel.replaceWith(horizontalGroup);
+  horizontalGroup.append(horizontalLabel,horizontalFine);
   // Unified image-point anchors. The original r9 storage key stays untouched.
   // All three choices share one background renderer; Full Page stays independent.
   const anchorLabel=document.createElement('div');anchorLabel.className='animeb-bg-status-anchor animeb-bg-anchor-modes';
