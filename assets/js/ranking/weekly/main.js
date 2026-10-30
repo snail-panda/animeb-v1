@@ -275,13 +275,26 @@ function animebInitWeeklyThemes(){
   // r11: extra drag translation. On anchored images, vertical drag instead
   // edits the source-image fraction so VIEWING remains locked across modes.
   let imageDrag={x:0,y:0};
+  // r16 precision controls. Legacy r11-r15 integer values are kept as recovery
+  // fields; the new pixel/percentage values reproduce their appearance on load.
   const strokeWidths=[0,.35,.7,1,1.5,2,3];
-  const cleanLegibility=value=>({
-    shadow:[0,1,2,3,4].includes(value?.shadow)?value.shadow:0,
-    edge:[0,1,2].includes(value?.edge)?value.edge:0,
-    strokeWidth:Number.isInteger(value?.strokeWidth) && value.strokeWidth>=0 && value.strokeWidth<strokeWidths.length?value.strokeWidth:0,
-    strokeColor:/^#[0-9a-fA-F]{6}$/.test(value?.strokeColor||'')?value.strokeColor:'#ffffff',
-    strokeBlur:[0,1,2,3].includes(value?.strokeBlur)?value.strokeBlur:0});
+  const cleanLegibility=value=>{
+    const oldShadow=[0,1,2,3,4].includes(value?.shadow)?value.shadow:0;
+    const oldEdge=[0,1,2].includes(value?.edge)?value.edge:0;
+    const oldWidth=Number.isInteger(value?.strokeWidth)&&value.strokeWidth>=0&&value.strokeWidth<strokeWidths.length?value.strokeWidth:0;
+    const oldBlur=[0,1,2,3].includes(value?.strokeBlur)?value.strokeBlur:0;
+    const precision=(n,fallback,min,max)=>typeof n==='number'&&Number.isFinite(n)
+      ?Math.round(Math.max(min,Math.min(max,n))*100)/100:fallback;
+    return {
+      shadow:oldShadow,edge:oldEdge,strokeWidth:oldWidth,strokeBlur:oldBlur,
+      strokeColor:/^#[0-9a-fA-F]{6}$/.test(value?.strokeColor||'')?value.strokeColor:'#ffffff',
+      shadowPower:precision(value?.shadowPower,[0,36,55,72,18][oldShadow],0,100),
+      shadowBlurPx:precision(value?.shadowBlurPx,[0,1.5,3,5,.8][oldShadow],0,8),
+      edgeWidthPx:precision(value?.edgeWidthPx,[0,.45,.85][oldEdge],0,2),
+      strokeWidthPx:precision(value?.strokeWidthPx,strokeWidths[oldWidth],0,3),
+      strokeBlurPx:precision(value?.strokeBlurPx,oldBlur,0,5)
+    };
+  };
   const legibility={original:cleanLegibility(),dark:cleanLegibility(),image:cleanLegibility()};
   let rankOpacity=96, statusOpacity=87;
   let seasonSettings={weight:'auto',style:'auto',size:100};
@@ -719,57 +732,56 @@ function animebInitWeeklyThemes(){
   colorActions.append(colorLight,colorReset);
   const colorNote=document.createElement('p');colorNote.textContent='Original / Dark / Image は別々に保存。Auto は各テーマの標準色（季節名は春夏秋冬の色）です。Reset は今のテーマだけに適用。';
   colorDetails.append(colorSummary,colorRows,colorActions,colorNote);
-  // r11: non-destructive header legibility controls, independent per theme.
+  // r16: numeric settings are exact; sliders remain convenient on phones.
+  // Each theme and every preset stores these independently of Converter/JSON.
   const legibilityBox=document.createElement('fieldset');legibilityBox.className='animeb-heading-legibility';
   const legibilityLegend=document.createElement('legend');legibilityLegend.textContent='HEADER LEGIBILITY / 見出しの読みやすさ';
-  const legibilityControls={};legibilityBox.append(legibilityLegend);
-  for(const [key,label,max,desc] of [
-    ['shadow','TEXT SHADOW / 文字の影',4,['Off','Feather','Soft','Medium','Strong']],
-    ['edge','TEXT EDGE / 既存の縁',2,['Off','Thin','Medium']]]){
-    const row=document.createElement('label');row.className='animeb-heading-legibility-row';
+  legibilityBox.append(legibilityLegend);
+  const fineControls={};
+  function addFineRange(parent,key,label,min,max,step,unit){
+    const row=document.createElement('div');row.className='animeb-heading-legibility-row';
     const title=document.createElement('span');title.textContent=label;
-    const output=document.createElement('output');
-    const input=document.createElement('input');input.type='range';input.min=0;input.max=max;input.step=1;
-    // Preserve r11 values: the extra Feather setting uses stored value 4.
-    const order=key==='shadow'?[0,4,1,2,3]:[0,1,2];
-    legibilityControls[key]={input,output,desc,order};
-    input.addEventListener('input',()=>{
-      legibility[theme][key]=order[Number(input.value)];output.textContent=desc[Number(input.value)];
+    const inputs=document.createElement('div');inputs.style.cssText='display:flex;align-items:center;gap:6px;min-width:0';
+    const range=document.createElement('input');range.type='range';range.min=min;range.max=max;range.step=step;
+    range.setAttribute('aria-label',label+' slider');range.style.cssText='flex:1 1 auto;min-width:0';
+    const exact=document.createElement('input');exact.type='number';exact.min=min;exact.max=max;exact.step=step;
+    exact.setAttribute('aria-label',label+' exact value '+unit);exact.inputMode='decimal';
+    exact.style.cssText='width:61px;max-width:42%;box-sizing:border-box;padding:4px;color:inherit;background:transparent;border:1px solid currentColor;border-radius:5px;text-align:right;font:500 12px/1.3 sans-serif';
+    const suffix=document.createElement('span');suffix.textContent=unit;suffix.style.cssText='font-size:9px;opacity:.8';
+    const round=n=>Math.round(n*100)/100;
+    const setValue=value=>{
+      const number=Number(value);if(!Number.isFinite(number))return;
+      const snapped=round(Math.max(min,Math.min(max,number)));
+      legibility[theme][key]=snapped;
+      range.value=String(snapped);exact.value=String(snapped);
       saveLegibility();applyColors();
-    });
-    row.append(title,output,input);legibilityBox.append(row);
+    };
+    range.addEventListener('input',()=>setValue(range.value));
+    // Change rather than input avoids rewriting an unfinished mobile number entry.
+    exact.addEventListener('change',()=>setValue(exact.value));
+    inputs.append(range,exact,suffix);row.append(title,inputs);parent.append(row);
+    fineControls[key]={sync:()=>{
+      const value=String(legibility[theme][key]);range.value=value;exact.value=value;
+    }};
   }
-  // Real colored stroke can surround filled letters. Off preserves old WEEK/season styles.
+  addFineRange(legibilityBox,'shadowPower','TEXT SHADOW / 強さ',0,100,1,'%');
+  addFineRange(legibilityBox,'shadowBlurPx','SHADOW SOFTNESS / 影のぼかし',0,8,.1,'px');
+  addFineRange(legibilityBox,'edgeWidthPx','TEXT EDGE / 黒い細縁',0,2,.05,'px');
+  // Colored outline remains separate from the black edge and from WEEK Fill.
   const strokeRow=document.createElement('div');strokeRow.className='animeb-outline-controls';
   const strokeTitle=document.createElement('strong');strokeTitle.textContent='COLORED OUTLINE / 色付き縁取り（塗りとは別）';
   const strokeColorLabel=document.createElement('label');strokeColorLabel.textContent='Color / 色';
   const strokeColorInput=document.createElement('input');strokeColorInput.type='color';strokeColorLabel.append(strokeColorInput);
-  const strokeWidthLabel=document.createElement('label');strokeWidthLabel.textContent='Width / 太さ';
-  const strokeWidthOutput=document.createElement('output');
-  const strokeWidthInput=document.createElement('input');strokeWidthInput.type='range';strokeWidthInput.min=0;strokeWidthInput.max=6;strokeWidthInput.step=1;
-  strokeWidthLabel.append(strokeWidthOutput,strokeWidthInput);
-  const strokeBlurLabel=document.createElement('label');strokeBlurLabel.textContent='Softness / ぼかし';
-  const strokeBlurOutput=document.createElement('output');
-  const strokeBlurInput=document.createElement('input');strokeBlurInput.type='range';strokeBlurInput.min=0;strokeBlurInput.max=3;strokeBlurInput.step=1;
-  strokeBlurLabel.append(strokeBlurOutput,strokeBlurInput);
-  strokeRow.append(strokeTitle,strokeColorLabel,strokeWidthLabel,strokeBlurLabel);legibilityBox.append(strokeRow);
-  function refreshStrokeControls(){
-    const state=legibility[theme];
-    strokeColorInput.value=state.strokeColor;
-    strokeWidthInput.value=String(state.strokeWidth);strokeWidthOutput.textContent=strokeWidths[state.strokeWidth]+'px';
-    strokeBlurInput.value=String(state.strokeBlur);strokeBlurOutput.textContent=state.strokeBlur===0?'Sharp / くっきり':state.strokeBlur+'px';
-  }
+  strokeRow.append(strokeTitle,strokeColorLabel);
+  addFineRange(strokeRow,'strokeWidthPx','WIDTH / 太さ',0,3,.05,'px');
+  addFineRange(strokeRow,'strokeBlurPx','SOFTNESS / ぼかし',0,5,.1,'px');
+  legibilityBox.append(strokeRow);
   strokeColorInput.addEventListener('input',()=>{legibility[theme].strokeColor=strokeColorInput.value;saveLegibility();applyColors();});
-  strokeWidthInput.addEventListener('input',()=>{legibility[theme].strokeWidth=Number(strokeWidthInput.value);refreshStrokeControls();saveLegibility();applyColors();});
-  strokeBlurInput.addEventListener('input',()=>{legibility[theme].strokeBlur=Number(strokeBlurInput.value);refreshStrokeControls();saveLegibility();applyColors();});
-  const legibilityHelp=document.createElement('p');legibilityHelp.textContent='TEXT EDGEは従来の黒い細縁。COLORED OUTLINEは色・太さ・ぼかしを独立設定。Width=0でOFF。WEEK番号はFilledにすると塗り＋縁取りを重ねられます。';
+  const legibilityHelp=document.createElement('p');legibilityHelp.textContent='数値欄では直接入力で微調整できます。Edgeは黒い細縁、Colored Outlineは別色の縁。Width=0でOFF。既存プリセットは読み込み時に旧値から変換します。';
   legibilityBox.append(legibilityHelp);
   function refreshLegibilityControls(){
-    const state=legibility[theme];for(const [key,ctl] of Object.entries(legibilityControls)){
-      const index=ctl.order.indexOf(state[key]);
-      ctl.input.value=String(index);ctl.output.textContent=ctl.desc[index];
-    }
-    refreshStrokeControls();
+    for(const ctl of Object.values(fineControls))ctl.sync();
+    strokeColorInput.value=legibility[theme].strokeColor;
   }
   refreshLegibilityControls();
   // Season name typography: Auto respects the season's original CSS palette.
@@ -943,32 +955,31 @@ function animebInitWeeklyThemes(){
     else if(seasonSettings.style==='filled')rules+='\nbody .wrapper .sub-header .season-title .season{-webkit-text-stroke:0!important;}';
     const ink=legibility[theme];
     const shadows=[];
-    if(ink.shadow){
-      const blur=[0,1.5,3,5,.8][ink.shadow],alpha=[0,.36,.55,.72,.18][ink.shadow];
-      shadows.push(`0 1px ${blur}px rgba(0,0,0,${alpha})`);
+    if(ink.shadowPower>0){
+      shadows.push(`0 1px ${ink.shadowBlurPx}px rgba(0,0,0,${ink.shadowPower/100})`);
     }
-    if(ink.strokeWidth && ink.strokeBlur){
-      shadows.push(`0 0 ${ink.strokeBlur}px ${ink.strokeColor}`);
+    if(ink.strokeWidthPx>0 && ink.strokeBlurPx>0){
+      shadows.push(`0 0 ${ink.strokeBlurPx}px ${ink.strokeColor}`);
     }
     if(shadows.length){
       rules+=`\nbody .wrapper > .header h1,body .wrapper > .header .week-title,body .wrapper > .header .duration,body .wrapper > .sub-header,body .wrapper .animeb-weekly-satisfaction{text-shadow:${shadows.join(',')}!important;}`;
     }
-    if(ink.edge){
-      const width=ink.edge===1?'.45px':'.85px';
+    if(ink.edgeWidthPx>0){
+      const width=ink.edgeWidthPx+'px';
       // Do not override WEEK number / season-name Outline (they have their own controls).
       rules+=`\nbody .wrapper > .header h1,body .wrapper > .header .duration,body .wrapper > .header .animeb-week-label,body .wrapper > .sub-header .year,body .wrapper > .sub-header .title-ranking,body .wrapper > .sub-header .ep-range{-webkit-text-stroke:${width} rgba(0,0,0,.72)!important;paint-order:stroke fill;}`;
     }
-    if(ink.strokeWidth){
+    if(ink.strokeWidthPx>0){
       // Explicit outline is opt-in. The fill stays independent of the stroke.
       // WEEK outline-only keeps its transparent center; Filled supports both paints.
       const targets=['.header h1 .animeb-top-word','.header h1 .animeb-top-number',
         '.header .week-title .animeb-week-label','.header .week-title .animeb-week-token',
         '.header .duration','.sub-header .year','.sub-header .season-title .season',
         '.sub-header .title-anime','.sub-header .title-ranking','.sub-header .ep-range'];
-      rules+=`\nbody .wrapper :is(${targets.join(',')}){-webkit-text-stroke:${strokeWidths[ink.strokeWidth]}px ${ink.strokeColor}!important;paint-order:stroke fill!important;}`;
+      rules+=`\nbody .wrapper :is(${targets.join(',')}){-webkit-text-stroke:${ink.strokeWidthPx}px ${ink.strokeColor}!important;paint-order:stroke fill!important;}`;
       // If markup has not been split, TOP/10 still get a shared outline.
       if(!topHeading?.querySelector('.animeb-top-word'))
-        rules+=`\nbody .wrapper .header h1{-webkit-text-stroke:${strokeWidths[ink.strokeWidth]}px ${ink.strokeColor}!important;paint-order:stroke fill!important;}`;
+        rules+=`\nbody .wrapper .header h1{-webkit-text-stroke:${ink.strokeWidthPx}px ${ink.strokeColor}!important;paint-order:stroke fill!important;}`;
     }
     // Keep Converter/JSON style when Auto. An explicit FILL works even in Outline mode;
     // a separate OUTLINE color changes the stroke without changing the inside paint.
