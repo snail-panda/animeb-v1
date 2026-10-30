@@ -901,7 +901,21 @@ function animebInitWeeklyThemes(){
   panelSizeButton.className='animeb-panel-full-button';
   panelSizeButton.textContent='Full panel / パネル拡大';
   panelSizeButton.setAttribute('aria-pressed','false');
-  previewTools.append(togglePreviewButton,previewExpandButton,panelSizeButton);
+  /* AnimeB Theme Studio r20 */
+  previewTools.append(togglePreviewButton,previewExpandButton);
+  panelHead.insertBefore(panelSizeButton,closeBtn);
+  // A desktop-only proxy leaves the actual Show/Hide handler single-sourced.
+  const desktopPreviewButton=document.createElement('button');
+  desktopPreviewButton.type='button';desktopPreviewButton.className='animeb-preview-desktop-toggle';
+  desktopPreviewButton.textContent='Hide';desktopPreviewButton.title='Hide preview / プレビュー非表示';
+  desktopPreviewButton.setAttribute('aria-label','Hide preview / プレビュー非表示');
+  desktopPreviewButton.setAttribute('aria-pressed','false');
+  desktopPreviewButton.addEventListener('click',()=>togglePreviewButton.click());
+  panelHead.insertBefore(desktopPreviewButton,previewBtn);
+  // The compact maximize/restore button uses a vector, not an emoji.
+  panelSizeButton.innerHTML='<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><rect class="animeb-size-max" x="4.5" y="4.5" width="15" height="15" rx="1.4"/><g class="animeb-size-restore"><rect x="8" y="9" width="12" height="11" rx="1.1"/><path d="M5 15V5h11v3"/></g></svg>';
+  panelSizeButton.title='Maximize panel / パネル拡大';
+  panelSizeButton.setAttribute('aria-label','Maximize panel / パネル拡大');
   panelPinned.insertBefore(previewTools,previewStage);
   panelScroll.append(weekStylePanel,colorDetails,legibilityBox,seasonBox,presetBox,field,message);
   panel.append(panelPinned,panelScroll);ctr.append(btn,panel);
@@ -1702,6 +1716,10 @@ function animebInitWeeklyThemes(){
     if(hidden){dragInput.checked=false;previewStage.dataset.drag='off';}
     togglePreviewButton.textContent=hidden?'Show preview / プレビュー表示':'Hide preview / プレビュー非表示';
     togglePreviewButton.setAttribute('aria-pressed',String(hidden));
+    desktopPreviewButton.textContent=hidden?'Show':'Hide';
+    desktopPreviewButton.title=hidden?'Show preview / プレビュー表示':'Hide preview / プレビュー非表示';
+    desktopPreviewButton.setAttribute('aria-label',desktopPreviewButton.title);
+    desktopPreviewButton.setAttribute('aria-pressed',String(hidden));
     if(!hidden)requestAnimationFrame(refreshPreviewHeader);
   });
   panelSizeButton.addEventListener('click',()=>{
@@ -1709,7 +1727,9 @@ function animebInitWeeklyThemes(){
     panel.dataset.mobileFull=String(full);
     // r18 title-bar dragging can leave inline geometry; full-screen mode must override it.
     for(const key of ['left','right','top','width','height','margin'])panel.style.removeProperty(key);
-    panelSizeButton.textContent=full?'Normal panel / 通常サイズ':'Full panel / パネル拡大';
+    // SVG stays intact when the state changes; the name is available to screen readers.
+    panelSizeButton.title=full?'Restore panel / 通常サイズ':'Maximize panel / パネル拡大';
+    panelSizeButton.setAttribute('aria-label',panelSizeButton.title);
     panelSizeButton.setAttribute('aria-pressed',String(full));
     if(!previewStage.hidden)requestAnimationFrame(refreshPreviewHeader);
   });

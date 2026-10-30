@@ -4149,3 +4149,51 @@ body[data-animeb-theme="image"] .ws-modern-details{
   }
   .animeb-theme-panel[data-mobile-full="true"] .animeb-theme-panel-scroll{min-height:0;}
 }
+
+/* AnimeB Theme Studio r20: compact toolbar. */
+/* Size is measured against the actual editor width (including desktop resize). */
+.animeb-theme-panel-pinned{container:animeb-studio / inline-size;}
+.animeb-theme-panel-head{gap:6px;min-width:0;}
+.animeb-theme-panel-head .animeb-theme-panel-title{flex:0 0 auto;white-space:nowrap;}
+.animeb-theme-panel .animeb-preview-desktop-toggle{display:none;}
+.animeb-theme-panel .animeb-panel-full-button{display:none;}
+.animeb-theme-panel-head .animeb-panel-full-button{
+  flex:0 0 28px;width:28px;height:28px;min-width:28px;padding:0;
+  border:1px solid #8fa89a;border-radius:50%;background:transparent;
+  color:#416656;cursor:pointer;align-items:center;justify-content:center;
+}
+.animeb-theme-panel-head .animeb-panel-full-button svg{display:block;pointer-events:none;}
+.animeb-theme-panel-head .animeb-panel-full-button .animeb-size-restore{display:none;}
+.animeb-theme-panel-head .animeb-panel-full-button[aria-pressed="true"] .animeb-size-max{display:none;}
+.animeb-theme-panel-head .animeb-panel-full-button[aria-pressed="true"] .animeb-size-restore{display:inline;}
+body[data-animeb-theme="dark"] .animeb-theme-panel-head .animeb-panel-full-button,
+body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .animeb-theme-panel-head .animeb-panel-full-button{
+  color:#e5eee8;border-color:#789389;
+}
+@media (min-width:769px){
+  /* The lower toolbar is empty on PC; reclaim the entire row. */
+  .animeb-theme-panel .animeb-preview-tools{display:none;}
+  .animeb-theme-panel .animeb-preview-desktop-toggle{
+    display:inline-flex;align-items:center;justify-content:center;flex:0 0 auto;
+    min-width:43px;min-height:28px;padding:3px 8px;border-radius:6px;
+    border:1px solid #8fa89a;background:#e8f0e7;color:#345848;
+    font:600 10.5px/1.2 'Fira Sans',sans-serif;cursor:pointer;
+  }
+  body[data-animeb-theme="dark"] .animeb-theme-panel .animeb-preview-desktop-toggle,
+  body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .animeb-theme-panel .animeb-preview-desktop-toggle{
+    background:#29463e;color:#ebf3ec;border-color:#688e7e;
+  }
+  /* At narrow resized panel widths, show the existing Preview-page SVG alone. */
+  @container animeb-studio (max-width:425px){
+    .animeb-theme-preview-button span{display:none;}
+    .animeb-theme-preview-button{flex:0 0 29px;width:29px;min-width:29px;padding:5px;display:grid;place-items:center;}
+  }
+}
+@media (max-width:768px){
+  .animeb-theme-panel .animeb-theme-panel-head .animeb-panel-full-button{display:flex;}
+  /* Existing Hide / Expand preview buttons remain bilingual in their own row. */
+  @container animeb-studio (max-width:295px){
+    .animeb-theme-preview-button span{display:none;}
+    .animeb-theme-preview-button{flex:0 0 29px;width:29px;min-width:29px;padding:5px;display:grid;place-items:center;}
+  }
+}
