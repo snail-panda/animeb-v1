@@ -344,6 +344,11 @@ function animebInitWeeklyThemes(){
     const savedColors=JSON.parse(localStorage.getItem(COLORS_KEY)||'{}');
     if(savedColors&&typeof savedColors==='object'&&!Array.isArray(savedColors))customColors=savedColors;
   }catch(_){}
+  // Read presets independently. A damaged unrelated setting must not hide saved presets.
+  try{
+    const stored=JSON.parse(localStorage.getItem(PRESETS_KEY)||'[]');
+    if(Array.isArray(stored))presets=stored.filter(p=>p&&typeof p==='object'&&p.id&&p.state).slice(0,30);
+  }catch(err){console.warn('AnimeB: preset read failed (storage left untouched)',err);}
   if(!['original','dark','image'].includes(theme))theme='original';
   if(!['url','local'].includes(source))source='url';
   if(!['header','hero','full'].includes(imageScope))imageScope='header';
@@ -1401,6 +1406,103 @@ function animebInitWeeklyThemes(){
     else presets=old;
   });
   renderPresets();
+  // r14: Portable backup. Nothing is automatically uploaded or replaced.
+  // Only referenced on-device gallery photos are embedded. Remote URLs remain URLs.
+  const backupImport=document.createElement('input');
+  backupImport.type='file';backupImport.accept='.json,application/json';backupImport.hidden=true;
+  backupImport.setAttribute('aria-label','Import AnimeB preset backup / 設定バックアップを読み込む');
+  presetBox.append(backupImport);
+  let backupLinkURL=null;
+  const backupLink=document.createElement('a');
+  backupLink.hidden=true;backupLink.textContent='⇩ Download prepared backup / バックアップをダウンロード';
+  backupLink.style.cssText='padding:9px 12px;margin-top:6px;border:1px solid currentColor;border-radius:6px;font-weight:600';
+  presetBox.append(backupLink);
+  const backupBlobAsDataURL=blob=>new Promise((resolve,reject)=>{
+    const reader=new FileReader();
+    reader.onload=()=>resolve(reader.result);
+    reader.onerror=()=>reject(reader.error||new Error('Could not read saved photo'));
+    reader.readAsDataURL(blob);
+  });
+  presetButton('Export backup / 設定をファイル保存',async()=>{
+    try{
+      presetStatus.textContent='Preparing backup… / 設定と参照画像を準備中…';
+      const copies=JSON.parse(JSON.stringify(presets));
+      const ids=[...new Set(copies.filter(p=>p.state?.source==='local')
+        .map(p=>p.state.localId).filter(Boolean))];
+      const photos=[];
+      for(const id of ids){
+        const item=await withDB('gallery','readonly',os=>os.get(id));
+        if(!item?.blob)throw new Error('A preset photo is missing: '+id+' / 画像がないため不完全なバックアップは作成しません。');
+        photos.push({id,name:item.name||'saved-photo',data:await backupBlobAsDataURL(item.blob)});
+      }
+      const payload={kind:'animeb-theme-preset-backup',version:1,
+        exportedAt:new Date().toISOString(),origin:location.origin,presets:copies,photos};
+      const file=new Blob([JSON.stringify(payload)],{type:'application/json'});
+      const download=URL.createObjectURL(file);
+      if(backupLinkURL)URL.revokeObjectURL(backupLinkURL);
+      backupLinkURL=download;
+      backupLink.href=download;
+      backupLink.download='AnimeB_Theme_Presets_'+new Date().toISOString().slice(0,10)+'.json';
+      backupLink.hidden=false;
+      presetStatus.textContent='Backup READY: '+copies.length+' presets, '+photos.length+
+        ' local photos. Tap the download link below, then save in iPhone Files and confirm it exists. / 下のリンクを押して保存してください。';
+    }catch(e){presetStatus.textContent='Backup NOT completed / 保存できませんでした: '+(e?.message||e);}
+  });
+  presetButton('Import backup / ファイルから復元',()=>backupImport.click());
+  backupImport.addEventListener('change',async()=>{
+    const file=backupImport.files?.[0];backupImport.value='';if(!file)return;
+    try{
+      if(file.size>180*1024*1024)throw new Error('Backup is too large (180 MB maximum).');
+      const parsed=JSON.parse(await file.text());
+      if(parsed?.kind!=='animeb-theme-preset-backup'||parsed.version!==1||
+         !Array.isArray(parsed.presets)||!Array.isArray(parsed.photos)||parsed.presets.length>30)
+        throw new Error('Not a supported AnimeB preset backup.');
+      const existingIds=new Set(presets.map(p=>p.id));
+      const incoming=parsed.presets.filter(p=>p&&typeof p==='object'&&
+        typeof p.id==='string'&&typeof p.name==='string'&&p.name.length<=50&&
+        p.state&&typeof p.state==='object'&&!existingIds.has(p.id));
+      if(incoming.length!==parsed.presets.filter(p=>!existingIds.has(p?.id)).length)
+        throw new Error('Backup has invalid preset entries.');
+      if(presets.length+incoming.length>30)
+        throw new Error('Maximum 30 presets. Current presets are unchanged.');
+      if(!incoming.length){presetStatus.textContent='All preset IDs already exist. Nothing changed. / 既存の設定はそのままです。';return;}
+      const required=new Set(incoming.filter(p=>p.state.source==='local').map(p=>p.state.localId));
+      const photos=new Map();
+      for(const item of parsed.photos){
+        if(!required.has(item?.id))continue;
+        if(typeof item.data!=='string'||!/^data:image\/(?:jpeg|png|webp|gif|avif);base64,/i.test(item.data))
+          throw new Error('Invalid photo in backup.');
+        const photo=await (await fetch(item.data)).blob();
+        if(photo.size>20*1024*1024)throw new Error('Photo exceeds 20 MB.');
+        photos.set(item.id,{blob:photo,name:String(item.name||'restored-photo').slice(0,140)});
+      }
+      for(const id of required)if(!photos.has(id))throw new Error('Missing photo in backup: '+id);
+      if(!confirm('Restore '+incoming.length+' presets and '+required.size+' photos? Existing presets will NOT be overwritten.\n'+
+        '設定'+incoming.length+'件を追加します。現在の設定は上書きしません。'))return;
+      presetStatus.textContent='Importing… / 読み込み中…';
+      const oldPresets=presets;
+      const mapping=new Map();
+      for(const id of required){
+        const target='local-restored-'+Date.now()+'-'+Math.random().toString(36).slice(2,10);
+        mapping.set(id,target);
+        const photo=photos.get(id);
+        await withDB('gallery','readwrite',os=>os.put({id:target,name:photo.name,blob:photo.blob,created:Date.now()}));
+      }
+      const usedNames=new Set(presets.map(p=>p.name.toLocaleLowerCase()));
+      const additions=incoming.map(p=>{
+        const state=JSON.parse(JSON.stringify(p.state));
+        if(state.source==='local')state.localId=mapping.get(state.localId);
+        let name=p.name,n=2;
+        while(usedNames.has(name.toLocaleLowerCase()))name=p.name.slice(0,32)+' (restored '+(n++)+')';
+        usedNames.add(name.toLocaleLowerCase());
+        return {id:'preset-restored-'+Date.now()+'-'+Math.random().toString(36).slice(2,10),name,state};
+      });
+      presets=[...oldPresets,...additions];
+      if(!savePresetList()){presets=oldPresets;throw new Error('Browser storage refused to save. Original presets retained.');}
+      renderPresets();loadGallery();
+      presetStatus.textContent='Imported '+additions.length+' presets. Existing presets and active appearance kept. / 復元しました。';
+    }catch(e){presetStatus.textContent='Import failed (existing presets unchanged) / 復元失敗: '+(e?.message||e);}
+  });
   async function saveLocal(blob,name){
     const id='local-'+Date.now()+'-'+Math.random().toString(36).slice(2,8);
     await withDB('gallery','readwrite',os=>os.put({id,name,blob,created:Date.now()}));
