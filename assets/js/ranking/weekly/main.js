@@ -687,6 +687,8 @@ function animebInitWeeklyThemes(){
     ['sat','Satisfaction / 満足度','#4c524e'],
     ['weekLabel','WEEK label / WEEK文字','#8e2222'],
     ['weekNumber','Week number / 週番号','#8e2222'],
+    ['weekNumberFill','Week number FILL / 番号の内側の色','#8e2222'],
+    ['weekNumberOutline','Week number OUTLINE / 番号の輪郭色','#8e2222'],
     ['duration','Dates / 日付','#a04343'],
     ['year','Year / 年号','#a67d23'],
     ['seasonName','Season name / 春夏秋冬','#c2572a'],
@@ -921,6 +923,7 @@ function animebInitWeeklyThemes(){
     let rules='';
     const valid=color=>/^#[0-9a-fA-F]{6}$/.test(color||'');
     for(const [key] of colorDefs){
+      if(!selectors[key])continue; // fill/outline are rendered as dedicated paint overrides below
       if(!valid(customColors[key]))continue;
       rules+=`\nbody ${selectors[key].split(', ').join(', body ')}{color:${customColors[key]} !important;}`;
     }
@@ -967,6 +970,12 @@ function animebInitWeeklyThemes(){
       if(!topHeading?.querySelector('.animeb-top-word'))
         rules+=`\nbody .wrapper .header h1{-webkit-text-stroke:${strokeWidths[ink.strokeWidth]}px ${ink.strokeColor}!important;paint-order:stroke fill!important;}`;
     }
+    // Keep Converter/JSON style when Auto. An explicit FILL works even in Outline mode;
+    // a separate OUTLINE color changes the stroke without changing the inside paint.
+    if(valid(customColors.weekNumberFill))
+      rules+=`\nbody .wrapper .header .week-title .animeb-week-token{color:${customColors.weekNumberFill}!important;-webkit-text-fill-color:${customColors.weekNumberFill}!important;}`;
+    if(valid(customColors.weekNumberOutline))
+      rules+=`\nbody .wrapper .header .week-title .animeb-week-token{-webkit-text-stroke-color:${customColors.weekNumberOutline}!important;}`;
     colorStyle.textContent=rules;
     refreshPreviewHeader();
   }
@@ -1415,7 +1424,7 @@ function animebInitWeeklyThemes(){
   let backupLinkURL=null;
   const backupLink=document.createElement('a');
   backupLink.hidden=true;backupLink.textContent='⇩ Download prepared backup / バックアップをダウンロード';
-  backupLink.style.cssText='padding:9px 12px;margin-top:6px;border:1px solid currentColor;border-radius:6px;font-weight:600';
+  backupLink.style.cssText='display:none;box-sizing:border-box;max-width:100%;width:fit-content;margin:10px 0 2px;padding:9px 12px;border:1px solid #92b49e;border-radius:9px;background:#e9f2e9;color:#24543a;text-decoration:none;font:500 12px/1.5 "Fira Sans",sans-serif;white-space:normal;overflow-wrap:anywhere;';
   presetBox.append(backupLink);
   const backupBlobAsDataURL=blob=>new Promise((resolve,reject)=>{
     const reader=new FileReader();
@@ -1444,6 +1453,7 @@ function animebInitWeeklyThemes(){
       backupLink.href=download;
       backupLink.download='AnimeB_Theme_Presets_'+new Date().toISOString().slice(0,10)+'.json';
       backupLink.hidden=false;
+      backupLink.style.display='block';
       presetStatus.textContent='Backup READY: '+copies.length+' presets, '+photos.length+
         ' local photos. Tap the download link below, then save in iPhone Files and confirm it exists. / 下のリンクを押して保存してください。';
     }catch(e){presetStatus.textContent='Backup NOT completed / 保存できませんでした: '+(e?.message||e);}
@@ -3245,7 +3255,14 @@ if (topHeader && Array.isArray(data.entries)) {
   const topCount = numericRanks.length;
 
   // "TOP"の後ろに数字を差し込む形で置換
-  topHeader.textContent = `TOP${topCount}`;
+  // Keep the split spans: textContent would remove them and disable TOP / number colors.
+  const existingNumber=topHeader.querySelector('.animeb-top-number');
+  if(existingNumber)existingNumber.textContent=String(topCount);
+  else{
+    const word=document.createElement('span');word.className='animeb-top-word';word.textContent='TOP';
+    const number=document.createElement('span');number.className='animeb-top-number';number.textContent=String(topCount);
+    topHeader.replaceChildren(word,number);
+  }
 }
 
 	
