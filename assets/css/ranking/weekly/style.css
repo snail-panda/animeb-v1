@@ -4049,7 +4049,7 @@ body .wrapper > .sub-header .ep-range {
   .watch-status-wrapper.ws-modern-wrapper > .ws-modern,
   .watch-status-wrapper.ws-modern-wrapper + .animeb-weekly-intro {
     box-sizing: border-box;
-    width: min(100%, 800px);
+    width: min(100%, 650px);
     max-width: none;
   }
   .watch-status-wrapper.ws-modern-wrapper + .animeb-weekly-intro {
