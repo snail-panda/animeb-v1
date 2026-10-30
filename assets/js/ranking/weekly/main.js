@@ -909,7 +909,7 @@ function animebInitWeeklyThemes(){
     if(match){
       const word=document.createElement('span');word.className='animeb-top-word';word.textContent=match[1];
       const number=document.createElement('span');number.className='animeb-top-number';number.textContent=match[2];
-      topHeading.replaceChildren(word,document.createTextNode(' '),number);
+      topHeading.replaceChildren(word,number);
     }
   }
   const colorStyle=document.createElement('style');colorStyle.id='animeb-theme-custom-colors';document.head.append(colorStyle);
@@ -950,7 +950,6 @@ function animebInitWeeklyThemes(){
     else rules+='\nbody .wrapper .sub-header .season-title .season{--animeb-season-paint:var(--animeb-season-default)}';
     if(seasonSettings.weight!=='auto')rules+=`\nbody .wrapper .sub-header .season-title .season{font-weight:${seasonSettings.weight==='bold'?'800':'400'}!important;}`;
     if(seasonSettings.size!==100)rules+=`\nbody .wrapper .sub-header .season-title .season{font-size:${seasonSettings.size}%!important;}`;
-    if(seasonSettings.size>115)rules+='\nbody .wrapper .sub-header{width:auto!important;max-width:100%!important;flex-wrap:wrap!important;row-gap:3px;}body .wrapper .sub-header .ep-range{margin-left:0;}';
     if(seasonSettings.style==='outline')rules+='\nbody .wrapper .sub-header .season-title .season{color:transparent!important;-webkit-text-stroke:1px var(--animeb-season-paint)!important;paint-order:stroke fill;}';
     else if(seasonSettings.style==='filled')rules+='\nbody .wrapper .sub-header .season-title .season{-webkit-text-stroke:0!important;}';
     const ink=legibility[theme];

@@ -4025,3 +4025,40 @@ body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .entry .collapse-
   color: #929292 !important;
   /*original collapse button color is #686868*/
 }
+
+/* AnimeB Header r17b: natural-width, non-wrapping second line. */
+body .wrapper > .sub-header,
+body .wrapper > .sub-header.normal,
+body .wrapper > .sub-header.wide {
+  width: max-content;
+  max-width: none;
+  flex-wrap: nowrap;
+  white-space: nowrap;
+}
+body .wrapper > .sub-header .ep-range {
+  flex-shrink: 0;
+  margin-left: 2rem;
+}
+
+/* AnimeB r17c: desktop alignment and dark synopsis preview. */
+/* Desktop B: Viewing Status and This Week share left edge and max outer width. */
+@media (min-width: 769px) {
+  .watch-status-wrapper.ws-modern-wrapper {
+    justify-content: flex-start;
+  }
+  .watch-status-wrapper.ws-modern-wrapper > .ws-modern,
+  .watch-status-wrapper.ws-modern-wrapper + .animeb-weekly-intro {
+    box-sizing: border-box;
+    width: min(100%, 800px);
+    max-width: none;
+  }
+  .watch-status-wrapper.ws-modern-wrapper + .animeb-weekly-intro {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+/* Desktop-only synopsis snippet on dark themes. Keep light themes unchanged. */
+body[data-animeb-theme="dark"] .entry .animeb-synopsis-preview,
+body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .entry .animeb-synopsis-preview {
+  color: #d5dfda;
+}
