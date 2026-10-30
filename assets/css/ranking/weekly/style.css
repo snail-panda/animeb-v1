@@ -2990,7 +2990,7 @@ body[data-animeb-theme="image"][data-animeb-image-scope="full"][data-animeb-imag
 /* A naturally drawn, thin-tail bubble with three separated SMALL dots. */
 .ws-modern-wrapper + .animeb-weekly-intro .animeb-intro-label::before{
   content:"" !important; display:inline-block; width:23px;height:23px; flex:0 0 23px;
-  background:transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 26 26'%3E%3Cpath d='M6.5 3.7h13a4.3 4.3 0 0 1 4.3 4.3v6.5a4.3 4.3 0 0 1-4.3 4.3h-8.8l-6.9 4.2 1.6-5.1a4.3 4.3 0 0 1-3.2-4.2V8a4.3 4.3 0 0 1 4.3-4.3Z' fill='%23d4e8f1'/%3E%3Cg fill='%2349687a'%3E%3Ccircle cx='8.2' cy='11.1' r='1.25'/%3E%3Ccircle cx='13' cy='11.1' r='1.25'/%3E%3Ccircle cx='17.8' cy='11.1' r='1.25'/%3E%3C/g%3E%3C/svg%3E") center/contain no-repeat;
+  background:transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 26 26'%3E%3Cpath d='M8.4 3.4h9.2a5.1 5.1 0 0 1 5.1 5.1v4.5a5.1 5.1 0 0 1-1.3 3.4L24.8 21l-7.4-2.8H8.4a5.1 5.1 0 0 1-5.1-5.1V8.5a5.1 5.1 0 0 1 5.1-5.1Z' fill='%23d4e8f1'/%3E%3Cg fill='%2349687a'%3E%3Ccircle cx='8.2' cy='11.1' r='1.25'/%3E%3Ccircle cx='13' cy='11.1' r='1.25'/%3E%3Ccircle cx='17.8' cy='11.1' r='1.25'/%3E%3C/g%3E%3C/svg%3E") center/contain no-repeat;
   clip-path:none;border-radius:0;letter-spacing:normal;font-size:0;
 }
 .animeb-theme-button{width:34px;height:27px;min-height:27px;border-radius:13px}
@@ -3873,7 +3873,7 @@ body[data-animeb-final-week="true"] .note-mount code {
 /* iPhone only — speech bubble alignment */
 @media (max-width: 768px) {
   .ws-modern-wrapper + .animeb-weekly-intro .animeb-intro-label::before {
-    transform: translateY(4px);
+    transform: translateY(2px);
   }
 }
 
