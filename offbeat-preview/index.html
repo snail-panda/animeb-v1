@@ -4,7 +4,7 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <meta content="#f9f8ee" name="theme-color"/>
-<title>OFFBEAT — on a crooked path | Connected Concept04</title>
+<title>OFFBEAT — on a crooked path | Preview 06</title>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Abel&amp;family=Borel&amp;family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&amp;family=Passion+One:wght@700;900&amp;display=swap" rel="stylesheet"/>
@@ -185,6 +185,125 @@ button,a{color:inherit}button{cursor:pointer}a{text-decoration:none}a:hover{colo
  .post-name{font-size:13px}
 }
 @media(max-width:360px){.brand-mini strong{font-size:21px}}
+
+/* OFFBEAT preview revision 05 — targeted typography and Anime navigation updates.
+   The original Anime homepage uses letter-spacing: .01em for its Passion One logo.
+   Preserve the restored Passion One / Borel / EB Garamond font families. */
+.brand-mini strong,
+.logo-big strong { letter-spacing: .01em; }
+/* Less prominent Borel subheading under the entrance title only. */
+.logo-big em { font-size: clamp(9px, 1.15vw, 12px); }
+/* Anime section: clean links and fine vertical separators. */
+.section-nav { gap: 0; }
+.section-nav a { margin-right: 0; padding: 7px 18px; }
+.section-nav a:first-child { padding-left: 0; }
+.section-nav a+a { border-left: 1px solid #bec9b8; }
+.feature h2 a:hover { color: #526d54; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+@media (max-width: 650px) {
+  .logo-big em { font-size: clamp(8.5px, 2.4vw, 10px); }
+  .section-nav { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 7px 0; }
+  .section-nav a { margin: 0; padding: 7px 8px; border: 0; white-space: nowrap; font-size: 12.5px; }
+  .section-nav a:nth-child(odd) { padding-left: 0; border-left: 0; }
+  .section-nav a:nth-child(even) { border-left: 1px solid #bec9b8; padding-left: 14px; }
+}
+@media (max-width: 380px) {
+  /* The wider letter-spacing must still fit narrow iPhones without clipping. */
+  .logo-big strong { font-size: clamp(21px, 5.5vw, 25px); }
+}
+
+/* OFFBEAT Preview 06: Anime Home typography and compact layout.
+   IMPORTANT: Concept 04 entrance typography/logo left unchanged;
+   preserve all Passion One, Borel and EB Garamond families. */
+[data-view="anime"] .section-head h1 {
+  letter-spacing: .012em; /* restores open Passion One lettering in Anime */
+}
+[data-view="anime"] .section-head .section-tagline,
+[data-view="anime"] .section-head > p {
+  font-size: 15px;
+  line-height: 1.55;
+  letter-spacing: .018em;
+  margin-top: 13px;
+  margin-bottom: 13px;
+}
+/* Featured visual: narrower and less cropped, with height retained. */
+[data-view="anime"] .feature {
+  grid-template-columns: 176px minmax(0, 1fr);
+  gap: 23px;
+  align-items: center;
+  padding-top: 19px;
+  padding-bottom: 14px;
+}
+[data-view="anime"] .feature figure { width: 176px; max-width: 100%; }
+[data-view="anime"] .feature img {
+  width: 100%;
+  height: 159px;
+  aspect-ratio: auto;
+  object-fit: contain;
+  object-position: center;
+  background: #f1f1e6;
+}
+/* Recent posts: a compact index, not a second featured article section. */
+#animeRecent .recent { padding-bottom: 5px; }
+#animeRecent .recent-head { padding-top: 14px; }
+#animeRecent .posts { margin-top: 7px; }
+#animeRecent .posts li {
+  grid-template-columns: 89px 98px minmax(0, 1fr);
+  gap: 10px;
+  padding: 8px 0;
+  align-items: baseline;
+}
+#animeRecent .post-date { font-size: 11px; color: #617361; }
+#animeRecent .post-cat { font-size: 10.5px; color: #617d63; }
+#animeRecent .post-name { font-size: 14px; line-height: 1.22; }
+/* The first archive card remains slightly featured, not oversized.
+   Card design is provisional pending review of the site's older cards. */
+#animeArticles .card.is-featured {
+  grid-template-columns: 182px minmax(0, 1fr);
+  min-height: 167px;
+}
+#animeArticles .card.is-featured .thumb { min-height: 160px; }
+#animeArticles .card.is-featured h3 { font-size: 21px; }
+@media(max-width:650px) {
+  [data-view="anime"] .section-head h1 { letter-spacing: .01em; }
+  [data-view="anime"] .section-head > p {
+    font-size: 13px;
+    letter-spacing: .014em;
+    line-height: 1.45;
+    margin-top: 13px;
+    margin-bottom: 11px;
+  }
+  [data-view="anime"] .feature {
+    grid-template-columns: 111px minmax(0, 1fr);
+    gap: 14px;
+    padding-top: 17px;
+    padding-bottom: 12px;
+  }
+  [data-view="anime"] .feature figure { width: 111px; }
+  [data-view="anime"] .feature img { height: 133px; }
+  #animeRecent .posts li {
+    grid-template-columns: 76px 74px minmax(0,1fr);
+    gap: 7px;
+    padding: 8px 0;
+  }
+  #animeRecent .post-date { font-size: 10px; }
+  #animeRecent .post-cat { font-size: 9.7px; }
+  #animeRecent .post-name { font-size: 12.5px; }
+  #animeArticles .card.is-featured {
+    grid-template-columns: 119px minmax(0,1fr);
+    min-height: 141px;
+  }
+  #animeArticles .card.is-featured .thumb { min-height: 136px; }
+  #animeArticles .card.is-featured h3 { font-size: 17px; }
+}
+@media(max-width:360px) {
+  [data-view="anime"] .feature { grid-template-columns: 102px minmax(0,1fr); gap: 10px; }
+  [data-view="anime"] .feature figure { width: 102px; }
+  [data-view="anime"] .feature img { height: 129px; }
+  #animeRecent .posts li { grid-template-columns: 66px 62px minmax(0,1fr); gap: 5px; }
+  #animeRecent .post-date { font-size: 9.4px; }
+  #animeRecent .post-cat { font-size: 9.2px; }
+}
+
 </style>
 </head>
 <body>
@@ -260,9 +379,9 @@ button,a{color:inherit}button{cursor:pointer}a{text-decoration:none}a:hover{colo
 </div>
 </main>
 <main data-view="anime">
-<section class="section-head"><div class="eyebrow">OFFBEAT / A WORLD OF ANIMATION</div><h1>ANIME <span class="small-tag">/ アニメ</span></h1><p>Weekly notes, rankings, lists, and the occasional detour.</p>
-<nav aria-label="Anime content types" class="section-nav"><a href="https://snail-panda.github.io/animeb-v1/ranking/2026/fall/week03/index.html">WEEKLY RANKING ↗</a><a href="https://snail-panda.github.io/animeb-v1/tierlist/2026/fall/week01/tierlist.html">TIER LIST ↗</a><a data-anchor-filter="all" href="#animeArticles">POSTS ↓</a><a href="https://snail-panda.github.io/animeb-v1/features/recommend/2026/summer/week12/index.html">RECOMMENDATIONS ↗</a></nav></section>
-<section class="feature"><figure><a href="https://snail-panda.github.io/animeb-v1/ranking/2026/fall/week03/index.html"><img alt="Featured anime key visual" loading="eager" src="https://snail-panda.github.io/animeb-v1/images/key-visuals/2026/fall/cyber.webp"/></a></figure><div><div class="label">LATEST / WEEKLY RANKING</div><h2>2026 Fall —<br/>Weekly Anime Ranking<br/>Week 03</h2><p>October 25, 2026</p><a class="outline-link" href="https://snail-panda.github.io/animeb-v1/ranking/2026/fall/week03/index.html">VIEW THIS WEEK’S RANKING ↗</a></div></section>
+<section class="section-head"><div class="eyebrow">OFFBEAT / A WORLD OF ANIMATION</div><h1>Anime <span class="small-tag">/ アニメ</span></h1><p>Weekly notes, rankings, lists, and the occasional detour.</p>
+<nav aria-label="Anime content types" class="section-nav"><a href="https://snail-panda.github.io/animeb-v1/ranking/2026/fall/week03/index.html">WEEKLY RANKING</a><a href="https://snail-panda.github.io/animeb-v1/tierlist/2026/fall/week01/tierlist.html">TIER LIST</a><a data-anchor-filter="all" href="#animeArticles">POSTS</a><a href="https://snail-panda.github.io/animeb-v1/features/recommend/2026/summer/week12/index.html">RECOMMENDATIONS</a></nav></section>
+<section class="feature"><figure><a href="https://snail-panda.github.io/animeb-v1/ranking/2026/fall/week03/index.html"><img alt="Featured anime key visual" loading="eager" src="https://snail-panda.github.io/animeb-v1/images/key-visuals/2026/fall/cyber.webp"/></a></figure><div><div class="label">LATEST / WEEKLY RANKING</div><h2><a href="https://snail-panda.github.io/animeb-v1/ranking/2026/fall/week03/index.html">2026 Fall —<br/>Weekly Anime Ranking<br/>Week 03</a></h2><p>October 25, 2026</p></div></section>
 <section class="feed" id="animeRecent"><div class="recent"><div class="recent-head"><h2>RECENT POSTS</h2><span>At a glance</span></div><ul class="posts" id="animeRecentPosts"></ul></div></section>
 <section class="feed" id="animeArticles"><div class="recent-head"><h2>POST CARDS &amp; ARCHIVE</h2><span>Grouped by month</span></div>
 <p class="callout">An early layout using links and images from the existing Anime home. Article pages remain untouched.</p>
@@ -388,7 +507,7 @@ function switchView(){
  const nav=document.getElementById('greenNav');
  const navMarkup={
   home:'<a href="#home">OFFBEAT / THE CROOKED PATH</a>',
-  anime:'<span class="bar-links"><span class="current">ANIME</span><a href="#animeRecent">RECENT</a><a href="#animeArticles">POSTS</a><a href="https://snail-panda.github.io/animeb-v1/ranking/2026/fall/week03/index.html">RANKING ↗</a></span>',
+  anime:'<span class="bar-links"><span class="current">ANIME</span><a href="#animeRecent">RECENT</a><a href="#animeArticles">POSTS</a><a href="https://snail-panda.github.io/animeb-v1/ranking/2026/fall/week03/index.html">RANKING</a></span>',
   language:'<span class="bar-links"><a href="#home">OFFBEAT</a><span class="current">LANGUAGE</span><a href="https://swg-entry-page.netlify.app/" target="_blank" rel="noopener noreferrer">FLASHCARDS ↗</a></span>',
   blog:'<span class="bar-links"><a href="#home">OFFBEAT</a><span class="current">BLOG</span></span>'
  };
