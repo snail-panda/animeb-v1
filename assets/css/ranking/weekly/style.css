@@ -4319,3 +4319,18 @@ body[data-animeb-theme="image"][data-animeb-image-scope="full"][data-animeb-full
 body[data-animeb-theme="image"][data-animeb-image-scope="full"]::after {
   z-index: -1; /* Separate photo wash; above the photo, below page content. */
 }
+/* AnimeB r24: independently adjustable translucency and blur */
+body[data-animeb-theme="image"] .ws-modern-toggle,
+body[data-animeb-theme="image"] .ws-modern-details {
+  -webkit-backdrop-filter:blur(var(--animeb-status-backdrop-blur,5px))!important;
+  backdrop-filter:blur(var(--animeb-status-backdrop-blur,5px))!important;
+}
+body[data-animeb-theme="image"] .animeb-weekly-intro {
+  -webkit-backdrop-filter:blur(var(--animeb-intro-backdrop-blur,3px))!important;
+  backdrop-filter:blur(var(--animeb-intro-backdrop-blur,3px))!important;
+}
+.animeb-status-color-subhead {
+  grid-column:1 / -1;padding:9px 2px 5px;margin-top:6px;
+  border-top:1px solid currentColor;opacity:.82;
+  font:600 11px/1.45 'Fira Sans','Yu Gothic UI',sans-serif;
+}

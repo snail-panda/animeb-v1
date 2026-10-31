@@ -259,6 +259,8 @@ function animebInitWeeklyThemes(){
   // The new keys are independent: they do not rewrite the v1 image library/settings.
   const RANK_OPACITY_KEY='animeb-weekly-rank-opacity-v1';
   const STATUS_OPACITY_KEY='animeb-weekly-status-opacity-v1';
+  const INTRO_BLUR_KEY='animeb-weekly-intro-blur-v1';
+  const STATUS_BLUR_KEY='animeb-weekly-status-blur-v1';
   const SEASON_SETTINGS_KEY='animeb-weekly-season-type-v1';
   const PRESETS_KEY='animeb-weekly-background-presets-v1';
   const MIGRATED='animeb-weekly-v434-legacy-gallery-migrated';
@@ -303,6 +305,7 @@ function animebInitWeeklyThemes(){
   };
   const legibility={original:cleanLegibility(),dark:cleanLegibility(),image:cleanLegibility()};
   let rankOpacity=96, statusOpacity=87;
+  let introBlur=3, statusBlur=5;
   let seasonSettings={weight:'auto',style:'auto',size:100};
   let presets=[];
   let imageTone='light', fullFit='cover', imageNatural=null;
@@ -354,6 +357,8 @@ function animebInitWeeklyThemes(){
     introOpacity=clamped(INTRO_KEY,0,100,84);
     rankOpacity=clamped(RANK_OPACITY_KEY,0,100,96);
     statusOpacity=clamped(STATUS_OPACITY_KEY,0,100,87);
+    introBlur=clamped(INTRO_BLUR_KEY,0,12,3);
+    statusBlur=clamped(STATUS_BLUR_KEY,0,12,5);
     const savedSeason=JSON.parse(localStorage.getItem(SEASON_SETTINGS_KEY)||'{}');
     if(savedSeason && typeof savedSeason==='object' && !Array.isArray(savedSeason)){
       seasonSettings.weight=['auto','normal','bold'].includes(savedSeason.weight)?savedSeason.weight:'auto';
@@ -736,7 +741,9 @@ function animebInitWeeklyThemes(){
   posYCtl.input.closest('label').after(anchorLabel,anchorHelp);
   updateAnchorControls();
   const introCtl=mkRange('THIS WEEK PANEL / 本文パネルの不透明度',0,100,1);
+  const introBlurCtl=mkRange('THIS WEEK BLUR / 本文背景のぼかし（px）',0,12,.5);
   const statusCtl=mkRange('VIEWING STATUS / 上部パネルの不透明度',0,100,1);
+  const statusBlurCtl=mkRange('VIEWING STATUS BLUR / 背景のぼかし（px）',0,12,.5);
   const rankCtl=mkRange('RANKING CARDS / ランキング行の不透明度',0,100,1);
   const toneBox=document.createElement('fieldset');toneBox.className='animeb-bg-tone';
   const toneLabel=document.createElement('legend');toneLabel.textContent='IMAGE + COLOR / 背景との組み合わせ';
@@ -757,7 +764,7 @@ function animebInitWeeklyThemes(){
   frameNote.textContent='Compact/Hero/Full Page: enable Move image to drag the photo. Full Page uses its independent pixel offsets. / 全面も画像をドラッグ可能（Tileを除く）。';
   // Optional per-device overrides: do not edit JSON or overwrite the source palette.
   const colorDetails=document.createElement('details');colorDetails.className='animeb-bg-color-options';
-  const colorSummary=document.createElement('summary');colorSummary.textContent='HEADER TEXT COLORS / 見出し文字色（詳細）';
+  const colorSummary=document.createElement('summary');colorSummary.textContent='HEADER + STATUS COLORS / 見出し・視聴状況の文字色';
   const colorRows=document.createElement('div');colorRows.className='animeb-bg-color-grid';
   const colorDefs=[
     ['top','TOP 10 / 共通色','#414344'],
@@ -775,10 +782,20 @@ function animebInitWeeklyThemes(){
     ['seasonName','Season name / 春夏秋冬','#c2572a'],
     ['anime','ANIME / アニメ表記','#999999'],
     ['ranking','RANKING / ランキング表記','#bb6c94'],
-    ['epRange','Episode range / 話数範囲','#749277']
+    ['epRange','Episode range / 話数範囲','#749277'],
+    // Separate foreground colors for the translucent Viewing Status panel.
+    ['statusRanked','TOP 10 / TOP件数','#3f4542'],
+    ['statusTotal','/ 28 / 評価作品総数','#818780'],
+    ['statusRatedLabel','Rated This Week / 下段の説明','#67756c'],
+    ['statusLineupCount','Current Lineup 29 / 右側の数字','#306a4c'],
+    ['statusLineupLabel','Current Lineup / 右側の説明','#67756c']
   ];
   const colorInputs={};
   for(const [key,label,defaultColor] of colorDefs){
+    if(key==='statusRanked'){
+      const caption=document.createElement('div');caption.className='animeb-status-color-subhead';
+      caption.textContent='VIEWING STATUS / 視聴状況パネルの文字色';colorRows.append(caption);
+    }
     const row=document.createElement('label');row.className='animeb-bg-color-row';const name=document.createElement('span');name.textContent=label;
     const input=document.createElement('input');input.type='color';input.value=/^#[0-9a-fA-F]{6}$/.test(customColors[key])?customColors[key]:defaultColor;
     const auto=document.createElement('button');auto.type='button';auto.className='animeb-bg-color-auto';auto.textContent='Auto';
@@ -920,7 +937,9 @@ function animebInitWeeklyThemes(){
     imagePosY=n;
   });
   onRange(introCtl,INTRO_KEY,()=>introOpacity,n=>introOpacity=n);
+  onRange(introBlurCtl,INTRO_BLUR_KEY,()=>introBlur,n=>introBlur=n);
   onRange(statusCtl,STATUS_OPACITY_KEY,()=>statusOpacity,n=>statusOpacity=n);
+  onRange(statusBlurCtl,STATUS_BLUR_KEY,()=>statusBlur,n=>statusBlur=n);
   onRange(rankCtl,RANK_OPACITY_KEY,()=>rankOpacity,n=>rankOpacity=n);
   const scopeHint=document.createElement('p');scopeHint.className='animeb-bg-scope-note';
   scopeHint.textContent='Header area ends above the ranking table. / 上部のみ：ランキング表の直前まで。';
@@ -1040,6 +1059,14 @@ function animebInitWeeklyThemes(){
       ranking:'.wrapper .sub-header .title-ranking',
       epRange:'.wrapper .sub-header .ep-range'
     };
+    // r24b: status-specific color targets (original headline mapping unchanged).
+    Object.assign(selectors,{
+      statusRanked:'.wrapper .ws-modern-headline .ws-modern-ranked',
+      statusTotal:'.wrapper .ws-modern-headline .ws-modern-denominator',
+      statusRatedLabel:'.wrapper .ws-modern-main > span',
+      statusLineupCount:'.wrapper .ws-modern-lineup > strong',
+      statusLineupLabel:'.wrapper .ws-modern-lineup > span'
+    });
     // Group overrides apply FIRST, component-specific overrides SECOND.
     let rules='';
     const valid=color=>/^#[0-9a-fA-F]{6}$/.test(color||'');
@@ -1243,6 +1270,19 @@ function animebInitWeeklyThemes(){
     if(value)document.body.style.setProperty('--animeb-theme-photo',`url("${value}")`);
     else document.body.style.removeProperty('--animeb-theme-photo');
   }
+  // AnimeB r24 stable viewport: small-viewport camera height avoids mobile URL-bar resize zoom jumps.
+  let fullViewportCache={width:0,height:0};
+  function stableFullViewportHeight(){
+    const width=window.innerWidth;
+    if(fullViewportCache.width!==width || !fullViewportCache.height){
+      const probe=document.createElement('div');
+      probe.style.cssText='position:fixed;left:-10px;top:0;width:0;height:100svh;visibility:hidden;pointer-events:none';
+      document.body.append(probe);
+      const measured=Math.round(probe.getBoundingClientRect().height);probe.remove();
+      fullViewportCache={width,height:measured>0?measured:Math.max(1,window.innerHeight)};
+    }
+    return fullViewportCache.height;
+  }
   function updateHeroExtent(){
     if(theme!=='image')return;
     const wrapper=document.querySelector('.wrapper');
@@ -1261,7 +1301,8 @@ function animebInitWeeklyThemes(){
       height=Math.max(180,Math.round(bottom-wrapperTop-expandedOverviewHeight-8));
       wrapper.style.setProperty('--animeb-image-header-height',height+'px');
     }
-    const viewportHeight=Math.max(1,window.innerHeight);
+    const viewportHeight=imageScope==='full'&&window.innerWidth<=768
+      ?stableFullViewportHeight():Math.max(1,window.innerHeight);
     const targetWidth=imageScope==='full'?window.innerWidth:Math.max(1,wrapper.getBoundingClientRect().width);
     // Image framing used to be recomputed from the variable header height.
     // No "THIS WEEK" made the hero short, changing BOTH image zoom and
@@ -1339,7 +1380,9 @@ function animebInitWeeklyThemes(){
     zoomCtl.value.textContent=(imageScope==='full'?fullZoom:imageZoom)+'%';zoomCtl.input.value=String(imageScope==='full'?fullZoom:imageZoom);
     posXCtl.value.textContent=imagePosX+'%';posYCtl.value.textContent=imagePosY+'%';
     introCtl.value.textContent=introOpacity+'%';
+    introBlurCtl.value.textContent=introBlur+'px';
     statusCtl.value.textContent=statusOpacity+'%';
+    statusBlurCtl.value.textContent=statusBlur+'px';
     rankCtl.value.textContent=rankOpacity+'%';
     document.body.style.setProperty('--animeb-image-x',
       id==='image' && imageScope==='full'
@@ -1349,7 +1392,8 @@ function animebInitWeeklyThemes(){
       id==='image'&&imageScope==='full'?`calc(${imagePosY}% + ${fullPan.y}px)`:imagePosY+'%');
     document.body.style.setProperty('--animeb-intro-opacity',(introOpacity/100).toFixed(2));
     document.body.style.setProperty('--animeb-status-opacity',(statusOpacity/100).toFixed(2));
-    document.body.style.setProperty('--animeb-status-backdrop-blur',statusOpacity===0?'0px':'5px');
+    document.body.style.setProperty('--animeb-status-backdrop-blur',(statusOpacity===0?0:statusBlur)+'px');
+    document.body.style.setProperty('--animeb-intro-backdrop-blur',(introOpacity===0?0:introBlur)+'px');
     document.body.style.setProperty('--animeb-rank-opacity',(rankOpacity/100).toFixed(2));
     document.body.style.setProperty('--animeb-image-photo-opacity',(photoOpacity/100).toFixed(2));
     opacityValue.textContent=photoOpacity+'%';
@@ -1424,7 +1468,7 @@ function animebInitWeeklyThemes(){
     return {theme,url,source,localId,imageScope,imageVisibility,photoOpacity,
       weekStyle,imageZoom,imagePosX,imagePosY,statusAnchor:{...statusAnchor},
       anchorModel:{...anchorModel},imageDrag:{...imageDrag},fullPan:{...fullPan},fullZoom,
-      legibility:{...legibility[theme]},introOpacity,statusOpacity,rankOpacity,
+      legibility:{...legibility[theme]},introOpacity,statusOpacity,rankOpacity,introBlur,statusBlur,
       imageTone,fullFit,customColors:{...customColors},seasonSettings:{...seasonSettings}};
   }
   function savePresetList(){
@@ -1443,6 +1487,7 @@ function animebInitWeeklyThemes(){
         [SCOPE_KEY,imageScope],[VIS_KEY,imageVisibility],[PHOTO_OPACITY_KEY,photoOpacity],
         [WEEK_STYLE_KEY,weekStyle],[ZOOM_KEY,imageZoom],[POSX_KEY,imagePosX],
         [POSY_KEY,imagePosY],[INTRO_KEY,introOpacity],[STATUS_OPACITY_KEY,statusOpacity],
+        [INTRO_BLUR_KEY,introBlur],[STATUS_BLUR_KEY,statusBlur],
         [RANK_OPACITY_KEY,rankOpacity],[TONE_KEY,imageTone],[FIT_KEY,fullFit]])localStorage.setItem(key,String(val));
       saveHeaderProfile();saveAnchorModel();saveImageDrag();saveFullPan();try{localStorage.setItem(FULL_ZOOM_KEY,String(fullZoom));}catch(_){}saveLegibility();
     }catch(_){presetStatus.textContent='Loaded for this page, but browser storage is unavailable. / 保存領域にアクセスできません。';}
@@ -1452,6 +1497,7 @@ function animebInitWeeklyThemes(){
     visibilityRange.value=String(imageVisibility);opacityRange.value=String(photoOpacity);
     zoomCtl.input.value=String(imageZoom);posXCtl.input.value=String(imagePosX);posYCtl.input.value=String(imagePosY);
     introCtl.input.value=String(introOpacity);statusCtl.input.value=String(statusOpacity);rankCtl.input.value=String(rankOpacity);
+    introBlurCtl.input.value=String(introBlur);statusBlurCtl.input.value=String(statusBlur);
     fitSelect.value=fullFit;input.value=url;syncFullCamera();zoomCtl.input.value=String(imageScope==='full'?fullZoom:imageZoom);
     for(const [key,,fallback] of colorDefs)colorInputs[key].value=/^#[0-9a-fA-F]{6}$/.test(customColors[key]||'')?customColors[key]:fallback;
     refreshSeasonButtons();applyColors();refreshAllColorAuto();
@@ -1504,6 +1550,11 @@ function animebInitWeeklyThemes(){
     introOpacity=fromPresetOpacity(state.introOpacity,84);
     statusOpacity=fromPresetOpacity(state.statusOpacity,87);
     rankOpacity=fromPresetOpacity(state.rankOpacity,96);
+    // Older presets retain their previous 3px / 5px look unless edited.
+    const fromPresetBlur=(value,fallback)=>Number.isFinite(Number(value))&&value!==null&&value!==undefined
+      ?Math.max(0,Math.min(12,Number(value))):fallback;
+    introBlur=fromPresetBlur(state.introBlur,3);
+    statusBlur=fromPresetBlur(state.statusBlur,5);
     imageTone=['light','dark'].includes(state.imageTone)?state.imageTone:'light';
     fullFit=['cover','contain','tile'].includes(state.fullFit)?state.fullFit:'cover';
     customColors=state.customColors && typeof state.customColors==='object'?{...state.customColors}:{};
