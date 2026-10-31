@@ -247,6 +247,9 @@ function animebInitWeeklyThemes(){
   const ANCHOR_KEY='animeb-weekly-image-status-anchor-v1'; // r9 recovery copy, not overwritten by r10
   const ANCHOR_V2_KEY='animeb-weekly-image-anchor-mode-v2';
   const DRAG_KEY='animeb-weekly-image-drag-offset-v1';
+  /* AnimeB Theme Studio r22 */
+  const FULL_PAN_KEY='animeb-weekly-full-page-camera-v1';
+  const FULL_ZOOM_KEY='animeb-weekly-full-page-zoom-v1';
   const LEGIBILITY_KEY='animeb-weekly-header-legibility-v1';
   const INTRO_KEY='animeb-weekly-image-intro-opacity-v1';
   const TONE_KEY='animeb-weekly-image-tone-v1';
@@ -275,6 +278,9 @@ function animebInitWeeklyThemes(){
   // r11: extra drag translation. On anchored images, vertical drag instead
   // edits the source-image fraction so VIEWING remains locked across modes.
   let imageDrag={x:0,y:0};
+  // Separate viewport-fixed pan in CSS pixels; Compact and Hero never use it.
+  let fullPan={x:0,y:0};
+  let fullZoom=100;
   // r16 precision controls. Legacy r11-r15 integer values are kept as recovery
   // fields; the new pixel/percentage values reproduce their appearance on load.
   const strokeWidths=[0,.35,.7,1,1.5,2,3];
@@ -337,7 +343,11 @@ function animebInitWeeklyThemes(){
     }
     const storedDrag=JSON.parse(localStorage.getItem(DRAG_KEY)||'null');
     if(Number.isFinite(storedDrag?.x)&&Number.isFinite(storedDrag?.y))
-      imageDrag={x:Math.max(-3000,Math.min(3000,storedDrag.x)),y:Math.max(-3000,Math.min(3000,storedDrag.y))};
+       imageDrag={x:Math.max(-3000,Math.min(3000,storedDrag.x)),y:Math.max(-3000,Math.min(3000,storedDrag.y))};
+    const storedFullPan=JSON.parse(localStorage.getItem(FULL_PAN_KEY)||'null');
+    if(Number.isFinite(storedFullPan?.x)&&Number.isFinite(storedFullPan?.y))
+      fullPan={x:Math.max(-1000,Math.min(1000,storedFullPan.x)),y:Math.max(-1000,Math.min(1000,storedFullPan.y))};
+    fullZoom=clamped(FULL_ZOOM_KEY,5,320,imageZoom);
     const storedLegibility=JSON.parse(localStorage.getItem(LEGIBILITY_KEY)||'null');
     if(storedLegibility && typeof storedLegibility==='object')
       for(const t of ['original','dark','image'])legibility[t]=cleanLegibility(storedLegibility[t]);
@@ -524,6 +534,7 @@ function animebInitWeeklyThemes(){
   // Touch, mouse and pen all move the *real* source framing, not a fake preview.
   // Geometry is read from the scaled page layer rendered by r8.
   const saveImageDrag=()=>{try{localStorage.setItem(DRAG_KEY,JSON.stringify(imageDrag));}catch(_){}};
+  const saveFullPan=()=>{try{localStorage.setItem(FULL_PAN_KEY,JSON.stringify(fullPan));}catch(_){}};
   const saveLegibility=()=>{try{localStorage.setItem(LEGIBILITY_KEY,JSON.stringify(legibility));}catch(_){}};
   const dragSwitch=document.createElement('label');dragSwitch.className='animeb-preview-drag-toggle';
   const dragInput=document.createElement('input');dragInput.type='checkbox';dragInput.checked=false;
@@ -532,10 +543,20 @@ function animebInitWeeklyThemes(){
   previewStage.dataset.drag='off';
   dragInput.addEventListener('change',()=>{previewStage.dataset.drag=dragInput.checked?'on':'off';});
   let previewDrag=null,previewDragFrame=0;
-  const previewDragEnabled=()=>dragInput.checked && theme==='image' && !panel.hidden && imageScope!=='full' &&
-    fullFit!=='tile' && imageNatural?.width>0 && imageNatural?.height>0;
+  const previewDragEnabled=()=>dragInput.checked && theme==='image' && !panel.hidden &&
+    fullFit!=='tile' && (imageScope==='full' || (imageNatural?.width>0 && imageNatural?.height>0));
   previewStage.addEventListener('pointerdown',event=>{
     if(!previewDragEnabled() || (event.pointerType==='mouse' && event.button!==0))return;
+    if(imageScope==='full'){
+      // Real viewport layer, not the wrapper; move in fixed CSS pixels.
+      const scale=previewPhoto.getBoundingClientRect().width/Math.max(1,window.innerWidth);
+      if(!Number.isFinite(scale)||scale<=0)return;
+      previewDrag={pointer:event.pointerId,full:true,scale,x:fullPan.x,y:fullPan.y,
+        startX:event.clientX,startY:event.clientY};
+      previewStage.setPointerCapture(event.pointerId);
+      previewStage.classList.add('animeb-preview-dragging');event.preventDefault();
+      return;
+    }
     const wrapper=document.querySelector('.wrapper');
     const sourceWidth=wrapper?.getBoundingClientRect().width||0;
     const visibleWidth=previewPhoto.getBoundingClientRect().width;
@@ -550,6 +571,14 @@ function animebInitWeeklyThemes(){
   });
   previewStage.addEventListener('pointermove',event=>{
     const d=previewDrag;if(!d || d.pointer!==event.pointerId)return;
+    if(d.full){
+      fullPan.x=Math.max(-1000,Math.min(1000,Math.round(d.x+(event.clientX-d.startX)/d.scale)));
+      fullPan.y=Math.max(-1000,Math.min(1000,Math.round(d.y+(event.clientY-d.startY)/d.scale)));
+      if(!previewDragFrame)previewDragFrame=requestAnimationFrame(()=>{
+        previewDragFrame=0;syncFullCamera();apply(theme,false);
+      });
+      event.preventDefault();return;
+    }
     const dx=(event.clientX-d.startX)/d.scale;
     const dy=(event.clientY-d.startY)/d.scale;
     imageDrag.x=Math.max(-3000,Math.min(3000,d.x+dx));
@@ -563,7 +592,7 @@ function animebInitWeeklyThemes(){
   const endPreviewDrag=event=>{
     if(!previewDrag || previewDrag.pointer!==event.pointerId)return;
     previewDrag=null;previewStage.classList.remove('animeb-preview-dragging');
-    saveImageDrag();saveAnchorModel();
+    saveImageDrag();saveAnchorModel();saveFullPan();
     if(previewDragFrame)cancelAnimationFrame(previewDragFrame);
     previewDragFrame=0;apply(theme,false);
   };
@@ -582,6 +611,40 @@ function animebInitWeeklyThemes(){
   const zoomCtl=mkRange('ZOOM / 拡大・縮小',5,320,5);
   const posXCtl=mkRange('HORIZONTAL / 左右位置',-450,650,1);
   const posYCtl=mkRange('VERTICAL / 上下位置',-450,650,1);
+  const fullCamera=document.createElement('fieldset');fullCamera.className='animeb-bg-full-camera';
+  const fullCameraTitle=document.createElement('legend');
+  fullCameraTitle.textContent='FULL PAGE CAMERA / 全画面の位置調整';fullCamera.append(fullCameraTitle);
+  const fullCameraHint=document.createElement('p');
+  fullCameraHint.textContent='Move the viewport-fixed photo in pixels. The ZOOM slider above is independent in Full Page. Compact/Hero and their anchors are unchanged. / 全面背景だけをピクセル単位で移動。上のZOOMは全面専用の倍率を保存。';
+  fullCamera.append(fullCameraHint);
+  const fullCameraCtl=(axis,label)=>{
+    const row=document.createElement('label');row.className='animeb-full-camera-row';
+    const title=document.createElement('span');title.textContent=label;
+    const output=document.createElement('output');
+    const range=document.createElement('input');range.type='range';range.min='-1000';range.max='1000';range.step='1';
+    const buttons=document.createElement('span');buttons.className='animeb-full-camera-fine';
+    for(const [text,delta] of [['−10',-10],['−1',-1],['+1',1],['+10',10]]){
+      const b=document.createElement('button');b.type='button';b.textContent=text;
+      b.addEventListener('click',()=>{range.value=String(Math.max(-1000,Math.min(1000,Number(range.value)+delta)));range.dispatchEvent(new Event('input',{bubbles:true}));});
+      buttons.append(b);
+    }
+    row.append(title,output,range,buttons);fullCamera.append(row);
+    range.addEventListener('input',()=>{fullPan[axis]=Number(range.value);saveFullPan();syncFullCamera();apply(theme,false);});
+    return {range,output};
+  };
+  const fullCameraX=fullCameraCtl('x','HORIZONTAL OFFSET / 左右の移動 (px)');
+  const fullCameraY=fullCameraCtl('y','VERTICAL OFFSET / 上端の移動 (px)');
+  const fullCameraReset=document.createElement('button');fullCameraReset.type='button';
+  fullCameraReset.className='animeb-full-camera-reset';fullCameraReset.textContent='Reset Full Page offsets / 全面位置をリセット';
+  fullCameraReset.addEventListener('click',()=>{fullPan={x:0,y:0};saveFullPan();syncFullCamera();apply(theme,false);});
+  fullCamera.append(fullCameraReset);
+  function syncFullCamera(){
+    fullCameraX.range.value=String(Math.max(-1000,Math.min(1000,fullPan.x)));
+    fullCameraY.range.value=String(Math.max(-1000,Math.min(1000,fullPan.y)));
+    fullCameraX.output.textContent=Math.round(fullPan.x)+'px';
+    fullCameraY.output.textContent=Math.round(fullPan.y)+'px';
+  }
+  syncFullCamera();
   const verticalFine=document.createElement('div');verticalFine.className='animeb-vertical-fine';
   const verticalFineLabel=document.createElement('span');verticalFineLabel.textContent='Fine tune / 微調整';
   verticalFine.append(verticalFineLabel);
@@ -691,7 +754,7 @@ function animebInitWeeklyThemes(){
   });fitSelect.value=fullFit;fitRow.append(fitLabel,fitSelect);
   fitSelect.addEventListener('change',()=>{fullFit=fitSelect.value;try{localStorage.setItem(FIT_KEY,fullFit);}catch(_){}apply(theme,false);});
   const frameNote=document.createElement('p');frameNote.className='animeb-bg-frame-note';
-  frameNote.textContent='Compact / Hero：上のプレビュー画像を直接ドラッグして位置調整。スライダーでも微調整できます。Full Page・Tileは従来通り。';
+  frameNote.textContent='Compact/Hero/Full Page: enable Move image to drag the photo. Full Page uses its independent pixel offsets. / 全面も画像をドラッグ可能（Tileを除く）。';
   // Optional per-device overrides: do not edit JSON or overwrite the source palette.
   const colorDetails=document.createElement('details');colorDetails.className='animeb-bg-color-options';
   const colorSummary=document.createElement('summary');colorSummary.textContent='HEADER TEXT COLORS / 見出し文字色（詳細）';
@@ -829,7 +892,16 @@ function animebInitWeeklyThemes(){
       set(Number(ctl.input.value));try{localStorage.setItem(key,String(get()));}catch(_){}apply(theme,false);
     });
   };
-  onRange(zoomCtl,ZOOM_KEY,()=>imageZoom,n=>imageZoom=n);
+  zoomCtl.input.value=String(imageScope==='full'?fullZoom:imageZoom);
+  zoomCtl.input.addEventListener('input',()=>{
+    const value=Number(zoomCtl.input.value);
+    if(imageScope==='full'){
+      fullZoom=value;try{localStorage.setItem(FULL_ZOOM_KEY,String(fullZoom));}catch(_){}
+    }else{
+      imageZoom=value;try{localStorage.setItem(ZOOM_KEY,String(imageZoom));}catch(_){}
+    }
+    apply(theme,false);
+  });
   onRange(posXCtl,POSX_KEY,()=>imagePosX,n=>imagePosX=n);
   onRange(posYCtl,POSY_KEY,()=>imagePosY,n=>{
     const delta=n-imagePosY;
@@ -851,7 +923,7 @@ function animebInitWeeklyThemes(){
   onRange(rankCtl,RANK_OPACITY_KEY,()=>rankOpacity,n=>rankOpacity=n);
   const scopeHint=document.createElement('p');scopeHint.className='animeb-bg-scope-note';
   scopeHint.textContent='Header area ends above the ranking table. / 上部のみ：ランキング表の直前まで。';
-  imageOptions.append(placementLegend,scopeChoices,visibilityLabel,opacityLabel,scopeHint,frame,toneBox,fitRow,frameNote);
+  imageOptions.append(placementLegend,scopeChoices,visibilityLabel,opacityLabel,scopeHint,frame,fullCamera,toneBox,fitRow,frameNote);
   // Presets live in the theme panel (outside the image-only field), so Original
   // and Dark appearances can be saved as well. Photos are referenced by gallery ID.
   const presetBox=document.createElement('fieldset');presetBox.className='animeb-bg-presets';
@@ -1216,7 +1288,7 @@ function animebInitWeeklyThemes(){
       const ratio=fullFit==='tile'?Math.min(1,240/imageNatural.width):
         (fullFit==='contain'?Math.min(targetWidth/imageNatural.width,targetHeight/imageNatural.height):
         Math.max(targetWidth/imageNatural.width,targetHeight/imageNatural.height));
-      const factor=ratio*(imageZoom/100);
+      const factor=ratio*((imageScope===
       sizing=`${Math.round(imageNatural.width*factor)}px ${Math.round(imageNatural.height*factor)}px`;
     }
     document.body.style.setProperty('--animeb-image-size',sizing);
@@ -1261,15 +1333,19 @@ function animebInitWeeklyThemes(){
     heroSpacer.hidden=!(id==='image'&&(imageScope==='hero'||imageScope==='full'));
     for(const [key,el] of Object.entries(toneButtons))el.setAttribute('aria-pressed',String(key===imageTone));
     fitRow.hidden=false;
+    fullCamera.hidden=!(id==='image'&&imageScope==='full');
     fitLabel.textContent=imageScope==='full'?'FULL PAGE FIT / 全面時の画像配置':'IMAGE FIT / 背景画像の収まり方';
-    zoomCtl.value.textContent=imageZoom+'%';
+    zoomCtl.value.textContent=(imageScope==='full'?fullZoom:imageZoom)+'%';zoomCtl.input.value=String(imageScope==='full'?fullZoom:imageZoom);
     posXCtl.value.textContent=imagePosX+'%';posYCtl.value.textContent=imagePosY+'%';
     introCtl.value.textContent=introOpacity+'%';
     statusCtl.value.textContent=statusOpacity+'%';
     rankCtl.value.textContent=rankOpacity+'%';
     document.body.style.setProperty('--animeb-image-x',
-      id==='image' && imageScope!=='full'?`calc(${imagePosX}% + ${imageDrag.x.toFixed(2)}px)`:imagePosX+'%');
-    document.body.style.setProperty('--animeb-image-y',imagePosY+'%');
+      id==='image' && imageScope==='full'
+        ?`calc(${imagePosX}% + ${fullPan.x}px)`
+        :id==='image'?`calc(${imagePosX}% + ${imageDrag.x.toFixed(2)}px)`:imagePosX+'%');
+    document.body.style.setProperty('--animeb-image-y',
+      id==='image'&&imageScope==='full'?`calc(${imagePosY}% + ${fullPan.y}px)`:imagePosY+'%');
     document.body.style.setProperty('--animeb-intro-opacity',(introOpacity/100).toFixed(2));
     document.body.style.setProperty('--animeb-status-opacity',(statusOpacity/100).toFixed(2));
     document.body.style.setProperty('--animeb-status-backdrop-blur',statusOpacity===0?'0px':'5px');
@@ -1346,7 +1422,7 @@ function animebInitWeeklyThemes(){
   function snapshot(){
     return {theme,url,source,localId,imageScope,imageVisibility,photoOpacity,
       weekStyle,imageZoom,imagePosX,imagePosY,statusAnchor:{...statusAnchor},
-      anchorModel:{...anchorModel},imageDrag:{...imageDrag},
+      anchorModel:{...anchorModel},imageDrag:{...imageDrag},fullPan:{...fullPan},fullZoom,
       legibility:{...legibility[theme]},introOpacity,statusOpacity,rankOpacity,
       imageTone,fullFit,customColors:{...customColors},seasonSettings:{...seasonSettings}};
   }
@@ -1367,7 +1443,7 @@ function animebInitWeeklyThemes(){
         [WEEK_STYLE_KEY,weekStyle],[ZOOM_KEY,imageZoom],[POSX_KEY,imagePosX],
         [POSY_KEY,imagePosY],[INTRO_KEY,introOpacity],[STATUS_OPACITY_KEY,statusOpacity],
         [RANK_OPACITY_KEY,rankOpacity],[TONE_KEY,imageTone],[FIT_KEY,fullFit]])localStorage.setItem(key,String(val));
-      saveHeaderProfile();saveAnchorModel();saveImageDrag();saveLegibility();
+      saveHeaderProfile();saveAnchorModel();saveImageDrag();saveFullPan();try{localStorage.setItem(FULL_ZOOM_KEY,String(fullZoom));}catch(_){}saveLegibility();
     }catch(_){presetStatus.textContent='Loaded for this page, but browser storage is unavailable. / 保存領域にアクセスできません。';}
   }
   function syncControls(){
@@ -1375,7 +1451,7 @@ function animebInitWeeklyThemes(){
     visibilityRange.value=String(imageVisibility);opacityRange.value=String(photoOpacity);
     zoomCtl.input.value=String(imageZoom);posXCtl.input.value=String(imagePosX);posYCtl.input.value=String(imagePosY);
     introCtl.input.value=String(introOpacity);statusCtl.input.value=String(statusOpacity);rankCtl.input.value=String(rankOpacity);
-    fitSelect.value=fullFit;input.value=url;
+    fitSelect.value=fullFit;input.value=url;syncFullCamera();zoomCtl.input.value=String(imageScope===
     for(const [key,,fallback] of colorDefs)colorInputs[key].value=/^#[0-9a-fA-F]{6}$/.test(customColors[key]||'')?customColors[key]:fallback;
     refreshSeasonButtons();applyColors();refreshAllColorAuto();
   }
@@ -1406,7 +1482,11 @@ function animebInitWeeklyThemes(){
     imageDrag=Number.isFinite(state.imageDrag?.x)&&Number.isFinite(state.imageDrag?.y)
       ? {x:Math.max(-3000,Math.min(3000,state.imageDrag.x)),
          y:Math.max(-3000,Math.min(3000,state.imageDrag.y))}:{x:0,y:0};
-    if(state.legibility)legibility[theme]=cleanLegibility(state.legibility);
+     fullPan=Number.isFinite(state.fullPan?.x)&&Number.isFinite(state.fullPan?.y)
+       ?{x:Math.max(-1000,Math.min(1000,state.fullPan.x)),y:Math.max(-1000,Math.min(1000,state.fullPan.y))}
+       :{x:0,y:0};
+     fullZoom=Number.isFinite(Number(state.fullZoom))?Math.max(5,Math.min(320,Number(state.fullZoom))):imageZoom;
+     if(state.legibility)legibility[theme]=cleanLegibility(state.legibility);
     // A v1/v9 preset lacking the r10 model loads in FREE mode, with no
     // surprise remapping. The original preset object remains untouched.
     const savedModel=state.anchorModel;
