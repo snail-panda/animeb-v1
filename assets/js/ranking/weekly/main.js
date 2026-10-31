@@ -250,6 +250,7 @@ function animebInitWeeklyThemes(){
   /* AnimeB Theme Studio r22 */
   const FULL_PAN_KEY='animeb-weekly-full-page-camera-v1';
   const FULL_ZOOM_KEY='animeb-weekly-full-page-zoom-v1';
+  const FULL_ANCHOR_KEY='animeb-weekly-full-page-top-anchor-v1';
   const LEGIBILITY_KEY='animeb-weekly-header-legibility-v1';
   const INTRO_KEY='animeb-weekly-image-intro-opacity-v1';
   const TONE_KEY='animeb-weekly-image-tone-v1';
@@ -283,6 +284,8 @@ function animebInitWeeklyThemes(){
   // Separate viewport-fixed pan in CSS pixels; Compact and Hero never use it.
   let fullPan={x:0,y:0};
   let fullZoom=100;
+  // AnimeB r26 Full Page TOP source-point anchor (not the Compact/Hero anchorModel).
+  let fullAnchor={enabled:false,fraction:0};
   // r16 precision controls. Legacy r11-r15 integer values are kept as recovery
   // fields; the new pixel/percentage values reproduce their appearance on load.
   const strokeWidths=[0,.35,.7,1,1.5,2,3];
@@ -351,6 +354,9 @@ function animebInitWeeklyThemes(){
     if(Number.isFinite(storedFullPan?.x)&&Number.isFinite(storedFullPan?.y))
       fullPan={x:Math.max(-1000,Math.min(1000,storedFullPan.x)),y:Math.max(-1000,Math.min(1000,storedFullPan.y))};
     fullZoom=clamped(FULL_ZOOM_KEY,5,320,imageZoom);
+    const storedFullAnchor=JSON.parse(localStorage.getItem(FULL_ANCHOR_KEY)||'null');
+    if(storedFullAnchor?.enabled===true && Number.isFinite(storedFullAnchor.fraction))
+      fullAnchor={enabled:true,fraction:Math.max(-10,Math.min(10,storedFullAnchor.fraction))};
     const storedLegibility=JSON.parse(localStorage.getItem(LEGIBILITY_KEY)||'null');
     if(storedLegibility && typeof storedLegibility==='object')
       for(const t of ['original','dark','image'])legibility[t]=cleanLegibility(storedLegibility[t]);
@@ -540,6 +546,29 @@ function animebInitWeeklyThemes(){
   // Geometry is read from the scaled page layer rendered by r8.
   const saveImageDrag=()=>{try{localStorage.setItem(DRAG_KEY,JSON.stringify(imageDrag));}catch(_){}};
   const saveFullPan=()=>{try{localStorage.setItem(FULL_PAN_KEY,JSON.stringify(fullPan));}catch(_){}};
+  const saveFullAnchor=()=>{try{localStorage.setItem(FULL_ANCHOR_KEY,JSON.stringify(fullAnchor));}catch(_){}};
+  function fullAnchorHeight(){
+    const text=document.body.style.getPropertyValue('--animeb-image-size').trim().split(/\s+/);
+    const h=Number.parseFloat(text[1]);return Number.isFinite(h)&&h>0?h:null;
+  }
+  let fullAnchorTopCache={width:0,line:null};
+  function fullAnchorTopLine(){
+    // The navbar is STICKY: both offsetTop and rect.bottom+scrollY move
+    // when scrolled. Cache a fixed viewport baseline per window width.
+    const width=window.innerWidth;
+    if(fullAnchorTopCache.width!==width || fullAnchorTopCache.line===null){
+      const nav=document.querySelector('.nav-bar');
+      const line=nav?nav.getBoundingClientRect().bottom:0;
+      fullAnchorTopCache={width,line:Math.max(0,Math.min(200,line))};
+    }
+    return fullAnchorTopCache.line;
+  }
+  function shiftFullAnchorY(delta){
+    if(!fullAnchor.enabled || imageScope!=='full' || fullFit==='tile')return;
+    const h=fullAnchorHeight();if(!h)return;
+    fullAnchor.fraction=Math.max(-10,Math.min(10,fullAnchor.fraction-delta/h));
+    saveFullAnchor();
+  }
   const saveLegibility=()=>{try{localStorage.setItem(LEGIBILITY_KEY,JSON.stringify(legibility));}catch(_){}};
   const dragSwitch=document.createElement('label');dragSwitch.className='animeb-preview-drag-toggle';
   const dragInput=document.createElement('input');dragInput.type='checkbox';dragInput.checked=false;
@@ -557,6 +586,7 @@ function animebInitWeeklyThemes(){
       const scale=previewPhoto.getBoundingClientRect().width/Math.max(1,window.innerWidth);
       if(!Number.isFinite(scale)||scale<=0)return;
       previewDrag={pointer:event.pointerId,full:true,scale,x:fullPan.x,y:fullPan.y,
+        fraction:fullAnchor.fraction,anchored:fullAnchor.enabled,pictureHeight:fullAnchorHeight(),
         startX:event.clientX,startY:event.clientY};
       previewStage.setPointerCapture(event.pointerId);
       previewStage.classList.add('animeb-preview-dragging');event.preventDefault();
@@ -579,6 +609,9 @@ function animebInitWeeklyThemes(){
     if(d.full){
       fullPan.x=Math.max(-1000,Math.min(1000,Math.round(d.x+(event.clientX-d.startX)/d.scale)));
       fullPan.y=Math.max(-1000,Math.min(1000,Math.round(d.y+(event.clientY-d.startY)/d.scale)));
+      if(d.anchored && d.pictureHeight){
+        fullAnchor.fraction=Math.max(-10,Math.min(10,d.fraction-(event.clientY-d.startY)/(d.scale*d.pictureHeight)));
+      }
       if(!previewDragFrame)previewDragFrame=requestAnimationFrame(()=>{
         previewDragFrame=0;syncFullCamera();apply(theme,false);
       });
@@ -597,7 +630,7 @@ function animebInitWeeklyThemes(){
   const endPreviewDrag=event=>{
     if(!previewDrag || previewDrag.pointer!==event.pointerId)return;
     previewDrag=null;previewStage.classList.remove('animeb-preview-dragging');
-    saveImageDrag();saveAnchorModel();saveFullPan();
+    saveImageDrag();saveAnchorModel();saveFullPan();saveFullAnchor();
     if(previewDragFrame)cancelAnimationFrame(previewDragFrame);
     previewDragFrame=0;apply(theme,false);
   };
@@ -649,14 +682,21 @@ function animebInitWeeklyThemes(){
       buttons.append(b);
     }
     row.append(title,output,range,buttons);fullCamera.append(row);
-    range.addEventListener('input',()=>{fullPan[axis]=Number(range.value);saveFullPan();syncFullCamera();apply(theme,false);updateHeroExtent();});
+    range.addEventListener('input',()=>{
+      const next=Number(range.value);
+      if(axis==='y')shiftFullAnchorY(next-fullPan.y);
+      fullPan[axis]=next;saveFullPan();syncFullCamera();apply(theme,false);updateHeroExtent();
+    });
     return {range,output};
   };
   const fullCameraX=fullCameraCtl('x','HORIZONTAL OFFSET / 左右の移動 (px)');
   const fullCameraY=fullCameraCtl('y','VERTICAL OFFSET / 上端の移動 (px)');
   const fullCameraReset=document.createElement('button');fullCameraReset.type='button';
   fullCameraReset.className='animeb-full-camera-reset';fullCameraReset.textContent='Reset Full Page offsets / 全面位置をリセット';
-  fullCameraReset.addEventListener('click',()=>{fullPan={x:0,y:0};saveFullPan();syncFullCamera();apply(theme,false);updateHeroExtent();});
+  fullCameraReset.addEventListener('click',()=>{
+    shiftFullAnchorY(-fullPan.y);
+    fullPan={x:0,y:0};saveFullPan();syncFullCamera();apply(theme,false);updateHeroExtent();
+  });
   fullCamera.append(fullCameraReset);
   function syncFullCamera(){
     fullCameraX.range.value=String(Math.max(-1000,Math.min(1000,fullPan.x)));
@@ -711,11 +751,14 @@ function animebInitWeeklyThemes(){
   function updateAnchorControls(){
     const full=imageScope==='full',tile=fullFit==='tile';
     for(const [mode,button] of Object.entries(anchorButtons)){
-      button.setAttribute('aria-pressed',String(anchorModel.mode===mode));
-      button.disabled=(full||tile)&&mode!=='free';
+      const selected=full?(mode===(fullAnchor.enabled?'top':'free')):(anchorModel.mode===mode);
+      button.setAttribute('aria-pressed',String(selected));
+      button.disabled=tile&&mode!=='free' || (full&&mode==='status');
     }
-    anchorHelp.textContent=full
-      ? 'Full Pageは画面固定のため従来表示です。Compact/Heroへ戻ると選択した基準を使用します。'
+    anchorHelp.textContent=full && !tile
+      ? fullAnchor.enabled
+        ? 'Full Page TOP: 緑のナビバー下端に選んだ画像内の一点を固定。画面幅を変えても基準点を保持します。上下移動は基準点を再設定します。'
+        : 'Full Page: TOPを押すと、現在ナビバー下端にある画像内の地点を記憶します。Compact/Heroの基準は変更しません。'
       :tile
         ? 'Tileでは位置固定しません。Cover/Containで利用できます。'
         :anchorModel.mode==='status'
@@ -725,6 +768,28 @@ function animebInitWeeklyThemes(){
             : '従来の自由な画像位置調整です。Top／Viewing Statusを選ぶと、現在表示中の画像の地点を記憶します。';
   }
   function captureAnchor(mode){
+    if(imageScope==='full'){
+      if(mode==='free'){
+        fullAnchor={enabled:false,fraction:0};saveFullAnchor();apply(theme,false);return;
+      }
+      if(mode!=='top'||theme!=='image'||fullFit==='tile'||!imageNatural?.height){
+        anchorHelp.textContent='Full Page TOPはImageのFill Screen / Entire Imageで利用できます。';return;
+      }
+      updateHeroExtent();
+      const h=fullAnchorHeight();
+      const viewportHeight=Number(document.querySelector('.wrapper')?.dataset.animebCameraHeight);
+      if(!h||!Number.isFinite(viewportHeight)){
+        anchorHelp.textContent='画像が読み込まれてからTOPを選んでください。';return;
+      }
+      const freeY=(viewportHeight-h)*(imagePosY/100)+fullPan.y;
+      const desktopFull=window.innerWidth>768&&window.matchMedia('(pointer:fine)').matches;
+      // r25b clamps positive Free Y to zero on desktop. Capture the actual
+      // visible coordinate rather than the unclamped candidate.
+      const currentY=fullAnchor.enabled?fullAnchorTopLine()-fullAnchor.fraction*h
+        :(desktopFull?Math.min(0,freeY):freeY);
+      fullAnchor={enabled:true,fraction:Math.max(-10,Math.min(10,(fullAnchorTopLine()-currentY)/h))};
+      saveFullAnchor();apply(theme,false);updateHeroExtent();return;
+    }
     if(mode==='free'){anchorModel={mode:'free',fraction:0,cameraRatio:0};saveAnchorModel();apply(theme,false);return;}
     if(theme!=='image'||imageScope==='full'||fullFit==='tile'||!imageNatural?.height||!imageNatural?.width){
       anchorHelp.textContent='先にImage・Compact/Heroを選び、画像の読み込み後に設定してください。';return;
@@ -938,6 +1003,11 @@ function animebInitWeeklyThemes(){
   onRange(posXCtl,POSX_KEY,()=>imagePosX,n=>imagePosX=n);
   onRange(posYCtl,POSY_KEY,()=>imagePosY,n=>{
     const delta=n-imagePosY;
+    if(imageScope==='full'&&fullAnchor.enabled&&fullFit!=='tile'){
+      const h=fullAnchorHeight();const viewHeight=Number(document.querySelector('.wrapper')?.dataset.animebCameraHeight);
+      if(h&&Number.isFinite(viewHeight))
+        shiftFullAnchorY(delta*Math.max(viewHeight*.60,Math.abs(viewHeight-h))/100);
+    }
     if(anchorModel.mode!=='free' && imageScope!=='full' && fullFit!=='tile' && imageNatural?.height){
       const wrapper=document.querySelector('.wrapper');
       const width=wrapper?.getBoundingClientRect().width||0;
@@ -1209,8 +1279,8 @@ function animebInitWeeklyThemes(){
       previewBoundary.style.top=Math.max(0,drawnHeight-1).toFixed(1)+'px';
       previewBoundary.style.left=offsetX.toFixed(1)+'px';
       previewBoundary.style.width=drawnWidth.toFixed(1)+'px';
-      previewStage.dataset.anchorMode=anchorModel.mode;
-      previewTopBoundary.hidden=anchorModel.mode!=='top';
+      previewStage.dataset.anchorMode=full?(fullAnchor.enabled?'top':'free'):anchorModel.mode;
+      previewTopBoundary.hidden=full?!fullAnchor.enabled:anchorModel.mode!=='top';
       previewTopBoundary.style.left=offsetX.toFixed(1)+'px';
       previewTopBoundary.style.width=drawnWidth.toFixed(1)+'px';
     }
@@ -1258,7 +1328,9 @@ function animebInitWeeklyThemes(){
       const [w,h]=sizing.split(' ').map(v=>Number(v.replace('px','')));
       if(Number.isFinite(w)&&Number.isFinite(h)){
         previewStage.style.setProperty('--animeb-preview-size',`${(w*ratio).toFixed(1)}px ${(h*ratio).toFixed(1)}px`);
-        const yOffset=(cameraHeight-h)*(imagePosY/100);
+        const yOffset=imageScope==='full'&&fullAnchor.enabled&&fullFit!=='tile'
+          ?fullAnchorTopLine()-fullAnchor.fraction*h
+          :(cameraHeight-h)*(imagePosY/100);
         previewStage.style.setProperty('--animeb-preview-y-px',`${(yOffset*ratio).toFixed(1)}px`);
       }
     }else{
@@ -1358,6 +1430,14 @@ function animebInitWeeklyThemes(){
       sizing=`${Math.round(imageNatural.width*factor)}px ${Math.round(imageNatural.height*factor)}px`;
     }
     document.body.style.setProperty('--animeb-image-size',sizing);
+    // The nav-bottom source point is projected onto a fixed screen-space line.
+    // This formula is independent of the window height, zoom and background-position %.
+    if(imageScope==='full'&&fullAnchor.enabled&&fullFit!=='tile'&&imageNatural?.height){
+      const actualHeight=Number.parseFloat(sizing.split(' ')[1]);
+      if(Number.isFinite(actualHeight)&&actualHeight>0)
+        document.body.style.setProperty('--animeb-full-anchor-y',
+          (fullAnchorTopLine()-fullAnchor.fraction*actualHeight).toFixed(2)+'px');
+    }else document.body.style.removeProperty('--animeb-full-anchor-y');
     updatePicturePreview(targetWidth,cameraHeight,sizing);
     if(imageScope==='header'||imageScope==='hero') {
       // A CSS percentage uses the *visible layer height*, so % is not a
@@ -1394,6 +1474,7 @@ function animebInitWeeklyThemes(){
     document.body.dataset.animebWeekStyle=weekStyle;
     Object.entries(weekStyleButtons).forEach(([key,b])=>b.setAttribute('aria-pressed',String(key===weekStyle)));
     document.body.dataset.animebImageScope=imageScope;
+    document.body.dataset.animebFullAnchor=imageScope==='full'&&fullAnchor.enabled&&fullFit!=='tile'?'top':'free';
     document.body.dataset.animebImageTone=imageTone;
     document.body.dataset.animebFullFit=fullFit;
     heroSpacer.hidden=!(id==='image'&&(imageScope==='hero'||imageScope==='full'));
@@ -1492,6 +1573,7 @@ function animebInitWeeklyThemes(){
     return {theme,url,source,localId,imageScope,imageVisibility,photoOpacity,
       weekStyle,imageZoom,imagePosX,imagePosY,statusAnchor:{...statusAnchor},
       anchorModel:{...anchorModel},imageDrag:{...imageDrag},fullPan:{...fullPan},fullZoom,
+      fullAnchor:{...fullAnchor},
       legibility:{...legibility[theme]},introOpacity,statusOpacity,rankOpacity,introBlur,statusBlur,
       imageTone,fullFit,customColors:{...customColors},seasonSettings:{...seasonSettings}};
   }
@@ -1513,7 +1595,7 @@ function animebInitWeeklyThemes(){
         [POSY_KEY,imagePosY],[INTRO_KEY,introOpacity],[STATUS_OPACITY_KEY,statusOpacity],
         [INTRO_BLUR_KEY,introBlur],[STATUS_BLUR_KEY,statusBlur],
         [RANK_OPACITY_KEY,rankOpacity],[TONE_KEY,imageTone],[FIT_KEY,fullFit]])localStorage.setItem(key,String(val));
-      saveHeaderProfile();saveAnchorModel();saveImageDrag();saveFullPan();try{localStorage.setItem(FULL_ZOOM_KEY,String(fullZoom));}catch(_){}saveLegibility();
+      saveHeaderProfile();saveAnchorModel();saveImageDrag();saveFullPan();saveFullAnchor();try{localStorage.setItem(FULL_ZOOM_KEY,String(fullZoom));}catch(_){}saveLegibility();
     }catch(_){presetStatus.textContent='Loaded for this page, but browser storage is unavailable. / 保存領域にアクセスできません。';}
   }
   function syncControls(){
@@ -1557,6 +1639,10 @@ function animebInitWeeklyThemes(){
        ?{x:Math.max(-1000,Math.min(1000,state.fullPan.x)),y:Math.max(-1000,Math.min(1000,state.fullPan.y))}
        :{x:0,y:0};
      fullZoom=Number.isFinite(Number(state.fullZoom))?Math.max(5,Math.min(320,Number(state.fullZoom))):imageZoom;
+      // Older presets (no fullAnchor) load in Free, without reinterpreting images.
+      fullAnchor=state.fullAnchor?.enabled===true&&Number.isFinite(state.fullAnchor?.fraction)
+        ?{enabled:true,fraction:Math.max(-10,Math.min(10,state.fullAnchor.fraction))}
+        :{enabled:false,fraction:0};
      if(state.legibility)legibility[theme]=cleanLegibility(state.legibility);
     // A v1/v9 preset lacking the r10 model loads in FREE mode, with no
     // surprise remapping. The original preset object remains untouched.

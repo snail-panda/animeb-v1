@@ -4377,3 +4377,10 @@ body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .animeb-bg-zoom-c
     background-position-y:min(0px, var(--animeb-image-y,40%));
   }
 }
+
+/* AnimeB r26: Full Page TOP image-point anchor.
+   Unlike r25b's Free-mode upper clamp, this preserves a selected source
+   point at the navigation bottom across window resizing. */
+body[data-animeb-theme="image"][data-animeb-image-scope="full"][data-animeb-full-anchor="top"]::before {
+  background-position-y:var(--animeb-full-anchor-y,0px)!important;
+}
