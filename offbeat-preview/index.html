@@ -4,7 +4,7 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <meta content="#f9f8ee" name="theme-color"/>
-<title>OFFBEAT — Anime Home Study 09</title>
+<title>OFFBEAT — Anime Home Study 10</title>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Abel&amp;family=Borel&amp;family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&amp;family=Passion+One:wght@700;900&amp;display=swap" rel="stylesheet"/>
@@ -506,6 +506,135 @@ button,a{color:inherit}button{cursor:pointer}a{text-decoration:none}a:hover{colo
  .anime09 .n-recent .post-date,.anime09 .n-recent .post-cat{font-size:10px;}
 }
 
+
+/* === OFFBEAT Hybrid 10: mobile-first editorial refinements ===
+   Preserve all original OFFBEAT entrance fonts and imagery. Entire page scoped
+   to existing classes; design study only, no production pages modified. */
+/* The entrance Recent Posts was too loud relative to the quiet crossroads. */
+#homeScreen .recent-head h2{font:600 11px 'Abel',sans-serif;letter-spacing:.105em;}
+#homeScreen .recent-head span{font-size:12px;}
+#homeScreen .post-date{font:11px 'Abel',sans-serif;letter-spacing:0;color:#839184;}
+#homeScreen .post-cat{font:10px 'Abel',sans-serif;letter-spacing:.025em;color:#829182;}
+#homeScreen .post-name{font:500 16px/1.13 'EB Garamond',Georgia,serif;color:#263e2d;}
+#homeScreen .recent-head{padding-top:17px;}
+#homeScreen .posts li{padding:11px 0;}
+/* Anime mast: mild rhythm instead of all-caps tracking everywhere. */
+.anime09 .n-mast-rail{letter-spacing:.095em;}
+.anime09 .n-mast-rail time{font-size:10px;letter-spacing:.055em;}
+.anime09 .n-voice>span{letter-spacing:.085em;}
+.anime09 .n-voice p{font-size:15px;line-height:1.28;}
+.anime09 .n-season-name h2 b{font:400 19px 'EB Garamond',Georgia,serif;letter-spacing:0;color:#48614a;}
+.anime09 .n-season-tabs{height:27px;}
+.anime09 .n-season-tabs>*{font-size:10px;padding:5px 9px;letter-spacing:.035em;min-width:49px;}
+.anime09 .n-weeks>*{position:relative;align-items:center;padding:10px 3px 8px;min-height:40px;}
+.anime09 .n-weeks .n-prelim{justify-content:center;}
+.anime09 .n-weeks .n-milestone{padding-top:17px;padding-bottom:5px;}
+.anime09 .n-weeks .n-milestone:after{position:absolute;top:5px;left:0;right:0;font:7px 'Abel',sans-serif;letter-spacing:.07em;color:#849681;content:'MID';}
+.anime09 .n-weeks .n-milestone-final:after{content:'FINAL';}
+/* The latest weekly ranking is an announcement, not a solid-colored blog tile. */
+.anime09 .n-focus{grid-template-columns:minmax(0,2fr) minmax(0,.91fr);gap:27px;}
+.anime09 .n-block-top h2{font-size:12px;letter-spacing:.09em;}
+.anime09 .n-rank-card{grid-template-columns:43% 57%;background:#fbfaef;border:1px solid #bdcabc;color:#2a4833;min-height:270px;}
+.anime09 .n-rank-art{background:#eeeade;}
+.anime09 .n-rank-art img{object-fit:contain;object-position:center;}
+.anime09 .n-rank-art:after{background:linear-gradient(0deg,rgba(0,0,0,.13),transparent 32%);}
+.anime09 .n-rank-art>span{font-size:9px;letter-spacing:.06em;}
+.anime09 .n-rank-card:hover{color:#274833;}
+.anime09 .n-rank-text{padding:0!important;background:#f9f8ed;color:#284632;display:flex;flex-direction:column;min-width:0;}
+.anime09 .n-rank-banner{background:#2a4937;color:#fcf7e5;padding:13px 17px 11px;}
+.anime09 .n-rank-overline{font-size:10px;letter-spacing:.09em;color:#bfd4bb;}
+.anime09 .n-rank-issue{color:#f3f3e7;gap:8px;margin-top:5px;}
+.anime09 .n-rank-issue b{font-size:38px;}
+.anime09 .n-rank-issue span{font-size:10px;letter-spacing:.09em;}
+.anime09 .n-rank-detail{flex:1;display:flex;flex-direction:column;padding:12px 17px 13px;}
+.anime09 .n-rank-detail h3{color:#2e513a;margin:0;font-size:32px;line-height:.98;}
+.anime09 .n-rank-period{color:#70856f;font-size:10px;margin-top:10px;}
+.anime09 .n-rank-quote{color:#648065;font-size:15px;margin:8px 0 0;}
+.anime09 .n-rank-open{color:#3d6145;border-top:1px solid #d2dacd;font-size:10px;margin-top:auto;padding-top:10px;}
+/* The contents are a quiet index, not a second feature. */
+.anime09 .n-block-top-alt{display:flex;flex-direction:column;align-items:flex-start;gap:0;padding-bottom:8px;}
+.anime09 .n-block-top-alt>span{font:italic 24px/1.05 'EB Garamond',Georgia,serif;color:#6d836f;letter-spacing:0;margin-top:3px;}
+.anime09 .n-cno{font-size:13px;letter-spacing:0;}
+.anime09 .n-contents nav>a{grid-template-columns:20px minmax(0,1fr);gap:5px;padding:10px 0;}
+.anime09 .n-contents nav b{font-size:18px;}
+.anime09 .n-contents nav small{font-size:12px;margin-top:3px;}
+/* Lower-key Notes, but with consistent leading and margins. */
+.anime09 .n-notes .n-note-example{padding:8px 0 11px;}
+.anime09 .n-notes .n-note-example p{margin:5px 0 0;line-height:1.3;}
+/* Archive: SHOW THE ENTIRE KEY VISUAL. Smaller cards != aggressive crops. */
+.anime09 #animeArchive .card{grid-template-columns:116px minmax(0,1fr);min-height:151px;padding:9px 0;align-items:start;}
+.anime09 #animeArchive .card .thumb{width:116px;height:149px;min-height:0;align-self:start;background:#ececde;display:flex;align-items:center;justify-content:center;}
+.anime09 #animeArchive .card .thumb img{object-fit:contain;object-position:center;width:100%;height:100%;}
+.anime09 #animeArchive .card-body{padding:7px 10px 8px 15px;}
+.anime09 #animeArchive .card h3{font-size:19px;line-height:1.08;}
+/* Handset composition: header left / controls right; preserve centered option on desktop. */
+@media(max-width:690px){
+ .site:has(.anime09.current):not(.n-header-original) .global{display:flex;align-items:center;justify-content:space-between;}
+ .site:has(.anime09.current):not(.n-header-original) .global .brand-mini{display:inline-flex;grid-column:auto;grid-row:auto;transform:translateY(2px);}
+ .site:has(.anime09.current):not(.n-header-original) .global .header-right{grid-column:auto;grid-row:auto;justify-self:auto;margin-left:auto;}
+ .site:has(.anime09.current) .global .anime-search-button{grid-column:auto;grid-row:auto;justify-self:auto;margin-left:1px;}
+ .anime09 .n-word{gap:7px;}
+ .anime09 .n-word h1{font-size:57px;line-height:.87;}
+ .anime09 .n-word span{font-size:11px;letter-spacing:0;}
+ .anime09 .n-word span:before{content:'—';margin-right:5px;color:#8b9b8b;}
+ .anime09 .n-mast-rail time{font-size:9px;}
+ .anime09 .n-voice p{font-size:13px;line-height:1.21;}
+ .anime09 .n-season-tabs{height:25px;}
+ .anime09 .n-season-tabs>*{font-size:9px;padding:5px 6px;}
+ .anime09 .n-season-name h2{font-size:28px;}
+ .anime09 .n-season-name h2 b{font-size:17px;}
+ .anime09 .n-weeks{align-items:stretch;}
+ .anime09 .n-weeks>*{padding:9px 3px 7px;align-items:center;justify-content:center;min-height:43px;}
+ .anime09 .n-weeks .n-milestone{padding-top:16px;padding-bottom:5px;}
+ .anime09 .n-focus{grid-template-columns:1fr;gap:17px;}
+ .anime09 .n-block-top h2{font-size:11px;letter-spacing:.095em;}
+ .anime09 .n-rank-card{grid-template-columns:42% 58%;min-height:227px;}
+ .anime09 .n-rank-banner{padding:10px 11px 8px;}
+ .anime09 .n-rank-overline{font-size:9px;letter-spacing:.035em;}
+ .anime09 .n-rank-issue b{font-size:29px;}
+ .anime09 .n-rank-issue span{font-size:9px;}
+ .anime09 .n-rank-detail{padding:9px 11px 10px;}
+ .anime09 .n-rank-detail h3{font-size:25px;line-height:.94;}
+ .anime09 .n-rank-period{font-size:9px;margin-top:6px;}
+ .anime09 .n-rank-quote{font-size:12px;margin-top:7px;}
+ .anime09 .n-rank-open{font-size:10px;padding-top:8px;}
+ .anime09 .n-block-top-alt{display:flex;flex-direction:column;align-items:flex-start;gap:0;padding:11px 0 7px;}
+ .anime09 .n-block-top-alt>span{font-size:22px;margin-top:4px;}
+ .anime09 .n-contents nav{grid-template-columns:1fr 1fr;column-gap:13px;}
+ .anime09 .n-contents nav b{font-size:16px;}
+ .anime09 .n-contents nav small{font-size:11px;line-height:1.19;}
+ .anime09 .n-cno{font-size:12px;}
+ .anime09 .n-recent .post-name{font-weight:600;font-size:14px;line-height:1.17;}
+ .anime09 .n-activity{gap:20px;}
+ .anime09 .n-notes .n-note-example{padding:8px 0 10px;}
+ .anime09 #animeArchive .card{grid-template-columns:102px minmax(0,1fr);min-height:141px;padding:9px 0;}
+ .anime09 #animeArchive .card .thumb{width:102px;height:135px;}
+ .anime09 #animeArchive .card-body{padding:5px 2px 8px 12px;}
+ .anime09 #animeArchive .card h3{font-size:18px;}
+ .anime09 #animeArchive .card .excerpt{font-size:13px;line-height:1.2;}
+ /* Entrance: keep the photo/copy, but scale down only the path choices and post metadata. */
+ #homeScreen .path-links a{font-size:15px;padding:4px 13px;}
+ #homeScreen .recent-head h2{font-size:11px;letter-spacing:.08em;}
+ #homeScreen .recent-head span{font-size:12px;}
+ #homeScreen .posts li{grid-template-columns:69px 66px minmax(0,1fr);gap:8px;padding:10px 0;align-items:baseline;}
+ #homeScreen .post-date{font-size:10px;}
+ #homeScreen .post-cat{font-size:9.6px;}
+ #homeScreen .post-name{font-size:14px;line-height:1.15;}
+}
+@media(max-width:365px){
+ .anime09 .n-word h1{font-size:52px;}
+ .anime09 .n-rank-card{grid-template-columns:39% 61%;min-height:229px;}
+ .anime09 .n-rank-banner{padding:9px 8px 7px;}
+ .anime09 .n-rank-detail{padding:8px 8px 9px;}
+ .anime09 .n-rank-detail h3{font-size:23px;}
+ .anime09 #animeArchive .card{grid-template-columns:96px minmax(0,1fr);}
+ .anime09 #animeArchive .card .thumb{width:96px;height:127px;}
+ #homeScreen .posts li{grid-template-columns:62px 60px minmax(0,1fr);gap:7px;}
+ #homeScreen .post-date{font-size:9.7px;}
+ #homeScreen .post-cat{font-size:9.3px;}
+ #homeScreen .post-name{font-size:13.5px;}
+}
+
 </style>
 </head>
 <body>
@@ -603,7 +732,7 @@ button,a{color:inherit}button{cursor:pointer}a{text-decoration:none}a:hover{colo
       <a href="https://snail-panda.github.io/animeb-v1/ranking/2026/fall/week02/index.html"><span>W</span><b>02</b></a>
       <a class="n-now" aria-current="step" href="https://snail-panda.github.io/animeb-v1/ranking/2026/fall/week03/index.html"><span>W</span><b>03</b></a>
       <span class="n-unreleased"><span>W</span><b>04</b></span><span class="n-unreleased"><span>W</span><b>05</b></span>
-      <span class="n-unreleased"><span>W</span><b>06</b></span><span class="n-unreleased"><span>W</span><b>07</b></span><span class="n-unreleased"><span>W</span><b>08</b></span><span class="n-unreleased"><span>W</span><b>09</b></span><span class="n-unreleased"><span>W</span><b>10</b></span><span class="n-unreleased"><span>W</span><b>11</b></span><span class="n-unreleased"><span>W</span><b>12</b></span>
+      <span class="n-unreleased n-milestone n-milestone-mid" title="Midseason checkpoint"><span>W</span><b>06</b></span><span class="n-unreleased"><span>W</span><b>07</b></span><span class="n-unreleased"><span>W</span><b>08</b></span><span class="n-unreleased"><span>W</span><b>09</b></span><span class="n-unreleased"><span>W</span><b>10</b></span><span class="n-unreleased"><span>W</span><b>11</b></span><span class="n-unreleased n-milestone n-milestone-final" title="Season-final checkpoint (illustrative)"><span>W</span><b>12</b></span>
     </nav>
     <div class="n-checkpoints"><span>SEASON CHECKPOINTS</span><a href="https://snail-panda.github.io/animeb-v1/tierlist/2026/fall/week01/tierlist.html">First Impressions <b>W01</b></a><span>Midseason <b>W06</b></span><span>Final <b>W12</b></span><small>• Future checkpoints shown as a guide</small></div>
   </section>
@@ -614,17 +743,21 @@ button,a{color:inherit}button{cursor:pointer}a{text-decoration:none}a:hover{colo
       <a class="n-rank-card" href="https://snail-panda.github.io/animeb-v1/ranking/2026/fall/week03/index.html">
         <div class="n-rank-art"><img loading="eager" src="https://snail-panda.github.io/animeb-v1/images/key-visuals/2026/fall/cyber.webp" alt="Anime key visual representing the 2026 Fall Week 03 ranking"/><span>THE WEEKLY RANKING</span></div>
         <div class="n-rank-text">
-          <span class="n-rank-overline">2026 FALL / WEEKLY</span>
-          <div class="n-rank-issue"><span>WEEK</span><b>03</b></div>
-          <h3>Top 10<br/>Anime Ranking</h3>
-          <p class="n-rank-period">EPISODES 3–4 <span>/</span> OCT 18–24</p>
-          <p class="n-rank-quote">What made the cut this week?</p>
-          <span class="n-rank-open">VIEW WEEK 03 <i class="nav-chevron" aria-hidden="true"></i></span>
+          <div class="n-rank-banner">
+            <span class="n-rank-overline">2026 FALL / WEEKLY</span>
+            <div class="n-rank-issue"><span>WEEK</span><b>03</b></div>
+          </div>
+          <div class="n-rank-detail">
+            <h3>Top 10<br/>Anime Ranking</h3>
+            <p class="n-rank-period">EPISODES 3–4 <span>/</span> OCT 18–24</p>
+            <p class="n-rank-quote">What made the cut this week?</p>
+            <span class="n-rank-open">VIEW WEEK 03 <i class="nav-chevron" aria-hidden="true"></i></span>
+          </div>
         </div>
       </a>
     </div>
     <aside class="n-contents" aria-label="Browse anime content">
-      <div class="n-block-top n-block-top-alt"><h2>WHAT'S HERE</h2><span>CONTENTS</span></div>
+      <div class="n-block-top n-block-top-alt"><h2>WHAT'S HERE</h2><span>Contents</span></div>
       <nav>
         <a href="https://snail-panda.github.io/animeb-v1/ranking/2026/fall/week03/index.html"><span class="n-cno">01</span><span><b>Weekly Rankings</b><small>Follow the season, week by week.</small></span></a>
         <a href="https://snail-panda.github.io/animeb-v1/tierlist/2026/fall/week01/tierlist.html"><span class="n-cno">02</span><span><b>Tier Lists</b><small>First, midseason &amp; final.</small></span></a>
@@ -636,7 +769,7 @@ button,a{color:inherit}button{cursor:pointer}a{text-decoration:none}a:hover{colo
 
   <section class="n-activity" aria-label="Recent activity">
     <div class="n-recent" id="animeRecent"><div class="n-block-top"><h2>RECENT POSTS</h2><span>NEWEST FIRST</span></div><ul id="animeRecentPosts"></ul></div>
-    <aside class="n-notes" id="animeMoment" aria-label="Small notes examples"><div class="n-block-top"><h2>SMALL NOTES</h2><span>IN BETWEEN</span></div>
+    <aside class="n-notes" id="animeMoment" aria-label="Small notes examples"><div class="n-block-top"><h2>NOTES</h2><span>OCCASIONAL</span></div>
       <div class="n-note-example"><small>REWATCH / EXAMPLE</small><p><strong>The Dawn of the Witch</strong> — a few years old, and still worth another watch.</p></div>
       <div class="n-note-example"><small>THOUGHT / EXAMPLE</small><p>So many sequels, remakes and revivals this season. What actually feels new?</p></div>
       <span class="n-notes-disclaimer">Sample post ideas, not published entries.</span>
@@ -651,7 +784,7 @@ button,a{color:inherit}button{cursor:pointer}a{text-decoration:none}a:hover{colo
     <div id="animeArchive" aria-live="polite"></div>
     <a class="n-legacy" href="https://snail-panda.github.io/animeb-v1/">EXISTING ANIME HOME <i class="nav-chevron" aria-hidden="true"></i></a>
   </section>
-  <div class="n-study-stamp">ANIME HOME STUDY 09 • LAYOUT CONCEPT • CONTENT EXAMPLES ARE NOT PUBLISHED</div>
+  <div class="n-study-stamp">ANIME HOME STUDY 10 • LAYOUT CONCEPT • CONTENT EXAMPLES ARE NOT PUBLISHED</div>
   <div class="n-study-controls" aria-label="Prototype header comparison">HEADER TEST: <button type="button" data-header-mode="center" aria-pressed="true">CENTERED</button> <button type="button" data-header-mode="left" aria-pressed="false">ORIGINAL</button><span>(Preview only)</span></div>
 </main>
 <main class="placeholder" data-view="language"><div class="eyebrow">OFFBEAT / LANGUAGE</div><section class="section-head" style="padding:10px 0 7px"><h1>LANGUAGE</h1><p>Words, expression, and the joy of discovering them.</p></section>
