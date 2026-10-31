@@ -629,14 +629,14 @@ function animebInitWeeklyThemes(){
       buttons.append(b);
     }
     row.append(title,output,range,buttons);fullCamera.append(row);
-    range.addEventListener('input',()=>{fullPan[axis]=Number(range.value);saveFullPan();syncFullCamera();apply(theme,false);});
+    range.addEventListener('input',()=>{fullPan[axis]=Number(range.value);saveFullPan();syncFullCamera();apply(theme,false);updateHeroExtent();});
     return {range,output};
   };
   const fullCameraX=fullCameraCtl('x','HORIZONTAL OFFSET / 左右の移動 (px)');
   const fullCameraY=fullCameraCtl('y','VERTICAL OFFSET / 上端の移動 (px)');
   const fullCameraReset=document.createElement('button');fullCameraReset.type='button';
   fullCameraReset.className='animeb-full-camera-reset';fullCameraReset.textContent='Reset Full Page offsets / 全面位置をリセット';
-  fullCameraReset.addEventListener('click',()=>{fullPan={x:0,y:0};saveFullPan();syncFullCamera();apply(theme,false);});
+  fullCameraReset.addEventListener('click',()=>{fullPan={x:0,y:0};saveFullPan();syncFullCamera();apply(theme,false);updateHeroExtent();});
   fullCamera.append(fullCameraReset);
   function syncFullCamera(){
     fullCameraX.range.value=String(Math.max(-1000,Math.min(1000,fullPan.x)));
@@ -901,6 +901,7 @@ function animebInitWeeklyThemes(){
       imageZoom=value;try{localStorage.setItem(ZOOM_KEY,String(imageZoom));}catch(_){}
     }
     apply(theme,false);
+    if(imageScope==='full')updateHeroExtent(); // r23b: repaint viewport camera immediately
   });
   onRange(posXCtl,POSX_KEY,()=>imagePosX,n=>imagePosX=n);
   onRange(posYCtl,POSY_KEY,()=>imagePosY,n=>{
@@ -2031,35 +2032,93 @@ function animebInitWeeklyThemes(){
     const publisher=document.createElement('details');publisher.className='animeb-site-theme-publisher';
     const summary=document.createElement('summary');summary.textContent='Publish a preset / サイト用設定を書き出す';
     const publishHelp=document.createElement('p');publishHelp.textContent=
-      'Choose a saved preset above. Download site-themes.json and place it in assets/data/ranking/weekly/. GitHub publish is separate. Public images only. / 上の保存プリセットを選択し、JSONを書き出してリポジトリに配置。端末内画像は不可。';
+      'Select a saved preset; export to assets/data/ranking/weekly/. Public images only. / 保存プリセットを選択→JSON書出し→指定フォルダに配置。';
+    // AnimeB r23b SAFE: choose a different season/week without navigating away.
+    const targetRow=document.createElement('div');targetRow.className='animeb-site-theme-targets';
+    const mkTarget=(label,values,current)=>{
+      const wrap=document.createElement('label');wrap.textContent=label;
+      const select=document.createElement('select');
+      for(const [value,caption] of values){const o=document.createElement('option');o.value=value;o.textContent=caption;select.append(o);}
+      select.value=current;wrap.append(select);targetRow.append(wrap);return select;
+    };
+    const years=Array.from({length:21},(_,i)=>String(2020+i)).map(v=>[v,v]);
+    if(yearKey&&!years.some(pair=>pair[0]===yearKey))years.push([yearKey,yearKey]);
+    years.sort((a,b)=>Number(a[0])-Number(b[0]));
+    const targetYear=mkTarget('YEAR / 年',years,yearKey||String(new Date().getFullYear()));
+    const targetSeason=mkTarget('SEASON / 季節',[
+      ['winter','Winter'],['spring','Spring'],['summer','Summer'],['fall','Fall']],
+      ['winter','spring','summer','fall'].includes(seasonKey)?seasonKey:'fall');
+    const weeks=[['prelim','Prelim'],['00','Week 00'],
+      ...Array.from({length:20},(_,i)=>{const v=String(i+1).padStart(2,'0');return [v,'Week '+v];}),
+      ['mid','Mid'],['final','Final']];
+    const targetWeek=mkTarget('WEEK / 週',weeks,weeks.some(v=>v[0]===weekId)?weekId:'01');
+    const importedConfig=document.createElement('input');importedConfig.type='file';
+    importedConfig.accept='.json,application/json';importedConfig.className='animeb-site-import-file';
+    const importLabel=document.createElement('label');importLabel.className='animeb-site-import-label';
+    importLabel.textContent='Import existing site-themes.json / 既存の公開JSONを読み込む';
+    importLabel.append(importedConfig);
+    const configSummary=document.createElement('p');configSummary.className='animeb-site-theme-help';
+    const updateConfigSummary=()=>{
+      configSummary.textContent='Loaded assignments / 読込済み: Seasons '+
+        Object.keys(siteConfig.seasons).length+' · Weeks '+Object.keys(siteConfig.weeks).length+
+        (configReady?'':' (not loaded)');
+    };
+    importedConfig.addEventListener('change',async()=>{
+      const file=importedConfig.files?.[0];if(!file)return;
+      try{
+        if(file.size>2097152)throw new Error('JSON is too large');
+        const candidate=JSON.parse(await file.text());
+        if(!validConfig(candidate))throw new Error('Invalid site-themes.json format');
+        siteConfig=candidate;configReady=true;updateConfigSummary();
+        publisherMessage.textContent='Imported '+file.name+'. Future exports will include its assignments. / このJSONを土台に書き出します。';
+      }catch(err){publisherMessage.textContent='Import failed / 読込失敗: '+(err.message||err);}
+      finally{importedConfig.value='';}
+    });
     const publishActions=document.createElement('div');publishActions.className='animeb-site-theme-actions';
     const publisherMessage=document.createElement('p');publisherMessage.className='animeb-site-theme-help';
-    const exportFor=(kind)=>{
-      if(!configReady){publisherMessage.textContent='Site theme JSON has not loaded; export stopped to protect existing assignments. / 公開設定を読み込めないため書き出しを中止しました。';return;}
+    // 'current' is a one-click shortcut. 'selected' uses the three selectors above.
+    const exportFor=(kind,target='current')=>{
+      if(!configReady){publisherMessage.textContent='Site map unavailable: import an existing JSON first. / 公開設定が未読込です。';return;}
       const chosen=presets.find(p=>p.id===presetPick.value);
-      if(!chosen){publisherMessage.textContent='Select a saved preset first. / 保存プリセットを選択してください。';return;}
+      if(!chosen){publisherMessage.textContent='Choose a saved preset first. / 保存プリセットを選択してください。';return;}
       if(chosen.state.source==='local'){
-        publisherMessage.textContent='Device-only images cannot be published. Choose a repository image URL. / 端末内画像は公開できません。';return;
+        publisherMessage.textContent='Device photo cannot be published. / 端末内画像は公開できません。';return;
       }
       if(chosen.state.theme==='image'&&!validPath(chosen.state.url)){
-        publisherMessage.textContent='Preset image URL is invalid. / 画像URLを確認してください。';return;
+        publisherMessage.textContent='Invalid image URL / 画像URLが無効です。';return;
+      }
+      const pickedSeason=target==='selected'?targetYear.value+'-'+targetSeason.value:seasonId;
+      const pickedWeek=target==='selected'?targetWeek.value:weekId;
+      const pickedFullWeek=pickedSeason+':'+pickedWeek;
+      if(!/^\d{4}-(winter|spring|summer|fall)$/.test(pickedSeason) ||
+         !/^(?:\d{2}|prelim|mid|final)$/.test(pickedWeek)){
+        publisherMessage.textContent='Invalid target / 年・季節・週を確認してください。';return;
       }
       const next=JSON.parse(JSON.stringify(siteConfig));
-      // Namespaced key is stable across browsers and duplicate-safe for distinct snapshots.
-      const id='theme-'+seasonId+'-'+(kind==='week'?weekId:'season')+'-'+chosen.id.replace(/[^a-zA-Z0-9_-]/g,'-');
-      next.presets[id]=JSON.parse(JSON.stringify(chosen.state));
-      if(kind==='season')next.seasons[seasonId]=id;
-      else next.weeks[currentWeekId]=id;
+      const presetId='theme-'+pickedSeason+'-'+(kind==='week'?pickedWeek:'season')+'-'+
+        chosen.id.replace(/[^a-zA-Z0-9_-]/g,'-');
+      next.presets[presetId]=JSON.parse(JSON.stringify(chosen.state));
+      if(kind==='season')next.seasons[pickedSeason]=presetId;
+      else next.weeks[pickedFullWeek]=presetId;
       next.version=1;
       const out=new Blob([JSON.stringify(next,null,2)+'\n'],{type:'application/json'});
       const objectURL=URL.createObjectURL(out),a=document.createElement('a');
       a.href=objectURL;a.download='site-themes.json';document.body.append(a);a.click();a.remove();
       setTimeout(()=>URL.revokeObjectURL(objectURL),30000);
-      publisherMessage.textContent='Downloaded site-themes.json ('+kind+': '+(kind==='season'?seasonId:currentWeekId)+'). Publish by committing the JSON file. / JSONを保存しました。反映にはCommit・Pushが必要です。';
+      // Keep uncommitted edits in memory so several assignments can be exported in succession.
+      // Reload or re-import to discard local unpublished changes.
+      siteConfig=next;updateConfigSummary();
+      publisherMessage.textContent='Downloaded site-themes.json → '+
+        (kind==='season'?pickedSeason:pickedFullWeek)+
+        '. Replace assets/data/ranking/weekly/site-themes.json, commit, push, then reload. / JSONを指定先に上書きして公開してください。';
     };
     publishActions.append(makeButton('Assign this SEASON / このシーズン',()=>exportFor('season')),
       makeButton('Assign this WEEK / この週',()=>exportFor('week')));
-    publisher.append(summary,publishHelp,publishActions,publisherMessage);
+    const chosenActions=document.createElement('div');chosenActions.className='animeb-site-theme-actions';
+    chosenActions.append(makeButton('Assign selected SEASON / 選択したシーズン',()=>exportFor('season','selected')),
+      makeButton('Assign selected WEEK / 選択した週',()=>exportFor('week','selected')));
+    publisher.append(summary,publishHelp,targetRow,publishActions,chosenActions,importLabel,configSummary,publisherMessage);
+    updateConfigSummary();
     box.append(legend,status,actions,info,publisher);
     presetBox.prepend(box);
     modeStatus();
@@ -2078,7 +2137,7 @@ function animebInitWeeklyThemes(){
         if(!response.ok)throw new Error('HTTP '+response.status);
         const data=await response.json();
         if(!validConfig(data))throw new Error('invalid theme-map schema');
-        siteConfig=data;configReady=true;
+        siteConfig=data;configReady=true;updateConfigSummary();
       }catch(err){console.warn('AnimeB: site-theme defaults unavailable, using base fallback',err);}
       if(mode==='site')try{await showPublishedTheme();}
       catch(err){status.textContent='Site theme unavailable / サイト標準を読み込めません: '+(err.message||err);}
