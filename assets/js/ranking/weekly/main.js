@@ -1288,7 +1288,7 @@ function animebInitWeeklyThemes(){
       const ratio=fullFit==='tile'?Math.min(1,240/imageNatural.width):
         (fullFit==='contain'?Math.min(targetWidth/imageNatural.width,targetHeight/imageNatural.height):
         Math.max(targetWidth/imageNatural.width,targetHeight/imageNatural.height));
-      const factor=ratio*((imageScope===
+      const factor=ratio*((imageScope==='full'?fullZoom:imageZoom)/100);
       sizing=`${Math.round(imageNatural.width*factor)}px ${Math.round(imageNatural.height*factor)}px`;
     }
     document.body.style.setProperty('--animeb-image-size',sizing);
@@ -1451,7 +1451,7 @@ function animebInitWeeklyThemes(){
     visibilityRange.value=String(imageVisibility);opacityRange.value=String(photoOpacity);
     zoomCtl.input.value=String(imageZoom);posXCtl.input.value=String(imagePosX);posYCtl.input.value=String(imagePosY);
     introCtl.input.value=String(introOpacity);statusCtl.input.value=String(statusOpacity);rankCtl.input.value=String(rankOpacity);
-    fitSelect.value=fullFit;input.value=url;syncFullCamera();zoomCtl.input.value=String(imageScope===
+    fitSelect.value=fullFit;input.value=url;syncFullCamera();zoomCtl.input.value=String(imageScope==='full'?fullZoom:imageZoom);
     for(const [key,,fallback] of colorDefs)colorInputs[key].value=/^#[0-9a-fA-F]{6}$/.test(customColors[key]||'')?customColors[key]:fallback;
     refreshSeasonButtons();applyColors();refreshAllColorAuto();
   }
