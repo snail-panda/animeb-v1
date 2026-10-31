@@ -4291,3 +4291,31 @@ body[data-animeb-theme="dark"] .animeb-site-theme-targets select,
 body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .animeb-site-theme-targets select{
  background:#2c483e;color:#e1efe5;border-color:#698774
 }
+/* AnimeB r23c Full Page fixed camera layer (CSS only)
+   Camera variables are already written by r22/r23b JS. Full-page artwork now
+   lives in an actual fixed pseudo-element, which is also what the preview reads.
+   Compact/Hero image layers and the fixed/full-page reading layout are untouched. */
+body[data-animeb-theme="image"][data-animeb-image-scope="full"] {
+  background-image: none !important;
+  background-attachment: scroll !important;
+  isolation: isolate;
+}
+body[data-animeb-theme="image"][data-animeb-image-scope="full"]::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+  background-color: var(--animeb-photo-stage-color,#101c22);
+  background-image: var(--animeb-theme-photo,none) !important;
+  background-size: var(--animeb-image-size,cover);
+  background-position: var(--animeb-image-x,50%) var(--animeb-image-y,40%);
+  background-repeat: no-repeat;
+  opacity: var(--animeb-image-photo-opacity,1);
+}
+body[data-animeb-theme="image"][data-animeb-image-scope="full"][data-animeb-full-fit="tile"]::before {
+  background-repeat: repeat; /* Keep the existing Full Page Tile option. */
+}
+body[data-animeb-theme="image"][data-animeb-image-scope="full"]::after {
+  z-index: -1; /* Separate photo wash; above the photo, below page content. */
+}
