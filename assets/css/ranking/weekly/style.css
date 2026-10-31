@@ -4365,3 +4365,15 @@ body[data-animeb-theme="dark"] .animeb-bg-zoom-control .animeb-bg-zoom-number,
 body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .animeb-bg-zoom-control .animeb-bg-zoom-number {
   background:#263f40;color:#edf3ee;border-color:#769b88;
 }
+/* AnimeB r25b desktop Full Page top-boundary guard.
+   When image zoom < 100% or the window becomes narrower, the rendered
+   photo can be shorter than the fixed frame. Its normal percentage Y
+   position then becomes POSITIVE and exposes an empty stage strip above it.
+   Clamp only the upper edge at the frame boundary; keep all NEGATIVE Y
+   offsets (including the user's saved position/pan) unchanged.
+   CSS-only and desktop-only: mobile Full Page and Compact/Hero stay intact. */
+@media (min-width:769px) and (pointer:fine) {
+  body[data-animeb-theme="image"][data-animeb-image-scope="full"]::before {
+    background-position-y:min(0px, var(--animeb-image-y,40%));
+  }
+}
