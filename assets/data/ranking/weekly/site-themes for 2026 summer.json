@@ -1,0 +1,71 @@
+{
+  "version": 1,
+  "presets": {
+    "theme-2026-summer-season-preset-1793334103040-5ttiu": {
+      "theme": "image",
+      "url": "https://snail-panda.github.io/animeb-v1/images/backgrounds/yofukashi2.webp",
+      "source": "url",
+      "localId": "",
+      "imageScope": "full",
+      "imageVisibility": 85,
+      "photoOpacity": 90,
+      "weekStyle": "filled",
+      "imageZoom": 120,
+      "imagePosX": 47,
+      "imagePosY": 49,
+      "statusAnchor": {
+        "enabled": false,
+        "fraction": 0,
+        "cameraRatio": 0,
+        "sliderOrigin": 40
+      },
+      "anchorModel": {
+        "mode": "status",
+        "fraction": 0.626440339819917,
+        "cameraRatio": 1.3181818181818181
+      },
+      "imageDrag": {
+        "x": 10.577931126966522,
+        "y": -73.45069159838985
+      },
+      "fullPan": {
+        "x": 0,
+        "y": 0
+      },
+      "fullZoom": 120,
+      "legibility": {
+        "shadow": 1,
+        "edge": 0,
+        "strokeWidth": 0,
+        "strokeBlur": 0,
+        "strokeColor": "#ffffff",
+        "shadowPower": 36,
+        "shadowBlurPx": 1.5,
+        "edgeWidthPx": 0,
+        "strokeWidthPx": 0,
+        "strokeBlurPx": 0
+      },
+      "introOpacity": 35,
+      "statusOpacity": 10,
+      "rankOpacity": 60,
+      "imageTone": "dark",
+      "fullFit": "cover",
+      "customColors": {
+        "week": "#880094",
+        "year": "#577800",
+        "anime": "#ebca00",
+        "duration": "#a01700",
+        "ranking": "#9f003e"
+      },
+      "seasonSettings": {
+        "weight": "bold",
+        "style": "filled",
+        "size": 100
+      }
+    }
+  },
+  "seasons": {
+    "2026-summer": "theme-2026-summer-season-preset-1793334103040-5ttiu"
+  },
+  "weeks": {}
+}
