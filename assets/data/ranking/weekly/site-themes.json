@@ -172,9 +172,11 @@
         "strokeWidthPx": 0,
         "strokeBlurPx": 0
       },
-      "introOpacity": 50,
-      "statusOpacity": 20,
-      "rankOpacity": 70,
+      "introOpacity": 65,
+      "statusOpacity": 50,
+      "rankOpacity": 75,
+      "introBlur": 1,
+      "statusBlur": 1,
       "imageTone": "dark",
       "fullFit": "cover",
       "customColors": {
