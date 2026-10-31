@@ -4,7 +4,7 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <meta content="#f9f8ee" name="theme-color"/>
-<title>OFFBEAT — Anime Home Hybrid 08 | Design Study</title>
+<title>OFFBEAT — Anime Home Study 09</title>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Abel&amp;family=Borel&amp;family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&amp;family=Passion+One:wght@700;900&amp;display=swap" rel="stylesheet"/>
@@ -309,130 +309,201 @@ button,a{color:inherit}button{cursor:pointer}a{text-decoration:none}a:hover{colo
 .nav-chevron{display:inline-block;width:.42em;height:.42em;border:solid currentColor;border-width:1.35px 1.35px 0 0;transform:rotate(45deg);vertical-align:.09em;margin-left:.55em;opacity:.85}
 .nav-chevron--left{transform:rotate(225deg);margin-left:0;margin-right:.55em}
 
-/* OFFBEAT Anime Home Design Study 08: season-first hybrid.
-   Scope is limited to main[data-view="anime"]. Super-top typography untouched. */
-[data-view="anime"].hybrid-anime{--h-line:#d2d8c9;--h-soft:#7e927b;--h-pine:#2d4534;--h-copper:#a76c48;--h-paper:#faf9ec;padding-bottom:32px;}
-.hybrid-anime .h-intro,.hybrid-anime .h-season,.hybrid-anime .h-entry-browse,.hybrid-anime .h-recent,.hybrid-anime .h-detour,.hybrid-anime .h-archive{max-width:880px;margin-left:auto;margin-right:auto;}
-.hybrid-anime .h-intro{padding:31px 23px 0;}
-.hybrid-anime .h-intro-label,.hybrid-anime .h-idea-label{font:11px 'Abel',sans-serif;letter-spacing:.18em;color:#738d75;}
-.hybrid-anime .h-intro-grid{display:grid;grid-template-columns:1.04fr 1fr;gap:35px;align-items:end;padding:4px 0 21px;border-bottom:1px solid var(--h-line);}
-.hybrid-anime .h-wordmark{display:flex;align-items:baseline;gap:10px;min-width:0;}
-.hybrid-anime .h-wordmark h1{font:900 clamp(63px,7.5vw,80px)/.92 'Passion One',Impact,sans-serif;letter-spacing:.012em;margin:0;color:var(--h-pine);}
-.hybrid-anime .h-wordmark>span{font:13px 'Abel',sans-serif;color:#80947e;letter-spacing:.08em;white-space:nowrap;}
-.hybrid-anime .h-philosophy{padding:0 0 3px;border-left:2px solid #c3cbb7;padding-left:20px;}
-.hybrid-anime .h-philosophy strong{font:italic 24px/1.1 'EB Garamond',Georgia,serif;display:block;color:#37563c;margin-top:4px;}
-.hybrid-anime .h-philosophy p{font:15px/1.35 'EB Garamond',Georgia,serif;margin:5px 0 0;color:#6c7e6b;}
-.hybrid-anime .h-season{margin-top:21px;padding:0 23px;}
-.hybrid-anime .h-season-main{background:#e4eadc;border-top:3px solid #728b65;display:flex;justify-content:space-between;gap:15px;padding:18px 22px 16px;align-items:end;}
-.hybrid-anime .h-season-id small,.hybrid-anime .h-season-state small{display:block;font:11px 'Abel',sans-serif;letter-spacing:.12em;color:#5a745d;}
-.hybrid-anime .h-season-id h2{font:500 35px/.98 'EB Garamond',Georgia,serif;letter-spacing:-.028em;margin:6px 0 0;color:#254432;}
-.hybrid-anime .h-season-id h2 span{font:20px 'Abel',sans-serif;letter-spacing:.025em;margin-right:3px;}
-.hybrid-anime .h-season-id h2 em{font-style:italic;color:#a36641;}
-.hybrid-anime .h-season-state{display:flex;align-items:center;gap:10px;}
-.hybrid-anime .h-state-dot{height:8px;width:8px;display:block;background:#779a5a;border-radius:50%;}
-.hybrid-anime .h-season-state strong{font:22px/1.1 'EB Garamond',Georgia,serif;color:#2b4f36;display:block;margin-top:4px;}
-.hybrid-anime .h-season-state strong span{font-size:14px;font-style:italic;color:#6e806d;}
-.hybrid-anime .h-season-flow{border:1px solid #d8decd;border-top:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));align-items:stretch;background:#f4f5ea;}
-.hybrid-anime .h-season-flow > a,.hybrid-anime .h-season-flow > span{font:12px 'Abel',sans-serif;letter-spacing:.018em;padding:12px 8px;text-align:center;color:#516c57;position:relative;white-space:nowrap;}
-.hybrid-anime .h-season-flow > a+a:before,.hybrid-anime .h-season-flow > span:before{content:'';position:absolute;width:1px;height:16px;background:#d3dacb;left:0;top:calc(50% - 8px);}
-.hybrid-anime .h-season-flow span>span,.hybrid-anime .h-season-flow a>span{font-size:10px;opacity:.65;margin-right:5px;}
-.hybrid-anime .h-season-flow .is-now{background:#566f58;color:#fff;}
-.hybrid-anime .h-season-flow .is-future{color:#9da99a;}
-.hybrid-anime .h-entry-browse{padding:28px 23px 0;display:grid;grid-template-columns:1.11fr 1fr;gap:31px;}
-.hybrid-anime .h-pane-top{display:flex;align-items:baseline;justify-content:space-between;gap:6px;border-bottom:1px solid #bfccbd;padding-bottom:9px;}
-.hybrid-anime .h-pane-top h2,.hybrid-anime .h-section-caption h2{font:600 13px 'Abel',sans-serif;letter-spacing:.18em;margin:0;color:#2b4c34;}
-.hybrid-anime .h-pane-top>span{font:11px 'Abel',sans-serif;letter-spacing:.045em;color:#839380;}
-.hybrid-anime .h-latest-link{display:grid;grid-template-columns:142px 1fr;gap:15px;margin-top:15px;align-items:center;}
-.hybrid-anime .h-latest-link figure{height:164px;margin:0;background:linear-gradient(145deg,#8ba49e,#425660 60%,#9fa99b);border:1px solid #e1e4d4;}
-.hybrid-anime .h-latest-link figure img{display:block;width:100%;height:100%;object-fit:contain;}
-.hybrid-anime .h-latest-week{font:12px 'Abel',sans-serif;letter-spacing:.13em;color:#a36d48;}
-.hybrid-anime .h-latest-week span{color:#506c56;}
-.hybrid-anime .h-latest-copy h3{font:500 clamp(23px,2.5vw,30px)/1.05 'EB Garamond',Georgia,serif;margin:8px 0;color:#25402d;}
-.hybrid-anime .h-latest-copy p{margin:9px 0;font:italic 14px/1.26 'EB Garamond',Georgia,serif;color:#6a7c6d;}
-.hybrid-anime .h-linkword{font:11px 'Abel',sans-serif;letter-spacing:.13em;border-bottom:1px solid #9fb19b;padding:0 0 3px;color:#3b5a40;display:inline-flex;align-items:center;gap:7px;}
-.hybrid-anime .h-linkword .nav-chevron,.hybrid-anime .h-archive-back .nav-chevron{width:6px;height:6px;}
-.hybrid-anime .h-latest-foot{font:italic 13px/1.3 'EB Garamond',Georgia,serif;color:#849182;margin:14px 0 0;}
-.hybrid-anime .h-contents nav>a{display:flex;gap:13px;align-items:baseline;border-bottom:1px solid #e0e4d6;padding:11px 0 10px;}
-.hybrid-anime .h-content-no{font:12px 'Abel',sans-serif;color:#b07854;letter-spacing:.08em;flex:0 0 20px;}
-.hybrid-anime .h-contents nav strong{font:500 21px/1.07 'EB Garamond',Georgia,serif;display:block;color:#2d4733;}
-.hybrid-anime .h-contents nav small{font:13px/1.16 'EB Garamond',Georgia,serif;color:#718471;display:block;margin-top:4px;}
-.hybrid-anime .h-recent{padding:31px 23px 0;}
-.hybrid-anime .h-section-caption{display:flex;justify-content:space-between;align-items:baseline;border-top:1px solid #bdcab9;padding-top:16px;gap:8px;}
-.hybrid-anime .h-section-caption span{font:italic 13px 'EB Garamond',Georgia,serif;color:#869583;}
-.hybrid-anime .h-recent-list{list-style:none;padding:0;margin:11px 0 0;}
-.hybrid-anime .h-recent-list li{display:grid;grid-template-columns:80px 96px 1fr;gap:13px;border-bottom:1px solid #e2e6d9;padding:8px 0;align-items:baseline;}
-.hybrid-anime .h-recent-list .post-date,.hybrid-anime .h-recent-list .post-cat{font:11px 'Abel',sans-serif;color:#687f69;letter-spacing:.025em;white-space:nowrap;}
-.hybrid-anime .h-recent-list .post-name{font:16px/1.1 'EB Garamond',Georgia,serif;}
-.hybrid-anime .h-detour{display:grid;grid-template-columns:1fr 1.7fr;gap:26px;border-top:1px solid #d9decf;border-bottom:1px solid #d9decf;padding:21px 23px;margin-top:35px;background:#f4f4e8;}
-.hybrid-anime .h-detour small{font:10px 'Abel',sans-serif;letter-spacing:.13em;color:#a17357;}
-.hybrid-anime .h-detour h2{font:italic 23px/1.1 'EB Garamond',Georgia,serif;margin:6px 0 0;color:#436044;}
-.hybrid-anime .h-detour-meta{font:10px 'Abel',sans-serif;letter-spacing:.055em;color:#a27156;}
-.hybrid-anime .h-detour-meta em{color:#9da296;font-style:normal;}
-.hybrid-anime .h-detour-copy h3{font:500 20px/1.1 'EB Garamond',Georgia,serif;margin:5px 0;color:#294431;}
-.hybrid-anime .h-detour-copy p{font:14px/1.35 'EB Garamond',Georgia,serif;color:#627a64;margin:4px 0 0;}
-.hybrid-anime .h-archive{padding:34px 23px 0;}
-.hybrid-anime .h-archive-control{padding-top:14px;}
-.hybrid-anime .h-archive-filtergroup{display:flex;flex-wrap:wrap;gap:7px;margin:0 0 9px;}
-.hybrid-anime .h-season-btn{padding:5px 9px;background:none;border:1px solid #c3cdbd;color:#536b55;border-radius:3px;font:11px 'Abel',sans-serif;letter-spacing:.06em;}
-.hybrid-anime .h-season-btn.is-selected{background:#e6eade;border-color:#769173;color:#36583c;}
-.hybrid-anime .h-type-filters{gap:7px;margin-bottom:10px;}
-.hybrid-anime .h-type-filters .filter-button{font-size:11px;padding:5px 10px;}
-.hybrid-anime .archive-title{margin-top:14px;margin-bottom:10px;padding-top:12px;}
-.hybrid-anime .cards{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
-.hybrid-anime .card,.hybrid-anime .card.is-featured{display:grid;grid-template-columns:96px 1fr;min-height:119px;border-radius:5px;}
-.hybrid-anime .card .thumb,.hybrid-anime .card.is-featured .thumb{min-height:119px;background:linear-gradient(150deg,#e3e6d5,#b4c1ac);}
-.hybrid-anime .card .thumb img{object-fit:cover;}
-.hybrid-anime .card-body,.hybrid-anime .card.is-featured .card-body{padding:10px 10px 9px;}
-.hybrid-anime .card h3,.hybrid-anime .card.is-featured h3{font-size:17px;line-height:1.07;margin:5px 0;}
-.hybrid-anime .card .card-tag{font-size:10px;}
-.hybrid-anime .card .meta{font-size:10px;}
-.hybrid-anime .card .excerpt{font-size:12px;line-height:1.15;margin:5px 0 0;}
-.hybrid-anime .h-archive-back{display:inline-flex;align-items:center;gap:8px;font:12px 'Abel',sans-serif;letter-spacing:.1em;color:#587159;border-bottom:1px solid #aabbab;padding:0 0 4px;margin:25px 0 7px;}
-.hybrid-anime .h-study-mark{max-width:880px;margin:38px auto 0;text-align:center;color:#9fa89a;font:10px 'Abel',sans-serif;letter-spacing:.13em;padding:0 15px;}
-@media(max-width:690px){
- .hybrid-anime .h-intro{padding:25px 18px 0;}
- .hybrid-anime .h-intro-grid{gap:10px;grid-template-columns:1fr;align-items:start;padding-bottom:16px;}
- .hybrid-anime .h-wordmark h1{font-size:69px;}
- .hybrid-anime .h-philosophy{border-left:0;border-top:1px solid #d7decf;padding:9px 0 0;}
- .hybrid-anime .h-philosophy strong{font-size:20px;}
- .hybrid-anime .h-philosophy p{font-size:13px;}
- .hybrid-anime .h-season{padding:0 18px;margin-top:17px;}
- .hybrid-anime .h-season-main{padding:15px 14px;}
- .hybrid-anime .h-season-id h2{font-size:30px;}
- .hybrid-anime .h-season-state strong{font-size:19px;}
- .hybrid-anime .h-season-state strong span{display:none;}
- .hybrid-anime .h-season-state small{font-size:9px;letter-spacing:.045em;}
- .hybrid-anime .h-season-flow{grid-template-columns:repeat(3,minmax(0,1fr));}
- .hybrid-anime .h-season-flow > a,.hybrid-anime .h-season-flow > span{font-size:11px;padding:10px 3px;}
- .hybrid-anime .h-entry-browse{padding:23px 18px 0;grid-template-columns:1fr;gap:25px;}
- .hybrid-anime .h-latest-link{grid-template-columns:118px 1fr;gap:12px;}
- .hybrid-anime .h-latest-link figure{height:151px;}
- .hybrid-anime .h-latest-copy h3{font-size:25px;}
- .hybrid-anime .h-latest-foot{margin-top:10px;}
- .hybrid-anime .h-contents nav{display:grid;grid-template-columns:1fr 1fr;gap:0 13px;}
- .hybrid-anime .h-contents nav>a{gap:8px;padding:9px 0 12px;}
- .hybrid-anime .h-content-no{flex-basis:15px;font-size:10px;}
- .hybrid-anime .h-contents nav strong{font-size:18px;}
- .hybrid-anime .h-contents nav small{font-size:12px;}
- .hybrid-anime .h-recent{padding:28px 18px 0;}
- .hybrid-anime .h-recent-list li{grid-template-columns:63px 62px 1fr;gap:8px;padding:10px 0;}
- .hybrid-anime .h-recent-list .post-date,.hybrid-anime .h-recent-list .post-cat{font-size:10px;}
- .hybrid-anime .h-recent-list .post-name{font-size:14px;}
- .hybrid-anime .h-detour{margin-top:26px;grid-template-columns:1fr;gap:11px;padding:19px 18px;}
- .hybrid-anime .h-detour h2{font-size:21px;}
- .hybrid-anime .h-archive{padding:29px 18px 0;}
- .hybrid-anime .cards{grid-template-columns:1fr;gap:9px;}
- .hybrid-anime .card,.hybrid-anime .card.is-featured{grid-template-columns:99px 1fr;min-height:120px;}
- .hybrid-anime .card .thumb,.hybrid-anime .card.is-featured .thumb{min-height:120px;}
- .hybrid-anime .card h3,.hybrid-anime .card.is-featured h3{font-size:17px;}
+/* Anime Home Study 09 -- scoped to the Anime page; Super Top unchanged. */
+.anime09 {--n-ink:#294331;--n-muted:#718471;--n-line:#ced4c7;--n-olive:#71886a;--n-ochre:#b16f47;--n-sand:#f1f0e5;--n-pale:#f7f7ef;color:var(--n-ink);padding:0 0 24px;}
+.anime09 .n-mast,.anime09 .n-season,.anime09 .n-focus,.anime09 .n-activity,.anime09 .n-archive {max-width:920px;margin-left:auto;margin-right:auto;}
+.anime09 button,.anime09 a {transition:color .15s ease,background .15s ease}
+.anime09 button:focus-visible,.anime09 a:focus-visible {outline:2px solid #ab7953;outline-offset:3px}
+.anime09 .n-mast {margin-top:15px;padding:0 26px;border-top:1px solid var(--n-line);border-bottom:1px solid var(--n-line);}
+.anime09 .n-mast-rail {padding:11px 0 0;display:flex;justify-content:space-between;gap:12px;font:11px/1.2 'Abel',sans-serif;letter-spacing:.14em;color:#7b8d7a;}
+.anime09 .n-mast-body {min-height:120px;display:grid;grid-template-columns:1fr 1fr;gap:34px;align-items:center;padding:13px 0 19px;}
+.anime09 .n-word{display:flex;align-items:baseline;gap:13px;}
+.anime09 .n-word h1{font:900 clamp(68px,8vw,84px)/.87 'Passion One',Impact,sans-serif;letter-spacing:.018em;color:var(--n-ink);margin:0;}
+.anime09 .n-word span{font:12px 'Abel',sans-serif;color:#879889;letter-spacing:.08em;}
+.anime09 .n-voice {max-width:330px;padding:0 0 0 18px;border-left:1px solid #bcc7bb;}
+.anime09 .n-voice>span {font:11px 'Abel',sans-serif;letter-spacing:.16em;color:#8c765e;}
+.anime09 .n-voice p {font:italic 17px/1.23 'EB Garamond',Georgia,serif;color:#506b52;margin:6px 0 0;}
+.anime09 .n-season {padding:25px 26px 0;}
+.anime09 .n-season-heading {display:flex;justify-content:space-between;align-items:end;gap:24px;padding-bottom:12px;}
+.anime09 .n-season-name small,.anime09 .n-season-chooser>span {font:11px 'Abel',sans-serif;letter-spacing:.14em;color:#839482;}
+.anime09 .n-season-name h2 {font:500 35px/1 'EB Garamond',Georgia,serif;letter-spacing:-.01em;margin:4px 0 0;}
+.anime09 .n-season-name h2 b {font:18px 'Abel',sans-serif;letter-spacing:.045em;}
+.anime09 .n-season-name h2 em {color:#b16f47;font-weight:500;}
+.anime09 .n-season-chooser {text-align:right;}
+.anime09 .n-season-tabs {display:flex;gap:0;margin-top:5px;border:1px solid #c5cebf;height:32px;align-items:stretch;}
+.anime09 .n-season-tabs>* {font:12px 'Abel',sans-serif;letter-spacing:.09em;padding:8px 10px;color:#60745f;min-width:57px;text-align:center;}
+.anime09 .n-season-tabs>*+*{border-left:1px solid #c5cebf;}
+.anime09 .n-season-tabs .n-empty{color:#abb5a8;cursor:default;}
+.anime09 .n-season-tabs strong {color:#fff;background:#547353;font-weight:400;}
+.anime09 .n-season-sub {border-top:1px solid #c9d2c6;padding:9px 0;display:flex;gap:10px;align-items:center;font:10px 'Abel',sans-serif;letter-spacing:.10em;color:#819281;}
+.anime09 .n-season-sub strong{font:600 12px 'Abel',sans-serif;color:#385c3f;}
+.anime09 .n-note-stage{margin-left:auto;letter-spacing:.045em;color:#a19f8a;}
+.anime09 .n-weeks {display:grid;grid-template-columns:1.25fr repeat(12, minmax(0,1fr));gap:3px;align-items:stretch;border-bottom:1px solid #d8dece;padding:0 0 8px;}
+.anime09 .n-weeks>*{display:flex;justify-content:center;align-items:baseline;gap:3px;padding:12px 3px 9px;background:#f0f2e9;font:12px/1 'Abel',sans-serif;color:#5a715b;text-align:center;min-width:0;}
+.anime09 .n-weeks>*>span{font-size:9px;opacity:.78;}
+.anime09 .n-weeks>*>b{font-weight:400;font-size:15px;}
+.anime09 .n-weeks .n-prelim{background:#e9e8da;display:flex;flex-direction:column;gap:1px;}
+.anime09 .n-weeks .n-prelim>span{font-size:10px;}
+.anime09 .n-weeks .n-prelim>b{font-size:12px;}
+.anime09 .n-weeks .n-now {color:#fff;background:#4f7056;box-shadow:inset 0 -3px #b9d19a;}
+.anime09 .n-weeks .n-unreleased{color:#a3aea0;}
+.anime09 .n-checkpoints {display:flex;align-items:center;flex-wrap:wrap;gap:9px 20px;font:12px 'Abel',sans-serif;color:#8a9687;padding:9px 0 0;}
+.anime09 .n-checkpoints>span:first-child{color:#a47150;font-size:10px;letter-spacing:.11em;}
+.anime09 .n-checkpoints a{color:#3c6347;border-bottom:1px solid #a5b9a2;}
+.anime09 .n-checkpoints b{font-weight:400;font-size:10px;color:#83977f;}
+.anime09 .n-checkpoints small{margin-left:auto;font-size:10px;opacity:.78;}
+.anime09 .n-focus {display:grid;grid-template-columns:minmax(0,1.95fr) minmax(0,1fr);gap:24px;padding:32px 26px 0;}
+.anime09 .n-block-top{display:flex;align-items:baseline;justify-content:space-between;gap:7px;border-top:1px solid var(--n-line);padding:12px 0 13px;}
+.anime09 .n-block-top h2{margin:0;font:600 13px 'Abel',sans-serif;letter-spacing:.145em;color:var(--n-ink);}
+.anime09 .n-block-top>span{font:11px 'Abel',sans-serif;letter-spacing:.055em;color:#80917e;white-space:nowrap;}
+.anime09 .n-block-top i{display:inline-block;width:2px;height:2px;border-radius:50%;background:#879583;vertical-align:middle;margin:0 4px;}
+.anime09 .n-rank-card {display:grid;grid-template-columns:45% 55%;min-height:268px;border:1px solid #304b3b;background:#263c30;color:#f4f0df;overflow:hidden;}
+.anime09 .n-rank-card:hover{color:#fff;}
+.anime09 .n-rank-art{position:relative;min-width:0;overflow:hidden;background:#283d4f;}
+.anime09 .n-rank-art img{width:100%;height:100%;display:block;object-fit:contain;object-position:center;position:absolute;inset:0;}
+.anime09 .n-rank-art:after{content:'';position:absolute;inset:0;background:linear-gradient(0deg,rgba(10,24,20,.38),transparent 50%);pointer-events:none;}
+.anime09 .n-rank-art>span{position:absolute;z-index:1;left:10px;bottom:10px;font:10px 'Abel',sans-serif;letter-spacing:.10em;color:#fff;background:#243629bd;padding:5px 7px;}
+.anime09 .n-rank-text{padding:17px 19px 17px 20px;display:flex;flex-direction:column;}
+.anime09 .n-rank-overline{font:10px 'Abel',sans-serif;letter-spacing:.17em;color:#a9bca9;}
+.anime09 .n-rank-issue{display:flex;gap:5px;align-items:baseline;margin:4px 0 0;color:#e4eacb;}
+.anime09 .n-rank-issue span{font:12px 'Abel',sans-serif;letter-spacing:.15em;}
+.anime09 .n-rank-issue b{font:500 49px/.82 'EB Garamond',Georgia,serif;letter-spacing:-.04em;}
+.anime09 .n-rank-text h3{font:500 clamp(27px,2.8vw,34px)/.96 'EB Garamond',Georgia,serif;color:#fffbea;margin:12px 0 0;}
+.anime09 .n-rank-period{font:10px 'Abel',sans-serif;letter-spacing:.05em;color:#bfcfba;margin:10px 0 0;}
+.anime09 .n-rank-period span{padding:0 4px;color:#8ba78c;}
+.anime09 .n-rank-quote{font:italic 16px 'EB Garamond',Georgia,serif;color:#c2d5b8;margin:11px 0 0;}
+.anime09 .n-rank-open{margin-top:auto;border-top:1px solid #78927b5f;padding-top:11px;font:11px 'Abel',sans-serif;letter-spacing:.11em;color:#f2f5e2;display:flex;justify-content:space-between;align-items:center;}
+.anime09 .n-rank-open .nav-chevron {width:7px;height:7px;}
+.anime09 .n-contents{min-width:0;}
+.anime09 .n-block-top-alt{display:block;}
+.anime09 .n-block-top-alt>span {display:block;margin-top:1px;letter-spacing:.16em;font-size:10px;}
+.anime09 .n-contents nav>a{display:grid;grid-template-columns:22px minmax(0,1fr);gap:7px;border-bottom:1px solid #e0e5d9;padding:11px 1px;align-items:start;}
+.anime09 .n-cno{font:12px 'Abel',sans-serif;color:#b17f5c;letter-spacing:.05em;}
+.anime09 .n-contents nav b{font:500 19px/1.06 'EB Garamond',Georgia,serif;display:block;color:#36513b;}
+.anime09 .n-contents nav small{font:12px/1.16 'EB Garamond',Georgia,serif;display:block;color:#7d8f7c;margin-top:4px;}
+.anime09 .n-activity{padding:27px 26px 0;display:grid;grid-template-columns:1.8fr 1fr;gap:24px;}
+.anime09 .n-recent ul{list-style:none;margin:0;padding:0;}
+.anime09 .n-recent li{display:grid;grid-template-columns:64px 69px minmax(0,1fr);gap:11px;padding:9px 0;border-bottom:1px solid #e1e6db;align-items:baseline;}
+.anime09 .n-recent .post-date,.anime09 .n-recent .post-cat{font:11px 'Abel',sans-serif;letter-spacing:.015em;color:#718773;white-space:nowrap;}
+.anime09 .n-recent .post-name{font:15px/1.11 'EB Garamond',Georgia,serif;color:#344c37;}
+.anime09 .n-notes .n-note-example{border-bottom:1px solid #e1e5d9;padding:8px 0 9px;}
+.anime09 .n-notes .n-note-example small{font:10px 'Abel',sans-serif;letter-spacing:.07em;color:#a47b59;}
+.anime09 .n-notes .n-note-example p{font:15px/1.15 'EB Garamond',Georgia,serif;margin:4px 0;color:#47654b;}
+.anime09 .n-notes .n-note-example strong{font-weight:500;}
+.anime09 .n-notes-disclaimer{display:block;margin-top:9px;font:10px 'Abel',sans-serif;color:#9aa597;}
+.anime09 .n-archive{padding:34px 26px 0;}
+.anime09 .n-archive-heading{border-top:1px solid #bfcbbd;display:flex;align-items:end;justify-content:space-between;gap:16px;padding:16px 0 9px;}
+.anime09 .n-archive-heading small{font:10px 'Abel',sans-serif;letter-spacing:.14em;color:#8b9c86;}
+.anime09 .n-archive-heading h2{font:500 29px/1 'EB Garamond',Georgia,serif;color:#294932;margin:3px 0 0;}
+.anime09 .n-archive-heading>span{font:italic 14px 'EB Garamond',Georgia,serif;color:#859582;}
+.anime09 .n-archive-filters{display:flex;flex-wrap:wrap;justify-content:space-between;gap:9px;padding:10px 0 4px;}
+.anime09 .n-season-filters,.anime09 .n-archive-filters .filters{display:flex;flex-wrap:wrap;gap:5px;margin:0;}
+.anime09 .n-season-filters .h-season-btn,.anime09 .n-archive-filters .filter-button{background:none;color:#667e66;border:1px solid #ced7c9;border-radius:0;font:10px 'Abel',sans-serif;letter-spacing:.035em;padding:5px 7px;}
+.anime09 .n-season-filters .h-season-btn.is-selected,.anime09 .n-archive-filters .filter-button[aria-pressed="true"]{background:#5d785e;border-color:#5d785e;color:#fff;}
+.anime09 #animeArchive .archive-title{font:12px 'Abel',sans-serif;letter-spacing:.12em;color:#6c826a;border-top:0;border-bottom:1px solid #cbd5c7;margin:16px 0 2px;padding:0 0 7px;}
+.anime09 #animeArchive .cards{display:grid;grid-template-columns:minmax(0,1fr);gap:0;}
+.anime09 #animeArchive .card{display:grid;grid-template-columns:112px minmax(0,1fr);gap:0;min-height:105px;border:0;border-bottom:1px solid #e0e6db;background:none;box-shadow:none;border-radius:0;}
+.anime09 #animeArchive .card .thumb{height:88px;min-height:0;align-self:center;overflow:hidden;background:#dfdfd0;border:1px solid #e4e6db;}
+.anime09 #animeArchive .card .thumb img{display:block;width:100%;height:100%;object-fit:cover;}
+.anime09 #animeArchive .card-body{padding:10px 10px 10px 15px;}
+.anime09 #animeArchive .card-tag{font:10px 'Abel',sans-serif;letter-spacing:.095em;color:#aa7553;background:none;border:0;}
+.anime09 #animeArchive .card h3{font:500 19px/1.12 'EB Garamond',Georgia,serif;color:#294532;margin:3px 0 5px;}
+.anime09 #animeArchive .card .meta{font:10px 'Abel',sans-serif;color:#738775;letter-spacing:.04em;}
+.anime09 #animeArchive .card .excerpt{font:13px/1.16 'EB Garamond',Georgia,serif;color:#7f8c7a;margin:5px 0 0;}
+.anime09 .n-legacy{display:inline-flex;gap:9px;align-items:center;border-bottom:1px solid #b8c7b2;padding-bottom:4px;margin-top:25px;font:11px 'Abel',sans-serif;color:#536e58;letter-spacing:.09em;}
+.anime09 .n-legacy .nav-chevron{width:6px;height:6px;}
+.anime09 .n-study-stamp{max-width:920px;margin:34px auto 0;padding:0 26px;text-align:center;font:10px 'Abel',sans-serif;color:#9eaa9e;letter-spacing:.10em;}
+.anime09 .n-study-controls{max-width:920px;margin:10px auto 18px;display:flex;justify-content:center;align-items:center;gap:6px;color:#839184;font:11px 'Abel',sans-serif;}
+.anime09 .n-study-controls button{border:1px solid #c0cebc;background:transparent;padding:4px 7px;color:#647c68;font:11px 'Abel',sans-serif;}
+.anime09 .n-study-controls button[aria-pressed="true"]{background:#59745b;color:white;border-color:#59745b;}
+/* Header experiment is confined to the Anime view; the approved entrance is not restyled. */
+.site:has(.anime09.current) .global{height:69px;}
+.site:has(.anime09.current):not(.n-header-original) .global{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;}
+.site:has(.anime09.current):not(.n-header-original) .global .brand-mini{grid-column:2;grid-row:1;justify-self:center;transform:translateY(2px);}
+.site:has(.anime09.current):not(.n-header-original) .global .header-right{grid-column:1;grid-row:1;justify-self:start;}
+.site:has(.anime09.current) .global .header-right .location{display:none;}
+.site:has(.anime09.current) .global .anime-search-button{grid-column:3;grid-row:1;justify-self:end;}
+.site:has(.anime09.current) .global .menu-drawer{grid-column:auto;grid-row:auto;}
+.site:has(.anime09.current) .global .anime-search-pane{grid-column:auto;grid-row:auto;}
+.site .global .anime-search-button{display:none;border:0;background:none;padding:9px;width:39px;height:39px;position:relative;color:#33543a;}
+.site:has(.anime09.current) .global .anime-search-button{display:block;}
+.anime-search-button svg{width:19px;height:19px;stroke:currentColor;stroke-width:1.7;fill:none;}
+.site:has(.anime09.current).n-header-original .global .header-right{margin-left:auto;}
+.site:has(.anime09.current).n-header-original .global .anime-search-button{margin-left:5px;}
+.anime-search-pane{position:absolute;top:62px;right:15px;z-index:50;width:min(365px,calc(100vw - 30px));background:#faf9ec;border:1px solid #c9d3c5;box-shadow:0 20px 35px #172b2330;padding:17px;}
+.anime-search-pane label{font:11px 'Abel',sans-serif;letter-spacing:.12em;color:#637c65;display:block;margin-bottom:7px;}
+.anime-search-pane input{border:1px solid #c2cdbf;background:#fffef7;width:100%;padding:10px;color:#334a39;font:15px 'EB Garamond',serif;}
+.anime-search-pane ul{max-height:260px;overflow:auto;margin:7px 0 0;padding:0;list-style:none;}
+.anime-search-pane li{border-bottom:1px solid #e2e9de;padding:8px 1px;font:15px/1.14 'EB Garamond',serif;}
+.anime-search-pane li small{display:block;color:#7b917c;font:10px 'Abel',sans-serif;letter-spacing:.07em;margin-bottom:2px;}
+@media(max-width:800px){
+ .anime09 .n-contents nav b{font-size:18px;}
+ .anime09 .n-rank-card{min-height:263px;}
+ .anime09 .n-rank-text{padding:14px 14px 15px;}
+ .anime09 .n-rank-issue b{font-size:43px;}
+ .anime09 .n-rank-text h3{font-size:28px;}
+ .anime09 .n-checkpoints small{display:none;}
 }
-@media(max-width:380px){
- .hybrid-anime .h-intro-grid{gap:7px;}
- .hybrid-anime .h-wordmark h1{font-size:61px;}
- .hybrid-anime .h-latest-link{grid-template-columns:99px 1fr;}
- .hybrid-anime .h-latest-link figure{height:134px;}
- .hybrid-anime .h-latest-copy h3{font-size:22px;}
- .hybrid-anime .h-season-flow>span,.hybrid-anime .h-season-flow>a{font-size:10px;}
+@media(max-width:690px){
+ .site:has(.anime09.current) .global{height:59px;}
+ .anime09 .n-mast{margin-top:8px;padding:0 18px;}
+ .anime09 .n-mast-rail{font-size:10px;padding-top:9px;}
+ .anime09 .n-mast-body{grid-template-columns:1fr;gap:2px;padding:9px 0 13px;min-height:0;}
+ .anime09 .n-word h1{font-size:66px;}
+ .anime09 .n-voice{border-left:0;padding:0;max-width:none;}
+ .anime09 .n-voice>span{font-size:10px;}
+ .anime09 .n-voice p{font-size:15px;line-height:1.17;margin-top:3px;}
+ .anime09 .n-voice p br{display:none;}
+ .anime09 .n-season{padding:20px 18px 0;}
+ .anime09 .n-season-heading{align-items:start;gap:10px;}
+ .anime09 .n-season-name h2{font-size:30px;}
+ .anime09 .n-season-name h2 b{font-size:15px;}
+ .anime09 .n-season-chooser{padding-top:5px;}
+ .anime09 .n-season-tabs>*{min-width:0;font-size:10px;padding:8px 7px;}
+ .anime09 .n-season-sub{font-size:9px;gap:7px;}
+ .anime09 .n-note-stage{display:none;}
+ .anime09 .n-weeks{display:flex;overflow-x:auto;scroll-snap-type:x proximity;scrollbar-width:thin;overscroll-behavior-inline:contain;padding-bottom:7px;}
+ .anime09 .n-weeks>*{min-width:45px;flex:0 0 45px;scroll-snap-align:start;padding:11px 4px 10px;}
+ .anime09 .n-weeks .n-prelim{flex-basis:58px;}
+ .anime09 .n-checkpoints{gap:6px 9px;font-size:11px;}
+ .anime09 .n-checkpoints>span:first-child{flex:1 0 100%;}
+ .anime09 .n-focus{grid-template-columns:1fr;gap:22px;padding:22px 18px 0;}
+ .anime09 .n-rank-card{grid-template-columns:47% 53%;min-height:250px;}
+ .anime09 .n-rank-text{padding:14px 13px 12px;}
+ .anime09 .n-rank-issue b{font-size:42px;}
+ .anime09 .n-rank-text h3{font-size:28px;}
+ .anime09 .n-rank-quote{font-size:14px;}
+ .anime09 .n-contents nav{display:grid;grid-template-columns:1fr 1fr;column-gap:17px;}
+ .anime09 .n-contents nav>a{padding:11px 2px;}
+ .anime09 .n-contents nav b{font-size:18px;}
+ .anime09 .n-contents nav small{font-size:12px;}
+ .anime09 .n-block-top-alt{display:flex;justify-content:space-between;}
+ .anime09 .n-activity{grid-template-columns:1fr;gap:17px;padding:23px 18px 0;}
+ .anime09 .n-notes .n-note-example p{font-size:15px;}
+ .anime09 .n-archive{padding:28px 18px 0;}
+ .anime09 .n-archive-heading h2{font-size:27px;}
+ .anime09 .n-archive-heading>span{font-size:12px;}
+ .anime09 #animeArchive .card{grid-template-columns:94px minmax(0,1fr);min-height:104px;}
+ .anime09 #animeArchive .card .thumb{height:85px;}
+ .anime09 #animeArchive .card-body{padding:10px 4px 10px 12px;}
+ .anime09 #animeArchive .card h3{font-size:17px;}
+ .anime09 #animeArchive .card .excerpt{font-size:12px;}
+}
+@media(max-width:365px){
+ .anime09 .n-season-heading{flex-direction:column;align-items:stretch;gap:8px;}
+ .anime09 .n-season-name h2{white-space:nowrap;}
+ .anime09 .n-season-chooser{text-align:left;padding:0;}
+ .anime09 .n-season-tabs{display:inline-flex;}
+ .anime09 .n-season-chooser>span{font-size:9px;}
+ .anime09 .n-season-tabs>*{font-size:9px;padding:8px 5px;}
+ .anime09 .n-rank-card{grid-template-columns:44% 56%;min-height:245px;}
+ .anime09 .n-rank-text{padding:12px 10px;}
+ .anime09 .n-rank-text h3{font-size:25px;}
+ .anime09 .n-rank-issue b{font-size:37px;}
+ .anime09 .n-rank-quote{font-size:13px;}
+ .anime09 .n-rank-open{font-size:10px;}
+ .anime09 .n-recent li{grid-template-columns:50px 56px 1fr;gap:6px;}
+ .anime09 .n-recent .post-date,.anime09 .n-recent .post-cat{font-size:10px;}
 }
 
 </style>
@@ -453,6 +524,8 @@ button,a{color:inherit}button{cursor:pointer}a{text-decoration:none}a:hover{colo
 </div>
 <p class="drawer-note">The archive selector includes only links verified in the existing site's index. The Flashcards site is separate and opens in a new tab.</p>
 </nav>
+<button class="anime-search-button" id="animeSearchToggle" aria-label="Search anime posts" aria-expanded="false" aria-controls="animeSearchPane" type="button"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.3 15.3 21 21"/></svg></button>
+<div id="animeSearchPane" class="anime-search-pane" hidden><label for="animeSearchInput">SEARCH THE PREVIEW POSTS</label><input id="animeSearchInput" type="search" placeholder="Title, season, or type…" autocomplete="off"/><ul id="animeSearchResults"></ul></div>
 </header>
 <nav aria-label="Section navigation" class="green-nav" id="greenNav"><a href="#home">OFFBEAT / THE CROOKED PATH</a></nav>
 <main class="current" data-view="home" id="homeScreen">
@@ -509,68 +582,79 @@ button,a{color:inherit}button{cursor:pointer}a{text-decoration:none}a:hover{colo
 </details>
 </div>
 </main>
-<main data-view="anime" class="hybrid-anime" id="anime-top">
-  <section class="h-intro" aria-label="Anime introduction">
-    <div class="h-intro-label">OFFBEAT / ANIME</div>
-    <div class="h-intro-grid">
-      <div class="h-wordmark"><h1>Anime</h1><span>/ アニメ</span></div>
-      <div class="h-philosophy"><div class="h-idea-label">SEASON BY SEASON</div><strong>Watch the season unfold.</strong><p>From first impressions to the final look back. Plus the occasional detour.</p></div>
+<main data-view="anime" class="hybrid-anime anime09" id="anime-top">
+  <section class="n-mast" aria-label="Anime introduction">
+    <div class="n-mast-rail"><span>OFFBEAT / ANIME</span><time id="nToday" datetime="2026-10-31">31 OCTOBER 2026</time></div>
+    <div class="n-mast-body">
+      <div class="n-word"><h1>Anime</h1><span>アニメ</span></div>
+      <div class="n-voice"><span>ANIME, SEASON BY SEASON</span><p>There’s more to anime than a single show.<br/>Follow a season as it unfolds.</p></div>
     </div>
   </section>
 
-  <section class="h-season" aria-label="Current anime season">
-    <div class="h-season-main">
-      <div class="h-season-id"><small>THE CURRENT SEASON / 今期</small><h2><span>2026</span> <em>Fall</em></h2></div>
-      <div class="h-season-state"><span class="h-state-dot" aria-hidden="true"></span><div><small>IN PROGRESS · SAMPLE CONTENT</small><strong>Week 03 <span>/ weekly update</span></strong></div></div>
+  <section class="n-season" aria-label="Current anime season">
+    <div class="n-season-heading">
+      <div class="n-season-name"><small>NOW FOLLOWING</small><h2><b>2026</b> <em>Fall</em></h2></div>
+      <div class="n-season-chooser"><span>2026 SEASONS</span><div class="n-season-tabs" aria-label="2026 anime seasons"><span title="Not included in this preview" class="n-empty">WINTER</span><span title="Not included in this preview" class="n-empty">SPRING</span><a data-jump-season="2026-summer" href="#animeArticles">SUMMER</a><strong aria-current="true">FALL</strong></div></div>
     </div>
-    <nav class="h-season-flow" aria-label="2026 Fall season journey">
-      <a href="https://snail-panda.github.io/animeb-v1/ranking/2026/fall/week00/index.html"><span>01</span> Prelim</a>
-      <a href="https://snail-panda.github.io/animeb-v1/tierlist/2026/fall/week01/tierlist.html"><span>02</span> First impressions</a>
-      <a class="is-now" href="https://snail-panda.github.io/animeb-v1/ranking/2026/fall/week03/index.html"><span>03</span> This week</a>
-      <span class="is-future"><span>04</span> Midseason</span>
-      <span class="is-future"><span>05</span> Finale</span>
+    <div class="n-season-sub"><strong>WEEK 03</strong><span>OF THE CURRENT FALL SEASON</span><span class="n-note-stage">PRELIM IS SEPARATE FROM THE WEEKLY RANKINGS</span></div>
+    <nav class="n-weeks" aria-label="Anime season weekly timeline">
+      <a class="n-prelim" title="Preliminary selection" href="https://snail-panda.github.io/animeb-v1/ranking/2026/fall/week00/index.html"><span>PRELIM</span><b>00</b></a>
+      <a href="https://snail-panda.github.io/animeb-v1/ranking/2026/fall/week01/index.html"><span>W</span><b>01</b></a>
+      <a href="https://snail-panda.github.io/animeb-v1/ranking/2026/fall/week02/index.html"><span>W</span><b>02</b></a>
+      <a class="n-now" aria-current="step" href="https://snail-panda.github.io/animeb-v1/ranking/2026/fall/week03/index.html"><span>W</span><b>03</b></a>
+      <span class="n-unreleased"><span>W</span><b>04</b></span><span class="n-unreleased"><span>W</span><b>05</b></span>
+      <span class="n-unreleased"><span>W</span><b>06</b></span><span class="n-unreleased"><span>W</span><b>07</b></span><span class="n-unreleased"><span>W</span><b>08</b></span><span class="n-unreleased"><span>W</span><b>09</b></span><span class="n-unreleased"><span>W</span><b>10</b></span><span class="n-unreleased"><span>W</span><b>11</b></span><span class="n-unreleased"><span>W</span><b>12</b></span>
     </nav>
+    <div class="n-checkpoints"><span>SEASON CHECKPOINTS</span><a href="https://snail-panda.github.io/animeb-v1/tierlist/2026/fall/week01/tierlist.html">First Impressions <b>W01</b></a><span>Midseason <b>W06</b></span><span>Final <b>W12</b></span><small>• Future checkpoints shown as a guide</small></div>
   </section>
 
-  <section class="h-entry-browse" aria-label="Latest entry and content guide">
-    <div class="h-latest">
-      <div class="h-pane-top"><h2>LATEST ENTRY</h2><span>OCT 25, 2026 · RANKING</span></div>
-      <a class="h-latest-link" href="https://snail-panda.github.io/animeb-v1/ranking/2026/fall/week03/index.html">
-        <figure><img loading="eager" alt="2026 Fall anime key visual for the latest weekly ranking" src="https://snail-panda.github.io/animeb-v1/images/key-visuals/2026/fall/cyber.webp"/></figure>
-        <div class="h-latest-copy"><div class="h-latest-week">2026 FALL <span>· WEEK 03</span></div><h3>Top 10 Weekly<br/>Anime Ranking</h3><p>How the lineup is changing this week.</p><span class="h-linkword">OPEN THE RANKING <i class="nav-chevron" aria-hidden="true"></i></span></div>
+  <section class="n-focus" aria-label="Latest ranking and site guide">
+    <div class="n-latest">
+      <div class="n-block-top"><h2>LATEST ENTRY</h2><span>25 OCT 2026 <i></i> RANKING</span></div>
+      <a class="n-rank-card" href="https://snail-panda.github.io/animeb-v1/ranking/2026/fall/week03/index.html">
+        <div class="n-rank-art"><img loading="eager" src="https://snail-panda.github.io/animeb-v1/images/key-visuals/2026/fall/cyber.webp" alt="Anime key visual representing the 2026 Fall Week 03 ranking"/><span>THE WEEKLY RANKING</span></div>
+        <div class="n-rank-text">
+          <span class="n-rank-overline">2026 FALL / WEEKLY</span>
+          <div class="n-rank-issue"><span>WEEK</span><b>03</b></div>
+          <h3>Top 10<br/>Anime Ranking</h3>
+          <p class="n-rank-period">EPISODES 3–4 <span>/</span> OCT 18–24</p>
+          <p class="n-rank-quote">What made the cut this week?</p>
+          <span class="n-rank-open">VIEW WEEK 03 <i class="nav-chevron" aria-hidden="true"></i></span>
+        </div>
       </a>
-      <p class="h-latest-foot">The ranking is the main event. More detail is there when you want it.</p>
     </div>
-    <div class="h-contents">
-      <div class="h-pane-top"><h2>WHAT'S HERE</h2><span>4 ways in</span></div>
-      <nav aria-label="Browse anime content">
-        <a href="https://snail-panda.github.io/animeb-v1/ranking/2026/fall/week03/index.html"><span class="h-content-no">01</span><span><strong>Weekly Rankings</strong><small>Follow the lineup, week by week.</small></span></a>
-        <a href="https://snail-panda.github.io/animeb-v1/tierlist/2026/fall/week01/tierlist.html"><span class="h-content-no">02</span><span><strong>Tier Lists</strong><small>First, middle and final impressions.</small></span></a>
-        <a href="https://snail-panda.github.io/animeb-v1/features/recommend/2026/summer/week12/index.html"><span class="h-content-no">03</span><span><strong>Recommendations</strong><small>The shows worth passing along.</small></span></a>
-        <a href="#animeMoment"><span class="h-content-no">04</span><span><strong>Notes &amp; Detours</strong><small>Rewatches and smaller discoveries.</small></span></a>
+    <aside class="n-contents" aria-label="Browse anime content">
+      <div class="n-block-top n-block-top-alt"><h2>WHAT'S HERE</h2><span>CONTENTS</span></div>
+      <nav>
+        <a href="https://snail-panda.github.io/animeb-v1/ranking/2026/fall/week03/index.html"><span class="n-cno">01</span><span><b>Weekly Rankings</b><small>Follow the season, week by week.</small></span></a>
+        <a href="https://snail-panda.github.io/animeb-v1/tierlist/2026/fall/week01/tierlist.html"><span class="n-cno">02</span><span><b>Tier Lists</b><small>First, midseason &amp; final.</small></span></a>
+        <a href="https://snail-panda.github.io/animeb-v1/features/recommend/2026/summer/week12/index.html"><span class="n-cno">03</span><span><b>Recommendations</b><small>Worth watching—or revisiting.</small></span></a>
+        <a href="#animeMoment"><span class="n-cno">04</span><span><b>Notes &amp; Detours</b><small>Short thoughts beyond the rankings.</small></span></a>
       </nav>
+    </aside>
+  </section>
+
+  <section class="n-activity" aria-label="Recent activity">
+    <div class="n-recent" id="animeRecent"><div class="n-block-top"><h2>RECENT POSTS</h2><span>NEWEST FIRST</span></div><ul id="animeRecentPosts"></ul></div>
+    <aside class="n-notes" id="animeMoment" aria-label="Small notes examples"><div class="n-block-top"><h2>SMALL NOTES</h2><span>IN BETWEEN</span></div>
+      <div class="n-note-example"><small>REWATCH / EXAMPLE</small><p><strong>The Dawn of the Witch</strong> — a few years old, and still worth another watch.</p></div>
+      <div class="n-note-example"><small>THOUGHT / EXAMPLE</small><p>So many sequels, remakes and revivals this season. What actually feels new?</p></div>
+      <span class="n-notes-disclaimer">Sample post ideas, not published entries.</span>
+    </aside>
+  </section>
+
+  <section class="n-archive" id="animeArticles" aria-label="Anime posts archive">
+    <div class="n-archive-heading"><div><small>EXPLORE THE BACK CATALOGUE</small><h2>Posts &amp; Archive</h2></div><span>Choose a season or a post type.</span></div>
+    <div class="n-archive-filters"><div class="n-season-filters" aria-label="Filter by season"><button class="h-season-btn is-selected" type="button" data-season-filter="all" aria-pressed="true">ALL SEASONS</button><button class="h-season-btn" type="button" data-season-filter="2026-fall" aria-pressed="false">2026 FALL</button><button class="h-season-btn" type="button" data-season-filter="2026-summer" aria-pressed="false">2026 SUMMER</button></div>
+      <div class="filters" aria-label="Filter by article type"><button class="filter-button" data-filter="all" aria-pressed="true">ALL POSTS</button><button class="filter-button" data-filter="ranking" aria-pressed="false">RANKINGS</button><button class="filter-button" data-filter="tier" aria-pressed="false">TIER LISTS</button><button class="filter-button" data-filter="recommendation" aria-pressed="false">RECOMMENDATIONS</button></div>
     </div>
-  </section>
-
-  <section class="h-recent" id="animeRecent" aria-label="Recent anime posts">
-    <div class="h-section-caption"><h2>RECENT POSTS</h2><span>Beyond the latest entry</span></div>
-    <ul class="h-recent-list" id="animeRecentPosts"></ul>
-  </section>
-
-  <section class="h-detour" id="animeMoment" aria-label="Example of an informal anime note">
-    <div><small>SMALL THOUGHTS / NOTES</small><h2>Not everything is about the current season.</h2></div>
-    <div class="h-detour-copy"><div class="h-detour-meta">REWATCH · 2022 · <em>EXAMPLE, NOT A PUBLISHED POST</em></div><h3>The Dawn of the Witch</h3><p>Rewatching a show from just a few years ago can be a reminder of how different anime can feel across seasons.</p></div>
-  </section>
-
-  <section class="h-archive" id="animeArticles" aria-label="Anime post archive">
-    <div class="h-section-caption"><h2>POSTS &amp; ARCHIVE</h2><span>Find a season, find a show</span></div>
-    <div class="h-archive-control"><div class="h-archive-filtergroup" aria-label="Filter by season"><button class="h-season-btn is-selected" type="button" data-season-filter="all" aria-pressed="true">ALL SEASONS</button><button class="h-season-btn" type="button" data-season-filter="2026-fall" aria-pressed="false">2026 FALL</button><button class="h-season-btn" type="button" data-season-filter="2026-summer" aria-pressed="false">2026 SUMMER</button></div>
-      <div class="filters h-type-filters" aria-label="Filter by post type"><button class="filter-button" data-filter="all" aria-pressed="true">ALL POSTS</button><button class="filter-button" data-filter="ranking" aria-pressed="false">RANKINGS</button><button class="filter-button" data-filter="tier" aria-pressed="false">TIER LISTS</button><button class="filter-button" data-filter="recommendation" aria-pressed="false">RECOMMENDATIONS</button></div></div>
     <div id="animeArchive" aria-live="polite"></div>
-    <a class="h-archive-back" href="https://snail-panda.github.io/animeb-v1/">VISIT THE EXISTING ANIME HOME <i class="nav-chevron" aria-hidden="true"></i></a>
+    <a class="n-legacy" href="https://snail-panda.github.io/animeb-v1/">EXISTING ANIME HOME <i class="nav-chevron" aria-hidden="true"></i></a>
   </section>
-  <div class="h-study-mark">DESIGN STUDY 08 / TEMPORARY CONTENT · NOT A PUBLISHED LAYOUT</div>
-</main><main class="placeholder" data-view="language"><div class="eyebrow">OFFBEAT / LANGUAGE</div><section class="section-head" style="padding:10px 0 7px"><h1>LANGUAGE</h1><p>Words, expression, and the joy of discovering them.</p></section>
+  <div class="n-study-stamp">ANIME HOME STUDY 09 • LAYOUT CONCEPT • CONTENT EXAMPLES ARE NOT PUBLISHED</div>
+  <div class="n-study-controls" aria-label="Prototype header comparison">HEADER TEST: <button type="button" data-header-mode="center" aria-pressed="true">CENTERED</button> <button type="button" data-header-mode="left" aria-pressed="false">ORIGINAL</button><span>(Preview only)</span></div>
+</main>
+<main class="placeholder" data-view="language"><div class="eyebrow">OFFBEAT / LANGUAGE</div><section class="section-head" style="padding:10px 0 7px"><h1>LANGUAGE</h1><p>Words, expression, and the joy of discovering them.</p></section>
 <div class="launch-panel"><div class="eyebrow">CURRENT DESTINATION</div><h2>SECRET WORD LIST GARDEN</h2><p>The existing Flashcards entry page — not the unfinished Stage 7 WLP.</p><a href="https://swg-entry-page.netlify.app/" rel="noopener noreferrer" target="_blank">OPEN FLASHCARDS <span class="nav-chevron" aria-hidden="true"></span></a></div>
 <p class="callout">Flashcards opens in a separate browser tab so you can return here (or to OFFBEAT HOME) without losing your place. The Flashcards site itself has not been modified.</p>
 <a class="utility-link" href="#home"><span class="nav-chevron nav-chevron--left" aria-hidden="true"></span>BACK TO OFFBEAT HOME</a>   <a class="utility-link" href="#anime">TO ANIME HOME <span class="nav-chevron" aria-hidden="true"></span></a></main><main class="placeholder" data-view="blog"><div class="eyebrow">OFFBEAT / BLOG</div><section class="section-head" style="padding:10px 0 7px"><h1>BLOG</h1><p>Small discoveries, short notes, and everything in between.</p></section>
@@ -646,7 +730,7 @@ function renderRecent(selector,items){const list=$(selector);if(!list)return;lis
 function makeCard(post,featured=false){
  const card=el('article','card'+(featured?' is-featured':''));card.dataset.type=post.type;
  const imageLink=el('a','thumb');imageLink.href=post.url;const image=el('img');image.src=post.image;image.alt='Artwork for '+post.title;image.loading='lazy';image.onerror=()=>{image.style.opacity='0';imageLink.style.background='#d1dacc';};imageLink.append(image);card.append(imageLink);
- const body=el('div','card-body');body.append(el('div','card-tag',post.type==='ranking'?'WEEKLY RANKING':post.type==='tier'?'TIER LIST':'RECOMMENDATIONS'));
+ const body=el('div','card-body');const match=post.url.match(/\/(20\d\d)\/(winter|spring|summer|fall)\//i);const seasonText=match?match[1]+' '+match[2].toUpperCase():'';body.append(el('div','card-tag',(post.type==='ranking'?'RANKING':post.type==='tier'?'TIER LIST':'RECOMMENDATIONS')+(seasonText?'  ·  '+seasonText:'')));
  const h3=el('h3');const a=el('a',null,post.title);a.href=post.url;h3.append(a);body.append(h3,el('div','meta',displayDate(post.date)),el('p','excerpt',post.excerpt));card.append(body);return card;
 }
 function renderAnime(filter='all'){
@@ -706,30 +790,57 @@ function switchView(){
 window.addEventListener('hashchange',switchView);
 window.addEventListener('DOMContentLoaded',switchView);
 </script>
+
+
 <script>
-/* Design Study 08: current content comes from the existing shared posts array. */
-function renderAnimeHybridRecent(){
-  const ul=document.getElementById('animeRecentPosts');if(!ul||typeof posts==='undefined')return;
-  const entries=posts.slice(1,5);ul.replaceChildren();
-  entries.forEach(post=>{
-    const li=document.createElement('li');
-    const d=document.createElement('span');d.className='post-date';d.textContent=displayDate(post.date);
-    const c=document.createElement('span');c.className='post-cat';c.textContent=post.type==='tier'?'TIER LIST':post.type==='ranking'?'RANKING':'PICKS';
-    const a=document.createElement('a');a.className='post-name';a.href=post.url;a.textContent=post.title;
-    li.append(d,c,a);ul.append(li);
-  });
+/* Study 09: Presentation only, using the site's existing mock post dataset. */
+function nRenderRecent(){
+ const ul=document.getElementById('animeRecentPosts');if(!ul||typeof posts==='undefined')return;
+ const entries=posts.slice(1,5);ul.replaceChildren();
+ entries.forEach(post=>{
+  const li=document.createElement('li');
+  const date=document.createElement('span');date.className='post-date';date.textContent=displayDate(post.date);
+  const cat=document.createElement('span');cat.className='post-cat';cat.textContent=post.type==='tier'?'TIER LIST':post.type==='ranking'?'RANKING':'PICKS';
+  const title=document.createElement('a');title.className='post-name';title.href=post.url;title.textContent=post.title;
+  li.append(date,cat,title);ul.append(li);
+ });
+}
+function nFilterSeason(button){
+ document.querySelectorAll('.anime09 [data-season-filter]').forEach(b=>{
+  const selected=b===button;b.classList.toggle('is-selected',selected);b.setAttribute('aria-pressed',String(selected));
+ });
+ const type=document.querySelector('.anime09 [data-filter][aria-pressed="true"]');
+ renderAnime(type?type.dataset.filter:'all');
+}
+function nSearch(){
+ const q=(document.getElementById('animeSearchInput').value||'').toLowerCase().trim();
+ const list=document.getElementById('animeSearchResults');list.replaceChildren();
+ if(typeof posts==='undefined')return;
+ const results=posts.filter(p=>!q||[p.title,p.type,p.excerpt].join(' ').toLowerCase().includes(q)).slice(0,12);
+ if(!results.length){const li=document.createElement('li');li.textContent='No matching preview entries.';list.append(li);return;}
+ results.forEach(post=>{
+  const li=document.createElement('li'),meta=document.createElement('small'),a=document.createElement('a');
+  meta.textContent=displayDate(post.date)+' · '+post.type.toUpperCase();a.textContent=post.title;a.href=post.url;
+  li.append(meta,a);list.append(li);
+ });
 }
 document.addEventListener('DOMContentLoaded',()=>{
-  renderAnimeHybridRecent();
-  document.querySelectorAll('.hybrid-anime [data-season-filter]').forEach(button=>{
-    button.addEventListener('click',()=>{
-      document.querySelectorAll('.hybrid-anime [data-season-filter]').forEach(b=>{
-        const active=b===button;b.classList.toggle('is-selected',active);b.setAttribute('aria-pressed',String(active));
-      });
-      const type=document.querySelector('.hybrid-anime [data-filter][aria-pressed="true"]');
-      renderAnime(type?type.dataset.filter:'all');
-    });
-  });
+ nRenderRecent();
+ document.querySelectorAll('.anime09 [data-season-filter]').forEach(b=>b.addEventListener('click',()=>nFilterSeason(b)));
+ document.querySelectorAll('.anime09 [data-jump-season]').forEach(a=>a.addEventListener('click',()=>{
+  const key=a.dataset.jumpSeason;const button=document.querySelector('.anime09 [data-season-filter="'+key+'"]');
+  if(button)nFilterSeason(button);
+ }));
+ document.querySelectorAll('.anime09 [data-header-mode]').forEach(button=>button.addEventListener('click',()=>{
+  const original=button.dataset.headerMode==='left';document.querySelector('.site').classList.toggle('n-header-original',original);
+  document.querySelectorAll('.anime09 [data-header-mode]').forEach(b=>b.setAttribute('aria-pressed',String(b===button)));
+ }));
+ const t=document.getElementById('nToday');if(t){const d=new Date();t.textContent=new Intl.DateTimeFormat('en-GB',{day:'numeric',month:'long',year:'numeric'}).format(d).toUpperCase();t.dateTime=d.toISOString().slice(0,10);}
+ const toggle=document.getElementById('animeSearchToggle'),panel=document.getElementById('animeSearchPane'),input=document.getElementById('animeSearchInput');
+ toggle.addEventListener('click',()=>{panel.hidden=!panel.hidden;toggle.setAttribute('aria-expanded',String(!panel.hidden));if(!panel.hidden){nSearch();input.focus();}});
+ input.addEventListener('input',nSearch);
+ document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!panel.hidden){panel.hidden=true;toggle.setAttribute('aria-expanded','false');toggle.focus();}});
+ document.addEventListener('click',e=>{if(!panel.hidden&&!panel.contains(e.target)&&!toggle.contains(e.target)){panel.hidden=true;toggle.setAttribute('aria-expanded','false');}});
 });
 </script>
 </body>
