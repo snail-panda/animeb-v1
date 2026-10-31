@@ -1,0 +1,203 @@
+{
+    "presets":  {
+                    "theme-2026-summer-season-preset-1793334103040-5ttiu":  {
+                                                                                "theme":  "image",
+                                                                                "url":  "https://snail-panda.github.io/animeb-v1/images/backgrounds/yofukashi2.webp",
+                                                                                "source":  "url",
+                                                                                "localId":  "",
+                                                                                "imageScope":  "full",
+                                                                                "imageVisibility":  85,
+                                                                                "photoOpacity":  90,
+                                                                                "weekStyle":  "filled",
+                                                                                "imageZoom":  120,
+                                                                                "imagePosX":  47,
+                                                                                "imagePosY":  49,
+                                                                                "statusAnchor":  {
+                                                                                                     "enabled":  false,
+                                                                                                     "fraction":  0,
+                                                                                                     "cameraRatio":  0,
+                                                                                                     "sliderOrigin":  40
+                                                                                                 },
+                                                                                "anchorModel":  {
+                                                                                                    "mode":  "status",
+                                                                                                    "fraction":  0.626440339819917,
+                                                                                                    "cameraRatio":  1.3181818181818181
+                                                                                                },
+                                                                                "imageDrag":  {
+                                                                                                  "x":  10.577931126966522,
+                                                                                                  "y":  -73.45069159838985
+                                                                                              },
+                                                                                "fullPan":  {
+                                                                                                "x":  0,
+                                                                                                "y":  0
+                                                                                            },
+                                                                                "fullZoom":  120,
+                                                                                "legibility":  {
+                                                                                                   "shadow":  1,
+                                                                                                   "edge":  0,
+                                                                                                   "strokeWidth":  0,
+                                                                                                   "strokeBlur":  0,
+                                                                                                   "strokeColor":  "#ffffff",
+                                                                                                   "shadowPower":  36,
+                                                                                                   "shadowBlurPx":  1.5,
+                                                                                                   "edgeWidthPx":  0,
+                                                                                                   "strokeWidthPx":  0,
+                                                                                                   "strokeBlurPx":  0
+                                                                                               },
+                                                                                "introOpacity":  35,
+                                                                                "statusOpacity":  10,
+                                                                                "rankOpacity":  60,
+                                                                                "imageTone":  "dark",
+                                                                                "fullFit":  "cover",
+                                                                                "customColors":  {
+                                                                                                     "week":  "#880094",
+                                                                                                     "year":  "#577800",
+                                                                                                     "anime":  "#ebca00",
+                                                                                                     "duration":  "#a01700",
+                                                                                                     "ranking":  "#9f003e"
+                                                                                                 },
+                                                                                "seasonSettings":  {
+                                                                                                       "weight":  "bold",
+                                                                                                       "style":  "filled",
+                                                                                                       "size":  100
+                                                                                                   }
+                                                                            },
+                    "theme-2025-spring-season-preset-1793335352991-66ebb":  {
+                                                                                "theme":  "image",
+                                                                                "url":  "https://snail-panda.github.io/animeb-v1/images/backgrounds/muumuu.jpg",
+                                                                                "source":  "url",
+                                                                                "localId":  "",
+                                                                                "imageScope":  "full",
+                                                                                "imageVisibility":  100,
+                                                                                "photoOpacity":  100,
+                                                                                "weekStyle":  "filled",
+                                                                                "imageZoom":  45,
+                                                                                "imagePosX":  84,
+                                                                                "imagePosY":  49,
+                                                                                "statusAnchor":  {
+                                                                                                     "enabled":  false,
+                                                                                                     "fraction":  0,
+                                                                                                     "cameraRatio":  0,
+                                                                                                     "sliderOrigin":  40
+                                                                                                 },
+                                                                                "anchorModel":  {
+                                                                                                    "mode":  "status",
+                                                                                                    "fraction":  1.0058585314048172,
+                                                                                                    "cameraRatio":  1.3181818181818181
+                                                                                                },
+                                                                                "imageDrag":  {
+                                                                                                  "x":  12.845967725962428,
+                                                                                                  "y":  -73.45069159838985
+                                                                                              },
+                                                                                "fullPan":  {
+                                                                                                "x":  0,
+                                                                                                "y":  0
+                                                                                            },
+                                                                                "fullZoom":  45,
+                                                                                "legibility":  {
+                                                                                                   "shadow":  1,
+                                                                                                   "edge":  0,
+                                                                                                   "strokeWidth":  0,
+                                                                                                   "strokeBlur":  0,
+                                                                                                   "strokeColor":  "#ffffff",
+                                                                                                   "shadowPower":  47,
+                                                                                                   "shadowBlurPx":  1.5,
+                                                                                                   "edgeWidthPx":  0,
+                                                                                                   "strokeWidthPx":  0.15,
+                                                                                                   "strokeBlurPx":  3.5
+                                                                                               },
+                                                                                "introOpacity":  35,
+                                                                                "statusOpacity":  35,
+                                                                                "rankOpacity":  63,
+                                                                                "imageTone":  "dark",
+                                                                                "fullFit":  "cover",
+                                                                                "customColors":  {
+                                                                                                     "week":  "#ffbfd4",
+                                                                                                     "year":  "#1a6a00",
+                                                                                                     "anime":  "#ebca00",
+                                                                                                     "duration":  "#a01700",
+                                                                                                     "ranking":  "#9f003e",
+                                                                                                     "sat":  "#ff4015",
+                                                                                                     "topNumber":  "#008298",
+                                                                                                     "topWord":  "#ffffff",
+                                                                                                     "season":  "#4c4e00"
+                                                                                                 },
+                                                                                "seasonSettings":  {
+                                                                                                       "weight":  "bold",
+                                                                                                       "style":  "filled",
+                                                                                                       "size":  100
+                                                                                                   }
+                                                                            },
+                    "theme-2026-fall-season-preset-1793347292129-ogu00":  {
+                                                                              "theme":  "image",
+                                                                              "url":  "https://snail-panda.github.io/animeb-v1/images/backgrounds/eureka001.jpg",
+                                                                              "source":  "url",
+                                                                              "localId":  "",
+                                                                              "imageScope":  "full",
+                                                                              "imageVisibility":  100,
+                                                                              "photoOpacity":  100,
+                                                                              "weekStyle":  "filled",
+                                                                              "imageZoom":  100,
+                                                                              "imagePosX":  50,
+                                                                              "imagePosY":  49,
+                                                                              "statusAnchor":  {
+                                                                                                   "enabled":  false,
+                                                                                                   "fraction":  0,
+                                                                                                   "cameraRatio":  0,
+                                                                                                   "sliderOrigin":  40
+                                                                                               },
+                                                                              "anchorModel":  {
+                                                                                                  "mode":  "status",
+                                                                                                  "fraction":  0.36558974634782565,
+                                                                                                  "cameraRatio":  1.3181818181818181
+                                                                                              },
+                                                                              "imageDrag":  {
+                                                                                                "x":  0.3717664314849314,
+                                                                                                "y":  -73.45069159838985
+                                                                                            },
+                                                                              "fullPan":  {
+                                                                                              "x":  0,
+                                                                                              "y":  0
+                                                                                          },
+                                                                              "fullZoom":  100,
+                                                                              "legibility":  {
+                                                                                                 "shadow":  1,
+                                                                                                 "edge":  0,
+                                                                                                 "strokeWidth":  0,
+                                                                                                 "strokeBlur":  0,
+                                                                                                 "strokeColor":  "#ffffff",
+                                                                                                 "shadowPower":  75,
+                                                                                                 "shadowBlurPx":  1.8,
+                                                                                                 "edgeWidthPx":  0,
+                                                                                                 "strokeWidthPx":  0,
+                                                                                                 "strokeBlurPx":  0
+                                                                                             },
+                                                                              "introOpacity":  50,
+                                                                              "statusOpacity":  20,
+                                                                              "rankOpacity":  70,
+                                                                              "imageTone":  "dark",
+                                                                              "fullFit":  "cover",
+                                                                              "customColors":  {
+                                                                                                   "week":  "#ffc4d6",
+                                                                                                   "year":  "#577800",
+                                                                                                   "anime":  "#ebca00",
+                                                                                                   "duration":  "#a01700",
+                                                                                                   "ranking":  "#9f003e"
+                                                                                               },
+                                                                              "seasonSettings":  {
+                                                                                                     "weight":  "bold",
+                                                                                                     "style":  "filled",
+                                                                                                     "size":  100
+                                                                                                 }
+                                                                          }
+                },
+    "version":  1,
+    "weeks":  {
+
+              },
+    "seasons":  {
+                    "2026-summer":  "theme-2026-summer-season-preset-1793334103040-5ttiu",
+                    "2026-fall":  "theme-2026-fall-season-preset-1793347292129-ogu00",
+                    "2025-spring":  "theme-2025-spring-season-preset-1793335352991-66ebb"
+                }
+}
