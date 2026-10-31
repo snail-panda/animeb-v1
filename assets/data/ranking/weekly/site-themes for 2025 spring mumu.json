@@ -1,0 +1,75 @@
+{
+  "version": 1,
+  "presets": {
+    "theme-2025-spring-season-preset-1793335352991-66ebb": {
+      "theme": "image",
+      "url": "https://snail-panda.github.io/animeb-v1/images/backgrounds/muumuu.jpg",
+      "source": "url",
+      "localId": "",
+      "imageScope": "full",
+      "imageVisibility": 100,
+      "photoOpacity": 100,
+      "weekStyle": "filled",
+      "imageZoom": 45,
+      "imagePosX": 84,
+      "imagePosY": 49,
+      "statusAnchor": {
+        "enabled": false,
+        "fraction": 0,
+        "cameraRatio": 0,
+        "sliderOrigin": 40
+      },
+      "anchorModel": {
+        "mode": "status",
+        "fraction": 1.0058585314048172,
+        "cameraRatio": 1.3181818181818181
+      },
+      "imageDrag": {
+        "x": 12.845967725962428,
+        "y": -73.45069159838985
+      },
+      "fullPan": {
+        "x": 0,
+        "y": 0
+      },
+      "fullZoom": 45,
+      "legibility": {
+        "shadow": 1,
+        "edge": 0,
+        "strokeWidth": 0,
+        "strokeBlur": 0,
+        "strokeColor": "#ffffff",
+        "shadowPower": 47,
+        "shadowBlurPx": 1.5,
+        "edgeWidthPx": 0,
+        "strokeWidthPx": 0.15,
+        "strokeBlurPx": 3.5
+      },
+      "introOpacity": 35,
+      "statusOpacity": 35,
+      "rankOpacity": 63,
+      "imageTone": "dark",
+      "fullFit": "cover",
+      "customColors": {
+        "week": "#ffbfd4",
+        "year": "#1a6a00",
+        "anime": "#ebca00",
+        "duration": "#a01700",
+        "ranking": "#9f003e",
+        "sat": "#ff4015",
+        "topNumber": "#008298",
+        "topWord": "#ffffff",
+        "season": "#4c4e00"
+      },
+      "seasonSettings": {
+        "weight": "bold",
+        "style": "filled",
+        "size": 100
+      }
+    }
+  },
+  "seasons": {
+    "2025-spring": "theme-2025-spring-season-preset-1793335352991-66ebb"
+  },
+  "weeks": {}
+}
