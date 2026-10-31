@@ -4257,3 +4257,18 @@ body[data-animeb-theme="image"][data-animeb-image-scope="full"] .wrapper > .anim
 }
 .animeb-full-camera-fine button{min-width:42px;}
 .animeb-full-camera-reset{justify-self:stretch;}
+
+/* AnimeB Theme Studio r23: Site Default switcher */
+.animeb-site-theme-box{min-width:0;box-sizing:border-box;margin:12px 0;padding:12px;border:1px solid #8ca39a;border-radius:9px;background:rgba(128,157,70,.065);color:inherit}
+.animeb-site-theme-box legend{padding:0 6px;font-size:12px;letter-spacing:.04em;font-weight:700}
+.animeb-site-theme-box .animeb-site-theme-status{margin:5px 0 9px;font-size:12px;line-height:1.45}
+.animeb-site-theme-actions{display:flex;flex-wrap:wrap;gap:7px}
+.animeb-site-theme-actions button{flex:1 1 145px;cursor:pointer;background:#e1ebdf;color:#253f32;border:1px solid #93ac9b;border-radius:6px;padding:8px 9px;font:600 12px/1.35 sans-serif;white-space:normal}
+.animeb-site-theme-actions button:hover{background:#cce0cb}
+.animeb-site-theme-help{margin:7px 0 0;font:400 11px/1.55 sans-serif;opacity:.87}
+.animeb-site-theme-publisher{margin-top:11px;padding-top:7px;border-top:1px solid #a7b7ab}
+.animeb-site-theme-publisher summary{font:600 12px/1.5 sans-serif;cursor:pointer}
+body[data-animeb-theme="dark"] .animeb-site-theme-box,
+body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .animeb-site-theme-box{border-color:#526c60;background:rgba(40,65,58,.45);color:#e4efe7}
+body[data-animeb-theme="dark"] .animeb-site-theme-actions button,
+body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .animeb-site-theme-actions button{background:#2c483e;color:#e1efe5;border-color:#698774}

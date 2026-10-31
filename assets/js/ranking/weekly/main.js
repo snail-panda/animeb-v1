@@ -1929,6 +1929,161 @@ function animebInitWeeklyThemes(){
       if(imageScope!=='full')scheduleHeroExtent();
     });
   }
+  /* AnimeB Theme Studio r23: published week/season defaults and explicit personal override. */
+  (function installPublishedThemeControls(){
+    const MODE='animeb-site-theme-mode-v1';
+    const PERSONAL='animeb-site-personal-snapshot-v1';
+    const CONFIG_URL=new URL('../../../data/ranking/weekly/site-themes.json',scriptSrc||location.href).href;
+    const yearKey=String(window.year||'').trim();
+    const seasonKey=String(window.season||'').trim().toLowerCase();
+    const seasonId=yearKey+'-'+seasonKey;
+    const rawWeek=String(window.currentWeek??'').trim().toLowerCase().replace(/^week[-_\s]*/,'');
+    const weekId=/^\d+$/.test(rawWeek)?rawWeek.padStart(2,'0'):rawWeek;
+    const currentWeekId=seasonId+':'+weekId;
+    const blankConfig=()=>({version:1,presets:{},seasons:{},weeks:{}});
+    const validConfig=value=>value && value.version===1 &&
+      value.presets && typeof value.presets==='object' && !Array.isArray(value.presets) &&
+      value.seasons && typeof value.seasons==='object' && !Array.isArray(value.seasons) &&
+      value.weeks && typeof value.weeks==='object' && !Array.isArray(value.weeks);
+    const baseState=()=>({theme:'original',url:'',source:'url',localId:'',imageScope:'header',
+      imageVisibility:78,photoOpacity:100,weekStyle:'auto',imageZoom:100,imagePosX:50,imagePosY:40,
+      statusAnchor:{enabled:false,fraction:0,cameraRatio:0,sliderOrigin:40},
+      anchorModel:{mode:'free',fraction:0,cameraRatio:0},imageDrag:{x:0,y:0},
+      fullPan:{x:0,y:0},fullZoom:100,legibility:{},introOpacity:84,statusOpacity:87,
+      rankOpacity:96,imageTone:'light',fullFit:'cover',customColors:{},
+      seasonSettings:{weight:'auto',style:'auto',size:100}});
+    const legacyKeys=[STORE,IMG,SOURCE,LOCAL_KEY,SCOPE_KEY,PRESETS_KEY,ZOOM_KEY,POSX_KEY,POSY_KEY];
+    let savedMode=null;
+    try {savedMode=localStorage.getItem(MODE);}catch(_){}
+    // Old browsers keep their existing choices until the owner explicitly chooses site defaults.
+    let mode=savedMode==='site'||savedMode==='personal'?savedMode:
+      (legacyKeys.some(k=>{try{return localStorage.getItem(k)!==null;}catch(_){return false;}})?'personal':'site');
+    try{localStorage.setItem(MODE,mode);}catch(_){}
+    let siteConfig=blankConfig(),configReady=false;
+    let personalState=null;
+    try{personalState=JSON.parse(localStorage.getItem(PERSONAL)||'null');}catch(_){}
+    if(!personalState)personalState=snapshot();
+    let applying=false,siteChoice='Base default';
+    const box=document.createElement('fieldset');box.id='animeb-site-theme-box';
+    box.className='animeb-site-theme-box';
+    const legend=document.createElement('legend');legend.textContent='SITE DEFAULTS / サイト標準テーマ';
+    const status=document.createElement('p');status.className='animeb-site-theme-status';
+    const actions=document.createElement('div');actions.className='animeb-site-theme-actions';
+    const makeButton=(label,action)=>{const button=document.createElement('button');
+      button.type='button';button.textContent=label;button.addEventListener('click',action);return button;};
+    const modeStatus=()=>{
+      status.textContent=mode==='site'?'Active: Site Default ('+siteChoice+') / サイト標準':
+        'Active: Personal / 個人設定';
+    };
+    // loadSnapshot was originally local-only and persists many individual keys.
+    // Restore all pre-existing browser settings after showing a published theme:
+    // visiting another season must never overwrite a saved personal preset.
+    async function showPublishedTheme(){
+      const weekPreset=siteConfig.weeks[currentWeekId];
+      const seasonPreset=siteConfig.seasons[seasonId];
+      const selected=weekPreset && siteConfig.presets[weekPreset]?weekPreset:
+        seasonPreset && siteConfig.presets[seasonPreset]?seasonPreset:null;
+      siteChoice=selected?(selected===weekPreset?'Week: ':'Season: ')+selected:'Base default';
+      const data=selected?siteConfig.presets[selected]:baseState();
+      if(data.source==='local')throw new Error('Published themes cannot use private device photos.');
+      const old=new Map();
+      try{for(let i=0;i<localStorage.length;i++){
+        const key=localStorage.key(i);if(key&&key.startsWith('animeb-weekly-'))old.set(key,localStorage.getItem(key));
+      }}catch(_){}
+      applying=true;
+      try{await loadSnapshot(data);}
+      finally{
+        // Remove newly written legacy settings and restore previous saved values.
+        try{const keys=[];for(let i=0;i<localStorage.length;i++){
+          const key=localStorage.key(i);if(key&&key.startsWith('animeb-weekly-'))keys.push(key);
+        }
+        for(const key of keys)if(!old.has(key))localStorage.removeItem(key);
+        for(const [key,value] of old)localStorage.setItem(key,value);}catch(_){}
+        applying=false;
+      }
+      modeStatus();
+    }
+    function beginPersonal(){
+      if(mode==='personal'||applying)return;
+      mode='personal';
+      try{localStorage.setItem(MODE,mode);}catch(_){}
+      // Editing the published theme starts a private local variation.
+      persistSnapshot();
+      modeStatus();
+    }
+    const siteButton=makeButton('Use Site Default / サイト標準に戻す',async()=>{
+      if(mode==='personal'){
+        personalState=snapshot();
+        try{localStorage.setItem(PERSONAL,JSON.stringify(personalState));}catch(_){}
+      }
+      mode='site';try{localStorage.setItem(MODE,mode);}catch(_){}
+      try{await showPublishedTheme();}
+      catch(err){status.textContent='Could not load site theme / サイト標準を読み込めません: '+(err.message||err);}
+    });
+    const personalButton=makeButton('Use Personal / 個人設定を使う',async()=>{
+      mode='personal';try{localStorage.setItem(MODE,mode);}catch(_){}
+      try{await loadSnapshot(personalState||baseState());modeStatus();}
+      catch(err){status.textContent='Could not restore personal settings: '+(err.message||err);}
+    });
+    actions.append(siteButton,personalButton);
+    const info=document.createElement('p');info.className='animeb-site-theme-help';
+    info.textContent='Site default: week > season > base. Your saved presets are never deleted. / 週別 → シーズン → 基本。個人の保存プリセットは削除しません。';
+    const publisher=document.createElement('details');publisher.className='animeb-site-theme-publisher';
+    const summary=document.createElement('summary');summary.textContent='Publish a preset / サイト用設定を書き出す';
+    const publishHelp=document.createElement('p');publishHelp.textContent=
+      'Choose a saved preset above. Download site-themes.json and place it in assets/data/ranking/weekly/. GitHub publish is separate. Public images only. / 上の保存プリセットを選択し、JSONを書き出してリポジトリに配置。端末内画像は不可。';
+    const publishActions=document.createElement('div');publishActions.className='animeb-site-theme-actions';
+    const publisherMessage=document.createElement('p');publisherMessage.className='animeb-site-theme-help';
+    const exportFor=(kind)=>{
+      if(!configReady){publisherMessage.textContent='Site theme JSON has not loaded; export stopped to protect existing assignments. / 公開設定を読み込めないため書き出しを中止しました。';return;}
+      const chosen=presets.find(p=>p.id===presetPick.value);
+      if(!chosen){publisherMessage.textContent='Select a saved preset first. / 保存プリセットを選択してください。';return;}
+      if(chosen.state.source==='local'){
+        publisherMessage.textContent='Device-only images cannot be published. Choose a repository image URL. / 端末内画像は公開できません。';return;
+      }
+      if(chosen.state.theme==='image'&&!validPath(chosen.state.url)){
+        publisherMessage.textContent='Preset image URL is invalid. / 画像URLを確認してください。';return;
+      }
+      const next=JSON.parse(JSON.stringify(siteConfig));
+      // Namespaced key is stable across browsers and duplicate-safe for distinct snapshots.
+      const id='theme-'+seasonId+'-'+(kind==='week'?weekId:'season')+'-'+chosen.id.replace(/[^a-zA-Z0-9_-]/g,'-');
+      next.presets[id]=JSON.parse(JSON.stringify(chosen.state));
+      if(kind==='season')next.seasons[seasonId]=id;
+      else next.weeks[currentWeekId]=id;
+      next.version=1;
+      const out=new Blob([JSON.stringify(next,null,2)+'\n'],{type:'application/json'});
+      const objectURL=URL.createObjectURL(out),a=document.createElement('a');
+      a.href=objectURL;a.download='site-themes.json';document.body.append(a);a.click();a.remove();
+      setTimeout(()=>URL.revokeObjectURL(objectURL),30000);
+      publisherMessage.textContent='Downloaded site-themes.json ('+kind+': '+(kind==='season'?seasonId:currentWeekId)+'). Publish by committing the JSON file. / JSONを保存しました。反映にはCommit・Pushが必要です。';
+    };
+    publishActions.append(makeButton('Assign this SEASON / このシーズン',()=>exportFor('season')),
+      makeButton('Assign this WEEK / この週',()=>exportFor('week')));
+    publisher.append(summary,publishHelp,publishActions,publisherMessage);
+    box.append(legend,status,actions,info,publisher);
+    presetBox.prepend(box);
+    modeStatus();
+    // Existing controls continue to work; editing a site default becomes personal.
+    panel.addEventListener('input',event=>{if(!event.target.closest('#animeb-site-theme-box'))beginPersonal();},true);
+    panel.addEventListener('change',event=>{if(!event.target.closest('#animeb-site-theme-box'))beginPersonal();},true);
+    panel.addEventListener('click',event=>{
+      if(event.target.closest('#animeb-site-theme-box'))return;
+      const button=event.target.closest('button');if(!button)return;
+      if(button.matches('.animeb-theme-choice,.animeb-bg-anchor-choice,.animeb-bg-tone-choice,.animeb-bg-item,.animeb-bg-color-auto,.animeb-bg-scope-choice')||
+         button.textContent?.trim().startsWith('Load /'))beginPersonal();
+    },true);
+    (async()=>{
+      try{
+        const response=await fetch(CONFIG_URL,{cache:'no-store'});
+        if(!response.ok)throw new Error('HTTP '+response.status);
+        const data=await response.json();
+        if(!validConfig(data))throw new Error('invalid theme-map schema');
+        siteConfig=data;configReady=true;
+      }catch(err){console.warn('AnimeB: site-theme defaults unavailable, using base fallback',err);}
+      if(mode==='site')try{await showPublishedTheme();}
+      catch(err){status.textContent='Site theme unavailable / サイト標準を読み込めません: '+(err.message||err);}
+    })();
+  })();
   apply(theme,false);
   if(source==='url'&&url)rememberNaturalSize(validPath(url));
   if(source==='local')restoreLocal().then(blob=>{
