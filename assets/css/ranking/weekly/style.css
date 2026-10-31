@@ -4334,3 +4334,34 @@ body[data-animeb-theme="image"] .animeb-weekly-intro {
   border-top:1px solid currentColor;opacity:.82;
   font:600 11px/1.45 'Fira Sans','Yu Gothic UI',sans-serif;
 }
+/* AnimeB r25: stable Full Page camera frame (not tied to dynamic Safari browser bars).
+   Image and wash MUST share the same large-viewport height. */
+body[data-animeb-theme="image"][data-animeb-image-scope="full"]::before,
+body[data-animeb-theme="image"][data-animeb-image-scope="full"]::after {
+  top:0;
+  bottom:auto;
+  height:100vh; /* fallback for browsers without lvh */
+  height:100lvh;
+}
+/* On desktop, only the ranking/article column carries the fixed photo.
+   The article width is read from .wrapper by updateHeroExtent(). */
+@media (min-width:769px) and (pointer:fine) {
+  body[data-animeb-theme="image"][data-animeb-image-scope="full"]::before,
+  body[data-animeb-theme="image"][data-animeb-image-scope="full"]::after {
+    left:var(--animeb-full-frame-left,0px);
+    right:auto;
+    width:var(--animeb-full-frame-width,100vw);
+  }
+}
+/* A precise value can be entered without squeezing the regular zoom slider. */
+.animeb-bg-zoom-control .animeb-bg-zoom-number {
+  box-sizing:border-box;width:70px!important;max-width:70px!important;
+  min-height:27px;margin:0 0 1px auto;padding:3px 5px!important;
+  border:1px solid #89a99b;border-radius:5px;
+  background:#f8faf4;color:#2d5442;
+  font:600 12px/1.35 'Fira Sans',sans-serif;
+}
+body[data-animeb-theme="dark"] .animeb-bg-zoom-control .animeb-bg-zoom-number,
+body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .animeb-bg-zoom-control .animeb-bg-zoom-number {
+  background:#263f40;color:#edf3ee;border-color:#769b88;
+}

@@ -613,7 +613,22 @@ function animebInitWeeklyThemes(){
     row.append(title,value,input);frame.append(row);
     return {input,value};
   };
-  const zoomCtl=mkRange('ZOOM / 拡大・縮小',5,320,5);
+  const zoomCtl=mkRange('ZOOM / 拡大・縮小',5,320,1);
+  zoomCtl.input.parentElement.classList.add('animeb-bg-zoom-control');
+  const zoomNumber=document.createElement('input');
+  zoomNumber.type='number';zoomNumber.min='5';zoomNumber.max='320';zoomNumber.step='1';
+  zoomNumber.inputMode='numeric';zoomNumber.className='animeb-bg-zoom-number';
+  zoomNumber.setAttribute('aria-label','Zoom percentage / 拡大率（%）');
+  zoomCtl.input.after(zoomNumber);
+  zoomNumber.addEventListener('change',()=>{
+    if(!zoomNumber.value.trim() || !Number.isFinite(Number(zoomNumber.value))){
+      zoomNumber.value=zoomCtl.input.value;return;
+    }
+    const value=Math.max(5,Math.min(320,Math.round(Number(zoomNumber.value))));
+    zoomCtl.input.value=String(value);
+    zoomCtl.input.dispatchEvent(new Event('input',{bubbles:true}));
+    zoomNumber.value=String(value);
+  });
   const posXCtl=mkRange('HORIZONTAL / 左右位置',-450,650,1);
   const posYCtl=mkRange('VERTICAL / 上下位置',-450,650,1);
   const fullCamera=document.createElement('fieldset');fullCamera.className='animeb-bg-full-camera';
@@ -1276,7 +1291,7 @@ function animebInitWeeklyThemes(){
     const width=window.innerWidth;
     if(fullViewportCache.width!==width || !fullViewportCache.height){
       const probe=document.createElement('div');
-      probe.style.cssText='position:fixed;left:-10px;top:0;width:0;height:100svh;visibility:hidden;pointer-events:none';
+      probe.style.cssText='position:fixed;left:-10px;top:0;width:0;height:100lvh;visibility:hidden;pointer-events:none';
       document.body.append(probe);
       const measured=Math.round(probe.getBoundingClientRect().height);probe.remove();
       fullViewportCache={width,height:measured>0?measured:Math.max(1,window.innerHeight)};
@@ -1301,9 +1316,18 @@ function animebInitWeeklyThemes(){
       height=Math.max(180,Math.round(bottom-wrapperTop-expandedOverviewHeight-8));
       wrapper.style.setProperty('--animeb-image-header-height',height+'px');
     }
-    const viewportHeight=imageScope==='full'&&window.innerWidth<=768
+    const viewportHeight=imageScope==='full'&&(window.innerWidth<=768||window.matchMedia('(pointer:coarse)').matches)
       ?stableFullViewportHeight():Math.max(1,window.innerHeight);
-    const targetWidth=imageScope==='full'?window.innerWidth:Math.max(1,wrapper.getBoundingClientRect().width);
+    // AnimeB r25 stable viewport and desktop reading-column camera.
+    const wrapperRect=wrapper.getBoundingClientRect();
+    const desktopFull=imageScope==='full'&&window.innerWidth>768&&window.matchMedia('(pointer:fine)').matches;
+    const targetWidth=imageScope==='full'
+      ?(desktopFull?Math.max(1,Math.min(window.innerWidth,wrapperRect.width)):Math.max(1,window.innerWidth))
+      :Math.max(1,wrapperRect.width);
+    if(desktopFull){
+      document.body.style.setProperty('--animeb-full-frame-left',Math.max(0,Math.round(wrapperRect.left))+'px');
+      document.body.style.setProperty('--animeb-full-frame-width',Math.round(targetWidth)+'px');
+    }
     // Image framing used to be recomputed from the variable header height.
     // No "THIS WEEK" made the hero short, changing BOTH image zoom and
     // background-position percentage; the featured face slid out of view.
@@ -1377,7 +1401,7 @@ function animebInitWeeklyThemes(){
     fitRow.hidden=false;
     fullCamera.hidden=!(id==='image'&&imageScope==='full');
     fitLabel.textContent=imageScope==='full'?'FULL PAGE FIT / 全面時の画像配置':'IMAGE FIT / 背景画像の収まり方';
-    zoomCtl.value.textContent=(imageScope==='full'?fullZoom:imageZoom)+'%';zoomCtl.input.value=String(imageScope==='full'?fullZoom:imageZoom);
+    zoomCtl.value.textContent=(imageScope==='full'?fullZoom:imageZoom)+'%';zoomCtl.input.value=String(imageScope==='full'?fullZoom:imageZoom);zoomNumber.value=zoomCtl.input.value;
     posXCtl.value.textContent=imagePosX+'%';posYCtl.value.textContent=imagePosY+'%';
     introCtl.value.textContent=introOpacity+'%';
     introBlurCtl.value.textContent=introBlur+'px';
@@ -1498,7 +1522,7 @@ function animebInitWeeklyThemes(){
     zoomCtl.input.value=String(imageZoom);posXCtl.input.value=String(imagePosX);posYCtl.input.value=String(imagePosY);
     introCtl.input.value=String(introOpacity);statusCtl.input.value=String(statusOpacity);rankCtl.input.value=String(rankOpacity);
     introBlurCtl.input.value=String(introBlur);statusBlurCtl.input.value=String(statusBlur);
-    fitSelect.value=fullFit;input.value=url;syncFullCamera();zoomCtl.input.value=String(imageScope==='full'?fullZoom:imageZoom);
+    fitSelect.value=fullFit;input.value=url;syncFullCamera();zoomCtl.input.value=String(imageScope==='full'?fullZoom:imageZoom);zoomNumber.value=zoomCtl.input.value;
     for(const [key,,fallback] of colorDefs)colorInputs[key].value=/^#[0-9a-fA-F]{6}$/.test(customColors[key]||'')?customColors[key]:fallback;
     refreshSeasonButtons();applyColors();refreshAllColorAuto();
   }
