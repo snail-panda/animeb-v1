@@ -1183,6 +1183,16 @@ function animebInitWeeklyThemes(){
     }
     if(shadows.length){
       rules+=`\nbody .wrapper > .header h1,body .wrapper > .header .week-title,body .wrapper > .header .duration,body .wrapper > .sub-header,body .wrapper .animeb-weekly-satisfaction{text-shadow:${shadows.join(',')}!important;}`;
+      // AnimeB WEEK-number shadow isolation: shadow the RENDERED glyph,
+      // including its outline-only paint. Inherited text-shadow cannot reliably
+      // cast a visible shadow from a transparent text fill in WebKit.
+      const numberFilters=[];
+      if(ink.shadowPower>0)
+        numberFilters.push(`drop-shadow(0 1px ${ink.shadowBlurPx}px rgba(0,0,0,${ink.shadowPower/100}))`);
+      if(ink.strokeWidthPx>0 && ink.strokeBlurPx>0)
+        numberFilters.push(`drop-shadow(0 0 ${ink.strokeBlurPx}px ${ink.strokeColor})`);
+      if(numberFilters.length)
+        rules+=`\nbody .wrapper > .header .week-title .animeb-week-token{text-shadow:none!important;filter:${numberFilters.join(' ')}!important;}`;
     }
     if(ink.edgeWidthPx>0){
       const width=ink.edgeWidthPx+'px';
