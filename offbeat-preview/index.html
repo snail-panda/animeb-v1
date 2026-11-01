@@ -4,7 +4,7 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <meta content="#f9f8ee" name="theme-color"/>
-<title>OFFBEAT — Anime Home Hybrid 15 (Quiet Colors)</title>
+<title>OFFBEAT — Anime Home Hybrid 16 (Editorial Balance)</title>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Abel&amp;family=Barlow+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;1,100;1,200;1,300&amp;family=Borel&amp;family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&amp;family=Passion+One:wght@700;900&amp;display=swap" rel="stylesheet"/>
@@ -1305,6 +1305,141 @@ button,a{color:inherit}button{cursor:pointer}a{text-decoration:none}a:hover{colo
 }
 @media(prefers-reduced-motion:reduce){
  .anime09 .n-prev-links a{transition:none;}
+}
+
+</style>
+<style id="offbeat-anime-hybrid16">
+
+/* OFFBEAT Anime Home — Hybrid 16 (preview-only refinement of H15)
+   A surgical pass: editorial lead, unshaded season overview, legible taxonomy.
+   No edits to the four approved paragraphs, feature card, Notes, Contents or site root. */
+.anime09 {
+  /* Keep post types separate from season names, in a restrained ink palette. */
+  --h13-ranking:#65415f;       /* vintage plum / ranking */
+  --h13-tier:#38586f;          /* deep slate blue / tier list */
+  --h13-picks:#626442;         /* antique olive / recommendations */
+  --h13-note:#596a66;          /* slate / notes */
+  --h13-fall:#946323;          /* amber, reserved for Fall */
+  --h13-summer:#49717b;        /* muted blue-teal, reserved for Summer */
+}
+/* The italic is a genuine EB Garamond cut. Give its different letterforms
+   enough breathing room without treating the approved copy as a poem. */
+.anime09 .n-mast-14 .n-journey-copy p,
+.anime09 .n-mast-14 .n-journey-copy p.n-journey-close {
+  font-size:14.4px;
+  line-height:1.34;
+  margin-bottom:8px;
+}
+.anime09 .n-mast-14 .n-journey-copy p.n-journey-lead {
+  font-size:15.8px;
+  line-height:1.36;
+  font-weight:500;
+  font-style:italic;
+  color:#38573f;
+  margin-bottom:14px;
+}
+.anime09 .n-mast-14 .n-journey-copy p.n-journey-close { margin-bottom:0; }
+/* Current Season is one sequence on paper, not a dashboard of tinted boxes.
+   Only the individual week tiles/progress indicator retain their purpose-built color. */
+.anime09 .n-season-13 .n-season-header,
+.anime09 .n-season-13 .n-season-dashboard,
+.anime09 .n-season-13 .n-prev-season {
+  background:transparent;
+}
+.anime09 .n-season-13 .n-weeks .n-now {
+  border:0;
+  outline:0;
+  box-shadow:inset 0 -4px #b5d29e; /* restore original lime underline only */
+}
+/* Previous summer: only the word Summer needs the season accent.
+   Surrounding year, descriptions, link labels and rules belong to the site. */
+.anime09 .n-prev-header strong {color:#294b34;}
+.anime09 .n-prev-header em {color:var(--h13-summer);}
+.anime09 .n-prev-header small{color:#687d6a;}
+.anime09 .n-prev-links a{
+  border-left-color:#a8baa7;
+}
+.anime09 .n-prev-links a small,
+.anime09 .n-prev-links .n-prev-go{color:#5a755f;}
+.anime09 .n-prev-links a b{color:#325440;}
+.anime09 .n-prev-links a:hover,
+.anime09 .n-prev-links a:focus-visible{
+  background:#f1f3eb;
+  border-left-color:#789a80;
+}
+/* Recent Posts is a textual index: readable type colors, no badges, no fill. */
+.anime09 .n-recent .post-cat,
+.anime09 .n-recent .post-cat.n-post-cat-ranking,
+.anime09 .n-recent .post-cat.n-post-cat-tier,
+.anime09 .n-recent .post-cat.n-post-cat-recommendation {
+  font-family:'Barlow Condensed','Abel',sans-serif;
+  font-size:13px;
+  font-weight:400;
+  line-height:1.1;
+  letter-spacing:.045em;
+  border:0;
+  background:transparent;
+  padding:0;
+  white-space:nowrap;
+}
+.anime09 .n-recent .post-cat.n-post-cat-ranking {color:var(--h13-ranking);}
+.anime09 .n-recent .post-cat.n-post-cat-tier {color:var(--h13-tier);}
+.anime09 .n-recent .post-cat.n-post-cat-recommendation {color:var(--h13-picks);}
+/* Archive labels: same ink color on their text and thin outline.
+   Clear separation by hue; transparent paper, no pastel boxes. */
+.anime09 #animeArchive .n-atype,
+.anime09 #animeArchive .n-aseason {
+  background:transparent;
+  border:1px solid currentColor;
+  font-weight:400;
+  letter-spacing:.035em;
+}
+.anime09 #animeArchive .n-atype-ranking {color:var(--h13-ranking);}
+.anime09 #animeArchive .n-atype-tier {color:var(--h13-tier);}
+.anime09 #animeArchive .n-atype-recommendation {color:var(--h13-picks);}
+.anime09 #animeArchive .n-aseason-fall {color:var(--h13-fall);}
+.anime09 #animeArchive .n-aseason-summer {color:var(--h13-summer);}
+.anime09 #animeArchive .n-aseason-spring {color:#486b4a;}
+.anime09 #animeArchive .n-aseason-winter {color:#5b677e;}
+/* The archive filters are controls, not inline tags. Retain active state,
+   while matching the refined palette in their unselected outlines. */
+.anime09 .n-archive-filters .filter-button[data-filter="ranking"] {color:var(--h13-ranking);border-color:var(--h13-ranking);}
+.anime09 .n-archive-filters .filter-button[data-filter="tier"] {color:var(--h13-tier);border-color:var(--h13-tier);}
+.anime09 .n-archive-filters .filter-button[data-filter="recommendation"] {color:var(--h13-picks);border-color:var(--h13-picks);}
+.anime09 .n-archive-filters .h-season-btn[data-season-filter="2026-fall"] {color:var(--h13-fall);border-color:var(--h13-fall);}
+.anime09 .n-archive-filters .h-season-btn[data-season-filter="2026-summer"] {color:var(--h13-summer);border-color:var(--h13-summer);}
+/* Selected state keeps the existing established site green. */
+.anime09 .n-archive-filters .filter-button[aria-pressed="true"],
+.anime09 .n-archive-filters .h-season-btn.is-selected{
+  color:#fff!important;background:#496950;border-color:#496950;
+}
+@media(max-width:690px){
+  .anime09 .n-mast-14 .n-journey-copy p,
+  .anime09 .n-mast-14 .n-journey-copy p.n-journey-close {
+    font-size:13.2px;
+    line-height:1.3;
+    margin-bottom:7px;
+  }
+  .anime09 .n-mast-14 .n-journey-copy p.n-journey-lead {
+    font-size:14.6px;
+    line-height:1.34;
+    margin-bottom:11px;
+  }
+  /* The nine-week countdown was present on desktop but hidden on phone.
+     Permit it to wrap onto the second row instead of dropping information. */
+  .anime09 .n-season-13 .n-note-stage{
+    display:inline-block;
+    margin-left:auto;
+    font-size:10px;
+    white-space:nowrap;
+  }
+  .anime09 .n-recent .post-cat,
+  .anime09 .n-recent .post-cat.n-post-cat-ranking,
+  .anime09 .n-recent .post-cat.n-post-cat-tier,
+  .anime09 .n-recent .post-cat.n-post-cat-recommendation{
+    font-size:12px;
+    letter-spacing:.025em;
+  }
 }
 
 </style>
