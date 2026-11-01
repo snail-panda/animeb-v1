@@ -4,7 +4,7 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <meta content="#f9f8ee" name="theme-color"/>
-<title>OFFBEAT — Anime Home Hybrid 14 (Editorial Refinement)</title>
+<title>OFFBEAT — Anime Home Hybrid 15 (Quiet Colors)</title>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Abel&amp;family=Barlow+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;1,100;1,200;1,300&amp;family=Borel&amp;family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&amp;family=Passion+One:wght@700;900&amp;display=swap" rel="stylesheet"/>
@@ -1191,6 +1191,122 @@ button,a{color:inherit}button{cursor:pointer}a{text-decoration:none}a:hover{colo
  .anime09 .n-mast-14 .n-word-sub{font-size:11.6px;}
 }
 @media(prefers-reduced-motion:reduce){.anime09 .n-mast-14 .n-journey-toggle span{transition:none}}
+</style>
+<style id="hybrid15-quiet-colors">
+
+/* OFFBEAT / Anime Home Hybrid 15 — restrained editorial review.
+ * Desktop and mobile share the same palette; only the card issue numerals
+ * and content scale differ. This is a preview-only visual revision.
+ */
+.anime09{
+ --h13-ranking:#69455a;  /* deep muted plum, never bright pink */
+ --h13-ranking-bg:#f7f4f5;
+ --h13-tier:#405a70;     /* ink-blue */
+ --h13-tier-bg:#f3f5f6;
+ --h13-picks:#775449;    /* terra umber */
+ --h13-picks-bg:#f7f4f1;
+ --h13-note:#5e6a70;
+ --h13-fall:#8e6447;
+ --h13-fall-bg:#f7f3ed;
+ --h13-summer:#426b76;
+ --h13-summer-bg:#f3f7f7;
+}
+/* A gentle italic lead, NOT the whole four-paragraph introduction. */
+.anime09 .n-mast-14 .n-journey-copy p.n-journey-lead{
+ font-style:italic;
+ font-weight:500;
+ color:#405d48;
+}
+/* Trial: only the Current Season selector header is shaded.
+   The progress panel returns to the page's uncolored paper. */
+.anime09 .n-season-13 .n-season-dashboard{
+ background:transparent;
+}
+/* Previous season: let typography and a fine rule do the work. */
+.anime09 .n-prev-links a{
+ background:transparent;
+ border-color:#c7d2c5;
+ border-left-color:#8ea9aa;
+ transition:background .16s ease,border-color .16s ease;
+}
+.anime09 .n-prev-links a:hover,
+.anime09 .n-prev-links a:focus-visible{
+ background:#edf3ee;
+ border-color:#a8b9ad;
+ border-left-color:#739a9d;
+}
+/* Clean, almost paper-colored lower half; preserve the lower text contrast. */
+.anime09 .n-rank-card-11 .n-rank-detail{
+ background:var(--paper);
+}
+/* More visible Recent Posts category = darker ink & modest scale,
+   not thicker letters, fill, or a capsule. */
+.anime09 .n-recent .post-cat,
+.anime09 .n-recent .post-cat.n-post-cat-ranking,
+.anime09 .n-recent .post-cat.n-post-cat-tier,
+.anime09 .n-recent .post-cat.n-post-cat-recommendation{
+ font-size:12px;
+ font-weight:400;
+ letter-spacing:.065em;
+}
+.anime09 .n-recent .post-cat.n-post-cat-ranking{color:var(--h13-ranking);}
+.anime09 .n-recent .post-cat.n-post-cat-tier{color:var(--h13-tier);}
+.anime09 .n-recent .post-cat.n-post-cat-recommendation{color:var(--h13-picks);}
+/* Notes were pleasant in H14; only reduce the oversized type a little. */
+.anime09 .n-notes-14 .n-note-example h3{
+ font-size:17.5px;
+ line-height:1.16;
+}
+.anime09 .n-notes-14 .n-note-example p{
+ font-size:15px;
+ line-height:1.24;
+}
+/* Quiet, ink-like outline badges INSIDE archive cards.
+   Hue remains meaningful; avoid pastel fill and heavy caption text. */
+.anime09 #animeArchive .n-atype,
+.anime09 #animeArchive .n-aseason{
+ background:transparent;
+ font-weight:400;
+ font-size:11px;
+ letter-spacing:.04em;
+ border-width:1px;
+ border-style:solid;
+ border-radius:2px;
+ padding:3px 6px 2px;
+}
+.anime09 #animeArchive .n-atype-ranking{color:var(--h13-ranking);border-color:#c8b1bc;}
+.anime09 #animeArchive .n-atype-tier{color:var(--h13-tier);border-color:#b5c6d0;}
+.anime09 #animeArchive .n-atype-recommendation{color:var(--h13-picks);border-color:#d1bbb1;}
+.anime09 #animeArchive .n-aseason-fall{color:var(--h13-fall);border-color:#d2c2af;}
+.anime09 #animeArchive .n-aseason-summer{color:var(--h13-summer);border-color:#b9cfd2;}
+.anime09 #animeArchive .n-aseason-spring{color:#4f7054;border-color:#bdd2bd;}
+.anime09 #animeArchive .n-aseason-winter{color:#5e7084;border-color:#c7d1dd;}
+/* Keep colored archive filters for discovery, but make the palette mature. */
+.anime09 .n-archive-filters .filter-button[data-filter="ranking"]{color:var(--h13-ranking);border-color:#c8b1bc;}
+.anime09 .n-archive-filters .filter-button[data-filter="tier"]{color:var(--h13-tier);border-color:#b5c6d0;}
+.anime09 .n-archive-filters .filter-button[data-filter="recommendation"]{color:var(--h13-picks);border-color:#d1bbb1;}
+.anime09 .n-archive-filters .h-season-btn[data-season-filter="2026-fall"]{color:var(--h13-fall);border-color:#d2c2af;}
+.anime09 .n-archive-filters .h-season-btn[data-season-filter="2026-summer"]{color:var(--h13-summer);border-color:#b9cfd2;}
+@media(min-width:691px){
+ /* H14 42px issue number competes with the quote on desktop. */
+ .anime09 .n-rank-card-11 .n-rank-issue b{font-size:37px;}
+}
+@media(max-width:690px){
+ /* Mobile featured card is already balanced; only adjust the surrounding UI. */
+ .anime09 .n-season-13 .n-season-dashboard{background:transparent;}
+ .anime09 .n-recent .post-cat,
+ .anime09 .n-recent .post-cat.n-post-cat-ranking,
+ .anime09 .n-recent .post-cat.n-post-cat-tier,
+ .anime09 .n-recent .post-cat.n-post-cat-recommendation{font-size:11px;}
+ .anime09 .n-notes-14 .n-note-example h3{font-size:17px;}
+ .anime09 .n-notes-14 .n-note-example p{font-size:15px;}
+ .anime09 #animeArchive .n-atype,
+ .anime09 #animeArchive .n-aseason{font-size:10.5px;}
+}
+@media(prefers-reduced-motion:reduce){
+ .anime09 .n-prev-links a{transition:none;}
+}
+
 </style>
 </head>
 <body>
