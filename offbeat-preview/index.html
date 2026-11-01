@@ -4,7 +4,7 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <meta content="#f9f8ee" name="theme-color"/>
-<title>OFFBEAT — Anime Home Hybrid 13 (Journey &amp; Sections)</title>
+<title>OFFBEAT — Anime Home Hybrid 14 (Editorial Refinement)</title>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Abel&amp;family=Barlow+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;1,100;1,200;1,300&amp;family=Borel&amp;family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&amp;family=Passion+One:wght@700;900&amp;display=swap" rel="stylesheet"/>
@@ -1067,6 +1067,131 @@ button,a{color:inherit}button{cursor:pointer}a{text-decoration:none}a:hover{colo
  .anime09 .n-rank-card-11 .n-rank-period{font-size:10px;}
 }
 </style>
+<style id="hybrid14-editorial-refinements">
+/* Hybrid 14. CSS scoped to Anime Home; OFFBEAT entrance and legacy pages untouched.
+   Keep the approved four-paragraph English message unchanged. */
+.anime09 {
+ --h13-ranking:#80516b;--h13-ranking-bg:#f5eef1;
+ --h13-tier:#4d687e;--h13-tier-bg:#eef2f3;
+ --h13-picks:#885b4d;--h13-picks-bg:#f4eee9;
+ --h13-note:#626b74;--h13-note-bg:#f0f1f1;
+ --h13-fall:#97683e;--h13-fall-bg:#f6efe5;
+ --h13-summer:#4a737e;--h13-summer-bg:#eef4f3;
+ --h13-spring:#547457;--h13-spring-bg:#f0f4ec;
+ --h13-winter:#64738a;--h13-winter-bg:#edf0f4;
+}
+/* Masthead: the brand stays the hero, the journey copy is supporting reading. */
+.anime09 .n-mast.n-mast-13.n-mast-14{padding-bottom:17px;}
+.anime09 .n-mast-14 .n-mast-rail{align-items:center;flex-wrap:wrap;gap:7px 16px;}
+.anime09 .n-mast-14 .n-brand-lockup{color:#506e59;}
+.anime09 .n-mast-14 .n-brand-lockup b{color:#8b694f;font-weight:400;}
+.anime09 .n-mast-14 .n-rail-journey{font:italic 400 12px 'EB Garamond',Georgia,serif;letter-spacing:0;color:#617763;}
+.anime09 .n-mast-14 .n-mast-body{grid-template-columns:minmax(0,308px) minmax(0,1fr);gap:25px;align-items:start;padding:18px 0 2px;}
+.anime09 .n-mast-14 .n-word{display:block;padding-top:19px;white-space:normal;min-width:0;}
+.anime09 .n-mast-14 .n-word-line{display:flex;align-items:baseline;gap:6px;white-space:nowrap;max-width:100%;}
+.anime09 .n-mast-14 .n-word h1{font-size:70px;line-height:.88;letter-spacing:.005em;flex:0 1 auto;}
+.anime09 .n-mast-14 .n-word-line span{font:400 12px 'Abel',sans-serif;letter-spacing:.05em;flex:0 0 auto;color:#617b68;}
+.anime09 .n-mast-14 .n-word-sub{font:italic 400 16px/1.1 'EB Garamond',Georgia,serif;margin:12px 0 0;color:#6a806d;letter-spacing:.005em;}
+.anime09 .n-mast-14 .n-mobile-subtitle{display:none;}
+.anime09 .n-mast-14 .n-voice{max-width:none;min-width:0;border-left:1px solid #bbcbbb;padding:1px 0 0 21px;}
+.anime09 .n-mast-14 .n-journey-copy p,
+.anime09 .n-mast-14 .n-journey-copy p.n-journey-lead,
+.anime09 .n-mast-14 .n-journey-copy p.n-journey-close{
+ font:400 15.3px/1.28 'EB Garamond',Georgia,serif;letter-spacing:0;color:#4b634f;margin:0 0 9px;max-width:none;
+}
+.anime09 .n-mast-14 .n-journey-copy p.n-journey-lead{font-weight:500;color:#3d5946;}
+.anime09 .n-mast-14 .n-journey-copy p.n-journey-close{margin-bottom:0;}
+.anime09 .n-journey-toggle{display:none;}
+/* Current season: a softly highlighted selector header and a quieter overview below it. */
+.anime09 .n-season-13 .n-season-header{background:#eaf0e6;border-top:1.5px solid #9eb49d;border-bottom:1px solid #c5d2c1;padding:13px 21px 13px;}
+.anime09 .n-season-13 .n-season-dashboard{background:#f7f8f0;border-top:0;border-bottom:1px solid #b6c9b8;padding:13px 21px 16px;}
+.anime09 .n-season-13 .n-prev-season{background:transparent;}
+.anime09 .n-prev-header em{color:var(--h13-summer);}
+.anime09 .n-prev-links a{border-left-color:#8faeb0;}
+.anime09 .n-prev-links a small,.anime09 .n-prev-links .n-prev-go{color:#607e82;}
+.anime09 .n-prev-links a b{color:#3c6062;}
+/* Feature: the previous version's slightly stronger desktop typography; mobile stays H13. */
+@media(min-width:691px){
+ .anime09 .n-rank-card-11 .n-rank-issue b{font-size:42px;}
+ .anime09 .n-rank-card-11 .n-rank-quote{font-size:25px;line-height:1.07;}
+ .anime09 .n-rank-card-11 .n-rank-detail h3{font-size:29px;}
+ .anime09 .n-rank-card-11 .n-rank-overline{font-size:12.5px;}
+}
+.anime09 .n-rank-card-11 .n-rank-detail h3{color:#405a40;}
+/* Recent posts: plain colored type, NO pills, backgrounds, bold badges, or borders. */
+.anime09 .n-recent .post-cat,
+.anime09 .n-recent .post-cat.n-post-cat-ranking,
+.anime09 .n-recent .post-cat.n-post-cat-tier,
+.anime09 .n-recent .post-cat.n-post-cat-recommendation{
+ display:inline;justify-self:start;border:0;background:transparent;border-radius:0;padding:0;
+ font:400 11px/1.1 'Barlow Condensed','Abel',sans-serif;letter-spacing:.065em;white-space:nowrap;
+}
+.anime09 .n-recent .post-cat.n-post-cat-ranking{color:var(--h13-ranking);}
+.anime09 .n-recent .post-cat.n-post-cat-tier{color:var(--h13-tier);}
+.anime09 .n-recent .post-cat.n-post-cat-recommendation{color:var(--h13-picks);}
+/* Notes: restore Hybrid 12 hierarchy and warm kicker, keep full tweet-length copy. */
+.anime09 .n-notes.n-notes-14 .n-note-example{padding:11px 0 13px;border-bottom:1px solid #cad5c8;}
+.anime09 .n-notes-14 .n-note-example small{font:500 11px/1.25 'Barlow Condensed','Abel',sans-serif;letter-spacing:.06em;color:#936a4e;}
+.anime09 .n-notes-14 .n-note-example h3{font:600 19px/1.14 'EB Garamond',Georgia,serif;color:#2d4c38;margin:6px 0 2px;}
+.anime09 .n-notes-14 .n-note-example h3 span{font-size:.88em;font-weight:400;color:#5a715f;}
+.anime09 .n-notes-14 .n-note-example p{font:400 16px/1.22 'EB Garamond',Georgia,serif;color:#405c45;margin:3px 0 0;}
+.anime09 .n-notes-14 .n-notes-disclaimer{color:#708573;}
+/* Muted archive palette, lighter tag letterforms, retain clear two-color taxonomy. */
+.anime09 .n-atype,.anime09 .n-aseason{font-weight:400;font-size:11px;letter-spacing:.035em;border-radius:1px;padding:3px 6px 2px;}
+.anime09 .n-atype-ranking{color:var(--h13-ranking);background:var(--h13-ranking-bg);border-color:#d9c7cf;}
+.anime09 .n-atype-tier{color:var(--h13-tier);background:var(--h13-tier-bg);border-color:#cad5da;}
+.anime09 .n-atype-recommendation{color:var(--h13-picks);background:var(--h13-picks-bg);border-color:#ddcdc3;}
+.anime09 .n-aseason-fall{color:var(--h13-fall);background:var(--h13-fall-bg);border-color:#ded0bc;}
+.anime09 .n-aseason-summer{color:var(--h13-summer);background:var(--h13-summer-bg);border-color:#c4d8d7;}
+.anime09 .n-aseason-spring{color:var(--h13-spring);background:var(--h13-spring-bg);border-color:#cbdaca;}
+.anime09 .n-aseason-winter{color:var(--h13-winter);background:var(--h13-winter-bg);border-color:#d1d8df;}
+.anime09 .n-archive-filters .h-season-btn[data-season-filter="2026-fall"]{color:var(--h13-fall);border-color:#d9c3a9;}
+.anime09 .n-archive-filters .h-season-btn[data-season-filter="2026-summer"]{color:var(--h13-summer);border-color:#bad0ce;}
+.anime09 .n-archive-filters .filter-button[data-filter="ranking"]{color:var(--h13-ranking);border-color:#d6c3cb;}
+.anime09 .n-archive-filters .filter-button[data-filter="tier"]{color:var(--h13-tier);border-color:#c6d3db;}
+.anime09 .n-archive-filters .filter-button[data-filter="recommendation"]{color:var(--h13-picks);border-color:#ddc9bc;}
+/* At narrow desktop widths: stack rather than squeeze the anime word across the vertical rule. */
+@media(max-width:890px){
+ .anime09 .n-mast-14 .n-mast-body{grid-template-columns:1fr;gap:13px;padding-top:14px;}
+ .anime09 .n-mast-14 .n-word{padding-top:0;}
+ .anime09 .n-mast-14 .n-word h1{font-size:69px;}
+ .anime09 .n-mast-14 .n-voice{border-left:0;border-top:1px solid #d1dbce;padding:12px 0 0;}
+}
+@media(max-width:690px){
+ .anime09 .n-mast.n-mast-14{padding-bottom:12px;}
+ .anime09 .n-mast-14 .n-mast-rail{font-size:10px;letter-spacing:.065em;}
+ .anime09 .n-mast-14 .n-rail-journey{display:none;}
+ .anime09 .n-mast-14 .n-mast-body{gap:7px;padding-top:10px;}
+ .anime09 .n-mast-14 .n-word h1{font-size:62px;}
+ .anime09 .n-mast-14 .n-word-line span{font-size:11px;}
+ .anime09 .n-mast-14 .n-word-sub{font-size:12.5px;margin-top:6px;line-height:1.2;}
+ .anime09 .n-mast-14 .n-mobile-subtitle{display:inline;color:#6c856f;}
+ .anime09 .n-mast-14 .n-voice{border-top:0;padding:5px 0 0;}
+ .anime09 .n-mast-14 .n-journey-copy p,
+ .anime09 .n-mast-14 .n-journey-copy p.n-journey-lead,
+ .anime09 .n-mast-14 .n-journey-copy p.n-journey-close{font-size:14px;line-height:1.22;margin:0 0 6px;}
+ .anime09 .n-mast-14 .n-journey-copy p:not(.n-journey-lead){display:none;}
+ .anime09 .n-mast-14 .n-journey-copy.is-expanded p:not(.n-journey-lead){display:block;}
+ .anime09 .n-mast-14 .n-journey-copy .n-journey-toggle{display:inline-flex;align-items:center;gap:6px;margin-top:4px;padding:4px 0;border:0;background:none;color:#566e5d;font:500 10.5px 'Barlow Condensed','Abel',sans-serif;letter-spacing:.08em;}
+ .anime09 .n-mast-14 .n-journey-copy .n-journey-toggle span{font-size:15px;line-height:.8;transition:transform .16s;}
+ .anime09 .n-mast-14 .n-journey-copy.is-expanded .n-journey-toggle span{transform:rotate(180deg);}
+ .anime09 .n-season-13 .n-season-name small{white-space:nowrap;}
+ .anime09 .n-season-13 .n-season-header{background:#edf2e9;}
+ .anime09 .n-season-13 .n-season-dashboard{background:#f8f9f2;}
+ .anime09 .n-recent .post-cat,
+ .anime09 .n-recent .post-cat.n-post-cat-ranking,
+ .anime09 .n-recent .post-cat.n-post-cat-tier,
+ .anime09 .n-recent .post-cat.n-post-cat-recommendation{font-size:10px;}
+ .anime09 .n-notes-14 .n-note-example h3{font-size:18px;}
+ .anime09 .n-notes-14 .n-note-example p{font-size:16px;}
+ .anime09 .n-atype,.anime09 .n-aseason{font-size:10.5px;}
+}
+@media(max-width:365px){
+ .anime09 .n-mast-14 .n-word h1{font-size:58px;}
+ .anime09 .n-mast-14 .n-word-sub{font-size:11.6px;}
+}
+@media(prefers-reduced-motion:reduce){.anime09 .n-mast-14 .n-journey-toggle span{transition:none}}
+</style>
 </head>
 <body>
 <div class="site">
@@ -1143,18 +1268,26 @@ button,a{color:inherit}button{cursor:pointer}a{text-decoration:none}a:hover{colo
 </div>
 </main>
 <main class="hybrid-anime anime09" data-view="anime" id="anime-top">
-<section class="n-mast n-mast-13" aria-label="Offbeat Anime — A Journey Through the Season">
- <div class="n-mast-rail"><span class="n-brand-lockup">OFFBEAT <b>/ ANIME</b></span><time datetime="2026-11-01" id="nToday">1 NOVEMBER 2026</time></div>
- <div class="n-mast-body">
-  <div class="n-word"><h1>Anime</h1><span>アニメ</span></div>
-  <div class="n-voice n-journey-copy">
-   <h2>Offbeat Anime <span aria-hidden="true">—</span> <em>A Journey Through the Season</em></h2>
-   <p class="n-journey-lead">Watching dozens of anime week after week—not as separate shows, but as parts of an entire season—is a completely different viewing experience.</p>
-   <p>It's like following a winding trail through the woods, off the beaten path. The whole landscape changes from week to week, with exhilarating highs, infuriating lows, surprises, and unexpected turns revealing new perspectives along the way.</p>
-   <p>By the finale, every one of those moments has helped shape the journey, becoming part of a joy that only the entire experience can bring.</p>
-   <p class="n-journey-close">There's no single way to enjoy anime, but I believe this is one way to truly embrace it.</p>
+<section aria-label="Offbeat Anime — A Journey Through the Season" class="n-mast n-mast-13 n-mast-14">
+<div class="n-mast-rail">
+  <span class="n-brand-lockup">OFFBEAT <b>/ ANIME</b><span class="n-rail-journey"> — A Journey Through the Season</span></span>
+  <time datetime="2026-11-01" id="nToday">1 NOVEMBER 2026</time>
+</div>
+<div class="n-mast-body">
+  <div class="n-word n-word-14">
+    <div class="n-word-line"><h1>Anime</h1><span>アニメ</span></div>
+    <p class="n-word-sub">Season by Season <span class="n-mobile-subtitle">— A Journey Through the Season</span></p>
   </div>
- </div>
+  <div class="n-voice n-journey-copy" id="nJourneyCopy">
+    <div class="n-journey-content" id="nJourneyText">
+      <p class="n-journey-lead">Watching dozens of anime week after week—not as separate shows, but as parts of an entire season—is a completely different viewing experience.</p>
+      <p>It's like following a winding trail through the woods, off the beaten path. The whole landscape changes from week to week, with exhilarating highs, infuriating lows, surprises, and unexpected turns revealing new perspectives along the way.</p>
+      <p>By the finale, every one of those moments has helped shape the journey, becoming part of a joy that only the entire experience can bring.</p>
+      <p class="n-journey-close">There's no single way to enjoy anime, but I believe this is one way to truly embrace it.</p>
+    </div>
+    <button class="n-journey-toggle" type="button" id="nJourneyToggle" aria-expanded="false" aria-controls="nJourneyText">READ THE JOURNEY <span aria-hidden="true">⌄</span></button>
+  </div>
+</div>
 </section>
 <section aria-label="Current anime season — 2026 Fall, Week 03 of 12" class="n-season n-season-12 n-season-13">
  <div class="n-season-header"><div class="n-season-heading">
@@ -1212,11 +1345,19 @@ button,a{color:inherit}button{cursor:pointer}a{text-decoration:none}a:hover{colo
 </section>
 <section aria-label="Recent activity" class="n-activity">
 <div class="n-recent" id="animeRecent"><div class="n-block-top"><h2>RECENT POSTS</h2><span>NEWEST FIRST</span></div><ul id="animeRecentPosts"></ul></div>
-<aside class="n-notes n-notes-13" id="animeMoment" aria-label="Small notes examples">
- <div class="n-block-top"><h2>NOTES</h2><span>THE SMALL DETOURS</span></div>
- <article class="n-note-example"><small>REWATCH · 2022 · SAMPLE NOTE</small><p>Third time watching <strong>The Dawn of the Witch</strong> (2022). What's startling is how much more carefully made it feels than so many anime airing now—and it's only from a few years ago.</p></article>
- <article class="n-note-example"><small>SEASON THOUGHT · SAMPLE NOTE</small><p>Sequels, remakes, revivals everywhere this season. <strong>What still feels new?</strong></p></article>
- <span class="n-notes-disclaimer">Preview examples only. Notes can end here—no separate article required.</span>
+<aside aria-label="Short informal notes examples" class="n-notes n-notes-13 n-notes-14" id="animeMoment">
+<div class="n-block-top"><h2>NOTES</h2><span>THE SMALL DETOURS</span></div>
+<article class="n-note-example">
+  <small>REWATCH · 2022 · SAMPLE NOTE</small>
+  <h3>The Dawn of the Witch <span>(2022)</span></h3>
+  <p>— Watching it for the third time, I'm struck by how much more carefully made it feels than so many anime airing now—and it's only a few years old.</p>
+</article>
+<article class="n-note-example">
+  <small>SEASON THOUGHT · SAMPLE NOTE</small>
+  <h3>Sequels Everywhere</h3>
+  <p>— Sequels, remakes, revivals everywhere this season. What still feels new?</p>
+</article>
+<span class="n-notes-disclaimer">Preview examples only. A short note can be the whole post.</span>
 </aside>
 </section>
 <section aria-label="Anime posts archive" class="n-archive" id="animeArticles">
@@ -1450,6 +1591,19 @@ document.addEventListener('DOMContentLoaded',()=>{
  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!panel.hidden){panel.hidden=true;toggle.setAttribute('aria-expanded','false');toggle.focus();}});
  document.addEventListener('click',e=>{if(!panel.hidden&&!panel.contains(e.target)&&!toggle.contains(e.target)){panel.hidden=true;toggle.setAttribute('aria-expanded','false');}});
 });
+</script>
+<script id="hybrid14-journey-toggle">
+(function(){
+  const button=document.getElementById('nJourneyToggle');
+  const panel=document.getElementById('nJourneyCopy');
+  if(!button||!panel)return;
+  button.addEventListener('click',function(){
+    const open=!panel.classList.contains('is-expanded');
+    panel.classList.toggle('is-expanded',open);
+    button.setAttribute('aria-expanded',String(open));
+    button.innerHTML=open?'CLOSE THE JOURNEY <span aria-hidden="true">⌃</span>':'READ THE JOURNEY <span aria-hidden="true">⌄</span>';
+  });
+})();
 </script>
 </body>
 </html>
