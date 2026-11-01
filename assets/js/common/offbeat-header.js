@@ -23,8 +23,8 @@
       <p class="offbeat-drawer-title">FIND YOUR WAY</p>
       <div class="offbeat-drawer-links">
         <a href="${base}">OFFBEAT HOME</a>
-        <a href="${base}">ANIME</a>
-        <a href="https://swg-entry-page.netlify.app/" target="_blank" rel="noopener noreferrer">LANGUAGE</a>
+        <a href="${base}#anime">ANIME</a>
+        <a href="${base}#language">LANGUAGE</a>
         <a href="${base}#blog">BLOG</a>
       </div>
       <div class="offbeat-drawer-archive">
@@ -42,7 +42,7 @@
         <button class="offbeat-archive-go" type="button">OPEN ARTICLE →</button>
         <p class="offbeat-drawer-result" aria-live="polite"></p>
       </div>
-      <p class="offbeat-drawer-note">The new OFFBEAT Home / Anime / Blog pages are coming next. Until then, these links lead to the current site.</p>
+      <p class="offbeat-drawer-note">OFFBEAT Home and Anime are now available here. Language and Blog will expand as new posts arrive.</p>
     </nav>`;
   host.append(hdr);
   const button = hdr.querySelector('.offbeat-menu-button');
