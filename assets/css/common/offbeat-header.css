@@ -200,15 +200,18 @@ body:has(#offbeat-global-header) .animeb-theme-controls.animeb-editor-open{z-ind
 @media(max-width:768px){
   #offbeat-global-header{
     width:calc(100% + 1.3rem);max-width:none;
-    height:59px;margin:-.65rem -.65rem 0;
+    height:69px;margin:-.65rem -.65rem 0;
   }
   #offbeat-global-header .offbeat-header-inner{
     display:flex;align-items:center;justify-content:space-between;
-    padding:0 20px;gap:0;
+    padding:8px 33px 0;gap:0;
   }
+  /* OFFBEAT R2f: screenshot-matched mobile mast geometry (not a logo-only nudge).
+     Header +10px, 13px more inset at each side; content center +9px. */
   #offbeat-global-header .offbeat-brand{
     justify-self:auto;grid-column:auto;min-width:98px;transform:translateY(2.5px);
   }
+  #offbeat-global-header .offbeat-drawer{top:calc(100% - 4px);}
   /* OFFBEAT R2e mobile brand geometry 窶・mirrors approved Anime Home. */
   #offbeat-global-header .offbeat-brand strong{font-size:22px!important;}
   #offbeat-global-header .offbeat-brand small{font-size:7.5px!important;line-height:1.05!important;}
