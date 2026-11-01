@@ -207,10 +207,11 @@ body:has(#offbeat-global-header) .animeb-theme-controls.animeb-editor-open{z-ind
     padding:0 20px;gap:0;
   }
   #offbeat-global-header .offbeat-brand{
-    justify-self:auto;grid-column:auto;min-width:98px;transform:translateY(2px);
+    justify-self:auto;grid-column:auto;min-width:98px;transform:translateY(2.5px);
   }
-  #offbeat-global-header .offbeat-brand strong{font-size:24px!important;}
-  #offbeat-global-header .offbeat-brand small{font-size:8px!important;}
+  /* OFFBEAT R2e mobile brand geometry 窶・mirrors approved Anime Home. */
+  #offbeat-global-header .offbeat-brand strong{font-size:22px!important;}
+  #offbeat-global-header .offbeat-brand small{font-size:7.5px!important;line-height:1.05!important;}
   #offbeat-global-header .offbeat-header-tools{grid-column:auto;margin-left:auto;gap:1px;}
   #offbeat-global-header .offbeat-menu-button{width:34px;height:34px;padding:8px;gap:4px;}
   #offbeat-global-header .offbeat-menu-button[aria-expanded="true"] span:first-child{transform:translateY(5.5px) rotate(45deg)}
