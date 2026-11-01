@@ -1,0 +1,114 @@
+/* OFFBEAT common header R2c — one reusable component, ranking integration.
+   Scoped to #offbeat-global-header; ranking stylesheet and settings remain separate. */
+@import url('https://fonts.googleapis.com/css2?family=Abel&family=Borel&family=Passion+One:wght@400;700;900&display=swap');
+#offbeat-global-header {
+  box-sizing:border-box;
+  height:90px;
+  width:calc(100% + 1.3rem);
+  margin:-.65rem -.65rem 0;
+  position:relative;
+  z-index:200;
+  isolation:isolate;
+  color:#263e2c;
+  background:#faf9ee;
+  border-bottom:1px solid rgba(46,69,46,.08);
+}
+#offbeat-global-header *, #offbeat-global-header *::before, #offbeat-global-header *::after {box-sizing:border-box}
+#offbeat-global-header .offbeat-site-header{height:100%}
+#offbeat-global-header .offbeat-header-inner {
+  display:flex;align-items:center;justify-content:space-between;
+  max-width:1480px;height:100%;margin:auto;
+  padding:0 clamp(24px,5vw,62px);
+}
+#offbeat-global-header .offbeat-brand {
+  display:inline-flex; flex-direction:column;align-items:center;justify-content:center;
+  min-width:132px;text-decoration:none!important;transform:translateY(4px);
+}
+#offbeat-global-header .offbeat-brand strong {
+  font:900 36px/.82 'Passion One',Impact,sans-serif!important;
+  letter-spacing:-.015em;color:#263e2c!important;text-shadow:none!important;
+}
+#offbeat-global-header .offbeat-brand small {
+  font:400 9px/1.15 'Borel',cursive!important;
+  white-space:nowrap;letter-spacing:-.035em;color:#637b67!important;margin-top:3px;
+}
+#offbeat-global-header .offbeat-menu-button {
+  appearance:none;display:flex;flex-direction:column;justify-content:center;gap:5px;
+  width:40px;height:40px;padding:9px;border:0;border-radius:3px;
+  background:transparent;color:inherit;cursor:pointer;
+}
+#offbeat-global-header .offbeat-menu-button span {
+  display:block;width:100%;height:1.5px;border-radius:3px;background:currentColor;
+  transition:transform .2s ease,opacity .2s ease;
+}
+#offbeat-global-header .offbeat-menu-button[aria-expanded="true"] span:first-child{transform:translateY(6.5px) rotate(45deg)}
+#offbeat-global-header .offbeat-menu-button[aria-expanded="true"] span:nth-child(2){opacity:0}
+#offbeat-global-header .offbeat-menu-button[aria-expanded="true"] span:last-child{transform:translateY(-6.5px) rotate(-45deg)}
+#offbeat-global-header .offbeat-menu-button:focus-visible,
+#offbeat-global-header .offbeat-drawer :is(a,button,select):focus-visible {outline:2px solid #54785f;outline-offset:2px}
+#offbeat-global-header .offbeat-drawer[hidden]{display:none!important}
+#offbeat-global-header .offbeat-drawer {
+  position:absolute;
+  right:max(16px,calc((100vw - 1480px)/2 + 62px));
+  top:calc(100% - 6px);
+  width:min(355px,calc(100vw - 20px));max-height:min(720px,calc(100dvh - 90px));
+  overflow:auto;overscroll-behavior:contain;
+  padding:19px 22px 20px;
+  background:#fdfcf3;color:#273e2c;border:1px solid #cad1bd;
+  box-shadow:0 14px 32px #263b2b30;
+  font-family:'Abel',sans-serif;
+}
+#offbeat-global-header .offbeat-drawer-title {
+  margin:0 0 9px;padding:0;font:400 11px/1.3 'Abel',sans-serif;
+  letter-spacing:.16em;color:#819081;
+}
+#offbeat-global-header .offbeat-drawer-links{display:grid}
+#offbeat-global-header .offbeat-drawer-links a {
+  display:block;padding:8px 0;border-bottom:1px solid #e8eadd;
+  font:400 16px/1.3 'Abel',sans-serif;letter-spacing:.07em;
+  color:inherit;text-decoration:none!important;
+}
+#offbeat-global-header .offbeat-drawer-links a:hover{color:#58805a;background:rgba(87,122,87,.05)}
+#offbeat-global-header .offbeat-drawer-archive{margin-top:18px}
+#offbeat-global-header .offbeat-drawer-archive label {
+  font:400 12px/1.3 'Abel',sans-serif;color:#667668;
+  display:block;margin:8px 0 4px;
+}
+#offbeat-global-header .offbeat-drawer-archive select {
+  appearance:auto;display:block;width:100%;min-width:0;
+  border:1px solid #b8c5b5;border-radius:0;background:#faf9ee;
+  padding:8px;font:400 14px/1.3 'Abel',sans-serif;color:#263e2c;
+}
+#offbeat-global-header .offbeat-archive-go {
+  appearance:none;margin-top:11px;border:1px solid #718b73;border-radius:0;
+  background:#557b5e;color:#fff;padding:9px 16px;
+  font:400 13px/1.3 'Abel',sans-serif;letter-spacing:.05em;cursor:pointer;
+}
+#offbeat-global-header .offbeat-archive-go:disabled{cursor:default;opacity:.5}
+#offbeat-global-header .offbeat-archive-go:not(:disabled):hover{background:#396c48}
+#offbeat-global-header .offbeat-drawer-result,
+#offbeat-global-header .offbeat-drawer-note {
+  font:400 12px/1.4 'Abel',sans-serif;color:#70806f;margin:8px 0 0;
+}
+#offbeat-global-header[data-offbeat-tone="dark"] {
+  background:#18292a;color:#f7f7e1;border-bottom-color:#364b43;
+}
+#offbeat-global-header[data-offbeat-tone="dark"] .offbeat-brand strong {color:#f7f7e1!important}
+#offbeat-global-header[data-offbeat-tone="dark"] .offbeat-brand small {color:#d0cfc3!important}
+#offbeat-global-header[data-offbeat-tone="dark"] .offbeat-drawer {background:#1d3033;color:#eee8d6;border-color:#52685a;box-shadow:0 14px 35px #0008}
+#offbeat-global-header[data-offbeat-tone="dark"] .offbeat-drawer-title {color:#c7c2a9}
+#offbeat-global-header[data-offbeat-tone="dark"] .offbeat-drawer-links a {border-color:#52685a}
+#offbeat-global-header[data-offbeat-tone="dark"] .offbeat-drawer-links a:hover {color:#fff1ca;background:#36504a}
+#offbeat-global-header[data-offbeat-tone="dark"] .offbeat-drawer-archive label {color:#ccc8b7}
+#offbeat-global-header[data-offbeat-tone="dark"] .offbeat-drawer-archive select {background:#23383a;color:#eee8d6;border-color:#64776e}
+#offbeat-global-header[data-offbeat-tone="dark"] .offbeat-archive-go {background:#4f735b;color:#fff3dc}
+#offbeat-global-header[data-offbeat-tone="dark"] .offbeat-drawer-result,
+#offbeat-global-header[data-offbeat-tone="dark"] .offbeat-drawer-note {color:#c5c7b5}
+@media(max-width:650px){
+  #offbeat-global-header{height:59px}
+  #offbeat-global-header .offbeat-header-inner{padding:0 20px}
+  #offbeat-global-header .offbeat-brand strong{font-size:32px!important}
+  #offbeat-global-header .offbeat-brand small{font-size:8px!important}
+  #offbeat-global-header .offbeat-drawer{right:9px;top:55px;max-height:calc(100dvh - 62px);width:min(320px,calc(100vw - 18px))}
+}
+@media(prefers-reduced-motion:reduce){#offbeat-global-header .offbeat-menu-button span{transition:none}}

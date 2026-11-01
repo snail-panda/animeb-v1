@@ -558,7 +558,9 @@ function animebInitWeeklyThemes(){
     const width=window.innerWidth;
     if(fullAnchorTopCache.width!==width || fullAnchorTopCache.line===null){
       const nav=document.querySelector('.nav-bar');
-      const line=nav?nav.getBoundingClientRect().bottom:0;
+      // OFFBEAT R2c: full-anchor baseline remains the STICKY nav bottom
+      // after an ordinary-flow global header is inserted above it.
+      const line=nav?nav.getBoundingClientRect().height:0;
       fullAnchorTopCache={width,line:Math.max(0,Math.min(200,line))};
     }
     return fullAnchorTopCache.line;
