@@ -112,3 +112,114 @@
   #offbeat-global-header .offbeat-drawer{right:9px;top:55px;max-height:calc(100dvh - 62px);width:min(320px,calc(100vw - 18px))}
 }
 @media(prefers-reduced-motion:reduce){#offbeat-global-header .offbeat-menu-button span{transition:none}}
+/* OFFBEAT R2d — compact responsive site mast, fixed editor/language visibility.
+   This file is linked AFTER ranking/style.css: no Theme Studio changes required. */
+#offbeat-global-header{
+  width:100%; max-width:920px; height:69px;
+  margin:0 auto; z-index:200;
+}
+#offbeat-global-header .offbeat-header-inner{
+  display:grid; grid-template-columns:1fr auto 1fr; align-items:center;
+  max-width:none; padding:0 18px; gap:0;
+}
+#offbeat-global-header .offbeat-brand{
+  grid-column:2; justify-self:center; min-width:103px; transform:translateY(2px);
+}
+#offbeat-global-header .offbeat-brand strong{
+  font-size:28px!important; line-height:.9!important; letter-spacing:.01em!important;
+}
+#offbeat-global-header .offbeat-brand small{
+  font-size:8.5px!important; line-height:1.08!important; margin-top:3px!important;
+}
+#offbeat-global-header .offbeat-header-tools{
+  grid-column:3; justify-self:end; display:flex; align-items:center; gap:3px;
+}
+#offbeat-global-header .offbeat-menu-button{
+  width:36px; height:36px; padding:8px; gap:5px;
+}
+#offbeat-global-header .offbeat-search-button{
+  width:34px;height:36px;padding:7px;cursor:pointer;
+  border:0;border-radius:3px;background:transparent;color:inherit;
+  display:grid;place-items:center;
+}
+#offbeat-global-header .offbeat-search-button svg{
+  width:19px;height:19px;stroke:currentColor;stroke-width:1.7;fill:none;
+}
+#offbeat-global-header .offbeat-search-button:focus-visible,
+#offbeat-global-header .offbeat-search-pane :is(input,a,button):focus-visible{
+  outline:2px solid currentColor;outline-offset:2px;
+}
+#offbeat-global-header .offbeat-search-pane[hidden]{display:none!important}
+#offbeat-global-header .offbeat-search-pane{
+  position:absolute;right:9px;top:calc(100% - 3px);z-index:3;
+  width:min(355px,calc(100vw - 18px));max-height:min(65vh,590px);overflow:auto;
+  background:#fdfcf3;color:#263e2c;border:1px solid #cad1bd;
+  box-shadow:0 14px 32px #263b2b30;padding:15px 17px 17px;
+  font-family:'Abel',sans-serif;
+}
+#offbeat-global-header .offbeat-search-pane label{
+  display:block;font-size:11px;letter-spacing:.12em;margin-bottom:7px;
+}
+#offbeat-global-header .offbeat-search-pane input{
+  display:block;width:100%;border:1px solid #b8c5b5;background:#faf9ee;color:#263e2c;
+  border-radius:0;padding:9px 10px;font:14px 'Abel',sans-serif;
+}
+#offbeat-global-header .offbeat-search-results{
+  list-style:none;padding:0;margin:8px 0 0;
+}
+#offbeat-global-header .offbeat-search-results li{border-bottom:1px solid #e8eadd;}
+#offbeat-global-header .offbeat-search-results a{
+  display:block;padding:7px 0;color:inherit;text-decoration:none;
+  font:14px/1.25 'Abel',sans-serif;
+}
+#offbeat-global-header .offbeat-search-results a:hover{text-decoration:underline}
+#offbeat-global-header .offbeat-search-results .offbeat-search-empty{
+  padding:10px 0;color:#6b7d6e;font:12px/1.4 'Abel',sans-serif;
+}
+#offbeat-global-header[data-offbeat-tone="dark"] .offbeat-search-pane{
+  background:#1d3033;color:#f7f7e1;border-color:#52685a;
+}
+#offbeat-global-header[data-offbeat-tone="dark"] .offbeat-search-pane input{
+  background:#23383a;color:#f7f7e1;border-color:#64776e;
+}
+#offbeat-global-header[data-offbeat-tone="dark"] .offbeat-search-results li{border-color:#52685a}
+#offbeat-global-header[data-offbeat-tone="dark"] .offbeat-search-results .offbeat-search-empty{color:#c5c7b5}
+/* Ranking controls retain THEIR OWN handlers/state; they were covered by
+   R2c's header (z-index 200) at their original fixed top of 43/47px.
+   Move them below the visible portion of the ordinary-flow mast. On scroll,
+   --offbeat-header-visible decreases to 0, returning to original positions. */
+body:has(#offbeat-global-header) .animeb-weekly-language{
+  top:calc(env(safe-area-inset-top,0px) + 47px + var(--offbeat-header-visible,69px));
+  z-index:190;
+}
+body:has(#offbeat-global-header) .animeb-theme-controls{
+  top:calc(env(safe-area-inset-top,0px) + 47px + var(--offbeat-header-visible,69px));
+  z-index:190;
+}
+body:has(#offbeat-global-header) .animeb-theme-controls.animeb-editor-open{z-index:1200;}
+@media(max-width:768px){
+  #offbeat-global-header{
+    width:calc(100% + 1.3rem);max-width:none;
+    height:59px;margin:-.65rem -.65rem 0;
+  }
+  #offbeat-global-header .offbeat-header-inner{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:0 20px;gap:0;
+  }
+  #offbeat-global-header .offbeat-brand{
+    justify-self:auto;grid-column:auto;min-width:98px;transform:translateY(2px);
+  }
+  #offbeat-global-header .offbeat-brand strong{font-size:24px!important;}
+  #offbeat-global-header .offbeat-brand small{font-size:8px!important;}
+  #offbeat-global-header .offbeat-header-tools{grid-column:auto;margin-left:auto;gap:1px;}
+  #offbeat-global-header .offbeat-menu-button{width:34px;height:34px;padding:8px;gap:4px;}
+  #offbeat-global-header .offbeat-menu-button[aria-expanded="true"] span:first-child{transform:translateY(5.5px) rotate(45deg)}
+  #offbeat-global-header .offbeat-menu-button[aria-expanded="true"] span:last-child{transform:translateY(-5.5px) rotate(-45deg)}
+  #offbeat-global-header .offbeat-search-button{width:32px;height:34px;padding:7px;}
+  body:has(#offbeat-global-header) .animeb-weekly-language{
+    top:calc(env(safe-area-inset-top,0px) + 43px + var(--offbeat-header-visible,59px));
+  }
+  body:has(#offbeat-global-header) .animeb-theme-controls{
+    top:calc(env(safe-area-inset-top,0px) + 43px + var(--offbeat-header-visible,59px));
+  }
+}

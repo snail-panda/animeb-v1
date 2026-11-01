@@ -158,3 +158,109 @@
     attributes:true,attributeFilter:['data-animeb-theme','data-animeb-image-tone']
   });
 })();
+/* OFFBEAT R2d — presentation-only repair. Keeps ranking's own theme/language
+   controls; no storage writes. Search covers published archive entries. */
+(function(){
+  'use strict';
+  const host=document.getElementById('offbeat-global-header');
+  if(!host || host.dataset.offbeatR2d==='1')return;
+  const inner=host.querySelector('.offbeat-header-inner');
+  const burger=inner?.querySelector('.offbeat-menu-button');
+  if(!burger)return;
+  host.dataset.offbeatR2d='1';
+  const tools=document.createElement('div');tools.className='offbeat-header-tools';
+  burger.replaceWith(tools);tools.appendChild(burger);
+  const searchBtn=document.createElement('button');
+  searchBtn.type='button';searchBtn.className='offbeat-search-button';
+  searchBtn.setAttribute('aria-label','Search published anime archives');
+  searchBtn.setAttribute('aria-expanded','false');
+  searchBtn.setAttribute('aria-controls','offbeat-header-search');
+  searchBtn.innerHTML='<svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.3 15.3 21 21"/></svg>';
+  tools.appendChild(searchBtn);
+  const searchPane=document.createElement('div');
+  searchPane.className='offbeat-search-pane';searchPane.id='offbeat-header-search';
+  searchPane.hidden=true;
+  searchPane.innerHTML='<label for="offbeat-header-search-input">SEARCH PUBLISHED ANIME ARCHIVES</label><input id="offbeat-header-search-input" type="search" placeholder="2026 Fall Week 03…" autocomplete="off"><ul class="offbeat-search-results" aria-live="polite"></ul>';
+  host.querySelector('.offbeat-site-header').appendChild(searchPane);
+  const field=searchPane.querySelector('input'),results=searchPane.querySelector('ul');
+  const archiveEntries=[];
+  const base='/animeb-v1/';
+  function addEntry(label,href){
+    if(!archiveEntries.some(a=>a.href===href))archiveEntries.push({label,href});
+  }
+  addEntry('2026 Fall Week 01 Tier List',base+'tierlist/2026/fall/week01/tierlist.html');
+  addEntry('2026 Summer Week 12 Final Tier List',base+'tierlist/2026/summer/week12/tierlist.html');
+  addEntry('2026 Summer Week 12 Recommendations',base+'features/recommend/2026/summer/week12/index.html');
+  for(let n=0;n<=4;n++){
+    const w=String(n).padStart(2,'0');
+    addEntry(`2026 Fall ${n===0?'Prelim ':''}Weekly Ranking Week ${w}`,base+`ranking/2026/fall/week${w}/index.html`);
+  }
+  const seasons={winter:0,spring:1,summer:2,fall:3};
+  function fillArchive(index){
+    for(const [y,entries] of Object.entries(index||{})){
+      if(!/^\d{4}$/.test(y)||!entries||typeof entries!=='object')continue;
+      for(const [name,record] of Object.entries(entries)){
+        const term=name.toLowerCase();
+        if(!(term in seasons)||!Array.isArray(record?.weeks))continue;
+        for(const word of record.weeks){
+          const matched=/^week\s*(\d{1,2})$/i.exec(String(word).trim());
+          if(!matched)continue;
+          const w=matched[1].padStart(2,'0');
+          addEntry(`${y} ${name} ${w==='00'?'Prelim ':''}Weekly Ranking Week ${w}`,base+`ranking/${y}/${term}/week${w}/index.html`);
+        }
+      }
+    }
+    showResults();
+  }
+  function showResults(){
+    const query=field.value.toLowerCase().trim().replace(/[^\da-z\u3040-\u30ff\s]/g,' ');
+    const tokens=query.split(/\s+/).filter(Boolean);
+    const found=archiveEntries.filter(e=>tokens.every(t=>e.label.toLowerCase().includes(t))).slice(0,20);
+    results.replaceChildren();
+    if(!tokens.length){
+      const li=document.createElement('li');li.className='offbeat-search-empty';
+      li.textContent='Enter a season, year, week or article type.';results.append(li);return;
+    }
+    if(!found.length){
+      const li=document.createElement('li');li.className='offbeat-search-empty';
+      li.textContent='No matching published archive entry.';results.append(li);return;
+    }
+    for(const {href,label} of found){
+      const li=document.createElement('li'),a=document.createElement('a');
+      a.href=href;a.textContent=label;li.append(a);results.append(li);
+    }
+  }
+  function closeSearch(){searchPane.hidden=true;searchBtn.setAttribute('aria-expanded','false');}
+  searchBtn.addEventListener('click',()=>{
+    const opening=searchPane.hidden;
+    if(opening){
+      burger.closest('header')?.querySelector('.offbeat-drawer')?.setAttribute('hidden','');
+      burger.setAttribute('aria-expanded','false');burger.setAttribute('aria-label','Open site navigation');
+    }
+    searchPane.hidden=!opening;searchBtn.setAttribute('aria-expanded',String(opening));
+    if(opening){showResults();field.focus();}
+  });
+  burger.addEventListener('click',()=>{if(burger.getAttribute('aria-expanded')==='true')closeSearch();});
+  document.addEventListener('click',event=>{
+    if(!searchPane.hidden && !searchPane.contains(event.target) && !searchBtn.contains(event.target))closeSearch();
+  });
+  document.addEventListener('keydown',event=>{if(event.key==='Escape'&&!searchPane.hidden){closeSearch();searchBtn.focus();}});
+  field.addEventListener('input',showResults);
+  searchPane.addEventListener('click',event=>{if(event.target.closest('a'))closeSearch();});
+  fetch(base+'weekly-rankings.json').then(r=>{if(!r.ok)throw Error('No archive index');return r.json();})
+    .then(fillArchive).catch(()=>{});
+  // Existing fixed weekly controls were hidden under R2c's high-z-index mast.
+  // Account only for the VISIBLE part of the non-sticky mast; once scrolled
+  // away they return to their original 43/47px fixed positions.
+  let scheduled=false;
+  function updateVisibleHeader(){
+    scheduled=false;
+    const rect=host.getBoundingClientRect();
+    const v=Math.max(0,Math.min(rect.height,rect.bottom));
+    document.documentElement.style.setProperty('--offbeat-header-visible',v+'px');
+  }
+  function schedule(){if(!scheduled){scheduled=true;requestAnimationFrame(updateVisibleHeader);}}
+  updateVisibleHeader();
+  window.addEventListener('scroll',schedule,{passive:true});
+  window.addEventListener('resize',schedule,{passive:true});
+})();
