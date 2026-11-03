@@ -4608,3 +4608,72 @@ body[data-animeb-theme="image"][data-animeb-image-scope="full"][data-animeb-full
 }
 @media (min-width:769px) { .offbeat-more-toggle { display:none!important; } }
 /* OFFBEAT WEEKLY TYPOGRAPHY R3 INTEGRATED - END */
+
+/* OFFBEAT WEEKLY MOBILE R4 READABILITY FIX - BEGIN */
+@media (max-width:768px) {
+  /* Small title refinements; retain user-approved Japanese primary title. */
+  body[data-animeb-lang="en"] .entry .title,
+  body[data-animeb-lang="en"] .entry .info-top {
+    font-size:15.6px;
+    letter-spacing:0em;
+    word-spacing:0.09em;
+  }
+  body[data-animeb-lang="ja"] .entry .info-top { font-size:16.5px; }
+  body[data-animeb-lang="ja"] .entry .jp-title {
+    font-size:11.8px;
+    letter-spacing:0;
+    word-spacing:0.09em;
+  }
+  /* The subordinate episode is slightly smaller, never a stray | row. */
+  .entry .ranking-episode-line > .ranking-episode-separator + span { font-size:10.5px; }
+
+  /* Dropped / Bottom main labels: equal 16px, body text kept readable. */
+  .animeb-dropped-name, .animeb-bottom-name { font-size:16px; }
+
+  /* R4 replaces R3 line-clamp with an INLINE teaser and a SINGLE ellipsis. */
+  .offbeat-r4-source-hidden { display:none!important; }
+  .offbeat-r4-preview { min-width:0; max-width:100%; overflow-wrap:anywhere; }
+  .offbeat-r4-body { display:block; white-space:pre-line; line-height:inherit; overflow-wrap:anywhere; }
+  .offbeat-r4-drop-heading { margin:0 0 8px; white-space:normal; line-height:1.4; }
+  .offbeat-r4-more {
+    display:inline;
+    appearance:none;
+    border:0;
+    background:transparent;
+    color:#817f82;
+    padding:0;
+    margin:0;
+    font:600 .88em/1.3 'Fira Sans','Yu Gothic UI',sans-serif;
+    white-space:nowrap;
+    text-decoration:underline;
+    text-underline-offset:2px;
+    cursor:pointer;
+    vertical-align:baseline;
+  }
+  .offbeat-r4-less {
+    appearance:none;
+    border:0;
+    background:transparent;
+    color:#817f82;
+    padding:2px 0;
+    margin:3px 0 5px;
+    font:600 12px/1.4 'Fira Sans','Yu Gothic UI',sans-serif;
+    text-decoration:underline;
+    text-underline-offset:2px;
+    cursor:pointer;
+  }
+  .offbeat-r4-more:focus-visible, .offbeat-r4-less:focus-visible {
+    outline:2px solid currentColor;
+    outline-offset:2px;
+  }
+  body[data-animeb-theme="dark"] .offbeat-r4-more,
+  body[data-animeb-theme="dark"] .offbeat-r4-less,
+  body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .offbeat-r4-more,
+  body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .offbeat-r4-less {
+    color:#bdc8c7;
+  }
+}
+@media (min-width:769px) {
+  .offbeat-r4-preview,.offbeat-r4-more,.offbeat-r4-less { display:none!important; }
+}
+/* OFFBEAT WEEKLY MOBILE R4 READABILITY FIX - END */
