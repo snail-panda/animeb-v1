@@ -1488,7 +1488,111 @@ button,a{color:inherit}button{cursor:pointer}a{text-decoration:none}a:hover{colo
 }
 
 </style>
-<meta content="OFFBEAT — a crooked path through anime, language, and the small discoveries along the way." name="description"/><link href="https://snail-panda.github.io/animeb-v1/" rel="canonical"/></head>
+<meta content="OFFBEAT — a crooked path through anime, language, and the small discoveries along the way." name="description"/><link href="https://snail-panda.github.io/animeb-v1/" rel="canonical"/><style id="offbeat-anime-home-r1c">
+/* OFFBEAT ANIME HOME R1c — approved typography & navigation. Scoped to Anime Home.
+   Live ranking/timeline data, Journey copy, feature art and the entrance are untouched. */
+.anime09 .n-jump-nav {
+  max-width:920px;
+  margin:0 auto;
+  padding:9px 26px 0;
+  display:flex;
+  align-items:center;
+  overflow-x:auto;
+  white-space:nowrap;
+  scrollbar-width:none;
+  -ms-overflow-style:none;
+}
+.anime09 .n-jump-nav::-webkit-scrollbar {display:none;}
+.anime09 .n-jump-nav a {
+  flex:0 0 auto;
+  color:#708272;
+  font:400 10.5px/1.3 'Abel','Barlow Condensed',sans-serif;
+  letter-spacing:.065em;
+  padding:0 11px;
+  border-right:1px solid #c5d0bd;
+}
+.anime09 .n-jump-nav a:first-child {padding-left:0;}
+.anime09 .n-jump-nav a:last-child {border-right:0;}
+.anime09 .n-jump-nav a:hover,
+.anime09 .n-jump-nav a:focus-visible {color:#2e5637;}
+.anime09 #animeLatest,.anime09 #animeTier,.anime09 #animeRecommend,
+.anime09 #animeRecent,.anime09 #animeMoment,.anime09 #animeArticles {scroll-margin-top:13px;}
+/* Choice D: Fall first, 1px amber hairline, green-gray divider, optically aligned year. */
+.anime09 .n-season-13 .n-season-name h2 {
+  display:flex;
+  align-items:baseline;
+  gap:0;
+  white-space:nowrap;
+  overflow:visible;
+  line-height:1;
+}
+.anime09 .n-season-13 .n-season-name h2 em {
+  position:relative;
+  display:inline-block;
+  padding-right:1px;
+  font-style:italic;
+  font-weight:500;
+  line-height:1.04;
+}
+.anime09 .n-season-13 .n-season-name h2 em::after {
+  content:'';
+  position:absolute;
+  left:7px;
+  right:2px;
+  bottom:0;
+  height:1px;
+  background:#bd8a63;
+  pointer-events:none;
+}
+.anime09 .n-season-13 .n-season-name h2 b {
+  position:relative;
+  display:inline-block;
+  flex:none;
+  margin-left:25px;
+  font:400 19px/1.1 'EB Garamond',Georgia,serif;
+  letter-spacing:0;
+  color:#45644e;
+  transform:translateY(-2px);
+}
+.anime09 .n-season-13 .n-season-name h2 b::before {
+  content:'';
+  position:absolute;
+  left:-14px;
+  top:51%;
+  transform:translateY(-50%);
+  width:1px;
+  height:22px;
+  background:#b6c5b5;
+  pointer-events:none;
+}
+/* Archive postcards only: apply only a 3.5–4% transparent hint of the existing hues, don't recolor lettering or outlines.
+   RANKING=plum, TIER=blue, RECOMMENDATIONS=olive, FALL=amber, SUMMER=teal. */
+.anime09 #animeArchive .card .n-atype-ranking {background:rgba(119,55,113,0.035);}
+.anime09 #animeArchive .card .n-atype-tier {background:rgba(57,105,136,0.035);}
+.anime09 #animeArchive .card .n-atype-recommendation {background:rgba(101,111,60,0.035);}
+.anime09 #animeArchive .card .n-aseason-fall {background:rgba(174,99,30,0.040);}
+.anime09 #animeArchive .card .n-aseason-summer {background:rgba(52,114,125,0.035);}
+.anime09 #animeArchive .card .n-aseason-spring {background:rgba(72,122,70,0.035);}
+.anime09 #animeArchive .card .n-aseason-winter {background:rgba(102,112,142,0.035);}
+/* Previous season: no new layout, only less visual weight and tighter card rhythm. */
+.anime09 .n-prev-header .n-prev-year {font-size:.80em;font-weight:500;}
+.anime09 .n-prev-links .n-prev-go {margin-top:3px;}
+@media (max-width:690px) {
+  /* Single unobtrusive line on all widths. Small phones can swipe horizontally. */
+  .anime09 .n-jump-nav {display:flex;flex-wrap:nowrap;grid-template-columns:none;padding:8px 13px 5px;gap:0;overflow-x:auto;overscroll-behavior-inline:contain;white-space:nowrap;}
+  .anime09 .n-jump-nav a {flex:0 0 auto;font-size:9.5px;padding:0 7px;letter-spacing:0;text-align:center;min-width:0;line-height:1.6;}
+  .anime09 .n-jump-nav a:first-child {padding-left:0;}
+  .anime09 .n-jump-nav a:nth-child(3) {border-right:1px solid #c5d0bd;}
+  .anime09 .n-season-13 .n-season-name h2 b {font-size:16px;margin-left:23px;}
+  .anime09 .n-season-13 .n-season-name h2 b::before {left:-13px;height:19px;}
+  /* On iPhone the Recent Posts titles should support, not overpower, the feature. */
+  .anime09 .n-recent .post-name {color:#506b58;font-weight:400;}
+}
+@media (prefers-reduced-motion:reduce) {
+  .anime09 .n-jump-nav a {transition:none;}
+}
+</style>
+</head>
 <body>
 <div class="site">
 <header class="global">
@@ -1525,6 +1629,15 @@ button,a{color:inherit}button{cursor:pointer}a{text-decoration:none}a:hover{colo
 
 </main>
 <main class="hybrid-anime anime09" data-view="anime" id="anime-top">
+<!-- OFFBEAT ANIME HOME R1b NAV -->
+<nav aria-label="Jump to anime content" class="n-jump-nav">
+  <a href="#animeLatest">LATEST RANKING</a>
+  <a href="#animeArticles" data-anime-type="tier">TIER LISTS</a>
+  <a href="#animeArticles" data-anime-type="recommendation">RECOMMENDATIONS</a>
+  <a href="#animeRecent">RECENT POSTS</a>
+  <a href="#animeMoment">NOTES</a>
+  <a href="#animeArticles">ARCHIVE</a>
+</nav>
 <section aria-label="Offbeat Anime — A Journey Through the Season" class="n-mast n-mast-13 n-mast-14">
 <div class="n-mast-rail">
 <span class="n-brand-lockup">OFFBEAT <b>/ ANIME</b><span class="n-rail-journey"> — A Journey Through the Season</span></span>
@@ -1548,7 +1661,7 @@ button,a{color:inherit}button{cursor:pointer}a{text-decoration:none}a:hover{colo
 </section>
 <section aria-label="Current anime season — 2026 Fall, Week 03 of 12" class="n-season n-season-12 n-season-13">
 <div class="n-season-header"><div class="n-season-heading">
-<div class="n-season-name"><small>CURRENT SEASON</small><h2><b>2026</b> <em>Fall</em></h2></div>
+<div class="n-season-name"><small>CURRENT SEASON</small><h2><em>Fall</em><b>2026</b></h2></div>
 <div class="n-season-chooser"><span>2026 SEASONS</span><div aria-label="2026 anime seasons" class="n-season-tabs"><span class="n-empty" title="Not included in this preview">WINTER</span><span class="n-empty" title="Not included in this preview">SPRING</span><a data-jump-season="2026-summer" href="#animeArticles">SUMMER</a><strong aria-current="true">FALL</strong></div></div>
 </div></div>
 <div class="n-season-dashboard"><div class="n-season-sub"><strong class="n-season-now-mark"><span aria-hidden="true" class="n-pulse"></span> NOW · WEEK 03</strong><span class="n-season-sub-detail">2026 FALL · WEEK 03 OF 12</span><span class="n-note-stage">9 WEEKS TO GO</span></div><nav aria-label="Anime season weekly timeline" class="n-weeks">
@@ -1560,7 +1673,7 @@ button,a{color:inherit}button{cursor:pointer}a{text-decoration:none}a:hover{colo
 <span class="n-unreleased n-milestone n-milestone-mid" title="Midseason checkpoint"><span>W</span><b>06</b></span><span class="n-unreleased"><span>W</span><b>07</b></span><span class="n-unreleased"><span>W</span><b>08</b></span><span class="n-unreleased"><span>W</span><b>09</b></span><span class="n-unreleased"><span>W</span><b>10</b></span><span class="n-unreleased"><span>W</span><b>11</b></span><span class="n-unreleased n-milestone n-milestone-final" title="Season-final checkpoint (illustrative)"><span>W</span><b>12</b></span>
 </nav><div aria-label="Week 03 of 12 — 25% through the main season" class="n-season-progress"><span class="n-progress-intro">THE SEASON SO FAR</span><div aria-hidden="true" class="n-progress-track"><i></i></div><span class="n-progress-count">03 <small>/ 12</small></span></div><div class="n-checkpoints"><span>SEASON CHECKPOINTS</span><a href="https://snail-panda.github.io/animeb-v1/tierlist/2026/fall/week01/tierlist.html">First Impressions <b>W01</b></a><span>Midseason <b>W06</b></span><span>Final <b>W12</b></span><small>• Future checkpoints shown as a guide</small></div></div>
 <div aria-label="From the previous season" class="n-prev-season n-prev-season-13">
-<div class="n-prev-header"><span>FROM THE PREVIOUS SEASON</span><strong>2026 <em>Summer</em></strong><small>The season just behind us</small></div>
+<div class="n-prev-header"><span>FROM THE PREVIOUS SEASON</span><strong><span class="n-prev-year">2026</span> <em>Summer</em></strong><small>The season just behind us</small></div>
 <div class="n-prev-links">
 <a href="https://snail-panda.github.io/animeb-v1/tierlist/2026/summer/week12/tierlist.html"><small>THE FINAL VERDICT</small><b>2026 Summer · Final Tier List</b><span class="n-prev-go">EXPLORE <span aria-hidden="true" class="n-double-chevron"><i></i><i></i></span></span></a>
 <a href="https://snail-panda.github.io/animeb-v1/features/recommend/2026/summer/week12/index.html"><small>WHAT TO WATCH</small><b>Recommendations &amp; Enjoyment Ranking</b><span class="n-prev-go">EXPLORE <span aria-hidden="true" class="n-double-chevron"><i></i><i></i></span></span></a>
@@ -1568,7 +1681,7 @@ button,a{color:inherit}button{cursor:pointer}a{text-decoration:none}a:hover{colo
 </div>
 </section>
 <section aria-label="Latest ranking and site guide" class="n-focus">
-<div class="n-latest">
+<div class="n-latest" id="animeLatest">
 <div class="n-block-top"><h2>LATEST WEEKLY RANKING</h2><span>25 OCT 2026 · WEEK 03</span></div>
 <a aria-label="2026 Fall, Week 03 — Top 10 Anime Ranking" class="n-rank-card n-rank-card-11" href="https://snail-panda.github.io/animeb-v1/ranking/2026/fall/week03/index.html">
 <div class="n-rank-art"><img alt="Cyberpunk: Edgerunners 2 key visual" loading="eager" src="https://snail-panda.github.io/animeb-v1/images/key-visuals/2026/fall/cyber.webp"/></div>
@@ -1585,7 +1698,7 @@ button,a{color:inherit}button{cursor:pointer}a{text-decoration:none}a:hover{colo
 </div>
 </div>
 </a>
-<div aria-label="Other published seasonal highlights" class="n-feature-companions n-feature-companions-13">
+<div aria-label="Other published seasonal highlights" class="n-feature-companions n-feature-companions-13" id="animeTier">
 <span class="n-feature-label">ALSO FROM 2026 FALL</span>
 <a class="n-feature-item" href="https://snail-panda.github.io/animeb-v1/tierlist/2026/fall/week01/tierlist.html"><span class="n-feature-kind">SEASON PREMIERE · WEEK 01</span><strong>First Impressions — Tier List</strong><span aria-hidden="true" class="n-double-chevron"><i></i><i></i></span></a>
 <!-- Midseason Tier List / Recommendations / Finale cards appear only when published; not invented in this study. -->
@@ -1595,7 +1708,7 @@ button,a{color:inherit}button{cursor:pointer}a{text-decoration:none}a:hover{colo
 <nav>
 <a href="https://snail-panda.github.io/animeb-v1/ranking/2026/fall/week03/index.html"><span class="n-cno">01</span><span><b>Weekly Rankings</b><small>Follow the season, week by week.</small></span></a>
 <a href="https://snail-panda.github.io/animeb-v1/tierlist/2026/fall/week01/tierlist.html"><span class="n-cno">02</span><span><b>Tier Lists</b><small>First, midseason &amp; final.</small></span></a>
-<a href="https://snail-panda.github.io/animeb-v1/features/recommend/2026/summer/week12/index.html"><span class="n-cno">03</span><span><b>Recommendations</b><small>Worth watching—or revisiting.</small></span></a>
+<a href="https://snail-panda.github.io/animeb-v1/features/recommend/2026/summer/week12/index.html"><span class="n-cno">03</span><span><b>Recommendations</b><small>At midseason &amp; season finale.</small></span></a>
 <a href="#animeMoment"><span class="n-cno">04</span><span><b>Notes &amp; Detours</b><small>Short thoughts beyond the rankings.</small></span></a>
 </nav>
 </aside>
@@ -1722,13 +1835,14 @@ function switchView(){
  const locationTag=document.querySelector('.location');if(locationTag)locationTag.textContent=page==='home'?'':page.toUpperCase();
  const drawer=document.getElementById('menuDrawer');drawer.hidden=true;
  document.getElementById('menuToggle').setAttribute('aria-expanded','false');
- const target=raw==='animeRecent'||raw==='animeArticles'?document.getElementById(raw):null;
+ const target=/^anime(?:Latest|Tier|Recommend|Recent|Moment|Articles)$/.test(raw)?document.getElementById(raw):null;
  if(target)requestAnimationFrame(()=>target.scrollIntoView({behavior:'auto'}));
  else window.scrollTo(0,0);
  document.title='OFFBEAT'+(page==='home'?' — on a crooked path':' / '+page.toUpperCase());
 }
 window.addEventListener('hashchange',switchView);
 window.addEventListener('DOMContentLoaded',switchView);
+document.addEventListener('DOMContentLoaded',()=>{const jump=document.querySelector('.anime09 .n-jump-nav');if(!jump)return;jump.addEventListener('click',e=>{const a=e.target.closest('a[data-anime-type]');if(!a)return;const filter=document.querySelector('.anime09 .n-archive-filters .filter-button[data-filter="'+a.dataset.animeType+'"]');if(filter)filter.click();requestAnimationFrame(()=>document.getElementById('animeArticles').scrollIntoView({behavior:'auto'}));});});
 </script>
 <script>
 /* Study 09: Presentation only, using the site's existing mock post dataset. */
