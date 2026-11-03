@@ -4773,3 +4773,22 @@ body[data-animeb-theme="image"][data-animeb-image-scope="full"][data-animeb-full
   }
 }
 /* OFFBEAT WEEKLY DESKTOP R6 TYPOGRAPHY - END */
+
+/* OFFBEAT WEEKLY R7 JA SECONDARY TITLE - BEGIN */
+/* Only English/romanized SECONDARY title when Japanese mode is selected.
+   Keep Japanese primary title and EN-mode hierarchy unchanged. */
+@media (max-width:768px) {
+  body[data-animeb-lang="ja"] .entry .jp-title { font-size:11.5px; }
+}
+@media (min-width:769px) {
+  body[data-animeb-lang="ja"] .entry .jp-title { font-size:12.2px; }
+}
+/* Gently lower the visual emphasis in all existing theme modes. */
+body[data-animeb-lang="ja"] .entry .jp-title { color:#65716a; }
+body[data-animeb-lang="ja"][data-animeb-theme="dark"] .entry .jp-title,
+body[data-animeb-lang="ja"].animeb-theme-dark .entry .jp-title { color:#e0e1dd; }
+/* The current dark-photo rule uses !important: match it only here. */
+body[data-animeb-lang="ja"][data-animeb-theme="image"][data-animeb-image-tone="dark"] .entry .jp-title {
+  color:#dce1dd !important;
+}
+/* OFFBEAT WEEKLY R7 JA SECONDARY TITLE - END */
