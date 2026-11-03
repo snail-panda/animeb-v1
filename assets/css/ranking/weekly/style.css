@@ -1873,7 +1873,7 @@ body { padding: 0; }
 .popup-review-text .review-standfirst {
   margin-bottom: 0;
   font-weight: 500;
-  color: #2b2b2b;
+  color: #333;
 }
 /* OFFBEAT WEEKLY R9 REVIEW STANDFIRST - END */
 .popup-review-text .review-section-divider {
@@ -4834,3 +4834,40 @@ body[data-animeb-lang="ja"][data-animeb-theme="image"][data-animeb-image-tone="d
   .popup.review-popup .popup-review-text.lang-jp { font-size: 12.5px; }
 }
 /* OFFBEAT WEEKLY R8 RESPONSIVE REVIEW POPUP - END */
+/* OFFBEAT WEEKLY R10 REVIEW CLOSE CONTROL - BEGIN */
+/* Sticky inside the existing scrollable parchment panel: visible even deep in a long review. */
+.popup.review-popup .review-close-top {
+  position: sticky;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  box-sizing: border-box;
+  margin: -6px -5px -30px auto;
+  border: 1px solid rgba(102, 94, 80, .25);
+  border-radius: 50%;
+  background: rgba(255, 253, 241, .89);
+  color: #766e63;
+  font: 22px/1 Arial, sans-serif;
+  cursor: pointer;
+  z-index: 20;
+  -webkit-tap-highlight-color: transparent;
+}
+.popup.review-popup .review-close-top:hover {
+  background: rgba(255, 253, 241, .98);
+  color: #38332d;
+}
+.popup.review-popup .review-close-top:focus-visible {
+  outline: 2px solid #536f5b;
+  outline-offset: 2px;
+}
+@media (max-width: 768px) {
+  .popup.review-popup .review-close-top {
+    width: 40px;
+    height: 40px;
+    margin-bottom: -34px;
+  }
+}
+/* OFFBEAT WEEKLY R10 REVIEW CLOSE CONTROL - END */

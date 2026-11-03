@@ -3970,7 +3970,7 @@ function reviewParts(markup) {
   const firstParagraph = paragraphs[0];
   if (firstParagraph) {
     const quote = firstParagraph.textContent.trim();
-    if (/^["“「]/.test(quote) && /["”」]$/.test(quote)) {
+    if (/^["“「『]/.test(quote) && /["”」』]$/.test(quote)) {
       firstParagraph.classList.add('review-standfirst');
       if (paragraphs.length > 1) {
         const rule = document.createElement('div');
@@ -4036,6 +4036,18 @@ switchBtn.className = 'review-switch-btn';
 const closeBtn = document.createElement('button');
 closeBtn.className = 'popup-close-btn';
 closeBtn.textContent = 'Close';
+
+// A subtle, always-reachable X for long reviews; the original bottom Close remains.
+const topCloseBtn = document.createElement('button');
+topCloseBtn.type = 'button';
+topCloseBtn.className = 'review-close-top';
+topCloseBtn.textContent = '\u00D7';
+topCloseBtn.setAttribute('aria-label', 'Close review');
+topCloseBtn.title = 'Close review';
+topCloseBtn.addEventListener('click', function (e) {
+  e.stopPropagation();
+  closeAll();
+});
 
 // ✅🌸 花の画像をここで挿入
 const flowerTopLeft = document.createElement('img');
@@ -4115,6 +4127,7 @@ closeBtn.addEventListener('click', function (e) {
 // ✅ Append順に注意（花 → content → ボタン）
 popup.appendChild(flowerTopLeft);
 popup.appendChild(flowerBottomRight);
+popup.appendChild(topCloseBtn);
 popup.appendChild(languageBar);
 popup.appendChild(contentEl);
 popup.appendChild(switchBtn);
