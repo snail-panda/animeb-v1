@@ -4835,7 +4835,7 @@ body[data-animeb-lang="ja"][data-animeb-theme="image"][data-animeb-image-tone="d
 }
 /* OFFBEAT WEEKLY R8 RESPONSIVE REVIEW POPUP - END */
 /* OFFBEAT WEEKLY R10 REVIEW CLOSE CONTROL - BEGIN */
-/* OFFBEAT WEEKLY R10d SUBTLE SQUARE CLOSE */
+/* OFFBEAT WEEKLY R10e SMALL SQUARE CLOSE */
 /* Optically centered X and a quiet square frame, with the original large tap target. */
 .popup.review-popup .review-close-top {
   position: sticky;
@@ -4864,11 +4864,11 @@ body[data-animeb-lang="ja"][data-animeb-theme="image"][data-animeb-image-tone="d
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 26px;
-  height: 26px;
+  width: 20px;
+  height: 20px;
   box-sizing: border-box;
   border: 1px solid rgba(101, 88, 74, .27);
-  border-radius: 4px;
+  border-radius: 3px;
   background: rgba(255, 252, 241, .20);
   transform: translate(-50%, -50%);
 }
@@ -4878,8 +4878,8 @@ body[data-animeb-lang="ja"][data-animeb-theme="image"][data-animeb-image-tone="d
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 13px;
-  height: 13px;
+  width: 10px;
+  height: 10px;
   transform: translate(-50%, -50%);
   background:
     linear-gradient(45deg, transparent 45%, currentColor 47%, currentColor 53%, transparent 55%),
