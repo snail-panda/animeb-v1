@@ -4490,3 +4490,24 @@ body[data-animeb-theme="image"][data-animeb-image-scope="full"][data-animeb-full
   }
 }
 /* OFFBEAT WEEKLY MOBILE GENRE REVIEW SIZE TRIAL — END */
+
+/* OFFBEAT WEEKLY MOBILE JA-GENRE + EN-WRP FINE TUNE 窶・BEGIN */
+/* Japanese chips: reduce font very slightly, but significantly tighten
+   excessive-looking internal vertical room. Preserve horizontal padding. */
+@media (max-width: 768px) {
+  /* Keep previously approved English genre/REVIEW sizes. */
+  body[data-animeb-lang="en"] .entry .genre-tag { font-size: 10.5px; }
+  .entry .review-tag { font-size: 10.4px; }
+
+  /* Japanese only: compact capsule geometry without shrinking adjacent badges. */
+  body[data-animeb-lang="ja"] .entry .genre-tag {
+    font-size: 10.2px;
+    line-height: 1.10;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  /* English 'Weekly Ranking Points' caption only: 8.8px -> 9.3px. */
+  body[data-animeb-lang="en"] .entry .bar-label { font-size: 9.3px; }
+}
+/* OFFBEAT WEEKLY MOBILE JA-GENRE + EN-WRP FINE TUNE 窶・END */
