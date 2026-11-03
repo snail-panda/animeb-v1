@@ -390,6 +390,75 @@
         "style": "filled",
         "size": 100
       }
+    },
+    "theme-2025-summer-season-preset-restored-1793419990803-adv22yai": {
+      "theme": "image",
+      "url": "https://snail-panda.github.io/animeb-v1/images/backgrounds/SBR2webp.webp",
+      "source": "url",
+      "localId": "",
+      "imageScope": "full",
+      "imageVisibility": 60,
+      "photoOpacity": 100,
+      "weekStyle": "filled",
+      "imageZoom": 100,
+      "imagePosX": 50,
+      "imagePosY": 142,
+      "statusAnchor": {
+        "enabled": false,
+        "fraction": 0,
+        "cameraRatio": 0,
+        "sliderOrigin": 40
+      },
+      "anchorModel": {
+        "mode": "free",
+        "fraction": 0,
+        "cameraRatio": 0
+      },
+      "imageDrag": {
+        "x": 0,
+        "y": 0
+      },
+      "fullPan": {
+        "x": -4,
+        "y": -298
+      },
+      "fullZoom": 75,
+      "fullAnchor": {
+        "enabled": true,
+        "fraction": 0.03357910906298006
+      },
+      "legibility": {
+        "shadow": 1,
+        "edge": 0,
+        "strokeWidth": 0,
+        "strokeBlur": 0,
+        "strokeColor": "#ffffff",
+        "shadowPower": 64,
+        "shadowBlurPx": 0.6,
+        "edgeWidthPx": 0,
+        "strokeWidthPx": 0,
+        "strokeBlurPx": 0
+      },
+      "introOpacity": 84,
+      "statusOpacity": 55,
+      "rankOpacity": 88,
+      "introBlur": 3,
+      "statusBlur": 1.5,
+      "imageTone": "dark",
+      "fullFit": "cover",
+      "customColors": {
+        "week": "#b500bf",
+        "year": "#eb909e",
+        "anime": "#ebca00",
+        "duration": "#c17600",
+        "ranking": "#9f003e",
+        "top": "#007b63"
+      },
+      "seasonSettings": {
+        "weight": "bold",
+        "style": "filled",
+        "size": 100
+      }
     }
   },
   "version": 1,
@@ -398,6 +467,6 @@
     "2026-summer": "theme-2026-summer-season-preset-restored-1793419990803-csqwsx5i",
     "2026-fall": "theme-2026-fall-season-preset-restored-1793419990803-pncyxe9f",
     "2025-spring": "theme-2025-spring-season-preset-1793335352991-66ebb",
-    "2025-summer": "theme-2025-summer-season-preset-1793430025930-soub8"
+    "2025-summer": "theme-2025-summer-season-preset-restored-1793419990803-adv22yai"
   }
 }
