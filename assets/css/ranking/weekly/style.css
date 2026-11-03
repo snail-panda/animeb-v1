@@ -4835,7 +4835,8 @@ body[data-animeb-lang="ja"][data-animeb-theme="image"][data-animeb-image-tone="d
 }
 /* OFFBEAT WEEKLY R8 RESPONSIVE REVIEW POPUP - END */
 /* OFFBEAT WEEKLY R10 REVIEW CLOSE CONTROL - BEGIN */
-/* Sticky inside the existing scrollable parchment panel: visible even deep in a long review. */
+/* OFFBEAT WEEKLY R10b THIN X */
+/* Keep R10 sticky placement and a comfortable invisible tap target. */
 .popup.review-popup .review-close-top {
   position: sticky;
   top: 0;
@@ -4846,18 +4847,36 @@ body[data-animeb-lang="ja"][data-animeb-theme="image"][data-animeb-image-tone="d
   height: 36px;
   box-sizing: border-box;
   margin: -6px -5px -30px auto;
-  border: 1px solid rgba(102, 94, 80, .25);
-  border-radius: 50%;
-  background: rgba(255, 253, 241, .89);
-  color: #766e63;
-  font: 22px/1 Arial, sans-serif;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: rgba(99, 88, 75, .46);
+  font-size: 0; /* hide the original glyph visually, keep its accessible button label */
   cursor: pointer;
   z-index: 20;
   -webkit-tap-highlight-color: transparent;
 }
+/* Draw a small, fine X instead of a large typographic X inside a circle. */
+.popup.review-popup .review-close-top::before,
+.popup.review-popup .review-close-top::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 12px;
+  height: 1px;
+  border-radius: 1px;
+  background: currentColor;
+}
+.popup.review-popup .review-close-top::before {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+.popup.review-popup .review-close-top::after {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
 .popup.review-popup .review-close-top:hover {
-  background: rgba(255, 253, 241, .98);
-  color: #38332d;
+  color: rgba(70, 62, 54, .75);
 }
 .popup.review-popup .review-close-top:focus-visible {
   outline: 2px solid #536f5b;
