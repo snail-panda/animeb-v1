@@ -4476,3 +4476,17 @@ body[data-animeb-theme="image"][data-animeb-image-scope="full"][data-animeb-full
   }
 }
 /* OFFBEAT WEEKLY MOBILE C-SIZE / COMPACT-LEADING — END */
+
+/* OFFBEAT WEEKLY MOBILE GENRE REVIEW SIZE TRIAL — BEGIN */
+/* Test only: Genre text 10.5px; REVIEW badge text 10.4px (~+1px).
+   Keep existing badge padding, gap, line-height and all layout geometry unchanged. */
+@media (max-width: 768px) {
+  body[data-animeb-lang="en"] .entry .genre-tag,
+  body[data-animeb-lang="ja"] .entry .genre-tag {
+    font-size: 10.5px;
+  }
+  .entry .review-tag {
+    font-size: 10.4px;
+  }
+}
+/* OFFBEAT WEEKLY MOBILE GENRE REVIEW SIZE TRIAL — END */
