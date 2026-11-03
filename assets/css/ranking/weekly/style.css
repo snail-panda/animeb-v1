@@ -4747,6 +4747,7 @@ body[data-animeb-theme="image"][data-animeb-image-scope="full"][data-animeb-full
     word-spacing: -0.12px;
     -webkit-line-clamp: 4; /* one heading line + three synopsis lines */
     line-clamp: 4;
+    margin-top: -4px; /* R6b: cancel the 4px flex gap above the desktop synopsis preview. */
   }
   body[data-animeb-lang="ja"] .entry .animeb-synopsis-preview {
     font-size: 12.2px;
@@ -4763,7 +4764,7 @@ body[data-animeb-theme="image"][data-animeb-image-scope="full"][data-animeb-full
     margin-bottom: 3px;
   }
   body[data-animeb-lang="ja"] .entry .animeb-synopsis-preview::before {
-    content: '\3042\3089\3059\3058'; /* Japanese: arasuji */
+    content: '\3042\3089\3059\3058\30FB\4F5C\54C1\6982\8981'; /* Japanese: synopsis / work overview */
     font-size: 10px;
   }
   body[data-animeb-theme="dark"] .entry .animeb-synopsis-preview::before,
