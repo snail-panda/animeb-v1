@@ -4835,11 +4835,11 @@ body[data-animeb-lang="ja"][data-animeb-theme="image"][data-animeb-image-tone="d
 }
 /* OFFBEAT WEEKLY R8 RESPONSIVE REVIEW POPUP - END */
 /* OFFBEAT WEEKLY R10 REVIEW CLOSE CONTROL - BEGIN */
-/* OFFBEAT WEEKLY R10c PARCHMENT CIRCLE CLOSE */
-/* Light 26px parchment-toned circle, visible 16px X, 36/40px hit area. */
+/* OFFBEAT WEEKLY R10d SUBTLE SQUARE CLOSE */
+/* Optically centered X and a quiet square frame, with the original large tap target. */
 .popup.review-popup .review-close-top {
   position: sticky;
-  top: 0;
+  top: 0; /* Keep the same sticky anchor as R10c. */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -4851,13 +4851,14 @@ body[data-animeb-lang="ja"][data-animeb-theme="image"][data-animeb-image-tone="d
   border: 0;
   border-radius: 0;
   background: transparent;
-  color: rgba(91, 80, 68, .68);
-  font-size: 0; /* the existing button still has its accessible label */
+  color: rgba(91, 80, 68, .66);
+  font-size: 0; /* The original button text remains for accessibility. */
   cursor: pointer;
   z-index: 20;
+  transform: translateY(-24px); /* Raise above the EN/JP switch; do not shift sideways. */
   -webkit-tap-highlight-color: transparent;
 }
-/* A smaller ring: the tappable area itself remains larger than the ring. */
+/* Small square outline, close to the parchment color rather than a solid white badge. */
 .popup.review-popup .review-close-top::before {
   content: '';
   position: absolute;
@@ -4866,30 +4867,30 @@ body[data-animeb-lang="ja"][data-animeb-theme="image"][data-animeb-image-tone="d
   width: 26px;
   height: 26px;
   box-sizing: border-box;
-  border: 1px solid rgba(101, 88, 74, .28);
-  border-radius: 50%;
-  background: rgba(255, 252, 241, .35);
+  border: 1px solid rgba(101, 88, 74, .27);
+  border-radius: 4px;
+  background: rgba(255, 252, 241, .20);
   transform: translate(-50%, -50%);
 }
-/* X should be legible but softer than the original heavy control. */
+/* Draw both strokes around the exact geometric center, not with a font glyph. */
 .popup.review-popup .review-close-top::after {
-  content: '\00d7';
+  content: '';
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -54%);
-  font-family: Arial, sans-serif;
-  font-size: 19px;
-  font-weight: 400;
-  line-height: 1;
-  color: currentColor;
+  width: 13px;
+  height: 13px;
+  transform: translate(-50%, -50%);
+  background:
+    linear-gradient(45deg, transparent 45%, currentColor 47%, currentColor 53%, transparent 55%),
+    linear-gradient(-45deg, transparent 45%, currentColor 47%, currentColor 53%, transparent 55%);
 }
 .popup.review-popup .review-close-top:hover {
   color: rgba(82, 70, 56, .82);
 }
 .popup.review-popup .review-close-top:hover::before {
-  border-color: rgba(101, 88, 74, .38);
-  background: rgba(255, 252, 241, .55);
+  border-color: rgba(101, 88, 74, .40);
+  background: rgba(255, 252, 241, .40);
 }
 .popup.review-popup .review-close-top:focus-visible {
   outline: 2px solid #536f5b;
@@ -4899,7 +4900,7 @@ body[data-animeb-lang="ja"][data-animeb-theme="image"][data-animeb-image-tone="d
   .popup.review-popup .review-close-top {
     width: 40px;
     height: 40px;
-    margin-bottom: -22px; /* cancel the extra 4px to keep text position unchanged */
+    margin-bottom: -22px;
   }
 }
 /* OFFBEAT WEEKLY R10 REVIEW CLOSE CONTROL - END */
