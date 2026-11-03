@@ -4384,3 +4384,95 @@ body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .animeb-bg-zoom-c
 body[data-animeb-theme="image"][data-animeb-image-scope="full"][data-animeb-full-anchor="top"]::before {
   background-position-y:var(--animeb-full-anchor-y,0px)!important;
 }
+
+/* OFFBEAT WEEKLY MOBILE C-SIZE / COMPACT-LEADING — BEGIN */
+/* One real-device trial: Study C type sizes, existing compact editorial leading.
+   iPhone/tablet widths only; preserve desktop, theme anchors, content and geometry. */
+@media (max-width: 768px) {
+  /* THIS WEEK / 今週のひと言: larger letters; no new paragraph margins. */
+  body[data-animeb-lang="en"] .animeb-weekly-intro .animeb-intro-label {
+    font-size: 18px;
+    line-height: 1.25;
+  }
+  body[data-animeb-lang="ja"] .animeb-weekly-intro .animeb-intro-label {
+    font-size: 16px;
+    line-height: 1.25;
+  }
+  body[data-animeb-lang="en"] .animeb-weekly-intro .animeb-intro-text {
+    font-size: 17px;
+    line-height: 1.58;
+  }
+  body[data-animeb-lang="ja"] .animeb-weekly-intro .animeb-intro-text {
+    font-size: 15px;
+    line-height: 1.58;
+  }
+
+  /* Ranking titles: prioritize the selected language; let long titles wrap. */
+  body[data-animeb-lang="en"] .entry .title {
+    font-size: 17px;
+    letter-spacing: -.02em;
+    word-spacing: 0;
+  }
+  body[data-animeb-lang="en"] .entry .info-top {
+    font-size: 1em;
+    line-height: 1.30;
+    letter-spacing: -.025em;
+    overflow-wrap: anywhere;
+  }
+  body[data-animeb-lang="en"] .entry .jp-title {
+    font-size: 12.7px;
+    line-height: 1.30;
+  }
+  body[data-animeb-lang="ja"] .entry .title {
+    font-size: 16px;
+    letter-spacing: 0;
+    word-spacing: normal;
+  }
+  body[data-animeb-lang="ja"] .entry .info-top {
+    font-size: 1.125em; /* 18px Japanese main title */
+    line-height: 1.30;
+    letter-spacing: 0;
+    overflow-wrap: anywhere;
+  }
+  body[data-animeb-lang="ja"] .entry .jp-title {
+    font-size: 13.2px;
+    line-height: 1.30;
+  }
+
+  /* Dropped / Bottom: stronger body clarity, lighter title weight than before. */
+  .animeb-dropped-name {
+    font-size: 16px;
+    font-weight: 690;
+    line-height: 1.32;
+  }
+  .animeb-dropped-alt-title {
+    font-size: 12.6px;
+    font-weight: 500;
+    line-height: 1.30;
+  }
+  .animeb-dropped-reason {
+    font-size: 14px;
+    line-height: 1.53;
+  }
+  .animeb-bottom-name {
+    font-size: 15.4px;
+    font-weight: 660;
+    line-height: 1.32;
+  }
+  .animeb-bottom-alt {
+    font-size: 12.3px;
+    font-weight: 500;
+    line-height: 1.30;
+  }
+  .animeb-bottom-comment {
+    font-size: 14px;
+    line-height: 1.53;
+  }
+  /* On dark/photo-dark themes, reserve pink for headings, not review prose. */
+  body[data-animeb-theme="dark"] .animeb-dropped-reason,
+  body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .animeb-dropped-reason,
+  body.animeb-theme-dark .animeb-dropped-reason {
+    color: #e4e9e6;
+  }
+}
+/* OFFBEAT WEEKLY MOBILE C-SIZE / COMPACT-LEADING — END */
