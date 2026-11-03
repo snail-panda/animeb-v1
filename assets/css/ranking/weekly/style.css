@@ -4718,3 +4718,57 @@ body[data-animeb-theme="image"][data-animeb-image-scope="full"][data-animeb-full
   .offbeat-r5-preview,.offbeat-r5-inline-more,.offbeat-r5-less {display:none!important;}
 }
 /* OFFBEAT WEEKLY MOBILE R5 ACTUAL FLOW FIX - END */
+
+/* OFFBEAT WEEKLY DESKTOP R6 TYPOGRAPHY - BEGIN */
+/* Keep the approved iPhone <=768px sizing and all card/Theme Studio geometry intact.
+   Above 768px, avoid viewport-based text shrinkage at intermediate widths. */
+@media (min-width: 769px) {
+  /* This Week: hold the former wide-desktop sizes instead of scaling down. */
+  body[data-animeb-lang="en"] .animeb-weekly-intro .animeb-intro-text {
+    font-size: 14.7px;
+    word-spacing: -0.012em;
+  }
+  body[data-animeb-lang="ja"] .animeb-weekly-intro .animeb-intro-text {
+    font-size: 12.7px;
+  }
+
+  /* Ranking titles: the original desktop clamp became unusually small
+     when a desktop window was resized. Freeze only this type hierarchy. */
+  .entry .title { font-size: 15px; }
+  .entry .jp-title { font-size: 12.6px; }
+  body[data-animeb-lang="en"] .entry .title { word-spacing: 0.09em; }
+  body[data-animeb-lang="ja"] .entry .jp-title { word-spacing: 0.07em; }
+
+  /* On-card preview at the right of the key visual, NOT the expanded
+     More Info synopsis: a small heading + three lines of summary. */
+  .entry .animeb-synopsis-preview {
+    font-size: 13.4px;
+    line-height: 1.38;
+    word-spacing: -0.12px;
+    -webkit-line-clamp: 4; /* one heading line + three synopsis lines */
+    line-clamp: 4;
+  }
+  body[data-animeb-lang="ja"] .entry .animeb-synopsis-preview {
+    font-size: 12.2px;
+    line-height: 1.42;
+    word-spacing: normal;
+  }
+  .entry .animeb-synopsis-preview::before {
+    content: 'SYNOPSIS';
+    display: block;
+    font: 600 9.5px/1.4 'Fira Sans', 'Yu Gothic UI', sans-serif;
+    letter-spacing: 0.045em;
+    word-spacing: normal;
+    color: #77776f;
+    margin-bottom: 3px;
+  }
+  body[data-animeb-lang="ja"] .entry .animeb-synopsis-preview::before {
+    content: '\3042\3089\3059\3058'; /* Japanese: arasuji */
+    font-size: 10px;
+  }
+  body[data-animeb-theme="dark"] .entry .animeb-synopsis-preview::before,
+  body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .entry .animeb-synopsis-preview::before {
+    color: #aebfb6;
+  }
+}
+/* OFFBEAT WEEKLY DESKTOP R6 TYPOGRAPHY - END */
