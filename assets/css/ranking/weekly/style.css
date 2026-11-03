@@ -4511,3 +4511,29 @@ body[data-animeb-theme="image"][data-animeb-image-scope="full"][data-animeb-full
   body[data-animeb-lang="en"] .entry .bar-label { font-size: 9.3px; }
 }
 /* OFFBEAT WEEKLY MOBILE JA-GENRE + EN-WRP FINE TUNE 窶・END */
+
+/* OFFBEAT WEEKLY MOBILE GENRE WRP SCORES R2b - BEGIN */
+/* Scope: only mobile typography. Do not alter card widths or Theme Studio. */
+@media (max-width: 768px) {
+  /* Preserve the approved English chips and REVIEW button. */
+  body[data-animeb-lang="en"] .entry .genre-tag { font-size: 10.5px; }
+  .entry .review-tag { font-size: 10.4px; }
+
+  /* Japanese genre: keep 10.2px, restore a little vertical breathing room. */
+  body[data-animeb-lang="ja"] .entry .genre-tag {
+    font-size: 10.2px;
+    line-height: 1.14;
+    padding-top: 0.025rem;
+    padding-bottom: 0.025rem;
+  }
+
+  /* English WRP heading; Japanese heading unchanged. */
+  body[data-animeb-lang="en"] .entry .bar-label { font-size: 9.3px; }
+
+  /* WRP numbers/pt and Total Score numbers/pt. Keep existing box sizes. */
+  .entry .wrp-score { font-size: 9.3px; }
+  .entry .wrp-score-unit { font-size: 8.2px; }
+  .entry .score { font-size: 19px; }
+  .entry .score-unit { font-size: 11px; }
+}
+/* OFFBEAT WEEKLY MOBILE GENRE WRP SCORES R2b - END */
