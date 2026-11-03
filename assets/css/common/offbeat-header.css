@@ -204,7 +204,7 @@ body:has(#offbeat-global-header) .animeb-theme-controls.animeb-editor-open{z-ind
   }
   #offbeat-global-header .offbeat-header-inner{
     display:flex;align-items:center;justify-content:space-between;
-    padding:8px 20px 0;gap:0;
+    padding:8px 8px 0;gap:0;
   }
   /* OFFBEAT R2f: screenshot-matched mobile mast geometry (not a logo-only nudge).
      Header +10px, 13px more inset at each side; content center +9px. */
