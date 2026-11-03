@@ -199,8 +199,8 @@ body:has(#offbeat-global-header) .animeb-theme-controls{
 body:has(#offbeat-global-header) .animeb-theme-controls.animeb-editor-open{z-index:1200;}
 @media(max-width:768px){
   #offbeat-global-header{
-    width:calc(100% + 1.3rem);max-width:none;
-    height:69px;margin:-.65rem -.65rem 0;
+    width:100%;max-width:none;
+    height:69px;margin:0;
   }
   #offbeat-global-header .offbeat-header-inner{
     display:flex;align-items:center;justify-content:space-between;
