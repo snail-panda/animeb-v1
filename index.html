@@ -1592,6 +1592,25 @@ button,a{color:inherit}button{cursor:pointer}a{text-decoration:none}a:hover{colo
   .anime09 .n-jump-nav a {transition:none;}
 }
 </style>
+<style id="offbeat-anime-home-r1d">
+/* R1d: Journey collapses exactly when the masthead switches from side-by-side
+   to stacked layout (<=890px). Existing <=690px mobile toggle remains. */
+@media (min-width:691px) and (max-width:890px) {
+  .anime09 .n-mast-14 .n-journey-copy p:not(.n-journey-lead) {display:none;}
+  .anime09 .n-mast-14 .n-journey-copy.is-expanded p:not(.n-journey-lead) {display:block;}
+  .anime09 .n-mast-14 .n-journey-copy .n-journey-toggle {
+    display:inline-flex;align-items:center;gap:6px;margin-top:5px;
+    padding:4px 0;border:0;background:none;color:#566e5d;
+    font:500 10.5px 'Barlow Condensed','Abel',sans-serif;letter-spacing:.08em;
+  }
+  .anime09 .n-mast-14 .n-journey-copy .n-journey-toggle span {font-size:15px;line-height:.8;}
+}
+/* Slightly darker than R1c (#506b58), much softer than the original.
+   Only the Anime Home Recent Posts titles on small screens. */
+@media (max-width:690px) {
+  .anime09 .n-recent .post-name {color:#476350;font-weight:400;}
+}
+</style>
 </head>
 <body>
 <div class="site">
