@@ -1685,6 +1685,30 @@ button,a{color:inherit}button{cursor:pointer}a{text-decoration:none}a:hover{colo
 }
 </style>
 <link rel="stylesheet" href="assets/css/common/offbeat-notes-r1.css?v=1">
+<!-- OFFBEAT STICKY R1 START -->
+<style id="offbeat-sticky-r1">
+/* Pin mast and green navigation in both Entrance and Anime Home. */
+.site { --ob-sticky-mast-height: 73px; }
+.site:has(.anime09.current) { --ob-sticky-mast-height: 69px; }
+.site > .global {
+  position: sticky;
+  top: 0;
+  z-index: 320;
+  background: var(--paper, #faf9ec);
+}
+.site > #greenNav {
+  position: sticky;
+  top: var(--ob-sticky-mast-height);
+  z-index: 310;
+}
+/* In-page jumps remain visible below the persistent two-row header. */
+.site [id^="anime"] { scroll-margin-top: 122px; }
+@media (max-width: 690px) {
+  .site, .site:has(.anime09.current) { --ob-sticky-mast-height: 59px; }
+  .site [id^="anime"] { scroll-margin-top: 101px; }
+}
+</style>
+<!-- OFFBEAT STICKY R1 END -->
 </head>
 <body>
 <div class="site">

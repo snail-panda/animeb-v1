@@ -61,3 +61,12 @@ body.offbeat-tier-b2 .offbeat-tier-b-olive-space {
   body.offbeat-tier-b2 #offbeat-tier-b-bar .tierlist-nav { gap: 5px; padding: 0 6px; }
   body.offbeat-tier-b2 #offbeat-tier-b-bar .tierlist-nav a { font-size: 12px; }
 }
+
+/* OFFBEAT STICKY R1 START */
+/* Tier List B2 bar, preserving its original pale-olive spacer below. */
+body.offbeat-tier-b2 #offbeat-tier-b-bar {
+  position: sticky;
+  top: 69px;
+  z-index: 150;
+}
+/* OFFBEAT STICKY R1 END */

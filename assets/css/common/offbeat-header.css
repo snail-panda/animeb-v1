@@ -227,3 +227,18 @@ body:has(#offbeat-global-header) .animeb-theme-controls.animeb-editor-open{z-ind
     top:calc(env(safe-area-inset-top,0px) + 43px + var(--offbeat-header-visible,59px));
   }
 }
+
+/* OFFBEAT STICKY R1 START */
+/* Shared mast remains visible on Weekly Ranking and Tier List pages. */
+body:has(#offbeat-global-header) #offbeat-global-header {
+  position: sticky;
+  top: 0;
+  z-index: 200;
+}
+/* Weekly Ranking already has a sticky green bar: keep it BELOW the mast. */
+body:has(#offbeat-global-header) .nav-bar {
+  position: sticky;
+  top: 69px;
+  z-index: 150;
+}
+/* OFFBEAT STICKY R1 END */
