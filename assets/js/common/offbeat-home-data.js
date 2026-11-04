@@ -2,6 +2,24 @@
    and current weekly availability from weekly-rankings.json. No invented posts. */
 (() => {
  'use strict';
+  // Post Index v4.3: structured ledger; old HTML no longer required for publishing.
+  // Unknown/special routes stay preserved in the ledger but are not yet drawn in Anime Archive.
+  function fromPostIndex(data){
+    if(data?.schemaVersion!==1||!Array.isArray(data.posts))throw Error('invalid post index schema');
+    const list=[];
+    for(const e of data.posts){
+      const p=readPath(e.url||'');if(!p)continue;
+      const rawImg=String(e.image?.src||'');let image='';
+      if(rawImg){try{const u=new URL(rawImg,base);if(u.origin===base.origin&&u.pathname.startsWith(base.pathname))image=u.href;}catch{}}
+      const title=String(e.title?.display||'');
+      const intro=String(e.intro?.en||e.intro?.ja||'');
+      const entry=create(p,{title,date:String(e.published?.iso||''),image,intro});
+      entry.period=String(e.period?.display||'');
+      entry.tags=Array.isArray(e.tags)?e.tags.filter(x=>typeof x==='string'):[];
+      list.push(entry);
+    }
+    return list;
+  }
  const base=new URL('./',document.baseURI);
  const order={winter:0,spring:1,summer:2,fall:3};
  const months=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
@@ -35,11 +53,11 @@
  }
  function render(){renderRecent('#recentPosts',posts.slice(0,5));if(typeof nRenderRecent==='function')nRenderRecent();if(typeof renderAnime==='function')renderAnime(document.querySelector('[data-filter][aria-pressed="true"]')?.dataset.filter||'all');updateMenu();}
  async function load(){const results=await Promise.allSettled([
-    fetch(new URL('index-legacy-20261101.html',base),{cache:'no-store'}).then(r=>{if(!r.ok)throw Error('archive '+r.status);return r.text()}),
+    fetch(new URL('posts-index.json',base),{cache:'no-store'}).then(r=>{if(!r.ok)throw Error('post index '+r.status);return r.json()}),
     fetch(new URL('weekly-rankings.json',base),{cache:'no-store'}).then(r=>{if(!r.ok)throw Error('manifest '+r.status);return r.json()})
  ]);
- const legacy=results[0].status==='fulfilled'?fromLegacy(results[0].value):[],manifest=results[1].status==='fulfilled'?fromManifest(results[1].value):[];
- const map=new Map();for(const p of manifest)map.set(p.rel,p);for(const p of legacy)map.set(p.rel,{...map.get(p.rel),...p});const items=[...map.values()];
+ const indexed=results[0].status==='fulfilled'?fromPostIndex(results[0].value):[],manifest=results[1].status==='fulfilled'?fromManifest(results[1].value):[];
+ const map=new Map();for(const p of manifest)map.set(p.rel,p);for(const p of indexed)map.set(p.rel,{...map.get(p.rel),...p});const items=[...map.values()];
  if(!items.length){for(const selector of ['#recentPosts','#animeRecentPosts','#animeArchive']){const node=document.querySelector(selector);if(node)node.textContent='Published posts are temporarily unavailable.';}return;}
  items.sort((a,b)=>{if(!a.date||!b.date)return key(b)-key(a);return Date.parse(b.date)-Date.parse(a.date)||key(b)-key(a);});posts.splice(0,posts.length,...items);
  for(const name of Object.keys(archiveEntries))delete archiveEntries[name];for(const p of items)archiveEntries[[p.type,p.year,p.season,p.week].join('|')]=p.url;
