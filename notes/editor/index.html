@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#f9f8ec">
+<meta name="referrer" content="no-referrer">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' blob: data:; connect-src https://api.github.com; form-action 'none'; base-uri 'none'; object-src 'none'">
+<title>Write a Note — OFFBEAT</title>
+<link rel="stylesheet" href="../../assets/css/common/offbeat-notes-editor-r2.css?v=2">
+<script defer src="../../assets/js/common/offbeat-notes-editor-r2.js?v=2"></script>
+</head>
+<body><div class="studio-shell">
+<header class="mast"><a class="wordmark" href="../../#animeMoment" aria-label="OFFBEAT Anime Home">OFFBEAT <small>NOTES STUDIO</small></a><div class="mast-right"><a href="../">VIEW NOTES ↗</a><button id="logout" type="button" hidden>DISCONNECT</button></div></header>
+<main>
+<div class="topline"><span class="eyebrow">SMALL THOUGHTS · QUICK DETOURS</span><h1>Write a Note<span class="period">.</span></h1><p>One sentence is enough. A picture is optional.</p></div>
+<section class="auth" id="authBox" aria-labelledby="authTitle">
+<h2 id="authTitle">Connect your GitHub account</h2><p>Paste a <strong>fine-grained personal access token</strong> for <code>snail-panda/animeb-v1</code>, with <strong>Contents: Read and write</strong>. It stays in this tab's memory and is never saved to the site or browser storage.</p>
+<div class="authrow"><label class="sr-only" for="token">GitHub token</label><input id="token" type="password" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="github_pat_…"><button id="connect" type="button">CONNECT</button></div>
+<p class="hint">The Notes Studio is publicly accessible, but only an authorized repository account can publish. Never share a token or paste it into chat.</p>
+</section>
+<section class="composer" aria-label="Note editor">
+<div class="toolbar"><span id="editMode">NEW NOTE</span><div><button type="button" id="newNote">+ NEW</button><button type="button" id="saveDraft">SAVE DRAFT</button></div></div>
+<form id="noteForm" novalidate>
+<div class="meta-grid"><label>CATEGORY<select id="category"><option value="anime">Anime</option><option value="language">Language</option><option value="misc">Misc / Offbeat</option></select></label><label>LABEL <span class="optional">OPTIONAL</span><input id="label" maxlength="35" placeholder="REWATCH / QUICK THOUGHT"></label></div>
+<label>TITLE <span class="optional">OPTIONAL</span><input id="title" maxlength="180" placeholder="The Dawn of the Witch (2022)"></label>
+<label>YOUR NOTE<textarea id="body" rows="7" maxlength="12000" placeholder="Watching this for the third time…" required></textarea></label>
+<div class="meta-grid"><label>TAGS <span class="optional">OPTIONAL</span><input id="tags" maxlength="500" placeholder="rewatch, 2022, anime"></label><label>IMAGE DISPLAY<select id="display"><option value="small">Small — text wraps beside it</option><option value="wide">Wide — above the text</option></select></label></div>
+<div class="image-box"><label for="imageInput">IMAGE <span class="optional">OPTIONAL · JPG / PNG / WEBP / HEIC</span></label><input id="imageInput" type="file" accept="image/*,.heic,.heif"><div id="imagePreview" class="image-preview" hidden><img id="imageElement" alt="Selected note illustration"><div><p id="imageInfo"></p><button type="button" id="removeImage">REMOVE IMAGE</button></div></div><p class="hint">The image uploads together with the note to <code>images/notes/</code>. Larger photos are compressed before publishing.</p></div>
+<div class="preview" aria-live="polite"><span class="eyebrow">LIVE PREVIEW</span><article class="preview-card"><small id="previewLabel">ANIME · NEW NOTE</small><h3 id="previewTitle"></h3><img id="previewImage" alt="" hidden><p id="previewBody">Your note will appear here…</p></article></div>
+<div class="actions"><button id="publish" class="publish" type="submit" disabled>PUBLISH NOTE →</button><span id="draftStatus">Draft saved only on this device.</span></div>
+</form>
+</section>
+<section id="message" class="message" aria-live="polite" hidden></section>
+<section class="manage"><div class="manage-head"><h2>Published Notes</h2><button type="button" id="refresh" disabled>REFRESH</button></div><p class="hint">Choose a note below to revise it later. Publishing an edit preserves its original URL and publication date.</p><div id="publishedList"><p class="hint">Connect to load your published Notes.</p></div></section>
+</main><footer>OFFBEAT · NOTES STUDIO <span>DIRECT TO GITHUB · NO SERVER-SIDE SECRETS</span></footer>
+</div></body></html>
