@@ -1656,6 +1656,34 @@ button,a{color:inherit}button{cursor:pointer}a{text-decoration:none}a:hover{colo
  .anime09 .n-recent li:has(.n-post-cat-ranking){grid-template-columns:62px 61px minmax(0,1fr);column-gap:6px;}
 }
 </style>
+<style id="offbeat-archive-r4-inline-trial">
+/* R4 experiment only. Existing R3/B style is intact underneath. */
+/* Period (orange) | Published (green): horizontal when space permits. */
+.anime09 #animeArchive .n-archive-metadata {
+  flex-direction:row;
+  flex-wrap:wrap;
+  align-items:baseline;
+  column-gap:9px;
+  row-gap:2px;
+}
+.anime09 #animeArchive .n-archive-metadata .n-aperiod,
+.anime09 #animeArchive .n-archive-metadata .n-published {
+  white-space:nowrap;
+}
+.anime09 #animeArchive .n-archive-metadata .n-aperiod + .n-published::before {
+  content:"|";
+  color:#9caa9b;
+  margin-right:9px;
+}
+/* Mobile Recent Posts: reclaim CATEGORY-to-TITLE space; keep date,
+   font sizes, and category/date separation unchanged. */
+@media(max-width:690px) {
+  .anime09 .n-recent li:has(.n-post-cat-ranking) {
+    grid-template-columns:62px 46px minmax(0,1fr);
+    column-gap:6px;
+  }
+}
+</style>
 </head>
 <body>
 <div class="site">
