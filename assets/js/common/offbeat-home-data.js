@@ -15,7 +15,17 @@
       const intro=String(e.intro?.en||e.intro?.ja||'');
       const entry=create(p,{title,date:String(e.published?.iso||''),image,intro});
       entry.period=String(e.period?.display||'');
+      entry.episodes=String(e.episodes?.display||'');
       entry.tags=Array.isArray(e.tags)?e.tags.filter(x=>typeof x==='string'):[];
+      // OFFBEAT Post Index finish R2d: keep Top N and Final when rendering ranking cards.
+      if(p.kind==='ranking'){
+        const n=Number(e.topN), top=Number.isInteger(n)&&n>0?`Top ${n} `:'';
+        const historical=String(e.title?.display||'');
+        const isFinal=/\bfinal\b/i.test(historical);
+        entry.title=p.week==='00'
+          ? `${p.year} ${nice(p.season)} — ${top}Preliminary Ranking, Week 00`
+          : `${p.year} ${nice(p.season)} — ${top}Weekly Anime ${isFinal?'Final ':''}Ranking, Week ${p.week}`;
+      }
       list.push(entry);
     }
     return list;

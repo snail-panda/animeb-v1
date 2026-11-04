@@ -1624,6 +1624,13 @@ button,a{color:inherit}button{cursor:pointer}a{text-decoration:none}a:hover{colo
    Does not change font, weight, size, metadata, or article cards. */
 .anime09 .n-recent .post-name { color:#263e2d; }
 </style>
+<style id="offbeat-postindex-r2d">
+.anime09 #animeArchive .n-archive-tags{display:none!important}
+.anime09 .n-index-filters{display:flex;justify-content:flex-end;flex-wrap:wrap;align-items:center;gap:8px 14px;margin:0 0 14px}
+.anime09 .n-index-filters label{display:flex;align-items:center;gap:6px;font:11px 'Abel',sans-serif;letter-spacing:.05em;color:#6b7b68}
+.anime09 .n-index-filters select{font:11px 'Abel',sans-serif;color:#415d48;background:transparent;border:1px solid #c9cbb7;border-radius:2px;padding:3px 19px 3px 6px;max-width:135px}
+@media(max-width:690px){.anime09 .n-index-filters{justify-content:flex-start}}
+</style>
 </head>
 <body>
 <div class="site">
@@ -1759,6 +1766,10 @@ button,a{color:inherit}button{cursor:pointer}a{text-decoration:none}a:hover{colo
 <div class="n-archive-filters"><div aria-label="Filter by season" class="n-season-filters"><button aria-pressed="true" class="h-season-btn is-selected" data-season-filter="all" type="button">ALL SEASONS</button><button aria-pressed="false" class="h-season-btn" data-season-filter="2026-fall" type="button">2026 FALL</button><button aria-pressed="false" class="h-season-btn" data-season-filter="2026-summer" type="button">2026 SUMMER</button></div>
 <div aria-label="Filter by article type" class="filters"><button aria-pressed="true" class="filter-button" data-filter="all">ALL POSTS</button><button aria-pressed="false" class="filter-button" data-filter="ranking">RANKINGS</button><button aria-pressed="false" class="filter-button" data-filter="tier">TIER LISTS</button><button aria-pressed="false" class="filter-button" data-filter="recommendation">RECOMMENDATIONS</button></div>
 </div>
+<div class="n-index-filters" aria-label="Independent archive filters">
+  <label for="offbeatArchiveYearFilter">YEAR <select id="offbeatArchiveYearFilter"><option value="all">ALL YEARS</option></select></label>
+  <label for="offbeatArchiveSeasonFilter">SEASON <select id="offbeatArchiveSeasonFilter"><option value="all">ALL SEASONS</option></select></label>
+</div>
 <div aria-live="polite" id="animeArchive"></div>
 <a class="n-legacy" href="index-legacy-20261101.html">VIEW PREVIOUS SITE ARCHIVE</a>
 </section>
@@ -1805,7 +1816,11 @@ function makeCard(post,featured=false){
  // The period is a distinct field from publication date. These dates are examples, not fetched metadata.
  const periodByWeek={'03':'EPISODES 3–4 · OCT 18–24','02':'OCT 11–17','01':'OCT 04–10','00':'PRELIMINARY SELECTION'};
  const weekMatch=post.type==='ranking'?post.url.match(/week(0\d)\//):null;
- const period=post.period||(weekMatch?periodByWeek[weekMatch[1]]:'');
+ // Keep publication date separate from target period and episode range.
+  const rawPeriod=String(post.period||'').trim();
+  const compactPeriod=rawPeriod.replace(/\b(January|February|March|April|May|June|July|August|September|October|November|December)\b/gi,m=>m.slice(0,3).toUpperCase()).toUpperCase();
+  const episodes=String(post.episodes||'').replace(/^episodes?\s*/i,'').trim();
+  const period=(post.type==='ranking'&&post.week==='00')?'PRELIMINARY SELECTION':episodes?`EPISODES ${episodes} · ${compactPeriod}`:compactPeriod;
  const h3=el('h3');const title=el('a',null,post.title);title.href=post.url;h3.append(title);
  const meta=el('div','n-archive-metadata');meta.append(el('span','n-published',displayDate(post.date)));
  if(period)meta.append(el('span','n-aperiod',period));
@@ -1819,7 +1834,11 @@ function makeCard(post,featured=false){
  body.append(open);card.append(body);return card;
 }
 function renderAnime(filter='all'){
- const container=$('#animeArchive');if(!container)return;const seasonButton=document.querySelector('.hybrid-anime [data-season-filter][aria-pressed="true"]');const activeSeason=seasonButton?seasonButton.dataset.seasonFilter:'all';const data=posts.filter(p=>(filter==='all'||p.type===filter)&&(activeSeason==='all'||p.url.includes('/'+activeSeason.replace('-','/')+'/')));container.replaceChildren();
+ const container=$('#animeArchive');if(!container)return;const seasonButton=document.querySelector('.hybrid-anime [data-season-filter][aria-pressed="true"]');const activeSeason=seasonButton?seasonButton.dataset.seasonFilter:'all';let data=posts.filter(p=>(filter==='all'||p.type===filter)&&(activeSeason==='all'||p.url.includes('/'+activeSeason.replace('-','/')+'/')));container.replaceChildren();
+  offbeatSyncIndexFilters();
+  const byYear=document.getElementById('offbeatArchiveYearFilter')?.value||'all';
+  const bySeason=document.getElementById('offbeatArchiveSeasonFilter')?.value||'all';
+  data=data.filter(p=>(byYear==='all'||String(p.year)===byYear)&&(bySeason==='all'||p.season===bySeason));
  let previous='';data.forEach((post,i)=>{
    const month=post.date ? new Date(post.date+'T12:00:00Z').toLocaleDateString('en-US',{month:'long',year:'numeric',timeZone:'UTC'}).toUpperCase() : 'LATEST PUBLISHED';
    if(month!==previous){container.append(el('h2','archive-title',month));previous=month;}
@@ -1900,7 +1919,7 @@ function nSearch(){
  const q=(document.getElementById('animeSearchInput').value||'').toLowerCase().trim();
  const list=document.getElementById('animeSearchResults');list.replaceChildren();
  if(typeof posts==='undefined')return;
- const results=posts.filter(p=>!q||[p.title,p.type,p.excerpt].join(' ').toLowerCase().includes(q)).slice(0,12);
+ const results=posts.filter(p=>!q||[p.title,p.originalTitle,p.type,p.year,p.season,p.excerpt,...(Array.isArray(p.tags)?p.tags:[])].join(' ').toLowerCase().includes(q)).slice(0,12);
  if(!results.length){const li=document.createElement('li');li.textContent='No matching preview entries.';list.append(li);return;}
  results.forEach(post=>{
   const li=document.createElement('li'),meta=document.createElement('small'),a=document.createElement('a');
@@ -1940,5 +1959,39 @@ document.addEventListener('DOMContentLoaded',()=>{
   });
 })();
 </script>
-<script defer="True" src="assets/js/common/offbeat-home-data.js?v=postindex-1"></script></body>
+<script defer="True" src="assets/js/common/offbeat-home-data.js?v=postindex-r2d"></script><script id="offbeat-postindex-facets-r2d">
+function offbeatSyncIndexFilters(){
+  const year=document.getElementById('offbeatArchiveYearFilter');
+  const season=document.getElementById('offbeatArchiveSeasonFilter');
+  if(!year||!season||typeof posts==='undefined')return;
+  const names={winter:'Winter',spring:'Spring',summer:'Summer',fall:'Fall'};
+  const fill=(select,entries,first)=>{
+    const old=select.value;
+    select.replaceChildren(new Option(first,'all'),...entries.map(v=>new Option(v.label,v.value)));
+    if([...select.options].some(o=>o.value===old))select.value=old;
+  };
+  const years=[...new Set(posts.map(p=>String(p.year||'')).filter(v=>/^\d{4}$/.test(v)))].sort((a,b)=>Number(b)-Number(a)).map(v=>({value:v,label:v}));
+  const seasons=Object.keys(names).filter(s=>posts.some(p=>p.season===s)).map(v=>({value:v,label:names[v]}));
+  fill(year,years,'ALL YEARS');fill(season,seasons,'ALL SEASONS');
+}
+document.addEventListener('DOMContentLoaded',()=>{
+  const year=document.getElementById('offbeatArchiveYearFilter');
+  const season=document.getElementById('offbeatArchiveSeasonFilter');
+  if(!year||!season)return;
+  const currentType=()=>document.querySelector('.anime09 [data-filter][aria-pressed="true"]')?.dataset.filter||'all';
+  const onFacet=()=>{
+    document.querySelectorAll('.anime09 [data-season-filter]').forEach(b=>{
+      const selected=b.dataset.seasonFilter==='all';
+      b.classList.toggle('is-selected',selected);
+      b.setAttribute('aria-pressed',String(selected));
+    });
+    renderAnime(currentType());
+  };
+  year.addEventListener('change',onFacet);season.addEventListener('change',onFacet);
+  document.querySelectorAll('.anime09 [data-season-filter]').forEach(b=>b.addEventListener('click',()=>{
+    year.value='all';season.value='all';renderAnime(currentType());
+  }));
+});
+</script>
+</body>
 </html>
