@@ -1709,6 +1709,79 @@ button,a{color:inherit}button{cursor:pointer}a{text-decoration:none}a:hover{colo
 }
 </style>
 <!-- OFFBEAT STICKY R1 END -->
+<!-- OFFBEAT ALSO FROM R1: two aligned links at narrow widths; Anime Home only. -->
+<style id="offbeat-also-from-grid-r1">
+/* The width of the ranking column, not the entire screen, controls this strip. */
+.anime09 .n-latest { min-width:0; container-type:inline-size; }
+.anime09 .n-feature-companions.n-feature-companions-13 {
+  display:grid;
+  grid-template-columns:max-content repeat(2,minmax(0,1fr));
+  column-gap:12px;
+  row-gap:7px;
+  align-items:center;
+}
+.anime09 .n-feature-companions-13 > .n-feature-label { min-width:0; white-space:nowrap; }
+.anime09 .n-feature-companions-13 > .n-feature-item {
+  min-width:0;
+  width:100%;
+  padding-left:9px;
+  white-space:normal;
+}
+.anime09 .n-feature-companions-13 > .n-feature-item strong {
+  min-width:0;
+  overflow-wrap:break-word;
+}
+
+/* At intermediate/mobile widths the kicker gets its own row.
+   The two destinations STAY side by side; their chevrons move underneath. */
+@container (max-width:560px) {
+  .anime09 .n-feature-companions.n-feature-companions-13 {
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    column-gap:9px;
+    row-gap:9px;
+    align-items:start;
+  }
+  .anime09 .n-feature-companions-13 > .n-feature-label { grid-column:1/-1; }
+  .anime09 .n-feature-companions-13 > .n-feature-item {
+    display:grid;
+    grid-template-columns:minmax(0,1fr);
+    grid-template-rows:auto minmax(0,1fr) auto;
+    align-self:stretch;
+    align-content:stretch;
+    gap:2px;
+    padding-left:8px;
+  }
+  .anime09 .n-feature-companions-13 > .n-feature-item .n-feature-kind {
+    grid-column:1;
+    grid-row:1;
+    white-space:normal;
+  }
+  .anime09 .n-feature-companions-13 > .n-feature-item strong {
+    grid-column:1;
+    grid-row:2;
+    line-height:1.12;
+  }
+  .anime09 .n-feature-companions-13 > .n-feature-item > .n-double-chevron {
+    grid-column:1;
+    grid-row:3;
+    justify-self:start;
+    margin-top:5px;
+  }
+  .anime09 .n-feature-companions-13 > .n-feature-item > .n-double-chevron::before {
+    content:'EXPLORE';
+    font:400 10px 'Barlow Condensed','Abel',sans-serif;
+    letter-spacing:.08em;
+    color:#5b755e;
+    margin-right:6px;
+  }
+}
+@container (max-width:315px) {
+  .anime09 .n-feature-companions.n-feature-companions-13 { column-gap:6px; }
+  .anime09 .n-feature-companions-13 > .n-feature-item { padding-left:6px; }
+  .anime09 .n-feature-companions-13 > .n-feature-item strong { font-size:14px; }
+  .anime09 .n-feature-companions-13 > .n-feature-item .n-feature-kind { font-size:9px; }
+}
+</style>
 </head>
 <body>
 <div class="site">
