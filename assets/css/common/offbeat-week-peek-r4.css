@@ -1,0 +1,229 @@
+/* OFFBEAT Week Peek R4 — composed editorial presentation. Inherits only R3 base behavior, not its visual skin. */
+/* OFFBEAT Current Season: unobtrusive published-week preview. */
+.anime09 .n-season-dashboard{position:relative;}
+.anime09 .n-weeks>a{cursor:pointer;}
+.anime09 .n-weeks>a:hover,
+.anime09 .n-weeks>a:focus-visible,
+.anime09 .n-weeks>a.ob-week-peek-active{outline:1px solid #718f73;outline-offset:-2px;}
+.anime09 .n-season-dashboard .ob-week-peek{
+  position:absolute;z-index:80;box-sizing:border-box;
+  border:1px solid #b7c9b5;background:#fbfaf0;color:#294331;
+  padding:14px 16px 16px;box-shadow:0 12px 32px rgba(27,46,32,.18);
+  text-align:left;
+}
+.anime09 .n-season-dashboard .ob-week-peek[hidden]{display:none!important;}
+.anime09 .ob-week-peek-heading{display:flex;align-items:start;justify-content:space-between;gap:8px;padding-bottom:8px;border-bottom:1px solid #cdd6c9;}
+.anime09 .ob-week-peek-heading small{display:block;font:400 10px/1.2 'Barlow Condensed','Abel',sans-serif;color:#778a75;letter-spacing:.09em;}
+.anime09 .ob-week-peek-heading strong{display:block;margin-top:3px;font:500 23px/1.04 'EB Garamond',Georgia,serif;color:#2d4c37;}
+.anime09 .ob-week-peek-close{border:0;background:none;color:#647764;font:26px/1 Arial,sans-serif;width:28px;height:28px;flex:0 0 28px;padding:0;cursor:pointer;}
+.anime09 .ob-week-peek-close:focus-visible,.anime09 .ob-week-peek-go:focus-visible{outline:2px solid #597e61;outline-offset:2px;}
+.anime09 .ob-week-peek-content{padding-top:11px;}
+.anime09 .ob-week-peek-label{font:500 10px/1.1 'Barlow Condensed','Abel',sans-serif;color:#986d4c;letter-spacing:.11em;}
+.anime09 .ob-week-peek-top{list-style:none;padding:0;margin:6px 0 9px;}
+.anime09 .ob-week-peek-top li{display:grid;grid-template-columns:24px minmax(0,1fr);gap:8px;padding:4px 0;border-bottom:1px solid #e4e7dc;align-items:baseline;}
+.anime09 .ob-week-peek-top li b{font:500 13px 'Barlow Condensed','Abel',sans-serif;color:#8b7854;}
+.anime09 .ob-week-peek-top li span{font:500 15px/1.17 'EB Garamond',Georgia,serif;overflow-wrap:anywhere;}
+.anime09 .ob-week-peek-intro-label{display:block;margin-top:12px;}
+.anime09 .ob-week-peek-excerpt{font:400 14.5px/1.32 'EB Garamond',Georgia,serif;margin:5px 0 13px;color:#526955;}
+.anime09 .ob-week-peek-muted,.anime09 .ob-week-peek-loading{font:14px 'EB Garamond',Georgia,serif;color:#647864;}
+.anime09 .ob-week-peek-go{display:block;border-top:1px solid #c6d4c2;padding-top:10px;font:500 12px/1.1 'Barlow Condensed','Abel',sans-serif;letter-spacing:.08em;color:#365f43;}
+.anime09 .ob-week-peek-go:hover{color:#a36d42;}
+@media(max-width:450px){
+ .anime09 .n-season-dashboard .ob-week-peek{padding:12px 13px 14px;}
+ .anime09 .ob-week-peek-heading strong{font-size:21px;}
+ .anime09 .ob-week-peek-top li span{font-size:14px;}
+ .anime09 .ob-week-peek-excerpt{font-size:14px;}
+}
+
+
+
+
+/* Canvas, spacing and type: warm paper, low-chroma bronze and forest green. */
+.anime09 .n-season-dashboard .ob-week-peek-r4{
+  --ob-green:#304f39;--ob-bronze:#a76b40;--ob-line:#d1d9ca;
+  padding:19px 20px 16px;border:1px solid #aebeae;
+  background:#fbfaf1;box-shadow:0 16px 42px rgba(31,49,34,.20);
+  color:var(--ob-green);
+}
+.anime09 .ob-week-peek-r4 .ob-week-peek-heading{padding:0 0 12px;border-color:#c7d1c3;}
+.anime09 .ob-week-peek-r4 .ob-week-peek-heading small{
+  font:500 11px/1.25 'Barlow Condensed','Abel',sans-serif;letter-spacing:.105em;color:#70846f;
+}
+.anime09 .ob-week-peek-r4 .ob-week-peek-heading strong{
+  font:500 28px/1.07 'EB Garamond',Georgia,serif;letter-spacing:.005em;margin:5px 0 0;color:#253f2f;
+}
+.anime09 .ob-week-peek-r4 .ob-week-peek-close{font-size:26px;color:#54715b;}
+.anime09 .ob-week-peek-r4 .ob-week-peek-content{padding-top:15px;}
+/* A compact, real podium. Image fills the visual frame, never tiny in a blank box. */
+.anime09 .ob-week-peek-r4 .ob-week-peek-podium{
+  display:grid;grid-template-columns:1fr 1.085fr 1fr;gap:11px;
+  align-items:end;margin:7px 6px 11px;
+}
+.anime09 .ob-week-peek-r4 .ob-week-peek-place{
+  margin:0;min-width:0;display:flex;flex-direction:column;align-items:center;
+}
+.anime09 .ob-week-peek-r4 .ob-week-peek-place-1{padding-bottom:0;transform:translateY(-9px);}
+.anime09 .ob-week-peek-r4 .ob-week-peek-medal{
+  display:grid;place-items:center;width:27px;height:27px;flex:none;margin-bottom:7px;
+  border-radius:50%;border:1.5px solid #a9a7a1;
+  background:linear-gradient(145deg,#f9f9f7,#d3d4d1);color:#535b55;
+  font:600 16px/1 'EB Garamond',Georgia,serif;
+}
+.anime09 .ob-week-peek-r4 .ob-week-peek-place-1 .ob-week-peek-medal{
+  width:34px;height:34px;margin-bottom:6px;
+  color:#835b23;border-color:#bc8d40;background:linear-gradient(145deg,#fff6d1,#dcb35d);
+  font-size:20px;
+}
+.anime09 .ob-week-peek-r4 .ob-week-peek-place-3 .ob-week-peek-medal{
+  color:#845f49;border-color:#b27a5b;background:linear-gradient(145deg,#f4d9c5,#c49170);
+}
+.anime09 .ob-week-peek-r4 .ob-week-peek-art{
+  width:100%;aspect-ratio:3/3.75;position:relative;overflow:hidden;
+  background:#e8ebe3;border:1px solid #d7dcd2;
+  box-shadow:0 3px 7px rgba(26,39,30,.11);
+}
+.anime09 .ob-week-peek-r4 .ob-week-peek-place-1 .ob-week-peek-art{
+  border:2px solid #c49a50;box-shadow:0 4px 11px rgba(74,52,21,.17);
+}
+.anime09 .ob-week-peek-r4 .ob-week-peek-podium .ob-week-peek-poster{
+  display:block!important;position:absolute!important;inset:0!important;
+  width:100%!important;height:100%!important;
+  max-width:none!important;max-height:none!important;
+  object-fit:cover!important;object-position:center 35%!important;margin:0!important;
+  padding:0!important;z-index:1;
+}
+.anime09 .ob-week-peek-r4 .ob-week-peek-no-art .ob-week-peek-art:before{
+  content:'—';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  font:400 22px Georgia,serif;color:#a5b0a4;
+}
+.anime09 .ob-week-peek-r4 .ob-week-peek-plinth{
+  display:block;width:100%;height:6px;background:linear-gradient(#d4d8cb,#c4cabd);margin-top:5px;
+}
+.anime09 .ob-week-peek-r4 .ob-week-peek-place-1 .ob-week-peek-plinth{
+  background:linear-gradient(#dbbb7a,#bc9557);height:8px;
+}
+.anime09 .ob-week-peek-r4 .ob-week-peek-place-3 .ob-week-peek-plinth{background:linear-gradient(#d9b6a2,#b58973);}
+/* Results as subtle caption, not another dashboard. */
+.anime09 .ob-week-peek-r4 .ob-week-peek-results{list-style:none;margin:11px 0 13px;padding:0;border-top:1px solid var(--ob-line);}
+.anime09 .ob-week-peek-r4 .ob-week-peek-result{
+  display:grid;grid-template-columns:25px minmax(0,1fr) auto;gap:10px;
+  align-items:center;padding:6px 0;border-bottom:1px solid #e1e6d9;
+}
+.anime09 .ob-week-peek-r4 .ob-week-peek-result-num{
+  font:600 17px/1 'Barlow Condensed','Abel',sans-serif;color:#b07a47;
+}
+.anime09 .ob-week-peek-r4 .ob-week-peek-result-text{min-width:0;}
+.anime09 .ob-week-peek-r4 .ob-week-peek-result-title{
+  display:block;font:500 16.5px/1.17 'EB Garamond',Georgia,serif;color:#253e2e;
+  overflow-wrap:anywhere;
+}
+.anime09 .ob-week-peek-r4 .ob-week-peek-result-studio{
+  display:block;margin-top:2px;font:400 11px/1.2 'Barlow Condensed','Yu Gothic UI',sans-serif;color:#78907b;
+}
+.anime09 .ob-week-peek-r4 .ob-week-peek-result-points{
+  font:600 18px/1 'Barlow Condensed','Abel',sans-serif;color:#a86a38;padding-left:4px;
+}
+/* A single editorial spotlight; restrained ribbon and a reason visible immediately. */
+.anime09 .ob-week-peek-r4 .ob-week-peek-spotlight{
+  background:#f0f3e8;border-radius:5px;position:relative;margin:14px 0 12px;
+  padding:0 12px 10px;
+}
+.anime09 .ob-week-peek-r4 .ob-week-peek-spotlight-tab{
+  display:inline-block;margin:0 0 9px -12px;padding:5px 12px 5px 13px;
+  background:#365b42;color:#fbfaf0;font:600 11px/1.2 'Barlow Condensed','Abel','Yu Gothic UI',sans-serif;
+  letter-spacing:.055em;border-radius:4px 0 5px 0;
+}
+.anime09 .ob-week-peek-r4 .ob-week-peek-spotlight-row{display:flex;align-items:center;gap:12px;min-width:0;}
+.anime09 .ob-week-peek-r4 .ob-week-peek-spotlight-poster{
+  flex:0 0 46px;width:46px!important;height:62px!important;max-width:none!important;
+  object-fit:cover!important;object-position:center 30%;display:block;border:1px solid #d2d9ce;
+}
+.anime09 .ob-week-peek-r4 .ob-week-peek-spotlight-text{min-width:0;}
+.anime09 .ob-week-peek-r4 .ob-week-peek-spotlight-name{
+  display:block;font:500 16px/1.15 'EB Garamond',Georgia,serif;color:#264431;overflow-wrap:anywhere;
+}
+.anime09 .ob-week-peek-r4 .ob-week-peek-movement{
+  display:block;margin-top:5px;color:#b26436;
+  font:600 11px/1.22 'Barlow Condensed','Abel','Yu Gothic UI',sans-serif;letter-spacing:.035em;
+}
+/* A tiny overview, not a long abstract. */
+.anime09 .ob-week-peek-r4 .ob-week-peek-weeknote{display:flex;align-items:start;gap:12px;margin:0 0 7px;padding:8px 0 7px;}
+.anime09 .ob-week-peek-r4 .ob-week-peek-noteflag{
+  display:block;flex:0 0 69px;margin-top:2px;padding-left:2px;
+  font:600 11px/1.3 'Barlow Condensed','Yu Gothic UI',sans-serif;color:#3f704d;letter-spacing:.08em;
+}
+.anime09 .ob-week-peek-r4 .ob-week-peek-excerpt{
+  display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;line-clamp:2;overflow:hidden;
+  flex:1;margin:0;padding-left:10px;border-left:2px solid #c6b291;
+  color:#576d5b;font:italic 14px/1.3 'EB Garamond',Georgia,serif;
+}
+/* Article entrance with typographic emphasis and true DOUBLE chevrons. */
+.anime09 .ob-week-peek-r4 .ob-week-peek-go{
+  display:flex;align-items:center;gap:9px;
+  border-top:1px solid #ced8c9;margin-top:7px;padding:13px 1px 1px;
+  color:#b45e31;text-decoration:none;
+}
+.anime09 .ob-week-peek-r4 .ob-week-peek-go-title{
+  font:600 16px/1.18 'Barlow Condensed','Abel','Yu Gothic UI',sans-serif;letter-spacing:.08em;
+  text-decoration:underline;text-decoration-color:#d0a388;text-underline-offset:4px;text-decoration-thickness:1px;
+}
+.anime09 .ob-week-peek-r4 .ob-week-peek-double-chevron{display:inline-flex;align-items:center;gap:2px;margin-left:2px;flex:none;}
+.anime09 .ob-week-peek-r4 .ob-week-peek-double-chevron i{
+  display:block;width:7px;height:7px;border-top:2px solid currentColor;border-right:2px solid currentColor;
+  transform:rotate(45deg);font-style:normal;
+}
+.anime09 .ob-week-peek-r4 .ob-week-peek-go-meta{
+  margin-left:auto;color:#69826f;font:500 11px/1.2 'Barlow Condensed','Yu Gothic UI',sans-serif;
+  letter-spacing:.03em;white-space:nowrap;
+}
+.anime09 .ob-week-peek-r4 .ob-week-peek-go:hover{color:#8f442b;}
+.anime09 .ob-week-peek-r4[lang=ja] .ob-week-peek-heading strong{font-family:'Yu Mincho','Hiragino Mincho ProN','Noto Serif JP',serif;font-size:27px;}
+.anime09 .ob-week-peek-r4[lang=ja] .ob-week-peek-result-title,
+.anime09 .ob-week-peek-r4[lang=ja] .ob-week-peek-spotlight-name{
+  font-family:'Yu Gothic UI','Hiragino Kaku Gothic ProN',sans-serif;font-weight:500;font-size:13.5px;line-height:1.25;
+}
+.anime09 .ob-week-peek-r4[lang=ja] .ob-week-peek-excerpt{
+  font:400 13px/1.45 'Yu Gothic UI','Hiragino Kaku Gothic ProN',sans-serif;
+}
+.anime09 .ob-week-peek-r4[lang=ja] .ob-week-peek-noteflag{
+  flex-basis:85px;font-size:11.5px;letter-spacing:0;
+}
+.anime09 .ob-week-peek-r4[lang=ja] .ob-week-peek-go-title{font-size:14px;letter-spacing:.03em;}
+@media(max-width:540px){
+ .anime09 .n-season-dashboard .ob-week-peek-r4{padding:13px 13px 13px;}
+ .anime09 .ob-week-peek-r4 .ob-week-peek-heading strong{font-size:25px;}
+ .anime09 .ob-week-peek-r4[lang=ja] .ob-week-peek-heading strong{font-size:23px;}
+ .anime09 .ob-week-peek-r4 .ob-week-peek-content{padding-top:11px;}
+ .anime09 .ob-week-peek-r4 .ob-week-peek-podium{gap:7px;margin:3px 2px 9px;}
+ .anime09 .ob-week-peek-r4 .ob-week-peek-medal{height:24px;width:24px;font-size:14px;margin-bottom:5px;}
+ .anime09 .ob-week-peek-r4 .ob-week-peek-place-1 .ob-week-peek-medal{height:30px;width:30px;font-size:17px;margin-bottom:4px;}
+ .anime09 .ob-week-peek-r4 .ob-week-peek-result{grid-template-columns:21px minmax(0,1fr) auto;gap:6px;padding:5px 0;}
+ .anime09 .ob-week-peek-r4 .ob-week-peek-result-title{font-size:14.5px;}
+ .anime09 .ob-week-peek-r4[lang=ja] .ob-week-peek-result-title{font-size:12.5px;}
+ .anime09 .ob-week-peek-r4 .ob-week-peek-result-studio{font-size:10px;}
+ .anime09 .ob-week-peek-r4 .ob-week-peek-result-points{font-size:16px;}
+ .anime09 .ob-week-peek-r4 .ob-week-peek-spotlight{margin:11px 0 8px;padding:0 10px 9px;}
+ .anime09 .ob-week-peek-r4 .ob-week-peek-spotlight-tab{margin-left:-10px;padding:5px 10px;}
+ .anime09 .ob-week-peek-r4 .ob-week-peek-spotlight-poster{width:39px!important;height:53px!important;flex-basis:39px;}
+ .anime09 .ob-week-peek-r4 .ob-week-peek-spotlight-name{font-size:14px;}
+ .anime09 .ob-week-peek-r4[lang=ja] .ob-week-peek-spotlight-name{font-size:12.5px;}
+ .anime09 .ob-week-peek-r4 .ob-week-peek-weeknote{gap:7px;padding:7px 0 4px;}
+ .anime09 .ob-week-peek-r4 .ob-week-peek-noteflag{flex-basis:61px;font-size:10px;}
+ .anime09 .ob-week-peek-r4[lang=ja] .ob-week-peek-noteflag{flex-basis:68px;font-size:10px;}
+ .anime09 .ob-week-peek-r4 .ob-week-peek-excerpt{font-size:13px;padding-left:7px;}
+ .anime09 .ob-week-peek-r4[lang=ja] .ob-week-peek-excerpt{font-size:12px;}
+ .anime09 .ob-week-peek-r4 .ob-week-peek-go{padding-top:10px;gap:6px;}
+ .anime09 .ob-week-peek-r4 .ob-week-peek-go-title{font-size:14px;}
+ .anime09 .ob-week-peek-r4 .ob-week-peek-go-meta{font-size:10px;}
+}
+/* Reuse R2's existing language toggle, with clear selected state. */
+.site > .global .ob-week-peek-language{display:none;position:absolute;right:106px;top:50%;transform:translateY(-50%);z-index:55;gap:1px;padding:2px;background:rgba(247,240,252,.97);border:1px solid #dfcbea;border-radius:16px;box-shadow:0 2px 8px rgba(75,43,98,.10);white-space:nowrap;font-family:'Yu Gothic UI',Arial,sans-serif;}
+.site:has(#anime-top.current) > .global .ob-week-peek-language{display:flex;}
+.site > .global .ob-week-peek-language button{appearance:none;border:0;background:transparent;color:#7d678e;font:600 10px/1.2 'Yu Gothic UI',Arial,sans-serif;border-radius:12px;min-height:24px;padding:3px 7px;}
+.site > .global .ob-week-peek-language button.selected{background:#78549b;color:white;}
+.site > .global .ob-week-peek-language button:focus-visible{outline:2px solid #55347b;outline-offset:2px;}
+@media(max-width:450px){
+ .site > .global .ob-week-peek-language{right:101px;}
+ .site > .global .ob-week-peek-language button{font-size:9px;padding:3px 5px;}
+}
+@media(prefers-reduced-motion:reduce){.anime09 .ob-week-peek-r4 .ob-week-peek-go{transition:none;}}
