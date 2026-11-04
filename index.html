@@ -1631,6 +1631,31 @@ button,a{color:inherit}button{cursor:pointer}a{text-decoration:none}a:hover{colo
 .anime09 .n-index-filters select{font:11px 'Abel',sans-serif;color:#415d48;background:transparent;border:1px solid #c9cbb7;border-radius:2px;padding:3px 19px 3px 6px;max-width:135px}
 @media(max-width:690px){.anime09 .n-index-filters{justify-content:flex-start}}
 </style>
+<style id="offbeat-postindex-r3-b-layout">
+/* B: ranking period and published date have distinct reading roles. */
+.anime09 #animeArchive .n-archive-metadata{
+ display:flex;flex-direction:column;align-items:flex-start;flex-wrap:nowrap;
+ gap:2px;margin-top:5px;
+}
+.anime09 #animeArchive .n-archive-metadata .n-aperiod{
+ color:#986947;letter-spacing:.025em;line-height:1.15;
+}
+.anime09 #animeArchive .n-archive-metadata .n-published{
+ color:#647d69;letter-spacing:.025em;line-height:1.15;
+}
+/* Down chevron is visible in Safari/Chrome on iPhone too. */
+.anime09 .n-index-filters select{
+ -webkit-appearance:none;appearance:none;
+ background-image:linear-gradient(45deg,transparent 50%,#506d55 50%),linear-gradient(135deg,#506d55 50%,transparent 50%);
+ background-position:calc(100% - 11px) 49%,calc(100% - 6px) 49%;
+ background-size:5px 5px;background-repeat:no-repeat;
+ padding-right:23px;
+}
+/* Recent Posts: give typical weekly entries slightly more title room on iPhone. */
+@media(max-width:690px){
+ .anime09 .n-recent li:has(.n-post-cat-ranking){grid-template-columns:62px 61px minmax(0,1fr);column-gap:6px;}
+}
+</style>
 </head>
 <body>
 <div class="site">
@@ -1822,8 +1847,10 @@ function makeCard(post,featured=false){
   const episodes=String(post.episodes||'').replace(/^episodes?\s*/i,'').trim();
   const period=(post.type==='ranking'&&post.week==='00')?'PRELIMINARY SELECTION':episodes?`EPISODES ${episodes} · ${compactPeriod}`:compactPeriod;
  const h3=el('h3');const title=el('a',null,post.title);title.href=post.url;h3.append(title);
- const meta=el('div','n-archive-metadata');meta.append(el('span','n-published',displayDate(post.date)));
+ const meta=el('div','n-archive-metadata');
+  const publishLine=el('span','n-published','Published '+displayDate(post.date));
  if(period)meta.append(el('span','n-aperiod',period));
+  meta.append(publishLine);
  body.append(categories,h3,meta);
  // When actual Postcard Generator Intro JSON is mapped to post.intro, show up to three CSS-clamped lines; otherwise optional illustrative preview copy.
  const intro=(post.intro||post.previewIntro||'').trim();

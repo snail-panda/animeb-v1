@@ -17,7 +17,14 @@
         "display": "November 1, 2026"
       },
       "period": {
-        "display": "October 25–31"
+        "display": "October 25–31",
+        "rawDuration": "10-25-Sun-10-31-Sat",
+        "sourceField": "meta.duration"
+      },
+      "episodes": {
+        "display": "4–5",
+        "raw": "ep.4-5",
+        "sourceField": "meta.ep_range"
       },
       "topN": 10,
       "stage": null,
@@ -127,10 +134,14 @@
         "display": "October 25, 2026"
       },
       "period": {
-        "display": "October 18–24"
+        "display": "October 18–24",
+        "rawDuration": "10-18-Sun-10-24-Sat",
+        "sourceField": "meta.duration"
       },
       "episodes": {
-        "display": "3–4"
+        "display": "3–4",
+        "raw": "ep.3-4",
+        "sourceField": "meta.ep_range"
       },
       "topN": 10,
       "stage": null,
@@ -240,7 +251,14 @@
         "display": "October 18, 2026"
       },
       "period": {
-        "display": "October 11–17"
+        "display": "October 11–17",
+        "rawDuration": "10-11-Sun-10-17-Sat",
+        "sourceField": "meta.duration"
+      },
+      "episodes": {
+        "display": "2–3",
+        "raw": "ep.2-3",
+        "sourceField": "meta.ep_range"
       },
       "topN": 10,
       "stage": null,
@@ -358,7 +376,14 @@
         "display": "October 11, 2026"
       },
       "period": {
-        "display": "October 4–10"
+        "display": "October 4–10",
+        "rawDuration": "10-04-Sun-10-10-Sat",
+        "sourceField": "meta.duration"
+      },
+      "episodes": {
+        "display": "1–2",
+        "raw": "ep.1-2",
+        "sourceField": "meta.ep_range"
       },
       "topN": 10,
       "stage": null,
@@ -477,7 +502,14 @@
         "display": "October 11, 2026"
       },
       "period": {
-        "display": "September 27–October 10"
+        "display": "September 27–October 10",
+        "rawDuration": "09-27-Sun-10-10-Sat",
+        "sourceField": "meta.duration"
+      },
+      "episodes": {
+        "display": "0–1",
+        "raw": "ep.0-1",
+        "sourceField": "meta.ep_range"
       },
       "topN": 35,
       "stage": null,
@@ -950,7 +982,14 @@
         "display": "October 04, 2026"
       },
       "period": {
-        "display": "July 7–October 4"
+        "display": "July 7–October 4",
+        "rawDuration": "07-05-Sun-10-03-Sat",
+        "sourceField": "meta.duration"
+      },
+      "episodes": {
+        "display": "1–13",
+        "raw": "ep.1-13",
+        "sourceField": "meta.ep_range"
       },
       "topN": 23,
       "stage": null,
@@ -1045,7 +1084,14 @@
         "display": "September 20, 2026"
       },
       "period": {
-        "display": "September 13-19"
+        "display": "September 13-19",
+        "rawDuration": "09-13-Sun-09-19-Sat",
+        "sourceField": "meta.duration"
+      },
+      "episodes": {
+        "display": "11–12",
+        "raw": "ep.11-12",
+        "sourceField": "meta.ep_range"
       },
       "topN": 10,
       "stage": null,
@@ -1136,7 +1182,14 @@
         "display": "September 13, 2026"
       },
       "period": {
-        "display": "September 6-12"
+        "display": "September 6-12",
+        "rawDuration": "09-06-Sun-09-12-Sat",
+        "sourceField": "meta.duration"
+      },
+      "episodes": {
+        "display": "10–11",
+        "raw": "ep.10-11",
+        "sourceField": "meta.ep_range"
       },
       "topN": 10,
       "stage": null,
@@ -1226,7 +1279,14 @@
         "display": "September 6, 2026"
       },
       "period": {
-        "display": "August 30–September 5"
+        "display": "August 30–September 5",
+        "rawDuration": "08-30-Sun-09-05-Sat",
+        "sourceField": "meta.duration"
+      },
+      "episodes": {
+        "display": "9–10",
+        "raw": "ep.9-10",
+        "sourceField": "meta.ep_range"
       },
       "topN": 10,
       "stage": null,
@@ -1316,7 +1376,14 @@
         "display": "August 30, 2026"
       },
       "period": {
-        "display": "August 23–29"
+        "display": "August 23–29",
+        "rawDuration": "08-23-Sun-08-29-Sat",
+        "sourceField": "meta.duration"
+      },
+      "episodes": {
+        "display": "8–9",
+        "raw": "ep.8-9",
+        "sourceField": "meta.ep_range"
       },
       "topN": 10,
       "stage": null,
@@ -1406,7 +1473,14 @@
         "display": "August 23, 2026"
       },
       "period": {
-        "display": "August 16–22"
+        "display": "August 16–22",
+        "rawDuration": "08-16-Sun-08-22-Sat",
+        "sourceField": "meta.duration"
+      },
+      "episodes": {
+        "display": "7–8",
+        "raw": "ep.7-8",
+        "sourceField": "meta.ep_range"
       },
       "topN": 5,
       "stage": null,
@@ -1684,7 +1758,14 @@
         "display": "August 16, 2026"
       },
       "period": {
-        "display": "August 9–15"
+        "display": "August 9–15",
+        "rawDuration": "08-09-Sun-08-15-Sat",
+        "sourceField": "meta.duration"
+      },
+      "episodes": {
+        "display": "6–7",
+        "raw": "ep.6-7",
+        "sourceField": "meta.ep_range"
       },
       "topN": 6,
       "stage": null,
@@ -1773,7 +1854,14 @@
         "display": "August 9, 2026"
       },
       "period": {
-        "display": "August 2–8"
+        "display": "August 2–8",
+        "rawDuration": "08-02-Sun-08-08-Sat",
+        "sourceField": "meta.duration"
+      },
+      "episodes": {
+        "display": "5–6",
+        "raw": "ep.5-6",
+        "sourceField": "meta.ep_range"
       },
       "topN": 5,
       "stage": null,
@@ -1861,7 +1949,14 @@
         "display": "August 02, 2026"
       },
       "period": {
-        "display": "July 26–August 1"
+        "display": "July 26–August 1",
+        "rawDuration": "07-26-Sun-08-01-Sat",
+        "sourceField": "meta.duration"
+      },
+      "episodes": {
+        "display": "4–5",
+        "raw": "ep.4-5",
+        "sourceField": "meta.ep_range"
       },
       "topN": 5,
       "stage": null,
@@ -1949,7 +2044,14 @@
         "display": "July 26, 2026"
       },
       "period": {
-        "display": "July 19–25"
+        "display": "July 19–25",
+        "rawDuration": "07-19-Sun-07-25-Sat",
+        "sourceField": "meta.duration"
+      },
+      "episodes": {
+        "display": "3–4",
+        "raw": "ep.3-4",
+        "sourceField": "meta.ep_range"
       },
       "topN": 5,
       "stage": null,
@@ -2037,7 +2139,14 @@
         "display": "July 19, 2026"
       },
       "period": {
-        "display": "July 12–18"
+        "display": "July 12–18",
+        "rawDuration": "07-12-Sun-07-18-Sat",
+        "sourceField": "meta.duration"
+      },
+      "episodes": {
+        "display": "2–3",
+        "raw": "ep.2-3",
+        "sourceField": "meta.ep_range"
       },
       "topN": 5,
       "stage": null,
@@ -2125,7 +2234,14 @@
         "display": "July 12, 2026"
       },
       "period": {
-        "display": "July 5–11"
+        "display": "July 5–11",
+        "rawDuration": "07-05-Sun-07-11-Sat",
+        "sourceField": "meta.duration"
+      },
+      "episodes": {
+        "display": "1–2",
+        "raw": "ep.1-2",
+        "sourceField": "meta.ep_range"
       },
       "topN": 5,
       "stage": null,
@@ -2214,7 +2330,14 @@
         "display": "July 12, 2026"
       },
       "period": {
-        "display": "June 28–July 11"
+        "display": "June 28–July 11",
+        "rawDuration": "06-28-Sun-07-11-Sat",
+        "sourceField": "meta.duration"
+      },
+      "episodes": {
+        "display": "1–2",
+        "raw": "ep.1-2",
+        "sourceField": "meta.ep_range"
       },
       "topN": 32,
       "stage": null,
@@ -2637,7 +2760,14 @@
         "display": "October 04, 2025"
       },
       "period": {
-        "display": "July 6–October 4"
+        "display": "July 6–October 4",
+        "rawDuration": "07-06-Sun-10-04-Sat",
+        "sourceField": "meta.duration"
+      },
+      "episodes": {
+        "display": "1–13",
+        "raw": "ep.1-13",
+        "sourceField": "meta.ep_range"
       },
       "topN": 20,
       "stage": null,
@@ -2726,7 +2856,14 @@
         "display": "September 22, 2025"
       },
       "period": {
-        "display": "September 14-20"
+        "display": "September 14-20",
+        "rawDuration": "09-14-Sun-09-20-Sat",
+        "sourceField": "meta.duration"
+      },
+      "episodes": {
+        "display": "11–12",
+        "raw": "ep.11-12",
+        "sourceField": "meta.ep_range"
       },
       "topN": 5,
       "stage": null,
@@ -2810,7 +2947,14 @@
         "display": "September 15, 2025"
       },
       "period": {
-        "display": "September 7-13"
+        "display": "September 7-13",
+        "rawDuration": "09-07-Sun-09-13-Sat",
+        "sourceField": "meta.duration"
+      },
+      "episodes": {
+        "display": "10–11",
+        "raw": "ep.10-11",
+        "sourceField": "meta.ep_range"
       },
       "topN": 5,
       "stage": null,
@@ -2893,7 +3037,14 @@
         "display": "September 7, 2025"
       },
       "period": {
-        "display": "August 31–September 6"
+        "display": "August 31–September 6",
+        "rawDuration": "08-31-Sun-09-06-Sat",
+        "sourceField": "meta.duration"
+      },
+      "episodes": {
+        "display": "9–10",
+        "raw": "ep.9-10",
+        "sourceField": "meta.ep_range"
       },
       "topN": 5,
       "stage": null,
@@ -2974,7 +3125,14 @@
         "display": "September 1, 2025"
       },
       "period": {
-        "display": "August 24–30"
+        "display": "August 24–30",
+        "rawDuration": "08-24-Sun-08-30-Sat",
+        "sourceField": "meta.duration"
+      },
+      "episodes": {
+        "display": "8–9",
+        "raw": "ep.8-9",
+        "sourceField": "meta.ep_range"
       },
       "topN": 5,
       "stage": null,
@@ -3055,7 +3213,14 @@
         "display": "August 25, 2025"
       },
       "period": {
-        "display": "August 17–23"
+        "display": "August 17–23",
+        "rawDuration": "08-17-Sun-08-23-Sat",
+        "sourceField": "meta.duration"
+      },
+      "episodes": {
+        "display": "7–8",
+        "raw": "ep.7-8",
+        "sourceField": "meta.ep_range"
       },
       "topN": 5,
       "stage": null,
@@ -3135,7 +3300,14 @@
         "display": "August 17, 2025"
       },
       "period": {
-        "display": "August 10–16"
+        "display": "August 10–16",
+        "rawDuration": "08-10-Sun-08-16-Sat",
+        "sourceField": "meta.duration"
+      },
+      "episodes": {
+        "display": "6–7",
+        "raw": "ep.6-7",
+        "sourceField": "meta.ep_range"
       },
       "topN": 5,
       "stage": null,
@@ -3373,7 +3545,14 @@
         "display": "August 10, 2025"
       },
       "period": {
-        "display": "August 3–9"
+        "display": "August 3–9",
+        "rawDuration": "08-03-Sun-08-09-Sat",
+        "sourceField": "meta.duration"
+      },
+      "episodes": {
+        "display": "5–6",
+        "raw": "ep.5-6",
+        "sourceField": "meta.ep_range"
       },
       "topN": 5,
       "stage": null,
@@ -3452,7 +3631,14 @@
         "display": "August 03, 2025"
       },
       "period": {
-        "display": "July 27–August 2"
+        "display": "July 27–August 2",
+        "rawDuration": "07-27-Sun-08-02-Sat",
+        "sourceField": "meta.duration"
+      },
+      "episodes": {
+        "display": "4–5",
+        "raw": "ep.4-5",
+        "sourceField": "meta.ep_range"
       },
       "topN": 5,
       "stage": null,
@@ -3531,7 +3717,14 @@
         "display": "July 27, 2025"
       },
       "period": {
-        "display": "July 20–26"
+        "display": "July 20–26",
+        "rawDuration": "07-20-Sun-07-26-Sat",
+        "sourceField": "meta.duration"
+      },
+      "episodes": {
+        "display": "3–4",
+        "raw": "ep.3-4",
+        "sourceField": "meta.ep_range"
       },
       "topN": 5,
       "stage": null,
@@ -3608,7 +3801,14 @@
         "display": "July 20, 2025"
       },
       "period": {
-        "display": "July 13–19"
+        "display": "July 13–19",
+        "rawDuration": "07-13-Sun-07-19-Sat",
+        "sourceField": "meta.duration"
+      },
+      "episodes": {
+        "display": "2–3",
+        "raw": "ep.2-3",
+        "sourceField": "meta.ep_range"
       },
       "topN": 5,
       "stage": null,
@@ -3685,7 +3885,14 @@
         "display": "July 13, 2025"
       },
       "period": {
-        "display": "July 6–12"
+        "display": "July 6–12",
+        "rawDuration": "07-06-Sun-07-12-Sat",
+        "sourceField": "meta.duration"
+      },
+      "episodes": {
+        "display": "1–2",
+        "raw": "ep.1-2",
+        "sourceField": "meta.ep_range"
       },
       "topN": 5,
       "stage": null,
@@ -3761,7 +3968,14 @@
         "display": "July 13, 2025"
       },
       "period": {
-        "display": "June 29–July 12"
+        "display": "June 29–July 12",
+        "rawDuration": "06-29-Sun-07-12-Sat",
+        "sourceField": "meta.duration"
+      },
+      "episodes": {
+        "display": "1–2",
+        "raw": "ep.1-2",
+        "sourceField": "meta.ep_range"
       },
       "topN": 45,
       "stage": null,
@@ -3914,7 +4128,14 @@
         "display": "July 09, 2025"
       },
       "period": {
-        "display": "April 6–July 4"
+        "display": "April 6–July 4",
+        "rawDuration": "04-06-Sun-07-04-Fri",
+        "sourceField": "meta.duration"
+      },
+      "episodes": {
+        "display": "1–13",
+        "raw": "ep.1-13",
+        "sourceField": "meta.ep_range"
       },
       "topN": 12,
       "stage": null,
@@ -4057,7 +4278,14 @@
         "display": "June 22, 2025"
       },
       "period": {
-        "display": "June 15–21"
+        "display": "June 15–21",
+        "rawDuration": "06-15-Sun-06-21-Sat",
+        "sourceField": "meta.duration"
+      },
+      "episodes": {
+        "display": "11–12",
+        "raw": "ep.11-12",
+        "sourceField": "meta.ep_range"
       },
       "topN": 5,
       "stage": null,
@@ -4124,7 +4352,14 @@
         "display": "June 15, 2025"
       },
       "period": {
-        "display": "June 8–14"
+        "display": "June 8–14",
+        "rawDuration": "06-08-Sun-06-14-Sat",
+        "sourceField": "meta.duration"
+      },
+      "episodes": {
+        "display": "10–11",
+        "raw": "ep.10-11",
+        "sourceField": "meta.ep_range"
       },
       "topN": 5,
       "stage": null,
@@ -4191,7 +4426,14 @@
         "display": "June 08, 2025"
       },
       "period": {
-        "display": "June 1–7"
+        "display": "June 1–7",
+        "rawDuration": "06-01-Sun-06-07-Sat",
+        "sourceField": "meta.duration"
+      },
+      "episodes": {
+        "display": "9–10",
+        "raw": "ep.9-10",
+        "sourceField": "meta.ep_range"
       },
       "topN": 5,
       "stage": null,
@@ -4258,7 +4500,14 @@
         "display": "May 25, 2025"
       },
       "period": {
-        "display": "May 25–31"
+        "display": "May 25–31",
+        "rawDuration": "05-25-Sun-05-31-Sat",
+        "sourceField": "meta.duration"
+      },
+      "episodes": {
+        "display": "8–9",
+        "raw": "ep.8-9",
+        "sourceField": "meta.ep_range"
       },
       "topN": 5,
       "stage": null,
@@ -4331,7 +4580,14 @@
         "display": "May 25, 2025"
       },
       "period": {
-        "display": "May 18–24"
+        "display": "May 18–24",
+        "rawDuration": "05-18-Sun-05-24-Sat",
+        "sourceField": "meta.duration"
+      },
+      "episodes": {
+        "display": "7–8",
+        "raw": "ep.7-8",
+        "sourceField": "meta.ep_range"
       },
       "topN": 5,
       "stage": null,
@@ -4476,7 +4732,14 @@
         "display": "May 18, 2025"
       },
       "period": {
-        "display": "May 11–17"
+        "display": "May 11–17",
+        "rawDuration": "05-11-Sun-05-17-Sat",
+        "sourceField": "meta.duration"
+      },
+      "episodes": {
+        "display": "6–7",
+        "raw": "ep.6-7",
+        "sourceField": "meta.ep_range"
       },
       "topN": 5,
       "stage": null,
@@ -4604,7 +4867,14 @@
         "display": "May 11, 2025"
       },
       "period": {
-        "display": "May 4–May 10"
+        "display": "May 4–May 10",
+        "rawDuration": "05-04-Sun-05-10-Sat",
+        "sourceField": "meta.duration"
+      },
+      "episodes": {
+        "display": "5–6",
+        "raw": "ep.5-6",
+        "sourceField": "meta.ep_range"
       },
       "topN": 5,
       "stage": null,
@@ -4736,7 +5006,14 @@
         "display": "May 4, 2025"
       },
       "period": {
-        "display": "April 27–May 3"
+        "display": "April 27–May 3",
+        "rawDuration": "04-27-Sun-05-03-Sat",
+        "sourceField": "meta.duration"
+      },
+      "episodes": {
+        "display": "4–5",
+        "raw": "ep.4-5",
+        "sourceField": "meta.ep_range"
       },
       "topN": 5,
       "stage": null,
@@ -4807,7 +5084,14 @@
         "display": "April 27, 2025"
       },
       "period": {
-        "display": "April 20–26"
+        "display": "April 20–26",
+        "rawDuration": "04-20-Sun-04-26-Sat",
+        "sourceField": "meta.duration"
+      },
+      "episodes": {
+        "display": "3–4",
+        "raw": "ep.3-4",
+        "sourceField": "meta.ep_range"
       },
       "topN": 5,
       "stage": null,
@@ -4878,7 +5162,14 @@
         "display": "April 20, 2025"
       },
       "period": {
-        "display": "April 13–19"
+        "display": "April 13–19",
+        "rawDuration": "04-13-Sun-04-19-Sat",
+        "sourceField": "meta.duration"
+      },
+      "episodes": {
+        "display": "2–3",
+        "raw": "ep.2-3",
+        "sourceField": "meta.ep_range"
       },
       "topN": 5,
       "stage": null,
@@ -5025,7 +5316,14 @@
         "display": "April 13, 2025"
       },
       "period": {
-        "display": "April 5–12"
+        "display": "April 5–12",
+        "rawDuration": "04-06-Sun-04-12-Sat",
+        "sourceField": "meta.duration"
+      },
+      "episodes": {
+        "display": "1–2",
+        "raw": "ep.1-2",
+        "sourceField": "meta.ep_range"
       },
       "topN": 27,
       "stage": null,
