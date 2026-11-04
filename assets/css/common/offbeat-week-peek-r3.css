@@ -1,0 +1,118 @@
+/* OFFBEAT Current Season: unobtrusive published-week preview. */
+.anime09 .n-season-dashboard{position:relative;}
+.anime09 .n-weeks>a{cursor:pointer;}
+.anime09 .n-weeks>a:hover,
+.anime09 .n-weeks>a:focus-visible,
+.anime09 .n-weeks>a.ob-week-peek-active{outline:1px solid #718f73;outline-offset:-2px;}
+.anime09 .n-season-dashboard .ob-week-peek{
+  position:absolute;z-index:80;box-sizing:border-box;
+  border:1px solid #b7c9b5;background:#fbfaf0;color:#294331;
+  padding:14px 16px 16px;box-shadow:0 12px 32px rgba(27,46,32,.18);
+  text-align:left;
+}
+.anime09 .n-season-dashboard .ob-week-peek[hidden]{display:none!important;}
+.anime09 .ob-week-peek-heading{display:flex;align-items:start;justify-content:space-between;gap:8px;padding-bottom:8px;border-bottom:1px solid #cdd6c9;}
+.anime09 .ob-week-peek-heading small{display:block;font:400 10px/1.2 'Barlow Condensed','Abel',sans-serif;color:#778a75;letter-spacing:.09em;}
+.anime09 .ob-week-peek-heading strong{display:block;margin-top:3px;font:500 23px/1.04 'EB Garamond',Georgia,serif;color:#2d4c37;}
+.anime09 .ob-week-peek-close{border:0;background:none;color:#647764;font:26px/1 Arial,sans-serif;width:28px;height:28px;flex:0 0 28px;padding:0;cursor:pointer;}
+.anime09 .ob-week-peek-close:focus-visible,.anime09 .ob-week-peek-go:focus-visible{outline:2px solid #597e61;outline-offset:2px;}
+.anime09 .ob-week-peek-content{padding-top:11px;}
+.anime09 .ob-week-peek-label{font:500 10px/1.1 'Barlow Condensed','Abel',sans-serif;color:#986d4c;letter-spacing:.11em;}
+.anime09 .ob-week-peek-top{list-style:none;padding:0;margin:6px 0 9px;}
+.anime09 .ob-week-peek-top li{display:grid;grid-template-columns:24px minmax(0,1fr);gap:8px;padding:4px 0;border-bottom:1px solid #e4e7dc;align-items:baseline;}
+.anime09 .ob-week-peek-top li b{font:500 13px 'Barlow Condensed','Abel',sans-serif;color:#8b7854;}
+.anime09 .ob-week-peek-top li span{font:500 15px/1.17 'EB Garamond',Georgia,serif;overflow-wrap:anywhere;}
+.anime09 .ob-week-peek-intro-label{display:block;margin-top:12px;}
+.anime09 .ob-week-peek-excerpt{font:400 14.5px/1.32 'EB Garamond',Georgia,serif;margin:5px 0 13px;color:#526955;}
+.anime09 .ob-week-peek-muted,.anime09 .ob-week-peek-loading{font:14px 'EB Garamond',Georgia,serif;color:#647864;}
+.anime09 .ob-week-peek-go{display:block;border-top:1px solid #c6d4c2;padding-top:10px;font:500 12px/1.1 'Barlow Condensed','Abel',sans-serif;letter-spacing:.08em;color:#365f43;}
+.anime09 .ob-week-peek-go:hover{color:#a36d42;}
+@media(max-width:450px){
+ .anime09 .n-season-dashboard .ob-week-peek{padding:12px 13px 14px;}
+ .anime09 .ob-week-peek-heading strong{font-size:21px;}
+ .anime09 .ob-week-peek-top li span{font-size:14px;}
+ .anime09 .ob-week-peek-excerpt{font-size:14px;}
+}
+
+
+
+/* R3: editorial podium / not a product grid. Parent .ob-week-peek core retained. */
+.anime09 .n-season-dashboard .ob-week-peek-r3{padding:17px 19px 16px;box-shadow:0 18px 45px rgba(33,55,38,.17);border-color:#aebfac;}
+.anime09 .ob-week-peek-r3 .ob-week-peek-heading{padding-bottom:10px;border-color:#d0d9cb;}
+.anime09 .ob-week-peek-r3 .ob-week-peek-heading strong{font-size:29px;line-height:1.05;font-weight:500;margin-top:4px;letter-spacing:.015em;}
+.anime09 .ob-week-peek-r3 .ob-week-peek-content{padding-top:15px;}
+.anime09 .ob-week-peek-r3 .ob-week-peek-label{font-size:10px;letter-spacing:.13em;color:#a87450;font-weight:500;}
+.anime09 .ob-week-peek-r3 .ob-week-peek-podium{display:grid;grid-template-columns:1fr 1.08fr 1fr;align-items:end;gap:11px;margin:10px 12px 13px;}
+.anime09 .ob-week-peek-r3 .ob-week-peek-place{margin:0;min-width:0;position:relative;}
+.anime09 .ob-week-peek-r3 .ob-week-peek-place-1{transform:translateY(-11px);}
+.anime09 .ob-week-peek-r3 .ob-week-peek-art{position:relative;width:100%;aspect-ratio:4 / 5.25;border:1px solid #cdd4c8;background:#e5e8dd;overflow:hidden;}
+.anime09 .ob-week-peek-r3 .ob-week-peek-place-1 .ob-week-peek-art{outline:1px solid #b98f62;outline-offset:3px;}
+.anime09 .ob-week-peek-r3 .ob-week-peek-art::before{content:'';font:500 13px 'EB Garamond',Georgia,serif;letter-spacing:.1em;color:#9bafa1;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);z-index:0;}
+.anime09 .ob-week-peek-r3 .ob-week-peek-poster{position:relative;display:block;width:100%;height:100%;object-fit:cover;object-position:center 36%;z-index:1;}
+.anime09 .ob-week-peek-r3 .ob-week-peek-place-num{position:absolute;bottom:0;left:0;z-index:2;min-width:32px;text-align:center;padding:6px 7px 5px;color:#fbfaf0;background:#536e56;font:500 19px/1 'Barlow Condensed','Abel',sans-serif;letter-spacing:.04em;}
+.anime09 .ob-week-peek-r3 .ob-week-peek-place-1 .ob-week-peek-place-num{background:#af774d;min-width:37px;font-size:22px;}
+.anime09 .ob-week-peek-r3 .ob-week-peek-shelf{height:4px;background:#ccd6c9;display:block;margin-top:5px;}
+.anime09 .ob-week-peek-r3 .ob-week-peek-place-1 .ob-week-peek-shelf{background:#cba47c;}
+.anime09 .ob-week-peek-r3 .ob-week-peek-results{list-style:none;margin:0 0 13px;padding:0;border-top:1px solid #d6ddd1;}
+.anime09 .ob-week-peek-r3 .ob-week-peek-result{display:grid;grid-template-columns:24px minmax(0,1fr) 24px;gap:9px;align-items:center;border-bottom:1px solid #e4e8dc;padding:7px 0 6px;}
+.anime09 .ob-week-peek-r3 .ob-week-peek-result-num{font:500 14px 'Barlow Condensed','Abel',sans-serif;color:#a47a54;}
+.anime09 .ob-week-peek-r3 .ob-week-peek-result-text{min-width:0;}
+.anime09 .ob-week-peek-r3 .ob-week-peek-result-title{display:block;font:500 15.5px/1.12 'EB Garamond',Georgia,serif;overflow-wrap:anywhere;color:#284333;}
+.anime09 .ob-week-peek-r3 .ob-week-peek-result-studio{display:block;font:400 10px/1.3 'Barlow Condensed','Yu Gothic UI',sans-serif;color:#778778;margin-top:2px;}
+.anime09 .ob-week-peek-r3 .ob-week-peek-result-points{text-align:right;color:#b1774b;font:600 16px/1 'Barlow Condensed','Abel',sans-serif;}
+.anime09 .ob-week-peek-r3 .ob-week-peek-spotlight{padding:8px 0 9px;border-bottom:1px solid #d3dccd;}
+.anime09 .ob-week-peek-r3 .ob-week-peek-spotlight-top{display:flex;gap:8px;justify-content:space-between;align-items:baseline;flex-wrap:wrap;}
+.anime09 .ob-week-peek-r3 .ob-week-peek-movement{font:500 10px/1.2 'Barlow Condensed','Yu Gothic UI',sans-serif;color:#986947;letter-spacing:.04em;}
+.anime09 .ob-week-peek-r3 .ob-week-peek-spotlight-row{display:flex;align-items:center;gap:9px;margin-top:7px;}
+.anime09 .ob-week-peek-r3 .ob-week-peek-spotlight-poster{width:29px;height:38px;flex:none;border:1px solid #cdd5c8;object-fit:cover;}
+.anime09 .ob-week-peek-r3 .ob-week-peek-spotlight-name{font:500 14px/1.2 'EB Garamond',Georgia,serif;color:#2d4e39;overflow-wrap:anywhere;}
+.anime09 .ob-week-peek-r3 .ob-week-peek-weeknote{padding-top:10px;}
+.anime09 .ob-week-peek-r3 .ob-week-peek-excerpt{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;line-clamp:2;overflow:hidden;font:italic 15px/1.34 'EB Garamond',Georgia,serif;color:#647767;margin:5px 0 12px;border-left:2px solid #c3a384;padding-left:10px;}
+.anime09 .ob-week-peek-r3 .ob-week-peek-go{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:12px 1px 7px;margin-top:6px;border-top:1px solid #c7d3c3;color:#b16a41;text-decoration:none;font:600 14px/1.2 'Barlow Condensed','Abel','Yu Gothic UI',sans-serif;letter-spacing:.12em;transition:color .15s,border-color .15s;}
+.anime09 .ob-week-peek-r3 .ob-week-peek-go-meta{font:500 10px/1.2 'Barlow Condensed','Abel',sans-serif;letter-spacing:.08em;color:#829280;}
+.anime09 .ob-week-peek-r3 .ob-week-peek-go:hover,.anime09 .ob-week-peek-r3 .ob-week-peek-go:focus-visible{color:#8b412c;border-color:#b16a41;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px;}
+.anime09 .ob-week-peek-r3[lang="ja"] .ob-week-peek-heading strong{font-family:'Yu Mincho','Hiragino Mincho ProN',serif;}
+.anime09 .ob-week-peek-r3[lang="ja"] .ob-week-peek-result-title,.anime09 .ob-week-peek-r3[lang="ja"] .ob-week-peek-spotlight-name{font-family:'Yu Gothic UI','Hiragino Kaku Gothic ProN',sans-serif;font-weight:500;font-size:12.5px;line-height:1.27;}
+.anime09 .ob-week-peek-r3[lang="ja"] .ob-week-peek-excerpt{font:400 12.5px/1.45 'Yu Gothic UI','Hiragino Kaku Gothic ProN',sans-serif;-webkit-line-clamp:2;line-clamp:2;}
+.anime09 .ob-week-peek-r3[lang="ja"] .ob-week-peek-go{letter-spacing:.025em;font-size:13px;}
+@media(max-width:500px){
+  .anime09 .n-season-dashboard .ob-week-peek-r3{padding:12px 13px 11px;}
+  .anime09 .ob-week-peek-r3 .ob-week-peek-heading strong{font-size:25px;}
+  .anime09 .ob-week-peek-r3 .ob-week-peek-content{padding-top:10px;}
+  .anime09 .ob-week-peek-r3 .ob-week-peek-podium{gap:7px;margin:8px 6px 9px;}
+  .anime09 .ob-week-peek-r3 .ob-week-peek-place-1{transform:translateY(-8px);}
+  .anime09 .ob-week-peek-r3 .ob-week-peek-art{aspect-ratio:4/5.05;}
+  .anime09 .ob-week-peek-r3 .ob-week-peek-place-num{min-width:26px;font-size:16px;padding:4px 5px;}
+  .anime09 .ob-week-peek-r3 .ob-week-peek-place-1 .ob-week-peek-place-num{min-width:30px;font-size:18px;}
+  .anime09 .ob-week-peek-r3 .ob-week-peek-result{padding:5px 0 4px;grid-template-columns:19px minmax(0,1fr) 20px;gap:6px;}
+  .anime09 .ob-week-peek-r3 .ob-week-peek-result-title{font-size:14px;}
+  .anime09 .ob-week-peek-r3[lang="ja"] .ob-week-peek-result-title{font-size:12px;line-height:1.2;}
+  .anime09 .ob-week-peek-r3 .ob-week-peek-result-studio{font-size:9px;}
+  .anime09 .ob-week-peek-r3 .ob-week-peek-spotlight{padding:6px 0;}
+  .anime09 .ob-week-peek-r3 .ob-week-peek-spotlight-poster{width:26px;height:33px;}
+  .anime09 .ob-week-peek-r3 .ob-week-peek-spotlight-name{font-size:13px;}
+  .anime09 .ob-week-peek-r3 .ob-week-peek-weeknote{padding-top:7px;}
+  .anime09 .ob-week-peek-r3 .ob-week-peek-excerpt{font-size:14px;margin-bottom:9px;}
+  .anime09 .ob-week-peek-r3 .ob-week-peek-go{padding:9px 1px 3px;}
+}
+@media(prefers-reduced-motion:reduce){.anime09 .ob-week-peek-r3 .ob-week-peek-go{transition:none;}}
+
+/* Shared language control from R2. */
+ the Weekly Ranking's language controls. */
+.site > .global .ob-week-peek-language{display:none;position:absolute;right:106px;top:50%;transform:translateY(-50%);z-index:55;gap:1px;padding:2px;background:rgba(247,240,252,.97);border:1px solid #dfcbea;border-radius:16px;box-shadow:0 2px 8px rgba(75,43,98,.10);white-space:nowrap;font-family:'Yu Gothic UI',Arial,sans-serif;}
+.site:has(#anime-top.current) > .global .ob-week-peek-language{display:flex;}
+.site > .global .ob-week-peek-language button{appearance:none;border:0;background:transparent;color:#7d678e;font:600 10px/1.2 'Yu Gothic UI',Arial,sans-serif;border-radius:12px;min-height:24px;padding:3px 7px;}
+.site > .global .ob-week-peek-language button.selected{background:#78549b;color:white;}
+.site > .global .ob-week-peek-language button:focus-visible{outline:2px solid #55347b;outline-offset:2px;}
+@media(max-width:450px){
+  .anime09 .n-season-dashboard .ob-week-peek-r3{padding:11px 12px 12px;}
+  .anime09 .ob-week-peek-r3 .ob-week-peek-rank{grid-template-columns:19px 38px minmax(0,1fr) 29px;gap:6px;min-height:52px;padding:5px 0;}
+  .anime09 .ob-week-peek-r3 .ob-week-peek-poster{width:38px;height:49px;}
+  .anime09 .ob-week-peek-r3 .ob-week-peek-title{font-size:13px;}
+  .anime09 .ob-week-peek-r3[lang="ja"] .ob-week-peek-title{font-size:12px;}
+  .anime09 .ob-week-peek-r3 .ob-week-peek-studio{font-size:9px;}
+  .anime09 .ob-week-peek-r3 .ob-week-peek-score b{font-size:14px;}
+  .anime09 .ob-week-peek-r3 .ob-week-peek-score small{font-size:7.5px;}
+  .site > .global .ob-week-peek-language{right:101px;}
+  .site > .global .ob-week-peek-language button{font-size:9px;padding:3px 5px;}
+}
