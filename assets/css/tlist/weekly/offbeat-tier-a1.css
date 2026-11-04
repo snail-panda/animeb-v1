@@ -1,0 +1,15 @@
+/* Tier List shared mast A1. Scoped: preserve the approved article and nav styles. */
+body.offbeat-tier-a1 #offbeat-global-header {
+  display:block;
+  width:100%;
+  max-width:none;
+  margin:0;
+  height:69px;
+  background:#faf9ee;
+}
+body.offbeat-tier-a1 #offbeat-global-header .offbeat-header-inner {
+  max-width:1480px;
+  margin:0 auto;
+}
+/* Do not add the dark green bar in design A. The original Tier List nav stays
+   on the original pale olive background, with its existing size and margins. */

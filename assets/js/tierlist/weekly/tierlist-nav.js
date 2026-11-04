@@ -119,3 +119,44 @@ prevLink.addEventListener("click", (e) => {
 nextLink.addEventListener("click", (e) => {
   if (nextLink.classList.contains("disabled")) e.preventDefault();
 });
+
+/* OFFBEAT TIER A1: shared mast above the existing light-olive Tier List navigation.
+   Article markup/CSS and existing Prev/Next destination logic stay unchanged. */
+(function offbeatTierMastA1() {
+  'use strict';
+  const nav = document.querySelector('.tierlist-nav');
+  const article = document.querySelector('.tierlist-post');
+  if (!nav || !article || document.getElementById('offbeat-global-header')) return;
+  document.body.classList.add('offbeat-tier-a1');
+
+  const base = '/animeb-v1/';
+  function addStyle(url) {
+    if (document.querySelector('link[href="' + url + '"]')) return;
+    const el = document.createElement('link');
+    el.rel = 'stylesheet';
+    el.href = url;
+    document.head.appendChild(el);
+  }
+  addStyle(base + 'assets/css/common/offbeat-header.css?v=20261103-r5c');
+  addStyle(base + 'assets/css/tlist/weekly/offbeat-tier-a1.css?v=20261104-a1');
+
+  // Change presentation only; the existing tierlist-nav.js still resolves links.
+  const prev = nav.querySelector('.nav-left');
+  const next = nav.querySelector('.nav-right');
+  const back = nav.querySelector('.nav-center');
+  if (prev) prev.textContent = '\u00AB ' + prev.textContent.replace(/^[\s\u2190\u00AB]+/, '').trim();
+  if (next) next.textContent = next.textContent.replace(/[\s\u2192\u00BB]+$/, '').trim() + ' \u00BB';
+  if (back) {
+    back.textContent = 'Back to Anime Top';
+    back.href = base + '#anime';
+  }
+
+  const mast = document.createElement('div');
+  mast.id = 'offbeat-global-header';
+  mast.setAttribute('aria-label', 'OFFBEAT site header');
+  nav.parentNode.insertBefore(mast, nav);
+  const script = document.createElement('script');
+  script.src = base + 'assets/js/common/offbeat-header.js?v=20261104-tier-a1';
+  script.onerror = () => console.error('OFFBEAT shared header script failed to load.');
+  document.body.appendChild(script);
+})();
