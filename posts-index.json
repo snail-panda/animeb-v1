@@ -1,8 +1,40 @@
 {
   "schemaVersion": 1,
   "format": "OFFBEAT Post Index",
-  "updatedAt": "2026-11-04T01:01:38.258Z",
+  "updatedAt": "2026-11-04T08:22:53.828Z",
   "posts": [
+    {
+      "id": "note:2026-11-04-the-dawn-of-the-witch-2022-dc31a050",
+      "status": "published",
+      "type": "note",
+      "category": "ANIME",
+      "url": "notes/index.html#2026-11-04-the-dawn-of-the-witch-2022-dc31a050",
+      "published": {
+        "iso": "2026-11-04",
+        "display": "November 4, 2026"
+      },
+      "title": {
+        "display": "The Dawn of the Witch (2022)"
+      },
+      "excerpt": "Watching this for the third time, I’m struck by how much more carefully made it feels than so many anime airing now—and it’s only a few years old.",
+      "tags": [
+        "anime",
+        "note",
+        "rewatch",
+        "2022"
+      ],
+      "labels": [
+        {
+          "text": "Note",
+          "className": "tag-label tag-note"
+        }
+      ],
+      "updatedAt": "2026-11-04T08:22:53.828Z",
+      "image": {
+        "src": "images/notes/2026/2026-11-04-the-dawn-of-the-witch-2022-dc31a050.jpg",
+        "alt": "The Dawn of the Witch (2022)"
+      }
+    },
     {
       "id": "post:ranking/2026/fall/week04/index.html",
       "category": "ANIME",
