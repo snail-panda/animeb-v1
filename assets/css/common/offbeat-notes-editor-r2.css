@@ -11,3 +11,39 @@ h2{font:normal 25px/1.2 Georgia,serif;margin:0 0 8px}.auth{padding:19px 22px;bac
 @media(max-width:660px){.mast{height:73px;padding:12px 18px}.wordmark{font-size:27px}.mast-right{gap:9px}.mast-right a,.mast-right button{font-size:9px}main{padding:26px 18px 45px}.auth{padding:15px}.meta-grid{grid-template-columns:1fr;gap:0}.authrow{flex-direction:column}.topline h1{font-size:46px}.preview-card{padding:15px}.preview-card p{font-size:17px}.toolbar button{padding:8px}.image-preview img{width:75px;height:80px}footer{padding:16px 18px}}
 
 [hidden]{display:none!important}
+/* OFFBEAT Notes unified header R3: same mast, typography and sage bar as site. */
+.obn-list-page #offbeat-global-header,
+.studio-shell #offbeat-global-header {
+  width:100%;max-width:none;margin:0;
+  position:sticky;top:0;z-index:200;
+  background:#faf9ee;
+}
+.obn-section-bar {
+  position:sticky;top:69px;z-index:190;
+  box-sizing:border-box;display:grid;grid-template-columns:1fr auto 1fr;
+  align-items:center;min-height:34px;gap:12px;padding:0 clamp(16px,3vw,28px);
+  background:#6b896b;color:#ffffed;
+  font:400 13px/1.35 'Abel',Arial,sans-serif;letter-spacing:.055em;
+}
+.obn-section-bar a,.obn-section-bar button {
+  color:inherit;background:transparent;border:0;padding:8px 0;
+  font:inherit;letter-spacing:inherit;text-decoration:none;cursor:pointer;
+}
+.obn-section-bar a:hover,.obn-section-bar button:hover{color:#fff;text-decoration:underline;text-underline-offset:3px}
+.obn-section-bar a:focus-visible,.obn-section-bar button:focus-visible{outline:2px solid #fff;outline-offset:3px}
+.obn-section-bar .obn-bar-left{justify-self:start;white-space:nowrap}
+.obn-section-bar .obn-bar-center{justify-self:center;text-align:center;white-space:nowrap;letter-spacing:.15em}
+.obn-section-bar .obn-bar-right{justify-self:end;white-space:nowrap}
+.obn-section-bar .obn-editor-actions{display:flex;justify-content:end;align-items:center;gap:17px}
+@media(max-width:480px){
+ .obn-section-bar{gap:5px;padding:0 11px;font-size:11px;letter-spacing:.025em}
+ .obn-section-bar .obn-bar-center{letter-spacing:.07em}
+ .obn-section-bar .obn-editor-actions>a{display:none}
+}
+/* The old .mast / .wordmark are no longer rendered. Keep the Notes form intact. */
+:root { --paper:#faf9ee; --ink:#263b2b; }
+body { background:#e6e7dc; font-family:'EB Garamond',Georgia,serif; }
+.studio-shell { background:#faf9ee; }
+.topline h1,.topline p,.preview-card h3,.preview-card p,.note-row strong,h2 {
+  font-family:'EB Garamond',Georgia,serif;
+}

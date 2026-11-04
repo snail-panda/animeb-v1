@@ -7,13 +7,20 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Abel&family=Barlow+Condensed:wght@400;500;600&family=EB+Garamond:wght@400;500;600&family=Passion+One:wght@700;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/css/common/offbeat-notes-r1.css?v=1">
+<link rel="stylesheet" href="../assets/css/common/offbeat-header.css?v=20261104">
+<link rel="stylesheet" href="../assets/css/common/offbeat-notes-r1.css?v=3">
+<script defer src="../assets/js/common/offbeat-header.js?v=20261104"></script>
 <script src="../assets/js/common/offbeat-notes-r1.js?v=1" defer></script>
 </head>
 <body class="obn-list-page">
 <div class="obn-list-site">
-<header><a class="obn-logo" href="../#home">OFFBEAT</a><a href="../#animeMoment">‹ ANIME TOP</a><a href="editor/" title="Owner Notes editor">WRITE NOTE</a></header>
-<main>
+<div id="offbeat-global-header" aria-label="OFFBEAT shared navigation"></div>
+<nav class="obn-section-bar" aria-label="Notes navigation">
+  <a class="obn-bar-left" href="../#anime">‹ ANIME TOP</a>
+  <span class="obn-bar-center">NOTES &amp; DETOURS</span>
+  <a class="obn-bar-right" href="editor/">WRITE NOTE ›</a>
+</nav>
+<main class="obn-list-main">
 <h1>Notes &amp; Detours</h1>
 <p class="obn-sub">Small thoughts, quick discoveries, occasional images. No long-form article required.</p>
 <div id="offbeatNotesAll" aria-live="polite"></div>

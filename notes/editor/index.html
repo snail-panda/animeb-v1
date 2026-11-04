@@ -2,15 +2,23 @@
 <html lang="en"><head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#f9f8ec">
+<meta name="theme-color" content="#faf9ee">
 <meta name="referrer" content="no-referrer">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' blob: data:; connect-src https://api.github.com; form-action 'none'; base-uri 'none'; object-src 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' blob: data:; connect-src 'self' https://api.github.com; form-action 'none'; base-uri 'none'; object-src 'none'">
 <title>Write a Note — OFFBEAT</title>
-<link rel="stylesheet" href="../../assets/css/common/offbeat-notes-editor-r2.css?v=2">
+<link rel="stylesheet" href="../../assets/css/common/offbeat-header.css?v=20261104">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/css/common/offbeat-notes-editor-r2.css?v=4">
+<script defer src="../../assets/js/common/offbeat-header.js?v=20261104"></script>
 <script defer src="../../assets/js/common/offbeat-notes-editor-r2.js?v=2"></script>
 </head>
 <body><div class="studio-shell">
-<header class="mast"><a class="wordmark" href="../../#animeMoment" aria-label="OFFBEAT Anime Home">OFFBEAT <small>NOTES STUDIO</small></a><div class="mast-right"><a href="../">VIEW NOTES ↗</a><button id="logout" type="button" hidden>DISCONNECT</button></div></header>
+<div id="offbeat-global-header" aria-label="OFFBEAT shared navigation"></div>
+<nav class="obn-section-bar" aria-label="Notes Studio navigation">
+  <a class="obn-bar-left" href="../">‹ ALL NOTES</a>
+  <span class="obn-bar-center">NOTES STUDIO</span>
+  <div class="obn-bar-right obn-editor-actions"><a href="../../#anime">ANIME TOP ›</a><button id="logout" type="button" hidden>DISCONNECT</button></div>
+</nav>
 <main>
 <div class="topline"><span class="eyebrow">SMALL THOUGHTS · QUICK DETOURS</span><h1>Write a Note<span class="period">.</span></h1><p>One sentence is enough. A picture is optional.</p></div>
 <section class="auth" id="authBox" aria-labelledby="authTitle">
