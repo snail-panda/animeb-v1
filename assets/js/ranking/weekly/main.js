@@ -2397,8 +2397,8 @@ function animebApplyWeeklyLanguage() {
     b.classList.toggle('selected',selected); b.setAttribute('aria-pressed',String(selected));
   });
   const navTexts=ja
-   ? [['.nav-link.left a','« 前の週'],['.nav-link.center a','ホーム'],['.nav-link.right a','次の週 »']]
-   : [['.nav-link.left a','« Previous Week'],['.nav-link.center a','Back to Home'],['.nav-link.right a','Next Week »']];
+   ? [['.nav-link.left a','« 前の週'],['.nav-link.center a','アニメトップ'],['.nav-link.right a','次の週 »']]
+   : [['.nav-link.left a','« Previous Week'],['.nav-link.center a','Anime Top'],['.nav-link.right a','Next Week »']];
   for(const [selector,label] of navTexts) {const node=document.querySelector(selector);if(node) node.textContent=label;}
   const statusTranslations={watching:['Watching','視聴中'],droppedThisWeek:['Dropped','今週の視聴中止'],droppedTotal:['Total dropped','視聴中止合計'],backOnList:['Back on List','復帰'],noAir:['NoAir','放送なし'],completed:['Completed','完走'],notAiredYet:['Not Aired Yet','未放送（開始前）'],startedAiringThisWeek:['Started This Week','今週放送開始'],total:['Total','合計']};
   document.querySelectorAll('.watch-status .ws-item[data-tooltip]').forEach(node=>{

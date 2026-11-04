@@ -138,7 +138,7 @@ nextLink.addEventListener("click", (e) => {
     document.head.appendChild(el);
   }
   addStyle(base + 'assets/css/common/offbeat-header.css?v=20261103-r5c');
-  addStyle(base + 'assets/css/tlist/weekly/offbeat-tier-a1.css?v=20261104-a1');
+  addStyle(base + 'assets/css/tlist/weekly/offbeat-tier-a1.css?v=20261104-b2');
 
   // Change presentation only; the existing tierlist-nav.js still resolves links.
   const prev = nav.querySelector('.nav-left');
@@ -147,7 +147,7 @@ nextLink.addEventListener("click", (e) => {
   if (prev) prev.textContent = '\u00AB ' + prev.textContent.replace(/^[\s\u2190\u00AB]+/, '').trim();
   if (next) next.textContent = next.textContent.replace(/[\s\u2192\u00BB]+$/, '').trim() + ' \u00BB';
   if (back) {
-    back.textContent = 'Back to Anime Top';
+    back.textContent = 'Anime Top';
     back.href = base + '#anime';
   }
 
@@ -159,4 +159,37 @@ nextLink.addEventListener("click", (e) => {
   script.src = base + 'assets/js/common/offbeat-header.js?v=20261104-tier-a1';
   script.onerror = () => console.error('OFFBEAT shared header script failed to load.');
   document.body.appendChild(script);
+})();
+
+/* OFFBEAT TIER B2: green cross-site navigation; preserve original olive slot. */
+(function offbeatTierGreenNavB2() {
+  'use strict';
+  const mast = document.getElementById('offbeat-global-header');
+  const nav = document.querySelector('.tierlist-nav');
+  if (!mast || !nav || !document.querySelector('.tierlist-post') ||
+      document.getElementById('offbeat-tier-b-bar')) return;
+
+  // The old light-olive area stays exactly as tall as it was in Design A.
+  // Measure its navigation block, including both existing vertical margins.
+  const oldStyle = getComputedStyle(nav);
+  const oldSpace = nav.getBoundingClientRect().height +
+    (parseFloat(oldStyle.marginTop) || 0) +
+    (parseFloat(oldStyle.marginBottom) || 0);
+  if (!Number.isFinite(oldSpace) || oldSpace < 0) return;
+
+  const bar = document.createElement('div');
+  bar.id = 'offbeat-tier-b-bar';
+  bar.setAttribute('role', 'navigation');
+  bar.setAttribute('aria-label', 'Tier List navigation');
+  const oliveSpace = document.createElement('div');
+  oliveSpace.className = 'offbeat-tier-b-olive-space';
+  oliveSpace.setAttribute('aria-hidden', 'true');
+  oliveSpace.style.height = oldSpace + 'px';
+
+  // Move the REAL links, not clones. Previous/Next async href updates, listeners,
+  // disabled state and accessibility attributes remain attached to the links.
+  nav.before(bar);
+  bar.appendChild(nav);
+  bar.after(oliveSpace);
+  document.body.classList.add('offbeat-tier-b2');
 })();

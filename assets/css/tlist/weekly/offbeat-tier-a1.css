@@ -13,3 +13,51 @@ body.offbeat-tier-a1 #offbeat-global-header .offbeat-header-inner {
 }
 /* Do not add the dark green bar in design A. The original Tier List nav stays
    on the original pale olive background, with its existing size and margins. */
+
+/* OFFBEAT TIER B2: the same green as the Weekly Ranking navigation.
+   The Tier List content, pale olive outer area and its spacing are unchanged. */
+body.offbeat-tier-b2 #offbeat-tier-b-bar {
+  position: relative;
+  z-index: 30;
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 33px;
+  background: #6b896b;
+  color: #ffffed;
+}
+body.offbeat-tier-b2 #offbeat-tier-b-bar .tierlist-nav {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 920px;
+  min-height: 33px;
+  margin: 0 auto;
+  padding: 0 8px;
+  gap: 0.625rem;
+}
+body.offbeat-tier-b2 #offbeat-tier-b-bar .tierlist-nav a {
+  flex: 1 1 0;
+  min-width: 0;
+  padding: 6px 2px;
+  font-family: 'Abel', sans-serif;
+  font-size: clamp(12px, 1.3vw, 15px);
+  font-weight: 400;
+  line-height: 1.35;
+  color: #ffffed;
+  text-decoration: none;
+}
+body.offbeat-tier-b2 #offbeat-tier-b-bar .tierlist-nav a:hover { color: #f7f7e1; text-decoration: none; }
+body.offbeat-tier-b2 #offbeat-tier-b-bar .tierlist-nav a:focus-visible { outline: 2px solid #ffffed; outline-offset: 2px; }
+body.offbeat-tier-b2 #offbeat-tier-b-bar .tierlist-nav a.disabled { color: #c2cbc0; opacity: .7; cursor: default; }
+body.offbeat-tier-b2 .offbeat-tier-b-olive-space {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  background: transparent;
+}
+@media (max-width: 480px) {
+  body.offbeat-tier-b2 #offbeat-tier-b-bar .tierlist-nav { gap: 5px; padding: 0 6px; }
+  body.offbeat-tier-b2 #offbeat-tier-b-bar .tierlist-nav a { font-size: 12px; }
+}
