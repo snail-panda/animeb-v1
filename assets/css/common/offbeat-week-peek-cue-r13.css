@@ -1,0 +1,25 @@
+/* R13: compact Week Peek cue directly beneath the weekly timeline. */
+#anime-top .n-season .ob-week-peek-cue-r13 {
+  box-sizing:border-box;
+  display:block;
+  width:100%;
+  margin:5px 0 8px;
+  padding:0;
+  text-align:right;
+  background:transparent;
+  border:0;
+  color:#526c55;
+  font:500 11px/1.35 'Barlow Condensed','Abel',Arial,sans-serif;
+  letter-spacing:.015em;
+}
+#anime-top .n-season .ob-week-peek-cue-r13[lang="ja"] {
+  font:500 10.5px/1.4 'Noto Sans JP','Hiragino Kaku Gothic ProN',sans-serif;
+  letter-spacing:0;
+}
+@media (max-width:600px) {
+  #anime-top .n-season .ob-week-peek-cue-r13 {
+    font-size:10px;
+    margin:4px 0 7px;
+  }
+  #anime-top .n-season .ob-week-peek-cue-r13[lang="ja"] {font-size:10px;}
+}
