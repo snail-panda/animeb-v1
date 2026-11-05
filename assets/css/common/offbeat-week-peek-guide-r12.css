@@ -1,0 +1,30 @@
+/* OFFBEAT · Current Season · Week Peek discovery hint (R12)
+   Independent of the completed R11 preview; no changes to ranking layout. */
+#anime-top .n-season .ob-week-peek-guide {
+  display: flex; align-items: center; gap: 11px;
+  box-sizing: border-box; width: fit-content; max-width: 100%;
+  padding: 8px 12px 8px 10px; margin: 9px 0 14px;
+  border-left: 3px solid #9b8959;
+  background: rgba(224, 224, 194, .19);
+  color: #50694c; font: 500 12px/1.55 'EB Garamond', Georgia, serif;
+  letter-spacing: .015em;
+}
+#anime-top .n-season .ob-week-peek-guide-mark {
+  display: inline-flex; flex: 0 0 24px; width: 24px; height: 24px;
+  align-items: center; justify-content: center;
+  border: 1px solid #b1b998; border-radius: 50%;
+  color: #516949; font: 600 15px/1 Georgia, serif;
+}
+#anime-top .n-season .ob-week-peek-guide strong { font-weight: 600; color: #344e37; }
+#anime-top .n-season .ob-week-peek-guide[lang="ja"] {
+  font-family: 'Noto Serif JP', 'Yu Mincho', 'Hiragino Mincho ProN', serif;
+  font-size: 11.5px; letter-spacing: 0;
+}
+@media (max-width: 600px) {
+  #anime-top .n-season .ob-week-peek-guide {
+    margin: 10px 0 14px; padding: 8px 10px; gap: 8px;
+    font-size: 11.5px; line-height: 1.55; width: 100%;
+  }
+  #anime-top .n-season .ob-week-peek-guide[lang="ja"] { font-size: 11px; }
+  #anime-top .n-season .ob-week-peek-guide-mark { flex-basis: 22px; width: 22px; height: 22px; }
+}
