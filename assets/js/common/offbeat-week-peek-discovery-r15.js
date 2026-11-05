@@ -33,8 +33,8 @@
         ? '公開済みの週にカーソルを合わせると、ランキングと見どころのダイジェストが見られます。'
         : '公開済みの週をタップすると、ランキングと見どころのダイジェストが見られます。')
       : (finePointer()
-        ? 'Hover over a published week for a snapshot of its ranking & highlights.'
-        : 'Tap a published week for a snapshot of its ranking & highlights.');
+        ? 'Hover over any published week for a snapshot of its ranking & highlights.'
+        : 'Tap any published week for a snapshot of its ranking & highlights.');
   }
   refresh();
   // R11 button click calls stopPropagation(). A bubbling document listener never ran,
