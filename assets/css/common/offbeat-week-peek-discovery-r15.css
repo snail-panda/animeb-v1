@@ -1,0 +1,74 @@
+/* OFFBEAT Week Peek discovery cue R15.
+   Separate from both the approved R11 preview and the Current Season header/dashboard.
+   Tiny editorial label in the gap between the journey and the season. No arrows or icons. */
+#anime-top .ob-week-peek-discovery-r15 {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 9px;
+  max-width: 920px;
+  width: 100%;
+  padding: 0 21px;
+  margin: 6px auto 0;
+  background: transparent;
+  border: 0;
+}
+#anime-top .ob-week-peek-discovery-r15 .ob-week-peek-discovery-tag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  padding: 4px 7px 4px;
+  border-radius: 2px;
+  /* Exact two-tone palette from the active Week 04 tile. */
+  background: #395a40;
+  box-shadow: inset 0 -3px #b5d29e;
+  color: #fffdf1;
+  font: 500 10px/1.1 'Barlow Condensed', 'Abel', Arial, sans-serif;
+  letter-spacing: .09em;
+  white-space: nowrap;
+}
+#anime-top .ob-week-peek-discovery-r15 .ob-week-peek-discovery-copy {
+  display: block;
+  min-width: 0;
+  margin: 0;
+  color: #4a6652;
+  font: 400 13px/1.28 'Barlow Condensed', 'Abel', Arial, sans-serif;
+  letter-spacing: .008em;
+}
+#anime-top .ob-week-peek-discovery-r15[lang="ja"] .ob-week-peek-discovery-copy {
+  font: 400 11.5px/1.45 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif;
+  letter-spacing: 0;
+}
+/* The cue occupies the inter-section gap, not the valued Fall/2026 → timeline grouping. */
+#anime-top .ob-week-peek-discovery-r15 + .n-season.n-season-12.n-season-13 {
+  margin-top: 8px;
+}
+@media (max-width: 690px) {
+  #anime-top .ob-week-peek-discovery-r15 {
+    width: calc(100% - 36px);
+    padding: 0 12px;
+    margin-top: 6px;
+    gap: 8px;
+    align-items: center;
+  }
+  #anime-top .ob-week-peek-discovery-r15 .ob-week-peek-discovery-tag {
+    margin-top: 0;
+    padding: 4px 6px 4px;
+    font-size: 10px;
+  }
+  #anime-top .ob-week-peek-discovery-r15 .ob-week-peek-discovery-copy {
+    font-size: 12px;
+    line-height: 1.24;
+    letter-spacing: .005em;
+  }
+  #anime-top .ob-week-peek-discovery-r15[lang="ja"] .ob-week-peek-discovery-copy {
+    font-size: 11.5px;
+    line-height: 1.35;
+    letter-spacing: 0;
+  }
+  #anime-top .ob-week-peek-discovery-r15 + .n-season.n-season-12.n-season-13 {
+    margin-top: 9px;
+  }
+}
