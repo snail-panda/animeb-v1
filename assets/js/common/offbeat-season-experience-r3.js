@@ -19,6 +19,8 @@ const featureKicker=document.getElementById('obFeaturedKickerR3');
 const featureTitle=document.getElementById('obFeaturedTitleR3');
 const featureSub=document.getElementById('obFeaturedSubR3');
 const featureNotice=document.getElementById('obFeaturedNoticeR3');
+const featureHint=document.getElementById('obFeatureActionHintR4');
+const lineupHint=document.getElementById('obLineupActionHintR4');
 const lineupKicker=document.getElementById('obLineupKickerR3');
 const lineupTitle=document.getElementById('obLineupTitleR3');
 const lineupNote=document.getElementById('obLineupNoteR3');
@@ -56,7 +58,7 @@ const intro = {
  }
 };
 const label={
- en:{featuredKicker:'IN FOCUS THIS SEASON',featured:'Featured Titles',sub:'A changing editorial selection',notice:'Illustrative selection for now · Weekly picks will be updated here.',lineupKicker:'THE SEASON POOL',lineup:"This Season’s Lineup",count:n=>`Opening lineup · ${n} titles`,lineupNote:'The opening main-season lineup, including titles not yet aired or later dropped.',featureAll:'VIEW ALL 8 FEATURED TITLES',lineupAll:'VIEW ALL 34 TITLES',less:'SHOW LESS',missing:'Synopsis not available.',eye:'2026 FALL · MAIN-SEASON LINEUP',featuredNote:'WHY FEATURED'},
+ en:{featuredKicker:'IN FOCUS THIS SEASON',featured:'Featured Titles',sub:'A changing editorial selection',notice:'Sample selection for now · Weekly featured picks will be updated here.',lineupKicker:'THE SEASON POOL',lineup:"This Season’s Lineup",count:n=>`Opening lineup · ${n} titles`,lineupNote:'The opening main-season lineup, including titles not yet aired or later dropped.',featureAll:'VIEW ALL 8 FEATURED TITLES',lineupAll:'VIEW ALL 34 TITLES',less:'SHOW LESS',missing:'Synopsis not available.',eye:'2026 FALL · MAIN-SEASON LINEUP',featuredNote:'WHY FEATURED'},
  ja:{featuredKicker:'今シーズンの注目',featured:'注目作品 / Featured Titles',sub:'週ごとに変わる編集セレクション',notice:'現在の選出は仮のものです。今後、週ごとの注目作品に更新します。',lineupKicker:'本選出場作品',lineup:'今期の顔ぶれ / This Season’s Lineup',count:n=>`本選開始時のラインナップ · ${n}作品`,lineupNote:'本選開始時の全作品。未放送や、途中で評価対象から外れた作品も含みます。',featureAll:'注目作品をすべて見る',lineupAll:'全34作品を見る',less:'閉じる',missing:'あらすじデータなし。',eye:'2026年秋 · 本選出場作品',featuredNote:'注目の理由'}
 };
 const genresJa={Action:'アクション',Adventure:'冒険',Comedy:'コメディ',Drama:'ドラマ',Fantasy:'ファンタジー',Horror:'ホラー',Romance:'恋愛','Slice of Life':'日常',Sports:'スポーツ',Psychological:'心理',Mystery:'ミステリー','Sci-Fi':'SF',Supernatural:'超常現象',Thriller:'スリラー',Historical:'歴史',Music:'音楽',School:'学園',Mecha:'ロボット'};
@@ -76,21 +78,39 @@ function closeModal(){overlay.hidden=true;document.body.classList.remove('ob-sea
 closeButton.addEventListener('click',closeModal);
 overlay.addEventListener('click',e=>{if(e.target===overlay)closeModal();});
 document.addEventListener('keydown',e=>{if(overlay.hidden)return;if(e.key==='Escape')closeModal();if(e.key==='Tab'){const controls=[...overlay.querySelectorAll('button:not([hidden])')];if(!controls.length)return;const first=controls[0],last=controls[controls.length-1];if(e.shiftKey && document.activeElement===first){e.preventDefault();last.focus();}else if(!e.shiftKey && document.activeElement===last){e.preventDefault();first.focus();}}});
-function toggle(grid,button){const expanded=!grid.classList.contains('is-expanded');grid.classList.toggle('is-expanded',expanded);button.setAttribute('aria-expanded',String(expanded));button.textContent=expanded?label[locale].less:(grid===featureGrid?label[locale].featureAll:label[locale].lineupAll);}
+function expandCaption(button,expanded,kind){
+ if(expanded){button.textContent=locale==='en'?'Show less':label[locale].less;return;}
+ const featured=kind==='featured';const n=featured?data.featured.length:data.initialSeasonPool;
+ const parts=locale==='ja'?(featured?['注目','作品をすべて見る']:['全','作品を見る']):(featured?['View all ',' featured titles']:['View all ',' titles']);
+ button.replaceChildren(document.createTextNode(parts[0]),node('strong','ob-r4-accent-number',String(n)),document.createTextNode(parts[1]));
+}
+function lineupCountCaption(n){
+ const desc=node('span','ob-r4-count-desc',locale==='ja'?'本選開始時のラインナップ':'Opening lineup');
+ const figure=node('span','ob-r4-count-figure');
+ figure.append(node('strong','ob-r4-accent-number',String(n)),node('span','ob-r4-count-unit',locale==='ja'?'作品':'titles'));
+ lineupCount.replaceChildren(desc,figure);
+}
+function actionHint(kind){
+ const isPointer=window.matchMedia && window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+ if(locale==='ja')return (isPointer?'クリック':'タップ')+'すると詳細が見られます。';
+ return (isPointer?'Click':'Tap')+(kind==='featured'?' a title':' a poster')+' for details.';
+}
+function toggle(grid,button){const expanded=!grid.classList.contains('is-expanded');grid.classList.toggle('is-expanded',expanded);button.setAttribute('aria-expanded',String(expanded));expandCaption(button,expanded,grid===featureGrid?'featured':'lineup');}
 featureToggle.addEventListener('click',()=>toggle(featureGrid,featureToggle));
 lineupToggle.addEventListener('click',()=>toggle(lineupGrid,lineupToggle));
 function refresh(requested){locale=requested==='ja'?'ja':'en';root.lang=locale;introTitle.textContent=intro[locale].title;introLead.textContent=intro[locale].lead;more.textContent=intro[locale].more;howParas.forEach((p,i)=>{p.textContent=intro[locale].paragraphs[i]||'';});
  featureKicker.textContent=label[locale].featuredKicker;featureTitle.textContent=label[locale].featured;featureSub.textContent=label[locale].sub;featureNotice.textContent=label[locale].notice;
+ featureHint.textContent=actionHint('featured');lineupHint.textContent=actionHint('lineup');
  lineupKicker.textContent=label[locale].lineupKicker;lineupTitle.textContent=label[locale].lineup;
  if(!data)return;
- lineupCount.textContent=label[locale].count(data.initialSeasonPool);lineupNote.textContent=label[locale].lineupNote;
+ lineupCountCaption(data.initialSeasonPool);lineupNote.textContent=label[locale].lineupNote;
  const feOpen=featureGrid.classList.contains('is-expanded'),liOpen=lineupGrid.classList.contains('is-expanded');
  featureGrid.replaceChildren();
  for(const k of data.featured){const v=data.items.find(x=>x.kv===k);if(!v)continue;const b=node('button','ob-featured');b.type='button';b.setAttribute('aria-label',langTitle(v));const info=node('span','ob-featured-copy');info.append(node('strong','ob-featured-title',langTitle(v)),node('span','ob-featured-studio',studio(v)),tags(v));b.append(artwork(v),info);b.addEventListener('click',()=>openModal(v));featureGrid.append(b);}
  lineupGrid.replaceChildren();
  for(const v of data.items){const b=node('button','ob-lineup-item');b.type='button';b.setAttribute('aria-label',langTitle(v));b.title=langTitle(v);b.append(artwork(v));b.addEventListener('click',()=>openModal(v));lineupGrid.append(b);}
  featureGrid.classList.toggle('is-expanded',feOpen);lineupGrid.classList.toggle('is-expanded',liOpen);
- featureToggle.textContent=feOpen?label[locale].less:label[locale].featureAll;lineupToggle.textContent=liOpen?label[locale].less:label[locale].lineupAll;
+ expandCaption(featureToggle,feOpen,'featured');expandCaption(lineupToggle,liOpen,'lineup');featureToggle.hidden=data.featured.length<=4;
  if(selected)updateModal();
 }
 refresh(savedLang());

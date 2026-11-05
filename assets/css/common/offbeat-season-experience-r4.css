@@ -1,0 +1,67 @@
+/* OFFBEAT Season Experience R4 — typography / hierarchy refinement only.
+   R3 card/grid layout, R11 Week Peek, R15 discovery cue unchanged. */
+
+/* The How panel should be present but not compete with Current Season's visuals. */
+#anime-top .ob-how-r3{background:#f7f6ef;border-left-color:#c9ad93;}
+
+/* The English copy was noticeably undersized on both screen classes. */
+#anime-top .ob-season-experience-r3[lang="en"] .ob-study-head h3{font-size:21px;}
+#anime-top .ob-season-experience-r3[lang="en"] .ob-study-head h3 small{font-size:11px;margin-bottom:5px;}
+#anime-top .ob-season-experience-r3[lang="en"] .ob-study-head .ob-study-headnote{font-size:12.5px;line-height:1.35;}
+#anime-top .ob-season-experience-r3[lang="en"] .ob-featured-notice{font-size:12.5px;line-height:1.4;}
+#anime-top .ob-season-experience-r3[lang="en"] .ob-featured-title{font-size:15px;line-height:1.16;}
+#anime-top .ob-season-experience-r3[lang="en"] .ob-featured-studio{font-size:11.5px;}
+#anime-top .ob-season-experience-r3[lang="en"] .ob-lineup-note{font-size:12.5px;line-height:1.4;}
+#anime-top .ob-season-experience-r3[lang="en"] .ob-how-r3 p{font-size:16px;line-height:1.49;}
+
+/* Give the existing category label a little more room above the section title. */
+#anime-top .ob-study-head h3 small{margin-bottom:5px;}
+#anime-top .ob-season-experience-r3[lang="en"] .ob-study-expand{text-transform:uppercase;}
+
+/* The two brief actions are informational, not additional buttons. */
+#anime-top .ob-r4-hintrow{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:4px 12px;}
+#anime-top .ob-r4-hintrow .ob-featured-notice{margin:1px 0 9px;}
+#anime-top .ob-r4-hintrow .ob-lineup-note{margin:6px 0 0;}
+#anime-top .ob-r4-action-hint{font:400 12px/1.35 'Barlow Condensed','Abel',Arial,sans-serif;color:#6e856f;white-space:normal;}
+#anime-top .ob-r4-hintrow .ob-r4-action-hint{margin:2px 0 8px;}
+#anime-top .ob-r4-hintrow.ob-r4-lineup-hints .ob-r4-action-hint{margin:6px 0 0;}
+#anime-top .ob-season-experience-r3[lang="ja"] .ob-r4-action-hint{font-family:'Noto Sans JP','Yu Gothic',sans-serif;font-size:11px;}
+
+/* Highlight the season pool AND the flexible featured count. */
+#anime-top .ob-study-head .ob-study-headnote#obLineupCountR3{display:flex;align-items:baseline;justify-content:flex-end;flex-wrap:wrap;column-gap:5px;row-gap:1px;}
+#anime-top .ob-r4-count-figure{display:inline-flex;align-items:baseline;gap:3px;white-space:nowrap;}
+#anime-top .ob-r4-count-unit{font-size:inherit;}
+#anime-top .ob-r4-accent-number{color:#b26c3c;font-family:'EB Garamond',Georgia,serif;font-size:1.55em;font-weight:700;line-height:1;letter-spacing:0;}
+#anime-top .ob-study-head .ob-r4-accent-number{font-size:22px;}
+#anime-top .ob-study-expand[hidden]{display:none!important;}
+#anime-top .ob-study-expand .ob-r4-accent-number{display:inline-block;margin:0 4px 0 3px;font-size:19px;vertical-align:-1px;}
+
+/* No change to desktop button case or desktop underlines. */
+@media(max-width:540px){
+ /* Softer panel; Japanese needs less visual weight, English more legible body copy. */
+ #anime-top .ob-season-experience-r3[lang="en"] .ob-how-r3 p{font-size:15.5px;line-height:1.5;}
+ #anime-top .ob-season-experience-r3[lang="ja"] .ob-how-r3 h3{font:600 14px/1.3 'Noto Serif JP','Yu Mincho',serif;letter-spacing:.035em;display:flex;align-items:center;gap:9px;}
+ #anime-top .ob-season-experience-r3[lang="ja"] .ob-how-r3 h3::after{content:'';height:1px;flex:1;max-width:85px;background:#cbd6c7;}
+ #anime-top .ob-season-experience-r3[lang="ja"] .ob-how-r3 p{font-size:12.4px;line-height:1.67;}
+ #anime-top .ob-season-experience-r3[lang="en"] .ob-study-head h3{font-size:20px;}
+ #anime-top .ob-season-experience-r3[lang="en"] .ob-featured-title{font-size:14px;line-height:1.17;}
+ #anime-top .ob-season-experience-r3[lang="en"] .ob-featured-studio{font-size:11px;}
+ #anime-top .ob-season-experience-r3[lang="en"] .ob-featured-notice{font-size:12.5px;line-height:1.35;}
+ #anime-top .ob-season-experience-r3[lang="en"] .ob-study-head .ob-study-headnote{font-size:12px;line-height:1.3;}
+ #anime-top .ob-season-experience-r3[lang="en"] .ob-lineup-note{font-size:13px;line-height:1.4;}
+ #anime-top .ob-featured{min-height:98px;}
+ #anime-top .ob-study-head .ob-study-headnote#obLineupCountR3{flex:0 0 109px;display:block;text-align:right;}
+ #anime-top .ob-study-head .ob-study-headnote#obLineupCountR3 .ob-r4-count-desc{display:block;line-height:1.2;}
+ #anime-top .ob-study-head .ob-r4-accent-number{font-size:25px;}
+ #anime-top .ob-r4-count-figure{justify-content:flex-end;}
+ /* English mobile CTA: gentler mixed case. Japanese retains its current phrase rhythm. */
+ #anime-top .ob-study-expand{font:600 14px/1.25 'EB Garamond',Georgia,serif;letter-spacing:.015em;text-transform:none;border-bottom:0.5px solid #9bad99;padding-bottom:4px;}
+ #anime-top .ob-season-experience-r3[lang="ja"] .ob-study-expand{font-family:'Noto Serif JP','Yu Mincho',serif;font-size:12.5px;}
+ #anime-top .ob-study-expand .ob-r4-accent-number{font-size:20px;}
+ #anime-top .ob-season-experience-r3[lang="en"] .ob-study-expand{text-transform:none;}
+ #anime-top .ob-r4-hintrow{display:flex;gap:2px 8px;}
+ #anime-top .ob-r4-hintrow .ob-featured-notice{margin-bottom:1px;}
+ #anime-top .ob-r4-hintrow .ob-r4-action-hint{font-size:12px;margin:0 0 9px;}
+ #anime-top .ob-r4-hintrow.ob-r4-lineup-hints .ob-r4-action-hint{margin:2px 0 0;}
+ #anime-top .ob-season-experience-r3[lang="ja"] .ob-r4-action-hint{font-size:11px;}
+}
