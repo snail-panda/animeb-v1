@@ -1,0 +1,22 @@
+/* OFFBEAT Season Experience R5 — weekly JSON selection and compact bilingual editorial notes.
+   Extends, never replaces, the approved R3 grids / R4 type hierarchy. */
+#anime-top .ob-season-experience-r3 .ob-r5-featured-note{
+ display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;line-clamp:2;
+ overflow:hidden;overflow-wrap:anywhere;white-space:pre-line;
+ margin-top:2px;color:#7b6a55;
+ font:400 11px/1.32 'Barlow Condensed','Abel',Arial,sans-serif;
+}
+#anime-top .ob-season-experience-r3[lang="ja"] .ob-r5-featured-note{
+ font:400 10px/1.46 'Noto Sans JP','Yu Gothic',sans-serif;color:#756958;
+}
+/* Poster proportions stay controlled by R3; card text may gain up to two note lines. */
+#anime-top .ob-featured{align-items:stretch;}
+#anime-top .ob-featured .ob-season-image{align-self:start;min-height:95px;}
+/* The existing modal carries the full note; keep its newline formatting and scrollability. */
+.ob-season-dialog-r3 .ob-featured-modal-note p{white-space:pre-wrap;max-height:none;overflow:visible;margin-top:6px;}
+#anime-top .ob-season-experience-r3 .ob-featured-notice{font-variant-numeric:tabular-nums;}
+@media(max-width:540px){
+ #anime-top .ob-season-experience-r3 .ob-r5-featured-note{font-size:10.6px;line-height:1.34;}
+ #anime-top .ob-season-experience-r3[lang="ja"] .ob-r5-featured-note{font-size:9.5px;line-height:1.44;}
+ #anime-top .ob-featured .ob-season-image{min-height:92px;}
+}

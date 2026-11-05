@@ -578,6 +578,101 @@
           "kv": "saikyou"
         }
       ]
+    },
+    "featured_titles": {
+      "schema": "animeb-featured-titles-v1",
+      "items": [
+        {
+          "kv": "kusuriya",
+          "title": "The Apothecary Diaries Season 3",
+          "note": {
+            "en": "",
+            "ja": "映画への伏線？も感じるが、注目しない理由がない"
+          }
+        },
+        {
+          "kv": "jouheki",
+          "title": "The Ramparts of Ice Season 2",
+          "note": {
+            "en": "",
+            "ja": "前期に続き間違いない、圧倒的な繊細な心理描写"
+          }
+        },
+        {
+          "kv": "seitokai",
+          "title": "Even the Student Council Has Its Holes!",
+          "note": {
+            "en": "",
+            "ja": "パッショーネの怨念、リベンジを感じる、どこまで続くかは？"
+          }
+        },
+        {
+          "kv": "zombie",
+          "title": "#I'm Looking For a Zombie",
+          "note": {
+            "en": "",
+            "ja": "進むにつれ馴染む、意外と的を得て着目点もよく、リスペクトも感じる"
+          }
+        },
+        {
+          "kv": "chitose",
+          "title": "Chitose Is in the Ramune Bottle Part 2",
+          "note": {
+            "en": "",
+            "ja": "1期よりもポエム少なめ、ストレートにいい（現時点）"
+          }
+        },
+        {
+          "kv": "tetsuryo",
+          "title": "Tetsuryou! Meet with Tetsudou Musume",
+          "note": {
+            "en": "",
+            "ja": "1話目での”これないわ～”からの、起死回生"
+          }
+        },
+        {
+          "kv": "hotel",
+          "title": "Hotel Inhumans Season 2",
+          "note": {
+            "en": "",
+            "ja": ""
+          }
+        },
+        {
+          "kv": "oukoku",
+          "title": "The Seven Knights of the Marronnier Kingdom",
+          "note": {
+            "en": "",
+            "ja": ""
+          }
+        },
+        {
+          "kv": "mezametara",
+          "title": "Reborn as a Space Mercenary: I Woke Up Piloting the Strongest Starship!",
+          "note": {
+            "en": "",
+            "ja": ""
+          }
+        },
+        {
+          "kv": "choujou",
+          "title": "Super Psychic Policeman Chojo",
+          "note": {
+            "en": "",
+            "ja": ""
+          }
+        },
+        {
+          "kv": "saikyou",
+          "title": "The World's Strongest Witch",
+          "note": {
+            "en": "Just because it's an absolute garbage.",
+            "ja": "あまりにもク◯過ぎるから"
+          }
+        }
+      ],
+      "last_updated_week": "week 4",
+      "last_updated_on": "2026-11-05"
     }
   },
   "entries": [

@@ -6,6 +6,9 @@
 const root=document.getElementById('obSeasonExperienceR3');
 if(!root) return;
 const featureGrid=document.getElementById('obFeaturedGridR3');
+const featureSection=featureGrid.closest('.ob-study-section');
+if(featureSection) featureSection.hidden=true; // Avoid flashing R3 example picks before the weekly selection loads.
+let featuredSource=null;
 const lineupGrid=document.getElementById('obLineupGridR3');
 const featureToggle=document.getElementById('obFeaturedExpandR3');
 const lineupToggle=document.getElementById('obLineupExpandR3');
@@ -72,6 +75,64 @@ function artwork(v){const wrap=node('span','ob-season-image');const im=node('img
 function slug(g){return g.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');}
 function tags(v){const row=node('span','ob-season-genres');for(const g of (v.genres||[]).slice(0,4)){const s=node('span','ob-season-genre ob-genre-'+slug(g),locale==='ja'?(genresJa[g]||g):g);row.append(s);}return row;}
 function featuredNote(v){const n=data.featuredNotes && data.featuredNotes[v.kv]; if(typeof n==='string')return n.trim();if(n && typeof n==='object') return String(n[locale]||'').trim();return '';}
+function selectionCaption(){
+ if(!featuredSource)return label[locale].notice;
+ const w=featuredSource.week;
+ const iso=featuredSource.date;
+ let when='';
+ if(/^\d{4}-\d{2}-\d{2}$/.test(iso)){
+   const [y,m,d]=iso.split('-').map(Number);
+   const date=new Date(Date.UTC(y,m-1,d));
+   if(date.getUTCFullYear()===y && date.getUTCMonth()===m-1 && date.getUTCDate()===d){
+     when=locale==='ja'?`${y}年${m}月${d}日`:date.toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric',timeZone:'UTC'});
+   }
+ }
+ return locale==='ja'?`選出：Week ${w} · 最終更新：${when||'—'}`:`Selection: Week ${w} · Updated ${when||'—'}`;
+}
+function setPublishedFeatured(weekly,week){
+ const featured=weekly?.meta?.featured_titles;
+ if(!featured || featured.schema!=='animeb-featured-titles-v1' || !Array.isArray(featured.items))throw Error('Unsupported featured_titles schema');
+ if(weekly?.meta?.season!=='2026 Fall' || Number(String(weekly.meta.week).replace(/[^0-9]/g,''))!==week)throw Error('Week/season mismatch');
+ if(featured.items.length>40)throw Error('Featured list unexpectedly long');
+ const reference=new Set(data.items.map(v=>v.kv));
+ const keys=[];const notes={};
+ for(const pick of featured.items){
+   const kv=String(pick?.kv||'');
+   if(!reference.has(kv)||keys.includes(kv))throw Error('Unknown or duplicate featured key: '+kv);
+   const masterTitle=data.items.find(v=>v.kv===kv).title;
+   if(pick.title && pick.title!==masterTitle)throw Error('Featured title mismatch: '+kv);
+   keys.push(kv);
+   notes[kv]={en:String(pick.note?.en||''),ja:String(pick.note?.ja||'')};
+ }
+ data.featured=keys;
+ data.featuredNotes=notes;
+ const updateWeek=Number(String(featured.last_updated_week||'').replace(/[^0-9]/g,''));
+ featuredSource={week:Number.isInteger(updateWeek)&&updateWeek>=1&&updateWeek<=week?String(updateWeek).padStart(2,'0'):String(week).padStart(2,'0'),date:String(featured.last_updated_on||'')};
+}
+async function loadPublishedFeatured(){
+ let weeks=[4]; // Fallback only if the publication index is temporarily unavailable.
+ try{
+   const response=await fetch(new URL('weekly-rankings.json',document.baseURI),{cache:'no-store'});
+   if(!response.ok)throw Error('Publication index HTTP '+response.status);
+   const index=await response.json();
+   const list=index?.['2026']?.Fall?.weeks;
+   if(!Array.isArray(list))throw Error('No 2026 Fall index');
+   weeks=[...new Set(list.map(v=>Number(String(v).match(/week\s*(\d+)/i)?.[1]||0)).filter(v=>v>=1&&v<=12))].sort((a,b)=>b-a);
+ }catch(err){console.warn('OFFBEAT Featured: publication index unavailable, trying Week 04.',err);}
+ for(const week of weeks){
+   const folder='week'+String(week).padStart(2,'0');
+   const path=`ranking/2026/fall/${folder}/ranking-${folder}-fall2026.json`;
+   try{
+     const response=await fetch(new URL(path,document.baseURI),{cache:'no-store'});
+     if(!response.ok)continue;
+     const weekly=await response.json();
+     if(!Object.prototype.hasOwnProperty.call(weekly.meta||{},'featured_titles'))continue; // Inherited from previous editorial week.
+     setPublishedFeatured(weekly,week);return;
+   }catch(err){console.warn('OFFBEAT Featured: skipping invalid weekly data for '+folder,err);}
+ }
+ console.warn('OFFBEAT Featured: no published selection available; retaining R3 sample picks.');
+}
+
 function openModal(v){selected=v;wasFocused=document.activeElement;updateModal();overlay.hidden=false;document.body.classList.add('ob-season-modal-open');closeButton.focus();}
 function updateModal(){if(!selected)return;const v=selected;modalArt.src=imgPath(v);modalArt.alt=langTitle(v);modalArt.onerror=()=>{modalArt.hidden=true;};modalArt.onload=()=>{modalArt.hidden=false;};modalTitle.textContent=langTitle(v);modalEye.textContent=label[locale].eye;modalFacts.replaceChildren(node('span','',studio(v)),tags(v));modalSynopsis.textContent=(locale==='ja'?(v.synopsisJa||v.synopsis):(v.synopsis||v.synopsisJa))||label[locale].missing;const note=featuredNote(v);modalNote.hidden=!note;modalNoteLabel.textContent=label[locale].featuredNote;modalNote.querySelector('p').textContent=note;}
 function closeModal(){overlay.hidden=true;document.body.classList.remove('ob-season-modal-open');selected=null;if(wasFocused && wasFocused.isConnected)wasFocused.focus();}
@@ -99,14 +160,14 @@ function toggle(grid,button){const expanded=!grid.classList.contains('is-expande
 featureToggle.addEventListener('click',()=>toggle(featureGrid,featureToggle));
 lineupToggle.addEventListener('click',()=>toggle(lineupGrid,lineupToggle));
 function refresh(requested){locale=requested==='ja'?'ja':'en';root.lang=locale;introTitle.textContent=intro[locale].title;introLead.textContent=intro[locale].lead;more.textContent=intro[locale].more;howParas.forEach((p,i)=>{p.textContent=intro[locale].paragraphs[i]||'';});
- featureKicker.textContent=label[locale].featuredKicker;featureTitle.textContent=label[locale].featured;featureSub.textContent=label[locale].sub;featureNotice.textContent=label[locale].notice;
+ featureKicker.textContent=label[locale].featuredKicker;featureTitle.textContent=label[locale].featured;featureSub.textContent=label[locale].sub;featureNotice.textContent=selectionCaption();
  featureHint.textContent=actionHint('featured');lineupHint.textContent=actionHint('lineup');
  lineupKicker.textContent=label[locale].lineupKicker;lineupTitle.textContent=label[locale].lineup;
  if(!data)return;
  lineupCountCaption(data.initialSeasonPool);lineupNote.textContent=label[locale].lineupNote;
  const feOpen=featureGrid.classList.contains('is-expanded'),liOpen=lineupGrid.classList.contains('is-expanded');
  featureGrid.replaceChildren();
- for(const k of data.featured){const v=data.items.find(x=>x.kv===k);if(!v)continue;const b=node('button','ob-featured');b.type='button';b.setAttribute('aria-label',langTitle(v));const info=node('span','ob-featured-copy');info.append(node('strong','ob-featured-title',langTitle(v)),node('span','ob-featured-studio',studio(v)),tags(v));b.append(artwork(v),info);b.addEventListener('click',()=>openModal(v));featureGrid.append(b);}
+ for(const k of data.featured){const v=data.items.find(x=>x.kv===k);if(!v)continue;const b=node('button','ob-featured');b.type='button';b.setAttribute('aria-label',langTitle(v));const info=node('span','ob-featured-copy');info.append(node('strong','ob-featured-title',langTitle(v)),node('span','ob-featured-studio',studio(v)),tags(v));const note=featuredNote(v);if(note){const clip=node('span','ob-r5-featured-note',note);clip.title=note;info.append(clip);}b.append(artwork(v),info);b.addEventListener('click',()=>openModal(v));featureGrid.append(b);}
  lineupGrid.replaceChildren();
  for(const v of data.items){const b=node('button','ob-lineup-item');b.type='button';b.setAttribute('aria-label',langTitle(v));b.title=langTitle(v);b.append(artwork(v));b.addEventListener('click',()=>openModal(v));lineupGrid.append(b);}
  featureGrid.classList.toggle('is-expanded',feOpen);lineupGrid.classList.toggle('is-expanded',liOpen);
@@ -125,6 +186,6 @@ window.addEventListener('storage',e=>{if(e.key==='animeb-weekly-lang')refresh(sa
 window.addEventListener('pageshow',()=>refresh(savedLang()));
 fetch(new URL('assets/data/offbeat-season-2026-fall.json?v=3',document.baseURI),{cache:'no-store'})
  .then(r=>{if(!r.ok)throw new Error('HTTP '+r.status);return r.json();})
- .then(d=>{if(!Array.isArray(d.items)||d.items.length!==34||d.initialSeasonPool!==34||new Set(d.items.map(v=>v.kv)).size!==34)throw new Error('Season master lineup mismatch');data=d;refresh(savedLang());})
+ .then(async d=>{if(!Array.isArray(d.items)||d.items.length!==34||d.initialSeasonPool!==34||new Set(d.items.map(v=>v.kv)).size!==34)throw new Error('Season master lineup mismatch');data=d;await loadPublishedFeatured();if(featureSection)featureSection.hidden=data.featured.length===0;refresh(savedLang());})
  .catch(err=>{console.error('OFFBEAT Season Experience:',err);lineupCount.textContent=locale==='ja'?'作品データを読み込めませんでした':'Unable to load lineup';});
 })();
