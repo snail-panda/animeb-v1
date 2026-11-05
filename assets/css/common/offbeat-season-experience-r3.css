@@ -1,0 +1,66 @@
+/* OFFBEAT Season Experience R3 — retains R2 grid and card proportions. */
+#anime-top .ob-season-experience-r3{margin:17px 0 13px;padding:17px 0 12px;border-top:1px solid #bbcab9;border-bottom:1px solid #cfdbce;color:#284833;}
+#anime-top .ob-season-experience-r3 button{font-family:inherit;cursor:pointer;}
+#anime-top .ob-how-r3{background:#f1f1e6;border-left:3px solid #a37859;padding:13px 15px;margin-bottom:20px;}
+#anime-top .ob-how-r3 h3{font:600 15px/1.1 'Barlow Condensed','Abel',sans-serif;letter-spacing:.10em;color:#52694e;margin:0 0 9px;}
+#anime-top .ob-how-r3 p{font:400 15px/1.45 'EB Garamond',Georgia,serif;margin:0 0 9px;color:#334d37;}
+#anime-top .ob-how-r3 details{margin:5px 0 0;}
+#anime-top .ob-how-r3 summary{cursor:pointer;color:#416849;font:600 11px/1.3 'Barlow Condensed','Abel',sans-serif;letter-spacing:.08em;padding:4px 0;list-style:none;display:inline-flex;align-items:center;gap:7px;}
+#anime-top .ob-how-r3 summary::-webkit-details-marker{display:none;}
+#anime-top .ob-how-r3 summary::after{content:'⌄';display:inline-block;font:18px/0.7 Georgia,serif;transform:translateY(-2px);transition:transform .15s;}
+#anime-top .ob-how-r3 details[open] summary::after{transform:rotate(180deg) translateY(2px);}
+#anime-top .ob-how-r3 .ob-how-expanded{padding:13px 0 0;border-top:1px solid #d7d4c3;margin-top:7px;}
+#anime-top .ob-how-r3 .ob-how-expanded p{margin:0 0 11px;}
+#anime-top .ob-study-section + .ob-study-section{border-top:1px solid #d2dacd;margin-top:18px;padding-top:15px;}
+#anime-top .ob-study-head{display:flex;gap:10px;align-items:end;justify-content:space-between;margin:0 0 11px;}
+#anime-top .ob-study-head h3{font:600 18px/1.05 'EB Garamond',Georgia,serif;letter-spacing:.015em;color:#2d533a;margin:0;}
+#anime-top .ob-study-head h3 small{display:block;font:500 10px/1.2 'Barlow Condensed','Abel',sans-serif;letter-spacing:.11em;color:#ae724d;margin-bottom:3px;}
+#anime-top .ob-study-head .ob-study-headnote{font:500 11px/1.2 'Barlow Condensed','Abel',sans-serif;letter-spacing:.02em;color:#6b826d;text-align:right;}
+#anime-top .ob-featured-notice{font:400 10px/1.25 'Barlow Condensed','Abel',Arial,sans-serif;color:#8e866e;margin:1px 0 9px;}
+#anime-top .ob-featured-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px;}
+#anime-top .ob-featured-grid:not(.is-expanded) .ob-featured:nth-child(n+5){display:none;}
+#anime-top .ob-featured{display:grid;grid-template-columns:minmax(0,70px) minmax(0,1fr);gap:8px;min-width:0;min-height:100px;padding:6px;background:transparent;border:1px solid #c7d2c3;border-left:2px solid #a1b49a;text-align:left;transition:background .15s,border-color .15s;}
+#anime-top .ob-featured:hover,#anime-top .ob-featured:focus-visible{background:#f0f4eb;border-color:#7b987e;outline-offset:2px;}
+#anime-top .ob-featured .ob-season-image{min-width:0;width:100%;height:100%;max-height:110px;background:#d9e2d4;}
+#anime-top .ob-featured .ob-season-image img{width:100%;height:100%;object-fit:cover;display:block;}
+#anime-top .ob-featured-copy{min-width:0;display:flex;flex-direction:column;gap:4px;justify-content:center;}
+#anime-top .ob-featured-title{font:600 13.5px/1.13 'EB Garamond',Georgia,serif;color:#275239;overflow-wrap:anywhere;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;}
+#anime-top .ob-featured-studio{font:400 10px/1.2 'Barlow Condensed','Abel',sans-serif;color:#607963;}
+#anime-top .ob-season-genres{display:flex;flex-wrap:wrap;align-items:center;gap:3px;min-width:0;}
+#anime-top .ob-season-genre{display:inline-block;white-space:normal;border:1px solid #bdc8b8;background:#eef0e6;color:#516d55;border-radius:2px;padding:2px 4px;font:500 9px/1.12 'Barlow Condensed','Abel',Arial,sans-serif;letter-spacing:.005em;}
+#anime-top .ob-genre-action,#anime-top .ob-genre-adventure{color:#426782;border-color:#aec6d4;background:#e8f0f3;}
+#anime-top .ob-genre-comedy,#anime-top .ob-genre-slice-of-life{color:#8a6842;border-color:#dcc9a9;background:#f8f2e1;}
+#anime-top .ob-genre-romance{color:#916270;border-color:#deb9c7;background:#f8ecf0;}
+#anime-top .ob-genre-fantasy,#anime-top .ob-genre-supernatural{color:#79668c;border-color:#c9b9d7;background:#f0ebf7;}
+#anime-top .ob-genre-sci-fi,#anime-top .ob-genre-mecha{color:#427a76;border-color:#a7d1c8;background:#e7f3ef;}
+#anime-top .ob-genre-drama,#anime-top .ob-genre-psychological,#anime-top .ob-genre-thriller{color:#8a5c4e;border-color:#d6b6a9;background:#f5ebe5;}
+#anime-top .ob-genre-sports{color:#4d6c44;border-color:#b4c9a8;background:#eaf1e6;}
+#anime-top .ob-genre-horror,#anime-top .ob-genre-mystery{color:#685e78;border-color:#bfb9cb;background:#eeedf2;}
+#anime-top .ob-study-expand{font:600 11px/1.1 'Barlow Condensed',Arial,sans-serif;letter-spacing:.07em;color:#2c593b;background:none;border:0;border-bottom:1px solid #95ac98;padding:4px 0;display:block;margin:10px 0 0 auto;}
+#anime-top .ob-study-expand:hover{text-decoration:underline;}
+#anime-top .ob-lineup-grid{display:grid;grid-template-columns:repeat(10,minmax(0,1fr));gap:6px;}
+#anime-top .ob-lineup-grid:not(.is-expanded) .ob-lineup-item:nth-child(n+11){display:none;}
+#anime-top .ob-lineup-item{border:0;padding:0;min-width:0;position:relative;background:transparent;box-shadow:0 1px 2px #213c3220;}
+#anime-top .ob-lineup-item .ob-season-image{display:block;width:100%;}
+#anime-top .ob-lineup-item .ob-season-image img{width:100%;aspect-ratio:3/4;object-fit:cover;display:block;background:#dce4d7;border:1px solid #d1dbcc;}
+#anime-top .ob-lineup-item:hover img,#anime-top .ob-lineup-item:focus-visible img{border:2px solid #b87952;outline-offset:2px;}
+#anime-top .ob-lineup-note{font:400 11px/1.25 'Barlow Condensed',Arial,sans-serif;color:#779078;margin:6px 0 0;}
+#anime-top .ob-season-image.is-missing{display:flex;justify-content:center;align-items:center;min-height:75px;border:1px dashed #b5c5b6;background:#e8ebe3;}
+#anime-top .ob-season-image-fallback{font:500 9px/1.2 'Barlow Condensed',Arial,sans-serif;color:#789079;text-align:center;padding:2px;}
+.ob-season-modal-open{overflow:hidden;}
+.ob-season-overlay-r3[hidden]{display:none!important;}
+.ob-season-overlay-r3{position:fixed;inset:0;z-index:999999;display:flex;justify-content:center;align-items:center;padding:18px;background:#122217b8;}
+.ob-season-dialog-r3{box-sizing:border-box;position:relative;width:min(680px,100%);max-height:min(90dvh,780px);overflow:auto;background:#f9f7ec;border:1px solid #abc1aa;box-shadow:0 18px 54px #0006;padding:24px;display:grid;grid-template-columns:190px 1fr;gap:20px;color:#244b36;}
+.ob-season-dialog-r3>img{width:100%;max-height:295px;object-fit:contain;background:#e5e9dd;}
+.ob-season-dialog-r3 h3{font:600 26px/1.13 'EB Garamond',Georgia,serif;margin:5px 0 12px;color:#1e4a32;}
+.ob-season-dialog-r3 small{font:500 11px/1.2 'Barlow Condensed',Arial,sans-serif;letter-spacing:.08em;color:#ad7048;}
+.ob-season-dialog-r3 p{font:400 15px/1.35 'EB Garamond',Georgia,serif;white-space:pre-line;color:#3c6149;max-height:235px;overflow:auto;}
+.ob-season-dialog-r3 .ob-season-facts{font:500 12px/1.4 'Barlow Condensed',Arial,sans-serif;color:#547059;display:flex;align-items:center;gap:7px;flex-wrap:wrap;}
+.ob-season-dialog-r3 .ob-season-close{position:absolute;right:12px;top:7px;color:#30543c;background:none;border:0;font:28px/1.1 Arial,sans-serif;cursor:pointer;}
+.ob-season-dialog-r3 .ob-featured-modal-note{border-top:1px solid #ced9cc;margin-top:9px;padding-top:9px;}
+.ob-season-dialog-r3 .ob-featured-modal-note p{margin:3px 0 0;}
+#anime-top .ob-season-experience-r3[lang="ja"] .ob-featured-title{font:600 12px/1.25 'Noto Serif JP','Yu Mincho',serif;}
+#anime-top .ob-season-experience-r3[lang="ja"] .ob-how-r3 p{font:400 13px/1.65 'Noto Serif JP','Yu Mincho',serif;}
+#anime-top .ob-season-experience-r3[lang="ja"] .ob-season-genre{font-family:'Noto Sans JP','Yu Gothic',sans-serif;font-size:8.5px;}
+@media(max-width:920px){#anime-top .ob-featured-grid{grid-template-columns:repeat(2,minmax(0,1fr));}#anime-top .ob-lineup-grid{grid-template-columns:repeat(8,minmax(0,1fr));}#anime-top .ob-lineup-grid:not(.is-expanded) .ob-lineup-item:nth-child(n+9){display:none;}}
+@media(max-width:540px){#anime-top .ob-season-experience-r3{padding:14px 0 12px;margin-top:14px;}#anime-top .ob-how-r3{padding:11px 10px;margin-bottom:17px;}#anime-top .ob-how-r3 p{font-size:13px;line-height:1.43;}#anime-top .ob-study-head h3{font-size:18px;}#anime-top .ob-study-head .ob-study-headnote{font-size:10px;}#anime-top .ob-featured-grid{gap:6px;}#anime-top .ob-featured{grid-template-columns:51px minmax(0,1fr);padding:4px;min-height:94px;gap:6px;}#anime-top .ob-featured .ob-season-image{max-height:112px;}#anime-top .ob-featured-title{font-size:12.5px;}#anime-top .ob-featured-studio{font-size:10px;}#anime-top .ob-season-genre{font-size:8.5px;padding:2px 3px;}#anime-top .ob-lineup-grid{grid-template-columns:repeat(5,minmax(0,1fr));gap:4px;}#anime-top .ob-lineup-grid:not(.is-expanded) .ob-lineup-item:nth-child(n+6){display:none;}.ob-season-overlay-r3{padding:10px;}.ob-season-dialog-r3{grid-template-columns:110px minmax(0,1fr);gap:11px;padding:26px 12px 13px;}.ob-season-dialog-r3 h3{font-size:19px;}.ob-season-dialog-r3 p{font-size:13px;max-height:190px;}}
