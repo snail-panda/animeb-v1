@@ -1,22 +1,24 @@
-/* AnimeB R12: title-position adjustment. Default (0%) is deliberately untouched. */
-.animeb-title-trailing-spacer{display:none;pointer-events:none}
+/* AnimeB R13: Independent TITLE movement — only visual heading translation.
+   R12 reduced the leading spacer and inserted a trailing one; on the actual page
+   that shifted Viewing Status too. Keep the ORIGINAL flow/spacer geometry instead.
+   Move ONLY .header + .sub-header visually using transform. No WS / This Week /
+   Overview / background image / anchor / presets / site-theme changes. */
+.animeb-title-trailing-spacer{display:none!important;pointer-events:none}
 body[data-animeb-title-shifted="true"][data-animeb-theme="image"][data-animeb-image-scope="hero"] .wrapper > .animeb-image-hero-spacer,
 body[data-animeb-title-shifted="true"][data-animeb-theme="image"][data-animeb-image-scope="full"] .wrapper > .animeb-image-hero-spacer{
-  height:calc(clamp(125px,27vw,190px) * var(--animeb-title-before-fraction,1))!important;
+  height:clamp(125px,27vw,190px)!important;
 }
-body[data-animeb-title-shifted="true"][data-animeb-theme="image"][data-animeb-image-scope="hero"] .wrapper > .animeb-title-trailing-spacer,
-body[data-animeb-title-shifted="true"][data-animeb-theme="image"][data-animeb-image-scope="full"] .wrapper > .animeb-title-trailing-spacer{
-  display:block;height:calc(clamp(125px,27vw,190px) * var(--animeb-title-after-fraction,0));
-  position:relative;z-index:2;pointer-events:none;
+body[data-animeb-title-shifted="true"][data-animeb-theme="image"][data-animeb-image-scope="hero"] .wrapper > :is(.header,.sub-header),
+body[data-animeb-title-shifted="true"][data-animeb-theme="image"][data-animeb-image-scope="full"] .wrapper > :is(.header,.sub-header){
+  position:relative;
+  z-index:4;
+  /* Pixel offset set by R13 JS: no typed CSS multiplication (Safari 18 compatible). */
+  transform:translateY(var(--animeb-title-shift-px,0px));
 }
 @media(max-width:768px){
   body[data-animeb-title-shifted="true"][data-animeb-theme="image"][data-animeb-image-scope="hero"] .wrapper > .animeb-image-hero-spacer,
   body[data-animeb-title-shifted="true"][data-animeb-theme="image"][data-animeb-image-scope="full"] .wrapper > .animeb-image-hero-spacer{
-    height:calc(clamp(132px,29vw,174px) * var(--animeb-title-before-fraction,1))!important;
-  }
-  body[data-animeb-title-shifted="true"][data-animeb-theme="image"][data-animeb-image-scope="hero"] .wrapper > .animeb-title-trailing-spacer,
-  body[data-animeb-title-shifted="true"][data-animeb-theme="image"][data-animeb-image-scope="full"] .wrapper > .animeb-title-trailing-spacer{
-    height:calc(clamp(132px,29vw,174px) * var(--animeb-title-after-fraction,0));
+    height:clamp(132px,29vw,174px)!important;
   }
 }
 /* Title controls are separate from photo/anchor sliders and theme/colour settings. */

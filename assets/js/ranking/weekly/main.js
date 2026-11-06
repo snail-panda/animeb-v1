@@ -1180,6 +1180,14 @@ function animebInitWeeklyThemes(){
       document.body.style.setProperty('--animeb-title-before-fraction',String((100-titlePosition)/100));
       document.body.style.setProperty('--animeb-title-after-fraction',String(titlePosition/100));
     }
+    // R13: Preserve original layout. Match the CSS spacer clamp in pixels
+    // and translate only the headline. Works before image mode is applied.
+    const titleViewportWidth=Math.max(1,window.innerWidth||document.documentElement.clientWidth||1024);
+    const titleSpace=titleViewportWidth<=768
+      ? Math.max(132,Math.min(174,titleViewportWidth*.29))
+      : Math.max(125,Math.min(190,titleViewportWidth*.27));
+    const titleShiftPx=-(titleSpace*titlePosition/100);
+    document.body.style.setProperty('--animeb-title-shift-px',titleShiftPx.toFixed(2)+'px');
     if(save)try{localStorage.setItem(TITLE_POSITION_KEY,String(titlePosition));}catch(_){}
     // Preview uses real positions; recalculating the camera anchor remains the existing code's job.
     requestAnimationFrame(()=>{refreshPreviewHeader();scheduleHeroExtent();});
@@ -1196,6 +1204,7 @@ function animebInitWeeklyThemes(){
   titlePositionStandard.addEventListener('click',()=>titlePositionStep(-titlePosition));
   titlePositionTop.addEventListener('click',()=>titlePositionStep(100-titlePosition));
   syncTitlePosition(false);
+  window.addEventListener('resize',()=>syncTitlePosition(false),{passive:true}); // R13
   // End AnimeB R12 title-position.
   // Keep the TOP/number heading intact; split only a plain-text TOP nn heading.
   const topHeading=document.querySelector('.wrapper > .header h1');
