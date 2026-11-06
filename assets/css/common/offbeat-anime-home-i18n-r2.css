@@ -54,3 +54,17 @@
     line-height:1.58;
   }
 }
+
+/* OFFBEAT Journey R7d: fine-tune desktop Japanese intro; no other sections touched. */
+@media (min-width:891px) {
+  #anime-top[lang="ja"] .n-mast-14 .n-journey-copy .n-journey-content p.n-journey-lead {
+    font-size:12px;
+    line-height:1.52;
+    font-weight:600;
+    color:#304c39;
+  }
+  #anime-top[lang="ja"] .n-mast-14 .n-journey-copy .n-journey-content p:not(.n-journey-lead) {
+    font-size:11.5px;
+    line-height:1.62;
+  }
+}
