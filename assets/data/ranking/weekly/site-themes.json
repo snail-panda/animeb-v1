@@ -397,7 +397,7 @@
       "source": "url",
       "localId": "",
       "imageScope": "full",
-      "imageVisibility": 60,
+      "imageVisibility": 90,
       "photoOpacity": 100,
       "weekStyle": "filled",
       "imageZoom": 100,
@@ -427,6 +427,7 @@
         "enabled": true,
         "fraction": 0.03357910906298006
       },
+      "titlePosition": 89,
       "legibility": {
         "shadow": 1,
         "edge": 0,
