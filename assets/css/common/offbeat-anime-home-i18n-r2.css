@@ -46,3 +46,11 @@
  #anime-top[lang="ja"] .n-checkpoints a,
  #anime-top[lang="ja"] .n-checkpoints>span:not(:first-child){font-size:11px;}
 }
+
+/* OFFBEAT Journey R7c: Japanese paragraphs 2–4, desktop only. Lead stays at 13.2px. */
+@media (min-width:891px) {
+  #anime-top[lang="ja"] .n-mast-14 .n-journey-copy .n-journey-content p:not(.n-journey-lead) {
+    font-size:12.3px;
+    line-height:1.58;
+  }
+}
