@@ -210,6 +210,13 @@
       return masterCache.get(key);
     }
     async function renderArchivePanel(s) {
+      // R17 renders historical seasons without guessing their opening pools.
+      if (window.OFFBEAT_R17 && typeof window.OFFBEAT_R17.renderHistory === 'function') {
+        ++masterRequest;
+        window.OFFBEAT_R17.renderHistory({season:s, panel:archivePanel,
+          active:()=>!same(selected,latest) && same(selected,s)});
+        return;
+      }
       const request=++masterRequest;
       const w=words[language()];
       archivePanel.replaceChildren(make('h3','',w.snapshot),make('p','ob-r16-pending',w.pending));
