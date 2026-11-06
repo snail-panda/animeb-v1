@@ -1,0 +1,148 @@
+/* OFFBEAT Anime Home R8: Japanese editorial rhythm and responsive hierarchy.
+ * Deliberately excludes Week Peek, How the Season Unfolds, Featured Titles,
+ * opening Lineup and the English Journey. Scoped to Anime Home only. */
+
+/* The first paragraph is distinguished by ink and weight, not large glyphs. */
+#anime-top[lang="ja"] .n-mast-14 .n-journey-copy .n-journey-content p.n-journey-lead {
+  font-size:12px;line-height:1.61;font-weight:600;font-style:italic;
+  letter-spacing:.002em;color:#2f4d39;margin:0 0 12px;
+}
+#anime-top[lang="ja"] .n-mast-14 .n-journey-copy .n-journey-content p:not(.n-journey-lead) {
+  font-size:11.5px;line-height:1.72;font-weight:400;
+  letter-spacing:.005em;color:#455d49;margin:0 0 12px;
+}
+#anime-top[lang="ja"] .n-mast-14 .n-journey-copy .n-journey-content p.n-journey-close {margin-bottom:0;}
+#anime-top[lang="ja"] .n-mast-14 .n-word-sub {line-height:1.45;}
+#anime-top[lang="ja"] .n-mast-14 .n-mobile-subtitle {
+  font-family:'Hiragino Mincho ProN','Yu Mincho','Noto Serif JP',serif;
+  font-weight:400;font-style:normal;letter-spacing:0;
+}
+#anime-top[lang="ja"] .n-mast-14 .n-journey-toggle {letter-spacing:0;}
+
+/* A season-color hairline provides a real category cue in Japanese. */
+#anime-top[lang="ja"] .n-prev-season .n-prev-header {
+  border-left:2px solid var(--h13-summer,#426b76);padding-left:9px;
+  gap:6px 10px;line-height:1.36;
+}
+#anime-top[lang="ja"] .n-prev-season:has(a[href*="/fall/"]) .n-prev-header {border-left-color:var(--h13-fall,#8e6447);}
+#anime-top[lang="ja"] .n-prev-season:has(a[href*="/winter/"]) .n-prev-header {border-left-color:var(--h13-winter,#64738a);}
+#anime-top[lang="ja"] .n-prev-season:has(a[href*="/spring/"]) .n-prev-header {border-left-color:var(--h13-spring,#547457);}
+#anime-top[lang="ja"] .n-prev-header > span {font-size:10px;font-weight:600;color:#3f6250;letter-spacing:.04em;}
+#anime-top[lang="ja"] .n-prev-header > small {font-size:10px;color:#728676;}
+#anime-top[lang="ja"] .n-prev-links a > small {font-size:10px;line-height:1.4;letter-spacing:0;font-weight:600;}
+#anime-top[lang="ja"] .n-prev-links a > b {
+  font-size:14px;line-height:1.35;font-weight:600;color:#365b43;
+  overflow-wrap:anywhere;
+}
+
+/* Japanese category headings should not look like fallback MS Gothic. */
+#anime-top[lang="ja"] .n-latest .n-block-top h2,
+#anime-top[lang="ja"] .n-contents .n-block-top h2 {
+  font-family:'Hiragino Mincho ProN','Yu Mincho','Noto Serif JP',serif;
+  font-size:14.2px;line-height:1.35;font-weight:600;letter-spacing:.015em;color:#41624b;
+}
+#anime-top[lang="ja"] .n-rank-card-11 .n-rank-quote {
+  font-family:'Hiragino Mincho ProN','Yu Mincho','Noto Serif JP',serif;
+  font-style:normal;font-weight:500;font-size:17px;line-height:1.43;letter-spacing:0;
+}
+#anime-top[lang="ja"] .n-rank-card-11 .n-rank-detail h3 {
+  font-size:21px;line-height:1.28;letter-spacing:0;font-weight:600;color:#3e6148;
+}
+#anime-top[lang="ja"] .n-feature-companions .n-feature-item strong {
+  font-size:13.3px;line-height:1.36;font-weight:600;
+}
+#anime-top[lang="ja"] .n-feature-companions .n-feature-kind {font-size:10px;line-height:1.4;}
+#anime-top[lang="ja"] .n-contents nav b {
+  font-size:15px;line-height:1.38;color:#31523d;font-weight:600;
+}
+#anime-top[lang="ja"] .n-contents nav small {
+  font-size:11.3px;line-height:1.56;color:#65806a;font-weight:400;
+}
+#anime-top[lang="ja"] .n-recent .post-date {font-size:10px;line-height:1.4;white-space:normal;overflow-wrap:anywhere;}
+#anime-top[lang="ja"] .n-recent .post-cat {font-size:9.6px;line-height:1.4;letter-spacing:0;white-space:normal;}
+#anime-top[lang="ja"] .n-recent .post-name {font-size:13.4px;line-height:1.45;overflow-wrap:anywhere;}
+
+/* Postcards: fresher ink for BOTH languages; Japanese excerpts get air. */
+#anime-top #animeArchive .n-archive-row h3,
+#anime-top #animeArchive .n-archive-row h3 a {color:#355b43;}
+#anime-top[lang="ja"] #animeArchive .n-archive-row h3 {
+  font-size:18.6px;line-height:1.38;letter-spacing:0;
+  overflow-wrap:anywhere;
+}
+#anime-top[lang="ja"] #animeArchive .n-archive-row .n-intro-preview {
+  font-size:12.5px;line-height:1.63;letter-spacing:.007em;
+}
+
+/* The 891px transition is intentional: no jump back to giant Japanese type. */
+@media(max-width:890px) {
+  #anime-top[lang="ja"] .n-mast-14 .n-mast-body {row-gap:16px;}
+  #anime-top[lang="ja"] .n-mast-14 .n-word-sub {margin-bottom:3px;}
+  #anime-top[lang="ja"] .n-mast-14 .n-journey-copy .n-journey-content p.n-journey-lead {
+    font-size:12.3px;line-height:1.65;margin-bottom:14px;
+  }
+  #anime-top[lang="ja"] .n-mast-14 .n-journey-copy .n-journey-content p:not(.n-journey-lead) {
+    font-size:11.85px;line-height:1.77;margin-bottom:13px;
+  }
+  #anime-top[lang="ja"] .n-mast-14 .n-journey-copy .n-journey-content p.n-journey-close {margin-bottom:0;}
+  #anime-top[lang="ja"] .n-prev-links a > b {font-size:13.3px;line-height:1.37;}
+  #anime-top[lang="ja"] .n-rank-card-11 .n-rank-quote {font-size:15.6px;line-height:1.45;}
+  #anime-top[lang="ja"] .n-rank-card-11 .n-rank-detail h3 {font-size:19px;line-height:1.32;}
+  #anime-top[lang="ja"] .n-feature-companions .n-feature-item strong {font-size:12.8px;line-height:1.4;}
+  #anime-top[lang="ja"] .n-contents nav b {font-size:14.2px;line-height:1.42;}
+  #anime-top[lang="ja"] .n-contents nav small {font-size:11px;line-height:1.6;}
+  #anime-top[lang="ja"] .n-recent .post-name {font-size:12.5px;line-height:1.46;}
+  #anime-top[lang="ja"] #animeArchive .n-archive-row h3 {font-size:16.8px;line-height:1.4;}
+  #anime-top[lang="ja"] #animeArchive .n-archive-row .n-intro-preview {font-size:12px;line-height:1.67;}
+}
+@media(max-width:690px) {
+  #anime-top[lang="ja"] .n-mast-14 .n-mast-body {row-gap:17px;}
+  #anime-top[lang="ja"] .n-mast-14 .n-word-sub {font-size:11.8px;line-height:1.5;margin-top:8px;margin-bottom:5px;}
+  #anime-top[lang="ja"] .n-mast-14 .n-mobile-subtitle {font-size:11.4px;line-height:1.5;}
+  #anime-top[lang="ja"] .n-mast-14 .n-voice {padding-top:8px;}
+  #anime-top[lang="ja"] .n-mast-14 .n-journey-copy .n-journey-content p.n-journey-lead {
+    font-size:12px;line-height:1.72;margin-bottom:15px;
+  }
+  #anime-top[lang="ja"] .n-mast-14 .n-journey-copy .n-journey-content p:not(.n-journey-lead) {
+    font-size:11.65px;line-height:1.81;margin-bottom:14px;
+  }
+  #anime-top[lang="ja"] .n-mast-14 .n-journey-copy .n-journey-content p.n-journey-close {margin-bottom:0;}
+  #anime-top[lang="ja"] .n-mast-14 .n-journey-toggle {margin-top:12px;font-size:11px;}
+
+  #anime-top[lang="ja"] .n-prev-header {margin-bottom:11px;}
+  #anime-top[lang="ja"] .n-prev-header > span,
+  #anime-top[lang="ja"] .n-prev-header > small {font-size:9.6px;}
+  #anime-top[lang="ja"] .n-prev-header strong {font-size:17px;}
+  #anime-top[lang="ja"] .n-prev-links a {padding:9px 8px;}
+  #anime-top[lang="ja"] .n-prev-links a > small {font-size:9px;line-height:1.4;}
+  #anime-top[lang="ja"] .n-prev-links a > b {font-size:12.5px;line-height:1.4;}
+
+  #anime-top[lang="ja"] .n-latest .n-block-top h2,
+  #anime-top[lang="ja"] .n-contents .n-block-top h2 {font-size:13.5px;line-height:1.4;}
+  #anime-top[lang="ja"] .n-rank-card-11 .n-rank-quote {font-size:13.6px;line-height:1.5;margin-top:8px;}
+  #anime-top[lang="ja"] .n-rank-card-11 .n-rank-detail h3 {font-size:17.2px;line-height:1.38;}
+  #anime-top[lang="ja"] .n-feature-companions .n-feature-kind {font-size:9.5px;line-height:1.5;}
+  #anime-top[lang="ja"] .n-feature-companions .n-feature-item strong {font-size:12.2px;line-height:1.42;}
+  #anime-top[lang="ja"] .n-contents nav b {font-size:13.2px;line-height:1.47;}
+  #anime-top[lang="ja"] .n-contents nav small {font-size:10.5px;line-height:1.61;}
+
+  /* Keep date / category / title distinct; the old 62px date column collided. */
+  #anime-top[lang="ja"] .n-recent li,
+  #anime-top[lang="ja"] .n-recent li:has(.n-post-cat-ranking) {
+    grid-template-columns:77px 56px minmax(0,1fr);column-gap:5px;
+  }
+  #anime-top[lang="ja"] .n-recent .post-date {font-size:9.2px;line-height:1.35;white-space:normal;}
+  #anime-top[lang="ja"] .n-recent .post-cat {font-size:9.0px;line-height:1.35;white-space:normal;}
+  #anime-top[lang="ja"] .n-recent .post-name {font-size:11.5px;line-height:1.43;}
+
+  #anime-top[lang="ja"] #animeArchive .n-archive-row h3 {font-size:15.3px;line-height:1.43;}
+  #anime-top[lang="ja"] #animeArchive .n-archive-row .n-intro-preview {font-size:11.8px;line-height:1.7;}
+}
+@media(max-width:370px) {
+  #anime-top[lang="ja"] .n-recent li,
+  #anime-top[lang="ja"] .n-recent li:has(.n-post-cat-ranking) {
+    grid-template-columns:69px 50px minmax(0,1fr);column-gap:5px;
+  }
+  #anime-top[lang="ja"] .n-recent .post-date {font-size:8.8px;}
+  #anime-top[lang="ja"] .n-recent .post-cat {font-size:8.6px;}
+  #anime-top[lang="ja"] .n-recent .post-name {font-size:11px;}
+}

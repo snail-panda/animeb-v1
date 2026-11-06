@@ -74,23 +74,23 @@
     ['.anime09 .n-jump-nav a[href="#animeMoment"]','ノート'],
     ['.anime09 .n-jump-nav a[href="#animeArticles"]:not([data-anime-type])','アーカイブ'],
     ['.anime09 .n-rail-journey',' — シーズンをアニメとともに辿る旅'],
-    ['.anime09 .n-word-sub .n-mobile-subtitle','— シーズンをアニメとともに辿る旅'],
+    ['.anime09 .n-word-sub .n-mobile-subtitle','シーズンをアニメとともに辿る旅'],
     ['.anime09 .n-season-name small','今シーズン'],
     ['.anime09 .n-season-chooser > span','2026シーズン'],
     ['.anime09 .n-season-sub .n-progress-intro','シーズンの進み具合'],
     ['.anime09 .n-season-progress .n-progress-intro','シーズン進行状況'],
     ['.anime09 .n-checkpoints > span:first-child','シーズンのチェックポイント'],
     ['.anime09 .n-checkpoints > small','• 今後の節目は目安として表示'],
-    ['.anime09 .n-prev-header > span','前シーズンから'],
-    ['.anime09 .n-prev-header > small','前シーズンを振り返る'],
-    ['.anime09 .n-prev-links a:nth-child(1) > small','シーズンの最終評価'],
+    ['.anime09 .n-prev-header > span','前シーズン'],
+    ['.anime09 .n-prev-header > small','シーズンを振り返る'],
+    ['.anime09 .n-prev-links a:nth-child(1) > small','シーズンラインナップの最終評価'],
     ['.anime09 .n-prev-links a:nth-child(1) > b','2026年夏・最終ティアリスト'],
     ['.anime09 .n-prev-links a:nth-child(2) > small','おすすめ作品'],
     ['.anime09 .n-prev-links a:nth-child(2) > b','おすすめ作品と満足度ランキング'],
     ['.anime09 .n-latest .n-block-top h2','最新週間ランキング'],
     ['.anime09 .n-rank-issue > span','WEEK'],
     ['.anime09 .n-rank-quote','– 今週ランクインしたのは<br>どの作品？ –','html'],
-    ['.anime09 .n-rank-detail h3','週間アニメ<br>トップ10','html'],
+    ['.anime09 .n-rank-detail h3','トップ10週間アニメ<br>ランキング','html'],
     ['.anime09 .n-contents .n-block-top h2','サイト案内'],
     ['.anime09 .n-contents .n-block-top > span','— コンテンツ —'],
     ['.anime09 .n-contents nav a:nth-child(1) b','週間ランキング'],
@@ -108,7 +108,7 @@
     ['.anime09 #animeMoment .offbeat-coming-note','短いメモや、日々の小さな発見をここに掲載していきます。'],
     ['.anime09 .n-archive-heading small','これまでの投稿を探す'],
     ['.anime09 .n-archive-heading h2','最近の投稿・アーカイブ'],
-    ['.anime09 .n-archive-heading > span','シーズンや投稿の種類から探せます。'],
+    ['.anime09 .n-archive-heading > span','シーズンや投稿の種類で絞り込めます。'],
     ['.anime09 .n-season-filters [data-season-filter="all"]','すべてのシーズン'],
     ['.anime09 .n-season-filters [data-season-filter="2026-fall"]','2026年秋'],
     ['.anime09 .n-season-filters [data-season-filter="2026-summer"]','2026年夏'],
@@ -189,11 +189,11 @@
     plain('.anime09 .n-prev-links .n-prev-go','見てみる ', 'lead');
     plain('.anime09 #animeTier .n-feature-item[href*="/tierlist/"][href*="/week01/"] .n-feature-kind','シーズン開幕 · WEEK 01');
     plain('.anime09 #animeTier .n-feature-item[href*="/tierlist/"][href*="/week01/"] strong','ファーストインプレッション — ティアリスト');
-    plain('.anime09 #animeTier .n-feature-item[href*="/ranking/"][href*="/week00/"] .n-feature-kind','予選 · WEEK 00');
-    plain('.anime09 #animeTier .n-feature-item[href*="/ranking/"][href*="/week00/"] strong','予選ランキング');
+    plain('.anime09 #animeTier .n-feature-item[href*="/ranking/"][href*="/week00/"] .n-feature-kind','予選ラウンド · WEEK 00');
+    plain('.anime09 #animeTier .n-feature-item[href*="/ranking/"][href*="/week00/"] strong','本戦前の予選ランキング');
     // Journey is a real toggle controlled by pre-existing code: reflect its state after click.
     const jt=find('#nJourneyToggle'), journey=find('#nJourneyCopy');
-    if(jt && journey)change(jt,journey.classList.contains('is-expanded')?'続きを読む内容を閉じる <span aria-hidden="true">⌃</span>':'旅の続きはこちら <span aria-hidden="true">⌄</span>','html');
+    if(jt && journey)change(jt,journey.classList.contains('is-expanded')?'内容を閉じる <span aria-hidden="true">⌃</span>':'続きを読む <span aria-hidden="true">⌄</span>','html');
     // Runtime-updated season values are computed rather than frozen at Week 04.
     const week=(find('.anime09 .n-weeks .n-now b')?.textContent || find('.anime09 .n-progress-count')?.textContent || '04').match(/\d+/)?.[0] || '04';
     const year=find('.anime09 .n-season-name h2 b')?.textContent || '2026';
@@ -232,7 +232,7 @@
     dynamic(find('.anime09 .n-rank-overline'),()=>`${year}年${seasons[ss]} / 週間ランキング`);
     dynamic(find('.anime09 .n-rank-period'),s=>periodJP(s).replace(/\b\/\b/g,' / '));
     dynamic(find('.anime09 .n-rank-open > span:first-child'),src=>`第${(src.match(/\d+/)||[])[0]||week}週を見る`);
-    dynamic(find('.anime09 #animeTier .n-feature-label'),()=>`${year}年${seasons[ss]}・ほかの特集`);
+    dynamic(find('.anime09 #animeTier .n-feature-label'),()=>`${year}年${seasons[ss]}・その他の特集`);
     dynamic(find('.anime09 .n-prev-header em'),s=>seasonName(s));
     // The archive is populated asynchronously and can be rebuilt by filters.
     root.querySelectorAll('#animeRecentPosts .post-cat, #animeArchive .n-atype, #animeSearchResults small').forEach(el=>dynamic(el,s=>s.replace(/\bTIER LIST\b/gi,'ティアリスト').replace(/\bRANKING\b/gi,'ランキング').replace(/\bRECOMMENDATIONS\b/gi,'おすすめ').replace(/\bPICKS\b/gi,'おすすめ')));
@@ -253,7 +253,7 @@
       if(lbl)change(el,lbl);
     });
     root.querySelectorAll('#animeArchive .n-archive-row h3 a,#animeRecentPosts .post-name').forEach(el=>{
-      dynamic(el,s=>seasonName(s).replace(/Weekly Anime(?: Final)? Ranking/gi,'週間アニメランキング').replace(/Preliminary Ranking/gi,'予選ランキング').replace(/\bWeek\s*0?(\d+)\b/gi,'第$1週'));
+      dynamic(el,s=>seasonName(s).replace(/Weekly Anime(?: Final)? Ranking/gi,'週間アニメランキング').replace(/Preliminary Ranking/gi,'予選ランキング').replace(/Midseason Recommendations/gi,'ミッドシーズンのおすすめ作品').replace(/Enjoyment Ranking/gi,'満足度ランキング').replace(/\bWeek\s*0?(\d+)\b/gi,'第$1週'));
     });
     bilingualArchiveIntros();
     // Preserve editor-written titles; use only existing bilingual intros, never auto-translate.
