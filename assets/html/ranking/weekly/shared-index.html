@@ -404,105 +404,19 @@ function capitalizeFirstLetter(str) {
 const correctedSeason = capitalizeFirstLetter(season);
 
 // 🔄 次シーズン／前シーズン取得ヘルパー
-const seasonOrderMap = { "Winter": "Spring", "Spring": "Summer", "Summer": "Fall", "Fall": "Winter" };
-const seasonBackMap = { "Winter": "Fall", "Spring": "Winter", "Summer": "Spring", "Fall": "Summer" };
-
-function getNextSeason(year, season) {
-  if (season === "Fall") return { year: String(Number(year) + 1), season: "Winter" };
-  return { year, season: seasonOrderMap[season] };
+// AnimeB R15: navigation is handled by published-nav-r15.js.
+// Keep unavailable links inert until published targets have been verified.
+for (const node of document.querySelectorAll('.nav-link.left a, .nav-link.right a')) {
+  node.removeAttribute('href');
+  node.classList.add('disabled');
+  node.setAttribute('aria-disabled', 'true');
 }
-
-function getPrevSeason(year, season) {
-  if (season === "Winter") return { year: String(Number(year) - 1), season: "Fall" };
-  return { year, season: seasonBackMap[season] };
-}
-
-const basePath = `/animeb-v1/ranking/${year}/${season}/`;
-const prevLink = document.querySelector('.nav-link.left a');
-const nextLink = document.querySelector('.nav-link.right a');
-
-// 🔧 初期化（placeholder上書き防止）
-prevLink.href = "#";
-nextLink.href = "#";
-
-fetch('../../../../weekly-rankings.json')
-  .then(response => {
-    console.log("🔍 Response status:", response.status);
-    return response.json();
-  })
-  .then(data => {
-    const seasonData = data?.[year]?.[correctedSeason];
-    const weeksRaw = seasonData?.weeks;
-
-    if (!weeksRaw || !Array.isArray(weeksRaw)) {
-      console.log("🚫 No available weeks found for", year, correctedSeason);
-      return;
-    }
-
-    const availableWeeks = weeksRaw.map(w => w.toLowerCase().replace(/\s+/g, ''));
-    const finalWeek = seasonData.final?.toLowerCase().replace(/\s+/g, '');
-    const normalizedCurrentWeek = currentWeek.toLowerCase().replace(/\s+/g, '');
-
-
-    console.log("✅ availableWeeks:", availableWeeks);
-    console.log("🏁 finalWeek:", finalWeek);
-
-    const index = availableWeeks.indexOf(normalizedCurrentWeek);
-    const prevWeek = index > 0 ? availableWeeks[index - 1] : null;
-    const nextWeek = index >= 0 && index < availableWeeks.length - 1 ? availableWeeks[index + 1] : null;
-
-    // ⬅️ 前の週 or 前のシーズン
-    if (prevWeek) {
-      prevLink.href = `${basePath}${prevWeek}/index.html`;
-    } else {
-      const prevInfo = getPrevSeason(year, correctedSeason);
-      const prevSeasonData = data?.[prevInfo.year]?.[prevInfo.season];
-      const prevFinal = prevSeasonData?.final?.toLowerCase().replace(/\s+/g, '');
-      if (prevFinal) {
-        prevLink.href = `/animeb-v1/ranking/${prevInfo.year}/${prevInfo.season.toLowerCase()}/${prevFinal}/index.html`;
-      } else {
-        // 🔴 グレーアウト処理ここに貼る！
-    prevLink.href = "#";
-    prevLink.classList.add("disabled");
-    prevLink.setAttribute("title", "Coming soon");
-      }
-    }
-
-    // ➡️ 次の週 or 次のシーズン
-    if (nextWeek) {
-      nextLink.href = `${basePath}${nextWeek}/index.html`;
-    } else {
-      const nextInfo = getNextSeason(year, correctedSeason);
-      const nextSeasonData = data?.[nextInfo.year]?.[nextInfo.season];
-      const nextStart = nextSeasonData?.weeks?.[0]?.toLowerCase().replace(/\s+/g, '');
-      if (nextStart) {
-        nextLink.href = `/animeb-v1/ranking/${nextInfo.year}/${nextInfo.season.toLowerCase()}/${nextStart}/index.html`;
-      } else {
-        // 🔴 グレーアウト処理ここに貼る！
-    nextLink.href = "#";
-    nextLink.classList.add("disabled");
-    nextLink.setAttribute("title", "Coming soon");
-      }
-    }
-  })
-  .catch(error => {
-    console.error("❌ Error loading available weeks:", error);
-  });
-
-  // prev, next linkがdisabledならクリックできないようにする
-  prevLink.addEventListener("click", (e) => {
-  if (prevLink.classList.contains("disabled")) e.preventDefault();
-});
-nextLink.addEventListener("click", (e) => {
-  if (nextLink.classList.contains("disabled")) e.preventDefault();
-});
-
-
 </script>
 
 
 <script src="../../../../assets/js/common/offbeat-header.js"></script>
 <script src="../../../../assets/js/ranking/weekly/main.js?v=20261106-r14-preview-match"></script>
+<script src="../../../../assets/js/ranking/weekly/published-nav-r15.js?v=20261106-r15"></script>
 <script src="../../../../assets/js/ranking/weekly/offbeat-mobile-more-r5.js?v=20261103-r5"></script>
 </body>
 </html>
