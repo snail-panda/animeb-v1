@@ -1,0 +1,51 @@
+/* AnimeB R12: title-position adjustment. Default (0%) is deliberately untouched. */
+.animeb-title-trailing-spacer{display:none;pointer-events:none}
+body[data-animeb-title-shifted="true"][data-animeb-theme="image"][data-animeb-image-scope="hero"] .wrapper > .animeb-image-hero-spacer,
+body[data-animeb-title-shifted="true"][data-animeb-theme="image"][data-animeb-image-scope="full"] .wrapper > .animeb-image-hero-spacer{
+  height:calc(clamp(125px,27vw,190px) * var(--animeb-title-before-fraction,1))!important;
+}
+body[data-animeb-title-shifted="true"][data-animeb-theme="image"][data-animeb-image-scope="hero"] .wrapper > .animeb-title-trailing-spacer,
+body[data-animeb-title-shifted="true"][data-animeb-theme="image"][data-animeb-image-scope="full"] .wrapper > .animeb-title-trailing-spacer{
+  display:block;height:calc(clamp(125px,27vw,190px) * var(--animeb-title-after-fraction,0));
+  position:relative;z-index:2;pointer-events:none;
+}
+@media(max-width:768px){
+  body[data-animeb-title-shifted="true"][data-animeb-theme="image"][data-animeb-image-scope="hero"] .wrapper > .animeb-image-hero-spacer,
+  body[data-animeb-title-shifted="true"][data-animeb-theme="image"][data-animeb-image-scope="full"] .wrapper > .animeb-image-hero-spacer{
+    height:calc(clamp(132px,29vw,174px) * var(--animeb-title-before-fraction,1))!important;
+  }
+  body[data-animeb-title-shifted="true"][data-animeb-theme="image"][data-animeb-image-scope="hero"] .wrapper > .animeb-title-trailing-spacer,
+  body[data-animeb-title-shifted="true"][data-animeb-theme="image"][data-animeb-image-scope="full"] .wrapper > .animeb-title-trailing-spacer{
+    height:calc(clamp(132px,29vw,174px) * var(--animeb-title-after-fraction,0));
+  }
+}
+/* Title controls are separate from photo/anchor sliders and theme/colour settings. */
+.animeb-title-position-box{
+  box-sizing:border-box;min-width:0;margin:12px 0;padding:10px 12px;
+  border:1px solid #91a89a;border-radius:9px;display:grid;gap:10px;
+  color:#385b49;
+}
+.animeb-title-position-box legend{padding:0 5px;font:600 12px/1.4 'Fira Sans',sans-serif;letter-spacing:.02em;color:inherit}
+.animeb-title-position-help{margin:0;font:400 11px/1.5 'Fira Sans',sans-serif;color:#617d70}
+.animeb-title-position-row{display:flex;align-items:center;gap:8px;min-width:0}
+.animeb-title-position-row input[type=range]{min-width:0;flex:1 1 auto;accent-color:#5c7b63}
+.animeb-title-position-row button,.animeb-title-position-quick button{
+  flex:0 0 auto;min-height:32px;border:1px solid #90a99a;
+  border-radius:5px;background:#edf3ea;color:#315a44;cursor:pointer;
+  font:600 12px/1.3 'Fira Sans',sans-serif;
+}
+.animeb-title-position-row button{min-width:32px}
+.animeb-title-position-value{flex:0 0 40px;text-align:right;font:600 12px/1.3 'Fira Sans',sans-serif}
+.animeb-title-position-quick{display:flex;flex-wrap:wrap;gap:8px}
+.animeb-title-position-quick button{padding:6px 10px}
+.animeb-title-position-quick button[aria-pressed="true"]{background:#4b7458;color:#fff}
+body[data-animeb-theme="dark"] .animeb-title-position-box,
+body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .animeb-title-position-box{color:#e4efe6;border-color:#668578}
+body[data-animeb-theme="dark"] .animeb-title-position-help,
+body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .animeb-title-position-help{color:#c9ddd0}
+body[data-animeb-theme="dark"] .animeb-title-position-box button,
+body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .animeb-title-position-box button{
+  background:#2c4941;color:#e4efe6;border-color:#698979;
+}
+body[data-animeb-theme="dark"] .animeb-title-position-quick button[aria-pressed="true"],
+body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .animeb-title-position-quick button[aria-pressed="true"]{background:#55785f;color:#fff}

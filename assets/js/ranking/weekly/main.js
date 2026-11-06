@@ -1117,6 +1117,86 @@ function animebInitWeeklyThemes(){
   const heroSpacer=document.createElement('div');heroSpacer.className='animeb-image-hero-spacer';heroSpacer.setAttribute('aria-hidden','true');
   // Insert as a sibling of the established heading. No cards, notes, ranking rows or JSON are altered.
   document.querySelector('.wrapper > .header')?.before(heroSpacer);
+  // AnimeB R12 title-position: 0 = unchanged, 100 = above the image reveal.
+  const TITLE_POSITION_KEY='animeb-weekly-title-position-r12';
+  let titlePosition=0;
+  try {
+    // Site defaults do not inherit a personal browser slider on first paint.
+    if(localStorage.getItem('animeb-site-theme-mode-v1')!=='site') {
+      const storedTitlePosition=localStorage.getItem(TITLE_POSITION_KEY);
+      if(storedTitlePosition!==null && Number.isFinite(Number(storedTitlePosition)))
+        titlePosition=Math.max(0,Math.min(100,Math.round(Number(storedTitlePosition))));
+    }
+  } catch (_) {}
+  const titleTrailSpacer=document.createElement('div');
+  titleTrailSpacer.className='animeb-title-trailing-spacer';
+  titleTrailSpacer.setAttribute('aria-hidden','true');
+  document.querySelector('.wrapper > .sub-header')?.after(titleTrailSpacer);
+  const titlePositionBox=document.createElement('fieldset');
+  titlePositionBox.className='animeb-title-position-box';
+  const titlePositionLegend=document.createElement('legend');
+  titlePositionLegend.textContent='TITLE VERTICAL POSITION / タイトルの縦位置';
+  const titlePositionHelp=document.createElement('p');
+  titlePositionHelp.className='animeb-title-position-help';
+  titlePositionHelp.textContent='Hero / Full Page: move the headline upward while keeping Viewing Status in place. / 背景を動かさずタイトルの位置を調整。';
+  const titlePositionRow=document.createElement('div');
+  titlePositionRow.className='animeb-title-position-row';
+  const titlePositionRange=document.createElement('input');
+  titlePositionRange.type='range';titlePositionRange.min='0';titlePositionRange.max='100';
+  titlePositionRange.step='1';titlePositionRange.value=String(titlePosition);
+  titlePositionRange.setAttribute('aria-label','Title vertical position / タイトルの縦位置');
+  const titlePositionReadout=document.createElement('output');
+  titlePositionReadout.className='animeb-title-position-value';
+  titlePositionReadout.textContent=titlePosition+'%';
+  const titlePositionMinus=document.createElement('button');
+  titlePositionMinus.type='button';titlePositionMinus.textContent='−';
+  titlePositionMinus.setAttribute('aria-label','Move title down one step / タイトルを少し下へ');
+  const titlePositionPlus=document.createElement('button');
+  titlePositionPlus.type='button';titlePositionPlus.textContent='+';
+  titlePositionPlus.setAttribute('aria-label','Move title up one step / タイトルを少し上へ');
+  titlePositionRow.append(titlePositionMinus,titlePositionRange,titlePositionPlus,titlePositionReadout);
+  const titlePositionQuick=document.createElement('div');
+  titlePositionQuick.className='animeb-title-position-quick';
+  const titlePositionStandard=document.createElement('button');
+  titlePositionStandard.type='button';titlePositionStandard.textContent='Standard / 標準';
+  const titlePositionTop=document.createElement('button');
+  titlePositionTop.type='button';titlePositionTop.textContent='Top / 上部';
+  titlePositionQuick.append(titlePositionStandard,titlePositionTop);
+  titlePositionBox.append(titlePositionLegend,titlePositionHelp,titlePositionRow,titlePositionQuick);
+  // This control remains available in Theme Studio independently of the image library.
+  panelScroll.insertBefore(titlePositionBox,presetBox);
+  function syncTitlePosition(save=false){
+    titlePosition=Math.max(0,Math.min(100,Number.isFinite(Number(titlePosition))?Math.round(Number(titlePosition)):0));
+    titlePositionRange.value=String(titlePosition);
+    titlePositionReadout.value=titlePosition+'%';titlePositionReadout.textContent=titlePosition+'%';
+    titlePositionStandard.setAttribute('aria-pressed',String(titlePosition===0));
+    titlePositionTop.setAttribute('aria-pressed',String(titlePosition===100));
+    if(titlePosition===0){
+      document.body.removeAttribute('data-animeb-title-shifted');
+      document.body.style.removeProperty('--animeb-title-before-fraction');
+      document.body.style.removeProperty('--animeb-title-after-fraction');
+    } else {
+      document.body.setAttribute('data-animeb-title-shifted','true');
+      document.body.style.setProperty('--animeb-title-before-fraction',String((100-titlePosition)/100));
+      document.body.style.setProperty('--animeb-title-after-fraction',String(titlePosition/100));
+    }
+    if(save)try{localStorage.setItem(TITLE_POSITION_KEY,String(titlePosition));}catch(_){}
+    // Preview uses real positions; recalculating the camera anchor remains the existing code's job.
+    requestAnimationFrame(()=>{refreshPreviewHeader();scheduleHeroExtent();});
+  }
+  titlePositionRange.addEventListener('input',()=>{
+    titlePosition=Number(titlePositionRange.value);syncTitlePosition(true);
+  });
+  const titlePositionStep=delta=>{
+    titlePositionRange.value=String(Math.max(0,Math.min(100,titlePosition+delta)));
+    titlePositionRange.dispatchEvent(new Event('input',{bubbles:true}));
+  };
+  titlePositionMinus.addEventListener('click',()=>titlePositionStep(-1));
+  titlePositionPlus.addEventListener('click',()=>titlePositionStep(1));
+  titlePositionStandard.addEventListener('click',()=>titlePositionStep(-titlePosition));
+  titlePositionTop.addEventListener('click',()=>titlePositionStep(100-titlePosition));
+  syncTitlePosition(false);
+  // End AnimeB R12 title-position.
   // Keep the TOP/number heading intact; split only a plain-text TOP nn heading.
   const topHeading=document.querySelector('.wrapper > .header h1');
   if(topHeading && !topHeading.children.length){
@@ -1585,7 +1665,7 @@ function animebInitWeeklyThemes(){
     return {theme,url,source,localId,imageScope,imageVisibility,photoOpacity,
       weekStyle,imageZoom,imagePosX,imagePosY,statusAnchor:{...statusAnchor},
       anchorModel:{...anchorModel},imageDrag:{...imageDrag},fullPan:{...fullPan},fullZoom,
-      fullAnchor:{...fullAnchor},
+      fullAnchor:{...fullAnchor},titlePosition,
       legibility:{...legibility[theme]},introOpacity,statusOpacity,rankOpacity,introBlur,statusBlur,
       imageTone,fullFit,customColors:{...customColors},seasonSettings:{...seasonSettings}};
   }
@@ -1600,6 +1680,7 @@ function animebInitWeeklyThemes(){
     presetPick.value=chosen && presets.some(p=>p.id===chosen)?chosen:'';
   }
   function persistSnapshot(){
+    try{localStorage.setItem(TITLE_POSITION_KEY,String(titlePosition));}catch(_){}
     try{
       for(const [key,val] of [[STORE,theme],[IMG,url],[SOURCE,source],[LOCAL_KEY,localId],
         [SCOPE_KEY,imageScope],[VIS_KEY,imageVisibility],[PHOTO_OPACITY_KEY,photoOpacity],
@@ -1611,6 +1692,7 @@ function animebInitWeeklyThemes(){
     }catch(_){presetStatus.textContent='Loaded for this page, but browser storage is unavailable. / 保存領域にアクセスできません。';}
   }
   function syncControls(){
+    syncTitlePosition(false);
     refreshLegibilityControls();
     visibilityRange.value=String(imageVisibility);opacityRange.value=String(photoOpacity);
     zoomCtl.input.value=String(imageZoom);posXCtl.input.value=String(imagePosX);posYCtl.input.value=String(imagePosY);
@@ -1633,6 +1715,7 @@ function animebInitWeeklyThemes(){
       await verifyImage(address);
     }
     saveHeaderProfile(); // Preserve the outgoing theme before loading a preset.
+    titlePosition=Number.isFinite(Number(state.titlePosition)) && state.titlePosition!==null && state.titlePosition!==undefined ? Math.max(0,Math.min(100,Math.round(Number(state.titlePosition)))) : 0;
     theme=['original','dark','image'].includes(state.theme)?state.theme:'original';
     profileOwner=theme;
     url=typeof state.url==='string'?state.url:'';
