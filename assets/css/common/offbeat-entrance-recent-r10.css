@@ -1,0 +1,53 @@
+/* OFFBEAT R10 — entrance / crossroads only: mobile Recent Posts.
+   Keep the R9 two-row structure, but give it deliberate balance:
+   date at left, category at right, centered one-line article title below.
+   All Anime Home sections, desktop layout, and source content remain unchanged. */
+@media (max-width: 600px) {
+  #homeScreen .posts li {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    column-gap: 12px;
+    row-gap: 7px;
+    align-items: baseline;
+    padding: 15px 0 17px;
+  }
+  #homeScreen .posts .post-date {
+    grid-column: 1;
+    min-width: 0;
+    text-align: left;
+    font-size: 11px;
+    line-height: 1.25;
+    letter-spacing: .012em;
+    white-space: nowrap;
+  }
+  #homeScreen .posts .post-cat {
+    grid-column: 2;
+    min-width: 0;
+    text-align: right;
+    font-size: 10.7px;
+    line-height: 1.25;
+    letter-spacing: .018em;
+    white-space: nowrap;
+  }
+  #homeScreen .posts .post-name {
+    grid-column: 1 / -1;
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+    min-width: 0;
+    margin: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    text-align: center;
+    font-size: clamp(13.2px, 3.9vw, 15.4px);
+    font-weight: 500;
+    line-height: 1.25;
+    letter-spacing: -.009em;
+  }
+}
+@media (max-width: 365px) {
+  #homeScreen .posts li { row-gap: 6px; padding: 14px 0 15px; }
+  #homeScreen .posts .post-date { font-size: 10.5px; }
+  #homeScreen .posts .post-cat { font-size: 10.2px; }
+}
