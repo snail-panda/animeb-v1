@@ -1408,6 +1408,14 @@ function animebInitWeeklyThemes(){
       const clone=src.cloneNode(true);
       clone.removeAttribute('id');for(const el of clone.querySelectorAll('[id]'))el.removeAttribute('id');
       copyAppearance(src,clone);
+      // R14: getBoundingClientRect() already includes the R13 title translation.
+      // The clone is positioned using that measured rectangle. If we also copy
+      // the parent transform into the preview clone, the title moves TWICE.
+      // Cancel only the cloned top-level transform; keep inner h1 scaling and ink.
+      if(src.matches('.header,.sub-header')){
+        clone.style.setProperty('transform','none','important');
+        clone.style.setProperty('-webkit-transform','none','important');
+      }
       clone.style.setProperty('position','absolute','important');
       clone.style.setProperty('top',`${(rect.top-topBase).toFixed(2)}px`,'important');
       clone.style.setProperty('left',`${(rect.left-leftBase).toFixed(2)}px`,'important');
