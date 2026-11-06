@@ -14,6 +14,8 @@
       const title=String(e.title?.display||'');
       const intro=String(e.intro?.en||e.intro?.ja||'');
       const entry=create(p,{title,date:String(e.published?.iso||''),image,intro});
+       entry.intro_en=String(e.intro?.en||'');
+       entry.intro_ja=String(e.intro?.ja||'');
       entry.period=String(e.period?.display||'');
       entry.episodes=String(e.episodes?.display||'');
       entry.tags=Array.isArray(e.tags)?e.tags.filter(x=>typeof x==='string'):[];

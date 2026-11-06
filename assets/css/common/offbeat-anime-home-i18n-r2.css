@@ -1,0 +1,48 @@
+/* OFFBEAT Anime Home R7 — JP editorial typography pass (desktop first).
+   Intentional exclusions: Featured Titles, lineup, Week Peek, and approved R5 cards. */
+/* The English four-paragraph journey has a consistent type size; lead remains italic/medium. */
+@media (min-width:891px){
+  #anime-top .n-mast-14 .n-journey-copy p.n-journey-lead {
+    font-size:14.4px;line-height:1.34;
+  }
+}
+@media (max-width:890px){
+  #anime-top .n-mast-14 .n-journey-copy p.n-journey-lead {
+    font-size:13.2px;line-height:1.3;
+  }
+}
+/* Japanese text forms its own rhythm: smaller glyphs, open line spacing. */
+@media (min-width:891px){
+ #anime-top[lang="ja"] .n-mast-14 .n-journey-copy p,
+ #anime-top[lang="ja"] .n-mast-14 .n-journey-copy p.n-journey-lead,
+ #anime-top[lang="ja"] .n-mast-14 .n-journey-copy p.n-journey-close{
+    font-size:13.2px;line-height:1.53;letter-spacing:.003em;margin-bottom:10px;
+ }
+ #anime-top[lang="ja"] .n-word-sub{font-size:13.4px;line-height:1.35;}
+ #anime-top[lang="ja"] .n-checkpoints a,
+ #anime-top[lang="ja"] .n-checkpoints>span:not(:first-child){font-size:12px;letter-spacing:0;}
+ #anime-top[lang="ja"] .n-prev-links b{font-size:17px;line-height:1.25;}
+ #anime-top[lang="ja"] .n-rank-quote{font-size:19px;line-height:1.3;letter-spacing:0;}
+ #anime-top[lang="ja"] .n-rank-detail h3{font-size:26px;line-height:1.23;}
+ #anime-top[lang="ja"] .n-contents .n-block-top h2{font-size:15px;}
+ #anime-top[lang="ja"] .n-contents nav b{font-size:17px;line-height:1.23;}
+ #anime-top[lang="ja"] .n-contents nav small{font-size:12px;line-height:1.37;}
+ #anime-top[lang="ja"] .n-feature-companions .n-feature-kind{font-size:11px;}
+ #anime-top[lang="ja"] .n-feature-companions .n-feature-item strong{font-size:13.5px;line-height:1.25;}
+ #anime-top[lang="ja"] .n-recent .post-date{font-size:10px;letter-spacing:0;}
+ #anime-top[lang="ja"] .n-recent .post-cat{font-size:9.8px;letter-spacing:0;}
+ #anime-top[lang="ja"] .n-recent .post-name{font-size:14.4px;line-height:1.37;}
+ #anime-top[lang="ja"] .n-archive-heading h2{font-size:29px;line-height:1.18;}
+ #anime-top[lang="ja"] .n-archive-heading>span{font-size:12.6px;line-height:1.4;}
+ #anime-top[lang="ja"] .n-archive-row h3{font-size:22px;line-height:1.24;}
+ #anime-top[lang="ja"] .n-archive-row .n-atype{font-size:10.5px;}
+ #anime-top[lang="ja"] .n-archive-row .n-intro-preview{font-size:13.5px;line-height:1.52;}
+}
+/* Keep multi-character Japanese labels from squeezing the mobile grid.
+   The rest of the mobile typography will be reviewed separately. */
+@media(max-width:890px){
+ #anime-top[lang="ja"] .n-word-sub{letter-spacing:0;}
+ #anime-top[lang="ja"] .n-checkpoints{gap:7px 8px;}
+ #anime-top[lang="ja"] .n-checkpoints a,
+ #anime-top[lang="ja"] .n-checkpoints>span:not(:first-child){font-size:11px;}
+}
