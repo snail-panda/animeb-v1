@@ -1,0 +1,130 @@
+/* OFFBEAT R9 — delicate refinements based on R8 iPhone / English–Japanese comparison.
+   Loads AFTER R8. Restricted to the Anime Home / entrance areas approved below.
+   Does not alter content, Week Peek, Featured Titles, Lineup, or ranking JSON. */
+
+/* 1. Japanese Journey: preserve the clear lead/body distinction from R8, but
+      reduce the amount of vertical space consumed by the intro at narrow widths. */
+@media (max-width: 890px) {
+  #anime-top[lang="ja"] .n-mast-14 .n-mast-body { row-gap: 11px; }
+  #anime-top[lang="ja"] .n-mast-14 .n-word-sub { margin-bottom: 2px; }
+  #anime-top[lang="ja"] .n-mast-14 .n-journey-copy .n-journey-content p.n-journey-lead {
+    font-size: 11.8px; line-height: 1.66; margin-bottom: 10px;
+  }
+  #anime-top[lang="ja"] .n-mast-14 .n-journey-copy .n-journey-content p:not(.n-journey-lead) {
+    font-size: 11.55px; line-height: 1.70; margin-bottom: 11px;
+  }
+  #anime-top[lang="ja"] .n-mast-14 .n-journey-copy .n-journey-content p.n-journey-close { margin-bottom: 0; }
+}
+@media (max-width: 690px) {
+  #anime-top[lang="ja"] .n-mast-14 .n-mast-body { row-gap: 8px; }
+  #anime-top[lang="ja"] .n-mast-14 .n-word-sub { margin-bottom: 1px; }
+  #anime-top[lang="ja"] .n-mast-14 .n-voice { padding-top: 3px; }
+  #anime-top[lang="ja"] .n-mast-14 .n-journey-copy .n-journey-content p.n-journey-lead {
+    font-size: 11.45px; line-height: 1.68; margin-bottom: 10px;
+  }
+  #anime-top[lang="ja"] .n-mast-14 .n-journey-copy .n-journey-content p:not(.n-journey-lead) {
+    font-size: 11.35px; line-height: 1.70; margin-bottom: 11px;
+  }
+  #anime-top[lang="ja"] .n-mast-14 .n-journey-copy .n-journey-content p.n-journey-close { margin-bottom: 0; }
+  #anime-top[lang="ja"] .n-mast-14 .n-journey-toggle { margin-top: 6px; }
+}
+
+/* 2. How the Season Unfolds: remove the visually foreign beige-grey panel.
+      Keep the warm hairline and existing layout/accordion/text untouched. */
+#anime-top .ob-season-experience-r3 .ob-how-r3 {
+  background: transparent;
+  border-left: 2px solid #b79980;
+}
+#anime-top .ob-season-experience-r3 .ob-how-r3 .ob-how-expanded {
+  border-top-color: #cbd6c9;
+}
+
+/* 3. Companion links: stronger ink, but NO return to R7's oversized text. */
+#anime-top[lang="ja"] .n-feature-companions .n-feature-item strong {
+  font-family: 'Hiragino Mincho ProN', 'Yu Mincho', 'Noto Serif JP', serif;
+  font-weight: 700;
+  color: #315940;
+  letter-spacing: 0;
+}
+#anime-top[lang="ja"] .n-feature-companions .n-feature-kind {
+  font-weight: 600;
+  color: #64816c;
+}
+#anime-top[lang="ja"] .n-feature-companions > .n-feature-label {
+  color: #725941;
+  font-weight: 600;
+}
+
+/* 4. Site guide: title hierarchy should feel as purposeful as Featured Titles. */
+#anime-top[lang="ja"] .n-contents nav b {
+  font-family: 'Hiragino Mincho ProN', 'Yu Mincho', 'Noto Serif JP', serif;
+  font-weight: 700;
+  color: #2c5039;
+  letter-spacing: 0;
+}
+#anime-top[lang="ja"] .n-contents nav small {
+  color: #718876;
+  font-weight: 400;
+}
+
+/* 5. Archive postcards: Japanese title is the focal point again. Excerpts get
+      slightly smaller and less loose; post metadata and colored tags are intact. */
+#anime-top[lang="ja"] #animeArchive .n-archive-row h3,
+#anime-top[lang="ja"] #animeArchive .n-archive-row h3 a {
+  font-weight: 600;
+  color: #2e553d;
+}
+#anime-top[lang="ja"] #animeArchive .n-archive-row .n-intro-preview {
+  font-size: 12.15px;
+  line-height: 1.54;
+  letter-spacing: .003em;
+  margin-top: 5px;
+}
+@media (max-width: 890px) {
+  #anime-top[lang="ja"] #animeArchive .n-archive-row .n-intro-preview {
+    font-size: 11.5px; line-height: 1.56;
+  }
+}
+@media (max-width: 690px) {
+  #anime-top[lang="ja"] #animeArchive .n-archive-row h3 {
+    font-weight: 700;
+    font-size: 15.3px; line-height: 1.36;
+  }
+  #anime-top[lang="ja"] #animeArchive .n-archive-row .n-intro-preview {
+    font-size: 11.35px; line-height: 1.56;
+  }
+}
+
+/* 6. Entrance only: mobile Recent Posts title gets its own full-width row,
+      avoiding title wraps without making the entire feed unreadably tiny.
+      Longest titles use an ellipsis only if genuinely wider than the screen. */
+@media (max-width: 600px) {
+  #homeScreen .posts li {
+    display: grid;
+    grid-template-columns: 73px minmax(0, 1fr);
+    column-gap: 8px;
+    row-gap: 2px;
+    align-items: baseline;
+    padding: 10px 0;
+  }
+  #homeScreen .post-date { grid-column: 1; font-size: 9.7px; line-height: 1.17; }
+  #homeScreen .post-cat { grid-column: 2; font-size: 9.4px; line-height: 1.17; }
+  #homeScreen .post-name {
+    grid-column: 1 / -1;
+    display: block;
+    width: 100%;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 12.55px;
+    line-height: 1.22;
+    letter-spacing: -.009em;
+  }
+}
+@media (max-width: 365px) {
+  #homeScreen .posts li { grid-template-columns: 69px minmax(0, 1fr); column-gap: 6px; }
+  #homeScreen .post-date { font-size: 9.4px; }
+  #homeScreen .post-cat { font-size: 9.1px; }
+  #homeScreen .post-name { font-size: 12.05px; }
+}
