@@ -1,0 +1,21 @@
+/* Theme Studio R18: compact, quiet site theme assignment manager */
+.animeb-r18-manager{margin:1.1rem 0;padding:.8rem .85rem;border:1px solid rgba(164,198,175,.53);border-radius:9px;color:#d1ddd4;font-family:inherit;font-weight:400;}
+.animeb-r18-manager>summary{cursor:pointer;letter-spacing:.045em;font-size:.93rem;font-weight:500;line-height:1.4;}
+.animeb-r18-muted{font-size:.78rem;line-height:1.55;color:#b4c6bd;margin:.65rem 0 .8rem;}
+.animeb-r18-card{border-top:1px solid rgba(166,194,179,.27);padding:.9rem 0 .75rem;}
+.animeb-r18-season-label{margin:0 0 .4rem;font-size:1rem;font-weight:500;letter-spacing:.02em;color:#e2e9e3;}
+.animeb-r18-row{display:grid;grid-template-columns:minmax(0,1fr) minmax(150px,42%);gap:.55rem;align-items:center;padding:.32rem 0;}
+.animeb-r18-row-head{min-width:0;display:flex;flex-direction:column;gap:.19rem;}
+.animeb-r18-id{font-size:.72rem;letter-spacing:.04em;color:#b8c9be;}
+.animeb-r18-published{font-size:.79rem;line-height:1.35;color:#d5dfd7;overflow-wrap:anywhere;}
+.animeb-r18-select,.animeb-r18-add select,.animeb-r18-add-week select{box-sizing:border-box;width:100%;min-width:0;max-width:100%;background:#263e37;color:#f0f3ed;border:1px solid #6b877c;border-radius:5px;padding:.54rem .38rem;font:inherit;font-size:.79rem;}
+.animeb-r18-weeks{margin:.5rem 0 0;border-top:1px solid rgba(166,194,179,.16);padding-top:.55rem;}
+.animeb-r18-weeks>summary{font-size:.77rem;color:#b8cfbd;cursor:pointer;letter-spacing:.035em;}
+.animeb-r18-week-list{padding:.45rem 0 .2rem .2rem;}
+.animeb-r18-add,.animeb-r18-add-week,.animeb-r18-actions{display:flex;gap:.45rem;flex-wrap:wrap;align-items:center;margin:.65rem 0;}
+.animeb-r18-add select{width:auto;flex:1 1 85px;}
+.animeb-r18-add-week select{width:auto;flex:1 1 100px;}
+.animeb-r18-manager button{font:inherit;line-height:1.35;font-size:.78rem;font-weight:500;background:#335547;border:1px solid #759a81;color:#f0f6f0;border-radius:5px;padding:.55rem .65rem;cursor:pointer;}
+.animeb-r18-manager button:disabled{opacity:.45;cursor:default;}
+.animeb-r18-status{font-size:.78rem;line-height:1.5;margin:.65rem 0;color:#d8e5dc;overflow-wrap:anywhere;}
+@media(max-width:620px){.animeb-r18-manager{padding:.7rem .6rem;}.animeb-r18-row{grid-template-columns:minmax(0,1fr);gap:.35rem;}.animeb-r18-card{padding:.75rem 0 .65rem;}.animeb-r18-actions button{flex:1 1 125px;}}

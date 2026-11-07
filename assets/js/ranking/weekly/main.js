@@ -2342,7 +2342,7 @@ function animebInitWeeklyThemes(){
         if(file.size>2097152)throw new Error('JSON is too large');
         const candidate=JSON.parse(await file.text());
         if(!validConfig(candidate))throw new Error('Invalid site-themes.json format');
-        siteConfig=candidate;configReady=true;updateConfigSummary();
+        siteConfig=candidate;configReady=true;updateConfigSummary();r18Manager?.render();
         publisherMessage.textContent='Imported '+file.name+'. Future exports will include its assignments. / このJSONを土台に書き出します。';
       }catch(err){publisherMessage.textContent='Import failed / 読込失敗: '+(err.message||err);}
       finally{importedConfig.value='';}
@@ -2380,7 +2380,7 @@ function animebInitWeeklyThemes(){
       setTimeout(()=>URL.revokeObjectURL(objectURL),30000);
       // Keep uncommitted edits in memory so several assignments can be exported in succession.
       // Reload or re-import to discard local unpublished changes.
-      siteConfig=next;updateConfigSummary();
+      siteConfig=next;updateConfigSummary();r18Manager?.render();
       publisherMessage.textContent='Downloaded site-themes.json → '+
         (kind==='season'?pickedSeason:pickedFullWeek)+
         '. Replace assets/data/ranking/weekly/site-themes.json, commit, push, then reload. / JSONを指定先に上書きして公開してください。';
@@ -2392,7 +2392,17 @@ function animebInitWeeklyThemes(){
       makeButton('Assign selected WEEK / 選択した週',()=>exportFor('week','selected')));
     publisher.append(summary,publishHelp,targetRow,publishActions,chosenActions,importLabel,configSummary,publisherMessage);
     updateConfigSummary();
-    box.append(legend,status,actions,info,publisher);
+    const r18Manager=typeof window.animebInitSiteThemeManagerR18==='function'
+      ? window.animebInitSiteThemeManagerR18({
+          getConfig:()=>siteConfig,
+          getPresets:()=>presets,
+          isReady:()=>configReady,
+          configURL:CONFIG_URL,
+          currentSeason:seasonId,
+          validateImage:state=>state&&state.source!=='local'&&
+            (state.theme!=='image'||!!validPath(state.url))
+        }) : null;
+    box.append(legend,status,actions,info,publisher,...(r18Manager?[r18Manager.element]:[]));
     presetBox.prepend(box);
     modeStatus();
     // Existing controls continue to work; editing a site default becomes personal.
@@ -2410,7 +2420,7 @@ function animebInitWeeklyThemes(){
         if(!response.ok)throw new Error('HTTP '+response.status);
         const data=await response.json();
         if(!validConfig(data))throw new Error('invalid theme-map schema');
-        siteConfig=data;configReady=true;updateConfigSummary();
+        siteConfig=data;configReady=true;updateConfigSummary();r18Manager?.render();
       }catch(err){console.warn('AnimeB: site-theme defaults unavailable, using base fallback',err);}
       if(mode==='site')try{await showPublishedTheme();}
       catch(err){status.textContent='Site theme unavailable / サイト標準を読み込めません: '+(err.message||err);}
