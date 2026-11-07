@@ -21,7 +21,7 @@
       master:'OPENING SEASON LINEUP', masterNote:'Opening pool explicitly defined in the season file.',
       recorded:'TITLES APPEARING IN WEEKLY RANKINGS', recordedNote:'Reconstructed from published weekly rankings, not a verified opening lineup. Shows that never ranked may be absent.',
       preliminary:'ELIMINATED IN PRELIM', prelimNote:'Explicitly marked eliminated in the Preliminary Round; not included in the opening main-season lineup.',
-      preload:'Explore titles recorded this season', hideList:'Hide title list', loading:'Reading published weekly records…',
+      preload:'Explore Weekly Ranking Titles', hideList:'Hide title list', loading:'Reading published weekly records…',
       failed:'Some weekly records could not be read; this list may be incomplete.', noEntries:'No usable title data was found in the published records.',
       details:'Season record', close:'Close', seen:'First appearance in weekly rankings',
       noMaster:'A season-wide opening lineup has not been registered for this archive. You can still explore titles that appeared in published weekly rankings.',
@@ -45,7 +45,7 @@
       master:'本戦開始時のラインナップ', masterNote:'シーズン用ファイルに指定された本戦開始時の作品一覧です。',
       recorded:'週間ランキングに登場した作品', recordedNote:'公開済みの週間ランキングから復元した一覧です。正確な初期ラインナップではなく、ランクインしなかった作品は含まれない場合があります。',
       preliminary:'予選ラウンドで選考外となった作品', prelimNote:'予選で選考外と明記された作品です。本戦の初期ラインナップには含めていません。',
-      preload:'週間記録から作品一覧を表示', hideList:'作品一覧を閉じる', loading:'公開済みの週間記録を読み込み中…',
+      preload:'週間ランキングの作品一覧を見る', hideList:'作品一覧を閉じる', loading:'公開済みの週間記録を読み込み中…',
       failed:'取得できなかった週があります。作品一覧は不完全な場合があります。', noEntries:'公開済みの記録から作品一覧を復元できませんでした。',
       details:'シーズンでの記録', close:'閉じる', seen:'週間ランキング初登場',
       noMaster:'このシーズンの本戦開始時の作品一覧は、まだ登録されていません。公開済みの週間ランキングに登場した作品は、下から確認できます。',
@@ -83,7 +83,10 @@
     const key=`${season.year}-${season.season}`;
     if (!masterCache.has(key)){
       masterCache.set(key,(async()=>{
+        // OFFBEAT MASTER BRIDGE R21: canonical full master first; legacy display JSON remains fallback.
         for (const path of [
+          `master/${season.year}/${season.season}/anime-master-${key}.json`,
+          `master/${season.year}/${season.season}/anime_master-${key}.json`,
           `assets/data/offbeat-season-${key}.json`,
           `assets/data/anime-master-${key}.json`,
           `assets/data/ranking/weekly/anime-master-${key}.json`
@@ -101,22 +104,48 @@
   const panelToken=new WeakMap();
   const openHistoryLists=new Set(); // Retain the title-list state across EN/JP re-rendering.
   // Read real published entries; do not infer the initial pool from weekly counts.
+  // OFFBEAT MASTER BRIDGE R21: preserve Excel order; only N/A / NA excludes opening candidates.
+  // initialSeasonPool remains the editor's value; never silently change it on mismatch.
+  const isNotApplicable = value => /^N\s*\/?\s*A$/i.test(String(value ?? '').trim());
+  const asMasterDisplayItem = e => ({...e, ...(e.fields || {}), ...(e.info || {}),
+    kv:kvOf(e), title:titleOf(e), jpTitle:jpOf(e),
+    romanized_title:e.info?.romanized_title ?? e.fields?.romanized_title ?? e.romanized_title ?? '',
+    synopsis:e.info?.synopsis ?? e.fields?.synopsis ?? e.synopsis ?? '',
+    synopsis_ja:e.info?.synopsis_ja ?? e.fields?.synopsis_ja ?? e.synopsis_ja ?? '',
+    studios:e.info?.studios ?? e.fields?.production_studio ?? e.studios ?? '',
+    air_date:e.fields?.air_date ?? e.air_date ?? ''
+  });
   function masterItems(data){
     const src=Array.isArray(data.items)?data.items:(Array.isArray(data.entries)?data.entries:[]);
+    const count=Number(data.initialSeasonPool ?? data.meta?.initialSeasonPool);
+    const hasCount=Number.isSafeInteger(count)&&count>=0&&count<=src.length;
     if(Array.isArray(data.mainSeason)){
       const selected=new Set(data.mainSeason.map(normalize));
-      return {items:src.filter(e=>selected.has(normalize(titleOf(e)))||selected.has(normalize(kvOf(e)))),verified:true,excluded:[]};
+      const items=src.filter(e=>selected.has(normalize(titleOf(e)))||selected.has(normalize(kvOf(e))));
+      return {items:items.map(asMasterDisplayItem),verified:true,excluded:[]};
     }
-    const count=Number(data.initialSeasonPool ?? data.meta?.initialSeasonPool);
-    const hasCount=Number.isInteger(count)&&count>0&&count<=34;
-    const decisions=src.slice(0,34).some(e=>statusOf(e)!=='');
-    if(decisions){
-      const slots=src.slice(0,34);
-      const eligible=slots.filter(e=>statusOf(e)!=='NA'&&e.mainSeason!==false&&e.isMainSeason!==false);
-      return {items:eligible,verified:hasCount&&eligible.length===count,excluded:slots.filter(e=>statusOf(e)==='NA')};
+    const rawCandidate=data.meta?.initialCandidateCount ?? data.initialCandidateCount;
+    const candidate=rawCandidate===null||rawCandidate===undefined||rawCandidate==='' ? NaN:Number(rawCandidate);
+    if(Number.isSafeInteger(candidate)&&candidate>=0&&candidate<=src.length){
+      const slots=src.slice(0,candidate);
+      const excluded=slots.filter(e=>isNotApplicable(statusOf(e)));
+      const eligible=slots.filter(e=>!isNotApplicable(statusOf(e)));
+      // A mismatch is not hidden: the actual eligible titles take precedence in the list,
+      // but we do NOT assert that the manually entered pool count has been verified.
+      if(hasCount&&eligible.length!==count){
+        console.warn('OFFBEAT R21: master lineup count mismatch',data.meta?.year,data.meta?.season,
+          {enteredInitialSeasonPool:count,initialCandidateCount:candidate,excluded:excluded.length,eligible:eligible.length});
+      }
+      return {items:eligible.map(asMasterDisplayItem),verified:hasCount&&eligible.length===count,
+        excluded:excluded.map(asMasterDisplayItem)};
     }
-    if(hasCount)return {items:src.slice(0,count),verified:true,excluded:[]};
-    return {items:src.length<=34?src:[],verified:false,excluded:[]};
+    // Legacy R3 display JSON already contains the selected lineup; do not change its semantics.
+    if(Array.isArray(data.items)&&hasCount){
+      return {items:src.slice(0,count).map(asMasterDisplayItem),verified:true,excluded:[]};
+    }
+    // A full master with no candidate boundary is NOT proof of an opening lineup.
+    // The caller falls back to weekly-ranking records rather than inventing membership.
+    return {items:[],verified:false,excluded:[]};
   }
   function weekURL(season,n){return new URL(`ranking/${season.year}/${season.season}/week${pad(n)}/index.html`,base).href;}
   const identity=e=>kvOf(e)?'kv:'+normalize(kvOf(e)):'title:'+normalize(titleOf(e)||jpOf(e));

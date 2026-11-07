@@ -8,7 +8,8 @@
     "recordCount": 105,
     "matchKey": "title",
     "sourceFieldCount": 26,
-    "initialSeasonPool": 30
+    "initialSeasonPool": 30,
+    "initialCandidateCount": 34
   },
   "columns": [
     {
