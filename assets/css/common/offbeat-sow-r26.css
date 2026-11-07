@@ -1,0 +1,33 @@
+/* OFFBEAT S.O.W R26 — approved 2026-11-07 typography, first fidelity-first integration.
+   The artwork is a transparent image isolated from the approved screenshot.
+   Do not recreate the typography with unrelated generic fonts. */
+.anime09 .n-season.n-season-12.n-season-13 > .ob-sow-lockup-r26 {
+  display:block;
+  max-width:780px;
+  margin:0 auto 8px;
+  padding:0 12px;
+  text-align:center;
+  background:transparent;
+  border:0;
+}
+.anime09 .ob-sow-lockup-r26 img {
+  display:block;
+  width:min(100%, 700px);
+  height:auto;
+  margin:0 auto;
+  border:0;
+  background:transparent;
+  object-fit:contain;
+}
+/* The existing current-season top divider must not sit between S.O.W and the heading. */
+.anime09 .n-season-13 .n-season-header {
+  border-top:0;
+}
+@media(max-width:690px) {
+  .anime09 .n-season.n-season-12.n-season-13 > .ob-sow-lockup-r26 {
+    width:100%;
+    margin:0 auto 7px;
+    padding:0 14px;
+  }
+  .anime09 .ob-sow-lockup-r26 img { width:100%; max-width:420px; }
+}
