@@ -361,7 +361,10 @@
     if(synopsis){const block=make('section','ob-r19-synopsis');block.append(make('h4','',w.synopsis));
       let clean=String(synopsis).replace(/<[^>]*>/g,' ').replace(/\s+/g,' ').trim();
       if(clean.length>360)clean=clean.slice(0,357).replace(/\s+\S*$/,'')+'…';
-      block.append(make('p','',clean));inner.append(block);
+      const synopsisParagraph=make('p','',clean);
+       // When Japanese synopsis is absent, give English fallback text its own language.
+       if(lang==='ja' && !(best.synopsis_ja||item.synopsis_ja))synopsisParagraph.lang='en';
+       block.append(synopsisParagraph);inner.append(block);
     }
     const links=make('div','ob-r19-actions');
     if(record&&record.firstWeek!==null)links.append(makeLink(w.firstLink,weekURL(season,record.firstWeek)));

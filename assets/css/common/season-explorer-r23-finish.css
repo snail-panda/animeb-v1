@@ -1,0 +1,126 @@
+/* OFFBEAT R23 — restrained follow-up to the approved R22b design.
+   Scope: historical inspector headings, language-aware synopsis, Japanese
+   checkpoints, and the existing Anime Home season selector only.
+   No lineup/master/ranking rules are changed. */
+
+/* A section heading should stand slightly above its body copy. */
+.ob-r19-modal .ob-r19-elements h4,
+.ob-r19-modal .ob-r19-synopsis h4 {
+  margin:0 0 9px;
+  font:600 13.5px/1.35 'Barlow Condensed','Abel',sans-serif;
+  letter-spacing:.035em;
+  color:#31543d;
+}
+.ob-r19-modal:lang(ja) .ob-r19-elements h4,
+.ob-r19-modal:lang(ja) .ob-r19-synopsis h4 {
+  font:650 12.8px/1.48 'Yu Gothic','Hiragino Kaku Gothic ProN',sans-serif;
+  letter-spacing:.018em;
+  color:#2e5039;
+}
+/* R20 labels the synopsis paragraph as English when JA text is absent.
+   Do not render English prose in a Japanese Mincho face in that case. */
+.ob-r19-modal:lang(ja) .ob-r19-synopsis p:lang(en) {
+  font:400 15px/1.53 'EB Garamond',Georgia,serif;
+  letter-spacing:0;
+  color:#425d48;
+}
+
+/* Japanese archive checkpoints: stronger structural label, quieter body,
+   three columns retained, and borders only as tall as their own content. */
+.anime09 .ob-r16-archive:lang(ja) .ob-r17-checkpoints h4 {
+  font:650 12.2px/1.48 'Yu Gothic','Hiragino Kaku Gothic ProN',sans-serif;
+  letter-spacing:.012em;
+  color:#30533d;
+  margin-bottom:7px;
+}
+.anime09 .ob-r16-archive:lang(ja) .ob-r19-checkpoint-note {
+  color:#617964;
+}
+.anime09 .ob-r16-archive:lang(ja) .ob-r19-stage-row {
+  align-items:start;
+}
+.anime09 .ob-r16-archive:lang(ja) .ob-r19-stage {
+  align-self:start;
+  padding-bottom:3px;
+}
+.anime09 .ob-r16-archive:lang(ja) .ob-r19-stage h5 {
+  font-weight:600;
+  letter-spacing:.005em;
+  margin:2px 0 5px;
+}
+.anime09 .ob-r16-archive:lang(ja) .ob-r19-stage-link {
+  margin:4px 0 5px;
+}
+
+/* Season controls: trim empty space, not functionality. Works for both
+   Current Season and archives; leaves 4-way navigation and the year intact. */
+.anime09 .n-season-13 .n-season-chooser {
+  width:clamp(195px,44vw,260px);
+}
+.anime09 .n-season-13 .ob-r16-tabs {
+  height:29px;
+  min-height:29px;
+  margin-top:1px;
+}
+.anime09 .n-season-13 .ob-r16-tabs button {
+  padding:4px 1px;
+  line-height:1.2;
+}
+.anime09 .n-season-13 .ob-r16-summary {
+  font-size:11px;
+  margin-top:6px;
+  padding:1px 1px 2px;
+}
+.anime09 .n-season-13 .ob-r16-years {
+  font-size:16px;
+  padding-top:4px;
+  padding-bottom:4px;
+}
+
+@media(max-width:690px) {
+  .ob-r19-modal .ob-r19-elements h4,
+  .ob-r19-modal .ob-r19-synopsis h4 {
+    font-size:13px;
+    line-height:1.38;
+  }
+  .ob-r19-modal:lang(ja) .ob-r19-elements h4,
+  .ob-r19-modal:lang(ja) .ob-r19-synopsis h4 {
+    font-size:12.5px;
+    line-height:1.48;
+  }
+  .ob-r19-modal:lang(ja) .ob-r19-synopsis p:lang(en) {
+    font-size:14px;
+    line-height:1.56;
+  }
+  .anime09 .n-season-13 .n-season-chooser {
+    width:clamp(185px,49vw,220px);
+  }
+  .anime09 .n-season-13 .ob-r16-tabs {
+    height:29px;
+    min-height:29px;
+  }
+  .anime09 .n-season-13 .ob-r16-tabs button {
+    font-size:9.8px;
+    padding:4px 0;
+  }
+  .anime09 .n-season-13 .ob-r16-summary {
+    font-size:10.8px;
+    margin-top:5px;
+  }
+}
+@media(max-width:540px) {
+  .anime09 .ob-r16-archive:lang(ja) .ob-r19-stage-row {
+    gap:7px;
+  }
+  .anime09 .ob-r16-archive:lang(ja) .ob-r19-stage h5 {
+    font-size:11.8px;
+    line-height:1.43;
+  }
+  .anime09 .ob-r16-archive:lang(ja) .ob-r19-stage-link {
+    font-size:10.6px;
+    line-height:1.53;
+  }
+  .anime09 .ob-r16-archive:lang(ja) .ob-r19-stage {
+    padding-right:5px;
+  }
+}
