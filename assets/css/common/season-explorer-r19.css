@@ -1,0 +1,161 @@
+/* AnimeB R19 — measured historical archive typography and in-place title inspector.
+   Covers only the historical explorer / existing season selector. */
+.anime09 .n-season-13 .ob-r16-chooser-top {height:36px;min-height:36px;align-items:flex-start;gap:7px;}
+.anime09 .n-season-13.ob-r16-history .ob-r16-chooser-top {height:64px;min-height:64px;}
+.anime09 .n-season-13 .ob-r16-seasons-label {font-weight:400;letter-spacing:.075em;padding-top:6px;}
+.anime09 .n-season-13 .ob-r16-years {
+  appearance:none;-webkit-appearance:none;border:1px solid #bacdbb;border-radius:1px;
+  background-color:transparent;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='10' viewBox='0 0 14 10'%3E%3Cpath d='m3 4 4 3 4-3' fill='none' stroke='%23597461' stroke-width='1.25' stroke-linejoin='round' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:calc(100% - 8px) center;background-size:13px 10px;
+  padding:5px 25px 5px 9px;min-width:82px;max-width:90px;
+  font:500 17px/1.2 'EB Garamond',Georgia,serif;text-align:left;color:#335c42;
+}
+.anime09 .n-season-13 .ob-r16-back {
+  bottom:auto;top:39px;right:0;
+  font:400 11px/1.4 'Barlow Condensed','Abel',sans-serif;
+  letter-spacing:.06em;color:#42624a;padding:1px 1px 3px;
+  border-bottom:1px solid #98ac97;
+}
+.anime09 .n-season-13 .ob-r16-back:hover{color:#9a6b47;border-bottom-color:#9a6b47;}
+.anime09 .n-season-13 .ob-r16-tabs {
+  height:31px;min-height:31px;margin-top:2px;
+}
+.anime09 .n-season-13 .ob-r16-tabs button {
+  padding:6px 1px;font-weight:400;letter-spacing:.01em;line-height:1.2;
+}
+.anime09 .n-season-13 .ob-r16-tabs button.ob-r16-tab-selected {font-weight:500!important;}
+.anime09 .n-season-13 .ob-r16-summary {
+  font-weight:400;font-size:12px;letter-spacing:.025em;color:#50715a;
+  padding:3px 0;margin-top:9px;
+}
+/* Avoid repeating condensed bold for every heading; numbers should provide their own hierarchy. */
+.anime09 .ob-r16-archive{padding-top:12px;padding-bottom:16px;}
+.anime09 .ob-r16-archive > h3 {font-weight:500;letter-spacing:.05em;}
+.anime09 .ob-r17-how {margin:11px 0 6px;padding:10px 0;border-top:1px solid #cfd9cc;}
+.anime09 .ob-r17-how summary {font-weight:500;letter-spacing:.035em;}
+.anime09 .ob-r17-checkpoints {margin:18px 0 0;padding:15px 0 12px;}
+.anime09 .ob-r17-checkpoints h4 {
+  font:500 12px/1.4 'Barlow Condensed','Abel',sans-serif;
+  letter-spacing:.06em;color:#415e49;margin:0 0 5px;
+}
+.anime09 .ob-r19-checkpoint-note {
+  margin:1px 0 12px;max-width:850px;
+  font:400 14px/1.48 'EB Garamond',Georgia,serif;color:#56715b;
+}
+.anime09 .ob-r19-stage-row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;}
+.anime09 .ob-r19-stage {
+  border-left:2px solid #b7c5b5;padding:1px 9px 4px 12px;min-width:0;
+}
+.anime09 .ob-r19-stage-week {
+  display:block;font:400 11px/1.4 'Barlow Condensed','Abel',sans-serif;
+  letter-spacing:.06em;color:#9a734e;
+}
+.anime09 .ob-r19-stage h5 {
+  margin:1px 0 6px;color:#345440;
+  font:500 16px/1.23 'EB Garamond',Georgia,serif;
+}
+.anime09 .ob-r19-stage-link {
+  display:table;max-width:100%;font:400 12px/1.36 'Barlow Condensed','Abel',sans-serif;
+  letter-spacing:.01em;color:#416c4d;text-decoration:none;
+  border-bottom:1px solid #9db39d;margin:4px 0;padding-bottom:2px;
+}
+.anime09 .ob-r19-stage-link:hover {color:#9b7348;border-color:#bd9466;}
+.anime09 .ob-r17-load {font-weight:500;background:transparent;border-color:#a9bea7;color:#355f43;}
+.anime09 .ob-r17-lineup{margin-top:16px;}
+.anime09 .ob-r19-list-heading {
+  display:flex;align-items:baseline;flex-wrap:wrap;gap:5px 12px;
+  margin:8px 0 7px!important;color:#36513d;
+}
+.anime09 .ob-r19-list-label{
+  font:500 12px/1.35 'Barlow Condensed','Abel',sans-serif;
+  letter-spacing:.065em;
+}
+.anime09 .ob-r19-list-count {
+  color:#a66d41;font:400 14px/1.2 'EB Garamond',Georgia,serif;letter-spacing:0;
+}
+.anime09 .ob-r19-list-count b {font:500 21px/1 'EB Garamond',Georgia,serif;}
+.anime09 .ob-r19-list-note {font:400 14px/1.48 'EB Garamond',Georgia,serif;color:#617664;margin:6px 0 12px;}
+.anime09 .ob-r17-title-name {font-weight:400;color:#34513d;}
+.anime09 .ob-r17-title:hover .ob-r17-title-name{color:#9e7149;text-decoration:underline;text-decoration-thickness:.6px;text-underline-offset:2px;}
+.anime09 .ob-r19-results[hidden] {display:none!important;}
+/* Japanese: keep serif headings and gentle but legible contrast. */
+.anime09 .ob-r16-archive:lang(ja) .ob-r19-stage h5,
+.anime09 .ob-r16-archive:lang(ja) .ob-r19-stage-link,
+.anime09 .ob-r16-archive:lang(ja) .ob-r19-list-label,
+.anime09 .ob-r16-archive:lang(ja) .ob-r17-checkpoints h4,
+.anime09 .ob-r16-archive:lang(ja) .ob-r17-how summary {
+  font-family:'Yu Mincho','Hiragino Mincho ProN','Noto Serif JP',serif;
+  letter-spacing:.035em;font-weight:500;
+}
+.anime09 .ob-r16-archive:lang(ja) .ob-r19-list-note,
+.anime09 .ob-r16-archive:lang(ja) .ob-r19-checkpoint-note{font-size:12.5px;line-height:1.72;}
+/* Modal inspector: appears where the user is, never at the end of the entire poster grid. */
+body.ob-r19-modal-open{overflow:hidden;}
+.ob-r19-veil{
+  position:fixed;inset:0;z-index:2147483000;
+  display:flex;justify-content:center;align-items:center;
+  padding:18px;background:rgba(16,36,27,.68);box-sizing:border-box;
+}
+.ob-r19-modal{
+  width:min(780px,100%);max-height:calc(100vh - 36px);max-height:calc(100dvh - 36px);
+  overflow:auto;overscroll-behavior:contain;box-sizing:border-box;
+  background:#faf9ef;color:#31513d;border:1px solid #b7c7b5;
+  box-shadow:0 20px 58px rgba(8,25,14,.28);
+}
+.ob-r19-modal-top{
+  display:flex;align-items:center;justify-content:space-between;gap:12px;
+  padding:10px 18px;border-bottom:1px solid #bdccbb;
+  background:#f9f8ed;
+}
+.ob-r19-eyebrow{font:400 12px/1.2 'Barlow Condensed','Abel',sans-serif;letter-spacing:.09em;color:#6c826d;}
+.ob-r19-close{
+  appearance:none;border:1px solid #acbeac;background:transparent;color:#416549;
+  min-height:34px;padding:4px 10px;font:400 12px/1.2 'Barlow Condensed','Abel',sans-serif;cursor:pointer;
+}
+.ob-r19-close:hover{border-color:#916d4c;color:#916d4c;}
+.ob-r19-modal-inner{padding:18px 20px 22px;}
+.ob-r19-identity{display:flex;gap:19px;align-items:flex-start;}
+.ob-r19-poster{width:120px;max-width:25%;aspect-ratio:2/3;object-fit:cover;flex:none;border:1px solid #c5cec0;}
+.ob-r19-identity-text{flex:1;min-width:0;}
+.ob-r19-identity-text h3{margin:0 0 7px;color:#31523c;font:500 25px/1.22 'EB Garamond',Georgia,serif;overflow-wrap:anywhere;}
+.ob-r19-alternate{margin:3px 0;font:400 14px/1.4 'Yu Mincho','Hiragino Mincho ProN','Noto Serif JP',serif;color:#527159;}
+.ob-r19-romanized,.ob-r19-studio,.ob-r19-air{margin:5px 0;font:400 14px/1.45 'EB Garamond',Georgia,serif;color:#58725a;}
+.ob-r19-loading,.ob-r19-partial,.ob-r19-provenance{font:400 12px/1.5 'EB Garamond',Georgia,serif;color:#6f806e;margin:14px 0 0;}
+.ob-r19-stats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px 21px;margin:22px 0 14px;}
+.ob-r19-detail-row{min-width:0;border-top:1px solid #cdd8ca;padding-top:7px;}
+.ob-r19-detail-row dt{font:400 11px/1.35 'Barlow Condensed','Abel',sans-serif;letter-spacing:.04em;color:#6a7e69;margin:0 0 4px;}
+.ob-r19-detail-row dd{font:500 19px/1.25 'EB Garamond',Georgia,serif;color:#31543f;margin:0;overflow-wrap:anywhere;}
+.ob-r19-elements,.ob-r19-synopsis{margin-top:17px;border-top:1px solid #cbd6c8;padding-top:12px;}
+.ob-r19-elements h4,.ob-r19-synopsis h4{margin:0 0 8px;font:500 12px/1.3 'Barlow Condensed','Abel',sans-serif;letter-spacing:.05em;color:#4a6953;}
+.ob-r19-six{margin:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px 13px;}
+.ob-r19-six .ob-r19-detail-row{padding:4px 0;border:none;}
+.ob-r19-six .ob-r19-detail-row dt{font-size:11px;}
+.ob-r19-six .ob-r19-detail-row dd{font-size:16px;font-weight:400;}
+.ob-r19-synopsis p{font:400 15px/1.52 'EB Garamond',Georgia,serif;color:#425d48;margin:5px 0;}
+.ob-r19-actions{display:flex;gap:8px 15px;flex-wrap:wrap;margin-top:18px;}
+.ob-r19-detail-link{font:400 12px/1.3 'Barlow Condensed','Abel',sans-serif;color:#3b6748;border-bottom:1px solid #98b095;padding-bottom:3px;text-decoration:none;}
+.ob-r19-detail-link:hover{color:#986e43;border-color:#986e43;}
+.ob-r19-close:focus-visible,.ob-r19-detail-link:focus-visible,.ob-r19-stage-link:focus-visible {outline:2px solid #a27956;outline-offset:3px;}
+@media(max-width:690px){
+  .anime09 .n-season-13 .ob-r16-chooser-top{height:38px;min-height:38px;}
+  .anime09 .n-season-13.ob-r16-history .ob-r16-chooser-top{height:65px;min-height:65px;}
+  .anime09 .n-season-13 .ob-r16-tabs{height:30px;min-height:30px;}
+  .anime09 .n-season-13 .ob-r16-tabs button{font-size:10px;padding:5px 0;}
+  .anime09 .n-season-13 .ob-r16-back{top:40px;}
+  .anime09 .ob-r19-stage-row{gap:8px;}
+  .anime09 .ob-r19-stage{padding:2px 5px 3px 8px;border-left-width:1px;}
+  .anime09 .ob-r19-stage h5{font-size:14px;}
+  .anime09 .ob-r19-stage-link{font-size:11.5px;line-height:1.38;}
+  .anime09 .ob-r19-list-count b{font-size:20px;}
+  .ob-r19-veil{padding:10px;align-items:center;}
+  .ob-r19-modal{max-height:calc(100vh - 20px);max-height:calc(100dvh - 20px);}
+  .ob-r19-modal-inner{padding:14px 15px 18px;}
+  .ob-r19-identity{gap:12px;}
+  .ob-r19-poster{width:90px;max-width:28%;}
+  .ob-r19-identity-text h3{font-size:20px;line-height:1.25;}
+  .ob-r19-stats{gap:10px 14px;margin-top:18px;}
+  .ob-r19-detail-row dd{font-size:17px;}
+  .ob-r19-six{grid-template-columns:repeat(2,minmax(0,1fr));}
+  .ob-r19-synopsis p{font-size:14px;line-height:1.55;}
+}
