@@ -15,51 +15,51 @@
   };
   const labels = {
     en: {
-      snapshot:'SEASON SNAPSHOT', intro:'Browse the published weekly record. The opening pool may differ from the titles that appear in rankings.',
+      snapshot:'SEASON SNAPSHOT', intro:'Explore this season through its published weekly rankings. The opening lineup is shown when a verified master is available.', introMaster:'Revisit the original opening lineup alongside the weekly rankings published throughout the season.',
       checkpoints:'SEASON CHECKPOINTS', checkpointIntro:'A season in three stages: first impressions, the midpoint, and the finale. Browse the assessments available at each point.',
       first:'First Impressions', middle:'Midseason', final:'Season Finale', tier:'Tier List', recommendation:'Recommendations & Enjoyment Ranking',
       master:'OPENING SEASON LINEUP', masterNote:'Opening pool explicitly defined in the season file.',
-      recorded:'TITLES APPEARING IN WEEKLY RANKINGS', recordedNote:'Reconstructed from published weekly rankings, not a verified opening lineup. Shows that never ranked may be absent.',
+      recorded:'TITLES APPEARING IN WEEKLY RANKINGS', recordedNote:'Reconstructed from published weekly rankings, not a verified opening lineup. Titles that never placed in the weekly rankings, including early dropouts, may be absent.',
       preliminary:'ELIMINATED IN PRELIM', prelimNote:'Explicitly marked eliminated in the Preliminary Round; not included in the opening main-season lineup.',
       preload:'Explore Weekly Ranking Titles', hideList:'Hide title list', loading:'Reading published weekly records…',
       failed:'Some weekly records could not be read; this list may be incomplete.', noEntries:'No usable title data was found in the published records.',
-      details:'Season record', close:'Close', seen:'First appearance in weekly rankings',
-      noMaster:'A season-wide opening lineup has not been registered for this archive. You can still explore titles that appeared in published weekly rankings.',
+      details:'Season record', close:'Close', seen:'First weekly ranking placement',
+      noMaster:'The opening lineup has not yet been registered. You can explore titles found in the published weekly rankings below.',
       generic:'Each season begins with the selection process and unfolds through its weekly rankings. Historic season statistics may follow older counting rules.',
       notInitial:'No verified opening lineup is specified; these are titles recorded in the season master.',
       fromMaster:'TITLES IN THE SEASON MASTER', description:'ABOUT THE SEASON', titles:'titles', artMissing:'Poster unavailable',
       studio:'Studio', airing:'Aired from', alternate:'Japanese title', alternateJa:'English title', romanized:'Romanized title', synopsis:'Synopsis',
       finalPlace:'Final ranking', overallRating:'Overall rating', wrp:'Final WRP', keyElements:'Six key elements', total:'Six-element total',
-      elementsNote:'End-of-season assessment. OP and ED combine animation and song.', times:'times', points:'pt', place:'place',
+      elementsNote:["Beyond the average of weekly episode scores, these six elements reflect what a series leaves behind over the course of a season. Together, they contribute to its final WRP.", "OP and ED are evaluated through both their animation and music—not simply as separate components, but for how they work together and enhance the viewing experience."], times:'times', points:'pt', place:'place',
       notInFinal:'No final placement recorded for this title', notPublished:'A final ranking has not been published for this season.',
       weeklyAppearances:'Weekly ranking appearances', bestWeekly:'Best weekly position', topThree:'Top-three finishes',
       firstLink:'View first weekly appearance', finalLink:'View the final ranking',
       unknownRank:'Rank not recorded', dataPending:'Looking up this title’s season record…',
-      noWeekly:'No weekly appearance verified', partial:'Some weeks could not be checked.',
+      noWeekly:'No weekly ranking placement verified', partial:'Some weeks could not be checked.',
       firstOnly:'Only published weekly data is shown. No opening-lineup status is inferred.'
     },
     ja: {
-      snapshot:'シーズンの記録', intro:'公開済みの週間ランキングを辿れます。本戦開始時の顔ぶれと、週別ランキングに登場した作品は必ずしも一致しません。',
+      snapshot:'シーズンの記録', intro:'公開済みの週間ランキングを振り返ります。本戦開始時のラインナップは、正式なマスターがある場合に表示します。', introMaster:'本戦開始時のラインナップと、シーズンを通して公開された週間ランキングの記録を振り返ります。',
       checkpoints:'シーズンのチェックポイント', checkpointIntro:'開幕・中間・最終。それぞれの節目で公開された評価やおすすめを振り返れます。',
       first:'ファーストインプレッション', middle:'ミッドシーズン', final:'シーズンファイナル', tier:'ティアリスト', recommendation:'おすすめ作品・満足度ランキング',
       master:'本戦開始時のラインナップ', masterNote:'シーズン用ファイルに指定された本戦開始時の作品一覧です。',
-      recorded:'週間ランキングに登場した作品', recordedNote:'公開済みの週間ランキングから復元した一覧です。正確な初期ラインナップではなく、ランクインしなかった作品は含まれない場合があります。',
+      recorded:'週間ランキングに登場した作品', recordedNote:'公開済みの週間ランキングから復元した一覧で、正式な初期ラインナップではありません。ランクインしないまま脱落した作品などは含まれない場合があります。',
       preliminary:'予選ラウンドで選考外となった作品', prelimNote:'予選で選考外と明記された作品です。本戦の初期ラインナップには含めていません。',
       preload:'週間ランキングの作品一覧を見る', hideList:'作品一覧を閉じる', loading:'公開済みの週間記録を読み込み中…',
       failed:'取得できなかった週があります。作品一覧は不完全な場合があります。', noEntries:'公開済みの記録から作品一覧を復元できませんでした。',
-      details:'シーズンでの記録', close:'閉じる', seen:'週間ランキング初登場',
-      noMaster:'このシーズンの本戦開始時の作品一覧は、まだ登録されていません。公開済みの週間ランキングに登場した作品は、下から確認できます。',
+      details:'シーズンでの記録', close:'閉じる', seen:'週間ランキング初ランクイン',
+      noMaster:'本戦開始時のラインナップは未登録です。公開済みの週間ランキングから登場作品を確認できます。',
       generic:'各シーズンは作品の選考から始まり、毎週のランキングを重ねて進みます。過去シーズンの視聴状況には、現在と異なる集計方法が使われている場合があります。',
       notInitial:'初期ラインナップの確定情報がないため、マスターに記録された作品として表示しています。',
       fromMaster:'作品マスターの登録作品', description:'シーズンの進み方', titles:'作品', artMissing:'画像なし',
       studio:'制作会社', airing:'放送開始', alternate:'日本語タイトル', alternateJa:'英語タイトル', romanized:'ローマ字表記', synopsis:'あらすじ',
       finalPlace:'最終ランキング順位', overallRating:'総合評価点', wrp:'最終WRP', keyElements:'6要素の評価', total:'6要素合計',
-      elementsNote:'シーズン最終評価の内訳。OP・EDは映像と楽曲を合わせた評価です。', times:'回', points:'pt', place:'位',
+      elementsNote:["各話の評価を積み重ねただけでは捉えきれない、シーズン全体を通して作品が残した印象や魅力を6つの要素から評価し、最終WRPに加算しています。", "OP・EDは映像と楽曲それぞれの完成度だけでなく、その組み合わせや作品との相性、視聴体験にもたらす効果も含めて評価しています。"], times:'回', points:'pt', place:'位',
       notInFinal:'この作品の最終順位は記録されていません', notPublished:'このシーズンの最終ランキングはまだ公開されていません。',
       weeklyAppearances:'週間ランキング登場回数', bestWeekly:'週間最高順位', topThree:'トップ3入り',
       firstLink:'初登場した週を見る', finalLink:'最終ランキングを見る',
       unknownRank:'順位記録なし', dataPending:'この作品のシーズン記録を確認中…',
-      noWeekly:'週間ランキングへの登場は確認できません', partial:'一部の週を確認できませんでした。',
+      noWeekly:'週間ランキングでのランクインは確認できません', partial:'一部の週を確認できませんでした。',
       firstOnly:'公開済みの週間記録に基づく情報です。初期ラインナップへの出場は推定しません。'
     }
   };
@@ -312,7 +312,11 @@
         detailMetric(stats,w.bestWeekly,lang==='ja'?String(rank):`${rank}${(rank%100>=11&&rank%100<=13)?'th':({1:'st',2:'nd',3:'rd'}[rank%10]||'th')}`,` ${w.place}`);
       }
       detailMetric(stats,w.topThree,`${record.topThree}`,` ${w.times}`);
-    }else detailLine(stats,w.seen,w.noWeekly);
+    }else{
+       const noRank=make('div','ob-r19-detail-row ob-r21-unranked');
+       noRank.append(make('dt','',w.seen),make('dd','',w.noWeekly));
+       stats.append(noRank);
+     }
     const fin=record?.final;
     if(fin){
       const rank=num(fin.rank),overall=num(fin.overall_rating),wrp=num(fin.wrp_score);
@@ -325,7 +329,19 @@
     const six=fin?.key_elements_breakdown;
     if(six&&typeof six==='object'){
       const block=make('section','ob-r19-elements');
-      block.append(make('h4','',w.keyElements),make('p','ob-r20-elements-note',w.elementsNote));
+      const noteWrap=make('div','ob-r21-elements-copy');
+       w.elementsNote.forEach((line,i)=>{
+         const note=make('p','ob-r20-elements-note',line);
+         if(i===0){
+           const focus=lang==='ja'?'最終WRPに加算しています':'contribute to its final WRP';
+           const at=line.indexOf(focus);
+           if(at>=0)note.replaceChildren(document.createTextNode(line.slice(0,at)),
+             make('strong','ob-r21-elements-emphasis',focus),
+             document.createTextNode(line.slice(at+focus.length)));
+         }
+         noteWrap.append(note);
+       });
+       block.append(make('h4','',w.keyElements),noteWrap);
       const elements=make('dl','ob-r19-six');
       const keys=[
         ['op','OP',1.5],['ed','ED',1.5],
@@ -395,7 +411,8 @@
     if(!isFresh())return;
     const m=master?masterItems(master):null;
     if(m&&m.items.length){
-      const box=make('section','ob-r17-lineup');
+      if(m.verified)intro.textContent=w.introMaster;
+       const box=make('section','ob-r17-lineup');
       appendHeading(box,m.verified?w.master:w.fromMaster,m.items.length,w.titles);
       box.append(make('p','ob-r19-list-note',m.verified?w.masterNote:w.notInitial));
       drawGrid(box,season,m.items,lang);

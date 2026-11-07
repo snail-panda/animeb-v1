@@ -1,0 +1,133 @@
+/* OFFBEAT R22 — historical archive readability / typography only.
+   Leave the existing R19/R20 layouts, 4-column mobile gallery, and R3 season data intact. */
+
+/* Historical season checkpoints: underline actual wrapped text, not the table box edge. */
+.anime09 .ob-r19-stage-link {
+  display:block; width:fit-content; max-width:100%; margin:5px 0 7px; padding:0;
+  border-bottom:0; text-decoration:underline; text-decoration-color:#9db39d;
+  text-decoration-thickness:1px; text-underline-offset:3px;
+  text-decoration-skip-ink:auto; overflow-wrap:break-word; word-break:normal;
+}
+.anime09 .ob-r19-stage-link:hover {text-decoration-color:#bd9466;}
+.anime09 .ob-r16-archive:lang(ja) .ob-r19-stage-link {
+  line-break:strict; font-weight:500; letter-spacing:0; line-height:1.5;
+}
+
+/* Distinguish an archive summary derived from a verified master vs. weekly records. */
+.anime09 .ob-r16-archive .ob-r17-intro {max-width:800px;}
+.anime09 .ob-r17-load {
+  min-height:34px; padding:6px 11px; font-size:12px; font-weight:500;
+  line-height:1.28; letter-spacing:.018em;
+}
+.anime09 .ob-r16-archive:lang(ja) .ob-r17-load {
+  font-family:'Yu Gothic','Hiragino Kaku Gothic ProN',sans-serif;
+  font-size:11.5px; font-weight:600; letter-spacing:0;
+}
+
+/* Historical inspector: title hierarchy, preserving all EN/JA/romaji names. */
+.ob-r19-modal .ob-r19-identity-text h3 {
+  font-size:22px; line-height:1.2; font-weight:600;
+  overflow-wrap:break-word;
+}
+.ob-r19-modal .ob-r19-alternate {font-size:13.5px;line-height:1.4;color:#57705d;}
+.ob-r19-modal .ob-r19-romanized {
+  font:400 italic 13px/1.38 'EB Garamond',Georgia,serif;
+  color:#7b8875;letter-spacing:.006em;overflow-wrap:break-word;
+}
+.ob-r19-modal:lang(ja) .ob-r19-identity-text h3 {
+  font-family:'Yu Mincho','Hiragino Mincho ProN','Noto Serif JP',serif;
+  font-size:20px; line-height:1.43; font-weight:600;
+  line-break:strict; overflow-wrap:break-word;
+}
+.ob-r19-modal:lang(ja) .ob-r19-alternate {
+  font:500 14.5px/1.4 'EB Garamond',Georgia,serif;color:#56735a;
+}
+.ob-r19-modal:lang(ja) .ob-r19-romanized {
+  font:400 italic 13px/1.4 'EB Garamond',Georgia,serif;color:#7a8878;
+}
+.ob-r19-modal:lang(ja) .ob-r19-studio,
+.ob-r19-modal:lang(ja) .ob-r19-air {
+  font-size:12.9px; line-height:1.5; font-weight:400;
+}
+.ob-r19-modal:lang(ja) .ob-r19-detail-row dt {
+  font-weight:500; color:#667f6b;
+}
+.ob-r19-modal .ob-r21-unranked dd {
+  font:400 13.5px/1.45 'EB Garamond',Georgia,serif;
+  color:#597360; overflow-wrap:break-word;
+}
+.ob-r19-modal:lang(ja) .ob-r21-unranked dd {
+  font:500 12.6px/1.65 'Yu Mincho','Hiragino Mincho ProN','Noto Serif JP',serif;
+  color:#536d5b; line-break:strict;
+}
+
+/* The approved two-paragraph explanation. The final-WRP relation is deliberately emphasized. */
+.ob-r19-modal .ob-r21-elements-copy {margin:2px 0 13px;max-width:735px;}
+.ob-r19-modal .ob-r21-elements-copy .ob-r20-elements-note {
+  margin:0 0 8px;color:#536e59;
+  font:400 14px/1.48 'EB Garamond',Georgia,serif;
+  letter-spacing:0;
+}
+.ob-r19-modal .ob-r21-elements-copy .ob-r20-elements-note:last-child{margin-bottom:0;}
+.ob-r19-modal .ob-r21-elements-emphasis{font-weight:600;color:#35583f;}
+.ob-r19-modal:lang(ja) .ob-r21-elements-copy .ob-r20-elements-note{
+  font:400 12.7px/1.75 'Yu Mincho','Hiragino Mincho ProN','Noto Serif JP',serif;
+  color:#526f5b;line-break:strict;
+}
+.ob-r19-modal:lang(ja) .ob-r21-elements-emphasis{font-weight:700;}
+
+/* 2026 Fall has its own R3 modal. Adjust title scale only, no data/layout changes. */
+.ob-season-dialog-r3 h3 {font-size:23px;line-height:1.2;overflow-wrap:break-word;}
+.ob-season-dialog-r3:lang(ja) h3 {
+  font:600 19px/1.47 'Yu Mincho','Hiragino Mincho ProN','Noto Serif JP',serif;
+  line-break:strict;overflow-wrap:break-word;
+}
+
+@media(max-width:690px){
+  .anime09 .ob-r16-archive .ob-r17-intro{font-size:13.4px;line-height:1.57;}
+  .anime09 .ob-r19-checkpoint-note{font-size:12.8px;line-height:1.5;}
+  .anime09 .ob-r19-stage h5{font-size:13.2px;line-height:1.3;}
+  .anime09 .ob-r19-stage-link{font-size:11px;line-height:1.42;}
+  .anime09 .ob-r17-title-name{font-size:10.9px;line-height:1.28;}
+  .anime09 .ob-r17-grid{grid-template-columns:repeat(4,minmax(0,1fr));}
+  .anime09 .ob-r17-load{font-size:11.8px;padding:6px 9px;min-height:32px;}
+  .ob-r19-modal .ob-r19-identity-text h3{font-size:17.5px;line-height:1.26;}
+  .ob-r19-modal .ob-r19-alternate{font-size:12.5px;line-height:1.4;}
+  .ob-r19-modal .ob-r19-romanized{font-size:12.1px;line-height:1.38;}
+  .ob-r19-modal:lang(ja) .ob-r19-identity-text h3{
+    font-size:15.7px;line-height:1.48;font-weight:600;
+  }
+  .ob-r19-modal:lang(ja) .ob-r19-alternate{font-size:12.6px;line-height:1.45;}
+  .ob-r19-modal:lang(ja) .ob-r19-romanized{font-size:11.7px;line-height:1.4;}
+  .ob-r19-modal:lang(ja) .ob-r19-studio,
+  .ob-r19-modal:lang(ja) .ob-r19-air{font-size:12px;line-height:1.48;}
+  .ob-r19-modal .ob-r21-unranked dd{font-size:12.5px;line-height:1.42;}
+  .ob-r19-modal:lang(ja) .ob-r21-unranked dd{font-size:11.8px;line-height:1.62;}
+  .ob-r19-modal .ob-r21-elements-copy .ob-r20-elements-note{
+    font-size:12.7px;line-height:1.59;margin-bottom:10px;
+  }
+  .ob-r19-modal:lang(ja) .ob-r21-elements-copy .ob-r20-elements-note{
+    font-size:11.8px;line-height:1.75;
+  }
+  .ob-season-dialog-r3 h3{font-size:17px;line-height:1.27;}
+  .ob-season-dialog-r3:lang(ja) h3{font-size:15.6px;line-height:1.48;}
+}
+@media(max-width:540px){
+  .anime09 .ob-r16-archive:lang(ja) .ob-r17-intro,
+  .anime09 .ob-r16-archive:lang(ja) .ob-r17-nomaster,
+  .anime09 .ob-r16-archive:lang(ja) .ob-r19-list-note,
+  .anime09 .ob-r16-archive:lang(ja) .ob-r19-checkpoint-note {
+    font-family:'Yu Mincho','Hiragino Mincho ProN','Noto Serif JP',serif;
+    font-size:11.8px;line-height:1.76;color:#55715a;
+  }
+  .anime09 .ob-r16-archive:lang(ja) .ob-r19-stage h5{
+    font-size:12.2px;line-height:1.48;font-weight:600;
+  }
+  .anime09 .ob-r16-archive:lang(ja) .ob-r19-stage-link{
+    font-size:11px;line-height:1.57;font-weight:500;
+  }
+  .anime09 .ob-r16-archive:lang(ja) .ob-r17-title-name{
+    font-size:10.1px;line-height:1.48;font-weight:500;line-break:strict;
+  }
+  .anime09 .ob-r16-archive:lang(ja) .ob-r17-load{font-size:11px;padding:6px 9px;}
+}
