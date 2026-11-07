@@ -384,14 +384,15 @@
     }
     section.append(h);
   }
-  // R24: compact source note + invitation above each archive season gallery.
+  // R25: a typographic call-to-explore with no icon or arrow.
   function appendGalleryIntro(target,sourceNote,invite) {
     const row=make('div','ob-r24-gallery-intro');
     row.append(make('p','ob-r19-list-note',sourceNote));
     const hint=make('p','ob-r24-gallery-hint');
-    const arrow=make('span','ob-r24-gallery-mark','↗');
-    arrow.setAttribute('aria-hidden','true');
-    hint.append(arrow,make('span','ob-r24-gallery-text',invite));
+    hint.append(
+      make('span','ob-r25-gallery-label',locale()==='ja'?'画像を選んでシーズン記録を見る':'EXPLORE SEASON RECORDS'),
+      make('span','ob-r24-gallery-text',invite)
+    );
     row.append(hint);
     target.append(row);
   }

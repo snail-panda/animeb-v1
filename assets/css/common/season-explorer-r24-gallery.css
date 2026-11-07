@@ -1,55 +1,62 @@
-/* OFFBEAT R24 — archive poster gallery invitation and English desktop labels.
-   Scope: historical season explorer only. No current season cards, data,
-   Japanese poster-title sizes, modal styles, or historical calculations. */
+/* OFFBEAT R25 — archive record invitation (without icons) and mobile EN labels.
+   Historical seasons only: no current season layout, rankings, master, or JA title changes. */
 
-/* The provenance note and the action invitation share a compact row on desktop. */
+/* The provenance/source note stays quiet; the invitation below is a distinct,
+   restrained, left-aligned information cue rather than a second metadata column. */
 .anime09 .ob-r16-archive .ob-r24-gallery-intro {
-  display:grid;
-  grid-template-columns:minmax(0, .83fr) minmax(0, 1.17fr);
-  gap:8px 20px;
-  align-items:start;
-  margin:7px 0 9px;
+  display:block;
+  margin:7px 0 13px;
 }
 .anime09 .ob-r16-archive .ob-r24-gallery-intro .ob-r19-list-note {
-  margin:1px 0 0;
+  margin:0 0 7px;
 }
 .anime09 .ob-r16-archive .ob-r24-gallery-hint {
   display:flex;
   align-items:baseline;
-  gap:7px;
+  gap:13px;
   min-width:0;
   margin:0;
-  color:#46684f;
-  font:400 13.3px/1.43 'EB Garamond',Georgia,serif;
+  padding:8px 12px 8px 11px;
+  border-left:2px solid #a0b49d;
+  background:linear-gradient(90deg,rgba(109,143,106,.075),rgba(109,143,106,0) 75%);
+  color:#506951;
+  font:400 13.6px/1.45 'EB Garamond',Georgia,serif;
+}
+.anime09 .ob-r16-archive .ob-r25-gallery-label {
+  display:block;
+  flex:0 0 155px;
+  min-width:0;
+  font:500 11.6px/1.3 'Abel','Barlow Condensed',sans-serif;
+  letter-spacing:.095em;
+  color:#31543d;
 }
 .anime09 .ob-r16-archive .ob-r24-gallery-text {min-width:0;}
-.anime09 .ob-r16-archive .ob-r24-gallery-mark {
-  flex:none;
-  color:#9a714d;
-  font:500 15px/1 'EB Garamond',Georgia,serif;
-}
 .anime09 .ob-r16-archive:lang(ja) .ob-r24-gallery-hint {
-  color:#486950;
-  font:400 12px/1.62 'Yu Mincho','Hiragino Mincho ProN','Noto Serif JP',serif;
+  color:#526d56;
+  font:400 12.2px/1.63 'Yu Mincho','Hiragino Mincho ProN','Noto Serif JP',serif;
   line-break:strict;
 }
-/* Desktop: increase only English archive poster labels from 12px to 13.5px.
-   The six-column grid, title wrapping and Japanese labels remain untouched. */
+.anime09 .ob-r16-archive:lang(ja) .ob-r25-gallery-label {
+  flex-basis:200px;
+  color:#31543d;
+  font:600 11.6px/1.45 'Yu Gothic','Hiragino Kaku Gothic ProN',sans-serif;
+  letter-spacing:.015em;
+}
+
+/* R24b: EN poster titles on desktop increased from 12px to 13.5px.
+   R25 leaves that size and all Japanese title sizes unchanged. */
 @media (min-width:691px) {
   .anime09 .ob-r16-archive:lang(en) .ob-r17-grid .ob-r17-title-name {
     font-size:13.5px;
     line-height:1.30;
   }
 }
-/* Reveal that each poster is an interactive route to its season record. */
+
+/* Poster cards are already buttons. The existing, modest hover feedback stays. */
 .anime09 .ob-r16-archive .ob-r17-title {cursor:pointer;}
 @media (hover:hover) and (pointer:fine) {
-  .anime09 .ob-r16-archive .ob-r17-thumb img {
-    transition:transform .18s ease;
-  }
-  .anime09 .ob-r16-archive .ob-r17-title:hover .ob-r17-thumb img {
-    transform:scale(1.025);
-  }
+  .anime09 .ob-r16-archive .ob-r17-thumb img {transition:transform .18s ease;}
+  .anime09 .ob-r16-archive .ob-r17-title:hover .ob-r17-thumb img {transform:scale(1.025);}
   .anime09 .ob-r16-archive .ob-r17-title:hover .ob-r17-thumb {
     outline:1px solid #819c82;
     outline-offset:1px;
@@ -58,27 +65,38 @@
 @media (prefers-reduced-motion:reduce) {
   .anime09 .ob-r16-archive .ob-r17-thumb img {transition:none;}
 }
+
 @media (max-width:690px) {
-  /* Place the instruction immediately before the four-column gallery;
-     keep it clear but visually subordinate to the lineup heading. */
   .anime09 .ob-r16-archive .ob-r24-gallery-intro {
-    display:block;
-    margin:6px 0 7px;
+    margin:7px 0 10px;
   }
   .anime09 .ob-r16-archive .ob-r24-gallery-intro .ob-r19-list-note {
-    margin:0 0 5px;
+    margin:0 0 6px;
   }
+  /* Mobile: one compact cue above the gallery, no icon or large card. */
   .anime09 .ob-r16-archive .ob-r24-gallery-hint {
-    font-size:12.2px;
+    display:block;
+    padding:7px 8px 7px 9px;
+    font-size:12.1px;
     line-height:1.48;
-    gap:5px;
+  }
+  .anime09 .ob-r16-archive .ob-r25-gallery-label {
+    margin:0 0 3px;
+    font-size:11px;
+    letter-spacing:.09em;
   }
   .anime09 .ob-r16-archive:lang(ja) .ob-r24-gallery-hint {
     font-size:11.5px;
-    line-height:1.68;
+    line-height:1.64;
   }
-  .anime09 .ob-r16-archive .ob-r24-gallery-text {min-width:0;}
-.anime09 .ob-r16-archive .ob-r24-gallery-mark {
-    font-size:13px;
+  .anime09 .ob-r16-archive:lang(ja) .ob-r25-gallery-label {
+    font-size:10.8px;
+    line-height:1.5;
+  }
+  /* English archive titles only: R22b 10.9px -> 11.5px.
+     Preserve the four columns, wrapping and the Japanese title rules. */
+  .anime09 .ob-r16-archive:lang(en) .ob-r17-grid .ob-r17-title-name {
+    font-size:11.5px;
+    line-height:1.3;
   }
 }
