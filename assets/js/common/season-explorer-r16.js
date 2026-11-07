@@ -264,11 +264,20 @@
     home.addEventListener('click',()=>change(latest));
     overview.addEventListener('toggle',()=>{summary.textContent=overview.open?words[language()].close:words[language()].browse;});
     // Locale changes may be dispatched by existing mast controls without a storage event.
-    document.addEventListener('click',e=>{
-      if (!(e.target instanceof Element) || !e.target.closest('.ob-week-peek-language button[data-peek-lang]')) return;
-      setTimeout(()=>{renderTabs();renderTimeline();},50);
-    });
-    window.addEventListener('storage',e=>{if(e.key==='animeb-weekly-lang'){renderTabs();renderTimeline();}});
+    // Refresh the selected archive even if the language toggle is in the mast.
+    // A small delay lets the site's own handler write animeb-weekly-lang first.
+    let appliedExplorerLang = language();
+    document.addEventListener('click', () => {
+      window.setTimeout(() => {
+        const nextLang = language();
+        if (nextLang !== appliedExplorerLang) {
+          appliedExplorerLang = nextLang;
+          renderTabs();
+          renderTimeline();
+        }
+      }, 90);
+    }, true);
+    window.addEventListener('storage',e=>{if(e.key==='animeb-weekly-lang'){appliedExplorerLang=language();renderTabs();renderTimeline();}});
     change(latest);
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded',init,{once:true});

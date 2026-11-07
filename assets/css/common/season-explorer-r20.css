@@ -1,0 +1,54 @@
+/* R20 — typography hierarchy and unit-aware season metrics.
+   The existing R19 stylesheet supplies layout, borders and colors. */
+.ob-r19-identity-text .ob-r20-title-group {
+  margin-bottom:10px;
+  padding-bottom:10px;
+  border-bottom:1px solid #cbd5c9;
+}
+.ob-r19-identity-text .ob-r20-title-group h3 {margin-bottom:7px;}
+.ob-r19-identity-text .ob-r20-title-group p {margin-top:5px;margin-bottom:5px;}
+.ob-r19-modal .ob-r20-metric dd {display:flex;align-items:baseline;flex-wrap:wrap;gap:0 5px;}
+.ob-r19-modal .ob-r20-metric .ob-r20-value {font-weight:500;white-space:nowrap;}
+.ob-r19-modal .ob-r20-metric .ob-r20-unit {
+  font:400 .73em/1.25 'EB Garamond',Georgia,serif;
+  color:#8b7967;white-space:normal;letter-spacing:.012em;
+}
+.ob-r19-modal .ob-r20-elements-note {
+  color:#708372;font:400 12px/1.45 'EB Garamond',Georgia,serif;
+  letter-spacing:0;margin:0 0 10px;
+}
+.ob-r19-modal .ob-r19-six .ob-r20-metric dd {gap:0 5px;}
+.ob-r19-modal .ob-r19-six .ob-r20-metric .ob-r20-unit {font-size:12px;}
+.ob-r19-modal .ob-r19-six .ob-r20-metric:last-child {grid-column:auto;}
+.ob-r19-modal:lang(ja) .ob-r19-identity-text h3,
+.ob-r19-modal:lang(ja) .ob-r19-alternate,
+.ob-r19-modal:lang(ja) .ob-r19-romanized,
+.ob-r19-modal:lang(ja) .ob-r19-studio,
+.ob-r19-modal:lang(ja) .ob-r19-air,
+.ob-r19-modal:lang(ja) .ob-r19-synopsis p {
+  font-family:'Yu Mincho','Hiragino Mincho ProN','Noto Serif JP',serif;
+}
+.ob-r19-modal:lang(ja) .ob-r19-detail-row dt,
+.ob-r19-modal:lang(ja) .ob-r19-elements h4,
+.ob-r19-modal:lang(ja) .ob-r19-synopsis h4 {
+  font-family:'Yu Gothic','Hiragino Kaku Gothic ProN',sans-serif;
+  font-weight:400;letter-spacing:.025em;
+}
+.ob-r19-modal:lang(ja) .ob-r20-metric .ob-r20-unit {
+  font-family:'Yu Gothic','Hiragino Kaku Gothic ProN',sans-serif;
+  font-size:.66em;
+}
+.ob-r19-modal:lang(ja) .ob-r20-elements-note {
+  font-family:'Yu Mincho','Hiragino Mincho ProN','Noto Serif JP',serif;
+  line-height:1.65;
+}
+@media(max-width:690px) {
+  .ob-r19-identity-text .ob-r20-title-group{margin-bottom:7px;padding-bottom:8px;}
+  .ob-r19-modal .ob-r20-metric dd {column-gap:4px;}
+  .ob-r19-modal .ob-r20-metric .ob-r20-unit{font-size:.74em;}
+  .ob-r19-modal .ob-r19-six .ob-r20-metric .ob-r20-unit{font-size:11px;}
+  .ob-r19-modal .ob-r20-elements-note{font-size:12px;line-height:1.47;}
+  .ob-r19-modal:lang(ja) .ob-r19-detail-row dt{font-size:11px;line-height:1.55;}
+  .ob-r19-modal:lang(ja) .ob-r19-identity-text h3{font-size:18px;line-height:1.34;}
+  .ob-r19-modal:lang(ja) .ob-r19-identity-text .ob-r19-alternate{font-size:12px;line-height:1.5;}
+}
