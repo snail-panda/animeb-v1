@@ -19,6 +19,7 @@
       checkpoints:'SEASON CHECKPOINTS', checkpointIntro:'A season in three stages: first impressions, the midpoint, and the finale. Browse the assessments available at each point.',
       first:'First Impressions', middle:'Midseason', final:'Season Finale', tier:'Tier List', recommendation:'Recommendations & Enjoyment Ranking',
       master:'OPENING SEASON LINEUP', masterNote:'Opening pool explicitly defined in the season file.',
+      galleryInvite:"Select a poster to explore each anime's season record—weekly ranking appearances, final standing, ratings, and more.",
       recorded:'TITLES APPEARING IN WEEKLY RANKINGS', recordedNote:'Reconstructed from published weekly rankings, not a verified opening lineup. Titles that never placed in the weekly rankings, including early dropouts, may be absent.',
       preliminary:'ELIMINATED IN PRELIM', prelimNote:'Explicitly marked eliminated in the Preliminary Round; not included in the opening main-season lineup.',
       preload:'Explore Weekly Ranking Titles', hideList:'Hide title list', loading:'Reading published weekly records…',
@@ -43,6 +44,7 @@
       checkpoints:'シーズンのチェックポイント', checkpointIntro:'開幕・中間・最終。それぞれの節目で公開された評価やおすすめを振り返れます。',
       first:'ファーストインプレッション', middle:'ミッドシーズン', final:'シーズンファイナル', tier:'ティアリスト', recommendation:'おすすめ作品・満足度ランキング',
       master:'本戦開始時のラインナップ', masterNote:'シーズン用ファイルに指定された本戦開始時の作品一覧です。',
+      galleryInvite:'作品画像を選ぶと、週間ランキングへの登場記録や最終順位、評価など、その作品のシーズン記録を見ることができます。',
       recorded:'週間ランキングに登場した作品', recordedNote:'公開済みの週間ランキングから復元した一覧で、正式な初期ラインナップではありません。ランクインしないまま脱落した作品などは含まれない場合があります。',
       preliminary:'予選ラウンドで選考外となった作品', prelimNote:'予選で選考外と明記された作品です。本戦の初期ラインナップには含めていません。',
       preload:'週間ランキングの作品一覧を見る', hideList:'作品一覧を閉じる', loading:'公開済みの週間記録を読み込み中…',
@@ -382,6 +384,17 @@
     }
     section.append(h);
   }
+  // R24: compact source note + invitation above each archive season gallery.
+  function appendGalleryIntro(target,sourceNote,invite) {
+    const row=make('div','ob-r24-gallery-intro');
+    row.append(make('p','ob-r19-list-note',sourceNote));
+    const hint=make('p','ob-r24-gallery-hint');
+    const arrow=make('span','ob-r24-gallery-mark','↗');
+    arrow.setAttribute('aria-hidden','true');
+    hint.append(arrow,make('span','ob-r24-gallery-text',invite));
+    row.append(hint);
+    target.append(row);
+  }
   async function renderHistory({season,panel,active}){
     closeDialog();
     const id=Symbol();panelToken.set(panel,id);
@@ -417,7 +430,7 @@
       if(m.verified)intro.textContent=w.introMaster;
        const box=make('section','ob-r17-lineup');
       appendHeading(box,m.verified?w.master:w.fromMaster,m.items.length,w.titles);
-      box.append(make('p','ob-r19-list-note',m.verified?w.masterNote:w.notInitial));
+      appendGalleryIntro(box,m.verified?w.masterNote:w.notInitial,w.galleryInvite);
       drawGrid(box,season,m.items,lang);
       const explicit=Array.isArray(master.prelimEliminated)?master.prelimEliminated:[];
       if(explicit.length){
@@ -451,7 +464,7 @@
       if(result.entries.length){
         const block=make('section','ob-r17-lineup');
         appendHeading(block,w.recorded,result.entries.length,w.titles);
-        block.append(make('p','ob-r19-list-note',w.recordedNote));
+        appendGalleryIntro(block,w.recordedNote,w.galleryInvite);
         drawGrid(block,season,result.entries,lang);holder.append(block);
       }else holder.append(make('p','',w.noEntries));
       if(result.eliminated.length){
