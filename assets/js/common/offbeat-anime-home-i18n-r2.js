@@ -57,8 +57,8 @@
   function periodJP(src){
     let x=String(src);
   // Format EPISODE 1 / EPISODES 3窶・ before the existing generic localization.
-  x=x.replace(/\bEPISODES?\s*(\d+)\s*([窶凪・])\s*(\d+)/gi,(_,a,d,b)=>`隨ｬ${a}${d}${b}隧ｱ`)
-     .replace(/\bEPISODES?\s*(\d+)/gi,(_,a)=>`隨ｬ${a}隧ｱ`);
+  x=x.replace(/\bEPISODES?\s*(\d+)\s*([\u2013\u2014-])\s*(\d+)/gi,(_,a,d,b)=>`\u7b2c${a}${d}${b}\u8a71`)
+     .replace(/\bEPISODES?\s*(\d+)/gi,(_,a)=>`\u7b2c${a}\u8a71`); // OFFBEAT EPISODE R2 ASCII SAFE
     x=x.replace(/\b(JAN|FEB|MAR|APR|MAY|JUN|JUL|AUG|SEP|OCT|NOV|DEC)(?:UARY|RUARY|CH|IL|E|Y|UST|TEMBER|OBER|EMBER)?\b/gi,(v)=>months[v.slice(0,3).toUpperCase()]+'月');
     x=x.replace(/\bEPISODES?\s*/gi,'第').replace(/\bPRELIMINARY SELECTION\b/gi,'予選選考');
     return x;
