@@ -2016,6 +2016,27 @@ function makePostRow(post){
 }
 function renderRecent(selector,items){const list=$(selector);if(!list)return;list.replaceChildren(...items.map(makePostRow));}
 
+/* OFFBEAT Archive Intro Rich Text R1 窶・preserve only strong/em/b/i/br. */
+function obSafeIntroHtml(value){
+  const doc=new DOMParser().parseFromString(String(value||''),'text/html');
+  const output=document.createElement('div');
+  const allowed=new Set(['STRONG','EM','B','I','BR']);
+  const blocked=new Set(['SCRIPT','STYLE','IFRAME','OBJECT','EMBED','SVG','MATH','TEMPLATE','NOSCRIPT','FORM']);
+  const copy=(node,parent)=>{
+    if(node.nodeType===Node.TEXT_NODE){parent.append(document.createTextNode(node.nodeValue));return;}
+    if(node.nodeType!==Node.ELEMENT_NODE||blocked.has(node.tagName))return;
+    if(allowed.has(node.tagName)){
+      const safe=document.createElement(node.tagName.toLowerCase());
+      parent.append(safe);
+      if(node.tagName==='BR')return;
+      for(const child of node.childNodes)copy(child,safe);
+    }else{
+      for(const child of node.childNodes)copy(child,parent);
+    }
+  };
+  for(const node of doc.body.childNodes)copy(node,output);
+  return output.innerHTML;
+}
 function makeCard(post,featured=false){
  const card=el('article','card n-archive-row'+(featured?' is-featured':''));
  card.dataset.type=post.type;
@@ -2047,7 +2068,7 @@ function makeCard(post,featured=false){
  body.append(categories,h3,meta);
  // When actual Postcard Generator Intro JSON is mapped to post.intro, show up to three CSS-clamped lines; otherwise optional illustrative preview copy.
  const intro=(post.intro||post.previewIntro||'').trim();
- if(intro){const summary=el('p','excerpt n-intro-preview',intro);body.append(summary);}
+ if(intro){const summary=el('p','excerpt n-intro-preview');summary.innerHTML=obSafeIntroHtml(intro);body.append(summary);}
  if(Array.isArray(post.tags)&&post.tags.length){const tags=el('div','n-archive-tags');post.tags.slice(0,2).forEach(t=>tags.append(el('span','n-archive-tag',t)));body.append(tags);}
  const open=el('a','n-archive-open');open.href=post.url;
  open.setAttribute('aria-label','Open '+post.title);open.innerHTML='<span>VIEW POST</span><span class="n-double-chevron" aria-hidden="true"><i></i><i></i></span>';

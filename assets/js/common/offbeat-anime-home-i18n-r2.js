@@ -56,6 +56,9 @@
   }
   function periodJP(src){
     let x=String(src);
+  // Format EPISODE 1 / EPISODES 3窶・ before the existing generic localization.
+  x=x.replace(/\bEPISODES?\s*(\d+)\s*([窶凪・])\s*(\d+)/gi,(_,a,d,b)=>`隨ｬ${a}${d}${b}隧ｱ`)
+     .replace(/\bEPISODES?\s*(\d+)/gi,(_,a)=>`隨ｬ${a}隧ｱ`);
     x=x.replace(/\b(JAN|FEB|MAR|APR|MAY|JUN|JUL|AUG|SEP|OCT|NOV|DEC)(?:UARY|RUARY|CH|IL|E|Y|UST|TEMBER|OBER|EMBER)?\b/gi,(v)=>months[v.slice(0,3).toUpperCase()]+'月');
     x=x.replace(/\bEPISODES?\s*/gi,'第').replace(/\bPRELIMINARY SELECTION\b/gi,'予選選考');
     return x;
@@ -130,11 +133,24 @@
       if(a)requestRankingIntro(a.href);
     }
   },{rootMargin:'420px 0px'}) : null;
+  /* OFFBEAT Archive Intro Rich Text R1 窶・safe formatted intro, with no attributes. */
   function cleanIntro(value){
-    const raw=String(value||'');
-    if(!raw.trim())return '';
-    const doc=new DOMParser().parseFromString(raw.replace(/<br\s*\/?\s*>/gi,'\n'),'text/html');
-    return (doc.body.textContent||'').replace(/[ \t]+/g,' ').replace(/\n\s*\n/g,'  ').trim();
+    const raw=String(value||'');if(!raw.trim())return '';
+    const doc=new DOMParser().parseFromString(raw,'text/html');
+    const out=document.createElement('div');
+    const allowed=new Set(['STRONG','EM','B','I','BR']);
+    const blocked=new Set(['SCRIPT','STYLE','IFRAME','OBJECT','EMBED','SVG','MATH','TEMPLATE','NOSCRIPT','FORM']);
+    const copy=(node,parent)=>{
+      if(node.nodeType===Node.TEXT_NODE){parent.append(document.createTextNode(node.nodeValue));return;}
+      if(node.nodeType!==Node.ELEMENT_NODE||blocked.has(node.tagName))return;
+      if(allowed.has(node.tagName)){
+        const safe=document.createElement(node.tagName.toLowerCase());parent.append(safe);
+        if(node.tagName==='BR')return;
+        for(const child of node.childNodes)copy(child,safe);
+      }else{for(const child of node.childNodes)copy(child,parent);}
+    };
+    for(const node of doc.body.childNodes)copy(node,out);
+    return out.innerHTML.trim();
   }
   function rankingIntroURL(href){
     try {
@@ -171,12 +187,12 @@
       const post=posts.find(p=>p.url===link.href);
       if(!post)continue;
       const ja=cleanIntro(post.intro_ja);
-      if(ja)change(excerpt,ja);
+      if(ja)change(excerpt,ja,'html');
       else if(language()==='ja'&&post.type==='ranking'){
         if(introWatch){if(!observedIntroRows.has(card)){observedIntroRows.add(card);introWatch.observe(card);}}
         else requestRankingIntro(link.href);
       }
-      else if(language()==='en')change(excerpt,'');
+      else if(language()==='en')change(excerpt,'','html');
     }
   }
   function apply() {
