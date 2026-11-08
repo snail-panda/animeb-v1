@@ -1,0 +1,84 @@
+/* OFFBEAT S.O.W. — small bilingual explanation entry; no changes to artwork. */
+.anime09 .ob-sow-about-entry-r1 {
+  max-width:830px;
+  margin:-1px auto 4px;
+  padding:0 18px;
+  display:flex;
+  justify-content:flex-end;
+}
+.anime09 .ob-sow-about-open-r1 {
+  background:transparent;
+  border:0;
+  border-bottom:1px solid rgba(86,112,88,.45);
+  border-radius:0;
+  padding:4px 1px 3px;
+  font:500 10.5px/1.15 'Barlow Condensed','Abel',sans-serif;
+  letter-spacing:.07em;
+  color:#526c58;
+  cursor:pointer;
+}
+.anime09 .ob-sow-about-open-r1:hover {color:#254a34;border-color:#254a34;}
+.anime09 .ob-sow-about-open-r1:focus-visible,
+.ob-sow-about-close-r1:focus-visible {outline:2px solid #547c59;outline-offset:4px;}
+@media (max-width:690px) {
+  /* Only a slight increase over the existing 22px mobile separation. */
+  .anime09 .n-season.n-season-12.n-season-13 {margin-top:27px;}
+  .anime09 .ob-sow-about-entry-r1 {padding:0 15px;margin:-2px auto 3px;}
+  .anime09 .ob-sow-about-open-r1 {font-size:10px;}
+}
+.ob-sow-about-overlay-r1[hidden] {display:none!important;}
+.ob-sow-about-overlay-r1 {
+  position:fixed;inset:0;z-index:2500;
+  display:grid;place-items:center;
+  padding:16px;
+  background:rgba(21,33,27,.62);
+}
+.ob-sow-about-dialog-r1 {
+  width:min(670px,100%);
+  max-height:min(85dvh,780px);
+  display:flex;flex-direction:column;
+  color:#2a3d30;
+  background:#faf9ee;
+  border:1px solid #c5cebc;
+  box-shadow:0 22px 60px rgba(18,27,21,.3);
+}
+.ob-sow-about-head-r1 {
+  padding:15px 22px 13px;
+  display:flex;align-items:center;justify-content:space-between;gap:15px;
+  border-bottom:1px solid #d7ddcc;
+}
+.ob-sow-about-title-r1 {
+  margin:0;
+  font:500 21px/1.2 'EB Garamond',Georgia,serif;
+  letter-spacing:.01em;
+}
+.ob-sow-about-close-r1 {
+  flex:0 0 auto;min-width:30px;height:30px;
+  border:1px solid #b9c8b4;border-radius:2px;
+  background:transparent;color:#556b58;
+  font:400 19px/1 Arial,sans-serif;
+  cursor:pointer;
+}
+.ob-sow-about-copy-r1 {
+  overflow-y:auto;overscroll-behavior:contain;
+  -webkit-overflow-scrolling:touch;
+  padding:20px 27px 29px;
+  font:400 16.5px/1.58 'EB Garamond',Georgia,serif;
+}
+.ob-sow-about-copy-r1 p {margin:0 0 1.05em;}
+.ob-sow-about-copy-r1 p:last-child {margin-bottom:0;}
+.ob-sow-about-copy-r1 p.ob-sow-about-final-r1 {font-weight:600;margin-top:1.5em;}
+.ob-sow-about-overlay-r1[lang="ja"] .ob-sow-about-copy-r1 {
+  font-family:'Hiragino Mincho ProN','Yu Mincho','Noto Serif JP',serif;
+  font-size:14px;line-height:1.85;
+}
+.ob-sow-about-overlay-r1[lang="ja"] .ob-sow-about-title-r1 {font-size:18px;}
+@media (max-width:690px) {
+  .ob-sow-about-overlay-r1 {padding:10px;}
+  .ob-sow-about-dialog-r1 {max-height:88dvh;}
+  .ob-sow-about-head-r1 {padding:12px 14px 10px;}
+  .ob-sow-about-title-r1 {font-size:20px;}
+  .ob-sow-about-copy-r1 {padding:17px 17px 25px;font-size:16px;line-height:1.6;}
+  .ob-sow-about-overlay-r1[lang="ja"] .ob-sow-about-copy-r1 {font-size:13.5px;line-height:1.82;}
+}
+@media(prefers-reduced-motion:reduce) { .ob-sow-about-overlay-r1 * {scroll-behavior:auto;} }
