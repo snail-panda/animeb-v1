@@ -1,8 +1,124 @@
 {
   "schemaVersion": 1,
   "format": "OFFBEAT Post Index",
-  "updatedAt": "2026-11-04T08:22:53.828Z",
+  "updatedAt": "2026-11-08T09:43:54.157Z",
   "posts": [
+    {
+      "id": "post:ranking/2026/fall/week05/index.html",
+      "category": "ANIME",
+      "type": "ranking",
+      "year": 2026,
+      "season": "fall",
+      "week": "05",
+      "url": "ranking/2026/fall/week05/index.html",
+      "status": "published",
+      "published": {
+        "iso": "2026-11-08",
+        "display": "November 8, 2026"
+      },
+      "period": {
+        "display": "November 1–7",
+        "rawDuration": "11-01-Sun-11-07-Sat",
+        "sourceField": "meta.duration"
+      },
+      "topN": 10,
+      "stage": "mid",
+      "title": {
+        "display": "2026 FALL – Top 10 Weekly Anime Ranking Week 05 (November 1–7)",
+        "html": "2026 <span class=\"title-season fall\">FALL</span> – Top <span class=\"title-entry-number\">10</span> Weekly Anime Ranking <span class=\"post-week\">Week 05</span> <span class=\"post-ranking-period\">(November 1–7)</span>",
+        "en": "2026 FALL – Top 10 Weekly Anime Ranking Week 05 (November 1–7)",
+        "ja": ""
+      },
+      "intro": {
+        "en": "<strong>Fall 2026 anime</strong> has already entered its <strong>fifth week</strong>. Time really does fly.\n\nWe're approaching the point where the early stretch begins to give way to the middle of the season, and we should be starting to see signs of the first little climaxes taking shape... Or at least, that's what I'd like to say. Unfortunately, aside from a handful of relatively big-name titles, so many of this season's crappy shows have been struggling to get anywhere since the very beginning. In fact, I'm not sensing anything resembling a midseason buildup, let alone even the slightest indication that they're <strong>laying the groundwork</strong> for something to come. What on earth is going on with this season? And where is it even heading from here? Those are the questions I keep asking myself.\n\nTo make matters worse, several shows I've been keeping at least some interest in—<strong>Tetsuryo! Meet with Tetsudou Musume</strong> and <strong>#Searching for Zombies</strong> (and, well, <strong>PSYREN</strong> too, I suppose)—were off the air this week, making an already underwhelming week feel even more lackluster. Still, the season marches on, whether there's much to get excited about or not, and here we are, having made it through another week.\n\nWell then, with all that said, what exactly happened in the rankings this week? Let's take a closer look and see for ourselves.",
+        "ja": "<strong>２０２６年秋アニメ</strong>も早いもので<strong>第5週目</strong>に突入しました。\n\n序盤から中盤戦もそろそろ架橋に入り、第一弾の小さな山場を迎えてくる兆しが見えてくる頃…と言いたいところですが、わずかながらな比較的ビッグタイトルは例外として、多くのク◯作品が序盤戦から伸び悩んでいたので、実のところ一切中盤の山場など感じない、ましてや<strong>種まき</strong>すらしている気配を感じえない今期となっています。一体どうなっているのでしょうか？そして今期、これからどうなるだろう？と思っているわけです。\n\nまた更に、そんな中でも個人的に多少気に留めている作品である、<strong>『てつりょー！meet with 鉄道むすめ』</strong>や、<strong>『＃ゾンビさがしてます』</strong>（あと一応<strong>『PSYREN -サイレン-』</strong>も）が今週は放送がお休みで、ますます盛り下がっていたわけです。とはいえ、それでもシーズンは淡々と進んでいくので、今週もこの日を無事迎えることが出来たわけなのです。\n\nさぁて、そんなこんなですが、今週は一体どんな動きだったんでしょう。それでは実際にその中身をとくとご覧ください。",
+        "html": "<strong>Fall 2026 anime</strong> has already entered its <strong>fifth week</strong>. Time really does fly.\n\nWe're approaching the point where the early stretch begins to give way to the middle of the season, and we should be starting to see signs of the first little climaxes taking shape... Or at least, that's what I'd like to say. Unfortunately, aside from a handful of relatively big-name titles, so many of this season's crappy shows have been struggling to get anywhere since the very beginning. In fact, I'm not sensing anything resembling a midseason buildup, let alone even the slightest indication that they're <strong>laying the groundwork</strong> for something to come. What on earth is going on with this season? And where is it even heading from here? Those are the questions I keep asking myself.\n\nTo make matters worse, several shows I've been keeping at least some interest in—<strong>Tetsuryo! Meet with Tetsudou Musume</strong> and <strong>#Searching for Zombies</strong> (and, well, <strong>PSYREN</strong> too, I suppose)—were off the air this week, making an already underwhelming week feel even more lackluster. Still, the season marches on, whether there's much to get excited about or not, and here we are, having made it through another week.\n\nWell then, with all that said, what exactly happened in the rankings this week? Let's take a closer look and see for ourselves."
+      },
+      "image": {
+        "src": "images/key-visuals/2026/fall/zombie.webp",
+        "alt": "Anime Thumbnail",
+        "wrapperClass": "post-image-mumu",
+        "wrapperStyle": ""
+      },
+      "labels": [
+        {
+          "text": "Ranking",
+          "className": "tag-label tag-ranking"
+        }
+      ],
+      "tags": [
+        "2026",
+        "fall",
+        "week5",
+        "top10",
+        "anime",
+        "review",
+        "ranking",
+        "weekly",
+        "Hotel Inhumans Season 2",
+        "『ホテル・インヒューマンズ』第2期",
+        "Hotel Inhumans 2nd Season",
+        "hotel",
+        "Reborn as a Space Mercenary: I Woke Up Piloting the Strongest Starship!",
+        "目覚めたら最強装備と宇宙船持ちだったので、一戸建て目指して傭兵として自由に生きたい",
+        "Mezametara Saikyou Soubi to Uchuusen-mochi datta node",
+        "Ikkodate Mezashite Youhei to shite Jiyuu ni Ikitai",
+        "mezametara",
+        "Super Psychic Policeman Chojo",
+        "超巡！超条先輩",
+        "Choujun! Choujou-senpai",
+        "choujou",
+        "Even the Student Council Has Its Holes!",
+        "生徒会にも穴はある！",
+        "Seitokai ni mo Ana wa Aru!",
+        "seitokai",
+        "Chitose Is in the Ramune Bottle Part 2",
+        "『千歳くんはラムネ瓶のなか』第2クール",
+        "Chitose-kun wa Ramune Bin no Naka Part 2",
+        "chitose",
+        "The Apothecary Diaries Season 3",
+        "『薬屋のひとりごと』第3期",
+        "Kusuriya no Hitorigoto 3rd Season",
+        "kusuriya",
+        "Tetsuryou! Meet with Tetsudou Musume",
+        "てつりょー！meet with 鉄道むすめ",
+        "tetsuryo",
+        "The Ramparts of Ice Season 2",
+        "『氷の城壁』第2期",
+        "Koori no Jouheki 2nd Season",
+        "jouheki",
+        "So What's Wrong with Getting Reborn as a Goblin?",
+        "転生ゴブリンだけど質問ある？",
+        "Tensei Goblin dakedo Shitsumon Aru?",
+        "goblin",
+        "Tokyo Revengers: War of the Three Titan Arc",
+        "『東京リベンジャーズ』三天戦争編",
+        "Tokyo Revengers: Santen Sensou-hen",
+        "tokyo",
+        "Romelia War Chronicle",
+        "ロメリア戦記",
+        "Romelia Senki",
+        "romelia",
+        "The Seven Knights of the Marronnier Kingdom",
+        "マロニエ王国の七人の騎士",
+        "Marronnier Oukoku no Shichinin no Kishi",
+        "oukoku",
+        "From Far Away",
+        "彼方から",
+        "Kanata kara",
+        "kanata"
+      ],
+      "tagsRaw": "2026,fall,week5,top10,anime,review,ranking,weekly,Hotel Inhumans Season 2,『ホテル・インヒューマンズ』第2期,Hotel Inhumans 2nd Season,hotel,Reborn as a Space Mercenary: I Woke Up Piloting the Strongest Starship!,目覚めたら最強装備と宇宙船持ちだったので、一戸建て目指して傭兵として自由に生きたい,Mezametara Saikyou Soubi to Uchuusen-mochi datta node, Ikkodate Mezashite Youhei to shite Jiyuu ni Ikitai,mezametara,Super Psychic Policeman Chojo,超巡！超条先輩,Choujun! Choujou-senpai,choujou,Even the Student Council Has Its Holes!,生徒会にも穴はある！,Seitokai ni mo Ana wa Aru!,seitokai,Chitose Is in the Ramune Bottle Part 2,『千歳くんはラムネ瓶のなか』第2クール,Chitose-kun wa Ramune Bin no Naka Part 2,chitose,The Apothecary Diaries Season 3,『薬屋のひとりごと』第3期,Kusuriya no Hitorigoto 3rd Season,kusuriya,Tetsuryou! Meet with Tetsudou Musume,てつりょー！meet with 鉄道むすめ,tetsuryo,The Ramparts of Ice Season 2,『氷の城壁』第2期,Koori no Jouheki 2nd Season,jouheki,So What's Wrong with Getting Reborn as a Goblin?,転生ゴブリンだけど質問ある？,Tensei Goblin dakedo Shitsumon Aru?,goblin,Tokyo Revengers: War of the Three Titan Arc,『東京リベンジャーズ』三天戦争編,Tokyo Revengers: Santen Sensou-hen,tokyo,Romelia War Chronicle,ロメリア戦記,Romelia Senki,romelia,The Seven Knights of the Marronnier Kingdom,マロニエ王国の七人の騎士,Marronnier Oukoku no Shichinin no Kishi,oukoku,From Far Away,彼方から,Kanata kara,kanata",
+      "originalCardHtml": "<div class=\"post-card\" data-tags=\"2026,fall,week5,top10,anime,review,ranking,weekly,Hotel Inhumans Season 2,『ホテル・インヒューマンズ』第2期,Hotel Inhumans 2nd Season,hotel,Reborn as a Space Mercenary: I Woke Up Piloting the Strongest Starship!,目覚めたら最強装備と宇宙船持ちだったので、一戸建て目指して傭兵として自由に生きたい,Mezametara Saikyou Soubi to Uchuusen-mochi datta node, Ikkodate Mezashite Youhei to shite Jiyuu ni Ikitai,mezametara,Super Psychic Policeman Chojo,超巡！超条先輩,Choujun! Choujou-senpai,choujou,Even the Student Council Has Its Holes!,生徒会にも穴はある！,Seitokai ni mo Ana wa Aru!,seitokai,Chitose Is in the Ramune Bottle Part 2,『千歳くんはラムネ瓶のなか』第2クール,Chitose-kun wa Ramune Bin no Naka Part 2,chitose,The Apothecary Diaries Season 3,『薬屋のひとりごと』第3期,Kusuriya no Hitorigoto 3rd Season,kusuriya,Tetsuryou! Meet with Tetsudou Musume,てつりょー！meet with 鉄道むすめ,tetsuryo,The Ramparts of Ice Season 2,『氷の城壁』第2期,Koori no Jouheki 2nd Season,jouheki,So What's Wrong with Getting Reborn as a Goblin?,転生ゴブリンだけど質問ある？,Tensei Goblin dakedo Shitsumon Aru?,goblin,Tokyo Revengers: War of the Three Titan Arc,『東京リベンジャーズ』三天戦争編,Tokyo Revengers: Santen Sensou-hen,tokyo,Romelia War Chronicle,ロメリア戦記,Romelia Senki,romelia,The Seven Knights of the Marronnier Kingdom,マロニエ王国の七人の騎士,Marronnier Oukoku no Shichinin no Kishi,oukoku,From Far Away,彼方から,Kanata kara,kanata\">\n  <div class=\"post-image-mumu\">\n    <a href=\"ranking/2026/fall/week05/index.html\">\n      <img src=\"images/key-visuals/2026/fall/zombie.webp\" alt=\"Anime Thumbnail\">\n    </a>\n  </div>\n  <div class=\"post-details\">\n    <span class=\"tag-label tag-ranking\">Ranking</span>\n    <h3 class=\"post-title\">2026 <span class=\"title-season fall\">FALL</span> – Top <span class=\"title-entry-number\">10</span> Weekly Anime Ranking <span class=\"post-week\">Week 05</span> <span class=\"post-ranking-period\">(November 1–7)</span></h3>\n    <p class=\"post-date\">November 8, 2026</p>\n    <p class=\"post-excerpt\"><strong>Fall 2026 anime</strong> has already entered its <strong>fifth week</strong>. Time really does fly.\n\nWe're approaching the point where the early stretch begins to give way to the middle of the season, and we should be starting to see signs of the first little climaxes taking shape... Or at least, that's what I'd like to say. Unfortunately, aside from a handful of relatively big-name titles, so many of this season's crappy shows have been struggling to get anywhere since the very beginning. In fact, I'm not sensing anything resembling a midseason buildup, let alone even the slightest indication that they're <strong>laying the groundwork</strong> for something to come. What on earth is going on with this season? And where is it even heading from here? Those are the questions I keep asking myself.\n\nTo make matters worse, several shows I've been keeping at least some interest in—<strong>Tetsuryo! Meet with Tetsudou Musume</strong> and <strong>#Searching for Zombies</strong> (and, well, <strong>PSYREN</strong> too, I suppose)—were off the air this week, making an already underwhelming week feel even more lackluster. Still, the season marches on, whether there's much to get excited about or not, and here we are, having made it through another week.\n\nWell then, with all that said, what exactly happened in the rankings this week? Let's take a closer look and see for ourselves.</p>\n    <a href=\"ranking/2026/fall/week05/index.html\" class=\"read-more\">Read More →</a>\n  </div>\n</div>",
+      "source": {
+        "kind": "generator-v4.3"
+      },
+      "episodes": {
+        "display": "5–6",
+        "raw": "ep.5-6",
+        "sourceField": "meta.ep_range"
+      }
+    },
     {
       "id": "note:2026-11-04-the-dawn-of-the-witch-2022-dc31a050",
       "status": "published",
