@@ -1,0 +1,37 @@
+/* R29 — Excel-font-outline wordmark + original embroidered badge. */
+.anime09 .n-season.n-season-12.n-season-13 > .ob-sow-lockup-r26.ob-sow-r29 {
+  max-width:830px;
+  margin:0 auto 7px;
+  padding:2px 12px 0;
+  background:transparent;
+  border:0;
+}
+.anime09 .ob-sow-r29-layout {
+  display:grid;
+  grid-template-columns:minmax(0, 17%) minmax(0, 1fr);
+  align-items:center;
+  gap:clamp(5px,1.3vw,14px);
+  max-width:775px;
+  margin:0 auto;
+}
+.anime09 .ob-sow-lockup-r26 .ob-sow-r29-layout img {
+  display:block;
+  margin:0;
+  width:100%;
+  max-width:none;
+  height:auto;
+  border:0;
+  object-fit:contain;
+  background:transparent;
+}
+@media(max-width:690px) {
+  .anime09 .n-season.n-season-12.n-season-13 > .ob-sow-lockup-r26.ob-sow-r29 {
+    max-width:100%;
+    padding:0 11px;
+    margin:0 auto 6px;
+  }
+  .anime09 .ob-sow-r29-layout {
+    grid-template-columns:minmax(0, 19%) minmax(0, 1fr);
+    gap:4px;
+  }
+}
