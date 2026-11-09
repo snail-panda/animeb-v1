@@ -50,8 +50,14 @@
   overlay.hidden = true;
   overlay.innerHTML = `
     <section class="ob-sow-about-dialog-r1" role="dialog" aria-modal="true" aria-labelledby="obSowAboutTitleR1" tabindex="-1">
+      <div class="ob-sow-about-ornament-r2" aria-hidden="true">
+        <img class="ob-sow-about-crest-r2" src="assets/images/offbeat-sow-patch-navy-r29.png" alt="" decoding="async">
+      </div>
       <header class="ob-sow-about-head-r1">
-        <h2 class="ob-sow-about-title-r1" id="obSowAboutTitleR1">What is S.O.W.?</h2>
+        <div class="ob-sow-about-head-copy-r2">
+          <div class="ob-sow-about-kicker-r2">Seasons of the Watch</div>
+          <h2 class="ob-sow-about-title-r1" id="obSowAboutTitleR1">What is S.O.W.?</h2>
+        </div>
         <button class="ob-sow-about-close-r1" id="obSowAboutCloseR1" type="button" aria-label="Close">×</button>
       </header>
       <div class="ob-sow-about-copy-r1" id="obSowAboutCopyR1"></div>
@@ -84,6 +90,7 @@
     const fragment = document.createDocumentFragment();
     text[lang].forEach((line, i) => {
       const p = document.createElement('p');
+      if (i === 10) p.className = 'ob-sow-about-turn-r2';
       if (i === text[lang].length - 1) p.className = 'ob-sow-about-final-r1';
       p.textContent = line; // editorial text is data, never evaluated as HTML
       fragment.append(p);

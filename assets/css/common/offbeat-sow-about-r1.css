@@ -1,84 +1,64 @@
-/* OFFBEAT S.O.W. — small bilingual explanation entry; no changes to artwork. */
-.anime09 .ob-sow-about-entry-r1 {
-  max-width:830px;
-  margin:-1px auto 4px;
-  padding:0 18px;
-  display:flex;
-  justify-content:flex-end;
-}
-.anime09 .ob-sow-about-open-r1 {
-  background:transparent;
-  border:0;
-  border-bottom:1px solid rgba(86,112,88,.45);
-  border-radius:0;
-  padding:4px 1px 3px;
-  font:500 10.5px/1.15 'Barlow Condensed','Abel',sans-serif;
-  letter-spacing:.07em;
-  color:#526c58;
-  cursor:pointer;
-}
+/* OFFBEAT — What is S.O.W.? Classic R2. Existing entry/wordmark unchanged. */
+.anime09 .ob-sow-about-entry-r1 {max-width:830px;margin:-1px auto 4px;padding:0 18px;display:flex;justify-content:flex-end;}
+.anime09 .ob-sow-about-open-r1 {background:transparent;border:0;border-bottom:1px solid rgba(86,112,88,.45);border-radius:0;padding:4px 1px 3px;font:500 10.5px/1.15 'Barlow Condensed','Abel',sans-serif;letter-spacing:.07em;color:#526c58;cursor:pointer;}
 .anime09 .ob-sow-about-open-r1:hover {color:#254a34;border-color:#254a34;}
-.anime09 .ob-sow-about-open-r1:focus-visible,
-.ob-sow-about-close-r1:focus-visible {outline:2px solid #547c59;outline-offset:4px;}
-@media (max-width:690px) {
-  /* Only a slight increase over the existing 22px mobile separation. */
-  .anime09 .n-season.n-season-12.n-season-13 {margin-top:27px;}
-  .anime09 .ob-sow-about-entry-r1 {padding:0 15px;margin:-2px auto 3px;}
-  .anime09 .ob-sow-about-open-r1 {font-size:10px;}
+.anime09 .ob-sow-about-open-r1:focus-visible,.ob-sow-about-close-r1:focus-visible {outline:2px solid #547c59;outline-offset:4px;}
+@media(max-width:690px){.anime09 .n-season.n-season-12.n-season-13 {margin-top:27px;}.anime09 .ob-sow-about-entry-r1{padding:0 15px;margin:-2px auto 3px;}.anime09 .ob-sow-about-open-r1{font-size:10px;}}
+.ob-sow-about-overlay-r1[hidden]{display:none!important;}
+.ob-sow-about-overlay-r1{position:fixed;inset:0;z-index:2500;display:grid;place-items:center;padding:18px;background:rgba(18,26,22,.67);}
+.ob-sow-about-dialog-r1{
+  position:relative;isolation:isolate;box-sizing:border-box;width:min(790px,100%);max-height:min(91dvh,960px);
+  display:flex;flex-direction:column;color:#292a25;
+  background:#f6f1e1;
+  border:1px solid #395842;border-radius:12px;
+  box-shadow:0 18px 0 -12px #c5bd9b,0 24px 70px rgba(8,16,12,.35);
+  overflow:hidden;
 }
-.ob-sow-about-overlay-r1[hidden] {display:none!important;}
-.ob-sow-about-overlay-r1 {
-  position:fixed;inset:0;z-index:2500;
-  display:grid;place-items:center;
-  padding:16px;
-  background:rgba(21,33,27,.62);
+/* Double hairline border evokes an old programme cover rather than a fantasy parchment. */
+.ob-sow-about-dialog-r1::before{content:'';position:absolute;inset:10px;border:1px solid rgba(46,84,61,.68);border-radius:5px;pointer-events:none;z-index:2;}
+.ob-sow-about-dialog-r1::after{content:'';position:absolute;inset:14px;border:1px solid rgba(167,145,100,.36);border-radius:3px;pointer-events:none;z-index:2;}
+.ob-sow-about-ornament-r2{flex:none;text-align:center;padding:24px 50px 0;position:relative;}
+.ob-sow-about-ornament-r2::before,.ob-sow-about-ornament-r2::after{content:'';position:absolute;top:62%;height:1px;width:23%;background:linear-gradient(to right,transparent,#b09c72);}
+.ob-sow-about-ornament-r2::before{left:11%;}.ob-sow-about-ornament-r2::after{right:11%;transform:scaleX(-1);}
+.ob-sow-about-crest-r2{width:125px;height:89px;object-fit:contain;object-position:center;display:inline-block;}
+.ob-sow-about-head-r1{padding:3px 45px 12px;display:block;text-align:center;flex:none;position:relative;}
+.ob-sow-about-kicker-r2{font:600 13px/1.3 'EB Garamond',Georgia,serif;letter-spacing:.065em;color:#524c3a;margin-bottom:4px;}
+.ob-sow-about-kicker-r2::before,.ob-sow-about-kicker-r2::after{content:'—';margin:0 7px;color:#866b55;}
+.ob-sow-about-title-r1{margin:0;color:#34583f;font:italic 600 clamp(27px,3.6vw,40px)/1.15 'EB Garamond',Georgia,serif;letter-spacing:.008em;}
+.ob-sow-about-head-r1::after{content:'';display:block;height:1px;background:#ab9b78;margin:15px 15px 0;}
+.ob-sow-about-close-r1{position:absolute;top:-105px;right:18px;z-index:4;min-width:32px;height:32px;border:0;background:transparent;color:#34503c;font:400 26px/1 Georgia,serif;cursor:pointer;padding:0;}
+.ob-sow-about-copy-r1{
+  min-height:0;overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;
+  padding:10px 48px 36px;
+  font:400 16px/1.5 'EB Garamond',Georgia,serif;
+  scrollbar-width:thin;scrollbar-color:#b9b397 transparent;
 }
-.ob-sow-about-dialog-r1 {
-  width:min(670px,100%);
-  max-height:min(85dvh,780px);
-  display:flex;flex-direction:column;
-  color:#2a3d30;
-  background:#faf9ee;
-  border:1px solid #c5cebc;
-  box-shadow:0 22px 60px rgba(18,27,21,.3);
+.ob-sow-about-copy-r1 p{margin:0 0 .72em;}
+.ob-sow-about-copy-r1 p:last-child{margin-bottom:0;}
+.ob-sow-about-copy-r1 p.ob-sow-about-turn-r2{margin-top:1.8em;padding-top:1.25em;border-top:1px solid #b5aa8a;}
+.ob-sow-about-copy-r1 p.ob-sow-about-final-r1{
+  margin-top:1.7em;padding:13px 18px;text-align:center;
+  border:1px solid #82947c;background:rgba(93,121,89,.075);
+  color:#2d523b;font:italic 600 19px/1.4 'EB Garamond',Georgia,serif;
 }
-.ob-sow-about-head-r1 {
-  padding:15px 22px 13px;
-  display:flex;align-items:center;justify-content:space-between;gap:15px;
-  border-bottom:1px solid #d7ddcc;
+.ob-sow-about-overlay-r1[lang="ja"] .ob-sow-about-copy-r1{font-family:'Hiragino Mincho ProN','Yu Mincho','Noto Serif JP',serif;font-size:14px;line-height:1.83;}
+.ob-sow-about-overlay-r1[lang="ja"] .ob-sow-about-title-r1{font-size:31px;font-style:normal;}
+.ob-sow-about-overlay-r1[lang="ja"] .ob-sow-about-copy-r1 p.ob-sow-about-final-r1{font-family:'Hiragino Mincho ProN','Yu Mincho','Noto Serif JP',serif;font-style:normal;font-size:15px;}
+@media(max-width:690px){
+  .ob-sow-about-overlay-r1{padding:9px;}
+  .ob-sow-about-dialog-r1{width:100%;max-height:91dvh;border-radius:8px;}
+  .ob-sow-about-dialog-r1::before{inset:6px;}.ob-sow-about-dialog-r1::after{inset:9px;}
+  .ob-sow-about-ornament-r2{padding:17px 40px 0;}.ob-sow-about-crest-r2{width:96px;height:68px;}
+  .ob-sow-about-head-r1{padding:0 26px 9px;}.ob-sow-about-kicker-r2{font-size:11px;}
+  .ob-sow-about-title-r1{font-size:29px;}.ob-sow-about-head-r1::after{margin:11px 0 0;}
+  .ob-sow-about-close-r1{top:-74px;right:-12px;min-width:28px;height:28px;font-size:24px;}
+  .ob-sow-about-copy-r1{padding:10px 25px 25px;font-size:15px;line-height:1.55;}
+  .ob-sow-about-copy-r1 p.ob-sow-about-final-r1{padding:11px 9px;font-size:16px;}
+  .ob-sow-about-overlay-r1[lang="ja"] .ob-sow-about-title-r1{font-size:25px;}
+  .ob-sow-about-overlay-r1[lang="ja"] .ob-sow-about-copy-r1{font-size:13px;line-height:1.78;}
+  .ob-sow-about-overlay-r1[lang="ja"] .ob-sow-about-copy-r1 p.ob-sow-about-final-r1{font-size:13px;}
+  /* iOS / other WebKit: hide the indicator without preventing touch scrolling. */
+  .ob-sow-about-copy-r1{scrollbar-width:none;-ms-overflow-style:none;}
+  .ob-sow-about-copy-r1::-webkit-scrollbar{display:none;width:0;height:0;}
 }
-.ob-sow-about-title-r1 {
-  margin:0;
-  font:500 21px/1.2 'EB Garamond',Georgia,serif;
-  letter-spacing:.01em;
-}
-.ob-sow-about-close-r1 {
-  flex:0 0 auto;min-width:30px;height:30px;
-  border:1px solid #b9c8b4;border-radius:2px;
-  background:transparent;color:#556b58;
-  font:400 19px/1 Arial,sans-serif;
-  cursor:pointer;
-}
-.ob-sow-about-copy-r1 {
-  overflow-y:auto;overscroll-behavior:contain;
-  -webkit-overflow-scrolling:touch;
-  padding:20px 27px 29px;
-  font:400 16.5px/1.58 'EB Garamond',Georgia,serif;
-}
-.ob-sow-about-copy-r1 p {margin:0 0 1.05em;}
-.ob-sow-about-copy-r1 p:last-child {margin-bottom:0;}
-.ob-sow-about-copy-r1 p.ob-sow-about-final-r1 {font-weight:600;margin-top:1.5em;}
-.ob-sow-about-overlay-r1[lang="ja"] .ob-sow-about-copy-r1 {
-  font-family:'Hiragino Mincho ProN','Yu Mincho','Noto Serif JP',serif;
-  font-size:14px;line-height:1.85;
-}
-.ob-sow-about-overlay-r1[lang="ja"] .ob-sow-about-title-r1 {font-size:18px;}
-@media (max-width:690px) {
-  .ob-sow-about-overlay-r1 {padding:10px;}
-  .ob-sow-about-dialog-r1 {max-height:88dvh;}
-  .ob-sow-about-head-r1 {padding:12px 14px 10px;}
-  .ob-sow-about-title-r1 {font-size:20px;}
-  .ob-sow-about-copy-r1 {padding:17px 17px 25px;font-size:16px;line-height:1.6;}
-  .ob-sow-about-overlay-r1[lang="ja"] .ob-sow-about-copy-r1 {font-size:13.5px;line-height:1.82;}
-}
-@media(prefers-reduced-motion:reduce) { .ob-sow-about-overlay-r1 * {scroll-behavior:auto;} }
+@media(prefers-reduced-motion:reduce){.ob-sow-about-overlay-r1 *{scroll-behavior:auto;}}
