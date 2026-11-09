@@ -69,3 +69,70 @@
   .ob-sow-about-copy-r1::-webkit-scrollbar{display:none;width:0;height:0;}
 }
 @media(prefers-reduced-motion:reduce){.ob-sow-about-overlay-r1 *{scroll-behavior:auto;}}
+
+/* OFFBEAT S.O.W. About Classic R5: compact optical frame + centered X; 42px invisible touch target. */
+.ob-sow-about-close-r1,
+.ob-sow-about-close-r1:hover {
+  position:absolute;
+  top:6px;
+  right:6px;
+  z-index:5;
+  box-sizing:border-box;
+  width:42px;
+  min-width:42px;
+  height:42px;
+  display:block;
+  border:0;
+  border-radius:0;
+  padding:0;
+  background:transparent;
+  box-shadow:none;
+  color:transparent;
+  font-size:0;
+  line-height:0;
+  cursor:pointer;
+  touch-action:manipulation;
+  -webkit-tap-highlight-color:transparent;
+}
+/* Draw the visible frame separately so it can be small without reducing the touch target. */
+.ob-sow-about-close-r1::before {
+  content:'';
+  position:absolute;
+  top:50%;left:50%;
+  box-sizing:border-box;
+  width:22px;height:22px;
+  transform:translate(-50%,-50%);
+  background:rgba(246,241,225,.93);
+  border:1px solid rgba(82,108,88,.34);
+  border-radius:4px;
+  pointer-events:none;
+}
+/* Two symmetric diagonal strokes avoid the font-baseline offset of a text X. */
+.ob-sow-about-close-r1::after {
+  content:'';
+  position:absolute;
+  top:50%;left:50%;
+  width:13px;height:13px;
+  transform:translate(-50%,-50%);
+  background:
+    linear-gradient(45deg,transparent calc(50% - .8px),rgba(66,93,72,.82) calc(50% - .8px),rgba(66,93,72,.82) calc(50% + .8px),transparent calc(50% + .8px)),
+    linear-gradient(-45deg,transparent calc(50% - .8px),rgba(66,93,72,.82) calc(50% - .8px),rgba(66,93,72,.82) calc(50% + .8px),transparent calc(50% + .8px));
+  pointer-events:none;
+}
+.ob-sow-about-close-r1:hover::before {
+  border-color:rgba(66,93,72,.53);
+  background:#f3ecdc;
+}
+.ob-sow-about-close-r1:focus-visible {
+  outline:2px solid rgba(66,93,72,.7);
+  outline-offset:-3px;
+  border-radius:8px;
+}
+@media (max-width:690px) {
+  .ob-sow-about-close-r1,
+  .ob-sow-about-close-r1:hover {
+    top:6px;right:6px;
+    width:42px;min-width:42px;height:42px;
+    font-size:0;line-height:0;
+  }
+}
