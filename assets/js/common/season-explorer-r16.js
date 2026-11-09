@@ -36,15 +36,24 @@
       first:'注目作品', disabled:'公開ランキングなし'}
   };
 
+  let retryCount=0;
   async function init() {
+    if(document.querySelector('#anime-top .ob-r16-years')) return;
     const sec = document.querySelector('#anime-top .n-season');
-    if (!sec || !sec.querySelector('.n-season-chooser') || !sec.querySelector('.n-weeks') || !document.getElementById('obSeasonExperienceR3')) return;
+    if (!sec || !sec.querySelector('.n-season-chooser') || !sec.querySelector('.n-weeks') || !document.getElementById('obSeasonExperienceR3')) {
+      if(retryCount++<4) setTimeout(init,1200);
+      return;
+    }
     let raw;
     try {
       const response = await fetch(new URL('weekly-rankings.json', base), {cache:'no-store'});
       if (!response.ok) throw Error(String(response.status));
       raw = await response.json();
-    } catch (err) { console.warn('Season explorer: manifest unavailable; original page preserved.', err); return; }
+    } catch (err) {
+      console.warn('Season explorer: manifest unavailable; original page preserved.', err);
+      if(retryCount++<4) setTimeout(init,1200);
+      return;
+    }
 
     // Only actual manifest week entries are linked. Empty seasons stay visible for historical context.
     const seasons = new Map();
@@ -64,7 +73,11 @@
     const entries = [...seasons.values()].filter(x=>[...x.weeks].some(n=>n>0))
       .sort((a,b) => Number(a.year)-Number(b.year) || order.indexOf(a.season)-order.indexOf(b.season));
     const latest = entries[entries.length-1];
-    if (!latest) return;
+    if (!latest) {
+      console.warn('Season explorer: no published weeks in the manifest; keeping the fallback season header.');
+      if(retryCount++<4) setTimeout(init,1200);
+      return;
+    }
     let selected = latest, displayYear = latest.year, masterRequest = 0;
 
     // R16 waits for the existing data loader to establish the latest-ranking card,
