@@ -112,11 +112,11 @@
   content:'';
   position:absolute;
   top:50%;left:50%;
-  width:13px;height:13px;
+  width:9px;height:9px;
   transform:translate(-50%,-50%);
   background:
-    linear-gradient(45deg,transparent calc(50% - .8px),rgba(66,93,72,.82) calc(50% - .8px),rgba(66,93,72,.82) calc(50% + .8px),transparent calc(50% + .8px)),
-    linear-gradient(-45deg,transparent calc(50% - .8px),rgba(66,93,72,.82) calc(50% - .8px),rgba(66,93,72,.82) calc(50% + .8px),transparent calc(50% + .8px));
+    linear-gradient(45deg,transparent calc(50% - .55px),rgba(70,97,76,.63) calc(50% - .55px),rgba(70,97,76,.63) calc(50% + .55px),transparent calc(50% + .55px)),
+    linear-gradient(-45deg,transparent calc(50% - .55px),rgba(70,97,76,.63) calc(50% - .55px),rgba(70,97,76,.63) calc(50% + .55px),transparent calc(50% + .55px));
   pointer-events:none;
 }
 .ob-sow-about-close-r1:hover::before {
