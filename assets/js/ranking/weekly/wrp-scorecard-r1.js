@@ -1,4 +1,4 @@
-/* OFFBEAT / AnimeB Weekly Ranking — WRP Scorecard R3 (R1 entry event preserved)
+/* OFFBEAT / AnimeB Weekly Ranking — WRP Scorecard R4 (R1 entry event preserved)
    Presentation-only. Reads .entry._animebEntry, never modifies source data.
    Keeps Final Week's legacy WRP popup untouched. */
 (function () {
@@ -8,20 +8,25 @@
 
   const E = (str) => String(str ?? '').replace(/[&<>"']/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
   const fields = [
-    ['animation','Animation','アニメーション',1,'camera'],
+    ['animation','Animation','アニメーション',1,'film'],
     ['script','Script','脚本',1,'book'],
-    ['direction','Direction','演出',1,'chair'],
+    ['direction','Direction','演出',1,'clapper'],
     ['charm','Charm','魅力',1,'star'],
-    ['overall','Overall','総合評価',2,'crown']
+    ['overall','Overall Rating','総合評価',2,'crown']
   ];
+  const sublabels = {
+    animation:['Visual quality','映像表現'],
+    direction:['Structure / Pacing','構成・テンポ'],
+    charm:['Appeal / Charisma','訴求力・個性']
+  };
   const svg = {
-    camera: '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="6" width="13" height="12" rx="2"/><path d="m16 10 5-3v10l-5-3z"/><circle cx="8" cy="6" r="2"/><circle cx="13" cy="6" r="2"/></svg>',
+    film: '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.4" y="4.5" width="19.2" height="15" rx="1.3"/><path d="M7.3 4.5v15M16.7 4.5v15M2.4 9h4.9m-4.9 6h4.9m9.4-6h4.9m-4.9 6h4.9"/></svg>',
     book: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 6C9 4 6 4 2 5v14c4-1 7-1 10 1 3-2 6-2 10-1V5c-4-1-7-1-10 1z"/><path d="M12 6v14"/></svg>',
-    chair: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M5 7l3 11h8l3-11M3 20l18-15M21 20 3 5M4 21h16"/></svg>',
+    clapper: '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="9" width="18" height="12" rx="1"/><path d="M3 9 2 5.7a1 1 0 0 1 .7-1.2l16.4-3.1a1 1 0 0 1 1.2.8l.5 3.4L3 9Z M7 3.8l3.3 3.4m2.9-5 3.3 3.4M3 13h18"/></svg>',
     star: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2 3.1 6.4 7 .9-5.1 4.9 1.3 7-6.3-3.3-6.3 3.3 1.2-7-5-4.9 7-.9z"/></svg>',
     crown: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m2 7 5.2 4L12 4l4.8 7L22 7l-2 12H4z"/><path d="M4 21h16"/></svg>',
     review: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 6C9 4 6 4 2 5v14c4-1 7-1 10 1 3-2 6-2 10-1V5c-4-1-7-1-10 1z"/><path d="M12 6v14"/></svg>',
-    laurel: '<svg viewBox="0 0 48 92" aria-hidden="true"><path d="M36 83C5 64 4 27 30 7" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="M30 8C15 10 18 2 28 0c10-1 12 4 2 8M23 17C9 18 10 9 18 8c9 0 12 6 5 9M16 28C3 27 5 17 13 18c9 2 9 10 3 10M14 39C1 34 4 25 12 29c9 5 8 12 2 10M17 51C2 45 8 36 16 42c8 7 7 12 1 9M23 62C7 59 14 49 22 56c7 6 6 10 1 6M30 72C16 70 19 62 29 64c10 3 8 9 1 8M36 81C24 85 25 76 33 75c9-1 10 4 3 6" fill="currentColor"/></svg>'
+    laurel: '<svg viewBox="0 0 56 96" aria-hidden="true"><path d="M44 91 C18 78 5 57 15 31 C19 18 26 9 36 4" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round"/><g fill="currentColor"><path d="M29.0 12.0 Q26.7 1.6 18.0 6.0 Q19.0 15.7 29.0 12.0Z"/><path d="M23.0 21.0 Q18.4 10.2 10.0 17.0 Q13.1 27.4 23.0 21.0Z"/><path d="M18.0 32.0 Q11.5 21.8 5.0 31.0 Q10.0 41.1 18.0 32.0Z"/><path d="M16.0 43.0 Q7.2 34.5 3.0 45.0 Q10.2 53.7 16.0 43.0Z"/><path d="M18.0 55.0 Q7.5 48.8 6.0 60.0 Q15.0 66.8 18.0 55.0Z"/><path d="M22.0 67.0 Q11.0 63.2 12.0 74.0 Q21.8 78.6 22.0 67.0Z"/><path d="M29.0 77.0 Q18.3 75.1 20.0 85.0 Q29.6 87.8 29.0 77.0Z"/><path d="M37.0 85.0 Q28.3 83.1 31.0 91.0 Q38.9 93.7 37.0 85.0Z"/><path d="M26.0 18.0 Q36.2 17.1 35.0 8.0 Q25.8 7.7 26.0 18.0Z"/><path d="M19.0 30.0 Q28.6 32.0 28.0 23.0 Q19.4 20.2 19.0 30.0Z"/><path d="M16.0 42.0 Q25.1 46.2 26.0 37.0 Q18.1 32.2 16.0 42.0Z"/><path d="M18.0 54.0 Q25.6 60.8 29.0 52.0 Q22.7 45.0 18.0 54.0Z"/><path d="M22.0 66.0 Q27.4 74.4 33.0 67.0 Q28.9 58.7 22.0 66.0Z"/><path d="M30.0 77.0 Q32.9 85.2 39.0 80.0 Q37.2 72.1 30.0 77.0Z"/></g></svg>'
   };
 
   const str = (ja, en, isJa) => isJa ? ja : en;
@@ -72,14 +77,14 @@
       const score = parts[i];
       return `<div class="ob-wrp-r1-score-row">
           <span class="ob-wrp-r1-icon">${svg[icon]}</span>
-          <span class="ob-wrp-r1-criterion">${E(ja?jp:en)}</span>
+          <span class="ob-wrp-r1-criterion"><span class="ob-wrp-r4-main">${E(ja?jp:en)}</span>${sublabels[key] ? `<small class="ob-wrp-r4-sub">${E(sublabels[key][ja?1:0])}</small>` : ''}</span>
           ${gauge(score,max,key==='overall')}
           <span class="ob-wrp-r1-numeric">${E(fmt(score))}<small> / ${fmt(max)}</small></span>
         </div>`;
     }).join('');
     return `<div class="ob-wrp-r1-header ob-wrp-r3-header">
       <div class="ob-wrp-r1-titlebox">
-        ${rank ? `<div class="ob-wrp-r3-rank">RANK ${rank}</div>` : ''}
+        ${rank ? `<div class="ob-wrp-r3-rank">RANK <strong>${rank}</strong></div>` : ''}
         <h2>${E(ja ? (data.jpTitle||data.title||'') : (data.title||data.jpTitle||''))}</h2>
         <div class="ob-wrp-r1-subtitle">${E(ja ? (data.title||'') : (data.jpTitle||''))}</div>
         <div class="ob-wrp-r1-episode">${episodeText(data,entry,ja)}</div>
@@ -108,10 +113,10 @@
     <details class="ob-wrp-r1-method ob-wrp-r3-method">
       <summary>${str('WRPの採点について','About WRP scoring',ja)}<span class="ob-wrp-r3-chevron" aria-hidden="true"></span></summary>
       <div class="ob-wrp-r3-method-body">
-        <p>${str('WRPは、素点（通常5.00）と評価要素（5項目・最大6.00）の合計です。','WRP combines a base score (usually 5.00) with five evaluation components (up to 6.00 total).',ja)}</p>
-        <p>${str('基本は10点満点を目安にしていますが、特に優れたエピソードでは最大11点まで採点する場合があります。','The usual benchmark is 10 points, but exceptional episodes may receive up to 11.',ja)}</p>
-        <p>${str('内容が著しく不十分な場合、素点を減らすことがあります。','The base score may be reduced for exceptionally weak episodes.',ja)}</p>
-        <p>${str('評価要素のうち、総合評価は−2.00～＋2.00の範囲で加減します。','The Overall component ranges from −2.00 to +2.00.',ja)}</p>
+        <p>${str('<strong>WRP</strong>は、<strong>素点</strong>（通常<strong>5.00</strong>）と<strong>5つの評価要素</strong>（最大<strong>6.00</strong>）の合計です。','<strong>WRP</strong> combines a <strong>base score</strong> (usually <strong>5.00</strong>) with <strong>five evaluation components</strong> (up to <strong>6.00</strong> total).',ja)}</p>
+        <p>${str('基本は<strong>10点満点</strong>を目安にしていますが、特に優れたエピソードは最大<strong>11点</strong>まで採点する場合があります。','The usual benchmark is <strong>10 points</strong>, but exceptional episodes may receive up to <strong>11</strong>.',ja)}</p>
+        <p>${str('アニメ作品としての基準を満たしていないと判断した場合、<strong>素点を減らす</strong>ことがあります。','The <strong>base score may be reduced</strong> if an episode is judged to fall seriously short of the standards expected of an anime.',ja)}</p>
+        <p>${str('評価要素のうち、<strong>総合評価</strong>は<strong>−2.00～＋2.00</strong>の範囲で加減します。','The <strong>Overall Rating</strong> component ranges from <strong>−2.00 to +2.00</strong>.',ja)}</p>
       </div>
     </details>`;
   }
