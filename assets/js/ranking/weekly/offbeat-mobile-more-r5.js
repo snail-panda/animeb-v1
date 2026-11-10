@@ -17,7 +17,7 @@
     return source.matches('.animeb-intro-text') ? 'intro'
       : source.matches('.animeb-dropped-reason') ? 'dropped' : 'bottom';
   }
-  function maxLines(type) { return type === 'intro' ? 8 : type === 'dropped' ? 4 : 3; }
+  function maxLines(type) { return type === 'intro' ? 6 : type === 'dropped' ? 4 : 3; }
 
   function state(source) {
     let r = records.get(source);
@@ -107,7 +107,7 @@
   function render(source, reset) {
     const r = state(source);
     if (reset) r.expanded = false;
-    if (!mobile.matches || !source.isConnected || source.closest('[hidden]')
+    if ((!mobile.matches && typeFor(source) !== 'intro') || !source.isConnected || source.closest('[hidden]')
       || !(source.textContent || '').trim()) { full(source, r); return; }
     if (r.expanded) {
       full(source, r);

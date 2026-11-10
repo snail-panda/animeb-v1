@@ -15,7 +15,7 @@
     ['overall','Overall Rating','総合評価',2,'crown']
   ];
   const sublabels = {
-    animation:['Visual quality','映像表現'],
+    animation:['Visual quality / Animation','映像表現・作画'],
     direction:['Structure / Pacing','構成・テンポ'],
     charm:['Appeal / Charisma','訴求力・個性']
   };
@@ -26,7 +26,7 @@
     star: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2 3.1 6.4 7 .9-5.1 4.9 1.3 7-6.3-3.3-6.3 3.3 1.2-7-5-4.9 7-.9z"/></svg>',
     crown: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m2 7 5.2 4L12 4l4.8 7L22 7l-2 12H4z"/><path d="M4 21h16"/></svg>',
     review: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 6C9 4 6 4 2 5v14c4-1 7-1 10 1 3-2 6-2 10-1V5c-4-1-7-1-10 1z"/><path d="M12 6v14"/></svg>',
-    laurel: '<svg viewBox="0 0 56 96" aria-hidden="true"><path d="M44 91 C18 78 5 57 15 31 C19 18 26 9 36 4" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round"/><g fill="currentColor"><path d="M29.0 12.0 Q26.7 1.6 18.0 6.0 Q19.0 15.7 29.0 12.0Z"/><path d="M23.0 21.0 Q18.4 10.2 10.0 17.0 Q13.1 27.4 23.0 21.0Z"/><path d="M18.0 32.0 Q11.5 21.8 5.0 31.0 Q10.0 41.1 18.0 32.0Z"/><path d="M16.0 43.0 Q7.2 34.5 3.0 45.0 Q10.2 53.7 16.0 43.0Z"/><path d="M18.0 55.0 Q7.5 48.8 6.0 60.0 Q15.0 66.8 18.0 55.0Z"/><path d="M22.0 67.0 Q11.0 63.2 12.0 74.0 Q21.8 78.6 22.0 67.0Z"/><path d="M29.0 77.0 Q18.3 75.1 20.0 85.0 Q29.6 87.8 29.0 77.0Z"/><path d="M37.0 85.0 Q28.3 83.1 31.0 91.0 Q38.9 93.7 37.0 85.0Z"/><path d="M26.0 18.0 Q36.2 17.1 35.0 8.0 Q25.8 7.7 26.0 18.0Z"/><path d="M19.0 30.0 Q28.6 32.0 28.0 23.0 Q19.4 20.2 19.0 30.0Z"/><path d="M16.0 42.0 Q25.1 46.2 26.0 37.0 Q18.1 32.2 16.0 42.0Z"/><path d="M18.0 54.0 Q25.6 60.8 29.0 52.0 Q22.7 45.0 18.0 54.0Z"/><path d="M22.0 66.0 Q27.4 74.4 33.0 67.0 Q28.9 58.7 22.0 66.0Z"/><path d="M30.0 77.0 Q32.9 85.2 39.0 80.0 Q37.2 72.1 30.0 77.0Z"/></g></svg>'
+    laurel: '<svg viewBox="0 0 60 104" aria-hidden="true"><path d="M44 101 C13 88 6 57 15 35 C19 20 29 9 43 4" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round"/><g fill="currentColor"><g transform="translate(29.6 18)"><path d="M0 0 C-5 -3 -15 -4 -18 -14 C-11 -17 -3 -12 0 0Z"/><path d="M0 0 C7 -3 12 -7 16 -16 C6 -15 1 -10 0 0Z"/></g><g transform="translate(25.1 29)"><path d="M0 0 C-5 -3 -15 -4 -18 -14 C-11 -17 -3 -12 0 0Z"/><path d="M0 0 C7 -3 12 -7 16 -16 C6 -15 1 -10 0 0Z"/></g><g transform="translate(22.4 40)"><path d="M0 0 C-5 -3 -15 -4 -18 -14 C-11 -17 -3 -12 0 0Z"/><path d="M0 0 C7 -3 12 -7 16 -16 C6 -15 1 -10 0 0Z"/></g><g transform="translate(21.5 51)"><path d="M0 0 C-5 -3 -15 -4 -18 -14 C-11 -17 -3 -12 0 0Z"/><path d="M0 0 C7 -3 12 -7 16 -16 C6 -15 1 -10 0 0Z"/></g><g transform="translate(22.5 62)"><path d="M0 0 C-5 -3 -15 -4 -18 -14 C-11 -17 -3 -12 0 0Z"/><path d="M0 0 C7 -3 12 -7 16 -16 C6 -15 1 -10 0 0Z"/></g><g transform="translate(25.3 73)"><path d="M0 0 C-5 -3 -15 -4 -18 -14 C-11 -17 -3 -12 0 0Z"/><path d="M0 0 C7 -3 12 -7 16 -16 C6 -15 1 -10 0 0Z"/></g><g transform="translate(29.9 84)"><path d="M0 0 C-5 -3 -15 -4 -18 -14 C-11 -17 -3 -12 0 0Z"/><path d="M0 0 C7 -3 12 -7 16 -16 C6 -15 1 -10 0 0Z"/></g><g transform="translate(36.4 95)"><path d="M0 0 C-5 -3 -15 -4 -18 -14 C-11 -17 -3 -12 0 0Z"/><path d="M0 0 C7 -3 12 -7 16 -16 C6 -15 1 -10 0 0Z"/></g></g></svg>'
   };
 
   const str = (ja, en, isJa) => isJa ? ja : en;
