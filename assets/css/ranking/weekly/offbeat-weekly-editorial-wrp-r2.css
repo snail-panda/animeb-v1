@@ -1,0 +1,81 @@
+/* OFFBEAT Weekly Editorial + WRP R2 — 2026-11-09
+   Presentation-only overrides. Weekly JSON, current ranking rows, bars,
+   trigger icons, review behavior, legacy Overview and Final are unchanged. */
+
+/* THIS WEEK — a quiet editorial frame, distinct heading, unchanged body copy. */
+.animeb-weekly-intro {
+  box-sizing: border-box;
+  border: 1px solid rgba(106, 126, 110, .38);
+  border-radius: 11px;
+  padding: 12px 14px 13px;
+}
+body[data-animeb-theme="dark"] .animeb-weekly-intro,
+body[data-animeb-theme="image"][data-animeb-image-tone="dark"] .animeb-weekly-intro {
+  border-color: rgba(187, 207, 194, .34);
+}
+body[data-animeb-theme="image"]:not([data-animeb-image-tone="dark"]) .animeb-weekly-intro {
+  border-color: rgba(91, 123, 104, .46);
+}
+body[data-animeb-lang="en"] .animeb-weekly-intro .animeb-intro-label {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-style: italic;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 1.3;
+  letter-spacing: .015em;
+}
+body[data-animeb-lang="ja"] .animeb-weekly-intro .animeb-intro-label {
+  font-family: 'Yu Mincho', 'Hiragino Mincho ProN', 'Noto Serif JP', serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.3;
+  letter-spacing: .015em;
+}
+/* Preserve the existing speech-bubble icon and the full intro text. */
+@media (max-width: 768px) {
+  .animeb-weekly-intro {padding: 11px 12px 12px;}
+  body[data-animeb-lang="en"] .animeb-weekly-intro .animeb-intro-label {font-size: 19px;}
+  body[data-animeb-lang="ja"] .animeb-weekly-intro .animeb-intro-label {font-size: 17px;}
+}
+
+/* WRP SCORECARD — scores lead; gauges and method notes support them. */
+.ob-wrp-r1-hero {
+  min-height: 86px;
+  padding: 8px 11px;
+  gap: 13px;
+  margin: 12px 0 13px;
+}
+.ob-wrp-r1-laurel {width: 29px; height: 59px;}
+.ob-wrp-r1-divider {height: 51px;}
+.ob-wrp-r1-hero-name strong {font-size: clamp(29px, 3.8vw, 43px);}
+.ob-wrp-r1-hero-name small {font-size: clamp(10px, 1.12vw, 12px);}
+.ob-wrp-r1-hero-score {font-size: clamp(32px, 4.25vw, 47px);}
+.ob-wrp-r1-items-heading strong {font-size: 16px;}
+.ob-wrp-r1-score-row {padding: 7px 0;}
+.ob-wrp-r1-criterion {font-weight: 600;}
+.ob-wrp-r1-gauge {height: 9px; opacity: .82;}
+.ob-wrp-r1-numeric {
+  font-size: 19px;
+  font-weight: 700;
+  letter-spacing: .005em;
+}
+.ob-wrp-r1-numeric small {font-size: 11px; color: #98938a;}
+/* Do not duplicate points elsewhere or change the equation's meaning. */
+@media (max-width: 620px) {
+  .ob-wrp-r1-hero {min-height: 69px; gap: 8px; padding: 7px 5px; margin: 12px 0 11px;}
+  .ob-wrp-r1-laurel {width: 16px; height: 43px;}
+  .ob-wrp-r1-divider {height: 38px;}
+  .ob-wrp-r1-hero-name strong {font-size: 27px;}
+  .ob-wrp-r1-hero-name small {font-size: 8px;}
+  .ob-wrp-r1-hero-score {font-size: 29px;}
+  .ob-wrp-r1-score-row {
+    grid-template-columns: 18px minmax(76px, 103px) minmax(38px, 1fr) 77px;
+    gap: 5px;
+    padding: 7px 0;
+  }
+  .ob-wrp-r1-criterion {font-size: 11px;}
+  .ob-wrp-r1-gauge {height: 8px;}
+  .ob-wrp-r1-numeric {font-size: 16px;}
+  .ob-wrp-r1-numeric small {font-size: 9.2px;}
+}
