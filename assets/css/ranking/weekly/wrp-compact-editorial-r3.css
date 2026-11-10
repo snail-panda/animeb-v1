@@ -1,0 +1,200 @@
+/* OFFBEAT Weekly / WRP compact R3 — scoped overrides after R1 and R2.
+   WRP data, review handling, Final WRP, ranking cards and Theme Studio unchanged. */
+
+/* Full-size PC: make THIS WEEK readable; preserve the approved phone typography. */
+@media (min-width: 769px) {
+  body[data-animeb-lang="en"] .animeb-weekly-intro .animeb-intro-text {
+    font-size: 16.5px;
+    line-height: 1.58;
+  }
+  body[data-animeb-lang="ja"] .animeb-weekly-intro .animeb-intro-text {
+    font-size: 14.7px;
+    line-height: 1.70;
+  }
+  body[data-animeb-lang="en"] .animeb-weekly-intro .animeb-intro-label {
+    font-size: 17px;
+  }
+  body[data-animeb-lang="ja"] .animeb-weekly-intro .animeb-intro-label {
+    font-size: 16px;
+  }
+}
+
+/* Compact WRP scorecard: a scoring explanation, not a second anime card. */
+.ob-wrp-r1-overlay {padding:12px;}
+.ob-wrp-r1-panel {
+  width:min(610px, 100%);
+  max-height:calc(100dvh - 24px);
+  padding:17px 21px 16px;
+  border-radius:16px;
+  font-size:14px;
+}
+.ob-wrp-r1-header.ob-wrp-r3-header {
+  display:block;
+  min-height:0;
+  padding-right:38px;
+  margin:0 0 9px;
+}
+.ob-wrp-r3-rank {
+  font:600 10px/1.25 'Barlow Condensed','Noto Sans JP',sans-serif;
+  color:#856f4a;
+  letter-spacing:.08em;
+  margin:0 0 4px;
+}
+.ob-wrp-r1-titlebox {align-self:auto;}
+.ob-wrp-r1-titlebox h2 {
+  font:700 20px/1.27 'Noto Serif JP','Yu Mincho',Georgia,serif;
+  margin:0 0 4px;
+  color:#233c2f;
+  overflow-wrap: anywhere;
+}
+.ob-wrp-r1-subtitle {
+  font:500 12.5px/1.35 Georgia,'Noto Serif JP',serif;
+  letter-spacing:0;
+  color:#9a7549;
+  margin:0 0 5px;
+}
+.ob-wrp-r1-episode {
+  font:500 12px/1.35 'Noto Sans JP','Yu Gothic UI',sans-serif;
+  color:#525d51;
+  border-top:0;
+  padding:0;
+}
+.ob-wrp-r1-close {top:0;right:0;width:26px;height:26px;font-size:17px;}
+
+/* WRP remains the primary number, in a much smaller classic panel. */
+.ob-wrp-r1-hero {
+  gap:10px;
+  min-height:67px;
+  margin:12px 0 7px;
+  padding:7px 9px;
+  border-radius:11px;
+}
+.ob-wrp-r1-laurel {width:18px;height:47px;}
+.ob-wrp-r1-divider {height:37px;}
+.ob-wrp-r1-hero-name strong {font-size:31px;}
+.ob-wrp-r1-hero-name small {font-size:10px;}
+.ob-wrp-r1-hero-score {font-size:35px;}
+
+/* Supporting arithmetic: no second set of three large cards. */
+.ob-wrp-r1-equation.ob-wrp-r3-formula {
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  align-items:baseline;
+  gap:5px 8px;
+  margin:0 0 13px;
+  padding:2px 0 8px;
+  color:#657057;
+  font:500 12px/1.45 'Noto Sans JP','Yu Gothic UI',sans-serif;
+  border-bottom:1px solid #dfd1b5;
+}
+.ob-wrp-r3-formula span {display:inline-flex;align-items:baseline;gap:3px;flex-wrap:wrap;}
+.ob-wrp-r3-formula strong {font:600 14px/1.2 Georgia,serif;color:#3c5836;}
+.ob-wrp-r3-formula b {font:500 14px/1 Georgia,serif;color:#aa915e;}
+.ob-wrp-r3-formula small {font:400 10px/1.3 'Noto Sans JP',sans-serif;color:#88806e;}
+.ob-wrp-r3-formula-total {color:#7b664a;}
+.ob-wrp-r3-formula-total strong {font-size:14px;}
+
+.ob-wrp-r1-items-heading {gap:10px;padding-bottom:5px;}
+.ob-wrp-r1-items-heading strong {font-size:15px;}
+.ob-wrp-r1-items-heading span {font-size:9px;}
+.ob-wrp-r1-score-row {
+  grid-template-columns:19px minmax(80px,1fr) minmax(55px,105px) 76px;
+  gap:7px;
+  padding:5px 0;
+}
+.ob-wrp-r1-icon,.ob-wrp-r1-icon svg {width:17px;height:17px;}
+.ob-wrp-r1-criterion {font-size:12.5px;}
+.ob-wrp-r1-gauge {height:7px;opacity:.65;}
+.ob-wrp-r1-numeric {font-size:17px;}
+.ob-wrp-r1-numeric small {font-size:10px;}
+.ob-wrp-r1-overall-note {
+  font-size:10px;
+  line-height:1.35;
+  margin:7px 0 9px;
+}
+.ob-wrp-r1-comment {margin:9px 0 11px;padding:9px 12px;border-radius:9px;}
+.ob-wrp-r1-comment h3 {font-size:14px;margin-bottom:4px;}
+.ob-wrp-r1-comment p {font-size:12.5px;line-height:1.58;}
+.ob-wrp-r1-review-wrap {margin:10px 0 12px;}
+.ob-wrp-r1-review {
+  width:min(290px,85%);
+  border-radius:20px;
+  padding:9px 12px;
+  gap:8px;
+  font-size:15px;
+}
+.ob-wrp-r1-review svg {width:19px;height:19px;}
+
+/* Native details: keyboard accessible, collapsed on open. */
+.ob-wrp-r1-method.ob-wrp-r3-method {
+  display:block;
+  padding:0;
+  border-radius:9px;
+  background:#f8f0e1;
+}
+.ob-wrp-r3-method summary {
+  cursor:pointer;
+  list-style:none;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:14px;
+  padding:9px 12px;
+  font:600 12px/1.3 'Noto Serif JP',Georgia,serif;
+  color:#465f3c;
+}
+.ob-wrp-r3-method summary::-webkit-details-marker {display:none;}
+.ob-wrp-r3-method summary:focus-visible {outline:2px solid #ac9059;outline-offset:2px;}
+.ob-wrp-r3-chevron {
+  width:7px;height:7px;flex:0 0 auto;
+  border-right:1px solid currentColor;border-bottom:1px solid currentColor;
+  transform:rotate(45deg);transition:transform .15s;
+}
+.ob-wrp-r3-method[open] .ob-wrp-r3-chevron {transform:rotate(225deg);}
+.ob-wrp-r3-method-body {border-top:1px solid #dfd0b1;padding:8px 12px 10px;}
+.ob-wrp-r1-method.ob-wrp-r3-method p {font-size:11px;line-height:1.6;margin:0 0 5px;}
+
+@media (max-width:620px) {
+  .ob-wrp-r1-overlay {padding:8px;}
+  .ob-wrp-r1-panel {
+    width:100%;max-height:calc(100dvh - 16px);
+    padding:14px 13px 12px;
+    border-radius:13px;
+  }
+  .ob-wrp-r1-header.ob-wrp-r3-header {padding-right:31px;margin-bottom:8px;min-height:0;}
+  .ob-wrp-r3-rank {font-size:9px;}
+  .ob-wrp-r1-titlebox h2 {font-size:16px;line-height:1.3;margin-bottom:4px;}
+  .ob-wrp-r1-subtitle {font-size:11px;margin-bottom:4px;}
+  .ob-wrp-r1-episode {font-size:10.5px;}
+  .ob-wrp-r1-close {width:24px;height:24px;font-size:16px;}
+  .ob-wrp-r1-hero {min-height:62px;gap:6px;padding:7px 5px;margin:11px 0 6px;}
+  .ob-wrp-r1-laurel {width:13px;height:34px;}
+  .ob-wrp-r1-hero-name strong {font-size:26px;}
+  .ob-wrp-r1-hero-name small {font-size:8px;}
+  .ob-wrp-r1-divider {height:32px;}
+  .ob-wrp-r1-hero-score {font-size:29px;}
+  .ob-wrp-r1-equation.ob-wrp-r3-formula {font-size:10.5px;gap:3px 5px;margin-bottom:10px;}
+  .ob-wrp-r3-formula strong,.ob-wrp-r3-formula-total strong {font-size:12px;}
+  .ob-wrp-r3-formula small {font-size:9px;}
+  .ob-wrp-r1-items-heading strong {font-size:14px;}
+  .ob-wrp-r1-items-heading span {font-size:9px;}
+  .ob-wrp-r1-score-row {
+    grid-template-columns:17px minmax(76px,1fr) minmax(47px,85px) 69px;
+    gap:5px;padding:6px 0;
+  }
+  .ob-wrp-r1-icon,.ob-wrp-r1-icon svg {width:16px;height:16px;}
+  .ob-wrp-r1-criterion {font-size:11.5px;}
+  .ob-wrp-r1-gauge {height:6px;opacity:.65;}
+  .ob-wrp-r1-numeric {font-size:15px;}
+  .ob-wrp-r1-numeric small {font-size:9px;}
+  .ob-wrp-r1-overall-note {font-size:9px;margin:6px 0 8px;}
+  .ob-wrp-r1-comment {margin:8px 0 9px;padding:8px 10px;}
+  .ob-wrp-r1-comment h3 {font-size:13px;}
+  .ob-wrp-r1-comment p {font-size:11.5px;}
+  .ob-wrp-r1-review {font-size:14px;padding:9px;width:min(250px,85%);}
+  .ob-wrp-r3-method summary {font-size:11.5px;}
+}
+@media (prefers-reduced-motion:reduce) {
+  .ob-wrp-r3-chevron {transition:none;}
+}

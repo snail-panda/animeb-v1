@@ -1,4 +1,4 @@
-/* OFFBEAT / AnimeB Weekly Ranking — WRP Scorecard R1
+/* OFFBEAT / AnimeB Weekly Ranking — WRP Scorecard R3 (R1 entry event preserved)
    Presentation-only. Reads .entry._animebEntry, never modifies source data.
    Keeps Final Week's legacy WRP popup untouched. */
 (function () {
@@ -64,11 +64,8 @@
     const valid = parts.every(v => v !== null);
     const sum = valid ? parts.reduce((a,b)=>a+b,0) : null;
     const total = numeric(data.wrp_score);
-    const artUrl = entry.querySelector('.kv-thumb img')?.src || '';
     const rawRank = data.rank;
     const rank = Number.isSafeInteger(Number(rawRank)) && Number(rawRank) > 0 ? Number(rawRank) : null;
-    const flag = String(data.trend || '').toLowerCase() === 'new' ? 'NEW' : '';
-    const epNumber = data.episode ? `EP.${String(data.episode).replace(/^ep\.?/i,'')}` : '';
     const note = detailNote(data, ja);
     const hasReview = Boolean(entry.querySelector('.review-tag:not([style*="display: none"])'));
     const rows = fields.map(([key,en,jp,max,icon],i) => {
@@ -80,13 +77,9 @@
           <span class="ob-wrp-r1-numeric">${E(fmt(score))}<small> / ${fmt(max)}</small></span>
         </div>`;
     }).join('');
-    return `<div class="ob-wrp-r1-header">
-      <div class="ob-wrp-r1-visual">
-        ${artUrl ? `<img class="ob-wrp-r1-art" src="${E(artUrl)}" alt="">` : ''}
-        ${rank ? `<span class="ob-wrp-r1-rank"><span>RANK</span><strong>${rank}</strong>${flag?`<em>${E(flag)}</em>`:''}</span>` : ''}
-        ${epNumber ? `<span class="ob-wrp-r1-ep">${E(epNumber)}</span>` : ''}
-      </div>
+    return `<div class="ob-wrp-r1-header ob-wrp-r3-header">
       <div class="ob-wrp-r1-titlebox">
+        ${rank ? `<div class="ob-wrp-r3-rank">RANK ${rank}</div>` : ''}
         <h2>${E(ja ? (data.jpTitle||data.title||'') : (data.title||data.jpTitle||''))}</h2>
         <div class="ob-wrp-r1-subtitle">${E(ja ? (data.title||'') : (data.jpTitle||''))}</div>
         <div class="ob-wrp-r1-episode">${episodeText(data,entry,ja)}</div>
@@ -100,24 +93,27 @@
       <div class="ob-wrp-r1-hero-score">${E(fmt(total))}<small>pt</small></div>
       <span class="ob-wrp-r1-laurel is-flipped">${svg.laurel}</span>
     </div>
-    <div class="ob-wrp-r1-equation">
-      <div class="ob-wrp-r1-equation-piece"><span>${str('素点','Base score',ja)}</span><strong>${fmt(base)}</strong></div>
-      <b class="ob-wrp-r1-math">+</b>
-      <div class="ob-wrp-r1-equation-piece"><span>${str('評価要素（合計）','Evaluation total',ja)}</span><strong>${fmt(sum)}</strong><small>${str('5項目・最大6.00','5 items · max 6.00',ja)}</small></div>
-      <b class="ob-wrp-r1-math">=</b>
-      <div class="ob-wrp-r1-equation-result"><span>WRP</span><strong>${fmt(total)}</strong></div>
+    <div class="ob-wrp-r1-equation ob-wrp-r3-formula" aria-label="${E(str('素点と評価要素の合計','WRP calculation',ja))}">
+      <span>${str('素点','Base',ja)} <strong>${fmt(base)}</strong></span>
+      <b aria-hidden="true">+</b>
+      <span>${str('評価要素','Evaluation',ja)} <strong>${fmt(sum)}</strong><small>${str('（5項目・最大6.00）','(5 items · max 6.00)',ja)}</small></span>
+      <b aria-hidden="true">=</b>
+      <span class="ob-wrp-r3-formula-total">WRP <strong>${fmt(total)}</strong></span>
     </div>
     <div class="ob-wrp-r1-items-heading"><strong>${str('評価要素の内訳','Evaluation breakdown',ja)}</strong><span>${str('各項目の配点：アニメ・脚本・演出・魅力 各1.00 ／ 総合評価 2.00','Maximum: Animation, Script, Direction, Charm 1.00 each; Overall 2.00',ja)}</span></div>
     <div class="ob-wrp-r1-items">${rows}</div>
-    <p class="ob-wrp-r1-overall-note">${str('※ 総合評価の範囲：−2.00 ～ ＋2.00。負の評価もあります。','* Overall rating range: −2.00 to +2.00; negative values are possible.',ja)}</p>
-    <section class="ob-wrp-r1-comment"><h3>${str('採点について一言','A note on the score',ja)}</h3><p class="${note ? '' : 'ob-wrp-r1-placeholder'}">${note ? E(note).replace(/\n/g,'<br>') : str('採点コメントは未登録です。','Scoring note not yet added.',ja)}</p></section>
+    <p class="ob-wrp-r1-overall-note">${str('※ 総合評価：−2.00 ～ ＋2.00','* Overall range: −2.00 to +2.00',ja)}</p>
+    ${note ? `<section class="ob-wrp-r1-comment"><h3>${str('採点について一言','A note on the score',ja)}</h3><p>${E(note).replace(/\n/g,'<br>')}</p></section>` : ''}
     ${hasReview ? `<div class="ob-wrp-r1-review-wrap"><button type="button" class="ob-wrp-r1-review" data-ob-wrp-review>${svg.review}<span>${str('レビューを読む','Read the review',ja)}</span></button></div>` : ''}
-    <section class="ob-wrp-r1-method"><h3>${str('WRPの採点について','About WRP scoring',ja)}</h3><div>
-      <p>${str('WRPは、素点（通常5.00）と評価要素（5項目・最大6.00）の合計です。','WRP combines a base score (usually 5.00) with five evaluation components (up to 6.00 total).',ja)}</p>
-      <p>${str('基本は10点満点を目安にしていますが、特に優れたエピソードでは最大11点まで採点する場合があります。','The usual benchmark is 10 points, but exceptional episodes may receive up to 11.',ja)}</p>
-      <p>${str('内容が著しく不十分な場合、素点を減らすことがあります。','The base score may be reduced for exceptionally weak episodes.',ja)}</p>
-      <p>${str('評価要素のうち、総合評価は−2.00～＋2.00の範囲で加減します。','The Overall component ranges from −2.00 to +2.00.',ja)}</p>
-    </div></section>`;
+    <details class="ob-wrp-r1-method ob-wrp-r3-method">
+      <summary>${str('WRPの採点について','About WRP scoring',ja)}<span class="ob-wrp-r3-chevron" aria-hidden="true"></span></summary>
+      <div class="ob-wrp-r3-method-body">
+        <p>${str('WRPは、素点（通常5.00）と評価要素（5項目・最大6.00）の合計です。','WRP combines a base score (usually 5.00) with five evaluation components (up to 6.00 total).',ja)}</p>
+        <p>${str('基本は10点満点を目安にしていますが、特に優れたエピソードでは最大11点まで採点する場合があります。','The usual benchmark is 10 points, but exceptional episodes may receive up to 11.',ja)}</p>
+        <p>${str('内容が著しく不十分な場合、素点を減らすことがあります。','The base score may be reduced for exceptionally weak episodes.',ja)}</p>
+        <p>${str('評価要素のうち、総合評価は−2.00～＋2.00の範囲で加減します。','The Overall component ranges from −2.00 to +2.00.',ja)}</p>
+      </div>
+    </details>`;
   }
 
   let active = null;
