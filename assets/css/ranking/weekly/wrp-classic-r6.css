@@ -1,0 +1,73 @@
+/* OFFBEAT Weekly WRP Classic R6 -- visual refinements to R5. No ranking arithmetic. */
+
+/* Calm antique-paper neutrals (less pink/ivory) in the scorecard only. */
+.ob-wrp-r1-panel { background:#f5f1e8; border-color:#bbae8d; }
+.ob-wrp-r1-hero {
+  background:linear-gradient(115deg,#f0ebe0 0%,#f7f2e9 52%,#eee8dc 100%);
+  border-color:#cdbb99;
+}
+/* Four miniature botanical corner flourishes, not a ticket-bracket rectangle. */
+.ob-wrp-r1-hero::before {
+  content:"";
+  position:absolute;
+  inset:5px;
+  border:0;
+  border-radius:0;
+  background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Cg%20transform%3D%22%22%20stroke%3D%22%23ad986f%22%20stroke-width%3D%221.25%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M4%2027C4%2014%209%207%2019%206c5-.5%209%203%206%207-2%202.6-6%20.9-5-1.6%22%20fill%3D%22none%22%2F%3E%3Cpath%20d%3D%22M6%2025q8-5%209-12-7%202-9%2012Z%22%20fill%3D%22%23b7a47b%22%20stroke%3D%22none%22%2F%3E%3Cpath%20d%3D%22M12%2013Q13%206%2019%204q-1%207-7%209Z%22%20fill%3D%22%23b7a47b%22%20stroke%3D%22none%22%2F%3E%3Ccircle%20cx%3D%2227%22%20cy%3D%225%22%20r%3D%221.2%22%20fill%3D%22%23b7a47b%22%20stroke%3D%22none%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E"), url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Cg%20transform%3D%22translate%2832%200%29%20scale%28-1%201%29%22%20stroke%3D%22%23ad986f%22%20stroke-width%3D%221.25%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M4%2027C4%2014%209%207%2019%206c5-.5%209%203%206%207-2%202.6-6%20.9-5-1.6%22%20fill%3D%22none%22%2F%3E%3Cpath%20d%3D%22M6%2025q8-5%209-12-7%202-9%2012Z%22%20fill%3D%22%23b7a47b%22%20stroke%3D%22none%22%2F%3E%3Cpath%20d%3D%22M12%2013Q13%206%2019%204q-1%207-7%209Z%22%20fill%3D%22%23b7a47b%22%20stroke%3D%22none%22%2F%3E%3Ccircle%20cx%3D%2227%22%20cy%3D%225%22%20r%3D%221.2%22%20fill%3D%22%23b7a47b%22%20stroke%3D%22none%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E"), url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Cg%20transform%3D%22translate%280%2032%29%20scale%281%20-1%29%22%20stroke%3D%22%23ad986f%22%20stroke-width%3D%221.25%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M4%2027C4%2014%209%207%2019%206c5-.5%209%203%206%207-2%202.6-6%20.9-5-1.6%22%20fill%3D%22none%22%2F%3E%3Cpath%20d%3D%22M6%2025q8-5%209-12-7%202-9%2012Z%22%20fill%3D%22%23b7a47b%22%20stroke%3D%22none%22%2F%3E%3Cpath%20d%3D%22M12%2013Q13%206%2019%204q-1%207-7%209Z%22%20fill%3D%22%23b7a47b%22%20stroke%3D%22none%22%2F%3E%3Ccircle%20cx%3D%2227%22%20cy%3D%225%22%20r%3D%221.2%22%20fill%3D%22%23b7a47b%22%20stroke%3D%22none%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E"), url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Cg%20transform%3D%22translate%2832%2032%29%20scale%28-1%20-1%29%22%20stroke%3D%22%23ad986f%22%20stroke-width%3D%221.25%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpath%20d%3D%22M4%2027C4%2014%209%207%2019%206c5-.5%209%203%206%207-2%202.6-6%20.9-5-1.6%22%20fill%3D%22none%22%2F%3E%3Cpath%20d%3D%22M6%2025q8-5%209-12-7%202-9%2012Z%22%20fill%3D%22%23b7a47b%22%20stroke%3D%22none%22%2F%3E%3Cpath%20d%3D%22M12%2013Q13%206%2019%204q-1%207-7%209Z%22%20fill%3D%22%23b7a47b%22%20stroke%3D%22none%22%2F%3E%3Ccircle%20cx%3D%2227%22%20cy%3D%225%22%20r%3D%221.2%22%20fill%3D%22%23b7a47b%22%20stroke%3D%22none%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E");
+  background-position:left top, right top, left bottom, right bottom;
+  background-size:24px 24px;
+  background-repeat:no-repeat;
+  pointer-events:none;
+  opacity:.72;
+}
+/* A natural open laurel branch with fewer and broader leaves. */
+.ob-wrp-r1-laurel { color:#b29961; width:34px; height:57px; }
+.ob-wrp-r1-laurel svg { width:100%; height:100%; overflow:visible; }
+
+/* Keep RANK compact but no longer dwarfed or vertically sunken. */
+.ob-wrp-r3-rank strong {
+  display:inline-block;
+  font-size:22px;
+  line-height:1;
+  font-weight:700;
+  color:#97835f;
+  vertical-align:baseline;
+  position:relative; top:-1px;
+}
+
+/* The six-line THIS WEEK layout from R5 remains untouched. Desktop JA label
+   needs a stronger selector than the older media rules; mobile stays at R4's 18px. */
+@media (min-width:769px) {
+  body[data-animeb-lang="ja"] .animeb-weekly-intro .animeb-intro-label,
+  body[data-animeb-lang="ja"] .ws-modern-wrapper + .animeb-weekly-intro .animeb-intro-label {
+    font-size:21px !important;
+  }
+}
+@media (max-width:768px) {
+  body[data-animeb-lang="ja"] .animeb-weekly-intro .animeb-intro-label {
+    font-size:18px; /* identical to R4 / R5, NOT enlarged */
+  }
+}
+
+/* WRP name still leads; only the small English descriptor is slightly larger. */
+body[data-animeb-lang="en"] .entry.ob-wrp-r1-enabled .bar-label {font-size:13.8px;}
+@media (max-width:768px) {
+  body[data-animeb-lang="en"] .entry.ob-wrp-r1-enabled .bar-label {font-size:12.4px;}
+}
+
+@media (max-width:620px) {
+  .ob-wrp-r3-rank strong {font-size:20px;top:-1px;}
+  .ob-wrp-r1-laurel {width:30px;height:49px;}
+  .ob-wrp-r1-hero::before {background-size:20px 20px;inset:4px;}
+  /* Slightly longer phone gauges, without changing the five score values or text. */
+  .ob-wrp-r1-score-row {
+    grid-template-columns:17px minmax(116px,1fr) minmax(84px,122px) 69px;
+    column-gap:5px;
+  }
+}
+@media (max-width:350px) {
+  .ob-wrp-r1-score-row {
+    grid-template-columns:16px minmax(98px,1fr) minmax(50px,80px) 66px;
+    column-gap:4px;
+  }
+}
