@@ -19,3 +19,13 @@ body[data-animeb-lang="ja"] .animeb-weekly-intro .animeb-intro-label {
   font-weight: 400 !important;
   font-style: italic !important;
 }
+
+/* OFFBEAT_THISWEEK_R9_DESKTOP_JA
+ * Desktop Japanese title: 17.5px. Mobile remains at R8's 18px.
+ * English, font family/weight/italic, six-line excerpt and all other styles are untouched.
+ */
+@media screen and (min-width: 769px) {
+  body[data-animeb-lang="ja"] .animeb-weekly-intro .animeb-intro-label {
+    font-size: 17.5px !important;
+  }
+}
