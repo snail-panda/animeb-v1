@@ -1,0 +1,21 @@
+/* OFFBEAT Weekly — This Week / 今週のひと言 — typography R8
+   Scoped to the weekly editorial heading only. No copy or panel layout changes.
+   EN preference: Goudy Old Style > EB Garamond > Gill Sans Nova > Alegreya > Georgia.
+   JA preference: Yu Mincho > Hiragino Mincho ProN > Noto Serif JP.
+   Web fallback fonts (EB Garamond/Alegreya) are loaded from Google Fonts.
+*/
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@1,400&family=Alegreya:ital,wght@1,400&display=swap');
+
+body[data-animeb-lang="en"] .animeb-weekly-intro .animeb-intro-label {
+  font-family: "Goudy Old Style", "EB Garamond", "Gill Sans Nova", Alegreya, Georgia, serif !important;
+  font-size: 18px !important;
+  font-weight: 400 !important;
+  font-style: italic !important;
+}
+
+body[data-animeb-lang="ja"] .animeb-weekly-intro .animeb-intro-label {
+  font-family: "Yu Mincho", "Hiragino Mincho ProN", "Noto Serif JP", serif !important;
+  font-size: 18px !important;
+  font-weight: 400 !important;
+  font-style: italic !important;
+}
