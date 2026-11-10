@@ -1,0 +1,20 @@
+/* OFFBEAT Weekly WRP Balance R7
+ * Three narrowly scoped corrections to R6. No data, layout, or JS changes.
+ */
+
+/* The larger RANK numeral in R6 sits optically too high alongside RANK. */
+.ob-wrp-r3-rank strong {
+  top: 2px;
+}
+
+/* Desktop editorial titles: reduce oversized JA and lift undersized EN.
+ * iPhone sizes remain exactly as in R6. R5's 6-line excerpt is preserved.
+ */
+@media (min-width: 769px) {
+  body[data-animeb-lang="ja"] .animeb-weekly-intro .animeb-intro-label {
+    font-size: 19.5px !important;
+  }
+  body[data-animeb-lang="en"] .animeb-weekly-intro .animeb-intro-label {
+    font-size: 18.5px !important;
+  }
+}
