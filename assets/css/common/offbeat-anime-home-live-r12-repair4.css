@@ -1,0 +1,53 @@
+/* OFFBEAT R12 targeted repair 4: only Current Season controls, timeline
+   milestone clarity, checkpoint meanings, and NEW's unfilled outline. */
+/* Existing R19 historical-chooser stylesheet gives archived seasons a taller
+   year-picker (64/65px), even after Back to Current was moved away. Match the
+   current season's normal 36/38px picker so navigation does not jerk down. */
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11.ob-live-r12 .n-season-13 .n-season-chooser .ob-r16-chooser-top,
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11.ob-live-r12 .n-season-13.ob-r16-history .n-season-chooser .ob-r16-chooser-top {
+  height:36px!important;min-height:36px!important;max-height:36px!important;
+  align-items:center!important;align-content:center!important;
+}
+/* Never create a third row for Back to Current. Preserve one stable action row. */
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11.ob-live-r12 .n-season-13 .n-season-header .ob-r12-archive-actions {
+  min-height:20px!important;align-items:center!important;
+}
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11.ob-live-r12 .n-season-13 .n-season-header .ob-r12-archive-actions>.ob-r16-back:not([hidden]) {
+  align-self:center!important;margin-top:0!important;
+}
+/* NEW is an outline only, NOT a tinted chip. Weight remains the requested 400. */
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11.ob-live-r12 .ob-live-updates-label {
+  background:transparent!important;background-color:transparent!important;
+  box-shadow:none!important;font-weight:400!important;
+}
+/* PRELIM, MIDSEASON, FINAL correspond to the three marked week CELLS,
+   not to the four Opening / Middle / Late / Climax PHASE bands below. */
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11.ob-live-r12 .n-season-13 .n-weeks .n-prelim {border-top-width:2px!important;}
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11.ob-live-r12 .n-season-13 .n-weeks .n-milestone-mid:not(.n-now) {border-top-width:2px!important;}
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11.ob-live-r12 .n-season-13 .n-weeks .n-milestone-final:not(.n-now) {border-top-width:2px!important;}
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11.ob-live-r12 .ob-live-stage-legend::before {
+  content:attr(data-milestone-caption);
+  font:400 9px/1.3 var(--ob-ui-font,system-ui,sans-serif);
+  letter-spacing:.035em;color:#66836d;margin-right:1px;
+}
+/* Editorial checkpoints: published items are links; unpublished ones are guides. */
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11.ob-live-r12 .n-checkpoints>.ob-r12-checkpoint-entry {
+  color:#617e67;white-space:nowrap;
+}
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11.ob-live-r12 .n-checkpoints a.ob-r12-checkpoint-entry {
+  color:#365f43;border-bottom:1px solid #a9beab;text-decoration:none;
+}
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11.ob-live-r12 .n-checkpoints .ob-r12-checkpoint-pending {
+  color:#8c9e90;
+}
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11.ob-live-r12 .n-checkpoints .ob-r12-checkpoint-note {
+  margin-left:auto;color:#6e846e;opacity:1;font-size:10px;
+}
+@media(max-width:690px) {
+  .anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11.ob-live-r12 .n-season-13 .n-season-chooser .ob-r16-chooser-top,
+  .anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11.ob-live-r12 .n-season-13.ob-r16-history .n-season-chooser .ob-r16-chooser-top {
+    height:38px!important;min-height:38px!important;max-height:38px!important;
+  }
+  .anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11.ob-live-r12 .ob-live-stage-legend::before{font-size:8px;}
+  .anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11.ob-live-r12 .n-checkpoints .ob-r12-checkpoint-note {flex:1 0 100%;margin-left:0;}
+}

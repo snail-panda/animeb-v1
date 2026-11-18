@@ -2680,7 +2680,7 @@ function animebApplyWeeklyPresentation(meta) {
     }
   }
   const sat=cfg?.satisfaction;
-  if(!sat || !Number.isInteger(sat.value10) || sat.value10<1 || sat.value10>10 || ![5,10].includes(sat.displayScale))return;
+  if(!sat || !Number.isFinite(sat.value10) || sat.value10<0 || sat.value10>199.8 || ![5,10].includes(sat.displayScale))return;
   const node=document.createElement('aside');
   node.className='animeb-weekly-satisfaction';
   node.setAttribute('aria-label','今週の満足度 / Weekly Satisfaction');

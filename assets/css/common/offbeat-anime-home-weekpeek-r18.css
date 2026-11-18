@@ -1,0 +1,51 @@
+/* OFFBEAT Anime Home Week Peek R18 — top-rule alignment ONLY.
+   Base: successfully installed R17. All content, data, timeline, and existing
+   Week Peek styling are preserved except the top article-rule junction.
+
+   R17's warm left spine began above the metadata, while its green rule
+   began inside the header. R18 puts the visible START of both at the same
+   point, beneath the publication metadata. The metadata stays above the
+   line, and the Week Peek headline gets a little more space below it.
+
+   This CSS-only method follows the banner's actual height. There are no
+   fixed-width assumptions about English/Japanese mobile text wrapping. */
+#anime-top #obLivePeekR1 .ob-wp15.ob-wp16{
+  --ob-wp18-pad:clamp(13px,2.5vw,28px);
+  position:relative;
+}
+#anime-top #obLivePeekR1 .ob-wp15.ob-wp16 .ob-wp14-banner{
+  position:relative;
+  z-index:1;
+}
+/* Mask only the orange spine above the issue divider. The remaining spine
+   is still R17's original 3px border: its shape and colour are unchanged. */
+#anime-top #obLivePeekR1 .ob-wp15.ob-wp16 .ob-wp14-banner::before{
+  content:"";
+  position:absolute;
+  top:-15px;
+  bottom:-2px;
+  left:calc(0px - var(--ob-wp18-pad) - 3px);
+  width:3px;
+  background:#faf9f1;
+  pointer-events:none;
+}
+/* Draw the gradient across the full panel from the left spine rather than
+   from the padded heading. It begins directly where the left spine becomes
+   visible, producing the newspaper/article-style joined upper-left corner. */
+#anime-top #obLivePeekR1 .ob-wp15.ob-wp16 .ob-wp14-banner::after{
+  content:"";
+  position:absolute;
+  left:calc(0px - var(--ob-wp18-pad) - 3px);
+  right:calc(0px - var(--ob-wp18-pad));
+  bottom:-6px;
+  height:4px;
+  background:linear-gradient(90deg,#9ab691 0%,#77986e 30%,#2b573e 100%);
+  pointer-events:none;
+}
+/* Remove only the old, inner-width rule. Do not touch the headline itself. */
+#anime-top #obLivePeekR1 .ob-wp15.ob-wp16 .ob-wp13-head::before{content:none;}
+/* Preserve the R16 overline type size. Relax the divider-to-title distance. */
+#anime-top #obLivePeekR1 .ob-wp15.ob-wp16 .ob-wp13-head{padding-top:33px;}
+@media(max-width:770px){
+  #anime-top #obLivePeekR1 .ob-wp15.ob-wp16 .ob-wp13-head{padding-top:29px;}
+}

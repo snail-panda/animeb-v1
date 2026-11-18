@@ -1,0 +1,1953 @@
+/* OFFBEAT Anime Home Live R6 — R5 single-file revision; no R1-R4 or R5 CSS overlays loaded. */
+.anime09.ob-live-enhanced{--ob-live-ink:#294b35;--ob-live-green:#46684d;--ob-live-line:#bdcdb9;--ob-live-olive:#9bad76;--ob-live-warm:#b7794b;}
+.anime09.ob-live-enhanced .n-jump-nav{display:none!important;}
+.anime09 .ob-live-nav{position:relative;z-index:35;display:flex;align-items:stretch;gap:0;justify-content:center;max-width:920px;margin:0 auto;padding:0 20px;background:#49674f;border-bottom:3px solid #324e38;}
+.anime09 .ob-live-nav-group{position:relative;min-width:0;flex:0 1 auto;}
+.anime09 .ob-live-nav-group>summary{list-style:none;cursor:pointer;padding:9px 17px;font:600 12px/1.15 "Barlow Condensed","Abel",sans-serif;letter-spacing:.1em;color:#f8f6e9;white-space:nowrap;}
+.anime09 .ob-live-nav-group>summary::-webkit-details-marker{display:none;}
+.anime09 .ob-live-nav-group[open]>summary,.anime09 .ob-live-nav-group>summary:hover{background:#37563e;}
+.anime09 .ob-live-nav-menu{position:absolute;left:0;top:100%;z-index:36;width:225px;max-width:calc(100vw - 25px);padding:8px;background:#fcfaf1;border:1px solid #abbfa9;box-shadow:0 9px 20px #18361d22;display:grid;gap:0;}
+.anime09 .ob-live-nav-menu a{display:block;color:#31513a;font:500 13px/1.2 "Barlow Condensed","Abel",sans-serif;text-decoration:none;letter-spacing:.025em;padding:9px 9px;border-bottom:1px solid #dee3d6;}
+.anime09 .ob-live-nav-menu a:last-child{border-bottom:0;}
+.anime09 .ob-live-nav-menu a:hover,.anime09 .ob-live-nav-menu a:focus-visible{background:#edf1e5;}
+.anime09 .ob-live-nav .ob-live-updates-feed{right:0;left:auto;width:min(325px,calc(100vw - 28px));}
+.anime09 .ob-live-updates-feed .ob-live-update-item{font:600 13px/1.18 "EB Garamond",Georgia,serif;}
+.anime09 .ob-live-update-item small{display:block;font:10px/1.2 "Barlow Condensed","Abel",sans-serif;color:#8a7859;margin-top:4px;}
+.anime09.ob-live-enhanced .n-season.n-season-12.n-season-13{margin-top:11px;}
+.anime09.ob-live-enhanced .n-season.n-season-12.n-season-13>.ob-sow-lockup-r26.ob-sow-r29{border-top:1px solid #b9c7ba;border-bottom:1px solid #b9c7ba;padding-top:7px;padding-bottom:7px;margin:0 auto 1px;max-width:830px;}
+.anime09.ob-live-enhanced .ob-sow-about-entry-r1{margin:0 auto 1px;padding-top:1px;}
+.anime09.ob-live-enhanced .n-season-13 .n-season-header{border-top:3px solid #9bb67b;padding-top:12px;margin-top:4px;}
+.anime09.ob-live-enhanced .n-season-13 .n-season-dashboard{border-top:1px solid #c7d4c3;}
+.anime09.ob-live-enhanced .n-season-13 .n-season-name small{letter-spacing:.13em;}
+.anime09.ob-live-enhanced .n-season-13 .n-season-now-mark{font-size:16px;}
+.anime09.ob-live-enhanced .n-season-13 .n-weeks .n-now{background:#395a40;color:#fff;box-shadow:inset 0 -4px #b2d28e,0 0 0 1px #344d33;}
+.anime09.ob-live-enhanced .n-season-13 .n-weeks .n-milestone-mid:not(.n-now){box-shadow:inset 0 -3px #c29c65;}
+.anime09.ob-live-enhanced .n-season-13 .n-weeks .n-milestone-final:not(.n-now){box-shadow:inset 0 -3px #9aac8b;}
+.anime09 .ob-live-phases{display:flex;gap:3px;margin:9px 0 3px;min-width:0;}
+.anime09 .ob-live-phases>span{display:block;min-width:0;text-align:center;border-top:2px solid #c2ccbc;color:#778977;font:500 10px/1.5 "Barlow Condensed","Abel",sans-serif;letter-spacing:.05em;padding:3px 1px 0;}
+.anime09 .ob-live-phases>span:nth-child(2){border-top-color:#a7bb8c;}
+.anime09 .ob-live-phases>span:nth-child(3){border-top-color:#b8ac88;}
+.anime09 .ob-live-phases>span:nth-child(4){border-top-color:#b38868;}
+.anime09.ob-live-enhanced .ob-week-peek{display:none!important;}
+.anime09 .ob-live-peek[hidden]{display:none!important;}
+.anime09 .ob-live-peek{margin-top:13px;border:1px solid #bacdb6;border-top:3px solid #799374;background:#fafbf3;padding:12px 15px 13px;color:var(--ob-live-ink);}
+.anime09 .ob-live-peek-head{display:flex;align-items:center;justify-content:space-between;gap:15px;margin-bottom:4px;}
+.anime09 .ob-live-close{font:400 18px/1 sans-serif;border:1px solid #c5d0c2;background:transparent;color:#4e6a56;padding:0;width:23px;height:23px;}
+.anime09 .ob-live-close:hover{background:#f0f2e7;}
+.anime09 .ob-live-peek-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.06fr);gap:18px;}
+.anime09 .ob-live-peek-context{border-right:1px solid #c8d5c5;padding-right:17px;}
+.anime09 .ob-live-kicker{font:600 11px/1.2 "Barlow Condensed","Abel",sans-serif;letter-spacing:.12em;color:#6b7d68;}
+.anime09 .ob-live-peek-context h3{font:500 22px/1.07 "EB Garamond",Georgia,serif;color:#2c4935;margin:7px 0 7px;}
+.anime09 .ob-live-peek-intro{font:400 15px/1.31 "EB Garamond",Georgia,serif;color:#455d49;margin:0 0 7px;}
+.anime09 .ob-live-peek-population,.anime09 .ob-live-satisfaction{display:block;font:500 11px/1.3 "Barlow Condensed","Abel",sans-serif;color:#6b7559;margin-top:7px;}
+.anime09 .ob-live-satisfaction strong{font-size:15px;color:#44634a;}
+.anime09 .ob-live-metrics{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px;margin-top:7px;}
+.anime09 .ob-live-metric{min-width:0;border-left:2px solid #c4d5ba;padding:1px 5px;}
+.anime09 .ob-live-metric-prominent{border-left-color:#ac8f6a;}
+.anime09 .ob-live-metric small{font:500 9px/1.15 "Barlow Condensed","Abel",sans-serif;letter-spacing:.025em;color:#6e8069;display:block;min-height:20px;}
+.anime09 .ob-live-metric strong{font:600 20px/1.13 "EB Garamond",Georgia,serif;color:#33553b;}
+.anime09 .ob-live-metric>span{font:500 10px "Barlow Condensed","Abel",sans-serif;color:#62765d;}
+.anime09 .ob-live-stat-foot{font:400 10px/1.25 "Barlow Condensed","Abel",sans-serif;color:#819081;margin:6px 0 9px;}
+.anime09 .ob-live-top3{border-top:1px solid #ccd8c8;padding-top:9px;margin-top:9px;}
+.anime09 .ob-live-top3-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:7px;}
+.anime09 .ob-live-top3-item{position:relative;display:grid;grid-template-columns:30px minmax(0,1fr);align-items:center;gap:6px;min-width:0;}
+.anime09 .ob-live-top3-item img{width:30px;height:44px;object-fit:cover;background:#dfe8d8;}
+.anime09 .ob-live-top3-item .ob-live-position{position:absolute;left:0;top:-6px;background:#f7f8ec;color:#8c7651;font:600 12px "Barlow Condensed","Abel",sans-serif;box-shadow:0 0 0 1px #c6cdbb;padding:2px 3px;}
+.anime09 .ob-live-top3-item span{font:500 11px/1.08 "EB Garamond",Georgia,serif;overflow-wrap:anywhere;color:#34523c;}
+.anime09 .ob-live-cta{display:inline-block;text-decoration:none;font:600 12px/1.2 "Barlow Condensed","Abel",sans-serif;letter-spacing:.035em;color:#2f6240;border-bottom:1px solid #8aa684;padding:3px 0 2px;}
+.anime09 .ob-live-cta:hover,.anime09 .ob-live-cta:focus-visible{color:#ad653b;border-color:#ad653b;}
+.anime09 .ob-live-full-rank{margin-top:9px;font-size:14px;}
+.anime09 .ob-live-story{padding:16px 21px 13px;background:#fafaf3;border-bottom:1px solid #bacab6;}
+.anime09 .ob-live-editorial-grid{display:grid;grid-template-columns:minmax(0,1.8fr) minmax(170px,1fr);gap:19px;}
+.anime09 .ob-live-now{min-width:0;padding-right:12px;border-right:1px solid #c5d1c1;}
+.anime09 .ob-live-now h3{font:500 24px/1.05 "EB Garamond",Georgia,serif;color:#2a4f38;margin:6px 0 7px;}
+.anime09 .ob-live-excerpt{font:400 15.5px/1.28 "EB Garamond",Georgia,serif;color:#4d624c;margin:0 0 7px;max-width:70ch;}
+.anime09 .ob-live-story-status{font:500 11px/1.3 "Barlow Condensed","Abel",sans-serif;color:#778d75;letter-spacing:.025em;margin:0 0 6px;}
+.anime09 .ob-live-side{display:grid;align-content:start;gap:9px;min-width:0;}
+.anime09 .ob-live-side>section{padding:1px 0 8px;border-bottom:1px solid #d6dfd1;}
+.anime09 .ob-live-side strong{display:block;font:600 16px/1.16 "EB Garamond",Georgia,serif;color:#925d3c;margin-top:5px;}
+.anime09 .ob-live-side p{font:400 12px/1.25 "EB Garamond",Georgia,serif;margin:5px 0 0;color:#5a7360;}
+.anime09 .ob-live-previous a{display:block;color:#3d644a;font:600 14px/1.2 "EB Garamond",Georgia,serif;margin-top:4px;}
+.anime09 .ob-live-previous-winner{font-size:11px!important;}
+.anime09 .ob-live-pulse{margin:0;background:#f7f9ee;border-bottom:2px solid #b9cbb7;}
+.anime09 .ob-live-pulse>summary{cursor:pointer;list-style:none;display:flex;flex-wrap:wrap;align-items:center;gap:10px 20px;padding:10px 21px;}
+.anime09 .ob-live-pulse>summary::-webkit-details-marker{display:none;}
+.anime09 .ob-live-pulse>summary>span{font:600 10px "Barlow Condensed","Abel",sans-serif;letter-spacing:.1em;color:#71816f;}
+.anime09 .ob-live-pulse>summary>strong{font:500 17px "EB Garamond",Georgia,serif;color:#35563d;}
+.anime09 .ob-live-pulse-content{padding:0 21px 14px;}
+.anime09 .ob-live-trend-caption{font:400 12px "EB Garamond",Georgia,serif;color:#637966;margin:1px 0 9px;}
+.anime09 .ob-live-trend-chart svg{width:100%;height:auto;max-height:230px;overflow:visible;}
+.anime09 .ob-live-key{display:flex;gap:12px;flex-wrap:wrap;font:500 10.5px "Barlow Condensed","Abel",sans-serif;color:#607866;}
+.anime09 .ob-live-key span:before{content:"";display:inline-block;width:9px;height:2px;margin-right:5px;vertical-align:middle;background:#607e54;}
+.anime09 .ob-live-key .ob-live-dot-top:before{background:#bc8149;}
+.anime09 .ob-live-winners{margin-top:14px;border-top:1px solid #cdd9ca;padding-top:10px;}
+.anime09 .ob-live-winners>strong{font:600 11px/1.2 "Barlow Condensed","Abel",sans-serif;letter-spacing:.07em;color:#4e6955;}
+.anime09 .ob-live-winner-strip{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:4px;margin-top:7px;}
+.anime09 .ob-live-winner{min-width:0;min-height:67px;display:flex;flex-direction:column;align-items:center;gap:3px;padding:4px 2px;color:#35513f;background:#fafbf4;border:1px solid #d4dfd1;}
+.anime09 .ob-live-winner[disabled]{color:#9eab9c;background:#f4f5ed;cursor:default;}
+.anime09 .ob-live-winner:not([disabled]):hover{border-color:#9cbe8f;background:#eef4e6;}
+.anime09 .ob-live-winner small{font:600 10px "Barlow Condensed","Abel",sans-serif;}
+.anime09 .ob-live-winner img{width:24px;height:27px;object-fit:cover;}
+.anime09 .ob-live-winner span{font:400 9px/1.1 "EB Garamond",Georgia,serif;display:block;overflow-wrap:anywhere;max-width:100%;max-height:31px;overflow:hidden;}
+.anime09 .ob-live-trend-note{font:400 10.5px/1.35 "Barlow Condensed","Abel",sans-serif;color:#7c8b7a;margin:10px 0 0;}
+.anime09 .ob-live-lineup-status{display:flex;flex-wrap:wrap;gap:6px 14px;padding:7px 0 9px;margin:3px 0 5px;border-top:1px solid #d2ddd0;}
+.anime09 .ob-live-lineup-status span{display:flex;gap:5px;align-items:baseline;font:500 11px "Barlow Condensed","Abel",sans-serif;color:#526e55;}
+.anime09 .ob-live-lineup-status small{font:500 10px "Barlow Condensed","Abel",sans-serif;color:#80917f;}
+.anime09 .ob-live-lineup-status strong{font-size:15px;color:#385a40;}
+.anime09.ob-live-enhanced .n-focus{grid-template-columns:minmax(0,1.65fr) minmax(0,.9fr);gap:18px;padding-top:22px;}
+.anime09.ob-live-enhanced .n-contents{display:none!important;}
+.anime09 .ob-live-related{border-top:1px solid #b9cabc;display:grid;align-content:start;gap:0;padding-top:8px;}
+.anime09 .ob-live-related h3{font:500 16px "EB Garamond",Georgia,serif;color:#365741;margin:0 0 8px;}
+.anime09 .ob-live-related a{font:500 14px/1.15 "EB Garamond",Georgia,serif;color:#385944;padding:10px 3px;border-top:1px solid #d0dcca;}
+.anime09.ob-live-enhanced .n-activity{display:block;padding-top:17px;}
+.anime09.ob-live-enhanced #animeRecent{display:none!important;}
+.anime09.ob-live-enhanced .n-activity .n-notes{max-width:none;}
+:root:has(.anime09.ob-live-r5.current) .site > #greenNav{min-height:39px;height:auto;overflow:visible;}
+:root:has(.anime09.ob-live-r5.current) .green-nav .ob-live-nav{width:100%;max-width:none;min-height:38px;margin:0;padding:0 12px;background:transparent;border:0;justify-content:center;align-items:center;gap:14px;position:relative;z-index:2;letter-spacing:normal;text-transform:none;}
+:root:has(.anime09.ob-live-r5.current) .green-nav .ob-live-nav-group{min-width:0;position:relative;flex:0 1 auto;}
+:root:has(.anime09.ob-live-r5.current) .green-nav .ob-live-nav-group>summary{display:block;list-style:none;cursor:pointer;color:#fcf9e7;font:400 12px/1.16 "Barlow Condensed","Abel",sans-serif;letter-spacing:.105em;padding:10px 17px;white-space:nowrap;}
+:root:has(.anime09.ob-live-r5.current) .green-nav .ob-live-nav-group[open]>summary{background:#3b6046;}
+:root:has(.anime09.ob-live-r5.current) .green-nav .ob-live-nav-group>summary::-webkit-details-marker{display:none;}
+:root:has(.anime09.ob-live-r5.current) .green-nav .ob-live-nav-menu{position:absolute;z-index:55;top:100%;left:0;width:220px;max-width:calc(100vw - 24px);padding:7px;background:#fcfaf1;border:1px solid #a9bca6;box-shadow:0 8px 16px #233a261a;display:grid;}
+:root:has(.anime09.ob-live-r5.current) .green-nav .ob-live-nav-menu a{display:block;padding:10px 9px;color:#304c39;font:500 13px/1.25 "Barlow Condensed","Abel",sans-serif;text-align:left;letter-spacing:.01em;text-transform:none;border-bottom:1px solid #e4e8df;font-weight:400;}
+:root:has(.anime09.ob-live-r5.current) .green-nav .ob-live-nav-menu a:last-child{border-bottom:0;}
+.anime09.ob-live-r5 .ob-live-updates-strip{display:block;align-items:center;gap:9px;margin:0 21px 4px;max-width:100%;padding:0 0 3px;border-bottom:1px solid #cbd7c8;color:#657b6b;font:400 12px/1.3 "Barlow Condensed","Abel",sans-serif;box-sizing:border-box;width:calc(100% - 42px);overflow:visible;min-width:0;position:relative;z-index:5;border:0;background:transparent;}
+.anime09.ob-live-r5 .ob-live-updates-label{font:500 11px/1 "Barlow Condensed","Abel",sans-serif;letter-spacing:.065em;color:#957255;white-space:nowrap;font-weight:500;}
+.anime09.ob-live-r5 .ob-live-updates-text{min-width:0;color:#54735d;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-decoration:none;flex:1 1 auto;max-width:none;display:block;font:400 12px/1.28 "EB Garamond",Georgia,serif;letter-spacing:0;}
+.anime09.ob-live-r5 .ob-live-updates-cta{margin-left:auto;border-bottom:1px solid #a8bba5;color:#40654a;white-space:nowrap;text-decoration:none;flex:0 0 auto;font-weight:400;appearance:none;border:0;background:transparent;padding:2px 0 1px;font:400 11px/1.25 "Barlow Condensed","Abel",sans-serif;letter-spacing:.04em;cursor:pointer;}
+.anime09.ob-live-r5 .n-season.n-season-12.n-season-13>.ob-sow-lockup-r26.ob-sow-r29{padding-top:4px;padding-bottom:4px;}
+.anime09.ob-live-r5 .n-season-chooser .n-season-tabs{gap:4px;}
+.anime09.ob-live-r5 .n-season-chooser .n-season-tabs>*{padding-left:7px;padding-right:7px;}
+.anime09.ob-live-r5 .n-season-13 .n-weeks{gap:3px;padding-bottom:2px;display:grid;grid-template-columns:.56fr repeat(12,minmax(0,1fr));align-items:stretch;border-bottom:3px solid #92a98d;padding:0!important;border:0!important;box-shadow:none!important;}
+.anime09.ob-live-r5 .n-season-13 .n-weeks>*{background:#e5ece3;color:#41664d;border:1px solid transparent;box-shadow:none;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;min-width:0;min-height:45px;padding:7px 1px 5px;font-family:"Barlow Condensed","Abel",sans-serif;outline:0!important;position:relative;box-sizing:border-box;}
+.anime09.ob-live-r5 .n-season-13 .n-weeks .n-prelim{background:#e1e7dc;color:#4b6453;border-color:#a6bba0;border:1px solid #a5b7a0;}
+.anime09.ob-live-r5 .n-season-13 .n-weeks .n-unreleased{background:#f0f2ed;color:#a4b6a8;}
+.anime09.ob-live-r5 .n-season-13 .n-weeks .n-now{background:#2f543e;color:#fff!important;border-color:#2f543e!important;box-shadow:inset 0 -4px #afd28e!important;border:0;}
+.anime09.ob-live-r5 .n-season-13 .n-weeks .n-milestone-mid:not(.n-now){background:#f7e8d7!important;color:#a26943!important;border-bottom:0;border-top:3px solid #c68853;box-shadow:inset 0 3px #be855c!important;}
+.anime09.ob-live-r5 .n-season-13 .n-weeks .n-milestone-final:not(.n-now){border-top:3px solid #57775b;border-bottom:1px solid #a6b8a1;background:#e5eae1;box-shadow:inset 0 3px #617d65!important;}
+.anime09.ob-live-r5 .n-season-13 .n-season-progress{margin:5px 0 3px;gap:8px;}
+.anime09.ob-live-r5 .ob-live-phases{margin:8px 0 2px 6.5%;gap:3px;min-height:30px;align-items:stretch;}
+.anime09.ob-live-r5 .ob-live-phases>span{border-top-width:3px;padding-top:2px;font:400 10px/1.3 "Barlow Condensed","Abel",sans-serif;letter-spacing:0;display:flex;align-items:center;justify-content:center;gap:2px;border-top:3px solid #92aa8b;padding:5px 2px 5px;flex-direction:column;align-content:center;box-sizing:border-box;background:transparent;color:#577960;}
+.anime09.ob-live-r5 .ob-live-phases>span:nth-child(1){border-top-color:#88a581;color:#688266;}
+.anime09.ob-live-r5 .ob-live-phases>span:nth-child(2){border-top-color:#b6905c;color:#967044;background:#f4eddd;}
+.anime09.ob-live-r5 .ob-live-phases>span:nth-child(3){border-top-color:#cbd7c7;color:#708b72;background:transparent;}
+.anime09.ob-live-r5 .ob-live-phases>span:nth-child(4){border-top-color:#d8d9cb;color:#8c9a85;background:transparent;}
+.anime09.ob-live-r5 .n-season-13 .n-checkpoints{padding-top:7px;margin-top:5px;padding-bottom:2px;border-top:1px solid #bfceb9;font:400 10px/1.3 "Barlow Condensed","Abel",sans-serif;}
+.anime09.ob-live-r5 .ob-live-peek{padding:15px 19px 13px;background:#f0f2eb;border:0;border-left:3px solid #b99462;margin-top:12px;color:#314f3a;margin:12px 21px 0;box-shadow:none;}
+.anime09.ob-live-r5 .ob-live-peek-head{margin:0 0 8px;margin-bottom:3px;}
+.anime09.ob-live-r5 .ob-live-peek-context{border:0;padding:0;display:block;margin:0 0 10px;}
+.anime09.ob-live-r5 .ob-live-peek-context>.ob-live-kicker{font-size:10px;letter-spacing:.1em;display:inline-block;}
+.anime09.ob-live-r5 .ob-live-peek-intro{font:400 15.5px/1.3 "EB Garamond",Georgia,serif;color:#365740;margin:5px 0 9px;max-width:95ch;}
+.anime09.ob-live-r5 .ob-live-metrics{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;border-top:1px solid #cbd8c7;border-bottom:1px solid #cbd8c7;padding:9px 0;margin:13px 0 0;}
+.anime09.ob-live-r5 .ob-live-metric{padding:0 13px!important;min-width:0;border-left:1px solid #c8d2c4;border:0!important;border-right:1px solid #d2decf!important;}
+.anime09.ob-live-r5 .ob-live-metric:first-child{padding-left:0!important;border-left:0;}
+.anime09.ob-live-r5 .ob-live-metric>small{min-height:0;display:block;font:500 10px/1.2 "Barlow Condensed","Abel",sans-serif;letter-spacing:.035em;color:#64816a;}
+.anime09.ob-live-r5 .ob-live-metric-line{display:flex;align-items:baseline;gap:5px;flex-wrap:wrap;margin-top:4px;}
+.anime09.ob-live-r5 .ob-live-metric strong{font:600 27px/1.05 "EB Garamond",Georgia,serif;color:#2a553c;}
+.anime09.ob-live-r5 .ob-live-metric .ob-live-metric-denom{font:400 10px "Barlow Condensed","Abel",sans-serif;color:#7c8d78;}
+.anime09.ob-live-r5 .ob-live-metric .ob-live-metric-delta{display:block;margin-top:3px;color:#627d6c;font:400 11px/1.25 "Barlow Condensed","Abel",sans-serif;}
+.anime09.ob-live-r5 .ob-live-metric .ob-live-metric-delta.is-up{color:#3f8764;}
+.anime09.ob-live-r5 .ob-live-metric .ob-live-metric-delta.is-down{color:#b56b51;}
+.anime09.ob-live-r5 .ob-live-stat-foot{font:400 11px/1.3 "Barlow Condensed","Abel",sans-serif;color:#748b79;margin:6px 0 10px;letter-spacing:0;}
+.anime09.ob-live-r5 .ob-live-top3{display:grid;grid-template-columns:145px minmax(0,1fr);align-items:center;gap:10px;border-top:0;padding:0 0 9px;margin:0;border:0;}
+.anime09.ob-live-r5 .ob-live-top3-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;margin:0;}
+.anime09.ob-live-r5 .ob-live-top3-item{display:flex;align-items:center;gap:7px;border:1px solid #c6d5c4;background:#fafaf4;padding:6px 7px;min-height:85px;overflow:hidden;position:relative;min-width:0;box-sizing:border-box;}
+.anime09.ob-live-r5 .ob-live-top3-item:nth-child(1){border-color:#c6ae84;background:#f8f5e8;}
+.anime09.ob-live-r5 .ob-live-top3-item .ob-live-position{position:static;flex:0 0 auto;background:transparent;box-shadow:none;border:0;color:#9e794b;font:italic 500 22px/1 "EB Garamond",Georgia,serif;padding:0;font-size:22px;font-weight:400;}
+.anime09.ob-live-r5 .ob-live-top3-item img{flex:0 0 47px;width:47px;height:66px;object-fit:cover;background:#e6e8d9;}
+.anime09.ob-live-r5 .ob-live-top3-item .ob-live-top3-title{font:400 13px/1.22 "EB Garamond",Georgia,serif;color:#31523b;overflow-wrap:break-word;word-break:normal;min-width:0;font-size:13px;line-height:1.2;font-weight:400;}
+.anime09.ob-live-r5 .ob-live-top3-item .ob-live-top3-score{font:500 10px "Barlow Condensed","Abel",sans-serif;color:#8e7447;margin-left:auto;}
+.anime09.ob-live-r5 .ob-live-reading{border-top:1px solid #d0dbcb;padding-top:9px;margin:0 0 6px;color:#56745b;}
+.anime09.ob-live-r5 .ob-live-reading summary{list-style:none;width:max-content;max-width:100%;font:400 12px/1.2 "EB Garamond",Georgia,serif;border-bottom:1px solid #a7bba9;}
+.anime09.ob-live-r5 .ob-live-reading summary::-webkit-details-marker{display:none;}
+.anime09.ob-live-r5 .ob-live-reading p{font:400 12px/1.35 "EB Garamond",Georgia,serif;max-width:88ch;}
+.anime09.ob-live-r5 .ob-live-peek-footer{display:flex;flex-wrap:wrap;gap:8px;align-items:center;border-left:2px solid #a6bf94;background:#e9efe5;padding:8px 10px;box-sizing:border-box;margin:10px 0 8px;}
+.anime09.ob-live-r5 .ob-live-meaning{display:flex;align-items:center;flex:1;gap:9px;flex-wrap:wrap;min-width:0;font:400 12px/1.22 "EB Garamond",Georgia,serif;color:#48634d;}
+.anime09.ob-live-r5 .ob-live-meaning small{font:600 10px "Barlow Condensed","Abel",sans-serif;letter-spacing:.08em;color:#718d71;white-space:nowrap;font-weight:500;}
+.anime09.ob-live-r5 .ob-live-meaning>span{font:400 12px "EB Garamond",Georgia,serif;color:#406d4c;font-size:11px;}
+.anime09.ob-live-r5 .ob-live-meaning .ob-live-enjoyment{margin-left:auto;font:500 11px "Barlow Condensed","Abel",sans-serif;border:1px solid #c8d7be;padding:4px 8px;color:#657c64;}
+.anime09.ob-live-r5 .ob-live-full-rank{display:block;width:max-content;max-width:100%;margin:6px 0 0 auto;padding:11px 15px;border:0;background:#2d4e38;color:#fffefa!important;font:500 11px/1.2 "Barlow Condensed","Abel",sans-serif;text-decoration:none;letter-spacing:.065em;}
+.anime09.ob-live-r5 .ob-live-full-rank:hover{background:#3d6a4a;color:#fff;border:0;}
+.anime09.ob-live-r5 .ob-live-close{width:20px;height:20px;font-size:18px;border:0;background:none;color:#78947c;}
+.anime09.ob-live-r5 .ob-live-story{padding:12px 0 13px;background:#fbfaf1;margin:10px 21px 0;}
+.anime09.ob-live-r5 .ob-live-editorial-grid{grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:0;}
+.anime09.ob-live-r5 .ob-live-now{padding-right:14px;padding:0 17px 2px 0;}
+.anime09.ob-live-r5 .ob-live-now h3{margin:4px 0 8px;font-size:22px;font:500 24px/1.16 "EB Garamond",Georgia,serif;}
+.anime09.ob-live-r5 .ob-live-excerpt{font-size:14px;line-height:1.38;font:400 14px/1.38 "EB Garamond",Georgia,serif;}
+.anime09.ob-live-r5 .ob-live-pulse{background:transparent;margin:0 21px 10px;border:0;border-bottom:1px solid #b6cbb5;}
+.anime09.ob-live-r5 .ob-live-pulse>summary{padding:12px 0 11px;background:transparent;border-top:1px solid #b9c9b5;}
+.anime09.ob-live-r5 .ob-live-pulse-content{padding:0 2px 14px;background:transparent;}
+.anime09.ob-live-r5 .ob-live-trend-chart svg{width:100%;height:auto;max-height:195px;}
+.anime09.ob-live-r5 .ob-live-key{margin:4px 0 0;}
+.anime09.ob-live-r5 .ob-live-winners{margin-top:10px;padding-top:9px;border-top:1px solid #d1dccb;}
+.anime09.ob-live-r5 .ob-live-winner-strip{grid-template-columns:repeat(12,minmax(0,1fr));gap:3px;margin:8px 0 5px;display:grid;margin-top:6px;}
+.anime09.ob-live-r5 .ob-live-winner{min-width:0;min-height:108px;padding:6px 2px;gap:5px;background:transparent;border:1px solid transparent;border-bottom:2px solid transparent;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;box-shadow:none;}
+.anime09.ob-live-r5 .ob-live-winner.is-active{outline:2px solid #b88759;outline-offset:-2px;background:#f2f5ed;border-bottom-color:#66886c;box-shadow:none;border-color:transparent transparent #66886c!important;border-style:solid!important;border-width:1px 1px 2px!important;}
+.anime09.ob-live-r5 .ob-live-winner small{font-size:10px;font:400 10px/1.18 "Barlow Condensed","Abel",sans-serif;color:#708976;font-weight:400;letter-spacing:.025em;}
+.anime09.ob-live-r5 .ob-live-winner img{width:43px;max-width:92%;height:66px;object-fit:cover;background:#e5eadf;}
+.anime09.ob-live-r5 .ob-live-winner .ob-live-no-result{font:400 12px "EB Garamond",Georgia,serif;color:#a9b8a8;}
+.anime09.ob-live-r5 .ob-live-trend-digest{margin-top:9px;background:#f2f5ed;border-left:2px solid #a8c09d;padding:12px 15px;display:flex;justify-content:space-between;gap:9px;align-items:center;flex-wrap:wrap;border:0;margin:13px 0 0;}
+.anime09.ob-live-r5 .ob-live-digest-heading{display:flex;align-items:center;gap:9px 15px;flex-wrap:wrap;min-width:0;flex:1;}
+.anime09.ob-live-r5 .ob-live-digest-heading>strong{font:600 16px "EB Garamond",Georgia,serif;color:#2b543a;}
+.anime09.ob-live-r5 .ob-live-digest-heading>span{font:500 11px "Barlow Condensed","Abel",sans-serif;color:#5e795e;}
+.anime09.ob-live-r5 .ob-live-digest-winner{display:flex;gap:9px;align-items:center;min-width:0;}
+.anime09.ob-live-r5 .ob-live-digest-winner img{width:41px;height:59px;object-fit:cover;flex:0 0 41px;}
+.anime09.ob-live-r5 .ob-live-digest-winner small{display:block;font:500 9px "Barlow Condensed","Abel",sans-serif;color:#768c79;}
+.anime09.ob-live-r5 .ob-live-digest-winner strong{display:block;max-width:270px;font:400 14px/1.2 "EB Garamond",Georgia,serif;color:#2c5137;}
+.anime09.ob-live-r5 .ob-live-digest-actions{display:flex;align-items:center;gap:12px;flex:0 0 auto;align-self:end;}
+.anime09.ob-live-r5 .ob-live-recap-cta{border:1px solid #9aaf96;background:#fcfaf3;color:#2d5539;padding:7px 9px;font:400 11px "Barlow Condensed","Abel",sans-serif;border-color:#a6b99d;}
+.anime09.ob-live-r5 .ob-live-digest-actions>a{font:500 11px "Barlow Condensed","Abel",sans-serif;color:#527251;border-bottom:1px solid #aebca9;}
+.anime09.ob-live-r5 .ob-live-trend-chart rect[role=button]{cursor:pointer;}
+.anime09.ob-live-r5 .ob-live-trend-chart rect[role=button]:focus{outline:none;stroke:#b88757;stroke-dasharray:3 5;}
+:root:has(.anime09.ob-live-r5.current) .green-nav > .ob-live-nav{display:flex!important;flex-direction:row!important;flex-wrap:nowrap;justify-content:center;align-items:center;background:transparent;border:0;padding:0;max-width:none;}
+.anime09.ob-live-r5 ~ .ob-week-peek-discovery-r15,
+.anime09.ob-live-r5 .ob-week-peek-discovery-r15{display:none!important;}
+.anime09.ob-live-r5 .n-season.n-season-12.n-season-13{margin-top:5px;}
+.anime09.ob-live-r5 .ob-live-sow-strip{display:flex;justify-content:space-between;align-items:center;gap:16px;border-top:1px solid #bdcbb9;border-bottom:1px solid #b9c9b5;padding:10px 7px 9px;margin:0 21px 5px;min-height:88px;box-sizing:border-box;background:transparent;}
+.anime09.ob-live-r5 .n-season.n-season-12.n-season-13>.ob-live-sow-strip>.ob-sow-lockup-r26.ob-sow-r29{flex:1 1 auto;width:auto;margin:0;max-width:560px;min-width:0;padding:0;border:0;box-sizing:border-box;order:0;}
+.anime09.ob-live-r5 .ob-live-sow-strip .ob-sow-r29-layout{max-width:490px;gap:12px;grid-template-columns:17% minmax(0,1fr);width:100%;margin:0 auto;display:grid;align-items:center;}
+.anime09.ob-live-r5 .ob-live-sow-strip>.ob-sow-about-entry-r1{flex:0 0 192px;margin:0;padding:5px 0 5px 15px;max-width:25%;justify-content:center;align-self:stretch;white-space:normal;order:1;width:192px;border-left:1px solid #b9cdb5;display:flex;flex-direction:column;align-items:flex-start;gap:7px;box-sizing:border-box;}
+.anime09.ob-live-r5 .ob-live-sow-strip .ob-sow-about-open-r1{font:400 12px/1.2 "EB Garamond",Georgia,serif;color:#53725a;letter-spacing:.015em;}
+.anime09.ob-live-r5 .n-season-13 .n-season-header{border-top:3px solid #9cb783;border-bottom:0;margin:0 21px;padding:15px 0 8px;background:transparent;}
+.anime09.ob-live-r5 .n-season-13 .n-season-heading{display:grid;grid-template-columns:minmax(0,1fr) auto;grid-template-rows:auto auto;align-items:start;gap:8px 12px;}
+.anime09.ob-live-r5 .n-season-13 .n-season-name{grid-column:1;grid-row:1;min-width:0;}
+.anime09.ob-live-r5 .n-season-13 .n-season-name small{display:block;font:500 11px/1.2 "Barlow Condensed","Abel",sans-serif;letter-spacing:.19em;color:#5d806e;}
+.anime09.ob-live-r5 .n-season-13 .n-season-name h2{font:500 clamp(33px,3.5vw,43px)/1.02 "EB Garamond",Georgia,serif;margin:8px 0 0;color:#204335;white-space:normal;letter-spacing:-.02em;}
+.anime09.ob-live-r5 .n-season-13 .n-season-name h2 em{color:#204335;font-style:normal;font-weight:500;border:0;display:inline;}
+.anime09.ob-live-r5 .n-season-13 .n-season-name h2 em::after{display:none;}
+.anime09.ob-live-r5 .n-season-13 .n-season-name h2 b{font:600 .96em/1.05 "EB Garamond",Georgia,serif;color:#234f3a;letter-spacing:-.02em;margin-left:.21em;vertical-align:baseline;}
+.anime09.ob-live-r5 .n-season-13 .n-season-name h2 b::before{display:none;}
+.anime09.ob-live-r5 .ob-live-current-marker{grid-column:2;grid-row:1;text-align:right;white-space:nowrap;padding:3px 0 0;}
+.anime09.ob-live-r5 .ob-live-current-marker strong{display:block;font:600 24px/1.13 "EB Garamond",Georgia,serif;letter-spacing:.01em;color:#214936;}
+.anime09.ob-live-r5 .ob-live-current-marker small{display:block;margin-top:6px;color:#7a826c;font:400 11px/1.15 "Barlow Condensed","Abel",sans-serif;}
+.anime09.ob-live-r5 .n-season-13 .n-season-chooser{grid-row:2;grid-column:1 / -1;display:flex!important;align-items:center!important;justify-content:flex-end!important;width:max-content!important;gap:4px 7px!important;margin:0 0 5px;min-width:0;flex-direction:row!important;flex-wrap:wrap!important;max-width:100%!important;justify-self:end!important;margin-left:auto!important;}
+.anime09.ob-live-r5 .n-season-13 .n-season-chooser .n-season-tabs{gap:3px!important;display:inline-flex!important;flex:none!important;grid-template-columns:none!important;width:max-content!important;max-width:100%!important;align-items:center!important;justify-content:flex-end!important;}
+.anime09.ob-live-r5 .n-season-13 .n-season-chooser .n-season-tabs>*{padding-left:7px;padding-right:7px;flex:0 0 auto!important;min-width:0!important;}
+.anime09.ob-live-r5 .n-season-13 .n-season-dashboard{padding:0 21px 9px;background:transparent;border:0;}
+.anime09.ob-live-r5 .n-season-13 .n-season-sub{display:none!important;}
+.anime09.ob-live-r5 .ob-live-round-intro{display:flex;align-items:baseline;justify-content:space-between;gap:8px;margin:0 0 7px;color:#668470;font:400 11px/1.25 "Barlow Condensed","Abel",sans-serif;}
+.anime09.ob-live-r5 .ob-live-round-intro strong{font:500 11px/1.2 "Barlow Condensed","Abel",sans-serif;color:#b26841;letter-spacing:.04em;white-space:nowrap;}
+.anime09.ob-live-r5 .n-season-13 .n-weeks>*>b{order:0;font:500 13px/1.05 "Barlow Condensed","Abel",sans-serif;color:inherit;}
+.anime09.ob-live-r5 .n-season-13 .n-weeks>*>span{order:1;font:400 9px/1.1 "Barlow Condensed","Abel",sans-serif;color:inherit;opacity:.76;}
+.anime09.ob-live-r5 .n-season-13 .n-weeks .n-prelim>span{font-size:8px;}
+.anime09.ob-live-r5 .n-season-13 .n-weeks .n-now>span{color:#f4f9ed;}
+.anime09.ob-live-r5 .n-season-13 .n-weeks a.ob-live-selected{outline:0!important;outline-offset:0;z-index:2;border:1px solid #506e56!important;box-shadow:inset 0 0 0 1px #506e56!important;}
+.anime09.ob-live-r5 .n-season-13 .n-weeks a:hover:not(.ob-live-selected){outline:0!important;outline-offset:-1px;z-index:1;border-color:#95a994!important;}
+.anime09.ob-live-r5 .n-season-13 .n-weeks .n-milestone{padding-top:11px;padding-bottom:5px;}
+.anime09.ob-live-r5 .n-season-13 .n-weeks .n-milestone::after{position:absolute;top:3px;left:0;right:0;font:400 7px "Barlow Condensed","Abel",sans-serif;color:#a36c40;letter-spacing:.04em;}
+.anime09.ob-live-r5 .n-season-13 .n-progress-track{height:3px;}
+.anime09.ob-live-r5 .n-season-13 .n-progress-intro{font:400 9px "Barlow Condensed","Abel",sans-serif;letter-spacing:.05em;}
+.anime09.ob-live-r5 .ob-live-phases .ob-live-phase-title{font:500 11px/1.18 "Barlow Condensed","Abel",sans-serif;color:inherit;letter-spacing:.035em;}
+.anime09.ob-live-r5 .ob-live-phases .ob-live-phase-range{font:400 9px/1.16 "Barlow Condensed","Abel",sans-serif;color:#819082;letter-spacing:.015em;}
+.anime09.ob-live-r5 .ob-live-phase-foot{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;margin:4px 0 7px;margin-top:5px;}
+.anime09.ob-live-r5 .ob-live-peek-link{background:none;border:0;padding:1px 0;color:#365f42;font:400 11px/1.15 "Barlow Condensed","Abel",sans-serif;text-decoration:underline;text-decoration-color:#b1c7af;text-underline-offset:4px;}
+.anime09.ob-live-r5 .ob-live-stage-legend{display:flex;gap:9px;align-items:center;flex-wrap:wrap;justify-content:flex-end;}
+.anime09.ob-live-r5 .ob-live-stage-legend>span{display:flex;align-items:center;gap:4px;font:400 9px/1.2 "Barlow Condensed","Abel",sans-serif;color:#79917f;letter-spacing:.02em;}
+.anime09.ob-live-r5 .ob-live-stage-legend i{display:block;width:6px;height:6px;background:#8aa18f;}
+.anime09.ob-live-r5 .ob-live-stage-legend .is-mid i{background:#c58a59;}
+.anime09.ob-live-r5 .ob-live-stage-legend .is-final i{background:#46664b;}
+.anime09.ob-live-r5 .ob-live-peek-stage{margin-left:8px;color:#a4794f;font:400 11px/1.2 "Barlow Condensed","Abel",sans-serif;}
+.anime09.ob-live-r5 .ob-live-top3>.ob-live-kicker{font:500 10px/1.25 "Barlow Condensed","Abel",sans-serif;}
+.anime09.ob-live-r5 .ob-live-enjoyment{display:inline-flex;align-items:center;gap:6px;font:400 11px/1.2 "Barlow Condensed","Abel",sans-serif;white-space:nowrap;font-size:12px;color:#5d8166;}
+.anime09.ob-live-r5 .ob-live-enjoyment-face{width:29px;height:29px;display:flex;align-items:center;justify-content:center;font:400 14px/1 "EB Garamond",Georgia,serif;border:0;border-radius:50%;color:#748f73;background:transparent;}
+.anime09.ob-live-r5 .ob-live-side{padding-left:17px;gap:5px;}
+.anime09.ob-live-r5 .ob-live-pulse>summary>span{font-weight:500;font:400 10px/1.2 "Barlow Condensed","Abel",sans-serif;letter-spacing:.12em;color:#6a8970;}
+.anime09.ob-live-r5 .ob-live-pulse>summary>strong{font-weight:400;font-size:16px;font:500 17px/1.1 "EB Garamond",Georgia,serif;color:#31523b;}
+.anime09.ob-live-r5 .ob-live-winners>strong{font:500 11px/1.2 "Barlow Condensed","Abel",sans-serif;color:#4b7355;letter-spacing:.08em;}
+.anime09.ob-live-r5 .ob-live-winner:not([disabled]):hover{border-color:#b78d60;background:#f3f5ed;}
+.anime09.ob-live-r5 .ob-live-digest-heading>.ob-live-digest-round{flex:0 0 100%;font:500 15px "EB Garamond",Georgia,serif;font-weight:400;}
+.anime09.ob-live-r5 .ob-live-digest-measures{display:flex;gap:14px 20px;flex-wrap:wrap;align-items:center;}
+.anime09.ob-live-r5 .ob-live-digest-measures>span{display:flex;gap:3px;align-items:flex-start;white-space:normal;flex-direction:column;}
+.anime09.ob-live-r5 .ob-live-digest-measures small{font:400 10px/1.15 "Barlow Condensed","Abel",sans-serif;color:#69816d;}
+.anime09.ob-live-r5 .ob-live-digest-measures b{font:500 19px/1.08 "EB Garamond",Georgia,serif;color:#315a3f;}
+.anime09.ob-live-r5 .ob-live-digest-wrp{font:400 10px "Barlow Condensed","Abel",sans-serif;color:#7a8a74;display:block;margin-top:5px;}
+.anime09.ob-live-r5 .ob-live-trend-note{font-size:10px;}
+.anime09.ob-live-r5 .ob-how-r3{margin-top:9px;padding-top:10px;padding-bottom:8px;}
+.anime09.ob-live-r5 .ob-how-r3 h3{font-weight:500;}
+.anime09.ob-live-r5 .n-season-13 .n-season-chooser .ob-r16-chooser-top{flex:0 0 auto!important;width:auto!important;min-width:0!important;max-width:94px!important;}
+.anime09.ob-live-r5 .n-season-13 .n-season-chooser .n-season-tabs.ob-r16-tabs{flex:0 0 auto!important;width:auto!important;min-width:0!important;gap:2px!important;}
+.anime09.ob-live-r5 .n-season-13 .n-season-chooser .n-season-tabs.ob-r16-tabs button{width:auto!important;flex:0 0 auto!important;min-width:0!important;padding:5px 7px!important;font-weight:400!important;}
+.anime09.ob-live-r5 .ob-live-updates-cta[aria-expanded="true"]{color:#a27147;border-color:#a27147;}
+.anime09.ob-live-r5 .ob-live-updates-list{position:static;right:0;top:calc(100% - 2px);z-index:55;width:100%;max-height:none;overflow-y:auto;border:1px solid #d0dcc9;border-top:2px solid #78926e;background:#f4f6ed;box-shadow:none;padding:7px 14px 9px;display:block;overflow:visible;box-sizing:border-box;margin:1px 0 8px;}
+.anime09.ob-live-r5 .ob-live-updates-list[hidden]{display:none!important;}
+.anime09.ob-live-r5 .ob-live-update-link{display:grid;gap:8px;align-items:baseline;font:400 14px/1.23 "EB Garamond",Georgia,serif;color:#31513a;text-decoration:none;padding:7px 0 8px;border-bottom:1px solid #dce5d8;grid-template-columns:158px minmax(0,1fr);column-gap:13px;}
+.anime09.ob-live-r5 .ob-live-update-link:last-child{border-bottom:0;border:0;}
+.anime09.ob-live-r5 .ob-live-update-link small{flex:0 0 35px;font:400 11px/1.3 "Barlow Condensed","Abel",sans-serif;color:#8f9b8b;}
+.anime09.ob-live-r5 .ob-live-update-link:hover,.anime09.ob-live-r5 .ob-live-update-link:focus-visible{color:#9a6c42;}
+.anime09.ob-live-r5 .ob-live-how-wrap,
+.anime09.ob-live-r5 .ob-live-previous-wrap{margin:14px 0 0;border-top:1px solid #b5c5b0;border-bottom:1px solid #c8d4c5;background:transparent;padding:0 12px;}
+.anime09.ob-live-r5 .ob-live-how-wrap>summary,
+.anime09.ob-live-r5 .ob-live-previous-wrap>summary{list-style:none;cursor:pointer;padding:13px 0;font:500 13px/1.2 "EB Garamond",Georgia,serif;color:#30523e;letter-spacing:.012em;}
+.anime09.ob-live-r5 .ob-live-how-wrap>summary::-webkit-details-marker,
+.anime09.ob-live-r5 .ob-live-previous-wrap>summary::-webkit-details-marker{display:none;}
+.anime09.ob-live-r5 .ob-live-how-wrap>summary::after,
+.anime09.ob-live-r5 .ob-live-previous-wrap>summary::after{content:"+";float:right;color:#8b9f88;font:400 14px Georgia,serif;}
+.anime09.ob-live-r5 .ob-live-how-wrap[open]>summary::after,
+.anime09.ob-live-r5 .ob-live-previous-wrap[open]>summary::after{content:"−";}
+.anime09.ob-live-r5 .ob-live-how-wrap .ob-how-r3{background:none!important;border-left:0!important;margin:0!important;padding:7px 3px 11px!important;max-width:100%;border:0!important;}
+.anime09.ob-live-r5 .ob-live-how-wrap .ob-how-r3 h3{display:none!important;}
+.anime09.ob-live-r5 .ob-live-how-wrap .ob-how-r3 p{max-width:900px;}
+.anime09.ob-live-r5 .ob-live-previous-wrap .n-prev-season{margin:0 0 12px!important;width:100%;max-width:none;padding:0!important;background:transparent!important;border:0!important;border-left:2px solid #b99b73;}
+.anime09.ob-live-r5 .ob-live-previous-wrap .n-prev-header{margin-top:0;}
+.anime09.ob-live-r5 .n-contents.ob-live-contents-legacy{display:none!important;}
+.anime09.ob-live-r5 .n-focus{display:block;}
+.anime09.ob-live-r5 .n-focus .n-latest{width:100%;max-width:none;}
+.anime09.ob-live-r5 .ob-live-lineup-explore{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin:6px 0 4px;padding:6px 0;border-bottom:1px solid #d8dfd2;justify-content:flex-start;background:transparent;border:0;}
+.anime09.ob-live-r5 .ob-live-lineup-explore[hidden]{display:none!important;}
+.anime09.ob-live-r5 .ob-live-lineup-explore label{font:400 11px/1.2 "Barlow Condensed","Abel",sans-serif;letter-spacing:.06em;color:#658269;}
+.anime09.ob-live-r5 .ob-live-lineup-explore select{border:1px solid #bbcab5;background:#fbfbf5;color:#35593f;padding:4px 8px;font:400 12px/1.2 "Barlow Condensed","Abel",sans-serif;max-width:220px;}
+.anime09.ob-live-r5 .ob-live-genre-count{font:400 10px "Barlow Condensed","Abel",sans-serif;color:#81937a;}
+.anime09.ob-live-r5 #obLineupGridR3>.ob-lineup-item[hidden]{display:none!important;}
+.anime09.ob-live-r5 .ob-live-kicker,
+.anime09.ob-live-r5 .ob-live-winners>strong{font-weight:400;letter-spacing:.08em;}
+.anime09.ob-live-r5 .ob-live-enjoyment-face svg{display:block;}
+.anime09.ob-live-r5 .ob-live-updates-header{display:flex;align-items:center;gap:9px;min-width:0;min-height:36px;padding:2px 0;border:0;}
+.anime09.ob-live-r5 .ob-live-update-meta{display:grid;align-items:baseline;gap:6px;white-space:normal;min-width:0;grid-template-columns:40px minmax(0,1fr);}
+.anime09.ob-live-r5 .ob-live-update-date{font:400 11px/1.2 "Barlow Condensed","Abel",sans-serif;color:#6b826c;letter-spacing:.04em;flex:0 0 auto;}
+.anime09.ob-live-r5 .ob-live-update-kind{font:400 9px/1.2 "Barlow Condensed","Abel",sans-serif;color:#a27656;letter-spacing:.08em;flex:0 1 auto;white-space:normal;word-break:normal;font-size:10px;}
+.anime09.ob-live-r5 .ob-live-update-title{font:400 14px/1.25 "EB Garamond",Georgia,serif;color:#31543a;}
+.anime09.ob-live-r5 .n-mast{border-bottom:4px solid #294935;border-top:0!important;margin-top:0!important;}
+.anime09.ob-live-r5 .ob-live-sow-links-title{display:block;font:500 10px/1.25 "Barlow Condensed","Abel",sans-serif;color:#4a6954;letter-spacing:.085em;}
+.anime09.ob-live-r5 .ob-live-sow-strip .ob-sow-about-open-r1,.anime09.ob-live-r5 .ob-live-sow-how{display:block;font:400 13px/1.18 "EB Garamond",Georgia,serif;color:#4c7058;border:0;background:transparent;text-decoration:none;padding:0;margin:0;white-space:normal;text-align:left;cursor:pointer;}
+.anime09.ob-live-r5 .ob-live-sow-how:hover{text-decoration:underline;}
+.anime09.ob-live-r5 .n-season-13 .n-weeks a.ob-live-selected.n-now{box-shadow:inset 0 -4px #afd28e,inset 0 0 0 1px #f5f4e8!important;}
+.anime09.ob-live-r5 .n-season-13 .n-weeks .n-milestone-mid:not(.n-now).ob-live-selected{border-color:#40664a!important;box-shadow:inset 0 3px #be855c,inset 0 0 0 1px #40664a!important;}
+.anime09.ob-live-r5 .n-season-progress{margin:6px 0 0;border:0;}
+.anime09.ob-live-r5 .ob-live-kicker{font:500 11px/1.18 "Barlow Condensed","Abel",sans-serif;letter-spacing:.11em;color:#517059;}
+.anime09.ob-live-r5 .ob-live-metric:last-child{border:0!important;}
+.anime09.ob-live-r5 .ob-live-metric small{font:500 10px/1.25 "Barlow Condensed","Abel",sans-serif;letter-spacing:.045em;color:#65846c;min-height:0;margin-bottom:1px;}
+.anime09.ob-live-r5 .ob-live-metric-denom{font:400 11px/1.1 "Barlow Condensed","Abel",sans-serif;color:#6b8d75;white-space:normal;}
+.anime09.ob-live-r5 .ob-live-metric-delta{font:400 10px/1.25 "Barlow Condensed","Abel",sans-serif;color:#677968;display:block;white-space:normal;margin-top:4px;}
+.anime09.ob-live-r5 .ob-live-metric-delta .ob-live-delta-value{font:500 11px/1.25 "Barlow Condensed","Abel",sans-serif;}
+.anime09.ob-live-r5 .ob-live-metric-delta .is-down{color:#a65f4b;}
+.anime09.ob-live-r5 .ob-live-metric-delta .is-up{color:#4f8067;}
+.anime09.ob-live-r5 .ob-live-top3-item:first-child{background:#fbf4e6;border-color:#bfa37f;}
+.anime09.ob-live-r5 .ob-live-reading>summary{font:400 12px/1.25 "EB Garamond",Georgia,serif;color:#426b50;}
+.anime09.ob-live-r5 .ob-live-trend-caption{font:400 12px/1.23 "EB Garamond",Georgia,serif;color:#68846e;}
+.anime09.ob-live-r5 .ob-live-trend-chart{background:#fafaf4;}
+.anime09.ob-live-r5 .ob-live-winner:disabled{opacity:.4;cursor:default;}
+.anime09.ob-live-r5 .ob-live-digest-round{font:500 14px/1.2 "EB Garamond",Georgia,serif;color:#355d42;letter-spacing:.02em;}
+.anime09.ob-live-r5 .ob-live-guide{margin:18px 21px 10px;border-top:1px solid #b8c8b5;padding:11px 0 0;background:transparent;}
+.anime09.ob-live-r5 .ob-live-guide-heading{font:500 17px/1.2 "EB Garamond",Georgia,serif;color:#2d513a;margin:0 0 6px;font-size:18px;}
+.anime09.ob-live-r5 .ob-live-guide-link,.anime09.ob-live-r5 .ob-live-how-wrap>summary{display:block;width:100%;text-align:left;cursor:pointer;box-sizing:border-box;border:0;border-bottom:1px solid #d4ded0;color:#4e7057;font:400 13px/1.2 "EB Garamond",Georgia,serif;letter-spacing:0;padding:9px 3px;background:transparent;list-style:none;font-size:14px;}
+.anime09.ob-live-r5 .ob-live-guide-link:hover,.anime09.ob-live-r5 .ob-live-how-wrap>summary:hover{color:#a17b53;}
+.anime09.ob-live-r5 .ob-live-how-wrap{padding:0!important;margin:0!important;border:0!important;background:transparent!important;}
+.anime09.ob-live-r5 .ob-live-how-wrap>summary::after{content:"+";float:right;font:400 13px Georgia,serif;color:#80947d;}
+.anime09.ob-live-r5 .ob-live-how-wrap[open]>summary::after{content:"−";}
+.anime09.ob-live-r5 .ob-live-previous-wrap{margin:13px 21px 0;padding:0;border:0;background:transparent;}
+.anime09.ob-live-r5 .ob-live-previous-wrap>summary{display:block;text-align:left;font:400 11px/1.25 "Barlow Condensed","Abel",sans-serif;letter-spacing:.08em;color:#637f68;padding:9px 4px;border:0;border-top:1px solid #d2ddcf;cursor:pointer;list-style:none;}
+.anime09.ob-live-r5 .ob-live-update-meta>small{flex:0 0 auto!important;min-height:0!important;}
+@media (max-width:690px) {
+.anime09 .ob-live-nav{padding:0 3px;justify-content:space-between;border-bottom-width:2px;}
+.anime09 .ob-live-nav-group>summary{padding:9px 5px;font-size:10px;letter-spacing:.025em;}
+.anime09 .ob-live-nav .ob-live-nav-group:last-child .ob-live-nav-menu{left:auto;right:0;}
+.anime09.ob-live-enhanced .n-season.n-season-12.n-season-13{margin-top:7px;}
+.anime09.ob-live-enhanced .n-season.n-season-12.n-season-13>.ob-sow-lockup-r26.ob-sow-r29{padding-top:5px;padding-bottom:5px;margin-bottom:0;}
+.anime09.ob-live-enhanced .ob-sow-about-entry-r1{margin-bottom:0;}
+.anime09.ob-live-enhanced .n-season-13 .n-season-header{margin-top:2px;padding-top:9px;border-top-width:2px;}
+.anime09 .ob-live-phases>span{font-size:8px;letter-spacing:0;}
+.anime09 .ob-live-peek{padding:10px 9px;}
+.anime09 .ob-live-peek-grid{grid-template-columns:1fr;gap:9px;}
+.anime09 .ob-live-peek-context{border-right:0;border-bottom:1px solid #d2ddcf;padding:0 0 8px;}
+.anime09 .ob-live-peek-context h3{font-size:19px;margin:4px 0;}
+.anime09 .ob-live-peek-intro{font-size:13.5px;line-height:1.22;margin-bottom:3px;}
+.anime09 .ob-live-metrics{grid-template-columns:repeat(3,minmax(0,1fr));gap:7px 3px;}
+.anime09 .ob-live-metric strong{font-size:17px;}
+.anime09 .ob-live-metric small{font-size:8.5px;min-height:20px;}
+.anime09 .ob-live-top3-grid{gap:5px;}
+.anime09 .ob-live-top3-item{grid-template-columns:25px minmax(0,1fr);gap:4px;}
+.anime09 .ob-live-top3-item img{width:25px;height:35px;}
+.anime09 .ob-live-top3-item span{font-size:9px;}
+.anime09 .ob-live-story{padding:12px 12px 11px;}
+.anime09 .ob-live-editorial-grid{grid-template-columns:1fr;gap:8px;}
+.anime09 .ob-live-now{padding:0;border-right:0;}
+.anime09 .ob-live-now h3{font-size:20px;margin:3px 0 5px;}
+.anime09 .ob-live-excerpt{font-size:14px;line-height:1.2;}
+.anime09 .ob-live-side{display:grid;grid-template-columns:1fr 1fr;gap:9px;border-top:1px solid #d2dccd;padding-top:7px;}
+.anime09 .ob-live-side>section{padding-bottom:3px;border-bottom:0;}
+.anime09 .ob-live-side strong{font-size:13px;}
+.anime09 .ob-live-side p{font-size:11px;}
+.anime09 .ob-live-pulse>summary{padding:9px 12px;gap:5px 10px;}
+.anime09 .ob-live-pulse-content{padding:0 12px 12px;}
+.anime09 .ob-live-winner-strip{grid-template-columns:repeat(6,minmax(0,1fr));gap:4px;}
+.anime09 .ob-live-winner{min-height:58px;}
+.anime09.ob-live-enhanced .n-focus{display:block;padding-top:18px;}
+.anime09 .ob-live-related{margin-top:12px;}
+:root:has(.anime09.ob-live-r5.current) .site > #greenNav{min-height:31px;}
+:root:has(.anime09.ob-live-r5.current) .green-nav .ob-live-nav{min-height:31px;padding:0 3px;gap:0;justify-content:space-around;}
+:root:has(.anime09.ob-live-r5.current) .green-nav .ob-live-nav-group>summary{font-size:11px;padding:9px 10px;letter-spacing:.02em;}
+:root:has(.anime09.ob-live-r5.current) .green-nav .ob-live-nav-group:last-child .ob-live-nav-menu{left:auto;right:0;}
+.anime09.ob-live-r5 .ob-live-updates-strip{padding:6px 0;gap:6px;font-size:10px;width:calc(100% - 22px);margin:0 11px 4px;}
+.anime09.ob-live-r5 .ob-live-updates-text{max-width:65%;font-size:11px;}
+.anime09.ob-live-r5 .ob-live-updates-cta{font-size:10px;}
+.anime09.ob-live-r5 .n-season-13 .n-weeks>*{min-width:44px;flex:0 0 44px;min-height:44px;padding:5px 1px;}
+.anime09.ob-live-r5 .ob-live-phases{margin-left:0;gap:2px;margin:6px 0 2px 0;min-height:29px;}
+.anime09.ob-live-r5 .ob-live-phases>span{font-size:8px;letter-spacing:0;gap:2px;justify-content:center;flex-wrap:wrap;align-content:flex-start;padding:4px 1px 5px;}
+.anime09.ob-live-r5 .ob-live-peek{padding:11px 10px;margin:9px 11px 0;}
+.anime09.ob-live-r5 .ob-live-peek-intro{font-size:13px;line-height:1.35;}
+.anime09.ob-live-r5 .ob-live-metric{padding:0 7px!important;}
+.anime09.ob-live-r5 .ob-live-metric>small{font-size:9px;letter-spacing:0;min-height:19px;}
+.anime09.ob-live-r5 .ob-live-metric strong{font-size:21px;}
+.anime09.ob-live-r5 .ob-live-metric .ob-live-metric-denom{font-size:9px;}
+.anime09.ob-live-r5 .ob-live-metric .ob-live-metric-delta{font-size:9px;}
+.anime09.ob-live-r5 .ob-live-top3{display:block;}
+.anime09.ob-live-r5 .ob-live-top3-grid{margin-top:8px;gap:4px;grid-template-columns:repeat(3,minmax(0,1fr));}
+.anime09.ob-live-r5 .ob-live-top3-item{padding:4px 3px;gap:3px;min-height:76px;flex-wrap:wrap;display:flex;align-content:center;}
+.anime09.ob-live-r5 .ob-live-top3-item .ob-live-position{font-size:16px;}
+.anime09.ob-live-r5 .ob-live-top3-item img{flex-basis:29px;width:29px;height:48px;flex:0 0 27px;}
+.anime09.ob-live-r5 .ob-live-top3-item .ob-live-top3-title{font-size:10.5px;line-height:1.13;}
+.anime09.ob-live-r5 .ob-live-top3-item .ob-live-top3-score{font-size:9px;}
+.anime09.ob-live-r5 .ob-live-peek-footer{padding:7px;}
+.anime09.ob-live-r5 .ob-live-editorial-grid{grid-template-columns:1fr;gap:8px;}
+.anime09.ob-live-r5 .ob-live-now{border:0;padding:0;}
+.anime09.ob-live-r5 .ob-live-pulse>summary{padding:9px 0;}
+.anime09.ob-live-r5 .ob-live-pulse-content{padding:0 3px 11px;}
+.anime09.ob-live-r5 .ob-live-trend-chart svg{max-height:none;}
+.anime09.ob-live-r5 .ob-live-winner-strip{grid-template-columns:repeat(6,minmax(0,1fr));gap:3px;}
+.anime09.ob-live-r5 .ob-live-winner{min-height:96px;padding:5px 1px;}
+.anime09.ob-live-r5 .ob-live-winner img{width:35px;height:53px;max-width:90%;}
+.anime09.ob-live-r5 .ob-live-trend-digest{padding:9px 8px;margin-top:9px;}
+.anime09.ob-live-r5 .ob-live-digest-actions{width:100%;justify-content:space-between;}
+.anime09.ob-live-r5 .n-season.n-season-12.n-season-13{margin-top:8px;}
+.anime09.ob-live-r5 .ob-live-sow-strip{margin:0 11px 5px;min-height:67px;padding:6px 2px;gap:5px;}
+.anime09.ob-live-r5 .n-season.n-season-12.n-season-13>.ob-live-sow-strip>.ob-sow-lockup-r26.ob-sow-r29{width:auto;flex:1 1 64%;min-width:0;max-width:74%;}
+.anime09.ob-live-r5 .ob-live-sow-strip .ob-sow-r29-layout{gap:4px;grid-template-columns:17% minmax(0,1fr);}
+.anime09.ob-live-r5 .ob-live-sow-strip>.ob-sow-about-entry-r1{white-space:normal;flex:0 0 29%;max-width:29%;width:auto;padding:3px 0 3px 7px;gap:5px;}
+.anime09.ob-live-r5 .ob-live-sow-strip .ob-sow-about-open-r1{font-size:9px;text-align:left;}
+.anime09.ob-live-r5 .n-season-13 .n-season-header{margin:0 11px;padding:11px 0 7px;}
+.anime09.ob-live-r5 .n-season-13 .n-season-heading{gap:6px;}
+.anime09.ob-live-r5 .n-season-13 .n-season-name small{font-size:8px;letter-spacing:.07em;}
+.anime09.ob-live-r5 .n-season-13 .n-season-name h2{font-size:clamp(28px,8.3vw,34px);}
+.anime09.ob-live-r5 .ob-live-current-marker{padding:0;}
+.anime09.ob-live-r5 .ob-live-current-marker strong{font-size:16px;}
+.anime09.ob-live-r5 .ob-live-current-marker small{font-size:9px;margin-top:2px;}
+.anime09.ob-live-r5 .n-season-13 .n-season-chooser{gap:3px 5px!important;flex-wrap:wrap;justify-content:flex-end;margin-top:1px;}
+.anime09.ob-live-r5 .n-season-13 .n-season-chooser .n-season-tabs>*{padding-left:4px;padding-right:4px;}
+.anime09.ob-live-r5 .n-season-13 .n-season-dashboard{padding:0 11px 8px;}
+.anime09.ob-live-r5 .ob-live-round-intro{font-size:9px;gap:5px;}
+.anime09.ob-live-r5 .ob-live-round-intro strong{font-size:9px;}
+.anime09.ob-live-r5 .n-season-13 .n-weeks{display:flex;overflow-x:auto;scroll-snap-type:x proximity;scrollbar-width:thin;border-bottom:2px solid #99ae93;padding-bottom:7px;gap:3px;border:0!important;padding:0!important;}
+.anime09.ob-live-r5 .n-season-13 .n-weeks .n-prelim{min-width:38px;flex-basis:38px;}
+.anime09.ob-live-r5 .ob-live-phases .ob-live-phase-title{font-size:9px;}
+.anime09.ob-live-r5 .ob-live-phases .ob-live-phase-range{font-size:8px;}
+.anime09.ob-live-r5 .ob-live-phase-foot{align-items:flex-start;gap:4px;margin-top:6px;}
+.anime09.ob-live-r5 .ob-live-peek-link{font-size:11px;}
+.anime09.ob-live-r5 .ob-live-stage-legend{gap:6px;justify-content:flex-end;}
+.anime09.ob-live-r5 .ob-live-stage-legend>span{font-size:8px;}
+.anime09.ob-live-r5 .n-season-13 .n-checkpoints{font-size:9px;}
+.anime09.ob-live-r5 .ob-live-metrics{grid-template-columns:repeat(3,minmax(0,1fr));padding:8px 0;}
+.anime09.ob-live-r5 .ob-live-enjoyment{font-size:10px;}
+.anime09.ob-live-r5 .ob-live-story{margin:9px 11px 0;padding:9px 0;}
+.anime09.ob-live-r5 .ob-live-side{padding:4px 0 0;border-top:1px solid #c7d5c2;}
+.anime09.ob-live-r5 .ob-live-pulse{margin:0 11px 9px;}
+.anime09.ob-live-r5 .ob-live-digest-heading{gap:6px;}
+.anime09.ob-live-r5 .ob-live-digest-measures{gap:7px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));}
+.anime09.ob-live-r5 .ob-live-digest-winner img{width:42px;height:58px;}
+.anime09.ob-live-r5 .n-season-13 .n-season-chooser .n-season-tabs.ob-r16-tabs button{padding:4px 5px!important;}
+.anime09.ob-live-r5 .ob-live-updates-list{top:calc(100% + 2px);width:min(340px,calc(100vw - 18px));padding:6px 10px;}
+.anime09.ob-live-r5 .ob-live-digest-measures b{font-size:17px;}
+.anime09.ob-live-r5 .ob-live-previous-wrap,.anime09.ob-live-r5 .ob-live-how-wrap{padding:0 6px;}
+.anime09.ob-live-r5 .ob-live-updates-header{gap:6px;min-height:31px;}
+.anime09.ob-live-r5 .ob-live-update-link{grid-template-columns:67px minmax(0,1fr);gap:10px;padding:7px 0;align-items:start;}
+.anime09.ob-live-r5 .ob-live-update-meta{display:flex;flex-direction:column;gap:3px;align-items:flex-start;white-space:nowrap;}
+.anime09.ob-live-r5 .ob-live-update-title{font-size:13px;line-height:1.22;}
+.anime09.ob-live-r5 .ob-live-sow-links-title{font-size:8px;line-height:1.16;letter-spacing:.01em;}
+.anime09.ob-live-r5 .ob-live-sow-strip .ob-sow-about-open-r1,.anime09.ob-live-r5 .ob-live-sow-how{font-size:11px;}
+.anime09.ob-live-r5 .ob-live-metric small{font-size:9px;min-height:26px;}
+.anime09.ob-live-r5 .ob-live-metric-denom{font-size:10px;}
+.anime09.ob-live-r5 .ob-live-metric-delta{font-size:9px;}
+.anime09.ob-live-r5 .ob-live-full-rank{font-size:10px;padding:9px 12px;}
+.anime09.ob-live-r5 .ob-live-guide,.anime09.ob-live-r5 .ob-live-previous-wrap{margin-left:11px;margin-right:11px;}
+.anime09.ob-live-r5 .ob-live-lineup-explore{gap:6px;flex-wrap:wrap;}
+.anime09.ob-live-r5 .ob-live-update-kind{font-size:9px;white-space:nowrap;}
+}
+@media (max-width:380px) {
+.anime09.ob-live-r5 .n-season-13 .n-season-name h2{font-size:27px;}
+.anime09.ob-live-r5 .ob-live-current-marker strong{font-size:15px;}
+.anime09.ob-live-r5 .ob-live-stage-legend{gap:4px;}
+.anime09.ob-live-r5 .ob-live-stage-legend>span{font-size:7px;}
+}
+@media (max-width:370px) {
+.anime09 .ob-live-nav-group>summary{font-size:9px;padding:8px 4px;}
+.anime09 .ob-live-metric strong{font-size:16px;}
+.anime09 .ob-live-side strong{font-size:12px;}
+.anime09.ob-live-r5 .ob-live-top3-item img{flex-basis:23px;width:23px;height:33px;}
+.anime09.ob-live-r5 .ob-live-top3-item .ob-live-top3-title{font-size:9px;}
+}
+/* R6 — 07F-inspired typography and phase readability. Scope: Anime Home only.
+   Keep original Offbeat wordmark, weekly page, post archive, and full review untouched. */
+.anime09.ob-live-r5{
+  --ob-ui-font:system-ui,-apple-system,"Segoe UI","Yu Gothic UI","Meiryo",sans-serif;
+  --ob-figure-font:Georgia,"Yu Mincho","Hiragino Mincho ProN",serif;
+  --ob-ui-ink:#486b55;
+}
+/* Nav: a light label is more legible than the earlier compressed bold. */
+:root:has(.anime09.ob-live-r5.current) .green-nav .ob-live-nav-group>summary{
+  font-family:var(--ob-ui-font);font-size:10px;font-weight:500;line-height:1.15;
+  letter-spacing:.08em;padding:11px 16px;
+}
+/* Season identity: make the small label read clearly; the season and year lead. */
+.anime09.ob-live-r5 .n-season-13 .n-season-name small{
+  font:600 10px/1.4 var(--ob-ui-font);letter-spacing:.13em;color:#4e7058;
+}
+.anime09.ob-live-r5 .n-season-13 .n-season-name h2{
+  font:600 clamp(33px,3.3vw,40px)/1.1 var(--ob-figure-font);letter-spacing:-.028em;
+  color:#263f32;margin:6px 0 0;
+}
+.anime09.ob-live-r5 .n-season-13 .n-season-name h2 em{
+  color:#aa6946;font-style:normal;font-weight:600;
+}
+.anime09.ob-live-r5 .n-season-13 .n-season-name h2 b{
+  font:600 1em/1.1 var(--ob-figure-font);color:#254332;letter-spacing:-.025em;
+}
+.anime09.ob-live-r5 .ob-live-current-marker strong{
+  font:700 clamp(20px,2.2vw,25px)/1.1 var(--ob-figure-font);letter-spacing:-.01em;color:#264433;
+}
+.anime09.ob-live-r5 .ob-live-current-marker small{
+  font:400 10px/1.3 var(--ob-ui-font);color:#617b69;letter-spacing:0;margin-top:5px;
+}
+/* Year/season picker: prevent vertical Japanese letter wrapping and wandering baselines. */
+.anime09.ob-live-r5 .n-season-13 .n-season-chooser{
+  align-items:center!important;gap:5px 8px!important;
+}
+.anime09.ob-live-r5 .n-season-13 .n-season-chooser .ob-r16-chooser-top,
+.anime09.ob-live-r5 .n-season-13 .n-season-chooser .n-season-tabs,
+.anime09.ob-live-r5 .n-season-13 .n-season-chooser>span{
+  white-space:nowrap!important;word-break:keep-all!important;writing-mode:horizontal-tb!important;
+}
+.anime09.ob-live-r5 .n-season-13 .n-season-chooser .n-season-tabs.ob-r16-tabs button{
+  font:500 10px/1.25 var(--ob-ui-font)!important;letter-spacing:0!important;padding:6px 8px!important;
+}
+/* Timeline: make week number and stage visually legible without heavy type. */
+.anime09.ob-live-r5 .n-season-13 .n-weeks>*>b{
+  font:650 11px/1.14 var(--ob-ui-font);font-variant-numeric:tabular-nums;
+}
+.anime09.ob-live-r5 .n-season-13 .n-weeks>*>span{
+  font:500 8.5px/1.1 var(--ob-ui-font);letter-spacing:0;opacity:.84;
+}
+.anime09.ob-live-r5 .ob-live-round-intro,
+.anime09.ob-live-r5 .ob-live-round-intro strong{
+  font-family:var(--ob-ui-font);font-size:10px;line-height:1.4;letter-spacing:0;
+}
+.anime09.ob-live-r5 .ob-live-phases{
+  margin-top:9px;margin-bottom:5px;gap:4px;min-height:34px;
+}
+.anime09.ob-live-r5 .ob-live-phases>span{
+  flex-direction:row;flex-wrap:wrap;align-content:center;align-items:center;gap:5px;
+  padding:6px 2px 7px;border-top-width:3px;min-height:34px;
+}
+.anime09.ob-live-r5 .ob-live-phases .ob-live-phase-title{
+  font:550 10px/1.25 var(--ob-ui-font);letter-spacing:.015em;
+}
+.anime09.ob-live-r5 .ob-live-phases .ob-live-phase-range{
+  font:400 9px/1.2 var(--ob-ui-font);color:#718674;letter-spacing:0;white-space:nowrap;
+}
+.anime09.ob-live-r5 .ob-live-phase-foot{margin:5px 0 10px;gap:6px 12px;}
+.anime09.ob-live-r5 .ob-live-peek-link{
+  font:500 10px/1.3 var(--ob-ui-font);text-decoration:none;
+  background:#31513a;color:#fffdf0;padding:8px 11px 10px;
+  box-shadow:inset 0 -3px #b5cf8d;white-space:nowrap;
+}
+.anime09.ob-live-r5 .ob-live-peek-link:hover{background:#42674a;color:#fff;}
+.anime09.ob-live-r5 .ob-live-stage-legend>span{
+  font:400 9px/1.3 var(--ob-ui-font);letter-spacing:0;color:#607960;
+}
+/* Week Peek: a scan-friendly numeric scorecard, like the 07F mock. */
+.anime09.ob-live-r5 .ob-live-kicker,
+.anime09.ob-live-r5 .ob-live-peek-context>.ob-live-kicker,
+.anime09.ob-live-r5 .ob-live-top3>.ob-live-kicker{
+  font:600 9.5px/1.35 var(--ob-ui-font);letter-spacing:.08em;color:#56765d;
+}
+.anime09.ob-live-r5 .ob-live-peek-stage{
+  font:500 10px/1.3 var(--ob-ui-font);letter-spacing:0;
+}
+.anime09.ob-live-r5 .ob-live-peek-intro{
+  font:400 15px/1.45 var(--ob-figure-font);letter-spacing:0;color:#31543d;
+}
+.anime09.ob-live-r5 .ob-live-metrics{
+  padding:12px 0 11px;margin-top:13px;border-color:#bacbb8;
+}
+.anime09.ob-live-r5 .ob-live-metric>small{
+  font:600 9.5px/1.3 var(--ob-ui-font);letter-spacing:.015em;color:#526f59;
+  min-height:0;margin-bottom:3px;
+}
+.anime09.ob-live-r5 .ob-live-metric strong{
+  font:700 clamp(25px,2.7vw,30px)/1.06 var(--ob-figure-font);letter-spacing:-.018em;color:#224d37;
+}
+.anime09.ob-live-r5 .ob-live-metric-denom{
+  font:400 10px/1.3 var(--ob-ui-font);color:#63816c;
+}
+.anime09.ob-live-r5 .ob-live-metric-delta{
+  font:400 10px/1.35 var(--ob-ui-font);color:#657e6b;
+}
+.anime09.ob-live-r5 .ob-live-metric-delta .ob-live-delta-value{
+  font:600 10px/1.35 var(--ob-ui-font);
+}
+.anime09.ob-live-r5 .ob-live-stat-foot{
+  font:400 10px/1.5 var(--ob-ui-font);color:#617766;
+}
+.anime09.ob-live-r5 .ob-live-top3-item{
+  min-height:86px;gap:8px;padding:6px 8px;
+}
+.anime09.ob-live-r5 .ob-live-top3-item img{
+  width:48px;height:69px;flex:0 0 48px;
+}
+.anime09.ob-live-r5 .ob-live-top3-item .ob-live-position{
+  font:italic 600 23px/1 var(--ob-figure-font);color:#9b7446;
+}
+.anime09.ob-live-r5 .ob-live-top3-item .ob-live-top3-title{
+  font:500 13px/1.25 var(--ob-figure-font);color:#2b4e38;
+}
+.anime09.ob-live-r5 .ob-live-enjoyment,
+.anime09.ob-live-r5 .ob-live-meaning small,
+.anime09.ob-live-r5 .ob-live-full-rank{
+  font-family:var(--ob-ui-font);
+}
+.anime09.ob-live-r5 .ob-live-full-rank{
+  font-size:11px;font-weight:600;letter-spacing:.025em;padding:12px 18px;
+}
+/* A closed Season So Far must look operable, not like a passive section title. */
+.anime09.ob-live-r5 .ob-live-pulse>summary{gap:6px 15px;}
+.anime09.ob-live-r5 .ob-live-pulse>summary>span{
+  font:600 9.5px/1.35 var(--ob-ui-font);letter-spacing:.085em;
+}
+.anime09.ob-live-r5 .ob-live-pulse>summary>strong{
+  font:600 18px/1.2 var(--ob-figure-font);color:#2a4d36;
+}
+.anime09.ob-live-r5 .ob-live-pulse>summary::after{
+  content:"EXPAND +";margin-left:auto;border:1px solid #9cb299;
+  padding:5px 9px;font:500 9px/1.2 var(--ob-ui-font);
+  letter-spacing:.045em;color:#3b6749;white-space:nowrap;
+}
+.anime09.ob-live-r5 .ob-live-pulse[open]>summary::after{content:"CLOSE −";}
+.anime09.ob-live-r5 .ob-live-winner small,
+.anime09.ob-live-r5 .ob-live-winners>strong{
+  font-family:var(--ob-ui-font);font-weight:500;letter-spacing:0;
+}
+@media(max-width:780px){
+  .anime09.ob-live-r5 .ob-live-phases>span{flex-direction:column;gap:1px;min-height:38px;}
+  .anime09.ob-live-r5 .ob-live-phases .ob-live-phase-title{font-size:9px;}
+  .anime09.ob-live-r5 .ob-live-phases .ob-live-phase-range{font-size:8px;}
+}
+@media(max-width:690px){
+  :root:has(.anime09.ob-live-r5.current) .green-nav .ob-live-nav-group>summary{
+    font-size:9px;padding:10px 6px;letter-spacing:.02em;
+  }
+  .anime09.ob-live-r5 .n-season-13 .n-season-name small{
+    font-size:8.5px;letter-spacing:.055em;
+  }
+  .anime09.ob-live-r5 .n-season-13 .n-season-name h2{
+    font-size:clamp(26px,7.6vw,33px);
+  }
+  .anime09.ob-live-r5 .ob-live-current-marker strong{font-size:19px;}
+  .anime09.ob-live-r5 .ob-live-current-marker small{font-size:8.5px;}
+  .anime09.ob-live-r5 .n-season-13 .n-season-chooser .n-season-tabs.ob-r16-tabs button{
+    padding:4px 5px!important;font-size:9px!important;
+    /* R58: restore original narrow season-label typeface on phone only. */
+    font-family:'Abel',sans-serif!important;
+    font-weight:400!important;
+    letter-spacing:.035em!important;
+  }
+  .anime09.ob-live-r5 .ob-live-peek-link{padding:7px 9px 9px;font-size:9px;}
+  .anime09.ob-live-r5 .ob-live-stage-legend>span{font-size:8px;}
+  .anime09.ob-live-r5 .ob-live-metric strong{font-size:clamp(21px,5.2vw,26px);}
+  .anime09.ob-live-r5 .ob-live-metric>small{font-size:8px;}
+  .anime09.ob-live-r5 .ob-live-metric-denom,.anime09.ob-live-r5 .ob-live-metric-delta{font-size:8px;}
+  .anime09.ob-live-r5 .ob-live-top3-item{min-height:75px;gap:4px;padding:5px 4px;}
+  .anime09.ob-live-r5 .ob-live-top3-item img{height:48px;width:30px;flex:0 0 30px;}
+  .anime09.ob-live-r5 .ob-live-top3-item .ob-live-position{font-size:16px;}
+  .anime09.ob-live-r5 .ob-live-top3-item .ob-live-top3-title{font-size:10px;}
+  .anime09.ob-live-r5 .ob-live-pulse>summary>strong{font-size:16px;}
+  .anime09.ob-live-r5 .ob-live-pulse>summary::after{font-size:8px;padding:4px 6px;}
+}
+@media(max-width:410px){
+  .anime09.ob-live-r5 .ob-live-phases>span{padding:5px 0 7px;gap:0;}
+  .anime09.ob-live-r5 .ob-live-phases .ob-live-phase-title{font-size:8px;}
+  .anime09.ob-live-r5 .ob-live-phases .ob-live-phase-range{font-size:7.5px;}
+}
+
+/* R7 focused fixes — merged into ONE standalone stylesheet (not an extra overlay). */
+/* Visible separator below the in-page Recent Updates strip, above Anime. */
+.anime09.ob-live-r5 .ob-live-updates-strip{border-bottom:1px solid #bbcbb8!important;padding-bottom:6px!important;margin-bottom:9px!important;}
+/* Align year selector and season tabs on the same visual baseline. */
+.anime09.ob-live-r5 .n-season-13 .n-season-chooser{align-items:center!important;align-content:center!important;}
+.anime09.ob-live-r5 .n-season-13 .n-season-chooser .ob-r16-chooser-top,
+.anime09.ob-live-r5 .n-season-13 .n-season-chooser .n-season-tabs.ob-r16-tabs{display:inline-flex!important;align-items:center!important;align-self:center!important;margin-top:0!important;margin-bottom:0!important;padding-top:0!important;padding-bottom:0!important;vertical-align:middle!important;min-height:32px!important;}
+.anime09.ob-live-r5 .n-season-13 .n-season-chooser .ob-r16-chooser-top select,
+.anime09.ob-live-r5 .n-season-13 .n-season-chooser .n-season-tabs.ob-r16-tabs button{height:31px!important;min-height:31px!important;line-height:1.2!important;box-sizing:border-box!important;vertical-align:middle!important;margin:0!important;}
+.anime09.ob-live-r5 .n-season-13 .n-season-chooser .ob-r16-chooser-top>span{white-space:nowrap!important;writing-mode:horizontal-tb!important;line-height:1.2!important;}
+/* Show MID / FINAL where they fit, instead of tiny 7px duplicate pseudo-labels. */
+.anime09.ob-live-r5 .n-season-13 .n-weeks .n-milestone::after{content:none!important;display:none!important;}
+.anime09.ob-live-r5 .n-season-13 .n-weeks .n-milestone{padding-top:6px!important;padding-bottom:4px!important;}
+.anime09.ob-live-r5 .n-season-13 .n-weeks .n-milestone-mid:not(.n-now){border-top:1px solid #bd895e!important;box-shadow:inset 0 -3px #c99764!important;}
+.anime09.ob-live-r5 .n-season-13 .n-weeks .n-milestone-final:not(.n-now){border-top:1px solid #68876d!important;box-shadow:inset 0 -3px #93aa8c!important;}
+.anime09.ob-live-r5 .n-season-13 .n-weeks .n-milestone>span{font-family:var(--ob-ui-font)!important;font-size:10px!important;line-height:1.14!important;letter-spacing:-.015em!important;font-weight:550!important;opacity:1!important;white-space:nowrap!important;}
+.anime09.ob-live-r5 .n-season-13 .n-weeks .n-milestone>b{font-size:12px!important;}
+/* Deltas: numbers stand out. The comparison words do not inherit the result color. */
+.anime09.ob-live-r5 .ob-live-metric .ob-live-metric-delta{font:400 10px/1.32 var(--ob-ui-font)!important;color:#586e5d!important;margin-top:6px!important;}
+.anime09.ob-live-r5 .ob-live-metric .ob-live-metric-delta .ob-live-delta-value{font:700 13px/1.2 var(--ob-ui-font)!important;margin-right:3px!important;}
+.anime09.ob-live-r5 .ob-live-metric .ob-live-metric-delta .is-up{color:#8d612c!important;}
+.anime09.ob-live-r5 .ob-live-metric .ob-live-metric-delta .is-down{color:#b45240!important;}
+.anime09.ob-live-r5 .ob-live-metric .ob-live-metric-delta .is-flat{color:#3b5e49!important;}
+.anime09.ob-live-r5 .ob-live-metric>small{font-size:10px!important;font-weight:550!important;line-height:1.35!important;}
+.anime09.ob-live-r5 .ob-live-reading-copy{display:grid;gap:5px;margin-top:8px;max-width:88ch;}
+.anime09.ob-live-r5 .ob-live-reading-copy p{font:400 12.5px/1.46 var(--ob-ui-font)!important;margin:0 0 3px;color:#475f4e;}
+.anime09.ob-live-r5 .ob-live-reading-copy strong{font-weight:600;color:#315742;}
+.anime09.ob-live-r5 .ob-live-update-meta{grid-template-columns:minmax(86px,auto) minmax(0,1fr)!important;}
+.anime09.ob-live-r5 .ob-live-update-date{white-space:nowrap!important;font-family:var(--ob-ui-font)!important;font-size:10px!important;letter-spacing:0!important;}
+.anime09.ob-live-r5 .ob-live-lineup-explore select{font-family:var(--ob-ui-font)!important;font-size:12px!important;}
+@media(max-width:690px){
+ .anime09.ob-live-r5 .n-season-13 .n-season-chooser .ob-r16-chooser-top select,
+ .anime09.ob-live-r5 .n-season-13 .n-season-chooser .n-season-tabs.ob-r16-tabs button{height:29px!important;min-height:29px!important;}
+ .anime09.ob-live-r5 .n-season-13 .n-weeks .n-milestone>span{font-size:9px!important;}
+ .anime09.ob-live-r5 .ob-live-metric .ob-live-metric-delta .ob-live-delta-value{font-size:12px!important;}
+ .anime09.ob-live-r5 .ob-live-update-meta{grid-template-columns:minmax(78px,auto) minmax(0,1fr)!important;}
+}
+/* Original page i18n can replace text after the live renderer.
+   Keep the Japanese S.O.W. companion label visible without an observer loop. */
+.anime09.ob-live-r5[lang="ja"] .n-season-13 .n-season-name>small{
+  font-size:0!important;line-height:0!important;
+}
+.anime09.ob-live-r5[lang="ja"] .n-season-13 .n-season-name>small::after{
+  content:"今シーズン / Seasons of the Watch";
+  display:block;font:600 10px/1.4 var(--ob-ui-font);letter-spacing:.075em;
+  color:#4e7058;white-space:normal;
+}
+@media(max-width:690px){
+ .anime09.ob-live-r5[lang="ja"] .n-season-13 .n-season-name>small::after{font-size:8.5px;letter-spacing:.02em;}
+}
+
+/* ===============================================================
+   OFFBEAT Anime Home R8 — structured, readable, local preview only.
+   One self-contained R8 stylesheet replaces the R7 link at install.
+   The existing R7 rules above remain available; only these narrowly
+   scoped visual refinements take precedence. No global site reset.
+   =============================================================== */
+.anime09.ob-live-r5.ob-live-r8 {
+  --ob-r8-ui:system-ui,-apple-system,"Segoe UI","Yu Gothic UI",Meiryo,sans-serif;
+  --ob-r8-ink:#2b5139;
+}
+/* Editorial blocks: the dashboard ends before a NEW, explicit reading section. */
+.anime09.ob-live-r5.ob-live-r8 .ob-live-week-season-r8 {
+  margin:23px 0 0;
+  padding:15px 21px 21px;
+  border-top:3px solid #456d50;
+  border-bottom:1px solid #b6c9b2;
+  background:#fdfcf4;
+}
+.anime09.ob-live-r5.ob-live-r8 .ob-live-week-season-head-r8 {
+  display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;
+  gap:5px 14px;border-bottom:1px solid #c5d1bf;padding-bottom:10px;margin-bottom:16px;
+}
+.anime09.ob-live-r5.ob-live-r8 .ob-live-week-season-head-r8 h2 {
+  margin:0;color:#315741;font:650 clamp(16px,1.8vw,20px)/1.15 var(--ob-r8-ui);
+  letter-spacing:.04em;
+}
+.anime09.ob-live-r5.ob-live-r8 .ob-live-week-season-head-r8 p {
+  margin:0;font:400 11px/1.45 var(--ob-r8-ui);color:#5b7863;
+}
+.anime09.ob-live-r5.ob-live-r8 .ob-live-week-season-r8 #animeLatest {
+  width:100%;max-width:100%;margin:0;padding:0 0 20px;border-bottom:1px solid #c5d4c2;
+}
+.anime09.ob-live-r5.ob-live-r8 .ob-live-week-season-r8 #obSeasonExperienceR3 {
+  margin:15px 0 0;padding-top:0;border:0;max-width:none;
+}
+/* The former latest-ranking parent continues to hold historical links below. */
+.anime09.ob-live-r5.ob-live-r8 .n-focus.ob-live-focus-after-r8 {
+  padding-top:0;margin-top:0;min-height:0;
+}
+.anime09.ob-live-r5.ob-live-r8 .n-focus.ob-live-focus-after-r8 .ob-live-related {
+  margin:15px 21px 5px;padding:10px 0 0;
+}
+/* Week Peek: the context, metric meanings and the exit are all visible. */
+.anime09.ob-live-r5.ob-live-r8 .ob-live-peek {
+  border-left:3px solid #b58a58;background:#f1f3eb;padding:16px 18px 15px;
+}
+.anime09.ob-live-r5.ob-live-r8 .ob-live-peek-head>.ob-live-kicker {
+  font:700 12px/1.35 var(--ob-r8-ui);letter-spacing:.045em;color:#2d5a3f;
+}
+.anime09.ob-live-r5.ob-live-r8 .ob-live-peek-context>.ob-live-kicker {
+  font:600 11px/1.35 var(--ob-r8-ui);letter-spacing:.035em;color:#486d53;
+}
+.anime09.ob-live-r5.ob-live-r8 .ob-live-peek-stage {
+  display:inline-block;margin-left:8px;padding:3px 7px;border:1px solid #d3c3a9;
+  color:#805e39;background:#f9f3e8;font:550 11px/1.4 var(--ob-r8-ui);
+  letter-spacing:0;
+}
+.anime09.ob-live-r5.ob-live-r8 .ob-live-peek-intro {
+  color:#294c36;font:400 16px/1.48 var(--ob-figure-font);margin:9px 0 10px;
+}
+.anime09.ob-live-r5.ob-live-r8 .ob-live-metrics {
+  gap:0;padding:13px 0 10px;margin:12px 0 0;
+  border-top:1px solid #bccdbc;border-bottom:1px solid #bccdbc;
+}
+.anime09.ob-live-r5.ob-live-r8 .ob-live-metric {padding:0 14px!important;}
+.anime09.ob-live-r5.ob-live-r8 .ob-live-metric:first-child {padding-left:0!important;}
+.anime09.ob-live-r5.ob-live-r8 .ob-live-metric>small {
+  min-height:0!important;font:650 10.5px/1.35 var(--ob-r8-ui)!important;
+  letter-spacing:0!important;color:#365d45!important;
+}
+.anime09.ob-live-r5.ob-live-r8 .ob-live-metric strong {
+  font:650 clamp(24px,2.8vw,32px)/1.14 var(--ob-figure-font);
+  font-variant-numeric:tabular-nums;color:#214f36;
+}
+.anime09.ob-live-r5.ob-live-r8 .ob-live-metric-denom {
+  font:500 11px/1.3 var(--ob-r8-ui);color:#496d52;white-space:normal;
+}
+.anime09.ob-live-r5.ob-live-r8 .ob-live-metric .ob-live-metric-delta {
+  font:450 10.5px/1.35 var(--ob-r8-ui)!important;color:#526e59!important;
+}
+.anime09.ob-live-r5.ob-live-r8 .ob-live-population-r8 {
+  display:flex;gap:6px 15px;flex-wrap:wrap;margin:10px 0 3px;
+  font:600 11.5px/1.4 var(--ob-r8-ui);color:#345b41;
+}
+.anime09.ob-live-r5.ob-live-r8 .ob-live-population-r8 span+span {
+  border-left:1px solid #a5bda4;padding-left:13px;
+}
+.anime09.ob-live-r5.ob-live-r8 .ob-live-stat-foot {
+  font:400 11px/1.5 var(--ob-r8-ui);color:#536c58;margin:7px 0 12px;
+}
+.anime09.ob-live-r5.ob-live-r8 .ob-live-top3>.ob-live-kicker {
+  font:650 11px/1.3 var(--ob-r8-ui);color:#345b40;letter-spacing:.02em;
+}
+.anime09.ob-live-r5.ob-live-r8 .ob-live-reading>summary {
+  font:550 12px/1.45 var(--ob-r8-ui);border-bottom-color:#86a58b;
+}
+.anime09.ob-live-r5.ob-live-r8 .ob-live-reading-copy p {
+  font:400 12px/1.55 var(--ob-r8-ui)!important;color:#455f4c;
+}
+.anime09.ob-live-r5.ob-live-r8 .ob-live-meaning {
+  align-items:center;gap:7px 12px;
+}
+.anime09.ob-live-r5.ob-live-r8 .ob-live-meaning>small {
+  font:650 11px/1.3 var(--ob-r8-ui);letter-spacing:0;color:#4b6d50;
+}
+.anime09.ob-live-r5.ob-live-r8 .ob-live-meaning>span:not(.ob-live-enjoyment) {
+  font:400 12px/1.4 var(--ob-r8-ui);color:#47684f;
+}
+.anime09.ob-live-r5.ob-live-r8 .ob-live-meaning .ob-live-enjoyment {
+  display:inline-flex;gap:4px;align-items:center;margin-left:auto;padding:3px 5px;
+  border:0;white-space:normal;color:#334e36;
+}
+.anime09.ob-live-r5.ob-live-r8 .ob-live-enjoyment-face {flex:0 0 auto;width:29px;height:29px;}
+.anime09.ob-live-r5.ob-live-r8 .ob-live-enjoyment-label-r8 {
+  font:600 10px/1.2 var(--ob-r8-ui);letter-spacing:0;color:#4f7055;margin-left:4px;
+}
+.anime09.ob-live-r5.ob-live-r8 .ob-live-enjoyment-value-r8 {
+  font:700 26px/1 var(--ob-figure-font);color:#2f573a;font-variant-numeric:tabular-nums;
+}
+.anime09.ob-live-r5.ob-live-r8 .ob-live-enjoyment-max-r8 {
+  font:500 12px/1.1 var(--ob-r8-ui);color:#739077;align-self:baseline;
+}
+.anime09.ob-live-r5.ob-live-r8 .ob-live-go-row-r8 {
+  display:flex;align-items:center;justify-content:space-between;gap:12px 18px;flex-wrap:wrap;
+  margin:12px 0 0;padding:8px 0 0;border-top:1px solid #cbd8c6;
+}
+.anime09.ob-live-r5.ob-live-r8 .ob-live-go-explain-r8 {
+  font:400 11.5px/1.55 var(--ob-r8-ui);color:#516e58;flex:1 1 220px;
+}
+.anime09.ob-live-r5.ob-live-r8 .ob-live-full-rank {
+  display:inline-block;width:auto;max-width:100%;margin:0;
+  font:650 12px/1.3 var(--ob-r8-ui);letter-spacing:0;padding:10px 14px;
+  text-align:center;background:#335941;color:#fffff5;
+}
+/* From this week to the wider season: less washed out or compressed label copy. */
+.anime09.ob-live-r5.ob-live-r8 .ob-live-now .ob-live-kicker,
+.anime09.ob-live-r5.ob-live-r8 .ob-live-side .ob-live-kicker {
+  font:600 11px/1.3 var(--ob-r8-ui);letter-spacing:.025em;color:#506e57;
+}
+.anime09.ob-live-r5.ob-live-r8 .ob-live-story-status {
+  font:500 11px/1.55 var(--ob-r8-ui);color:#53705a;letter-spacing:0;
+}
+/* Season at a glance: scannable legend, chart, winners, and a digest in context. */
+.anime09.ob-live-r5.ob-live-r8 .ob-live-pulse>summary {
+  gap:5px 13px;padding:13px 21px;
+}
+.anime09.ob-live-r5.ob-live-r8 .ob-live-pulse>summary>span {
+  font:650 10.5px/1.3 var(--ob-r8-ui);letter-spacing:.06em;color:#3d674b;
+}
+.anime09.ob-live-r5.ob-live-r8 .ob-live-pulse>summary>strong {
+  font:600 20px/1.2 var(--ob-figure-font);color:#264c35;
+}
+.anime09.ob-live-r5.ob-live-r8 .ob-live-pulse>summary::after {
+  font:650 10px/1.3 var(--ob-r8-ui);padding:6px 10px;
+}
+.anime09.ob-live-r5.ob-live-r8 .ob-live-trend-caption {
+  font:400 12px/1.55 var(--ob-r8-ui);color:#465f4c;margin:4px 0 12px;
+}
+.anime09.ob-live-r5.ob-live-r8 .ob-live-key {
+  gap:9px 19px;font:550 11.5px/1.45 var(--ob-r8-ui);color:#365942;
+  margin-bottom:10px;
+}
+.anime09.ob-live-r5.ob-live-r8 .ob-live-key span::before {height:3px;width:18px;margin-right:7px;}
+.anime09.ob-live-r5.ob-live-r8 .ob-live-trend-chart svg {max-height:250px;}
+.anime09.ob-live-r5.ob-live-r8 .ob-live-winners-heading-r8 {
+  display:flex;flex-wrap:wrap;gap:3px 14px;align-items:baseline;
+}
+.anime09.ob-live-r5.ob-live-r8 .ob-live-winners-heading-r8>strong {
+  font:650 12.5px/1.3 var(--ob-r8-ui);color:#345c43;letter-spacing:.025em;
+}
+.anime09.ob-live-r5.ob-live-r8 .ob-live-winners-heading-r8>p {
+  margin:0;font:400 11px/1.5 var(--ob-r8-ui);color:#526e59;flex:1 1 270px;
+}
+.anime09.ob-live-r5.ob-live-r8 .ob-live-winner small {
+  font:650 11px/1.25 var(--ob-r8-ui);color:#3c6046;
+}
+.anime09.ob-live-r5.ob-live-r8 .ob-live-trend-digest {
+  display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+  align-items:start;gap:11px 16px;padding:15px;background:#eff3e9;
+  border-top:1px solid #a6bea1;
+}
+.anime09.ob-live-r5.ob-live-r8 .ob-live-digest-heading-r8 {
+  grid-column:1/-1;display:block;
+}
+.anime09.ob-live-r5.ob-live-r8 .ob-live-digest-heading-r8>.ob-live-digest-round {
+  font:650 17px/1.2 var(--ob-figure-font);color:#285239;letter-spacing:0;
+}
+.anime09.ob-live-r5.ob-live-r8 .ob-live-digest-winner-r8 {
+  grid-column:1;display:flex;align-items:center;
+}
+.anime09.ob-live-r5.ob-live-r8 .ob-live-digest-winner-r8 small {
+  font:600 10px/1.35 var(--ob-r8-ui);color:#53715a;
+}
+.anime09.ob-live-r5.ob-live-r8 .ob-live-digest-winner-r8 strong {
+  font:550 16px/1.25 var(--ob-figure-font);max-width:none;color:#284d34;
+}
+.anime09.ob-live-r5.ob-live-r8 .ob-live-digest-wrp,
+.anime09.ob-live-r5.ob-live-r8 .ob-live-wins-count-r8 {
+  display:block;margin-top:3px;font:550 11px/1.4 var(--ob-r8-ui);color:#566f54;
+}
+.anime09.ob-live-r5.ob-live-r8 .ob-live-digest-measures {
+  grid-column:2;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px 14px;
+}
+.anime09.ob-live-r5.ob-live-r8 .ob-live-context-stat-r8 {
+  min-width:0;white-space:normal;display:flex;flex-direction:column;gap:2px;
+}
+.anime09.ob-live-r5.ob-live-r8 .ob-live-context-stat-r8 small {
+  font:600 10.5px/1.4 var(--ob-r8-ui);color:#486a50;
+}
+.anime09.ob-live-r5.ob-live-r8 .ob-live-context-stat-r8 b {
+  font:650 23px/1.1 var(--ob-figure-font);font-variant-numeric:tabular-nums;color:#245337;
+}
+.anime09.ob-live-r5.ob-live-r8 .ob-live-context-stat-r8 em {
+  font:400 10.5px/1.3 var(--ob-r8-ui);font-style:normal;color:#58715c;
+}
+.anime09.ob-live-r5.ob-live-r8 .ob-live-digest-insight-r8 {
+  grid-column:1/-1;border-top:1px solid #c5d5bf;padding-top:10px;
+  font:400 12px/1.55 var(--ob-r8-ui);color:#405d48;
+}
+.anime09.ob-live-r5.ob-live-r8 .ob-live-digest-actions {
+  grid-column:1/-1;width:100%;justify-content:space-between;align-items:center;gap:10px;
+}
+.anime09.ob-live-r5.ob-live-r8 .ob-live-recap-cta {
+  font:650 12px/1.25 var(--ob-r8-ui);letter-spacing:0;padding:9px 13px;
+  border:1px solid #739678;background:#e6f0df;color:#28563c;
+}
+.anime09.ob-live-r5.ob-live-r8 .ob-live-digest-actions>a {
+  font:550 12px/1.3 var(--ob-r8-ui);color:#346046;
+}
+.anime09.ob-live-r5.ob-live-r8 .ob-live-trend-note {
+  font:400 11px/1.5 var(--ob-r8-ui);color:#526f59;
+}
+/* This Season's Lineup remains visually intact; only four labels/numbers become legible. */
+.anime09.ob-live-r5.ob-live-r8 .ob-live-lineup-status small {
+  font:550 11px/1.35 var(--ob-r8-ui);letter-spacing:0;color:#4e6e55;
+}
+.anime09.ob-live-r5.ob-live-r8 .ob-live-lineup-status strong {
+  font:650 20px/1.1 var(--ob-figure-font);font-variant-numeric:tabular-nums;color:#285038;
+}
+/* R8 responsive adjustments: preserve all existing image and card layouts. */
+@media (max-width:690px) {
+  .anime09.ob-live-r5.ob-live-r8 .ob-live-week-season-r8 {padding:13px 11px 15px;margin-top:15px;}
+  .anime09.ob-live-r5.ob-live-r8 .ob-live-week-season-head-r8 h2 {font-size:15px;}
+  .anime09.ob-live-r5.ob-live-r8 .ob-live-week-season-head-r8 p {font-size:10.5px;}
+  .anime09.ob-live-r5.ob-live-r8 .ob-live-peek {padding:13px 11px;margin-left:11px;margin-right:11px;}
+  .anime09.ob-live-r5.ob-live-r8 .ob-live-peek-head>.ob-live-kicker {font-size:11px;}
+  .anime09.ob-live-r5.ob-live-r8 .ob-live-peek-stage {display:block;width:max-content;max-width:100%;margin:6px 0 0;font-size:10.5px;}
+  .anime09.ob-live-r5.ob-live-r8 .ob-live-peek-intro {font-size:14.5px;}
+  .anime09.ob-live-r5.ob-live-r8 .ob-live-metrics {gap:9px 5px;}
+  .anime09.ob-live-r5.ob-live-r8 .ob-live-metric {padding:0 6px!important;}
+  .anime09.ob-live-r5.ob-live-r8 .ob-live-metric>small {font-size:9px!important;}
+  .anime09.ob-live-r5.ob-live-r8 .ob-live-metric strong {font-size:24px;}
+  .anime09.ob-live-r5.ob-live-r8 .ob-live-metric-denom {font-size:9px;}
+  .anime09.ob-live-r5.ob-live-r8 .ob-live-population-r8 {font-size:10.5px;}
+  .anime09.ob-live-r5.ob-live-r8 .ob-live-stat-foot {font-size:10.5px;}
+  .anime09.ob-live-r5.ob-live-r8 .ob-live-meaning .ob-live-enjoyment {margin-left:0;}
+  .anime09.ob-live-r5.ob-live-r8 .ob-live-go-row-r8 {display:block;}
+  .anime09.ob-live-r5.ob-live-r8 .ob-live-go-explain-r8 {display:block;margin-bottom:9px;}
+  .anime09.ob-live-r5.ob-live-r8 .ob-live-full-rank {width:100%;box-sizing:border-box;}
+  .anime09.ob-live-r5.ob-live-r8 .ob-live-pulse>summary {padding:11px;}
+  .anime09.ob-live-r5.ob-live-r8 .ob-live-pulse>summary>strong {font-size:17px;}
+  .anime09.ob-live-r5.ob-live-r8 .ob-live-key {font-size:10.5px;}
+  .anime09.ob-live-r5.ob-live-r8 .ob-live-winner small {font-size:10px;}
+  .anime09.ob-live-r5.ob-live-r8 .ob-live-trend-digest {grid-template-columns:1fr;gap:10px;padding:12px;}
+  .anime09.ob-live-r5.ob-live-r8 .ob-live-digest-heading-r8,
+  .anime09.ob-live-r5.ob-live-r8 .ob-live-digest-winner-r8,
+  .anime09.ob-live-r5.ob-live-r8 .ob-live-digest-measures,
+  .anime09.ob-live-r5.ob-live-r8 .ob-live-digest-insight-r8,
+  .anime09.ob-live-r5.ob-live-r8 .ob-live-digest-actions {grid-column:1;}
+  .anime09.ob-live-r5.ob-live-r8 .ob-live-digest-measures {gap:9px;}
+  .anime09.ob-live-r5.ob-live-r8 .ob-live-context-stat-r8 b {font-size:20px;}
+  .anime09.ob-live-r5.ob-live-r8 .ob-live-recap-cta {font-size:11px;padding:8px 9px;}
+  .anime09.ob-live-r5.ob-live-r8 .ob-live-digest-actions>a {font-size:11px;}
+  .anime09.ob-live-r5.ob-live-r8 .ob-live-lineup-status small {font-size:10px;}
+  .anime09.ob-live-r5.ob-live-r8 .ob-live-lineup-status strong {font-size:18px;}
+}
+@media(max-width:370px){
+  .anime09.ob-live-r5.ob-live-r8 .ob-live-metric strong {font-size:21px;}
+  .anime09.ob-live-r5.ob-live-r8 .ob-live-metric>small {font-size:8.7px!important;}
+  .anime09.ob-live-r5.ob-live-r8 .ob-live-enjoyment-label-r8 {font-size:9px;}
+}
+
+.anime09.ob-live-r5.ob-live-r8 .ob-live-pulse-chart-hint-r8 {display:inline-flex;align-items:center;justify-content:center;margin-left:auto;opacity:.94;flex:0 0 33px;}
+.anime09.ob-live-r5.ob-live-r8 .ob-live-pulse>summary::after {margin-left:0;}
+@media(max-width:690px){.anime09.ob-live-r5.ob-live-r8 .ob-live-pulse-chart-hint-r8 {display:none;}.anime09.ob-live-r5.ob-live-r8 .ob-live-pulse>summary::after {margin-left:auto;}}
+
+
+/* ==============================================================
+   OFFBEAT Anime Home R9 — context-first refinement.
+   R8 remains intact above; these overrides are LOCAL and scoped.
+   Do not style old ranking pages or change existing artwork.
+   =============================================================== */
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9 { --ob-r9-ui:system-ui,"Segoe UI","Yu Gothic UI",Meiryo,sans-serif; }
+/* Changes in significance, not an indiscriminate font-size increase. */
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9 .ob-live-updates-label{color:#7b4932!important;font-weight:700!important;}
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9 .ob-live-updates-text{color:#365940!important;}
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9 .ob-live-updates-cta{color:#2e5940!important;font-weight:600!important;}
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9 .ob-live-update-date{color:#526e56!important;font-weight:550!important;}
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9 .ob-live-sow-links-title{font-size:13px!important;line-height:1.3!important;letter-spacing:.06em!important;color:#2e513c!important;}
+/* Editorial entry: match the structural weight of the Concept without copying it verbatim. */
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9 .ob-live-week-season-head-r8{border-bottom:1px solid #a6b9a2;margin-bottom:18px;padding-bottom:12px;align-items:baseline;}
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9 .ob-live-week-season-head-r8 h2{font:600 clamp(21px,2.3vw,27px)/1.22 "EB Garamond",Georgia,serif;letter-spacing:.008em;color:#284c36;}
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9 .ob-live-week-season-head-r8 p{color:#4c6b55;font-size:11.5px;}
+/* A calmer current-season timeline: 06 MID / 12 FINAL are NOT suppressed. */
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9 .n-season-13 .n-weeks>*{min-height:40px!important;gap:1px!important;padding:4px 1px 3px!important;}
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9 .n-season-13 .n-weeks>*>b{font-size:13px!important;line-height:1.08!important;}
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9 .n-season-13 .n-weeks>*>span{font-size:8px!important;line-height:1.0!important;opacity:1!important;}
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9 .n-season-13 .n-weeks .n-prelim>span{font-size:7px!important;}
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9 .n-season-13 .n-weeks .n-milestone::after{
+  display:block!important;position:static!important;content:""!important;height:auto!important;
+  font:700 7.5px/1 "Barlow Condensed","Abel",sans-serif!important;letter-spacing:.025em!important;white-space:nowrap!important;
+}
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9 .n-season-13 .n-weeks .n-milestone-mid::after{content:"MID"!important;color:#9c5b37!important;}
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9 .n-season-13 .n-weeks .n-milestone-final::after{content:"FINAL"!important;color:#41694e!important;}
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9 .n-season-13 .n-weeks .n-milestone.n-now::after{color:#eef4e6!important;}
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9 .n-season-13 .n-weeks .n-milestone{border-top-width:1px!important;box-shadow:none!important;}
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9 .ob-live-round-intro{align-items:center;gap:8px;}
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9 .ob-live-round-intro strong{color:#2d513d!important;font-size:11.5px!important;}
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9 .ob-live-round-intro strong::first-letter{color:#a85b36;}
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9 .ob-live-phases .ob-live-phase-range{color:#315944!important;font-weight:550!important;}
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9 .ob-live-remaining-value-r9{font:650 14px/1.1 "EB Garamond",Georgia,serif;color:#345b43;}
+/* Week Peek: plainly state 24 active / 2 not aired / 22 ranked when verified. */
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9 .ob-live-metric .ob-live-metric-delta .is-up{color:#306f4a!important;}
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9 .ob-live-metric .ob-live-metric-delta .is-down{color:#b0443b!important;}
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9 .ob-live-metric .ob-live-metric-delta .is-flat{color:#355741!important;}
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9 .ob-live-metric-prior-r9{font-weight:450;color:#3f634c;white-space:normal;}
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9 .ob-live-population-r9{display:block;font:500 11.5px/1.55 var(--ob-r9-ui);}
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9 .ob-live-population-line-r9{display:flex;flex-wrap:wrap;gap:5px 17px;align-items:baseline;}
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9 .ob-live-population-line-r9>span+span{border:0;padding:0;}
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9 .ob-live-rated-r9{color:#235b3a;font-weight:700;}
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9 .ob-live-stat-foot{font-size:11.5px;color:#4f6b57;}
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9 .ob-live-enjoyment-figure-r9{display:inline-flex;gap:1px;align-items:baseline;white-space:nowrap;}
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9 .ob-live-enjoyment-max-r8{align-self:auto;font-size:11px;}
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9 .ob-live-top3-item{min-height:81px;}
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9 .ob-live-top3-item .ob-live-top3-title{overflow-wrap:normal;word-break:normal;line-height:1.22;}
+/* Distinguish season context from the same week's peek. */
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9 .ob-live-season-comparison-r9{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 22px;}
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9 .ob-live-season-compare-lead-r9{grid-column:1/-1;margin:0;color:#315944;font-weight:600;font-size:12px;}
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9 .ob-live-season-compare-stat-r9{display:flex;gap:3px 12px;align-items:baseline;flex-wrap:wrap;color:#45654c;}
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9 .ob-live-season-compare-stat-r9>span{font-weight:600;font-size:11px;}
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9 .ob-live-season-compare-stat-r9 strong{font:700 18px/1.1 "EB Garamond",Georgia,serif;font-variant-numeric:tabular-nums;}
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9 .ob-live-season-compare-stat-r9 strong.is-up{color:#326e49;}
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9 .ob-live-season-compare-stat-r9 strong.is-down{color:#ab4d41;}
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9 .ob-live-season-compare-stat-r9 strong.is-flat{color:#506857;}
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9 .ob-live-season-compare-stat-r9 small{font-size:11px;color:#4f6b54;}
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9 .ob-live-season-takeaway-r9{grid-column:1/-1;margin:5px 0 0;font-size:11.5px;line-height:1.6;color:#395d43;}
+/* Preserve the original condensed Lineup label instead of substituting the UI font. */
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9 .ob-live-lineup-status small{font:500 12px/1.35 "Barlow Condensed","Abel",sans-serif!important;letter-spacing:.025em!important;color:#496c51;}
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9 .ob-live-lineup-status strong{font:600 20px/1 "EB Garamond",Georgia,serif;}
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9 .ob-live-genre-count{color:#43684e;font-size:11px;}
+/* The sparkline hints at a chart, and belongs with its title. */
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9 .ob-live-pulse>summary>strong{display:inline-flex;align-items:center;gap:7px;}
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9 .ob-live-pulse-chart-hint-r8{margin-left:0;order:0;}
+/* JPN text requires optical hierarchy adjustments beyond literal font-size parity. */
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9[data-ob-live-lang="ja"] .ob-live-week-season-head-r8 h2{font:550 20px/1.4 "Yu Mincho","Hiragino Mincho ProN",serif;letter-spacing:.015em;}
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9[data-ob-live-lang="ja"] .ob-live-peek-intro{font:450 15px/1.7 "Yu Mincho","Hiragino Mincho ProN",serif;}
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9[data-ob-live-lang="ja"] .ob-live-peek-stage{font-size:10.5px;line-height:1.5;}
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9[data-ob-live-lang="ja"] .ob-live-metric>small{font-size:10px!important;line-height:1.55!important;}
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9[data-ob-live-lang="ja"] .ob-live-trend-caption,
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9[data-ob-live-lang="ja"] .ob-live-winners-heading-r8>p{line-height:1.75;letter-spacing:0;}
+@media(max-width:690px){
+ .anime09.ob-live-r5.ob-live-r8.ob-live-r9 .n-season-13 .n-weeks>*{min-height:37px!important;padding:3px 0!important;}
+ .anime09.ob-live-r5.ob-live-r8.ob-live-r9 .n-season-13 .n-weeks .n-milestone::after{font-size:6px!important;}
+ .anime09.ob-live-r5.ob-live-r8.ob-live-r9 .ob-live-week-season-head-r8 h2{font-size:20px;}
+ .anime09.ob-live-r5.ob-live-r8.ob-live-r9 .ob-live-season-comparison-r9{grid-template-columns:1fr;gap:8px;}
+ .anime09.ob-live-r5.ob-live-r8.ob-live-r9 .ob-live-season-compare-lead-r9{grid-column:1;}
+ .anime09.ob-live-r5.ob-live-r8.ob-live-r9 .ob-live-top3{display:block;}
+ .anime09.ob-live-r5.ob-live-r8.ob-live-r9 .ob-live-top3-grid{grid-template-columns:1fr;gap:5px;}
+ .anime09.ob-live-r5.ob-live-r8.ob-live-r9 .ob-live-top3-item{min-height:52px;padding:5px 7px;}
+ .anime09.ob-live-r5.ob-live-r8.ob-live-r9 .ob-live-top3-item img{width:36px;height:50px;flex-basis:36px;}
+ .anime09.ob-live-r5.ob-live-r8.ob-live-r9 .ob-live-population-r9{font-size:11px;}
+ .anime09.ob-live-r5.ob-live-r8.ob-live-r9 .ob-live-remaining-value-r9{font-size:13px;}
+ .anime09.ob-live-r5.ob-live-r8.ob-live-r9[data-ob-live-lang="ja"] .ob-live-week-season-head-r8 h2{font-size:18px;}
+}
+
+/* Keep W beside the week number again. Reserve the second line for milestone words. */
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9 .n-season-13 .n-weeks>*:not(.n-prelim){
+  flex-direction:row!important;flex-wrap:wrap!important;align-content:center!important;
+  align-items:center!important;justify-content:center!important;column-gap:2px!important;row-gap:0!important;
+}
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9 .n-season-13 .n-weeks>*:not(.n-prelim)>span{
+  order:0!important;flex:0 0 auto!important;
+}
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9 .n-season-13 .n-weeks>*:not(.n-prelim)>b{
+  order:1!important;flex:0 0 auto!important;
+}
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9 .n-season-13 .n-weeks .n-milestone::after{
+  order:2!important;flex:0 0 100%!important;text-align:center!important;font-size:9px!important;
+}
+/* Archived-season BACK TO CURRENT must not overprint the year chooser. */
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9 .n-season-13 .n-season-chooser .ob-r16-chooser-top{
+  max-width:none!important;min-width:0!important;flex-wrap:wrap!important;justify-content:flex-end!important;gap:3px 6px!important;
+}
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9 .n-season-13 .n-season-chooser .ob-r16-back:not([hidden]){
+  white-space:nowrap!important;position:static!important;max-width:none!important;flex:0 0 auto!important;
+  background:transparent!important;line-height:1.3!important;
+}
+@media(max-width:690px){
+ .anime09.ob-live-r5.ob-live-r8.ob-live-r9 .n-season-13 .n-weeks .n-milestone::after{font-size:7px!important;}
+ .anime09.ob-live-r5.ob-live-r8.ob-live-r9 .n-season-13 .n-season-chooser .ob-r16-chooser-top{max-width:100%!important;}
+}
+
+
+/* ======================================================================
+   R10 — Season story, single-chart season overview, stronger hierarchy.
+   SCOPED to the R10 Anime Home only. Original seasonal/weekly pages untouched.
+   ====================================================================== */
+.anime09.ob-live-r10{--ob-r10-ui:system-ui,"Segoe UI","Yu Gothic UI",Meiryo,sans-serif;}
+/* Keep the character of the site, yet do not make quiet updates unreadable. */
+.anime09.ob-live-r10 .ob-live-updates-text{font-weight:400!important;color:#355b42!important;}
+.anime09.ob-live-r10 .ob-live-updates-label{font-weight:600!important;}
+.anime09.ob-live-r10 .ob-live-updates-cta{font-weight:500!important;}
+.anime09.ob-live-r10 .ob-live-update-date{font-weight:450!important;}
+.anime09.ob-live-r10 .ob-live-sow-links-title{font-size:13.5px!important;letter-spacing:.055em!important;}
+.anime09.ob-live-r10 .ob-sow-about-entry-r1 .ob-sow-about-open-r1,
+.anime09.ob-live-r10 .ob-live-sow-how{font-size:12px!important;line-height:1.5!important;margin-left:5px;}
+/* Timeline: milestone label ABOVE the W and number; enough breathing room. */
+.anime09.ob-live-r10 .n-season-13 .n-weeks>*{min-height:47px!important;padding:4px 1px!important;gap:2px!important;}
+.anime09.ob-live-r10 .n-season-13 .n-weeks>*:not(.n-prelim)>span{font:500 9px/1.15 var(--ob-r10-ui)!important;letter-spacing:0!important;order:1!important;}
+.anime09.ob-live-r10 .n-season-13 .n-weeks>*:not(.n-prelim)>b{font:600 14px/1.15 var(--ob-r10-ui)!important;order:2!important;}
+.anime09.ob-live-r10 .n-season-13 .n-weeks .n-milestone::after{
+  order:0!important;flex:0 0 100%!important;margin-bottom:3px!important;
+  font:500 10px/1.15 "Barlow Condensed","Abel",var(--ob-r10-ui)!important;
+  letter-spacing:.06em!important;white-space:nowrap!important;
+}
+.anime09.ob-live-r10 .n-season-13 .n-weeks .n-prelim{display:flex;flex-direction:column!important;justify-content:center!important;gap:3px!important;}
+.anime09.ob-live-r10 .n-season-13 .n-weeks .n-prelim>span{font:500 9.5px/1.1 "Barlow Condensed",var(--ob-r10-ui)!important;letter-spacing:.05em;}
+.anime09.ob-live-r10 .n-season-13 .n-weeks .n-prelim>b{font:600 14px/1 var(--ob-r10-ui)!important;}
+.anime09.ob-live-r10 .ob-live-round-intro strong::first-letter{color:inherit!important;}
+.anime09.ob-live-r10 .ob-live-round-intro strong{font-weight:600!important;letter-spacing:.02em!important;}
+.anime09.ob-live-r10 .ob-live-phases .ob-live-phase-range{color:#779080!important;font-weight:400!important;}
+.anime09.ob-live-r10 .ob-live-phases>span.ob-live-phase-active-r10 .ob-live-phase-title,
+.anime09.ob-live-r10 .ob-live-phases>span.ob-live-phase-active-r10 .ob-live-phase-range{color:#96633e!important;font-weight:500!important;}
+.anime09.ob-live-r10 .ob-live-remaining-value-r9{display:inline!important;font:600 17px/1.2 "EB Garamond",Georgia,serif!important;color:#30533d;margin-right:3px;}
+.anime09.ob-live-r10 .ob-live-current-remaining{display:flex!important;align-items:baseline!important;gap:3px!important;justify-content:flex-end;}
+.anime09.ob-live-r10 .n-season-13 .n-season-chooser .ob-r16-back:not([hidden]){white-space:nowrap!important;margin:0!important;}
+/* Context first in Week Peek; arithmetic is secondary to what the week contained. */
+.anime09.ob-live-r10 .ob-live-population-r10{order:0;display:block;background:#e8eee3;border-top:1px solid #d0dccc;border-bottom:1px solid #d0dccc;padding:9px 10px;margin:9px 0 0!important;font:500 12px/1.5 var(--ob-r10-ui);}
+.anime09.ob-live-r10 .ob-live-population-r10 .ob-live-population-line-r9{gap:4px 17px;}
+.anime09.ob-live-r10 .ob-live-population-r10 .ob-live-rated-r9{font-weight:650;color:#284d38;}
+.anime09.ob-live-r10 .ob-live-stat-foot-r10{margin:5px 0 12px!important;line-height:1.55;color:#4c6653;}
+.anime09.ob-live-r10 .ob-live-metric-prior-r9{font-size:11px;letter-spacing:0;}
+.anime09.ob-live-r10 .ob-live-metric-delta .ob-live-gap-change-r10{font-size:11px;font-weight:500;color:#756746;margin-right:4px;}
+.anime09.ob-live-r10 .ob-live-metric .ob-live-metric-delta .is-neutral{color:#625d4d!important;}
+.anime09.ob-live-r10 .ob-live-gap-context-r10{grid-column:1/-1;font:450 11.5px/1.5 var(--ob-r10-ui);color:#556a54;margin:9px 0 0;padding:8px 0 0;border-top:1px dashed #c7d4c5;}
+.anime09.ob-live-r10 .ob-live-meaning .ob-live-enjoyment-figure-r9{gap:4px;}
+.anime09.ob-live-r10 .ob-live-enjoyment-max-r8{font-size:11px;position:relative;top:0;}
+.anime09.ob-live-r10 .ob-live-now .ob-live-cta{font-weight:450!important;}
+/* The at-a-glance graph is one coherent graphic with two explicitly separate scales. */
+.anime09.ob-live-r10 .ob-live-key{display:flex;gap:8px 18px;flex-wrap:wrap;align-items:center;}
+.anime09.ob-live-r10 .ob-live-dot-lineup-r10::before{content:"";display:inline-block;width:19px;height:0;border-top:2px dashed #758179;vertical-align:middle;margin-right:7px;}
+.anime09.ob-live-r10 .ob-live-trend-caption{font-size:12px;line-height:1.55;color:#395b43;}
+.anime09.ob-live-r10 .ob-live-trend-chart svg{width:100%;height:auto;}
+.anime09.ob-live-r10 .ob-live-season-compare-stat-r9{display:flex;gap:5px 8px;align-items:baseline;}
+.anime09.ob-live-r10 .ob-live-direction-r10{flex:0 0 12px;align-self:center;}
+.anime09.ob-live-r10 .ob-live-direction-r10.is-up{color:#337551;}
+.anime09.ob-live-r10 .ob-live-direction-r10.is-down{color:#b45744;}
+.anime09.ob-live-r10 .ob-live-lineup-context-r10{grid-column:1/-1;margin:0;font:500 11px/1.55 var(--ob-r10-ui);color:#4e6754;border-top:1px solid #d3decf;padding-top:8px;}
+/* One coherent bridge from analysis to published stories. Do not create extra lines. */
+.anime09.ob-live-r10 .ob-live-week-season-r8{margin-top:18px;border-top:3px solid #436948;padding-top:12px;}
+.anime09.ob-live-r10 .ob-live-week-season-head-r8{margin-bottom:15px;padding-bottom:10px;}
+.anime09.ob-live-r10 #animeLatest{display:grid!important;grid-template-columns:minmax(0,1.08fr) minmax(250px,.92fr);gap:10px 22px;align-items:start;}
+.anime09.ob-live-r10 #animeLatest>.n-block-top{grid-column:1/-1;margin:0 0 5px;}
+.anime09.ob-live-r10 #animeLatest>.n-block-top h2{font-size:17px!important;letter-spacing:.035em;}
+.anime09.ob-live-r10 #animeLatest>.n-rank-card{grid-column:1;max-width:100%!important;min-width:0;}
+.anime09.ob-live-r10 #animeLatest>.n-feature-companions{grid-column:2;display:flex;flex-direction:column;align-items:stretch;gap:0;padding:0 0 12px;margin:0;border-bottom:0;min-width:0;}
+.anime09.ob-live-r10 .n-feature-companions-13 .n-feature-label{display:block;padding:0 0 9px;font:400 12px/1.3 "Barlow Condensed","Abel",sans-serif;color:#6b7f6c;letter-spacing:.02em;}
+.anime09.ob-live-r10 .ob-live-companion-season-r10{font:600 14px/1.1 "EB Garamond",Georgia,serif;color:#345941;letter-spacing:.01em;margin-left:3px;}
+.anime09.ob-live-r10 #animeTier .n-feature-item{display:flex;flex-direction:column;align-items:start;gap:3px;padding:10px 2px;border-top:1px solid #cfdbce;min-width:0;}
+.anime09.ob-live-r10 #animeTier .n-feature-item .n-feature-kind{font:500 10px/1.35 var(--ob-r10-ui);color:#a06c49;}
+.anime09.ob-live-r10 #animeTier .n-feature-item strong{font:500 16px/1.35 "EB Garamond",Georgia,serif;color:#375b42;}
+.anime09.ob-live-r10 #animeTier .n-feature-item .n-double-chevron{display:none;}
+/* Readable but not visually loud filter counts. */
+.anime09.ob-live-r10 .ob-live-genre-count{font:500 12px/1.3 var(--ob-r10-ui);color:#476b50;}
+.anime09.ob-live-r10 .ob-live-genre-count:not(:empty)::first-letter{color:#2d5d42;}
+/* A guide should read like a quoted explanation when expanded. */
+.anime09.ob-live-r10 .ob-live-how-wrap[open] .ob-how-r3{border:0!important;border-left:2px solid #b69a75!important;padding:9px 12px 12px!important;margin:5px 0 9px 9px!important;}
+.anime09.ob-live-r10 .ob-live-how-wrap[open] .ob-how-r3 p{font-size:12.5px;line-height:1.65;}
+/* The chart hint belongs to the chart title; Expand remains at the far right. */
+.anime09.ob-live-r10 .ob-live-pulse>summary{column-gap:10px!important;}
+.anime09.ob-live-r10 .ob-live-pulse-chart-hint-r8{margin-left:5px!important;}
+.anime09.ob-live-r10 .ob-live-pulse>summary::after{margin-left:auto!important;}
+.anime09.ob-live-r10[data-ob-live-lang="ja"] .ob-live-trend-caption{font-size:11.5px;line-height:1.75;}
+.anime09.ob-live-r10[data-ob-live-lang="ja"] .ob-live-peek-intro{font-size:15px;line-height:1.65;}
+.anime09.ob-live-r10[data-ob-live-lang="ja"] .ob-live-week-season-head-r8 h2{font-size:22px;line-height:1.3;}
+.anime09.ob-live-r10[data-ob-live-lang="ja"] .ob-live-population-r10{font-size:11.5px;}
+@media(max-width:840px){
+ .anime09.ob-live-r10 #animeLatest{grid-template-columns:1fr;gap:8px;}
+ .anime09.ob-live-r10 #animeLatest>.n-block-top,.anime09.ob-live-r10 #animeLatest>.n-rank-card,.anime09.ob-live-r10 #animeLatest>.n-feature-companions{grid-column:1;}
+ .anime09.ob-live-r10 #animeLatest>.n-rank-card{max-width:610px!important;}
+ .anime09.ob-live-r10 #animeLatest>.n-feature-companions{margin:8px 0 0;border-top:1px solid #d1dccd;padding:9px 0 0;}
+}
+@media(max-width:690px){
+ .anime09.ob-live-r10 .n-season-13 .n-weeks>*{min-height:45px!important;}
+ .anime09.ob-live-r10 .n-season-13 .n-weeks .n-milestone::after{font-size:8px!important;letter-spacing:0!important;}
+ .anime09.ob-live-r10 .n-season-13 .n-weeks .n-prelim>span{font-size:8px!important;}
+ .anime09.ob-live-r10 .n-season-13 .n-weeks>*:not(.n-prelim)>b{font-size:11px!important;}
+ .anime09.ob-live-r10 .ob-live-population-r10{font-size:11px;}
+ .anime09.ob-live-r10 .ob-live-population-r10 .ob-live-population-line-r9{gap:3px 11px;}
+ .anime09.ob-live-r10 .ob-live-gap-context-r10{font-size:11px;}
+ .anime09.ob-live-r10 .ob-live-week-season-head-r8 h2{font-size:20px;}
+ .anime09.ob-live-r10 #animeLatest>.n-block-top h2{font-size:15px!important;}
+ .anime09.ob-live-r10 #animeTier .n-feature-item strong{font-size:14px;}
+ .anime09.ob-live-r10 .ob-live-pulse-chart-hint-r8{display:inline-flex!important;width:26px;}
+ .anime09.ob-live-r10 .ob-live-trend-chart svg{min-width:0;}
+ .anime09.ob-live-r10 .ob-live-population-r10{padding:7px 8px;}
+}
+
+/* ================================================================
+   OFFBEAT Anime Home R11 — careful typography and meaning audit
+   Keeps existing original assets / article data / editor text intact.
+   Scoped only to the Anime Home; no ranking or Theme Studio changes.
+   ================================================================ */
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11{--ob-r11-sans:system-ui,"Segoe UI","Yu Gothic UI",Meiryo,sans-serif;--ob-r11-ink:#284b35;}
+/* Quiet without vanishing: updates are not a headline. */
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11 .ob-live-updates-label{font-weight:500!important;}
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11 .ob-live-updates-text{font-weight:400!important;}
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11 .ob-live-updates-cta{font-weight:400!important;}
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11 .ob-live-update-date{font-weight:400!important;color:#54705a!important;}
+/* The logo's label and secondary links must have a recognizable hierarchy. */
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11 .ob-live-sow-links-title{font-size:13.5px!important;}
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11 .ob-sow-about-entry-r1 .ob-sow-about-open-r1,
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11 .ob-live-sow-how{font-size:11.5px!important;margin-left:8px!important;font-weight:400!important;}
+/* Season selector: keep 'Back to current' a normal flex item, not overlaid. */
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11 .n-season-13 .n-season-chooser{display:flex!important;align-items:center!important;justify-content:flex-end!important;gap:8px!important;flex-wrap:wrap!important;position:relative!important;}
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11 .n-season-13 .n-season-chooser .ob-r16-back:not([hidden]){
+ position:static!important;inset:auto!important;transform:none!important;float:none!important;
+ display:inline-flex!important;align-items:center!important;line-height:1.25!important;margin:0 2px!important;
+ max-width:100%;vertical-align:middle!important;
+}
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11 .ob-live-current-remaining{display:inline-flex!important;align-items:baseline!important;white-space:nowrap!important;gap:5px!important;}
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11 .ob-live-remaining-value-r9{font:500 18px/1 "EB Garamond",Georgia,serif!important;}
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11 .ob-live-round-intro .ob-live-round-next{display:inline-flex!important;gap:6px;align-items:baseline;flex-wrap:wrap;}
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11 .ob-live-next-word-r11{color:#345640;font:600 11px/1.3 var(--ob-r11-sans);letter-spacing:.01em;}
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11 .ob-live-next-detail-r11{color:#9e5e39;font:500 12px/1.3 var(--ob-r11-sans);letter-spacing:.005em;}
+/* Week numbers must be clear, with readable milestone labels and breathing room. */
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11 .n-season-13 .n-weeks>*{min-height:50px!important;gap:3px!important;padding:6px 2px 5px!important;}
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11 .n-season-13 .n-weeks>*:not(.n-prelim)>b{font:600 14px/1.18 var(--ob-r11-sans)!important;}
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11 .n-season-13 .n-weeks>*:not(.n-prelim)>span{font:450 9px/1.15 var(--ob-r11-sans)!important;}
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11 .n-season-13 .n-weeks .n-milestone::after{
+ font:550 9.5px/1.25 var(--ob-r11-sans)!important;letter-spacing:0!important;
+ order:0!important;margin:0 0 3px!important;white-space:nowrap!important;
+}
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11 .n-season-13 .n-weeks .n-prelim>span{font:500 9.5px/1.2 var(--ob-r11-sans)!important;letter-spacing:0!important;}
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11 .n-season-13 .n-weeks .n-prelim>b{font:600 13px/1.15 var(--ob-r11-sans)!important;}
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11 .ob-live-phases .ob-live-phase-range{color:#758b78!important;font-weight:400!important;}
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11 .ob-live-phases>span.ob-live-phase-active-r10 .ob-live-phase-range{color:#a66b47!important;font-weight:400!important;}
+/* Week Peek: do not turn every explanatory line into a large filled card. */
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11 .ob-live-peek{background:#fbfaf0!important;border-left:3px solid #b3916c!important;}
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11 .ob-live-peek-head>.ob-live-kicker{font:650 13px/1.3 var(--ob-r11-sans)!important;letter-spacing:.035em!important;}
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11 .ob-live-population-r10{background:transparent!important;border-top:1px solid #d2dccc!important;border-bottom:1px solid #d2dccc!important;padding:8px 1px!important;margin:12px 0 4px!important;}
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11 .ob-live-population-line-r9{font-size:12px!important;gap:6px 20px!important;}
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11 .ob-live-population-r10 .ob-live-rated-r9{font-weight:600!important;}
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11 .ob-live-stat-foot-r10{font-size:11px!important;color:#5d705e!important;margin:2px 0 10px!important;}
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11 .ob-live-peek-context{margin:6px 0 4px;}
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11 .ob-live-peek-context>.ob-live-kicker{font-weight:400!important;font-size:10.5px!important;color:#6e7e6c!important;}
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11 .ob-live-peek-stage{font:500 11px/1.4 var(--ob-r11-sans)!important;letter-spacing:0!important;}
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11 .ob-live-peek-intro{font-size:12.5px!important;line-height:1.6!important;margin:8px 0!important;}
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11 .ob-live-metrics{padding-top:12px;margin-top:10px;}
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11 .ob-live-gap-context-r10{font-size:12px!important;line-height:1.6!important;}
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11 .ob-live-top3{margin-top:17px!important;padding-top:12px!important;border-top:1px solid #ccd9c9!important;}
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11 .ob-live-top3>.ob-live-kicker{margin:0 0 10px!important;line-height:1.35!important;}
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11 .ob-live-top3-grid{gap:10px!important;}
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11 .ob-live-top3-item{border:1px solid #c8d5c5!important;min-height:88px!important;}
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11 .ob-live-top3-item:first-child{background:#f9f4e7;}
+/* Glance: one plot, three signals. Use both a story-oriented intro and a short factual note. */
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11 .ob-live-trend-caption{font-size:12.5px!important;line-height:1.58!important;margin-bottom:4px!important;}
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11 .ob-live-season-pool-foot-r11{margin:3px 0 10px;color:#617563;font-size:10.7px;line-height:1.52;}
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11 .ob-live-key{gap:6px 18px!important;margin:7px 0 0!important;}
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11 .ob-live-key>span{font:450 11px/1.45 var(--ob-r11-sans)!important;}
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11 .ob-live-dot-ranked::before,.anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11 .ob-live-dot-top::before{height:0!important;border-top:2px solid;}
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11 .ob-live-dot-ranked::before{border-color:#557e59!important;background:transparent!important;}
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11 .ob-live-dot-top::before{border-color:#bb824b!important;background:transparent!important;}
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11 .ob-live-dot-lineup-r10::before{border-top:1.5px dashed #85968b!important;width:20px!important;}
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11 .ob-live-trend-note{order:0!important;margin:3px 0 7px!important;padding:0!important;color:#6c806d!important;font-size:10px!important;line-height:1.35!important;}
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11 .ob-live-trend-chart{margin-top:0!important;}
+/* Winner detail: prominence for the actual show, not another spreadsheet-like grid. */
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11 .ob-live-trend-digest{gap:12px 20px!important;padding:17px 18px!important;}
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11 .ob-live-digest-heading-r8>.ob-live-digest-round{font-size:19px!important;}
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11 .ob-live-digest-winner-r8{gap:13px!important;align-items:flex-start!important;}
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11 .ob-live-digest-winner-r8 img{width:62px!important;height:90px!important;flex:0 0 62px!important;object-fit:cover;}
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11 .ob-live-digest-winner-r8 strong{font-size:19px!important;line-height:1.27!important;}
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11 .ob-live-winner-detail-r11{display:block;margin-top:3px;font:450 11px/1.45 var(--ob-r11-sans);color:#5f765d;}
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11 .ob-live-digest-measures{gap:10px 14px!important;}
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11 .ob-live-context-stat-r8 small{font-weight:500!important;}
+/* Section structure: no unexplained mid-gap hairline. */
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11 .ob-live-week-season-r8{border-top:3px solid #426649!important;margin-top:26px!important;padding-top:15px!important;}
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11 .ob-live-week-season-head-r8{padding-bottom:5px!important;margin-bottom:12px!important;border-bottom:0!important;}
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11 #animeLatest{grid-template-areas:"mainhead companions" "ranking companions";grid-template-columns:minmax(0,1.13fr) minmax(260px,.87fr);column-gap:24px;row-gap:7px!important;}
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11 #animeLatest>.n-block-top{grid-area:mainhead!important;grid-column:auto!important;margin:0!important;border-top:0!important;padding:0 0 4px!important;}
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11 #animeLatest>.n-block-top h2{font-size:18px!important;letter-spacing:.025em!important;}
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11 #animeLatest>.n-rank-card{grid-area:ranking!important;grid-column:auto!important;margin-top:0!important;}
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11 #animeLatest>.n-feature-companions{grid-area:companions!important;grid-column:auto!important;padding-top:0!important;margin-top:0!important;border-top:0!important;}
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11 #animeTier .n-feature-label{font:400 12.5px/1.3 var(--ob-r11-sans)!important;color:#496a51!important;margin-bottom:5px;}
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11 #animeTier .ob-live-companion-season-r10{font:600 16px/1.25 "EB Garamond",Georgia,serif!important;color:#a05e3d!important;}
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11 #animeTier .n-feature-item{padding:13px 8px 13px 13px!important;margin-left:3px;border-top:1px solid #d1dacd;position:relative;}
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11 #animeTier .n-feature-item:before{content:"";position:absolute;left:0;top:13px;bottom:13px;border-left:2px solid #c6a181;}
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11 .ob-live-genre-count{font:400 12.5px/1.3 "Barlow Condensed","Abel",var(--ob-r11-sans)!important;color:#45684c!important;}
+/* Japanese: optical rhythm requires different treatment from English. */
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11[data-ob-live-lang="ja"] .ob-live-peek-context>.ob-live-kicker,
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11[data-ob-live-lang="ja"] .ob-live-peek-stage,
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11[data-ob-live-lang="ja"] .ob-live-population-line-r9,
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11[data-ob-live-lang="ja"] .ob-live-trend-caption,
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11[data-ob-live-lang="ja"] .ob-live-season-pool-foot-r11,
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11[data-ob-live-lang="ja"] .ob-live-digest-insight-r8{
+ font-family:"Yu Gothic UI",Meiryo,system-ui,sans-serif!important;letter-spacing:0!important;line-height:1.7!important;}
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11[data-ob-live-lang="ja"] .ob-live-digest-winner-r8 strong{font:500 17px/1.5 "Yu Mincho","Hiragino Mincho ProN",serif!important;}
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11[data-ob-live-lang="ja"] .ob-live-digest-heading-r8>.ob-live-digest-round{font-size:19px!important;}
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11[data-ob-live-lang="ja"] #animeTier .n-feature-item strong{font-size:16px!important;line-height:1.45!important;}
+@media(max-width:850px){
+ .anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11 #animeLatest{grid-template-areas:"mainhead" "ranking" "companions";grid-template-columns:1fr!important;gap:10px!important;}
+ .anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11 #animeLatest>.n-feature-companions{margin-top:12px!important;border-top:1px solid #cfd8c9!important;padding-top:10px!important;}
+ .anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11 .n-season-13 .n-season-chooser{justify-content:flex-start!important;}
+}
+@media(max-width:690px){
+ .anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11 .n-season-13 .n-weeks>*{min-height:49px!important;padding:5px 1px!important;gap:2px!important;}
+ .anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11 .n-season-13 .n-weeks .n-milestone::after{font-size:7.5px!important;line-height:1.15!important;}
+ .anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11 .n-season-13 .n-weeks .n-prelim>span{font-size:8px!important;}
+ .anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11 .ob-live-top3-grid{grid-template-columns:1fr!important;}
+ .anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11 .ob-live-top3-item{min-height:61px!important;}
+ .anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11 .ob-live-peek-head>.ob-live-kicker{font-size:12px!important;}
+ .anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11 .ob-live-week-season-head-r8{gap:4px 14px!important;flex-wrap:wrap!important;}
+ .anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11 .ob-live-digest-winner-r8 img{width:51px!important;height:74px!important;flex-basis:51px!important;}
+ .anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11 .ob-live-trend-digest{padding:12px!important;}
+ .anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11 .ob-live-trend-caption{font-size:11.5px!important;}
+}
+/* Title + sparkline are one semantic label; Expand/Close is a distant control. */
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11 .ob-live-pulse>summary{display:flex!important;align-items:center!important;gap:6px 13px!important;flex-wrap:wrap!important;}
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11 .ob-live-pulse>summary>strong{order:1;}
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11 .ob-live-pulse-chart-hint-r8{order:2!important;margin:0 0 0 2px!important;flex-basis:33px!important;}
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11 .ob-live-pulse>summary:after{order:3!important;margin-left:auto!important;}
+@media(max-width:690px){
+ .anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11 .ob-live-pulse-chart-hint-r8{display:inline-flex!important;width:26px!important;flex-basis:26px!important;}
+ .anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11 .ob-live-pulse>summary:after{font-size:9px!important;padding:4px 6px!important;}
+}
+
+/* In genre result, readable figures and light condensed wording are deliberately separate. */
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11 .ob-live-genre-count{font:400 12px/1.3 "Barlow Condensed","Abel",sans-serif!important;}
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11 .ob-live-genre-number-r11{font:600 13px/1.2 "EB Garamond",Georgia,serif;color:#315b3f;}
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11 .ob-live-genre-suffix-r11{font:400 12px/1.3 "Barlow Condensed","Abel",sans-serif;color:#58745b;}
+
+/* =============================================================
+   OFFBEAT Anime Home R12 — scoped, focused regression corrections
+   Keeps source posts, artwork, weekly data, and other pages intact.
+   ============================================================= */
+.anime09.ob-live-r12{--ob-r12-ink:#345942;}
+/* Make NEW perceptible, without turning the update strip into a headline. */
+.anime09.ob-live-r12 .ob-live-updates-label{
+ display:inline-block!important;color:#965938!important;border:1px solid #cbb09b!important;
+ background:#f9f1e7!important;padding:1px 6px!important;border-radius:2px!important;
+ font-weight:500!important;letter-spacing:.05em!important;
+}
+/* Secondary S.O.W. links carry a quieter baseline divider. */
+.anime09.ob-live-r12 .ob-sow-about-entry-r1 .ob-sow-about-open-r1,
+.anime09.ob-live-r12 .ob-live-sow-how{
+ border-bottom:1px solid #ccd6c7!important;padding-bottom:2px!important;
+ text-decoration:none!important;
+}
+/* Season chooser: Back to current is a separate post-tabs item, not in the year row. */
+.anime09.ob-live-r12 .n-season-13 .n-season-chooser{
+ display:flex!important;flex-flow:row wrap!important;align-items:center!important;
+ column-gap:8px!important;row-gap:4px!important;
+}
+.anime09.ob-live-r12 .n-season-13 .n-season-chooser>.ob-r16-chooser-top{order:0!important;}
+.anime09.ob-live-r12 .n-season-13 .n-season-chooser>.n-season-tabs{order:1!important;}
+.anime09.ob-live-r12 .n-season-13 .n-season-chooser>.ob-r16-back:not([hidden]){
+ order:2!important;position:static!important;inset:auto!important;transform:none!important;
+ float:none!important;display:inline-flex!important;align-items:center!important;
+ margin-left:auto!important;margin-right:0!important;line-height:1.2!important;
+ white-space:nowrap!important;max-width:none!important;
+}
+.anime09.ob-live-r12 .ob-live-current-remaining .ob-live-remaining-value-r9{
+ font-family:"EB Garamond",Georgia,serif!important;font-size:17px!important;font-weight:700!important;
+}
+/* One number row (w06) + one stage row (MID). No W/MID/06 triple stack. */
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11.ob-live-r12 .n-season-13 .n-weeks>*{
+ min-height:46px!important;gap:2px!important;padding:4px 1px!important;
+}
+.anime09.ob-live-r12 .n-season-13 .n-weeks .n-milestone{
+ display:grid!important;grid-template-columns:auto auto!important;grid-template-rows:auto auto!important;
+ align-content:center!important;justify-content:center!important;align-items:center!important;
+ column-gap:3px!important;row-gap:2px!important;min-height:46px!important;
+ padding:4px 1px!important;
+}
+.anime09.ob-live-r12 .n-season-13 .n-weeks .n-milestone>span{
+ grid-column:1!important;grid-row:1!important;align-self:center!important;order:unset!important;
+ width:auto!important;min-width:0!important;flex:none!important;
+ font:500 9px/1.1 system-ui,"Segoe UI",sans-serif!important;
+}
+.anime09.ob-live-r12 .n-season-13 .n-weeks .n-milestone>b{
+ grid-column:2!important;grid-row:1!important;align-self:center!important;order:unset!important;
+ width:auto!important;flex:none!important;
+ font:600 13px/1.1 system-ui,"Segoe UI",sans-serif!important;
+}
+.anime09.ob-live-r12 .n-season-13 .n-weeks .n-milestone::after{
+ grid-column:1 / -1!important;grid-row:2!important;position:static!important;inset:auto!important;
+ margin:0!important;padding:0!important;width:auto!important;flex:none!important;
+ justify-self:center!important;align-self:center!important;order:unset!important;
+ font:500 9px/1.1 system-ui,"Segoe UI",sans-serif!important;letter-spacing:.015em!important;
+ background:none!important;border:0!important;box-shadow:none!important;white-space:nowrap!important;
+}
+.anime09.ob-live-r12 .n-season-13 .n-weeks .n-milestone-mid::after{content:"MID"!important;display:block!important;}
+.anime09.ob-live-r12 .n-season-13 .n-weeks .n-milestone-final::after{content:"FINAL"!important;display:block!important;}
+.anime09.ob-live-r12 .n-season-13 .n-weeks .n-prelim>span{
+ font:500 9px/1.12 system-ui,"Segoe UI",sans-serif!important;
+}
+/* Week Peek: restrained frame and visible subdivisions; don't invent new headlines. */
+.anime09.ob-live-r12 .ob-live-peek{border-top:1px solid #c1cdbb!important;}
+.anime09.ob-live-r12 .ob-live-peek-head{padding-bottom:7px!important;border-bottom:1px solid #cbd6c6!important;}
+.anime09.ob-live-r12 .ob-live-top3{
+ display:grid!important;grid-template-columns:1fr!important;gap:8px!important;
+ border-top:1px solid #cad5c6!important;padding-top:12px!important;
+ margin-top:15px!important;
+}
+.anime09.ob-live-r12 .ob-live-top3>.ob-live-kicker{margin:0 0 3px!important;font-size:11px!important;}
+/* One featured winner, with #2 and #3 as compact second-tier cards. */
+.anime09.ob-live-r12 .ob-live-top3-grid{
+ display:grid!important;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr)!important;
+ grid-template-rows:repeat(2,minmax(66px,auto))!important;gap:7px 10px!important;
+}
+.anime09.ob-live-r12 .ob-live-top3-item{
+ min-height:66px!important;padding:8px 10px!important;gap:9px!important;overflow:visible!important;
+}
+.anime09.ob-live-r12 .ob-live-top3-item:first-child{grid-row:1 / 3!important;grid-column:1!important;}
+.anime09.ob-live-r12 .ob-live-top3-item:nth-child(2){grid-column:2!important;grid-row:1!important;}
+.anime09.ob-live-r12 .ob-live-top3-item:nth-child(3){grid-column:2!important;grid-row:2!important;}
+.anime09.ob-live-r12 .ob-live-top3-item:first-child img{
+ width:76px!important;height:104px!important;flex:0 0 76px!important;object-fit:cover!important;
+}
+.anime09.ob-live-r12 .ob-live-top3-item:not(:first-child) img{
+ width:42px!important;height:58px!important;flex:0 0 42px!important;object-fit:cover!important;
+}
+.anime09.ob-live-r12 .ob-live-top3-title{
+ font-size:clamp(12px,1.1vw,16px)!important;line-height:1.3!important;
+ overflow-wrap:anywhere!important;white-space:normal!important;
+}
+.anime09.ob-live-r12 .ob-live-top3-item .ob-live-position{
+ font-size:20px!important;flex:0 0 auto!important;
+}
+.anime09.ob-live-r12 .ob-live-editorial-grid{border-top:1px solid #c4d1c0!important;}
+/* Graph: legend strokes must actually match the plot (including the dashed series). */
+.anime09.ob-live-r12 .ob-live-key{gap:8px 18px!important;}
+.anime09.ob-live-r12 .ob-live-key span::before{
+ content:""!important;display:inline-block!important;width:23px!important;height:0!important;
+ margin-right:8px!important;background:transparent!important;vertical-align:middle!important;
+ box-sizing:border-box!important;
+}
+.anime09.ob-live-r12 .ob-live-key .ob-live-dot-ranked::before{
+ border:0!important;border-top:2.5px solid #557e59!important;
+}
+.anime09.ob-live-r12 .ob-live-key .ob-live-dot-top::before{
+ border:0!important;border-top:2.5px solid #bb824b!important;
+}
+.anime09.ob-live-r12 .ob-live-key .ob-live-dot-lineup-r10::before{
+ border:0!important;border-top:2px dashed #758179!important;
+}
+.anime09.ob-live-r12 .ob-live-season-pool-foot-r11{
+ font-size:11.7px!important;line-height:1.65!important;color:#496b53!important;
+}
+.anime09.ob-live-r12 .ob-live-trend-note{font-size:10.8px!important;color:#587360!important;}
+/* Selected week: visual priority belongs to the show, with readable evidence. */
+.anime09.ob-live-r12 .ob-live-digest-winner-r8 strong{
+ font-size:18px!important;line-height:1.28!important;
+}
+.anime09.ob-live-r12 .ob-live-digest-winner-r8 img{
+ width:70px!important;height:100px!important;flex:0 0 70px!important;
+}
+.anime09.ob-live-r12 .ob-live-winner-detail-r11,
+.anime09.ob-live-r12 .ob-live-wins-count-r8{
+ font-size:12px!important;line-height:1.5!important;font-weight:450!important;
+}
+.anime09.ob-live-r12 .ob-live-context-stat-r8 em.is-up{color:#3e7750!important;font-weight:600!important;}
+.anime09.ob-live-r12 .ob-live-context-stat-r8 em.is-down{color:#ae5546!important;font-weight:600!important;}
+/* Editorial section: one quiet divider, not none or two unrelated rules. */
+.anime09.ob-live-r12 .ob-live-week-season-head-r8{
+ border-bottom:1px solid #c7d3c1!important;padding-bottom:12px!important;margin-bottom:16px!important;
+}
+.anime09.ob-live-r12 #animeLatest>.n-block-top{
+ padding-bottom:7px!important;border-left:2px solid #8ca58b!important;padding-left:10px!important;
+}
+.anime09.ob-live-r12 #animeLatest>.n-block-top small,
+.anime09.ob-live-r12 #animeLatest>.n-block-top time{
+ font-size:10.5px!important;color:#4c7058!important;font-weight:400!important;
+}
+.anime09.ob-live-r12 #animeTier .n-feature-label{font-size:13px!important;}
+.anime09.ob-live-r12 #animeTier .ob-live-companion-season-r10{
+ font-size:17px!important;font-weight:600!important;
+}
+.anime09.ob-live-r12 #animeTier .ob-live-companion-season-word-r12{
+ font:400 11px/1.3 system-ui,"Segoe UI",sans-serif!important;
+ color:#66806c!important;white-space:nowrap!important;
+}
+/* Mobile: preserve order and breathing room. */
+@media(max-width:850px){
+ .anime09.ob-live-r12 .ob-live-top3-grid{grid-template-columns:1fr!important;grid-template-rows:none!important;}
+ .anime09.ob-live-r12 .ob-live-top3-item:first-child,
+ .anime09.ob-live-r12 .ob-live-top3-item:nth-child(2),
+ .anime09.ob-live-r12 .ob-live-top3-item:nth-child(3){grid-area:auto!important;}
+ .anime09.ob-live-r12 .ob-live-top3-item:first-child img{width:54px!important;height:74px!important;flex-basis:54px!important;}
+ .anime09.ob-live-r12 .ob-live-top3-title{font-size:13px!important;}
+ .anime09.ob-live-r12 .n-season-13 .n-season-chooser>.ob-r16-back:not([hidden]){width:100%!important;justify-content:flex-end!important;}
+}
+/* Final top-three spacing guard: the old card min-height must not win the cascade. */
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11.ob-live-r12 .ob-live-top3-item{
+  min-height:64px!important;
+}
+
+/* R12 FONT CORRECTION — same Barlow Condensed / Abel family as phase bars.
+   Strong enough specificity to override inherited R11 !important rules.
+   The W + number row and cell layout remain exactly as R12 designed. */
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11.ob-live-r12 .n-season-13 .n-weeks .n-milestone::after{
+ font:500 10px/1.17 "Barlow Condensed","Abel",sans-serif!important;
+ letter-spacing:.045em!important;
+}
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11.ob-live-r12 .n-season-13 .n-weeks .n-prelim>span{
+ font:500 10px/1.17 "Barlow Condensed","Abel",sans-serif!important;
+ letter-spacing:.045em!important;
+}
+@media(max-width:690px){
+ .anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11.ob-live-r12 .n-season-13 .n-weeks .n-milestone::after,
+ .anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11.ob-live-r12 .n-season-13 .n-weeks .n-prelim>span{
+  font-size:9px!important;
+ }
+}
+
+/* R46: Previous Season — subtle closed-state preview, no new panel and no extra stylesheet. */
+.anime09.ob-live-r5 #obLivePrevWrapR4 > summary.ob-live-prev-summary-r46 {
+  display:flex;
+  align-items:baseline;
+  flex-wrap:wrap;
+  column-gap:15px;
+  row-gap:4px;
+  font-size:15px;
+}
+.anime09.ob-live-r5 #obLivePrevWrapR4 .ob-live-prev-deck-r46 {
+  font:400 12px/1.3 "Barlow Condensed","Abel",sans-serif;
+  letter-spacing:.035em;
+  color:#687d70;
+}
+.anime09.ob-live-r5 #obLivePrevWrapR4 > summary.ob-live-prev-summary-r46::after {
+  float:none;
+  align-self:center;
+  margin-left:auto;
+}
+@media (max-width:690px) {
+  .anime09.ob-live-r5 #obLivePrevWrapR4 > summary.ob-live-prev-summary-r46 {
+    column-gap:9px;
+    font-size:14px;
+  }
+  .anime09.ob-live-r5 #obLivePrevWrapR4 .ob-live-prev-deck-r46 {
+    font-size:11px;
+  }
+}
+
+/* R48: Previous Season introduction. Retains R46 markup and native details behavior. */
+.anime09.ob-live-r5 #obLivePrevWrapR4 > summary.ob-live-prev-summary-r46.ob-live-prev-summary-r48 {
+  display:flex;
+  align-items:center;
+  flex-wrap:nowrap;
+  gap:12px;
+  padding:10px 12px 11px 14px;
+  border-top:1px solid #d2ddcf;
+  border-left:3px solid #b6ca97;
+  background:transparent;
+}
+.anime09.ob-live-r5 #obLivePrevWrapR4 .ob-live-prev-copy-r48 {
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  gap:4px;
+  min-width:0;
+}
+.anime09.ob-live-r5 #obLivePrevWrapR4 .ob-live-prev-title-r46 {
+  font:500 12px/1.2 "Barlow Condensed","Abel",sans-serif;
+  letter-spacing:.075em;
+  color:#426748;
+}
+.anime09.ob-live-r5 #obLivePrevWrapR4 .ob-live-prev-deck-r46 {
+  font:400 15px/1.22 "EB Garamond",Georgia,serif;
+  letter-spacing:0;
+  color:#607760;
+}
+.anime09.ob-live-r5 #obLivePrevWrapR4 > summary.ob-live-prev-summary-r48::after {
+  float:none;
+  align-self:center;
+  margin-left:auto;
+  flex:0 0 auto;
+  padding-left:8px;
+}
+.anime09.ob-live-r5 #obLivePrevWrapR4 > summary.ob-live-prev-summary-r48:hover .ob-live-prev-title-r46,
+.anime09.ob-live-r5 #obLivePrevWrapR4 > summary.ob-live-prev-summary-r48:focus-visible .ob-live-prev-title-r46 {
+  color:#31563d;
+}
+@media (max-width:690px) {
+  .anime09.ob-live-r5 #obLivePrevWrapR4 > summary.ob-live-prev-summary-r48 {
+    padding:10px 8px 11px 10px;
+  }
+  .anime09.ob-live-r5 #obLivePrevWrapR4 .ob-live-prev-title-r46 {font-size:11px;}
+  .anime09.ob-live-r5 #obLivePrevWrapR4 .ob-live-prev-deck-r46 {font-size:13.5px;}
+}
+
+/* R49: Previous Season is ONE invitation; no repeated heading when expanded.
+   Accent marks only the headline, not the whole summary, and never touches the top rule. */
+.anime09.ob-live-r5 #obLivePrevWrapR4.ob-live-previous-wrap {
+  border-top:1px solid #d2ddcf;
+  padding-top:12px;
+}
+.anime09.ob-live-r5 #obLivePrevWrapR4 > summary.ob-live-prev-summary-r46.ob-live-prev-summary-r48.ob-live-prev-summary-r49 {
+  border:0;
+  background:transparent;
+  display:flex;
+  align-items:center;
+  flex-wrap:nowrap;
+  gap:12px;
+  padding:0 5px 10px 0;
+}
+.anime09.ob-live-r5 #obLivePrevWrapR4 .ob-live-prev-copy-r49 {
+  display:flex;
+  flex-direction:column;
+  gap:4px;
+  align-items:flex-start;
+  min-width:0;
+}
+.anime09.ob-live-r5 #obLivePrevWrapR4 .ob-live-prev-head-r49 {
+  display:inline-flex;
+  align-items:center;
+  gap:9px;
+  font:600 19px/1.05 "EB Garamond",Georgia,serif;
+  letter-spacing:.012em;
+  color:#2e523e;
+}
+.anime09.ob-live-r5 #obLivePrevWrapR4 .ob-live-prev-head-r49::before {
+  content:"";
+  display:block;
+  align-self:center;
+  flex:0 0 3px;
+  width:3px;
+  height:18px;
+  background:#b6ca97;
+}
+.anime09.ob-live-r5 #obLivePrevWrapR4 .ob-live-prev-title-r49 {
+  font:500 11px/1.22 "Barlow Condensed","Abel",sans-serif;
+  letter-spacing:.095em;
+  color:#526c55;
+  padding-left:12px;
+}
+.anime09.ob-live-r5 #obLivePrevWrapR4 .ob-live-prev-deck-r46 {
+  font:400 14px/1.25 "EB Garamond",Georgia,serif;
+  letter-spacing:0;
+  color:#607760;
+  padding-left:12px;
+}
+.anime09.ob-live-r5 #obLivePrevWrapR4 > summary.ob-live-prev-summary-r49::after {
+  float:none;
+  align-self:center;
+  flex:0 0 auto;
+  margin-left:auto;
+  padding-left:8px;
+}
+.anime09.ob-live-r5 #obLivePrevWrapR4 .n-prev-header {
+  display:none!important;
+}
+.anime09.ob-live-r5 #obLivePrevWrapR4 .n-prev-season {
+  border-left:0!important;
+  padding:0!important;
+  margin:2px 0 13px!important;
+}
+@media (max-width:690px) {
+  .anime09.ob-live-r5 #obLivePrevWrapR4.ob-live-previous-wrap {padding-top:10px;}
+  .anime09.ob-live-r5 #obLivePrevWrapR4 > summary.ob-live-prev-summary-r49 {padding:0 4px 10px 0;gap:7px;}
+  .anime09.ob-live-r5 #obLivePrevWrapR4 .ob-live-prev-head-r49 {font-size:18px;}
+  .anime09.ob-live-r5 #obLivePrevWrapR4 .ob-live-prev-head-r49::before {height:17px;}
+  .anime09.ob-live-r5 #obLivePrevWrapR4 .ob-live-prev-title-r49 {font-size:10.5px;}
+  .anime09.ob-live-r5 #obLivePrevWrapR4 .ob-live-prev-deck-r46 {font-size:13.5px;}
+}
+
+/* R50 — ABOUT S.O.W. compact reading sections (live R12 source). */
+#anime-top.anime09 .ob-live-how-wrap #obHowMoreR3 {
+  font-weight:500!important; /* previously 600 */
+}
+#anime-top.anime09.ob-live-r10 .ob-live-how-wrap[open] .ob-how-r3 {
+  border-left:2px solid #d9c9b8!important; /* softened from #b69a75 */
+}
+#anime-top.anime09 #obLiveGuideR5 .ob-live-explain-r50 {
+  margin:0;padding:0;border:0;background:transparent;
+}
+#anime-top.anime09 #obLiveGuideR5 .ob-live-explain-r50>summary {
+  display:block;width:100%;box-sizing:border-box;
+  cursor:pointer;list-style:none;text-align:left;
+  padding:9px 3px;
+  border:0;border-bottom:1px solid #d4ded0;
+  background:transparent;color:#4e7057;
+  font:400 14px/1.2 "EB Garamond",Georgia,serif;
+}
+#anime-top.anime09 #obLiveGuideR5 .ob-live-explain-r50>summary::-webkit-details-marker {display:none;}
+#anime-top.anime09 #obLiveGuideR5 .ob-live-explain-r50>summary::after {
+  content:"+";float:right;font:400 13px/1 Georgia,serif;color:#80947d;
+}
+#anime-top.anime09 #obLiveGuideR5 .ob-live-explain-r50[open]>summary::after {content:"−";}
+#anime-top.anime09 #obLiveGuideR5 .ob-live-explain-r50>summary:hover {color:#a17b53;}
+#anime-top.anime09 #obLiveGuideR5 .ob-live-explain-content-r50 {
+  margin:5px 0 10px 9px;padding:9px 12px 7px;
+  border-left:2px solid #d1dec9;background:transparent;
+  color:#3c5845;font:400 14px/1.58 "EB Garamond",Georgia,serif;
+}
+#anime-top.anime09 #obLiveGuideR5 .ob-live-explain-content-r50 p {margin:0 0 11px;}
+#anime-top.anime09 #obLiveGuideR5 .ob-live-explain-content-r50 p:last-child {margin-bottom:0;}
+#anime-top.anime09[data-ob-live-lang="ja"] #obLiveGuideR5 .ob-live-explain-content-r50 {
+  font:400 12.5px/1.8 "Yu Mincho","Hiragino Mincho ProN","Noto Serif JP",serif;
+}
+@media(max-width:690px){
+  #anime-top.anime09 #obLiveGuideR5 .ob-live-explain-content-r50 {margin-left:5px;padding:8px 8px 7px;font-size:13.5px;}
+}
+
+/* R60: Repair the actual MOBILE Current Season layout, replacing R59 styles.
+   Do not alter the shared header, archive, lineup, Featured Titles or desktop. */
+@media (max-width:690px) {
+  /* R59 reduced only internal margins. The outer n-season padding was still
+     the main source of wasted width. Narrow the three layers together. */
+  #anime-top.anime09.ob-live-r12 .n-season.n-season-12.n-season-13 {
+    padding-left:0!important;
+    padding-right:0!important;
+  }
+  #anime-top.anime09.ob-live-r12 .ob-live-sow-strip {
+    margin-left:0!important;
+    margin-right:0!important;
+  }
+  #anime-top.anime09.ob-live-r12 .n-season-13 .n-season-header {
+    margin-left:0!important;
+    margin-right:0!important;
+  }
+  #anime-top.anime09.ob-live-r12 .n-season-13 .n-season-dashboard {
+    padding-left:0!important;
+    padding-right:0!important;
+  }
+  #anime-top.anime09.ob-live-r12 .ob-live-story,
+  #anime-top.anime09.ob-live-r12 .ob-live-pulse,
+  #anime-top.anime09.ob-live-r12 .ob-live-peek {
+    margin-left:0!important;
+    margin-right:0!important;
+  }
+  /* Align FALL 2026 and WEEK 06/12 by their big-type baseline, not their
+     top edges. The small rounds-remaining caption sits below the week. */
+  #anime-top.anime09.ob-live-r12 .n-season-13 .n-season-heading {
+    display:grid!important;
+    grid-template-columns:minmax(0,1fr) auto!important;
+    grid-template-rows:auto auto!important;
+    column-gap:9px!important;
+    row-gap:22px!important;
+    align-items:end!important;
+  }
+  #anime-top.anime09.ob-live-r12 .n-season-13 .n-season-name {
+    grid-column:1!important;
+    grid-row:1!important;
+    align-self:end!important;
+  }
+  #anime-top.anime09.ob-live-r12 .ob-live-current-marker {
+    grid-column:2!important;
+    grid-row:1!important;
+    align-self:end!important;
+    position:relative!important;
+    transform:translateY(-3px)!important;
+    padding:0 0 2px!important;
+    margin:0!important;
+  }
+  #anime-top.anime09.ob-live-r12 .ob-live-current-marker small {
+    position:absolute!important;
+    top:calc(100% + 3px)!important;
+    right:0!important;
+    margin:0!important;
+    white-space:nowrap!important;
+  }
+  /* Keep SEASONS + 2026 + 4 tabs on a common baseline; R59 capped the
+     year-group to 88px, which forced SEASONS above 2026. */
+  #anime-top.anime09.ob-live-r12 .n-season-13 .n-season-chooser {
+    grid-column:1 / -1!important;
+    grid-row:2!important;
+    display:flex!important;
+    flex-direction:row!important;
+    flex-wrap:nowrap!important;
+    align-items:center!important;
+    justify-content:flex-start!important;
+    justify-self:stretch!important;
+    width:100%!important;
+    max-width:100%!important;
+    min-width:0!important;
+    margin:0 0 5px!important;
+    gap:6px!important;
+  }
+  #anime-top.anime09.ob-live-r12 .n-season-13 .n-season-chooser .ob-r16-chooser-top {
+    display:inline-flex!important;
+    flex-direction:row!important;
+    flex-wrap:nowrap!important;
+    align-items:center!important;
+    align-self:center!important;
+    flex:0 0 auto!important;
+    gap:5px!important;
+    width:auto!important;
+    min-width:0!important;
+    max-width:none!important;
+    height:34px!important;
+    margin:0!important;
+    padding:0!important;
+  }
+  #anime-top.anime09.ob-live-r12 .n-season-13 .n-season-chooser .ob-r16-chooser-top>span {
+    font:400 10px/1.15 'Abel',sans-serif!important;
+    letter-spacing:.035em!important;
+    white-space:nowrap!important;
+  }
+  #anime-top.anime09.ob-live-r12 .n-season-13 .n-season-chooser select.ob-r16-years {
+    box-sizing:border-box!important;
+    min-width:65px!important;
+    max-width:69px!important;
+    width:69px!important;
+    height:34px!important;
+    min-height:34px!important;
+    margin:0!important;
+    padding:0 18px 0 6px!important;
+    background-position:calc(100% - 4px) center!important;
+  }
+  #anime-top.anime09.ob-live-r12 .n-season-13 .n-season-chooser .n-season-tabs.ob-r16-tabs {
+    display:inline-flex!important;
+    flex:0 1 224px!important;
+    min-width:0!important;
+    width:224px!important;
+    max-width:224px!important;
+    height:34px!important;
+    min-height:34px!important;
+    align-self:center!important;
+    align-items:stretch!important;
+    justify-content:space-between!important;
+    gap:0!important;
+    margin:0 0 0 auto!important;
+    padding:0!important;
+  }
+  #anime-top.anime09.ob-live-r12 .n-season-13 .n-season-chooser .n-season-tabs.ob-r16-tabs button {
+    display:inline-flex!important;
+    flex:1 1 0!important;
+    min-width:0!important;
+    height:33px!important;
+    min-height:33px!important;
+    align-items:center!important;
+    justify-content:center!important;
+    margin:0!important;
+    padding:0 2px!important;
+    font:400 11.5px/1 'Abel',sans-serif!important;
+    letter-spacing:0!important;
+    box-sizing:border-box!important;
+  }
+  #anime-top.anime09.ob-live-r12 .n-season-13 .n-season-chooser .n-season-tabs.ob-r16-tabs button.ob-r16-tab-selected {
+    font-weight:400!important;
+    -webkit-text-stroke:0!important;
+  }
+  /* Match the breathing room used above NEXT/PREVIOUS: the NOW kicker
+     should not sit against the line above the This Week card. */
+  #anime-top.anime09.ob-live-r12 #obLiveStoryR1 {
+    padding-top:16px!important;
+  }
+  /* THIS WEEK needs a visible heading on narrow screens without adding a
+     large box or a full-height section border. */
+  #anime-top.anime09.ob-live-r12 .ob-live-now h3 {
+    border-left:3px solid #acc596!important;
+    padding-left:9px!important;
+    color:#284c37!important;
+    margin-left:0!important;
+    font-size:23px!important;
+    line-height:1.14!important;
+  }
+  /* Restore readable mobile editorial type, with the true headlines larger
+     than the small NEXT/PREVIOUS kickers. No wording changes. */
+  #anime-top.anime09.ob-live-r12 .ob-live-excerpt {
+    font-size:15px!important;
+    line-height:1.34!important;
+  }
+  #anime-top.anime09.ob-live-r12 .ob-live-side strong,
+  #anime-top.anime09.ob-live-r12 .ob-live-side .ob-live-previous a {
+    font-size:16px!important;
+    line-height:1.22!important;
+  }
+  #anime-top.anime09.ob-live-r12 .ob-live-side p,
+  #anime-top.anime09.ob-live-r12 .ob-live-side .ob-live-previous-winner {
+    font-size:12px!important;
+    line-height:1.36!important;
+  }
+  /* The two columns are separate navigation choices. Use only a SHORT,
+     muted divider that stops before both edges. */
+  #anime-top.anime09.ob-live-r12 .ob-live-side {
+    position:relative!important;
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+    column-gap:18px!important;
+  }
+  #anime-top.anime09.ob-live-r12 .ob-live-side::before {
+    content:"";
+    position:absolute;
+    pointer-events:none;
+    left:50%;top:10px;bottom:10px;
+    width:1px;
+    background:#bfceba;
+  }
+}
+@media (max-width:355px) {
+  /* Tiny phones may need to put the controls on a second row, but never split
+     the word SEASONS from the year dropdown. */
+  #anime-top.anime09.ob-live-r12 .n-season-13 .n-season-chooser {
+    flex-wrap:wrap!important;
+  }
+  #anime-top.anime09.ob-live-r12 .n-season-13 .n-season-chooser .n-season-tabs.ob-r16-tabs {
+    flex:1 1 100%!important;
+    width:100%!important;
+    max-width:100%!important;
+  }
+}
+
+/* R64: small, safe mobile-only type lift for Season Checkpoints.
+   Preserve the 4-column layout, fonts, weights, order, and link behavior. */
+@media (max-width:690px) {
+  #anime-top.anime09.ob-live-r12.ob-r29-on .n-season-dashboard.ob-r35-ready .ob-r35-checkpoints-heading {
+    font-size:10.8px!important; /* was 10px */
+  }
+  #anime-top.anime09.ob-live-r12.ob-r29-on .n-season-dashboard.ob-r35-ready .ob-r35-cp-label {
+    font-size:9.6px!important; /* was 9px */
+  }
+  #anime-top.anime09.ob-live-r12.ob-r29-on .n-season-dashboard.ob-r35-ready .ob-r35-cp-links {
+    font-size:10.6px!important; /* was 10px */
+  }
+}
+
+/* R65: iPhone only — actual space BETWEEN This Week's top rule and NOW.
+   The rule is drawn on .ob-live-editorial-grid itself, so padding belongs here. */
+@media (max-width:690px) {
+  #anime-top.anime09.ob-live-r12 #obLiveStoryR1 .ob-live-editorial-grid {
+    padding-top:7px!important;
+  }
+}

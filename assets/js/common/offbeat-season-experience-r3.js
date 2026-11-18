@@ -61,7 +61,7 @@ const intro = {
  }
 };
 const label={
- en:{featuredKicker:'IN FOCUS THIS SEASON',featured:'Featured Titles',sub:'A changing editorial selection',notice:'Sample selection for now · Weekly featured picks will be updated here.',lineupKicker:'THE SEASON POOL',lineup:"This Season’s Lineup",count:n=>`Opening lineup · ${n} titles`,lineupNote:'The opening main-season lineup, including titles not yet aired or later dropped.',featureAll:'VIEW ALL 8 FEATURED TITLES',lineupAll:'VIEW ALL 34 TITLES',less:'SHOW LESS',missing:'Synopsis not available.',eye:'2026 FALL · MAIN-SEASON LINEUP',featuredNote:'WHY FEATURED'},
+ en:{featuredKicker:'IN FOCUS THIS SEASON',featured:'Featured Titles',sub:'The changing faces of the season',notice:'Sample selection for now · Weekly featured picks will be updated here.',lineupKicker:'THE SEASON POOL',lineup:"This Season’s Lineup",count:n=>`Opening lineup · ${n} titles`,lineupNote:'The opening main-season lineup, including titles not yet aired or later dropped.',featureAll:'VIEW ALL 8 FEATURED TITLES',lineupAll:'VIEW ALL 34 TITLES',less:'SHOW LESS',missing:'Synopsis not available.',eye:'2026 FALL · MAIN-SEASON LINEUP',featuredNote:'WHY FEATURED'},
  ja:{featuredKicker:'今シーズンの注目',featured:'注目作品 / Featured Titles',sub:'週ごとに変わる編集セレクション',notice:'現在の選出は仮のものです。今後、週ごとの注目作品に更新します。',lineupKicker:'本選出場作品',lineup:'今期の顔ぶれ / This Season’s Lineup',count:n=>`本選開始時のラインナップ · ${n}作品`,lineupNote:'本選開始時の全作品。未放送や、途中で評価対象から外れた作品も含みます。',featureAll:'注目作品をすべて見る',lineupAll:'全34作品を見る',less:'閉じる',missing:'あらすじデータなし。',eye:'2026年秋 · 本選出場作品',featuredNote:'注目の理由'}
 };
 const genresJa={Action:'アクション',Adventure:'冒険',Comedy:'コメディ',Drama:'ドラマ',Fantasy:'ファンタジー',Horror:'ホラー',Romance:'恋愛','Slice of Life':'日常',Sports:'スポーツ',Psychological:'心理',Mystery:'ミステリー','Sci-Fi':'SF',Supernatural:'超常現象',Thriller:'スリラー',Historical:'歴史',Music:'音楽',School:'学園',Mecha:'ロボット'};
@@ -169,7 +169,7 @@ function refresh(requested){locale=requested==='ja'?'ja':'en';root.lang=locale;i
  featureGrid.replaceChildren();
  for(const k of data.featured){const v=data.items.find(x=>x.kv===k);if(!v)continue;const b=node('button','ob-featured');b.type='button';b.setAttribute('aria-label',langTitle(v));const info=node('span','ob-featured-copy');info.append(node('strong','ob-featured-title',langTitle(v)),node('span','ob-featured-studio',studio(v)),tags(v));const note=featuredNote(v);if(note){const clip=node('span','ob-r5-featured-note',note);clip.title=note;info.append(clip);}b.append(artwork(v),info);b.addEventListener('click',()=>openModal(v));featureGrid.append(b);}
  lineupGrid.replaceChildren();
- for(const v of data.items){const b=node('button','ob-lineup-item');b.type='button';b.setAttribute('aria-label',langTitle(v));b.title=langTitle(v);b.append(artwork(v));b.addEventListener('click',()=>openModal(v));lineupGrid.append(b);}
+ for(const v of data.items){const b=node('button','ob-lineup-item');b.type='button';b.dataset.obLineupKv=String(v.kv);b.setAttribute('aria-label',langTitle(v));b.title=langTitle(v);b.append(artwork(v));b.addEventListener('click',()=>openModal(v));lineupGrid.append(b);}
  featureGrid.classList.toggle('is-expanded',feOpen);lineupGrid.classList.toggle('is-expanded',liOpen);
  expandCaption(featureToggle,feOpen,'featured');expandCaption(lineupToggle,liOpen,'lineup');featureToggle.hidden=data.featured.length<=4;
  if(selected)updateModal();

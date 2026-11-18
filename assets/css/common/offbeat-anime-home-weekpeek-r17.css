@@ -1,0 +1,41 @@
+/* OFFBEAT Week Peek R17 — two tightly scoped adjustments over the installed R16.
+   Intentional non-changes: all Week Peek copy, yellow enjoyment face/label,
+   Top 3 ordering, two-line titles, existing click/tap overlay, the timeline,
+   Season at a Glance, and all data paths remain R16 exactly. */
+
+/* A restrained warm tint only behind the two off-air TITLES.
+   Keep their existing border, left accent, spacing and typography unchanged. */
+#anime-top #obLivePeekR1 .ob-wp15.ob-wp16 .ob-wp13-absence-title{
+  background:#eee8dd;
+}
+
+/* The cards already form a stepped podium. Now the ARTWORK forms one too:
+   No.1 clearly largest, No.2 intermediate, No.3 smallest; all posters
+   remain portrait and are cropped rather than distorted (object-fit:cover).
+   Slightly raise card heights only to accommodate the larger images, not
+   to insert decorative empty space. Text still clamps to two lines. */
+#anime-top #obLivePeekR1 .ob-wp15.ob-wp16 .ob-wp13-stand.ob-wp16-rank-1{height:238px;}
+#anime-top #obLivePeekR1 .ob-wp15.ob-wp16 .ob-wp13-stand.ob-wp16-rank-2{height:209px;}
+#anime-top #obLivePeekR1 .ob-wp15.ob-wp16 .ob-wp13-stand.ob-wp16-rank-3{height:185px;}
+#anime-top #obLivePeekR1 .ob-wp15.ob-wp16 .ob-wp13-stand.ob-wp16-rank-1>img{width:102px;height:129px;object-fit:cover;}
+#anime-top #obLivePeekR1 .ob-wp15.ob-wp16 .ob-wp13-stand.ob-wp16-rank-2>img{width:82px;height:104px;object-fit:cover;}
+#anime-top #obLivePeekR1 .ob-wp15.ob-wp16 .ob-wp13-stand.ob-wp16-rank-3>img{width:66px;height:84px;object-fit:cover;}
+
+/* Width-constrained desktop/tablet: keep the rank ordering while allowing
+   room for the label and the same two-line title treatment. */
+@media(max-width:770px){
+  #anime-top #obLivePeekR1 .ob-wp15.ob-wp16 .ob-wp13-stand.ob-wp16-rank-1{height:214px;}
+  #anime-top #obLivePeekR1 .ob-wp15.ob-wp16 .ob-wp13-stand.ob-wp16-rank-2{height:191px;}
+  #anime-top #obLivePeekR1 .ob-wp15.ob-wp16 .ob-wp13-stand.ob-wp16-rank-3{height:174px;}
+  #anime-top #obLivePeekR1 .ob-wp15.ob-wp16 .ob-wp13-stand.ob-wp16-rank-1>img{width:81px;height:106px;}
+  #anime-top #obLivePeekR1 .ob-wp15.ob-wp16 .ob-wp13-stand.ob-wp16-rank-2>img{width:66px;height:87px;}
+  #anime-top #obLivePeekR1 .ob-wp15.ob-wp16 .ob-wp13-stand.ob-wp16-rank-3>img{width:55px;height:73px;}
+}
+@media(max-width:620px){
+  #anime-top #obLivePeekR1 .ob-wp15.ob-wp16 .ob-wp13-stand.ob-wp16-rank-1{height:193px;}
+  #anime-top #obLivePeekR1 .ob-wp15.ob-wp16 .ob-wp13-stand.ob-wp16-rank-2{height:176px;}
+  #anime-top #obLivePeekR1 .ob-wp15.ob-wp16 .ob-wp13-stand.ob-wp16-rank-3{height:162px;}
+  #anime-top #obLivePeekR1 .ob-wp15.ob-wp16 .ob-wp13-stand.ob-wp16-rank-1>img{width:70px;height:93px;}
+  #anime-top #obLivePeekR1 .ob-wp15.ob-wp16 .ob-wp13-stand.ob-wp16-rank-2>img{width:59px;height:78px;}
+  #anime-top #obLivePeekR1 .ob-wp15.ob-wp16 .ob-wp13-stand.ob-wp16-rank-3>img{width:49px;height:65px;}
+}

@@ -1,0 +1,1507 @@
+/* OFFBEAT R37 + R45 — checkpoint typography & finalized PRELIM color.
+   Additive over R35; also compatible with optional R36 milestone move.
+   Only the published checkpoint labels, the checkpoint link font/color,
+   and the PRELIM background are intentionally adjusted. */
+
+/* R45 FINAL: PRELIM W00 fill #E8E8DC; original upper lavender accent is unchanged. */
+#anime-top.ob-r29-on .n-season-dashboard.ob-r35-timeline .n-weeks>.n-prelim:not(.n-now) {
+  background:#E8E8DC!important;
+}
+
+/* Published headings only: slightly deeper green, with EXACTLY the
+   existing 500 weight, size, letter-spacing, and family from R35. */
+#anime-top.ob-r29-on .n-season-dashboard.ob-r35-ready
+.ob-r35-checkpoint:not(.ob-r35-unpublished) .ob-r35-cp-label {
+  color:#607965;
+}
+
+/* Links/placeholder words now share the same condensed family as the
+   checkpoint titles, but in the actual Barlow Condensed LIGHT (300) cut.
+   This eliminates the wide, bigger-looking Trebuchet/Gill Sans line. */
+#anime-top.ob-r29-on .n-season-dashboard.ob-r35-ready .ob-r35-cp-links {
+  font:300 10.2px/1.18 "Barlow Condensed","Abel",sans-serif!important;
+  letter-spacing:.025em;
+  text-align:left;
+}
+#anime-top.ob-r29-on .n-season-dashboard.ob-r35-ready .ob-r35-cp-links a,
+#anime-top.ob-r29-on .n-season-dashboard.ob-r35-ready .ob-r35-cp-links a:visited {
+  font:inherit!important;
+  color:#3d5e48!important;
+  text-decoration:underline!important;
+  text-decoration-thickness:0.75px!important;
+  text-underline-offset:2px!important;
+  border-bottom:0!important;
+}
+#anime-top.ob-r29-on .n-season-dashboard.ob-r35-ready .ob-r35-cp-links a:hover,
+#anime-top.ob-r29-on .n-season-dashboard.ob-r35-ready .ob-r35-cp-links a:focus-visible {
+  color:#2e513c!important; /* darker, not brighter, on interaction */
+}
+#anime-top.ob-r29-on .n-season-dashboard.ob-r35-ready
+.ob-r35-cp-links .ob-r35-pending {
+  font:inherit!important; /* unpublished: stay muted, but same font */
+  color:#a1afa3;
+}
+#anime-top.ob-r29-on .n-season-dashboard.ob-r35-ready
+.ob-r35-cp-links .ob-r35-separator {
+  font:300 9px/1 "Barlow Condensed","Abel",sans-serif;
+  color:#b2beb4;
+}
+@media(max-width:690px){
+  #anime-top.ob-r29-on .n-season-dashboard.ob-r35-ready .ob-r35-cp-links {
+    font-size:10px!important;
+  }
+}
+
+/* R60: iPhone timeline guide fixes, replacing R59 mobile overrides. */
+@media (max-width:690px) {
+  /* Title and instruction should read as one compact heading; NEXT remains
+     distinct on the right of the instruction row. */
+  #anime-top.ob-r29-on .n-season-dashboard.ob-r35-timeline #obLiveRoundIntroR3 {
+    display:flex!important;
+    flex-wrap:wrap!important;
+    align-items:baseline!important;
+    justify-content:space-between!important;
+    gap:2px 10px!important;
+    margin:0 0 7px!important;
+  }
+  #anime-top.ob-r29-on .n-season-dashboard.ob-r35-timeline #obLiveRoundIntroR3 .ob-r35-round-leading {
+    display:contents!important;
+  }
+  #anime-top.ob-r29-on .n-season-dashboard.ob-r35-timeline #obLiveRoundIntroR3 .ob-r35-round-name {
+    display:block!important;
+    flex:0 0 100%!important;
+    white-space:normal!important;
+  }
+  #anime-top.ob-r29-on .n-season-dashboard.ob-r35-timeline #obLiveRoundIntroR3 .ob-r35-round-hint {
+    display:block!important;
+    flex:1 1 140px!important;
+    min-width:0!important;
+  }
+  #anime-top.ob-r29-on .n-season-dashboard.ob-r35-timeline #obLiveRoundIntroR3 .ob-live-round-next {
+    flex:0 0 auto!important;
+    border-left:1px solid #c3d0bf!important;
+    padding-left:8px!important;
+  }
+  /* Align all checkpoint headings at the TOP. The middle and final secondary
+     links are SUPPOSED to hang down below those shorter entries. */
+  #anime-top.ob-r29-on .n-season-dashboard.ob-r35-ready #obR35Checkpoints {
+    align-items:flex-start!important;
+    align-content:flex-start!important;
+  }
+  #anime-top.ob-r29-on .n-season-dashboard.ob-r35-ready #obR35Checkpoints .ob-r35-checkpoint {
+    align-self:flex-start!important;
+    justify-content:flex-start!important;
+    margin-top:0!important;
+  }
+  #anime-top.ob-r29-on .n-season-dashboard.ob-r35-ready .ob-r35-cp-links {
+    display:flex!important;
+    flex-direction:column!important;
+    align-items:flex-start!important;
+    gap:2px!important;
+  }
+  #anime-top.ob-r29-on .n-season-dashboard.ob-r35-ready .ob-r35-separator {
+    display:none!important;
+  }
+  /* Checkpoint title + each heading/link were too small at 390px.
+     A modest lift only; keep all four checkpoint columns top-aligned. */
+  #anime-top.ob-r29-on .n-season-dashboard.ob-r35-ready #obR35Checkpoints .ob-r35-checkpoints-heading {
+    font-size:10.8px!important;
+  }
+  #anime-top.ob-r29-on .n-season-dashboard.ob-r35-ready #obR35Checkpoints .ob-r35-cp-label {
+    font-size:9.6px!important;
+    letter-spacing:.025em!important;
+  }
+  #anime-top.ob-r29-on .n-season-dashboard.ob-r35-ready #obR35Checkpoints .ob-r35-cp-links {
+    font-size:10.8px!important;
+  }
+  /* MILESTONES stays right; lower the WEEK PEEK button a little. */
+  #anime-top.ob-r29-on .n-season-dashboard.ob-r35-ready #obR35PeekRow {
+    display:flex!important;
+    flex-direction:column!important;
+    align-items:flex-start!important;
+    justify-content:flex-start!important;
+    gap:14px!important;
+    margin:8px 0 6px!important;
+    padding:5px 0 0!important;
+  }
+  #anime-top.ob-r29-on .n-season-dashboard.ob-r35-ready #obR35PeekRow .ob-live-stage-legend {
+    display:flex!important;
+    flex-wrap:wrap!important;
+    justify-content:flex-end!important;
+    align-items:center!important;
+    align-self:flex-end!important;
+    text-align:right!important;
+    width:100%!important;
+    margin:0!important;
+    padding:0!important;
+    gap:5px 10px!important;
+  }
+}
+
+/* R66: targeted Week Peek distance and wrapped-header alignment.
+   No article text, other controls, desktop/full-width layout, or JS changes. */
+@media (max-width:690px) {
+  /* Original R15 visible panel margin is 18px, not 19px; reduce to 14px.
+     The WEEK PEEK button-row bottom margin is now 6px (from 11px). */
+  #anime-top #obLivePeekR1.ob-wp13-ready:has(.ob-wp15) {
+    margin-top:14px!important;
+  }
+}
+/* R67: two shared header rows at narrow widths.
+   Both sides inherit the SAME row tracks via subgrid rather than aligning
+   two independently wrapping flexboxes. Large-desktop header is unchanged. */
+@media (max-width:850px) {
+  #anime-top #obLivePeekR1 .ob-wp15.ob-wp16 .ob-wp13-head {
+    display:grid!important;
+    grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+    grid-template-rows:auto auto;
+    column-gap:8px!important;
+    row-gap:3px!important;
+    align-items:stretch!important;
+  }
+  #anime-top #obLivePeekR1 .ob-wp15.ob-wp16 .ob-wp13-title {
+    display:grid!important;
+    grid-column:1;
+    grid-row:1/span 2;
+    grid-template-columns:max-content max-content;
+    grid-template-rows:subgrid;
+    column-gap:7px!important;
+    row-gap:3px!important;
+    align-items:end!important;
+    justify-content:start!important;
+  }
+  #anime-top #obLivePeekR1 .ob-wp15.ob-wp16 .ob-wp13-title>strong {
+    grid-column:1;
+    grid-row:1;
+    align-self:baseline;
+    white-space:nowrap;
+  }
+  #anime-top #obLivePeekR1 .ob-wp15.ob-wp16 .ob-wp14-week {
+    grid-column:2;
+    grid-row:1;
+    align-self:baseline;
+    white-space:nowrap;
+  }
+  #anime-top #obLivePeekR1 .ob-wp15.ob-wp16 .ob-wp13-current {
+    grid-column:1/-1;
+    grid-row:2;
+    align-self:start;
+    justify-self:start;
+    white-space:nowrap;
+  }
+  #anime-top #obLivePeekR1 .ob-wp15.ob-wp16 .ob-wp13-headside {
+    display:grid!important;
+    grid-column:2;
+    grid-row:1/span 2;
+    grid-template-columns:minmax(0,1fr) 20px;
+    grid-template-rows:subgrid;
+    column-gap:3px!important;
+    row-gap:3px!important;
+    align-items:stretch!important;
+    justify-content:stretch!important;
+  }
+  #anime-top #obLivePeekR1 .ob-wp15.ob-wp16 .ob-wp13-stage {
+    display:grid!important;
+    grid-column:1;
+    grid-row:1/span 2;
+    grid-template-columns:max-content max-content;
+    grid-template-rows:subgrid;
+    column-gap:5px!important;
+    row-gap:3px!important;
+    align-items:end!important;
+    justify-content:end!important;
+    max-width:none!important;
+    text-align:right;
+  }
+  #anime-top #obLivePeekR1 .ob-wp15.ob-wp16 .ob-wp13-stage>span {
+    grid-column:1;
+    grid-row:1;
+    align-self:baseline;
+    white-space:nowrap;
+  }
+  #anime-top #obLivePeekR1 .ob-wp15.ob-wp16 .ob-wp13-stage>b {
+    grid-column:2;
+    grid-row:1;
+    align-self:baseline;
+    white-space:nowrap;
+  }
+  #anime-top #obLivePeekR1 .ob-wp15.ob-wp16 .ob-wp13-stage>small {
+    grid-column:1/-1;
+    grid-row:2;
+    align-self:start;
+    justify-self:end;
+    white-space:nowrap;
+  }
+  #anime-top #obLivePeekR1 .ob-wp15.ob-wp16 .ob-wp13-headside>.ob-live-close {
+    grid-column:2;
+    grid-row:1/span 2;
+    align-self:center!important;
+    justify-self:end!important;
+  }
+}
+
+/* R68: Week Peek close button is a panel control, not part of the stage text.
+   Align its 28px hit area 5px inside the outer full-width green rule,
+   instead of aligning it with the inset header text column.
+   Keep R67's shared two-row labels and all typography untouched. */
+#anime-top #obLivePeekR1 .ob-wp15.ob-wp16 .ob-wp13-head {
+  position:relative;
+}
+#anime-top #obLivePeekR1 .ob-wp15.ob-wp16 .ob-wp13-headside>.ob-live-close {
+  position:absolute!important;
+  top:7px!important;
+  right:calc(5px - var(--ob-wp18-pad, 16px))!important;
+  bottom:auto!important;
+  left:auto!important;
+  z-index:2;
+  grid-column:auto!important;
+  grid-row:auto!important;
+  align-self:auto!important;
+  justify-self:auto!important;
+  margin:0!important;
+}
+/* Keep the old desktop stage-label geometry: the real button floats
+   independently, while an invisible flex spacer retains its former slot. */
+@media (min-width:851px) {
+  #anime-top #obLivePeekR1 .ob-wp15.ob-wp16 .ob-wp13-headside::after {
+    content:'';
+    flex:0 0 28px;
+    width:28px;
+    height:28px;
+  }
+}
+
+
+/* R70: Week Peek information hierarchy — no content removed or collapsed.
+   Refine only the opening contrast + scored-averages cluster. At 770px and
+   below it is stacked in one column; medium and wide layouts retain columns. */
+/* Both PC and mobile: the real heading must outrank its orange category tag. */
+#anime-top #obLivePeekR1 .ob-wp15.ob-wp16 .ob-wp13-contrast>.ob-wp13-label:not(.ob-wp15-contrast-tag) {
+  font-size:13px!important;
+  line-height:1.32!important;
+  letter-spacing:.045em!important;
+  color:#365e48!important;
+  margin-top:6px!important;
+}
+/* This line heads the whole three-metric group, not merely its caption. */
+#anime-top #obLivePeekR1 .ob-wp15.ob-wp16 .ob-wp13-section-label>strong {
+  font-size:13px!important;
+  line-height:1.35!important;
+  letter-spacing:.06em!important;
+}
+/* Metric NAMES must be more prominent than 'AVG WRP' and 'GAP' prefixes. */
+#anime-top #obLivePeekR1 .ob-wp15.ob-wp16 .ob-wp13-metric>.ob-wp13-label {
+  font-size:12px!important;
+  line-height:1.38!important;
+  letter-spacing:.05em!important;
+  color:#47705a!important;
+}
+@media (max-width:770px) {
+  /* Once the intro and contrast stack vertically, allow the warm horizontal
+     divider to breathe, particularly after the introduction paragraph. */
+  #anime-top #obLivePeekR1 .ob-wp15.ob-wp16 .ob-wp13-hero {
+    row-gap:18px!important;
+    padding-bottom:14px!important;
+  }
+  #anime-top #obLivePeekR1 .ob-wp15.ob-wp16 .ob-wp13-contrast {
+    padding-top:14px!important;
+  }
+  #anime-top #obLivePeekR1 .ob-wp15.ob-wp16 .ob-wp13-contrast>.ob-wp13-label:not(.ob-wp15-contrast-tag) {
+    font-size:15px!important;
+    line-height:1.34!important;
+    letter-spacing:.035em!important;
+  }
+  /* Visually start a new data section after the contrast's narrative. */
+  #anime-top #obLivePeekR1 .ob-wp15.ob-wp16 .ob-wp13-section-label {
+    margin-top:15px!important;
+    padding-top:12px!important;
+    padding-bottom:10px!important;
+  }
+  #anime-top #obLivePeekR1 .ob-wp15.ob-wp16 .ob-wp13-section-label>strong {
+    font-size:15.5px!important;
+    line-height:1.35!important;
+    letter-spacing:.045em!important;
+  }
+  #anime-top #obLivePeekR1 .ob-wp15.ob-wp16 .ob-wp13-metric>.ob-wp13-label {
+    font-size:13.2px!important;
+    line-height:1.35!important;
+    letter-spacing:.04em!important;
+    color:#345d46!important;
+  }
+}
+@media (max-width:350px) {
+  /* Preserve the 2-column metric row at very narrow phone widths. */
+  #anime-top #obLivePeekR1 .ob-wp15.ob-wp16 .ob-wp13-section-label>strong {font-size:14.5px!important;}
+  #anime-top #obLivePeekR1 .ob-wp15.ob-wp16 .ob-wp13-metric>.ob-wp13-label {font-size:12.4px!important;}
+}
+
+
+/* R71: tidy Week Peek one-column distribution and small data-card details.
+   PC arrangement and ALL established colors remain unchanged. */
+
+/* Align decorative Georgia numerals on the same lining-number baseline.
+   Keep the existing font family, size, weight and colors. */
+#anime-top #obLivePeekR1 .ob-wp15.ob-wp16 .ob-wp14-move-line strong,
+#anime-top #obLivePeekR1 .ob-wp15.ob-wp16 .ob-wp14-tally strong,
+#anime-top #obLivePeekR1 .ob-wp15.ob-wp16 .ob-wp14-tally b {
+  font-variant-numeric:lining-nums tabular-nums;
+  font-feature-settings:"lnum" 1,"tnum" 1;
+}
+
+/* Slightly distinguish the distribution group labels at all widths without
+   changing their established green. */
+#anime-top #obLivePeekR1 .ob-wp15.ob-wp16 .ob-wp14-dist-name strong {
+  font-size:11.8px;
+}
+
+/* R72: both comparison notes stay with the metric/group they explain.
+   Keep existing type colors, spacing and other R71 fine-tuning. */
+#anime-top #obLivePeekR1 .ob-wp15.ob-wp16 .ob-wp72-gap-definition {
+  grid-column:1/-1;
+  margin:14px 0 0!important;
+  font:400 10.5px/1.5 system-ui,sans-serif;
+  color:#5b765f; /* existing note color; unchanged */
+}
+#anime-top #obLivePeekR1 .ob-wp15.ob-wp16 .ob-wp72-dist-comparison>p {
+  margin:0!important;
+}
+
+@media (max-width:770px) {
+  /* Preserve the existing divider hues, increase visual weight only. */
+  #anime-top #obLivePeekR1 .ob-wp15.ob-wp16 .ob-wp14-move-card {
+    border-top-width:1.5px;
+  }
+  #anime-top #obLivePeekR1 .ob-wp15.ob-wp16 .ob-wp14-count-pair {
+    border-top-width:1.5px;
+  }
+  /* Restore a real heading hierarchy to the stacked distribution section. */
+  #anime-top #obLivePeekR1 .ob-wp15.ob-wp16 .ob-wp14-scores-label>strong {
+    font-size:25px!important;
+    line-height:1.17;
+    letter-spacing:-.02em;
+  }
+  #anime-top #obLivePeekR1 .ob-wp15.ob-wp16 .ob-wp14-dist-name strong {
+    font-size:12.5px;
+  }
+}
+
+@media (max-width:620px) {
+  /* Prevent the 3.0 /5 overlap, and set /5 slightly lower than the number.
+     The description remains in the separate left column. */
+  #anime-top #obLivePeekR1 .ob-wp15.ob-wp16 .ob-wp14-enjoy>div:first-child {
+    flex:1 1 auto;
+    min-width:0;
+  }
+  #anime-top #obLivePeekR1 .ob-wp15.ob-wp16 .ob-wp14-enjoy-value {
+    flex:0 0 auto;
+    min-width:max-content;
+    flex-wrap:nowrap;
+    gap:7px;
+    margin-left:auto;
+  }
+  #anime-top #obLivePeekR1 .ob-wp15.ob-wp16 .ob-wp14-enjoy-value strong,
+  #anime-top #obLivePeekR1 .ob-wp15.ob-wp16 .ob-wp14-enjoy-value small {
+    flex:0 0 auto;
+    white-space:nowrap;
+  }
+  #anime-top #obLivePeekR1 .ob-wp15.ob-wp16 .ob-wp14-enjoy-value small {
+    align-self:center;
+    transform:translateY(4px);
+  }
+}
+@media(max-width:350px){
+  #anime-top #obLivePeekR1 .ob-wp15.ob-wp16 .ob-wp14-scores-label>strong {
+    font-size:23px!important;
+  }
+  #anime-top #obLivePeekR1 .ob-wp15.ob-wp16 .ob-wp14-dist-name strong {
+    font-size:12px;
+  }
+}
+
+
+/* R73 — information-role correction, all widths. No existing text colors changed.
+   R70's general section-heading rule has !important and accidentally reduced
+   the DESKTOP score-distribution headline to 13px and letter-spacing +.06em.
+   Target only THIS proper title (not the other section headings). */
+#anime-top #obLivePeekR1 .ob-wp15.ob-wp16 .ob-wp13-section-label.ob-wp14-scores-label>strong {
+  font-size:25px!important;
+  letter-spacing:-.025em!important;
+  line-height:1.17!important;
+}
+
+/* An unobtrusive metric *definition*, not another headline. The source
+   remains directly underneath TOP 10 VS ALL RANKED · GAP. */
+@media(max-width:770px){
+  #anime-top #obLivePeekR1 .ob-wp15.ob-wp16 .ob-wp72-gap-definition {
+    font-size:10.8px;
+    margin-top:13px!important;
+  }
+}
+
+/* A separate comparison of TOP 10 with positions 11+, placed after BOTH
+   visual distribution groups on desktop, tablet and phone. The figures
+   refer to WRP averages; the colored bars above show ROUNDED episode scores.
+   Reuse existing Week Peek green for the two section boundaries and numeral. */
+#anime-top #obLivePeekR1 .ob-wp15.ob-wp16 .ob-wp73-comparison {
+  display:grid!important;
+  grid-template-columns:minmax(0,1fr) auto;
+  align-items:baseline;
+  justify-content:stretch;
+  column-gap:16px;
+  row-gap:5px;
+  margin:5px 0 0!important;
+  padding:13px 0 15px!important;
+  border-top:1px solid #cbd6ca;
+  border-bottom:2px solid #759c80;
+  background:transparent;
+}
+#anime-top #obLivePeekR1 .ob-wp15.ob-wp16 .ob-wp73-comp-label {
+  grid-column:1;
+  align-self:baseline;
+  font:700 11.6px/1.45 system-ui,sans-serif;
+  letter-spacing:.035em;
+}
+#anime-top #obLivePeekR1 .ob-wp15.ob-wp16 .ob-wp73-comp-value {
+  grid-column:2;
+  display:flex;
+  align-items:baseline;
+  flex-wrap:nowrap;
+  justify-content:flex-end;
+  gap:7px;
+  white-space:nowrap;
+}
+#anime-top #obLivePeekR1 .ob-wp15.ob-wp16 .ob-wp73-comp-value>strong {
+  font:700 29px/1 Georgia,serif;
+  letter-spacing:-.025em;
+  color:#29503c; /* same as the existing WRP metric numerals */
+}
+#anime-top #obLivePeekR1 .ob-wp15.ob-wp16 .ob-wp73-comp-value>span {
+  font:600 10px/1.4 system-ui,sans-serif;
+  letter-spacing:.04em;
+}
+#anime-top #obLivePeekR1 .ob-wp15.ob-wp16 .ob-wp73-comp-detail {
+  grid-column:1/-1;
+  margin:0!important;
+  font:400 10.8px/1.5 system-ui,sans-serif;
+}
+/* When distribution bands stack, the orange rule under the SECOND band
+   falsely suggests an unfinished warm section. Its top stays orange;
+   only its bottom becomes the neutral single-pixel separator. */
+@media(max-width:620px){
+  #anime-top #obLivePeekR1 .ob-wp15.ob-wp16 .ob-wp13-dists>.ob-wp13-dist:nth-child(2) {
+    border-bottom:1px solid #cbd6ca!important;
+  }
+  #anime-top #obLivePeekR1 .ob-wp15.ob-wp16 .ob-wp73-comp-value>strong {
+    font-size:27px;
+  }
+  #anime-top #obLivePeekR1 .ob-wp15.ob-wp16 .ob-wp73-comp-label {
+    font-size:11px;
+  }
+}
+@media(max-width:350px){
+  #anime-top #obLivePeekR1 .ob-wp15.ob-wp16 .ob-wp13-section-label.ob-wp14-scores-label>strong {
+    font-size:23px!important;
+  }
+  #anime-top #obLivePeekR1 .ob-wp15.ob-wp16 .ob-wp73-comp-value>strong {
+    font-size:25px;
+  }
+  #anime-top #obLivePeekR1 .ob-wp15.ob-wp16 .ob-wp73-comp-value {
+    gap:4px;
+  }
+}
+
+
+/* R74 — small, narrowly scoped corrections; no color, type-size, or content changes.
+   The red final "8" in the WRP higher/lower tally looks optically high
+   beside the green "9" in Georgia. Nudge only this numeral down 2px.
+   This does not affect the "7 down" tally or any other numerals. */
+#anime-top #obLivePeekR1 .ob-wp15.ob-wp16
+.ob-wp14-count-pair > div:nth-child(2) .ob-wp14-tally > b.is-negative {
+  position:relative;
+  top:2px;
+}
+
+/* Mobile-only: the Beyond the Top 10 distribution's own bottom rule
+   plus the 2.57 comparison's top rule gave TWO nearly adjacent strokes.
+   Keep the comparison's single top rule and its stronger green bottom rule;
+   leave the divider BETWEEN the two distributions unchanged. */
+@media (max-width:620px) {
+  #anime-top #obLivePeekR1 .ob-wp15.ob-wp16
+  .ob-wp13-dists > .ob-wp13-dist:nth-child(2) {
+    border-bottom:0!important;
+  }
+}
+
+
+/* R75 — lining numerals instead of a browser-dependent optical 2px nudge.
+   Georgia's different digit silhouettes led to different 9/8 perceived tops
+   between PC and Safari. Use the widely available lining-figure Times family
+   for these four tally figures ONLY, all on the same baseline. This explicitly
+   cancels R74's local shift. Keep their colors, sizes, weights and labels. */
+#anime-top #obLivePeekR1 .ob-wp15.ob-wp16
+.ob-wp14-count-pair .ob-wp14-tally strong,
+#anime-top #obLivePeekR1 .ob-wp15.ob-wp16
+.ob-wp14-count-pair .ob-wp14-tally b {
+  font-family:"Times New Roman",Times,serif!important;
+  font-variant-numeric:lining-nums tabular-nums;
+  font-feature-settings:"lnum" 1,"tnum" 1;
+  position:static!important;
+  top:auto!important;
+}
+
+/* R75 — a quiet spacing break before the 2.57 WRP comparison on mobile.
+   R74 already removed the second distribution's bottom border; suppress
+   the comparison's top border as well. Add air, not another divider.
+   Keep the existing stronger GREEN rule below the comparison and keep
+   the orange separator BETWEEN the first and second distribution. */
+@media (max-width:620px) {
+  #anime-top #obLivePeekR1 .ob-wp15.ob-wp16 .ob-wp73-comparison {
+    border-top:0!important;
+    margin-top:8px!important;
+    padding-top:20px!important;
+  }
+}
+
+
+/* R76 — phone/narrow-window rhythm only.  No new rules or colors. 
+   1) Top-three podium note → WHY OPEN THE FULL RANKING: add breathing room
+      between the two stories when they stack (they sit side by side on PC).
+   2) When both WRP distribution bands stack, their existing green/orange
+      TOP rules already separate them; don't also show the first band's
+      thin bottom border.  The orange rule before BEYOND stays unchanged.
+   3) The 2.57 summary's top edge is borderless since R75. Ease back the
+      generous new whitespace slightly; its lower green rule stays intact. */
+@media (max-width:620px) {
+  #anime-top #obLivePeekR1 .ob-wp15.ob-wp16 .ob-wp13-end > .ob-wp13-cta {
+    margin-top:9px!important;
+  }
+  #anime-top #obLivePeekR1 .ob-wp15.ob-wp16
+  .ob-wp13-dists > .ob-wp13-dist:first-child {
+    border-bottom:0!important;
+  }
+  #anime-top #obLivePeekR1 .ob-wp15.ob-wp16 .ob-wp73-comparison {
+    margin-top:6px!important;
+    padding-top:15px!important;
+  }
+}
+
+
+/* R78 — Week Peek's TWO neighboring number stories must share one serif.
+   Previous R75 substituted Times New Roman on just the four tally numerals,
+   making the Hidden Counterstory look unlike the Biggest Moves beside it.
+   Try local Georgia Pro first; normal Georgia is the consistent fallback.
+   Noto Serif JP is a last-resort named serif fallback, not a web-font load.
+   Only the large decorative numerals are targeted, never labels/WRP text.
+   Preserve size, weight, color, spacing, and existing lining-nums settings. */
+#anime-top #obLivePeekR1 .ob-wp15.ob-wp16 .ob-wp14-move-line strong,
+#anime-top #obLivePeekR1 .ob-wp15.ob-wp16 .ob-wp14-count-pair .ob-wp14-tally strong,
+#anime-top #obLivePeekR1 .ob-wp15.ob-wp16 .ob-wp14-count-pair .ob-wp14-tally b {
+  font-family:"Georgia Pro",Georgia,"Noto Serif JP",serif!important;
+}
+
+
+/* R79 — Add a small vertical cue beside the two small story headings,
+   without changing their text, weight, size, or colors. The marker takes
+   the EXISTING heading color. Leave the cards' outer left borders intact. */
+#anime-top #obLivePeekR1 .ob-wp15.ob-wp16 .ob-wp14-news-row > .ob-wp13-absence > .ob-wp13-label,
+#anime-top #obLivePeekR1 .ob-wp15.ob-wp16 .ob-wp14-news-row > .ob-wp14-low > .ob-wp13-label {
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+  vertical-align:baseline;
+}
+#anime-top #obLivePeekR1 .ob-wp15.ob-wp16 .ob-wp14-news-row > .ob-wp13-absence > .ob-wp13-label::before,
+#anime-top #obLivePeekR1 .ob-wp15.ob-wp16 .ob-wp14-news-row > .ob-wp14-low > .ob-wp13-label::before {
+  content:"";
+  display:inline-block;
+  flex:0 0 2px;
+  width:2px;
+  height:12px;
+  background:currentColor;
+}
+
+/* R79 — When podium and full-ranking rationale STACK, increase the
+   already-approved R76 extra separation by just 4px (9px -> 13px).
+   No new divider; two-column desktop layout is untouched. */
+@media (max-width:620px) {
+  #anime-top #obLivePeekR1 .ob-wp15.ob-wp16 .ob-wp13-end > .ob-wp13-cta {
+    margin-top:13px!important;
+  }
+}
+
+/* =====================================================================
+   OFFBEAT Anime Home R80 - Season at a Glance responsive reading rhythm.
+   Styling only. No HTML/JS, data, colors, fonts, or poster changes.
+   The wide two-column editorial and winner-strip behavior are preserved.
+   ===================================================================== */
+
+/* A slightly firmer TOP boundary for the This Week story, whether Week Peek
+   is open or closed. Its approved margin/padding hierarchy stays intact. */
+#anime-top.anime09.ob-live-r12 #obLiveStoryR1 .ob-live-editorial-grid {
+  border-top:2px solid #b4c6af!important;
+}
+
+/* Give the single-row desktop accordion a little breathing room too. */
+#anime-top.anime09.ob-live-r12 #obLivePulseR1>summary {
+  padding-top:16px!important;
+  padding-bottom:17px!important;
+}
+#anime-top.anime09.ob-live-r12 #obLivePulseR1 .ob-live-pulse-content {
+  padding-top:10px;
+  padding-bottom:22px;
+}
+#anime-top.anime09.ob-live-r12 #obLivePulseR1 .ob-live-trend-caption {
+  margin:0 0 9px!important;
+  line-height:1.62!important;
+}
+#anime-top.anime09.ob-live-r12 #obLivePulseR1 .ob-live-season-pool-foot-r11 {
+  margin:0 0 14px!important;
+  line-height:1.68!important;
+}
+/* The legend, its unit explanation and the graph are a distinct graphic
+   block, not another run-on paragraph after the season introduction. */
+#anime-top.anime09.ob-live-r12 #obLivePulseR1 .ob-live-key {
+  border-top:1px solid #cdd8ca;
+  padding-top:13px;
+  margin-top:8px!important;
+  margin-bottom:0!important;
+  row-gap:9px!important;
+}
+#anime-top.anime09.ob-live-r12 #obLivePulseR1 .ob-live-key>span {
+  line-height:1.55!important;
+}
+#anime-top.anime09.ob-live-r12 #obLivePulseR1 .ob-live-trend-note {
+  margin:8px 0 11px!important;
+  line-height:1.55!important;
+}
+#anime-top.anime09.ob-live-r12 #obLivePulseR1 .ob-live-trend-chart {
+  margin-top:0!important;
+}
+/* A distinct chapter boundary after the chart. Winner cards and their
+   horizontal scroll mechanism stay unchanged. */
+#anime-top.anime09.ob-live-r12 #obLivePulseR1 .ob-live-winners {
+  margin-top:24px!important;
+  padding-top:15px!important;
+}
+#anime-top.anime09.ob-live-r12 #obLivePulseR1 .ob-live-winners-heading-r8>p {
+  line-height:1.6!important;
+}
+#anime-top.anime09.ob-live-r12 #obLivePulseR1 .ob-live-winner-legend-r24 {
+  margin:11px 0 8px;
+  line-height:1.6;
+}
+#anime-top.anime09.ob-live-r12 #obLivePulseR1 .ob-live-winner-strip-r24 {
+  margin-top:10px;
+  margin-bottom:12px;
+}
+#anime-top.anime09.ob-live-r12 #obLivePulseR1 .ob-live-trend-digest {
+  margin-top:24px!important;
+}
+
+/* Mid-size Windows and tablets: start treating the accordion as a story,
+   rather than trying to squeeze the desktop's compact title ribbon into
+   one row. The control keeps its own right-aligned position. */
+@media (max-width:1100px) {
+  #anime-top.anime09.ob-live-r12 #obLivePulseR1>summary {
+    display:grid!important;
+    grid-template-columns:minmax(0,max-content) 34px minmax(0,1fr);
+    grid-template-rows:auto auto;
+    justify-content:stretch;
+    align-items:center!important;
+    column-gap:9px!important;
+    row-gap:8px!important;
+    padding-top:17px!important;
+    padding-bottom:18px!important;
+  }
+  #anime-top.anime09.ob-live-r12 #obLivePulseR1>summary>span {
+    grid-column:1/-1;
+    grid-row:1;
+    font-size:12px!important;
+    letter-spacing:.085em;
+  }
+  #anime-top.anime09.ob-live-r12 #obLivePulseR1>summary>strong {
+    grid-column:1;
+    grid-row:2;
+    display:block!important;
+    font-size:clamp(25px,2.8vw,30px)!important;
+    line-height:1.18!important;
+    letter-spacing:0!important;
+    min-width:0;
+  }
+  #anime-top.anime09.ob-live-r12 #obLivePulseR1 .ob-live-pulse-chart-hint-r8 {
+    display:inline-flex!important;
+    grid-column:2;
+    grid-row:2;
+    justify-self:start;
+    width:33px!important;
+    flex-basis:auto!important;
+    margin:0!important;
+  }
+  #anime-top.anime09.ob-live-r12 #obLivePulseR1>summary::after {
+    grid-column:3;
+    grid-row:2;
+    justify-self:end;
+    margin:0!important;
+  }
+  #anime-top.anime09.ob-live-r12 #obLivePulseR1 .ob-live-pulse-content {
+    padding-top:13px;
+    padding-bottom:24px;
+  }
+  #anime-top.anime09.ob-live-r12 #obLivePulseR1 .ob-live-trend-caption {
+    font-size:13.7px!important;
+    margin-bottom:11px!important;
+  }
+  #anime-top.anime09.ob-live-r12 #obLivePulseR1 .ob-live-season-pool-foot-r11 {
+    font-size:12.7px!important;
+    margin-bottom:17px!important;
+  }
+  #anime-top.anime09.ob-live-r12 #obLivePulseR1 .ob-live-key>span {
+    font-size:12px!important;
+  }
+  #anime-top.anime09.ob-live-r12 #obLivePulseR1 .ob-live-trend-note {
+    font-size:11.6px!important;
+  }
+  #anime-top.anime09.ob-live-r12 #obLivePulseR1 .ob-live-trend-chart svg text:not(.ob-live-axis-unit-r24) {
+    font-size:13px;
+  }
+  #anime-top.anime09.ob-live-r12 #obLivePulseR1 .ob-live-winners {
+    margin-top:27px!important;
+    padding-top:16px!important;
+  }
+  #anime-top.anime09.ob-live-r12 #obLivePulseR1 .ob-live-winners-heading-r8 {
+    display:block;
+  }
+  #anime-top.anime09.ob-live-r12 #obLivePulseR1 .ob-live-winners-heading-r8>strong {
+    display:block;
+    font-size:14.3px;
+    margin:0 0 8px;
+  }
+  #anime-top.anime09.ob-live-r12 #obLivePulseR1 .ob-live-winners-heading-r8>p {
+    display:block;
+    font-size:12.7px;
+    margin:0!important;
+  }
+  #anime-top.anime09.ob-live-r12 #obLivePulseR1 .ob-live-winner-legend-r24 {
+    font-size:12px;
+    margin-top:11px;
+    margin-bottom:11px;
+  }
+  #anime-top.anime09.ob-live-r12 #obLivePulseR1 .ob-live-trend-digest {
+    margin-top:29px!important;
+  }
+}
+
+/* Phone-sized portrait and narrow PC: THREE deliberate header tracks
+   (eyebrow / headline+sparkline / control). No cramped horizontal chase.
+   The four-series plot is STILL a single, fully visible 12-week chart. */
+@media (max-width:690px) {
+  #anime-top.anime09.ob-live-r12 #obLivePulseR1>summary {
+    grid-template-columns:minmax(0,1fr) 33px;
+    grid-template-rows:auto auto auto;
+    column-gap:8px!important;
+    row-gap:9px!important;
+    padding:18px 5px 18px!important;
+  }
+  #anime-top.anime09.ob-live-r12 #obLivePulseR1>summary>span {
+    grid-column:1/-1;
+    grid-row:1;
+    font-size:12.5px!important;
+  }
+  #anime-top.anime09.ob-live-r12 #obLivePulseR1>summary>strong {
+    grid-column:1;
+    grid-row:2;
+    font-size:clamp(25px,6.75vw,29px)!important;
+    letter-spacing:-.005em!important;
+  }
+  #anime-top.anime09.ob-live-r12 #obLivePulseR1 .ob-live-pulse-chart-hint-r8 {
+    grid-column:2;
+    grid-row:2;
+    align-self:center;
+    width:33px!important;
+  }
+  #anime-top.anime09.ob-live-r12 #obLivePulseR1>summary::after {
+    grid-column:1/-1;
+    grid-row:3;
+    justify-self:end;
+    font-size:10px!important;
+    padding:6px 9px!important;
+  }
+  #anime-top.anime09.ob-live-r12 #obLivePulseR1 .ob-live-pulse-content {
+    padding:15px 5px 26px!important;
+  }
+  #anime-top.anime09.ob-live-r12 #obLivePulseR1 .ob-live-trend-caption {
+    font-size:14px!important;
+    line-height:1.6!important;
+    margin-bottom:13px!important;
+  }
+  #anime-top.anime09.ob-live-r12 #obLivePulseR1 .ob-live-season-pool-foot-r11 {
+    font-size:13.3px!important;
+    line-height:1.7!important;
+    margin-bottom:18px!important;
+  }
+  #anime-top.anime09.ob-live-r12 #obLivePulseR1 .ob-live-key {
+    padding-top:14px;
+    margin-top:11px!important;
+    column-gap:15px!important;
+    row-gap:9px!important;
+  }
+  #anime-top.anime09.ob-live-r12 #obLivePulseR1 .ob-live-key>span {
+    font-size:11.6px!important;
+    line-height:1.5!important;
+  }
+  #anime-top.anime09.ob-live-r12 #obLivePulseR1 .ob-live-trend-note {
+    font-size:11.6px!important;
+    line-height:1.65!important;
+    margin:10px 0 13px!important;
+  }
+  #anime-top.anime09.ob-live-r12 #obLivePulseR1 .ob-live-trend-chart svg text:not(.ob-live-axis-unit-r24) {
+    font-size:15px;
+  }
+  #anime-top.anime09.ob-live-r12 #obLivePulseR1 .ob-live-trend-chart svg .ob-live-axis-unit-r24 {
+    font-size:12px;
+  }
+  #anime-top.anime09.ob-live-r12 #obLivePulseR1 .ob-live-winners {
+    margin-top:29px!important;
+    padding-top:18px!important;
+  }
+  #anime-top.anime09.ob-live-r12 #obLivePulseR1 .ob-live-winners-heading-r8>strong {
+    font-size:15px;
+    margin-bottom:9px;
+  }
+  #anime-top.anime09.ob-live-r12 #obLivePulseR1 .ob-live-winners-heading-r8>p {
+    font-size:12.8px;
+    line-height:1.65!important;
+  }
+  #anime-top.anime09.ob-live-r12 #obLivePulseR1 .ob-live-winner-legend-r24 {
+    font-size:12px;
+    line-height:1.6;
+    margin-top:13px;
+    margin-bottom:12px;
+  }
+  #anime-top.anime09.ob-live-r12 #obLivePulseR1 .ob-live-trend-digest {
+    margin-top:31px!important;
+  }
+}
+
+/* =====================================================================
+   R81 — Season at a Glance calibrated scale and breathing room.
+   CSS-only follow-up to R80; deliberately preserve family, ink colors,
+   chart series, all twelve weeks, winner-card geometry and data content.
+   ===================================================================== */
+/* Full-size PC: one-row header stays one row, but its title gets the same
+   modest editorial authority as the text that follows. More space ABOVE
+   and BELOW the chapter, rather than exaggerating its typography. */
+#anime-top.anime09.ob-live-r12 #obLivePulseR1 {
+  margin-top:18px!important;
+  margin-bottom:19px!important;
+}
+#anime-top.anime09.ob-live-r12 #obLivePulseR1>summary {
+  padding-top:21px!important;
+  padding-bottom:23px!important;
+}
+#anime-top.anime09.ob-live-r12 #obLivePulseR1>summary>strong {
+  font-size:22px!important;
+  line-height:1.2!important;
+}
+#anime-top.anime09.ob-live-r12 #obLivePulseR1 .ob-live-pulse-content {
+  padding-top:15px!important;
+}
+#anime-top.anime09.ob-live-r12 #obLivePulseR1 .ob-live-trend-caption {
+  font-size:13.2px!important;
+  line-height:1.65!important;
+  margin-bottom:12px!important;
+}
+#anime-top.anime09.ob-live-r12 #obLivePulseR1 .ob-live-season-pool-foot-r11 {
+  font-size:12.2px!important;
+  line-height:1.7!important;
+  margin-bottom:16px!important;
+}
+#anime-top.anime09.ob-live-r12 #obLivePulseR1 .ob-live-key>span {
+  font-size:12px!important;
+}
+#anime-top.anime09.ob-live-r12 #obLivePulseR1 .ob-live-trend-note {
+  font-size:11.3px!important;
+}
+/* On desktop, the weekly heading and its explanations were excessively
+   quiet next to the large Context heading. Figures/posters are untouched. */
+@media (min-width:1101px) {
+  #anime-top.anime09.ob-live-r12 #obLivePulseR1 .ob-live-winners-heading-r8>strong {
+    font-size:13.8px!important;
+  }
+  #anime-top.anime09.ob-live-r12 #obLivePulseR1 .ob-live-winners-heading-r8>p {
+    font-size:12.2px!important;
+  }
+  #anime-top.anime09.ob-live-r12 #obLivePulseR1 .ob-live-winner-legend-r24 {
+    font-size:12.1px!important;
+  }
+}
+/* WRP belongs visually with the weekly winner as a score, not as another
+   line of footnote copy. Keep current weight, color, and type family. */
+#anime-top.anime09.ob-live-r12 #obLivePulseR1 .ob-live-digest-winner-r8 .ob-live-digest-wrp {
+  font-size:13px!important;
+  margin-top:7px!important;
+  line-height:1.4!important;
+}
+/* Mid-size windows: smoothly restrained headline, NOT bigger than the
+   same chapter in a fully expanded iPhone view. Give the title two rows. */
+@media (max-width:1100px) {
+  #anime-top.anime09.ob-live-r12 #obLivePulseR1 {
+    margin-top:13px!important;
+    margin-bottom:15px!important;
+  }
+  #anime-top.anime09.ob-live-r12 #obLivePulseR1>summary {
+    padding-top:16px!important;
+    padding-bottom:18px!important;
+    row-gap:8px!important;
+  }
+  #anime-top.anime09.ob-live-r12 #obLivePulseR1>summary>strong {
+    font-size:clamp(22px,2.2vw,24px)!important;
+    line-height:1.18!important;
+  }
+  #anime-top.anime09.ob-live-r12 #obLivePulseR1 .ob-live-pulse-content {
+    padding-top:13px!important;
+  }
+  #anime-top.anime09.ob-live-r12 #obLivePulseR1 .ob-live-trend-caption {
+    font-size:13.7px!important;
+  }
+  #anime-top.anime09.ob-live-r12 #obLivePulseR1 .ob-live-season-pool-foot-r11 {
+    font-size:12.8px!important;
+  }
+  #anime-top.anime09.ob-live-r12 #obLivePulseR1 .ob-live-key>span {
+    font-size:12px!important;
+  }
+  #anime-top.anime09.ob-live-r12 #obLivePulseR1 .ob-live-trend-note {
+    font-size:11.6px!important;
+  }
+}
+/* iPhone: retain two-line eyebrow/headline layout and the action row;
+   moderate title size and close its internal gap. Preserve larger space
+   between this chapter and adjacent independent sections. */
+@media (max-width:690px) {
+  #anime-top.anime09.ob-live-r12 #obLivePulseR1 {
+    margin-top:12px!important;
+    margin-bottom:13px!important;
+  }
+  #anime-top.anime09.ob-live-r12 #obLivePulseR1>summary {
+    padding-top:16px!important;
+    padding-bottom:17px!important;
+    row-gap:8px!important;
+  }
+  #anime-top.anime09.ob-live-r12 #obLivePulseR1>summary>strong {
+    font-size:clamp(23px,6vw,25px)!important;
+    line-height:1.16!important;
+  }
+  #anime-top.anime09.ob-live-r12 #obLivePulseR1 .ob-live-pulse-content {
+    padding-top:14px!important;
+  }
+  #anime-top.anime09.ob-live-r12 #obLivePulseR1 .ob-live-trend-caption {
+    font-size:14px!important;
+    line-height:1.63!important;
+  }
+  #anime-top.anime09.ob-live-r12 #obLivePulseR1 .ob-live-season-pool-foot-r11 {
+    font-size:13.4px!important;
+    line-height:1.7!important;
+  }
+  /* SVG viewBox and full 12-week width remain unchanged; larger axis
+     characters use the original ink, never stretch/distort the data plot. */
+  #anime-top.anime09.ob-live-r12 #obLivePulseR1 .ob-live-trend-chart svg text:not(.ob-live-axis-unit-r24) {
+    font-size:16.5px!important;
+  }
+  #anime-top.anime09.ob-live-r12 #obLivePulseR1 .ob-live-trend-chart svg .ob-live-axis-unit-r24 {
+    font-size:14px!important;
+    letter-spacing:0!important;
+  }
+  #anime-top.anime09.ob-live-r12 #obLivePulseR1 .ob-live-winners-heading-r8>strong {
+    font-size:15.2px!important;
+  }
+  #anime-top.anime09.ob-live-r12 #obLivePulseR1 .ob-live-digest-winner-r8 .ob-live-digest-wrp {
+    font-size:13.2px!important;
+    margin-top:7px!important;
+  }
+}
+
+/* =====================================================================
+   R82 — This Week, Season Glance and selected-week guidance.
+   Only the requested type scale/spacing and explanatory microcopy.
+   No palette, typography-family, chart geometry, poster-card, data,
+   or existing interaction changes.
+   ===================================================================== */
+/* Subtle emphasis of the factual counts in the EXISTING season paragraph.
+   These spans are created only for actual dynamic counts in the JS. */
+#anime-top.anime09.ob-live-r12 #obLivePulseR1 .ob-live-season-pool-foot-r11 .ob-live-pool-number-r82 {
+  font:inherit;
+  font-weight:600;
+  font-size:1.035em;
+  color:inherit;
+}
+/* The week selector updates the Round in Context *below*, not the ranking.
+   Add one modest instruction near the cards without affecting card sizing. */
+#anime-top.anime09.ob-live-r12 #obLivePulseR1 .ob-live-select-week-hint-r82 {
+  font-size:11.8px;
+  font-weight:550;
+  line-height:1.55;
+  color:#526e59; /* existing Weekly Winners description ink */
+  margin:3px 0 11px;
+}
+/* Previously approved WRP treatment: a restrained final lift, still
+   in the original sans face and original green with identical metrics. */
+#anime-top.anime09.ob-live-r12 #obLivePulseR1 .ob-live-digest-winner-r8 .ob-live-digest-wrp {
+  font-size:14px!important;
+  margin-top:9px!important;
+}
+@media (min-width:1101px) {
+  /* Wide desktop: increase the *chapter's* prominence relative to the
+     much larger This Week & This Season section, by space and type. */
+  #anime-top.anime09.ob-live-r12 #obLivePulseR1 {
+    margin-top:27px!important;
+    margin-bottom:27px!important;
+  }
+  #anime-top.anime09.ob-live-r12 #obLivePulseR1>summary {
+    padding-top:26px!important;
+    padding-bottom:27px!important;
+  }
+  #anime-top.anime09.ob-live-r12 #obLivePulseR1>summary>strong {
+    font-size:24px!important;
+  }
+  #anime-top.anime09.ob-live-r12 #obLivePulseR1 .ob-live-pulse-content {
+    padding-top:17px!important;
+  }
+  #anime-top.anime09.ob-live-r12 #obLivePulseR1 .ob-live-trend-caption {
+    font-size:13.6px!important;
+  }
+  #anime-top.anime09.ob-live-r12 #obLivePulseR1 .ob-live-season-pool-foot-r11 {
+    font-size:12.6px!important;
+  }
+  #anime-top.anime09.ob-live-r12 #obLivePulseR1 .ob-live-trend-note {
+    font-size:11.6px!important;
+  }
+}
+@media (max-width:1100px) {
+  /* This Week: separate the serif headline from its own excerpt. The
+     next/previous controls and section boundary keep their prior gaps. */
+  #anime-top.anime09.ob-live-r12 #obLiveStoryR1 .ob-live-now h3 {
+    margin-bottom:13px!important;
+  }
+}
+@media (max-width:690px) {
+  /* The phone header was visually too far from its opening explanation:
+     trim the extra gap, without shrinking the typography or moving CLOSE. */
+  #anime-top.anime09.ob-live-r12 #obLivePulseR1>summary {
+    padding-bottom:11px!important;
+  }
+  #anime-top.anime09.ob-live-r12 #obLivePulseR1 .ob-live-pulse-content {
+    padding-top:8px!important;
+  }
+  #anime-top.anime09.ob-live-r12 #obLivePulseR1 .ob-live-select-week-hint-r82 {
+    font-size:12.2px;
+    margin:5px 0 12px;
+  }
+  #anime-top.anime09.ob-live-r12 #obLivePulseR1 .ob-live-digest-winner-r8 .ob-live-digest-wrp {
+    font-size:14.2px!important;
+    margin-top:9px!important;
+  }
+}
+
+/* ========================================================================
+   R83 — This Week headline + opening prose. Scoped to the This Week story.
+   The former desktop largest EN size (26px) is now the minimum; desktop
+   headings grow only slightly. Increase actual headline -> copy gap
+   by approximately 10px at every width. Japanese heading size unchanged.
+   Color, font family, weight, nearby sections and all JS remain untouched.
+   ======================================================================== */
+#anime-top.anime09.ob-live-r12:not([data-ob-live-lang="ja"]) #obLiveStoryR1 .ob-live-now h3 {
+  font-size:clamp(26px,2vw,30px)!important;
+  margin-bottom:19px!important;
+}
+#anime-top.anime09.ob-live-r12[data-ob-live-lang="ja"] #obLiveStoryR1 .ob-live-now h3 {
+  margin-bottom:20px!important;
+}
+@media (max-width:1100px) {
+  #anime-top.anime09.ob-live-r12:not([data-ob-live-lang="ja"]) #obLiveStoryR1 .ob-live-now h3,
+  #anime-top.anime09.ob-live-r12[data-ob-live-lang="ja"] #obLiveStoryR1 .ob-live-now h3 {
+    margin-bottom:23px!important;
+  }
+}
+
+
+/* R88 — W00 PRELIM top accent: square-ended band, not beveled border joins.
+   Border layout/height is untouched. The R29 decorative ::before already
+   exists; extend it across the outer top border to hide the mitered corners.
+   PRELIM neutral body #E8E8DC and all other weeks remain unchanged. */
+#anime-top.ob-r29-on .n-season-dashboard.ob-r35-timeline
+.n-weeks>.n-prelim.ob-r29-week:not(.n-now)::before {
+  content:""!important;
+  position:absolute!important;
+  top:-3px!important;
+  left:-1px!important;
+  right:-1px!important;
+  height:3px!important;
+  background:#aa9aab!important;
+  opacity:1!important;
+  border:0!important;
+  border-radius:0!important;
+  transform:none!important;
+  pointer-events:none!important;
+  z-index:2!important;
+}
+
+
+/* R90 - season selection layout & breathing room (no font/color changes).
+   Keep year+four season tabs a compact right-aligned group on mobile.
+   Allow natural wrapping below the group's intrinsic width. */
+#anime-top.anime09.ob-live-r12 .n-season-13 .n-season-heading .n-season-chooser {
+  display:flex!important;
+  width:max-content!important;
+  max-width:100%!important;
+  min-width:0!important;
+  flex-flow:row wrap!important;
+  justify-content:flex-end!important;
+  align-items:center!important;
+  column-gap:9px!important;
+  row-gap:6px!important;
+  justify-self:end!important;
+  margin-left:auto!important;
+  margin-right:0!important;
+}
+#anime-top.anime09.ob-live-r12 .n-season-13 .n-season-chooser>.ob-r16-chooser-top,
+#anime-top.anime09.ob-live-r12 .n-season-13 .n-season-chooser>.n-season-tabs {
+  flex:0 0 auto!important;
+  width:max-content!important;
+  max-width:100%!important;
+  min-width:0!important;
+  margin-left:0!important;
+  margin-right:0!important;
+}
+/* Section boundary: space follows the View All Seasons action, not the
+   stage/checkpoint/milestone units. Keep all current line rules unchanged. */
+#anime-top.anime09.ob-live-r12 .n-season-13 .n-season-header {
+  padding-bottom:18px!important;
+}
+@media(max-width:850px) {
+  #anime-top.anime09.ob-live-r12 .n-season-13 .n-season-header {
+    padding-bottom:22px!important;
+  }
+}
+@media(max-width:690px) {
+  #anime-top.anime09.ob-live-r12 .n-season-13 .n-season-header {
+    padding-bottom:25px!important;
+  }
+}
+/* END R90 */
+
+
+/* R91 — mobile Current Season hierarchy, between concepts 03 and 04.
+   Treat Fall / WEEK / remaining as one status block; give the season picker
+   its own breathing room and keep the timeline distinct, not remote.
+   Spacing only: no font, color, width, JavaScript or timeline changes. */
+@media (max-width:690px) {
+  /* Added air before the selector, without breaking year + four-season group. */
+  #anime-top.anime09.ob-live-r12 .n-season-13 .n-season-heading .n-season-chooser {
+    padding-top:12px!important;
+  }
+  /* The space after VIEW ALL SEASONS: R90 25px -> R91 23px. */
+  #anime-top.anime09.ob-live-r12 .n-season-13 .n-season-header {
+    padding-bottom:23px!important;
+  }
+}
+/* END R91 */
+
+
+/* R92 — THIS WEEK headline -> opening commentary: generous reading break.
+   R83 was 19px on wide PC, 23px on phone/tablet.
+   Raise only this one heading's bottom margin by 12px at each width.
+   No changes to the kicker, article text, layout, other headings, or JS. */
+#anime-top.anime09.ob-live-r12:not([data-ob-live-lang="ja"]) #obLiveStoryR1 .ob-live-now h3,
+#anime-top.anime09.ob-live-r12[data-ob-live-lang="ja"] #obLiveStoryR1 .ob-live-now h3 {
+  margin-bottom:31px!important;
+}
+@media (max-width:1100px) {
+  #anime-top.anime09.ob-live-r12:not([data-ob-live-lang="ja"]) #obLiveStoryR1 .ob-live-now h3,
+  #anime-top.anime09.ob-live-r12[data-ob-live-lang="ja"] #obLiveStoryR1 .ob-live-now h3 {
+    margin-bottom:35px!important;
+  }
+}
+/* END R92 */
+
+/* R93: small prelaunch finishing touches (R91/R92 spacing is unchanged). */
+/* MID W06: cover border miters with a square-ended horizontal amber band. */
+#anime-top.ob-r29-on .n-season-dashboard.ob-r35-timeline
+.n-weeks>.n-milestone-mid.ob-r29-week.n-now::before {
+  content:''!important;position:absolute!important;top:-3px!important;
+  left:-1px!important;right:-1px!important;height:3px!important;
+  background:#bd8556!important;border:0!important;border-radius:0!important;
+  transform:none!important;opacity:1!important;pointer-events:none!important;z-index:2!important;
+}
+/* iPhone feeling line: move only the text (not face or score) slightly lower. */
+@media (max-width:620px){
+  #anime-top #obLivePeekR1 .ob-wp15.ob-wp16 .ob-wp16-mood {
+    position:relative;top:3px;
+  }
+}
+/* Snapshot's detail action matches the established green editorial CTA. */
+#anime-top .ob-week-peek .ob-week-peek-open-detail {
+  display:block;margin:10px auto 0;padding:9px 14px;
+  border:1px solid #64846f;border-radius:2px;background:#315640;color:#fffdf3;
+  font:600 12px/1.3 'Gill Sans','Trebuchet MS',sans-serif;
+  letter-spacing:.045em;cursor:pointer;max-width:100%;white-space:normal;
+}
+#anime-top .ob-week-peek .ob-week-peek-open-detail:focus-visible {
+  outline:2px solid #a5bf8d;outline-offset:3px;
+}
+
+
+
+/* R93B — Top-3 Snapshot visibility fix (R93 integration only).
+   R12 legacy live CSS hides every .ob-week-peek with display:none!important.
+   Show only the original R11 Snapshot when JS explicitly opens it.
+   Do not override the HTML hidden attribute or touch Week Peek itself. */
+#anime-top.anime09.ob-live-enhanced .n-season-dashboard > .ob-week-peek:not([hidden]) {
+  display:block!important;
+}
+#anime-top.anime09.ob-live-enhanced .n-season-dashboard > .ob-week-peek[hidden] {
+  display:none!important;
+}
+/* END R93B */
+
+
+/* R93C — refine the existing R11 ranking Snapshot, not its podium design. */
+#anime-top .ob-week-peek .ob-r93c-snapshot-meta {
+  display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;
+  gap:4px 10px;margin:6px 0 3px;text-align:left;
+}
+#anime-top .ob-week-peek .ob-r93c-snapshot-label {
+  color:#4c6d53;font:500 10px/1.35 'Barlow Condensed','Abel',sans-serif;
+  letter-spacing:.075em;background:#e7ebda;padding:0;
+  display:inline-flex;align-items:stretch;white-space:nowrap;
+}
+/* R93E: a two-tone editorial label, with a straight square join. */
+#anime-top .ob-week-peek .ob-r93e-snapshot-prefix,
+#anime-top .ob-week-peek .ob-r93e-snapshot-word {
+  display:block;padding:2px 6px;font:inherit;letter-spacing:inherit;border-radius:0;
+}
+#anime-top .ob-week-peek .ob-r93e-snapshot-word {
+  color:#f7f7e1;background:#526e57;
+}
+#anime-top .ob-week-peek .ob-r93c-snapshot-top-go {
+  color:#9e542e;font:500 11px/1.35 'Barlow Condensed','Abel',sans-serif;
+  letter-spacing:.04em;text-decoration:underline;text-underline-offset:3px;
+  white-space:nowrap;
+}
+#anime-top .ob-week-peek .ob-r93c-snapshot-footer {
+  border-top:1px solid #cbd3c6;margin-top:9px;padding-top:10px;
+}
+#anime-top .ob-week-peek .ob-r93c-snapshot-footer>.ob-week-peek-go-meta {
+  display:block;text-align:right;margin:0 0 6px;
+}
+#anime-top .ob-week-peek .ob-r93c-snapshot-actions {
+  display:grid;grid-template-columns:minmax(0,1fr);gap:8px;align-items:stretch;
+}
+#anime-top .ob-week-peek .ob-r93c-snapshot-actions.has-detail {
+  grid-template-columns:repeat(2,minmax(0,1fr));
+}
+#anime-top .ob-week-peek .ob-r93c-snapshot-actions>.ob-week-peek-go,
+#anime-top .ob-week-peek .ob-r93c-snapshot-actions>.ob-week-peek-open-detail {
+  box-sizing:border-box;display:flex;align-items:center;justify-content:center;
+  width:100%;max-width:none;min-height:38px;margin:0;padding:8px 6px;
+  border:0;border-radius:2px;text-align:center;text-decoration:none;
+  font:600 12px/1.25 'Gill Sans','Trebuchet MS',sans-serif;letter-spacing:.035em;
+  white-space:normal;overflow-wrap:anywhere;
+}
+#anime-top .ob-week-peek .ob-r93c-snapshot-actions>.ob-week-peek-go {
+  background:#315640;color:#fffdf3;
+}
+#anime-top .ob-week-peek .ob-r93c-snapshot-actions>.ob-week-peek-go .ob-week-peek-go-title {
+  color:inherit;font:inherit;letter-spacing:inherit;text-transform:uppercase;text-decoration:none;
+}
+#anime-top .ob-week-peek .ob-r93c-snapshot-actions>.ob-week-peek-open-detail {
+  background:#e2e9d8;color:#315640;
+}
+#anime-top .ob-week-peek .ob-r93c-snapshot-actions>.ob-week-peek-go:hover {background:#284a36;}
+#anime-top .ob-week-peek .ob-r93c-snapshot-actions>.ob-week-peek-open-detail:hover {background:#d4e0c9;}
+#anime-top .ob-week-peek .ob-r93c-snapshot-top-go:focus-visible,
+#anime-top .ob-week-peek .ob-r93c-snapshot-actions>:focus-visible {outline:2px solid #a78b51;outline-offset:2px;}
+#anime-top.ob-r29-on .n-season-dashboard.ob-r35-timeline #obLiveRoundIntroR3 .ob-r35-round-hint {
+  font-size:10.5px!important;color:#52725e!important;
+}
+#anime-top #obR35PeekRow .ob-r93c-peek-help {
+  display:block;color:#55735d;font:400 10.5px/1.35 system-ui,sans-serif;margin:-7px 0 0;
+}
+@media (min-width:541px) and (hover:hover) and (pointer:fine){
+  #anime-top .n-season-dashboard>.ob-week-peek.ob-week-peek-r11 {
+    overflow-y:auto;overflow-x:hidden;overscroll-behavior:contain;
+    scrollbar-width:thin;scrollbar-color:#9baa96 transparent;
+    padding:15px 17px 24px;
+  }
+  #anime-top .ob-week-peek .ob-week-peek-heading {padding:0 25px 0 2px;}
+  #anime-top .ob-week-peek .ob-week-peek-heading strong {margin-top:10px;font-size:35px;}
+  #anime-top .ob-week-peek[lang=ja] .ob-week-peek-heading strong {font-size:29px;}
+  #anime-top .ob-week-peek .ob-week-peek-editorial-sub {margin:9px 0 15px;gap:12px;}
+  #anime-top .ob-week-peek .ob-week-peek-podium {max-width:490px;gap:12px;padding-top:39px;margin:10px auto 13px;}
+  #anime-top .ob-week-peek .ob-week-peek-result {padding:5px 1px;gap:9px;grid-template-columns:25px minmax(0,1fr) auto;}
+  #anime-top .ob-week-peek .ob-week-peek-spotlight {margin:11px 0 10px;}
+  #anime-top .ob-week-peek .ob-week-peek-spotlight-poster {width:48px!important;height:64px!important;flex-basis:48px;}
+}
+@media(max-width:540px){
+  /* Existing mobile podium, results, Spotlight and Overview are left intact. */
+  #anime-top .ob-week-peek .ob-week-peek-heading {padding-right:27px;}
+  #anime-top .ob-week-peek .ob-r93c-snapshot-meta {gap:3px 8px;margin-top:5px;}
+  #anime-top .ob-week-peek .ob-r93c-snapshot-label {font-size:9.5px;letter-spacing:.035em;}
+  #anime-top .ob-week-peek .ob-r93c-snapshot-top-go {font-size:10.5px;}
+  #anime-top .ob-week-peek .ob-r93c-snapshot-actions>.ob-week-peek-go,
+  #anime-top .ob-week-peek .ob-r93c-snapshot-actions>.ob-week-peek-open-detail {font-size:11px;min-height:40px;}
+}
+/* END R93C */
+
+/* R93D — restore desktop podium width; common header finishing only. */
+#anime-top .ob-week-peek .ob-week-peek-close {top:-6px;right:-7px;}
+/* END R93D */
+
+
+/* R93F — quieter Snapshot palette, hierarchy and breathing room.
+   Only the original R11 ranking Snapshot; preserve podium and behavior. */
+#anime-top .ob-week-peek.ob-week-peek-r11 .ob-r93e-snapshot-word {
+  background:#60765f;color:#f7f7e1;
+}
+#anime-top .ob-week-peek.ob-week-peek-r11 .ob-r93c-snapshot-meta {
+  align-items:center;margin-top:9px;margin-bottom:5px;
+}
+#anime-top .ob-week-peek.ob-week-peek-r11 .ob-r93c-snapshot-top-go {
+  display:inline-block;padding:3px 7px;background:#eee6d8;color:#865333;
+  border-radius:2px;text-decoration:none;font-weight:500;
+}
+#anime-top .ob-week-peek.ob-week-peek-r11 .ob-r93c-snapshot-top-go:hover {
+  background:#e5d9c5;color:#79482c;
+}
+/* Keep the close hit area and accessible name; soften the mark only. */
+#anime-top .ob-week-peek.ob-week-peek-r11 .ob-week-peek-close {
+  color:#788c79;font-size:0;line-height:1;font-weight:400;
+}
+#anime-top .ob-week-peek.ob-week-peek-r11 .ob-week-peek-close::before,
+#anime-top .ob-week-peek.ob-week-peek-r11 .ob-week-peek-close::after {
+  content:'';display:block;position:absolute;left:50%;top:50%;
+  width:14px;height:1.35px;background:currentColor;pointer-events:none;
+}
+#anime-top .ob-week-peek.ob-week-peek-r11 .ob-week-peek-close::before {
+  transform:translate(-50%,-50%) rotate(45deg);
+}
+#anime-top .ob-week-peek.ob-week-peek-r11 .ob-week-peek-close::after {
+  transform:translate(-50%,-50%) rotate(-45deg);
+}
+#anime-top .ob-week-peek.ob-week-peek-r11 .ob-week-peek-close:hover {color:#48634e;}
+/* Spotlight remains distinct without competing with the primary ranking CTA. */
+#anime-top .ob-week-peek.ob-week-peek-r11 .ob-week-peek-spotlight-tab {
+  background:#58735e;
+}
+#anime-top .ob-week-peek.ob-week-peek-r11 .ob-week-peek-spotlight-name {
+  color:#365441;
+}
+@media (min-width:541px) and (hover:hover) and (pointer:fine) {
+  #anime-top .n-season-dashboard>.ob-week-peek.ob-week-peek-r11 {
+    padding-top:21px;padding-bottom:28px;
+  }
+  #anime-top .ob-week-peek.ob-week-peek-r11 .ob-week-peek-heading strong {
+    margin-top:12px;
+  }
+  #anime-top .ob-week-peek.ob-week-peek-r11 .ob-week-peek-result-title {
+    color:#3d5948;font-size:17.5px;font-weight:600;line-height:1.16;
+  }
+  #anime-top .ob-week-peek.ob-week-peek-r11[lang=ja] .ob-week-peek-result-title {
+    font-size:15.3px;font-weight:700;
+  }
+  #anime-top .ob-week-peek.ob-week-peek-r11 .ob-week-peek-spotlight-name {
+    font-weight:600;
+  }
+  #anime-top .ob-week-peek.ob-week-peek-r11[lang=ja] .ob-week-peek-spotlight-name {
+    font-weight:700;
+  }
+}
+@media(max-width:540px) {
+  #anime-top .n-season-dashboard>.ob-week-peek.ob-week-peek-r11 {
+    padding-top:21px;padding-bottom:24px;
+  }
+  #anime-top .ob-week-peek.ob-week-peek-r11 .ob-r93c-snapshot-meta {
+    margin-top:8px;margin-bottom:5px;margin-right:-18px;
+  }
+  #anime-top .ob-week-peek.ob-week-peek-r11 .ob-r93c-snapshot-top-go {
+    padding:3px 5px;
+  }
+  #anime-top .ob-week-peek.ob-week-peek-r11 .ob-week-peek-heading strong {
+    margin-top:11px;
+  }
+}
+/* END R93F */
+
+
+/* R93G — matched header badges, clearer greens, lighter editorial labels.
+   Snapshot only; retain the R93D podium, R93F spacing and both footer actions. */
+#anime-top .ob-week-peek.ob-week-peek-r11 .ob-r93e-snapshot-word {
+  background:#537953;
+}
+#anime-top .ob-week-peek.ob-week-peek-r11 .ob-r93c-snapshot-top-go {
+  font-size:10px;line-height:1.35;letter-spacing:.075em;font-weight:500;
+  box-sizing:border-box;padding:1px 5px;border:1px solid #b47750;
+  border-radius:0;background:transparent;color:#9e542e;text-decoration:none;
+}
+#anime-top .ob-week-peek.ob-week-peek-r11 .ob-r93c-snapshot-top-go:hover {
+  background:transparent;color:#79482c;border-color:#9e542e;
+}
+#anime-top .ob-week-peek.ob-week-peek-r11 .ob-week-peek-spotlight-tab {
+  background:#4c7550;font-weight:600;letter-spacing:.10em;
+}
+#anime-top .ob-week-peek.ob-week-peek-r11 .ob-week-peek-noteflag {
+  font-weight:600;letter-spacing:.005em;
+}
+#anime-top .ob-week-peek.ob-week-peek-r11[lang=ja] .ob-week-peek-noteflag {
+  font-weight:700;
+}
+@media(max-width:540px) {
+  #anime-top .ob-week-peek.ob-week-peek-r11 .ob-r93c-snapshot-top-go {
+    font-size:9.5px;letter-spacing:.035em;
+  }
+}
+/* END R93G */
+
+/* R93H — Snapshot editorial typography only; preserve layout and colors. */
+#anime-top .ob-week-peek.ob-week-peek-r11 .ob-week-peek-spotlight-tab {
+  font-weight:500;letter-spacing:.05em;
+}
+#anime-top .ob-week-peek.ob-week-peek-r11 .ob-week-peek-noteflag,
+#anime-top .ob-week-peek.ob-week-peek-r11[lang=ja] .ob-week-peek-noteflag {
+  font-weight:500;
+}
+/* Use the English This Week commentary's upright EB Garamond face.
+   Keep the existing excerpt size, leading, clamp and layout; Japanese body unchanged. */
+#anime-top .ob-week-peek.ob-week-peek-r11[lang=en] .ob-week-peek-excerpt {
+  font-family:"EB Garamond",Georgia,serif;font-style:normal;font-weight:400;
+}
+/* END R93H */
+
+/* R93I — square milestone top strips in all timeline states.
+   Keep the already-approved current MID rule from R93 unchanged.
+   Match the existing top-border colors and 3px thickness; no layout edits. */
+#anime-top.ob-r29-on .n-season-dashboard.ob-r35-timeline
+.n-weeks>.n-milestone-mid.ob-r29-week:not(.n-now)::before,
+#anime-top.ob-r29-on .n-season-dashboard.ob-r35-timeline
+.n-weeks>.n-milestone-final.ob-r29-week::before {
+  content:''!important;position:absolute!important;top:-3px!important;
+  left:-1px!important;right:-1px!important;height:3px!important;
+  border:0!important;border-radius:0!important;transform:none!important;
+  opacity:1!important;pointer-events:none!important;z-index:2!important;
+}
+#anime-top.ob-r29-on .n-season-dashboard.ob-r35-timeline
+.n-weeks>.n-milestone-mid.ob-r29-week:not(.n-now)::before {
+  background:var(--ob34-amber,#bd8556)!important;
+}
+#anime-top.ob-r29-on .n-season-dashboard.ob-r35-timeline
+.n-weeks>.n-milestone-final.ob-r29-week::before {
+  background:var(--ob34-gold,#c0a774)!important;
+}
+#anime-top.ob-r29-on .n-season-dashboard.ob-r35-timeline
+.n-weeks>.n-milestone-final.ob-r29-week.n-now::before {
+  left:0!important;right:0!important;
+}
+#anime-top.ob-r29-on .n-season-dashboard.ob-r35-timeline
+.n-weeks>.n-milestone-final.ob-r29-week.ob-r34-future:not(.ob-r34-imminent):not(.n-now)::before {
+  background:#b8a173!important;
+}
+/* END R93I */

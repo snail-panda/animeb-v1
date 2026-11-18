@@ -1,0 +1,39 @@
+/* OFFBEAT Anime Home / R21 — targeted This Week typography correction.
+   Requires R20. Intentionally changes no text, JS, layout components,
+   Week Peek, Season at a Glance, navigation, or rankings. */
+
+/* English: dark does not mean bold. Preserve the heading's character.
+   Keep mid-width windows (~900–1050px) close to full desktop sizing. */
+.anime09.ob-live-r12:not([data-ob-live-lang="ja"]) .ob-live-now h3 {
+  font-weight: 500;
+  font-size: clamp(25px, 1.85vw, 26px);
+}
+.anime09.ob-live-r12:not([data-ob-live-lang="ja"]) .ob-live-excerpt {
+  font-size: 14.5px;
+  line-height: 1.45;
+}
+/* R20 wraps the status numerals separately. Change only their weight and tone. */
+.anime09.ob-live-r12 .ob-live-story-status .ob-bridge-number-r20 {
+  font-weight: 550;
+  color: #385c46;
+}
+/* Restore a touch of contrast only to the Next headline. */
+.anime09.ob-live-r12:not([data-ob-live-lang="ja"]) .ob-live-next strong {
+  color: #954e33;
+}
+/* Japanese: keep the R20 typeface and sizes; narrow the paragraph leading. */
+.anime09.ob-live-r12[data-ob-live-lang="ja"] .ob-live-excerpt {
+  line-height: 1.72 !important;
+}
+@media (max-width: 690px) {
+  .anime09.ob-live-r12:not([data-ob-live-lang="ja"]) .ob-live-now h3 {
+    font-size: 22px;
+  }
+  .anime09.ob-live-r12:not([data-ob-live-lang="ja"]) .ob-live-excerpt {
+    font-size: 14px;
+    line-height: 1.44;
+  }
+  .anime09.ob-live-r12[data-ob-live-lang="ja"] .ob-live-excerpt {
+    line-height: 1.68 !important;
+  }
+}

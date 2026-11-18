@@ -1,0 +1,473 @@
+/* OFFBEAT Anime Home R32 — editorial proportional refinement / synchronized columns.
+ * Target the actual R12 wrapper; never style hidden .n-contents.
+ * Palette trial: Prelim subdued gray-lavender, Late soft blue-gray, Climax #C0A774.
+ * Scoped to existing R29 markup; R32 replaces R31 stylesheet, not layered CSS.
+ */
+#anime-top.ob-r29-on {
+  --ob29-lavender:#9c879c;
+  --ob29-sage:#729380;
+  --ob29-amber:#bd8556;
+  --ob29-bluegray:#95b2c7;
+  --ob29-gold:#c0a774;
+  --ob29-champagne:#f5efdf;
+  --ob29-pine:#254c3c;
+  --ob29-rule:#cbd7c9;
+  --ob29-ui:"Gill Sans","Trebuchet MS","Abel",sans-serif;
+}
+/* Distinct section with a single continuous header rule. */
+#anime-top.ob-r29-on #obLiveWeekSeasonR8.ob-r29-section {
+  position:relative;border-top:0!important;
+  background:#fcfbf3!important;margin-top:27px!important;
+  padding:22px 23px 24px!important;
+}
+#anime-top.ob-r29-on #obLiveWeekSeasonR8.ob-r29-section::before{
+  content:"";position:absolute;left:0;right:0;top:0;height:5px;
+  background:linear-gradient(to right,#a8bc91 0%,#a8bc91 31%,#355a42 31%,#355a42 100%);
+}
+#anime-top.ob-r29-on #obLiveWeekSeasonR8>.ob-live-week-season-head-r8{
+  padding:0 0 26px!important;margin:0!important;border-bottom:0!important;
+  display:flex;align-items:baseline;justify-content:space-between;gap:16px;
+}
+#anime-top.ob-r29-on #obLiveWeekSeasonR8>.ob-live-week-season-head-r8 h2{
+  font:600 clamp(26px,2.9vw,33px)/1.13 "EB Garamond",Georgia,serif!important;
+  letter-spacing:.006em!important;color:var(--ob29-pine)!important;margin:0!important;
+}
+#anime-top.ob-r29-on #obLiveWeekSeasonR8>.ob-live-week-season-head-r8 p{
+  font:400 12px/1.4 var(--ob29-ui)!important;color:#648075!important;
+  margin:0!important;text-align:right;
+}
+/* The real #animeLatest remains the only ranking data source. Its children
+   are laid out in two columns rather than copied into a disconnected mock. */
+#anime-top.ob-r29-on #animeLatest.ob-r29-ranking{
+  display:grid!important;
+  grid-template-columns:minmax(0,1.20fr) minmax(0,.94fr)!important;
+  grid-template-areas:"lefthead editorial" "ranking editorial" "links editorial"!important;
+  gap:0 29px!important;align-items:start!important;
+  padding:0!important;margin:0!important;max-width:none!important;
+}
+#anime-top.ob-r29-on #animeLatest>.ob-r29-lefthead{
+  grid-area:lefthead;min-width:0;box-sizing:border-box;
+  height:111px;min-height:111px;display:flex;flex-direction:column;justify-content:flex-start;
+  margin:0!important;padding:0!important;border-bottom:1px solid #b8cbb8;
+ }
+#anime-top.ob-r29-on #animeLatest .ob-r29-kicker{
+  display:flex;align-items:baseline;gap:11px;
+  margin:0 0 14px;padding:0 0 0 11px;
+  border-left:3px solid var(--ob29-sage);
+  font:500 10.6px/1.4 var(--ob29-ui);letter-spacing:.13em;color:#315f50;
+}
+#anime-top.ob-r29-on #animeLatest .ob-r29-kicker b{font-weight:550;}
+#anime-top.ob-r29-on #animeLatest .ob-r29-kicker span{color:#8ba099;letter-spacing:.07em;}
+#anime-top.ob-r29-on #animeLatest .ob-r29-lefthead>.n-block-top{
+  display:flex!important;align-items:baseline!important;justify-content:space-between!important;
+  margin:0 0 5px!important;padding:0!important;border:0!important;
+  background:transparent!important;gap:8px;
+}
+#anime-top.ob-r29-on #animeLatest .ob-r29-lefthead>.n-block-top>h2{
+  font:600 clamp(16px,1.75vw,19px)/1.15 var(--ob29-ui)!important;
+  color:var(--ob29-pine)!important;margin:0!important;padding:0!important;
+  letter-spacing:.005em!important;
+}
+#anime-top.ob-r29-on #animeLatest .ob-r29-lefthead>.n-block-top>h2::before{content:none!important;display:none!important;}
+#anime-top.ob-r29-on #animeLatest .ob-r29-lefthead>.n-block-top>span{
+  font:450 10.8px/1.35 var(--ob29-ui)!important;color:#728d84!important;letter-spacing:.06em;
+  text-align:right;white-space:nowrap;
+}
+#anime-top.ob-r29-on #animeLatest .ob-r29-deck{
+  font:400 12.7px/1.4 var(--ob29-ui);color:#4f7465;margin:5px 0 0;
+}
+#anime-top.ob-r29-on #animeLatest>a.n-rank-card{
+  grid-area:ranking!important;grid-column:auto!important;grid-row:auto!important;
+  width:100%!important;max-width:100%!important;min-width:0!important;
+  margin:12px 0 0!important;
+}
+#anime-top.ob-r29-on #animeLatest>.obn-ranking-links{
+  grid-area:links!important;grid-column:auto!important;display:flex!important;
+  align-items:center;gap:20px;margin:0!important;padding:12px 0 16px!important;
+  border-bottom:1px solid var(--ob29-rule);min-width:0;
+}
+#anime-top.ob-r29-on #animeLatest>.obn-ranking-links a{
+  font:500 11px/1.3 var(--ob29-ui)!important;color:#4c725c!important;letter-spacing:.06em;
+  text-decoration:none!important;border-bottom:1px solid #cad7c9;padding:0 0 3px;
+}
+/* This compatibility node must remain available to live-r12 and the i18n
+   script, but is replaced visually by live R29 published-checkpoint cards. */
+#anime-top.ob-r29-on #animeLatest>#animeTier{display:none!important;}
+#anime-top.ob-r29-on #animeLatest>.ob-r29-right{grid-area:editorial;grid-column:auto;min-width:0;align-self:start;}
+/* R32 refines the editorial typography without altering checkpoint colors.
+   The left headline / card is preserved; only its header geometry is synchronized. */
+#anime-top.ob-r29-on #obR29Editorial .ob-r29-kicker{
+  border-left-color:#697f8d;font-size:10.6px;letter-spacing:.13em;
+  gap:11px;margin:0;padding-left:11px;
+}
+#anime-top.ob-r29-on #obR29Editorial .ob-r29-kicker span{letter-spacing:.07em;}
+/* Explicit equal header height aligns editorial and ranking separator rules. */
+@media(min-width:851px){
+  #anime-top.ob-r29-on #obR29Editorial{
+    display:grid;grid-template-rows:29px 31px 51px auto auto;align-items:start;
+  }
+  #anime-top.ob-r29-on #obR29Editorial .ob-r29-titleline{grid-row:2;}
+  #anime-top.ob-r29-on #obR29Editorial>.ob-r29-deck{grid-row:3;}
+  #anime-top.ob-r29-on #obR29Editorial .ob-r29-articlelist{grid-row:4;}
+  #anime-top.ob-r29-on #obR29Editorial .ob-r29-footer{grid-row:5;}
+}
+
+#anime-top.ob-r29-on #obR29Editorial .ob-r29-titleline{display:flex;justify-content:space-between;align-items:baseline;gap:8px;margin:0;}
+#anime-top.ob-r29-on #obR29Editorial .ob-r29-titleline h3{
+  font:400 clamp(19.5px,1.70vw,21.8px)/1.12 "EB Garamond",Georgia,serif;
+  color:var(--ob29-pine);margin:0;letter-spacing:0;
+}
+#anime-top.ob-r29-on #obR29Editorial .ob-r29-titleline h3 strong{font-weight:600;}
+#anime-top.ob-r29-on #obR29Editorial .ob-r29-year{color:#274e3f;}
+#anime-top.ob-r29-on #obR29Editorial .ob-r29-season.fall{color:#b86a4b;}
+#anime-top.ob-r29-on #obR29Editorial .ob-r29-season.spring{color:#6e9275;}
+#anime-top.ob-r29-on #obR29Editorial .ob-r29-season.summer{color:#b38e53;}
+#anime-top.ob-r29-on #obR29Editorial .ob-r29-season.winter{color:#718d99;}
+#anime-top.ob-r29-on #obR29Editorial .ob-r29-titleline h3 small{
+  font:400 8.2px/1.2 var(--ob29-ui);letter-spacing:.06em;color:#789088;white-space:nowrap;
+}
+#anime-top.ob-r29-on #obR29Editorial .ob-r29-count{
+  display:inline-flex;gap:4px;align-items:baseline;font:400 8px/1.2 var(--ob29-ui);
+  color:#82958e;white-space:nowrap;letter-spacing:.06em;
+}
+#anime-top.ob-r29-on #obR29Editorial .ob-r29-count b{font:600 13px/1 "EB Garamond",Georgia,serif;color:#315e4d;}
+#anime-top.ob-r29-on #obR29Editorial>.ob-r29-deck{
+  margin:0;font:400 12.7px/1.4 var(--ob29-ui);color:#557667;
+  padding:0;
+}
+#anime-top.ob-r29-on #obR29Editorial .ob-r29-articlelist{border-top:1px solid #b8cbb8;padding-top:11px;}
+#anime-top.ob-r29-on #obR29Editorial .ob-r29-article-group{--ob29-accent:var(--ob29-lavender);--ob29-accent-ink:#796c7d;margin-bottom:7px;}
+#anime-top.ob-r29-on #obR29Editorial .ob-r29-opening{--ob29-accent:var(--ob29-sage);--ob29-accent-ink:#597a66;}
+#anime-top.ob-r29-on #obR29Editorial .ob-r29-middle{--ob29-accent:var(--ob29-amber);--ob29-accent-ink:#a97751;}
+#anime-top.ob-r29-on #obR29Editorial .ob-r29-final{--ob29-accent:var(--ob29-gold);--ob29-accent-ink:#977e4e;}
+#anime-top.ob-r29-on #obR29Editorial .ob-r29-group-label{
+  border-bottom:1px solid #d2dad0;padding:0 0 4px 0;margin:0 0 6px;
+  display:flex;justify-content:space-between;align-items:center;gap:7px;
+  font:500 9.1px/1.22 var(--ob29-ui);letter-spacing:.07em;
+}
+#anime-top.ob-r29-on #obR29Editorial .ob-r29-group-label strong{
+  display:inline-flex;align-items:center;gap:6px;
+  font-weight:500;color:var(--ob29-accent-ink);
+}
+#anime-top.ob-r29-on #obR29Editorial .ob-r29-group-label strong::before{content:"";display:inline-block;flex:0 0 10px;width:10px;height:3px;background:var(--ob29-accent);}
+#anime-top.ob-r29-on #obR29Editorial .ob-r29-group-label>span{
+  color:#92a6a0;letter-spacing:.035em;font-size:8.6px;white-space:nowrap;
+}
+#anime-top.ob-r29-on #obR29Editorial .ob-r29-article{
+  display:flex;align-items:center;justify-content:space-between;gap:7px;
+  padding:5px 0 5px 10px;margin:4px 0;
+  min-height:53px;border:1px solid #d0d9cf;border-left:3px solid var(--ob29-accent);
+  background:#fbfaf4;color:#2d5542;text-decoration:none;
+}
+#anime-top.ob-r29-on #obR29Editorial .ob-r29-article:hover,
+#anime-top.ob-r29-on #obR29Editorial .ob-r29-article:focus-visible{background:#f2f5ec;border-color:#a5bba9;}
+#anime-top.ob-r29-on #obR29Editorial .ob-r29-article-main{display:flex;flex-direction:column;gap:3px;min-width:0;}
+#anime-top.ob-r29-on #obR29Editorial .ob-r29-article-main small{
+  font:500 8.6px/1.22 var(--ob29-ui);letter-spacing:.05em;color:var(--ob29-accent-ink);
+}
+#anime-top.ob-r29-on #obR29Editorial .ob-r29-article-main strong{
+  font:500 clamp(15.1px,1.21vw,16.3px)/1.12 "EB Garamond",Georgia,serif;
+  color:var(--ob29-pine);
+}
+#anime-top.ob-r29-on #obR29Editorial .ob-r29-action{
+  align-self:stretch;border-left:1px solid #d3ddd1;
+  display:flex;flex-direction:column;justify-content:center;align-items:center;
+  gap:2px;flex:0 0 49px;white-space:nowrap;
+  font:400 8px/1.12 var(--ob29-ui);color:#526f64;
+}
+#anime-top.ob-r29-on #obR29Editorial .ob-r29-action b{
+  font:500 16.5px/1 "EB Garamond",Georgia,serif;color:var(--ob29-accent-ink);
+}
+#anime-top.ob-r29-on #obR29Editorial .ob-r29-footer{
+  display:flex;align-items:center;gap:10px;margin:7px 0 0;
+  color:#779187;font:400 9px/1.1 var(--ob29-ui);letter-spacing:.06em;
+}
+#anime-top.ob-r29-on #obR29Editorial .ob-r29-footer::before{content:"◆";font-size:6px;color:#829b86;}
+#anime-top.ob-r29-on #obR29Editorial .ob-r29-footer i{height:1px;background:#cbd8cc;flex:1;}
+/* Period language: show one continuous 12-week season. Each tile remains
+   individually clickable, but the phase bands stay centered and unified. */
+#anime-top.ob-r29-on .n-season-dashboard .n-weeks>.ob-r29-week{position:relative;}
+/* R30: no per-week color stripes. The continuous phase band is the guide. */
+#anime-top.ob-r29-on .n-season-dashboard .n-weeks>.ob-r29-prelim{--ob29-period:var(--ob29-lavender);}
+#anime-top.ob-r29-on .n-season-dashboard .n-weeks>.ob-r29-opening{--ob29-period:var(--ob29-sage);}
+#anime-top.ob-r29-on .n-season-dashboard .n-weeks>.ob-r29-middle{--ob29-period:var(--ob29-amber);}
+#anime-top.ob-r29-on .n-season-dashboard .n-weeks>.ob-r29-late{--ob29-period:var(--ob29-bluegray);}
+#anime-top.ob-r29-on .n-season-dashboard .n-weeks>.ob-r29-climax{--ob29-period:var(--ob29-gold);}
+#anime-top.ob-r29-on .n-season-dashboard .n-weeks>.n-prelim:not(.n-now){
+  background:#eae5ea!important;color:#736778!important;border:1px solid #c3b8c2!important;
+}
+#anime-top.ob-r29-on .n-season-dashboard .n-weeks>.n-milestone-final:not(.n-now){
+  background:#f7f3e9!important;color:#746743!important;border-top:2px solid #c0a774!important;
+  border-bottom:1px solid #d9ccab!important;box-shadow:none!important;
+}
+#anime-top.ob-r29-on .n-season-dashboard .n-weeks>.n-milestone-final:not(.n-now)::after{color:#685a3e!important;}
+#anime-top.ob-r29-on #obLivePhasesR1{gap:4px!important;}
+#anime-top.ob-r29-on #obLivePhasesR1>span{min-height:30px!important;justify-content:center!important;align-items:center!important;text-align:center!important;padding:5px 2px!important;}
+#anime-top.ob-r29-on #obLivePhasesR1>.ob-r29-opening{border-top-color:#729380!important;}
+#anime-top.ob-r29-on #obLivePhasesR1>.ob-r29-middle{border-top-color:#bd8556!important;}
+#anime-top.ob-r29-on #obLivePhasesR1>.ob-r29-late{border-top-color:#adc2cf!important;color:#85999a!important;background:#f8f9f6!important;}
+#anime-top.ob-r29-on #obLivePhasesR1>.ob-r29-climax{border-top-color:#c0a774!important;background:#faf8f1!important;color:#9b927a!important;}
+#anime-top.ob-r29-on #obLivePhasesR1>span .ob-live-phase-title{font-weight:500!important;}
+#anime-top.ob-r29-on .ob-live-stage-legend .is-prelim>i{background:#9c879c!important;}
+#anime-top.ob-r29-on .ob-live-stage-legend .is-mid>i{background:#bd8556!important;}
+#anime-top.ob-r29-on .ob-live-stage-legend .is-final>i{background:#c0a774!important;}
+/* One palette across the timeline, micro legend and published/future checkpoint labels.
+   Existing anchor structure and interactions are unchanged. */
+#anime-top.ob-r29-on .n-checkpoints>a:first-of-type{color:#587a63!important;text-decoration-color:#9bb3a0!important;}
+#anime-top.ob-r29-on .n-checkpoints>span:nth-child(3){color:#9d805d!important;}
+#anime-top.ob-r29-on .n-checkpoints>span:nth-child(4){color:#978456!important;}
+#anime-top.ob-r29-on .n-checkpoints>span:nth-child(3) b,
+#anime-top.ob-r29-on .n-checkpoints>span:nth-child(4) b{font-weight:500!important;}
+@media(max-width:850px){
+ #anime-top.ob-r29-on #animeLatest.ob-r29-ranking{grid-template-columns:1fr!important;grid-template-areas:"lefthead" "ranking" "links" "editorial"!important;gap:0!important;}
+ #anime-top.ob-r29-on #animeLatest>.ob-r29-right{margin-top:20px;}
+ #anime-top.ob-r29-on #obLiveWeekSeasonR8>.ob-live-week-season-head-r8{gap:8px!important;}
+ #anime-top.ob-r29-on #animeLatest .ob-r29-lefthead>.n-block-top>h2{font-size:17px!important;}
+}
+@media(max-width:560px){
+ #anime-top.ob-r29-on #obLiveWeekSeasonR8.ob-r29-section{padding:17px 11px 19px!important;}
+ #anime-top.ob-r29-on #obLiveWeekSeasonR8>.ob-live-week-season-head-r8{flex-wrap:wrap;gap:5px!important;padding-bottom:22px!important;}
+ #anime-top.ob-r29-on #obLiveWeekSeasonR8>.ob-live-week-season-head-r8 h2{font-size:24px!important;}
+ #anime-top.ob-r29-on #obLiveWeekSeasonR8>.ob-live-week-season-head-r8 p{font-size:10px!important;}
+ #anime-top.ob-r29-on #animeLatest>.ob-r29-lefthead{height:auto;min-height:0;margin-bottom:10px!important;padding-bottom:12px!important;}
+ #anime-top.ob-r29-on #animeLatest .ob-r29-kicker{font-size:9px;gap:5px;margin-bottom:9px;}
+ #anime-top.ob-r29-on #animeLatest .ob-r29-kicker span{font-size:8px;}
+ #anime-top.ob-r29-on #animeLatest .ob-r29-deck{font-size:11px;}
+ #anime-top.ob-r29-on #animeLatest .ob-r29-lefthead>.n-block-top>span{font-size:9px!important;}
+ #anime-top.ob-r29-on #obR29Editorial .ob-r29-titleline h3{font-size:20px;}
+ #anime-top.ob-r29-on #obR29Editorial .ob-r29-article-main strong{font-size:16px;}
+ #anime-top.ob-r29-on #obR29Editorial .ob-r29-article{min-height:53px;padding:6px 0 6px 10px;}
+ #anime-top.ob-r29-on #obR29Editorial .ob-r29-action{flex-basis:49px;}
+ #anime-top.ob-r29-on #obLivePhasesR1>span{min-height:35px!important;}
+}
+
+/* Mobile editorial: compact but legible and no forced tall columns. */
+@media(max-width:850px){
+ #anime-top.ob-r29-on #obR29Editorial{display:block;}
+ #anime-top.ob-r29-on #obR29Editorial .ob-r29-article-main strong{font-size:16px;}
+ #anime-top.ob-r29-on #obR29Editorial .ob-r29-article{min-height:55px;}
+ #anime-top.ob-r29-on #obR29Editorial .ob-r29-articlelist{padding-top:11px;}
+ #anime-top.ob-r29-on #obR29Editorial .ob-r29-titleline{margin:4px 0 8px;}
+ #anime-top.ob-r29-on #obR29Editorial>.ob-r29-deck{margin:0 0 11px;}
+}
+@media(max-width:560px){
+ #anime-top.ob-r29-on #obR29Editorial .ob-r29-titleline h3{font-size:20px;}
+ #anime-top.ob-r29-on #obR29Editorial .ob-r29-article-main strong{font-size:16px;}
+ #anime-top.ob-r29-on #obR29Editorial .ob-r29-group-label{font-size:9.1px;}
+}
+
+/* R32: Align the two editorial introductions as one typographic system.
+   Width-dependent height accounts for the second/third description line;
+   the header rule always lands on the same baseline in both columns. */
+@media (min-width:851px) and (max-width:1199px){
+  #anime-top.ob-r29-on #animeLatest>.ob-r29-lefthead{height:134px;min-height:134px;}
+  #anime-top.ob-r29-on #obR29Editorial{grid-template-rows:29px 31px 74px auto auto;}
+}
+@media (min-width:851px){
+  #anime-top.ob-r29-on #obR29Editorial>.ob-r29-deck{padding-top:0;}
+  #anime-top.ob-r29-on #obR29Editorial .ob-r29-articlelist{min-width:0;}
+}
+@media (max-width:850px){
+  /* In the stacked layout, natural heights take precedence. */
+  #anime-top.ob-r29-on #animeLatest>a.n-rank-card{margin-top:0!important;}
+  #anime-top.ob-r29-on #obR29Editorial .ob-r29-kicker{margin-bottom:10px;}
+  #anime-top.ob-r29-on #obR29Editorial>.ob-r29-deck{font-size:12.7px;line-height:1.4;}
+}
+
+
+/* ======================================================================
+   LOCAL R84 — Season Editorial contrast / stacked breathing room ONLY.
+   R32 wide two-column synchronization, title sizes, family, weights,
+   cards' heights, content, active seasons, and Feature Titles untouched.
+   ====================================================================== */
+/* Secondary editorial metadata needs legible contrast without acquiring
+   the visual authority of the Latest Weekly Ranking headline. */
+#anime-top.ob-r29-on #obR29Editorial .ob-r29-kicker span {
+  color:#637d71;
+}
+#anime-top.ob-r29-on #obR29Editorial .ob-r29-titleline h3 small {
+  color:#5a756a;
+}
+#anime-top.ob-r29-on #obR29Editorial .ob-r29-count {
+  color:#587568;
+}
+#anime-top.ob-r29-on #obR29Editorial>.ob-r29-deck {
+  color:#496e5e;
+}
+/* Preserve the distinctive purple / green / ochre / gold editorial order.
+   Local variables only: do NOT recolor the season timeline or site palette. */
+#anime-top.ob-r29-on #obR29Editorial .ob-r29-article-group {
+  --ob29-accent:#8b788c;
+  --ob29-accent-ink:#705c70;
+}
+#anime-top.ob-r29-on #obR29Editorial .ob-r29-opening {
+  --ob29-accent:#668b76;
+  --ob29-accent-ink:#436d55;
+}
+#anime-top.ob-r29-on #obR29Editorial .ob-r29-middle {
+  --ob29-accent:#b67c51;
+  --ob29-accent-ink:#96673f;
+}
+#anime-top.ob-r29-on #obR29Editorial .ob-r29-final {
+  --ob29-accent:#b19a65;
+  --ob29-accent-ink:#827044;
+}
+#anime-top.ob-r29-on #obR29Editorial .ob-r29-group-label {
+  border-bottom-color:#b2c4b5;
+}
+#anime-top.ob-r29-on #obR29Editorial .ob-r29-group-label>span {
+  color:#59756b;
+}
+/* The resting article card is no longer almost as faint as the background.
+   Hover remains an incremental contrast change (no change to fill colors). */
+#anime-top.ob-r29-on #obR29Editorial .ob-r29-article {
+  border-color:#acbeae;
+  border-left-color:var(--ob29-accent);
+}
+#anime-top.ob-r29-on #obR29Editorial .ob-r29-article:hover,
+#anime-top.ob-r29-on #obR29Editorial .ob-r29-article:focus-visible {
+  border-color:#829e87;
+  border-left-color:var(--ob29-accent);
+}
+#anime-top.ob-r29-on #obR29Editorial .ob-r29-action {
+  border-left-color:#b4c8b8;
+  color:#496c5b;
+}
+#anime-top.ob-r29-on #obR29Editorial .ob-r29-footer {
+  color:#557469;
+}
+#anime-top.ob-r29-on #obR29Editorial .ob-r29-footer::before {color:#718d79;}
+#anime-top.ob-r29-on #obR29Editorial .ob-r29-footer i {background:#b1c5b3;}
+/* Up Next is future/not yet published; keep it subordinate but readable. */
+#anime-top.ob-r29-on #obR29Editorial .ob-r33-upnext-label span {color:#637f73;}
+#anime-top.ob-r29-on #obR29Editorial .ob-r33-upnext-copy {color:#58786a;}
+
+/* Below 851px the wide LEFT / RIGHT editorial becomes a single vertical
+   sequence. Extra space is needed BOTH after ranking and before Featured
+   Titles; do not change the wide aligned two-column grid. */
+@media(max-width:850px) {
+  #anime-top.ob-r29-on #animeLatest>.ob-r29-right {
+    margin-top:32px;
+    margin-bottom:19px;
+  }
+  #anime-top.ob-r29-on #obR29Editorial .ob-r29-articlelist {
+    border-top-color:#99b09d;
+  }
+}
+
+
+/* ======================================================================
+   LOCAL R85 — editorial title hierarchy / the TWO sides of section rule.
+   On top of R84 only.  No card dimensions, copy, two-column header grid,
+   link behavior, hover fill, font size or site-wide palette changes.
+   ====================================================================== */
+/* The h3 begins with a bare text node ("Also from"); setting the h3 weight
+   changes that fragment without touching the existing 2026/Fall strong tags.
+   Differentiated color lets the year remain the main title anchor. */
+#anime-top.ob-r29-on #obR29Editorial .ob-r29-titleline h3 {
+  font-weight:600;
+  color:#274e3f;
+}
+#anime-top.ob-r29-on #obR29Editorial .ob-r29-titleline h3 strong.ob-r29-year {
+  color:#5b7566;
+}
+/* "SEASON" should be secondary, not faded into the paper. */
+#anime-top.ob-r29-on #obR29Editorial .ob-r29-titleline h3 small {
+  color:#466b59;
+}
+/* Feature titles: contrast only.  No bolder weight or size increase.
+   Existing EB Garamond, 500 weight and colored checkpoint labels remain. */
+#anime-top.ob-r29-on #obR29Editorial .ob-r29-article-main strong {
+  color:#193e30;
+}
+/* The thin horizontal rule belongs to the end of the entire
+   Latest Weekly Ranking + Season Editorial region (#animeLatest), not to
+   the "Up Next" note itself.  Give the note-to-rule and rule-to-Featured
+   distances their own spacing, ONLY when the columns are stacked. */
+@media(max-width:850px) {
+  #anime-top.ob-r29-on #obLiveWeekSeasonR8 #animeLatest {
+    padding-bottom:34px;
+  }
+  #anime-top.ob-r29-on #obLiveWeekSeasonR8 #obSeasonExperienceR3 {
+    margin-top:31px;
+  }
+}
+
+
+/* ======================================================================
+   LOCAL R87 — Season Editorial CARD FILL trial only (approved).
+   One exceptional neutral lavender-gray for Preliminary; all regular
+   features share a pale gray-green. Hover/focus and brief touch press
+   are a little richer. The already-stronger borders, accent sidebars,
+   text colors, font sizes/weights, geometry, data and scripts are intact.
+   ====================================================================== */
+/* Resting colors (the background remains quieter than the card content). */
+#anime-top.ob-r29-on #obR29Editorial .ob-r29-article-group .ob-r29-article {
+  background-color:#f1f4f1;
+}
+#anime-top.ob-r29-on #obR29Editorial .ob-r29-prelim .ob-r29-article {
+  background-color:#f8f6f9;
+}
+/* Keyboard focus is a visible active state on either input type. */
+#anime-top.ob-r29-on #obR29Editorial .ob-r29-article-group .ob-r29-article:focus-visible {
+  background-color:#e3ebe4;
+}
+#anime-top.ob-r29-on #obR29Editorial .ob-r29-prelim .ob-r29-article:focus-visible {
+  background-color:#ebe5ed;
+}
+/* Real mouse / trackpad hover; do not leave a sticky :hover on iPhone. */
+@media (hover:hover) and (pointer:fine) {
+  #anime-top.ob-r29-on #obR29Editorial .ob-r29-article-group .ob-r29-article:hover {
+    background-color:#e3ebe4;
+  }
+  #anime-top.ob-r29-on #obR29Editorial .ob-r29-prelim .ob-r29-article:hover {
+    background-color:#ebe5ed;
+  }
+}
+/* iPhone / touch: show the color only DURING the tap, without a persistent
+   selection state. Older global :hover styling is explicitly neutralized. */
+@media (hover:none) {
+  #anime-top.ob-r29-on #obR29Editorial .ob-r29-article-group .ob-r29-article:hover:not(:active):not(:focus-visible) {
+    background-color:#f1f4f1;
+  }
+  #anime-top.ob-r29-on #obR29Editorial .ob-r29-prelim .ob-r29-article:hover:not(:active):not(:focus-visible) {
+    background-color:#f8f6f9;
+  }
+  #anime-top.ob-r29-on #obR29Editorial .ob-r29-article-group .ob-r29-article:active {
+    background-color:#e3ebe4;
+  }
+  #anime-top.ob-r29-on #obR29Editorial .ob-r29-prelim .ob-r29-article:active {
+    background-color:#ebe5ed;
+  }
+}
+
+
+/* ======================================================================
+   LOCAL R89 — Featured / Lineup reading rhythm, NO card changes.
+   Retains R88 PRELIM fill, all editorial card borders, accent colors,
+   existing fonts / title sizes, lineup stats sizes, and 2-row wrap.
+   ====================================================================== */
+/* A slightly clearer break AFTER the "View all" link, on either screen. */
+#anime-top #obSeasonExperienceR3 .ob-study-section + .ob-study-section {
+  margin-top:30px;
+  padding-top:20px;
+}
+/* Featured heading's two small supporting texts: a little more readable. */
+#anime-top #obSeasonExperienceR3 #obFeaturedSubR3 {
+  color:#4e6e58;
+  font-weight:550;
+}
+#anime-top #obSeasonExperienceR3 #obFeatureActionHintR4 {
+  color:#526e59;
+  font-weight:500;
+}
+/* Existing four lineup figures: softer sage than labels, NOT lighter weight. */
+#anime-top #obLiveLineupStatusR1 > span > strong {
+  color:#62856d;
+}
+@media(max-width:540px) {
+  #anime-top #obSeasonExperienceR3 .ob-study-section + .ob-study-section {
+    margin-top:31px;
+    padding-top:19px;
+  }
+}

@@ -1,0 +1,48 @@
+/* OFFBEAT Week Peek R15 — visual trial overlay on top of unchanged R13+R14 CSS.
+   All selectors are restricted to the R15 Week Peek. No global navigation/timeline changes. */
+#anime-top #obLivePeekR1.ob-wp13-ready:has(.ob-wp15){border:0!important;border-left:0!important;background:transparent!important;margin-top:18px!important;}
+#anime-top #obLivePeekR1 .ob-wp15{background:#faf9f1;border-left:3px solid #b58b68;padding:15px clamp(13px,2.5vw,28px) 20px;}
+/* Context metadata sits above a graphic rule, recalling Concept 08. */
+#anime-top #obLivePeekR1 .ob-wp15 .ob-wp14-banner{margin:0 0 9px 0; padding:0 0 12px;align-items:baseline;}
+#anime-top #obLivePeekR1 .ob-wp15 .ob-wp13-head{position:relative;padding:18px 0 12px;border-bottom:1px solid #cdd7ce;}
+#anime-top #obLivePeekR1 .ob-wp15 .ob-wp13-head:before{content:'';position:absolute;height:4px;left:0;right:0;top:0;background:linear-gradient(90deg,#92af89 0%,#72966f 40%,#2c5940 100%);}
+#anime-top #obLivePeekR1 .ob-wp15 .ob-wp13-stage{gap:5px;align-items:baseline;}
+#anime-top #obLivePeekR1 .ob-wp15 .ob-wp13-stage span{font-weight:450;letter-spacing:.04em;color:#729082;}
+#anime-top #obLivePeekR1 .ob-wp15 .ob-wp13-stage b{color:#ad6944;font-weight:750;font-size:15px;}
+#anime-top #obLivePeekR1 .ob-wp15 .ob-wp13-stage small{font-weight:450;color:#8b8576;}
+#anime-top #obLivePeekR1 .ob-wp15 .ob-wp15-absence-stat strong{color:#b3664a;}
+#anime-top #obLivePeekR1 .ob-wp15 .ob-wp13-dek strong{font-weight:750;color:#294e39;}
+/* A second, restrained kicker restores the balance with the much stronger left headline. */
+#anime-top #obLivePeekR1 .ob-wp15 .ob-wp13-contrast>.ob-wp13-label:not(.ob-wp15-contrast-tag){display:block;color:#466650;font-size:10.8px;font-weight:700;letter-spacing:.055em;margin-top:5px;}
+#anime-top #obLivePeekR1 .ob-wp15 .ob-wp15-contrast-tag{display:block!important;color:#b36b4b!important;font-weight:650;font-size:9.5px;letter-spacing:.105em;}
+#anime-top #obLivePeekR1 .ob-wp15 .ob-wp14-contrast-fact em.ob-wp15-but{font:italic 600 13px/1.35 Georgia,serif;color:#986747;letter-spacing:.02em;margin-left:6px;}
+#anime-top #obLivePeekR1 .ob-wp15 .ob-wp14-move-name{font-size:13.2px;font-weight:650;color:#27513c;line-height:1.36;}
+#anime-top #obLivePeekR1 .ob-wp15 .ob-wp14-move-wrp{font-size:10.5px;color:#718573;}
+#anime-top #obLivePeekR1 .ob-wp15 .ob-wp14-move-line strong{font-size:23px;}
+#anime-top #obLivePeekR1 .ob-wp15 .ob-wp14-paradox{font-weight:540;background:#f0f2e9;border-left-color:#9db2a0;color:#466551;}
+#anime-top #obLivePeekR1 .ob-wp15 .ob-wp13-absence-title{padding:7px 8px 5px;background:#fbf7ea;border:1px solid #e5dac8;min-width:0;}
+#anime-top #obLivePeekR1 .ob-wp15 .ob-wp13-absence-title b{font-size:12.3px;font-weight:650;color:#2d503b;line-height:1.35;}
+/* Enjoyment stays distinct from WRP and is editorial, not a formula-based sentiment. */
+#anime-top #obLivePeekR1 .ob-wp15 .ob-wp14-enjoy{background:#f0f2e9;padding:13px 14px;border-left:2px solid #91ac91;border-bottom:1px solid #d6dfd3;margin:4px 0 3px;}
+#anime-top #obLivePeekR1 .ob-wp15 .ob-wp14-enjoy p{color:#496c54;font-size:11.8px;}
+#anime-top #obLivePeekR1 .ob-wp15 .ob-wp15-mood-label{font:italic 600 13.4px/1.4 Georgia,'Noto Serif JP',serif;color:#a16948;margin-top:5px;}
+#anime-top #obLivePeekR1 .ob-wp15 .ob-wp14-face{vertical-align:middle;transform:translateY(1px);}
+/* All podium cards have the same initial height. Long titles are revealable, never allowed to distort the grid. */
+#anime-top #obLivePeekR1 .ob-wp15 .ob-wp13-stands{align-items:stretch;}
+#anime-top #obLivePeekR1 .ob-wp15 .ob-wp13-stand{min-height:0;height:100%;justify-content:flex-start;}
+#anime-top #obLivePeekR1 .ob-wp15 .ob-wp13-stand>span.ob-wp15-podium-title{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:3;line-clamp:3;overflow:hidden;max-height:3.9em;min-height:3.9em;align-self:stretch;cursor:help;font-size:11.2px;line-height:1.30;overflow-wrap:anywhere;}
+#anime-top #obLivePeekR1 .ob-wp15 .ob-wp13-stand>span.ob-wp15-podium-title:focus-visible{outline:2px solid #8a9d83;outline-offset:2px;}
+#anime-top #obLivePeekR1 .ob-wp15 .ob-wp13-stand>span.ob-wp15-podium-title.is-full-title{display:block;max-height:none;-webkit-line-clamp:unset;line-clamp:unset;min-height:3.9em;}
+#anime-top #obLivePeekR1 .ob-wp15 .ob-wp13-stand>small{margin-top:auto;}
+#anime-top #obLivePeekR1 .ob-wp15 .ob-wp13-notes{margin-top:13px;}
+@media(max-width:770px){
+ #anime-top #obLivePeekR1 .ob-wp15 .ob-wp13-head{padding-top:16px;}
+ #anime-top #obLivePeekR1 .ob-wp15 .ob-wp13-stage b{font-size:12px;}
+ #anime-top #obLivePeekR1 .ob-wp15 .ob-wp14-contrast-tag{font-size:9.4px;}
+}
+@media(max-width:620px){
+ #anime-top #obLivePeekR1 .ob-wp15 .ob-wp14-enjoy{padding:12px 10px;}
+ #anime-top #obLivePeekR1 .ob-wp15 .ob-wp15-mood-label{font-size:12px;}
+ #anime-top #obLivePeekR1 .ob-wp15 .ob-wp13-stand>span.ob-wp15-podium-title{font-size:10.5px;}
+ #anime-top #obLivePeekR1 .ob-wp15 .ob-wp13-stage b{font-size:11.5px;}
+}

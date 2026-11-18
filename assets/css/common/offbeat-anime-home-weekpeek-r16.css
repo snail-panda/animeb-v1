@@ -1,0 +1,100 @@
+/* OFFBEAT Week Peek R16 — narrowly scoped trial over R13 + R14 + R15.
+   Retain every R15 section and data path; adjust only the five agreed visual targets. */
+
+/* 1. Editorial overline: restore legible sizing, tight relation to the 4px gradient,
+   and a more generous space between the gradient and the Week Peek headline. */
+#anime-top #obLivePeekR1 .ob-wp15.ob-wp16 .ob-wp14-banner{
+  font-size:11px;line-height:1.25;font-weight:600;
+  padding-bottom:3px;margin-bottom:2px;
+}
+#anime-top #obLivePeekR1 .ob-wp15.ob-wp16 .ob-wp13-head{
+  padding-top:29px;
+}
+
+/* 2. Off-air titles: let the actual titles stand out subtly *within* the warm panel.
+   Restore the right-hand insight box's original soft-green contrast. */
+#anime-top #obLivePeekR1 .ob-wp15.ob-wp16 .ob-wp13-absence-title{
+  background:#f5f0e7;border:1px solid #e8ded1;border-left:3px solid #c29a7b;
+  padding:7px 8px 6px;
+}
+#anime-top #obLivePeekR1 .ob-wp15.ob-wp16 .ob-wp14-low .ob-wp14-paradox{
+  background:#e6eee4!important;border-left:2px solid #89a893!important;
+  color:#335b42;
+}
+
+/* 3. Enjoyment: description remains in the LEFT editorial column; subjective
+   one-line feeling appears only under the FACE in the right-hand score cluster. */
+#anime-top #obLivePeekR1 .ob-wp15.ob-wp16 .ob-wp14-enjoy p{
+  font-size:12.3px;line-height:1.45;color:#496c54;
+}
+#anime-top #obLivePeekR1 .ob-wp15.ob-wp16 .ob-wp14-enjoy-value{
+  align-items:center;gap:5px;
+}
+#anime-top #obLivePeekR1 .ob-wp15.ob-wp16 .ob-wp16-face-stack{
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  flex:0 0 auto;gap:2px;margin-right:4px;
+}
+#anime-top #obLivePeekR1 .ob-wp15.ob-wp16 .ob-wp16-face-stack .ob-wp14-face{
+  margin:0;transform:none;
+}
+#anime-top #obLivePeekR1 .ob-wp15.ob-wp16 .ob-wp16-mood{
+  font:italic 500 9.8px/1.23 Georgia,'Noto Serif JP',serif;
+  color:#4c5146;text-align:center;max-width:105px;overflow-wrap:anywhere;
+}
+
+/* 4. Bring back the true stepped podium: second, first, third from left,
+   with a distinct height and poster size for each rank, bottoms on one baseline.
+   Each card's HEIGHT is rank-defined, not dictated by title length. */
+#anime-top #obLivePeekR1 .ob-wp15.ob-wp16 .ob-wp13-stands{
+  align-items:end;
+}
+#anime-top #obLivePeekR1 .ob-wp15.ob-wp16 .ob-wp13-stand{
+  position:relative;height:auto;min-height:0;box-sizing:border-box;
+  justify-content:flex-start;overflow:visible;
+}
+#anime-top #obLivePeekR1 .ob-wp15.ob-wp16 .ob-wp13-stand.ob-wp16-rank-1{height:210px;}
+#anime-top #obLivePeekR1 .ob-wp15.ob-wp16 .ob-wp13-stand.ob-wp16-rank-2{height:192px;}
+#anime-top #obLivePeekR1 .ob-wp15.ob-wp16 .ob-wp13-stand.ob-wp16-rank-3{height:174px;}
+#anime-top #obLivePeekR1 .ob-wp15.ob-wp16 .ob-wp13-stand.ob-wp16-rank-1>img{width:75px;height:95px;}
+#anime-top #obLivePeekR1 .ob-wp15.ob-wp16 .ob-wp13-stand.ob-wp16-rank-2>img{width:68px;height:86px;}
+#anime-top #obLivePeekR1 .ob-wp15.ob-wp16 .ob-wp13-stand.ob-wp16-rank-3>img{width:62px;height:78px;}
+/* Title weight is editorial, not another heavy scoreboard figure.
+   Exactly two lines by default; complete title is available via hover title
+   and via a focus/tap reveal overlay, without distorting the podium geometry. */
+#anime-top #obLivePeekR1 .ob-wp15.ob-wp16 .ob-wp13-stand>span.ob-wp15-podium-title{
+  display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;line-clamp:2;
+  height:2.60em;min-height:2.60em;max-height:2.60em;overflow:hidden;
+  font-family:Georgia,'Noto Serif JP',serif;font-size:11px;
+  font-weight:500;line-height:1.3;color:#2a503d;
+  overflow-wrap:anywhere;cursor:help;
+}
+#anime-top #obLivePeekR1 .ob-wp15.ob-wp16 .ob-wp13-stand>span.ob-wp15-podium-title.is-full-title{
+  position:absolute;z-index:5;bottom:18px;left:3px;right:3px;
+  display:block;width:auto;height:auto;min-height:0;max-height:150px;
+  padding:7px 6px;background:#fffdf5;border:1px solid #b7bfad;
+  box-shadow:0 3px 9px #182a2226;overflow:auto;
+  -webkit-line-clamp:unset;line-clamp:unset;
+}
+
+@media(max-width:770px){
+  #anime-top #obLivePeekR1 .ob-wp15.ob-wp16 .ob-wp14-banner{font-size:10.3px;}
+  #anime-top #obLivePeekR1 .ob-wp15.ob-wp16 .ob-wp13-head{padding-top:25px;}
+  #anime-top #obLivePeekR1 .ob-wp15.ob-wp16 .ob-wp13-stand.ob-wp16-rank-1{height:191px;}
+  #anime-top #obLivePeekR1 .ob-wp15.ob-wp16 .ob-wp13-stand.ob-wp16-rank-2{height:177px;}
+  #anime-top #obLivePeekR1 .ob-wp15.ob-wp16 .ob-wp13-stand.ob-wp16-rank-3{height:164px;}
+  #anime-top #obLivePeekR1 .ob-wp15.ob-wp16 .ob-wp13-stand.ob-wp16-rank-1>img{width:64px;height:84px;}
+  #anime-top #obLivePeekR1 .ob-wp15.ob-wp16 .ob-wp13-stand.ob-wp16-rank-2>img{width:57px;height:76px;}
+  #anime-top #obLivePeekR1 .ob-wp15.ob-wp16 .ob-wp13-stand.ob-wp16-rank-3>img{width:53px;height:70px;}
+}
+@media(max-width:620px){
+  #anime-top #obLivePeekR1 .ob-wp15.ob-wp16 .ob-wp14-enjoy{gap:7px;}
+  #anime-top #obLivePeekR1 .ob-wp15.ob-wp16 .ob-wp14-enjoy p{font-size:11.7px;}
+  #anime-top #obLivePeekR1 .ob-wp15.ob-wp16 .ob-wp16-mood{font-size:9px;max-width:80px;}
+  #anime-top #obLivePeekR1 .ob-wp15.ob-wp16 .ob-wp13-stand.ob-wp16-rank-1{height:177px;}
+  #anime-top #obLivePeekR1 .ob-wp15.ob-wp16 .ob-wp13-stand.ob-wp16-rank-2{height:166px;}
+  #anime-top #obLivePeekR1 .ob-wp15.ob-wp16 .ob-wp13-stand.ob-wp16-rank-3{height:155px;}
+  #anime-top #obLivePeekR1 .ob-wp15.ob-wp16 .ob-wp13-stand.ob-wp16-rank-1>img{width:55px;height:73px;}
+  #anime-top #obLivePeekR1 .ob-wp15.ob-wp16 .ob-wp13-stand.ob-wp16-rank-2>img{width:51px;height:66px;}
+  #anime-top #obLivePeekR1 .ob-wp15.ob-wp16 .ob-wp13-stand.ob-wp16-rank-3>img{width:47px;height:60px;}
+  #anime-top #obLivePeekR1 .ob-wp15.ob-wp16 .ob-wp13-stand>span.ob-wp15-podium-title{font-size:10.2px;}
+}

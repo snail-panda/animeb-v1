@@ -1,0 +1,92 @@
+/* OFFBEAT R25 — type refinement on R24: restrained axis units and winner-strip figures.
+   R24 data, layout, geometry, and all other sections are unchanged.
+   Original R24: four signals, explicit axes and five weekly comparisons.
+   Only the Season at a Glance component is styled here. Everything else stays as in R23. */
+.anime09.ob-live-r12 .ob-live-trend-chart svg .ob-live-axis-unit-r24{
+  font:400 8.8px/1.2 "EB Garamond",Georgia,serif;
+  fill:#667d6a;
+  letter-spacing:0;
+  text-anchor:middle;
+}
+/* Place small unit notes above their own scales; neither should read as a heading. */
+.anime09.ob-live-r12 .ob-live-trend-chart svg .ob-live-axis-unit-r24:first-of-type{
+  transform:translate(-11px,3px);
+}
+.anime09.ob-live-r12 .ob-live-trend-chart svg .ob-live-axis-unit-r24:nth-of-type(2){
+  transform:translate(4px,3px);
+}
+.anime09.ob-live-r12 .ob-live-key .ob-live-dot-outside-r24::before{
+  content:""!important;display:inline-block!important;width:23px!important;height:0!important;
+  vertical-align:middle!important;margin-right:8px!important;box-sizing:border-box!important;
+  border:0!important;border-top:2.5px solid #886d91!important;background:transparent!important;
+}
+.anime09.ob-live-r12 .ob-live-winner-legend-r24{
+  margin:8px 0 3px;font:450 11.5px/1.5 system-ui,"Segoe UI",sans-serif;
+  color:#53705a;
+}
+.anime09.ob-live-r12 .ob-live-winner-strip-r24{
+  grid-template-columns:repeat(12,minmax(0,1fr));gap:4px;
+  margin:6px 0 9px;
+}
+.anime09.ob-live-r12 .ob-live-winner-strip-r24>.ob-live-winner{
+  min-height:174px;gap:3px;padding:5px 2px 7px;
+  justify-content:flex-start;align-items:center;
+  border:1px solid transparent;border-bottom:2px solid transparent;
+  background:transparent;
+}
+.anime09.ob-live-r12 .ob-live-winner-strip-r24>.ob-live-winner.is-active{
+  border-color:#bb824b!important;border-bottom-color:#bb824b!important;background:#f4f0e5;
+}
+.anime09.ob-live-r12 .ob-live-winner-strip-r24>.ob-live-winner img{
+  width:43px;height:63px;max-width:92%;object-fit:cover;flex:none;
+}
+.anime09.ob-live-r12 .ob-live-winner-strip-r24 .ob-live-winner-figures-r24{
+  display:flex;flex-direction:column;gap:2px;align-self:stretch;
+  margin-top:3px;padding:4px 7px 0;border-top:1px solid #d5dfd0;
+  font-family:system-ui,"Segoe UI",sans-serif;
+  font-size:9.8px;
+  font-variant-numeric:tabular-nums;
+}
+.anime09.ob-live-r12 .ob-live-winner-strip-r24 .ob-live-winner-figure-r24{
+  display:flex;justify-content:space-between;align-items:baseline;column-gap:3px;
+  line-height:1.26;white-space:nowrap;
+}
+.anime09.ob-live-r12 .ob-live-winner-strip-r24 .ob-live-winner-figure-label-r24{
+  display:inline!important;font:400 8.0px/1.26 system-ui,"Segoe UI",sans-serif!important;
+  color:#647a66!important;max-height:none!important;overflow:visible!important;
+  flex:0 1 auto;
+}
+.anime09.ob-live-r12 .ob-live-winner-strip-r24 .ob-live-winner-figure-r24 b{
+  font:500 10px/1.26 system-ui,"Segoe UI",sans-serif;
+  color:#284e37;letter-spacing:-.015em;
+}
+.anime09.ob-live-r12 .ob-live-winner-strip-r24 .ob-live-winner-figure-r24.is-winner b{color:#91633c;}
+.anime09.ob-live-r12 .ob-live-winner-strip-r24 .ob-live-winner-figure-r24.is-outside b{color:#785a81;}
+.anime09.ob-live-r12 .ob-live-winner-strip-r24 .ob-live-winner-figure-r24.is-active b{color:#657970;}
+.anime09.ob-live-r12 .ob-live-digest-measures .ob-live-context-stat-r8:last-child:nth-child(5){
+  grid-column:1/-1;display:flex!important;flex-direction:row!important;
+  justify-content:flex-start;align-items:baseline;column-gap:10px;
+  padding-top:8px;border-top:1px solid #d2ddcf;
+}
+.anime09.ob-live-r12 .ob-live-digest-measures .ob-live-context-stat-r8:last-child:nth-child(5) b{font-size:20px!important;}
+@media(max-width:1100px){
+ .anime09.ob-live-r12 .ob-live-winner-strip-r24{
+   grid-template-columns:repeat(12,minmax(83px,1fr));overflow-x:auto;
+   overscroll-behavior-inline:contain;scroll-snap-type:x proximity;
+   gap:5px;padding:2px 0 12px;
+ }
+ .anime09.ob-live-r12 .ob-live-winner-strip-r24>.ob-live-winner{scroll-snap-align:start;min-height:170px;}
+ .anime09.ob-live-r12 .ob-live-winner-strip-r24>.ob-live-winner img{width:47px;height:66px;}
+ .anime09.ob-live-r12 .ob-live-winner-strip-r24 .ob-live-winner-figures-r24{padding:4px 8px 0;}
+}
+@media(max-width:690px){
+ .anime09.ob-live-r12 .ob-live-winner-strip-r24{
+   grid-template-columns:repeat(12,minmax(86px,1fr));
+ }
+ .anime09.ob-live-r12 .ob-live-winner-strip-r24>.ob-live-winner{scroll-snap-align:start;min-height:169px;}
+ .anime09.ob-live-r12 .ob-live-winner-strip-r24>.ob-live-winner img{width:44px;height:62px;}
+ .anime09.ob-live-r12 .ob-live-winner-strip-r24 .ob-live-winner-figures-r24{padding:4px 7px 0;}
+ .anime09.ob-live-r12 .ob-live-winner-legend-r24{font-size:11.3px;line-height:1.5;}
+ .anime09.ob-live-r12 .ob-live-trend-chart svg text:not(.ob-live-axis-unit-r24){font-size:14px;}
+ .anime09.ob-live-r12 .ob-live-trend-chart svg .ob-live-axis-unit-r24{font-size:11.2px;}
+}

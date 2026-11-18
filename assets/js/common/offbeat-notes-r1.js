@@ -85,7 +85,8 @@
        const year=document.getElementById('offbeatArchiveYearFilter'),season=document.getElementById('offbeatArchiveSeasonFilter');
        if(year)year.value='all';if(season)season.value='all';
        const allSeason=document.querySelector('.anime09 .n-season-filters [data-season-filter="all"]');if(allSeason)allSeason.click();
-       const btn=document.querySelector('.anime09 .n-archive-filters .filter-button[data-filter="ranking"]');if(btn)btn.click();
+       // R48: Archive CTA advertises weeks, seasons AND posts; show all types.
+       const btn=document.querySelector('.anime09 .n-archive-filters .filter-button[data-filter="all"]');if(btn)btn.click();
     });nav.append(browse);
     const companion=focus.querySelector('#animeTier');if(companion)focus.insertBefore(nav,companion);else focus.append(nav);
     const prelim=ranked.find(p=>p.year===current.year&&p.season===current.season&&Number(p.week)===0);

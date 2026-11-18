@@ -38,7 +38,9 @@
       },
       "satisfaction": {
         "value10": 5,
-        "displayScale": 5
+        "displayScale": 5,
+        "editorialLabelEn": "Underwhelming",
+        "editorialLabelJa": "物足りない"
       }
     },
     "drop_decisions": [
@@ -191,7 +193,7 @@
           "last_slot": 2
         },
         {
-          "trend": "down",
+          "trend": "stay",
           "title": "From Far Away",
           "jpTitle": "彼方から",
           "kv": "kanata",
@@ -389,7 +391,7 @@
           "episode": "ep.5",
           "wrp_score": 9.6,
           "score": 10,
-          "prev_rank": 13,
+          "prev_rank": 14,
           "status": "Cont.",
           "jpTitle": "『ホテル・インヒューマンズ』第2期",
           "kv": "hotel"
@@ -401,7 +403,7 @@
           "episode": "ep.5",
           "wrp_score": 9.15,
           "score": 9,
-          "prev_rank": 9,
+          "prev_rank": 10,
           "status": "Cont.",
           "jpTitle": "目覚めたら最強装備と宇宙船持ちだったので、一戸建て目指して傭兵として自由に生きたい",
           "kv": "mezametara"
@@ -413,7 +415,7 @@
           "episode": "ep.5",
           "wrp_score": 9.05,
           "score": 9,
-          "prev_rank": 6,
+          "prev_rank": 7,
           "status": "Cont.",
           "jpTitle": "超巡！超条先輩",
           "kv": "choujou"
@@ -425,7 +427,7 @@
           "episode": "ep.6",
           "wrp_score": 9,
           "score": 9,
-          "prev_rank": null,
+          "prev_rank": 6,
           "status": "Cont.",
           "jpTitle": "生徒会にも穴はある！",
           "kv": "seitokai"
@@ -485,7 +487,7 @@
           "episode": "ep.6",
           "wrp_score": 8.2,
           "score": 8,
-          "prev_rank": 15,
+          "prev_rank": 16,
           "status": "Cont.",
           "jpTitle": "転生ゴブリンだけど質問ある？",
           "kv": "goblin"
@@ -493,11 +495,11 @@
         {
           "rank": 10,
           "title": "Tokyo Revengers: War of the Three Titan Arc",
-          "trend": "stay",
+          "trend": "up",
           "episode": "ep.6",
           "wrp_score": 8.1,
           "score": 8,
-          "prev_rank": 10,
+          "prev_rank": 11,
           "status": "UR1",
           "jpTitle": "『東京リベンジャーズ』三天戦争編",
           "kv": "tokyo"
@@ -509,7 +511,7 @@
           "episode": "ep.6",
           "wrp_score": 7.15,
           "score": 7,
-          "prev_rank": 17,
+          "prev_rank": 18,
           "status": "UR2",
           "jpTitle": "FX戦士くるみちゃん",
           "kv": "fx"
@@ -521,7 +523,7 @@
           "episode": "ep.6",
           "wrp_score": 6.85,
           "score": 6,
-          "prev_rank": 8,
+          "prev_rank": 9,
           "status": "UR1",
           "jpTitle": "マロニエ王国の七人の騎士",
           "kv": "oukoku"
@@ -533,7 +535,7 @@
           "episode": "ep.5",
           "wrp_score": 6.7,
           "score": 6,
-          "prev_rank": 14,
+          "prev_rank": 15,
           "status": "N/A",
           "jpTitle": "魔法騎士レイアース",
           "kv": "rayearth"
@@ -545,7 +547,7 @@
           "episode": "ep.5",
           "wrp_score": 6.6,
           "score": 6,
-          "prev_rank": 18,
+          "prev_rank": 19,
           "status": "N/A",
           "jpTitle": "凶乱令嬢ニア・リストン 病弱令嬢に転生した神殺しの武人の華麗なる無双録",
           "kv": "kyouran"
@@ -557,7 +559,7 @@
           "episode": "ep.17",
           "wrp_score": 6.3,
           "score": 6,
-          "prev_rank": 11,
+          "prev_rank": 12,
           "status": "Cont.",
           "jpTitle": "『帰還者の魔法は特別です』第二期",
           "kv": "kikansha"
@@ -569,7 +571,7 @@
           "episode": "ep.5",
           "wrp_score": 6,
           "score": 6,
-          "prev_rank": 21,
+          "prev_rank": 22,
           "status": "UR3",
           "jpTitle": "弱気MAX令嬢なのに、辣腕婚約者様の賭けに乗ってしまった",
           "kv": "max"
@@ -581,7 +583,7 @@
           "episode": "ep.6",
           "wrp_score": 5.9,
           "score": 5,
-          "prev_rank": 12,
+          "prev_rank": 13,
           "status": "UR3",
           "jpTitle": "ロメリア戦記",
           "kv": "romelia"
@@ -593,7 +595,7 @@
           "episode": "ep.5",
           "wrp_score": 5.6,
           "score": 5,
-          "prev_rank": 16,
+          "prev_rank": 17,
           "status": "UR2",
           "jpTitle": "塩対応の佐藤さんが俺にだけ甘い",
           "kv": "shiotaiou"
@@ -605,7 +607,7 @@
           "episode": "ep.4",
           "wrp_score": 5.2,
           "score": 5,
-          "prev_rank": 20,
+          "prev_rank": 21,
           "status": "UR3",
           "jpTitle": "信者ゼロの女神サマと始める異世界攻略",
           "kv": "shinja"
@@ -613,11 +615,11 @@
         {
           "rank": 20,
           "title": "From Far Away",
-          "trend": "down",
+          "trend": "stay",
           "episode": "ep.5",
           "wrp_score": 2.9,
           "score": 2,
-          "prev_rank": 19,
+          "prev_rank": 20,
           "status": "UR3",
           "jpTitle": "彼方から",
           "kv": "kanata"
@@ -629,7 +631,7 @@
           "episode": "ep.6",
           "wrp_score": 2.8,
           "score": 2,
-          "prev_rank": 23,
+          "prev_rank": 24,
           "status": "N/A",
           "jpTitle": "転生した大聖女は、聖女であることをひた隠す",
           "kv": "hitakakusu"
@@ -641,7 +643,7 @@
           "episode": "ep.5",
           "wrp_score": 1.6,
           "score": 1,
-          "prev_rank": 25,
+          "prev_rank": 26,
           "status": "UR3",
           "jpTitle": "世界最強の魔女、始めました",
           "kv": "saikyou"
@@ -1157,7 +1159,7 @@
     },
     {
       "rank": 10,
-      "trend": "stay",
+      "trend": "up",
       "title": "Tokyo Revengers: War of the Three Titan Arc",
       "jpTitle": "『東京リベンジャーズ』三天戦争編",
       "kv": "tokyo",
@@ -1326,7 +1328,7 @@
     },
     {
       "rank": "dookie",
-      "trend": "down",
+      "trend": "stay",
       "title": "From Far Away",
       "jpTitle": "彼方から",
       "kv": "kanata",

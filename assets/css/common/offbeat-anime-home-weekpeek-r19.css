@@ -1,0 +1,31 @@
+/* R19 trial: align overline to both endpoints of the joined 4px rule,
+   brighten-to-deepen rule gradient; preserve the panel interior. */
+#anime-top #obLivePeekR1 .ob-wp15.ob-wp16 .ob-wp14-banner {
+  margin-left:calc(-1 * (var(--ob-wp18-pad) + 3px));
+  margin-right:calc(-1 * var(--ob-wp18-pad));
+  padding-left:3px; /* place the first glyph immediately inside the warm spine */
+  font-size:12px;
+  line-height:1.32;
+  font-weight:450;
+  letter-spacing:.065em;
+  color:#819789;
+}
+#anime-top #obLivePeekR1 .ob-wp15.ob-wp16 .ob-wp14-banner>span:last-child {
+  color:#b77958;
+  font-weight:450;
+}
+#anime-top #obLivePeekR1 .ob-wp15.ob-wp16[lang="en"] .ob-wp14-banner>span:last-child::before {content:"W";}
+#anime-top #obLivePeekR1 .ob-wp15.ob-wp16 .ob-wp14-banner::before {left:0;}
+#anime-top #obLivePeekR1 .ob-wp15.ob-wp16 .ob-wp14-banner::after {
+  left:0;right:0;
+  background:linear-gradient(90deg,#bad2a5 0%,#8db282 22%,#558866 58%,#234d37 100%);
+}
+@media (max-width:770px){
+ #anime-top #obLivePeekR1 .ob-wp15.ob-wp16 .ob-wp14-banner{font-size:11px;}
+}
+@media (max-width:400px){
+ #anime-top #obLivePeekR1 .ob-wp15.ob-wp16 .ob-wp14-banner{font-size:10.8px;letter-spacing:.035em;gap:6px;}
+}
+@media (max-width:350px){
+ #anime-top #obLivePeekR1 .ob-wp15.ob-wp16 .ob-wp14-banner{font-size:10.3px;letter-spacing:.02em;}
+}

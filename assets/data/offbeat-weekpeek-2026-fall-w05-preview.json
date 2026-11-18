@@ -1,0 +1,21 @@
+{
+  "schema": "offbeat-week-peek-editorial-v1",
+  "scope": {
+    "year": 2026,
+    "season": "fall",
+    "week": 5
+  },
+  "editableHeadlines": {
+    "en": "A shake-up at the top. A rough week underneath.",
+    "ja": "上位で大逆転。それでも、厳しさが残る第05週。"
+  },
+  "absences": [
+    {
+      "kv": "zombie"
+    },
+    {
+      "kv": "hako"
+    }
+  ],
+  "notes": "Editorial headline and confirmed absence identities only. Rank, WRP and prior rank are derived from official weekly ranking JSON."
+}

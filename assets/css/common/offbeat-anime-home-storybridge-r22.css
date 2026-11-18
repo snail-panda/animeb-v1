@@ -1,0 +1,40 @@
+/* OFFBEAT Anime Home / R22 — local, additive refinement of R21.
+   Only the This Week / Next / Previous story bridge is affected.
+   Retain all of R21's typography and all previous Week Peek/chart work. */
+
+/* The upper divider needs a little breathing space above NOW / 今週. */
+.anime09.ob-live-r12 .ob-live-story {
+  margin-top: 15px;
+}
+/* Give NOW -> This Week hierarchy a deliberate gap without boldening the title. */
+.anime09.ob-live-r12:not([data-ob-live-lang="ja"]) .ob-live-now h3 {
+  margin-top: 10px;
+}
+.anime09.ob-live-r12[data-ob-live-lang="ja"] .ob-live-now h3 {
+  margin-top: 10px !important;
+}
+/* English copy: tiny size/leading increase and more space before the stats. */
+.anime09.ob-live-r12:not([data-ob-live-lang="ja"]) .ob-live-excerpt {
+  font-size: 14.8px;
+  line-height: 1.47;
+  margin-bottom: 15px;
+}
+/* Japanese copy keeps its R21 font and leading. Only add a little whitespace. */
+.anime09.ob-live-r12[data-ob-live-lang="ja"] .ob-live-excerpt {
+  margin-bottom: 15px !important;
+}
+/* R21 already reduced number weight to 550: do NOT soften its color too. */
+.anime09.ob-live-r12 .ob-live-story-status .ob-bridge-number-r20 {
+  color: #264d37;
+}
+@media (max-width: 690px) {
+  .anime09.ob-live-r12 .ob-live-story { margin-top: 13px; }
+  .anime09.ob-live-r12:not([data-ob-live-lang="ja"]) .ob-live-now h3 { margin-top: 9px; }
+  .anime09.ob-live-r12[data-ob-live-lang="ja"] .ob-live-now h3 { margin-top: 9px !important; }
+  .anime09.ob-live-r12:not([data-ob-live-lang="ja"]) .ob-live-excerpt {
+    font-size: 14px;
+    line-height: 1.47;
+    margin-bottom: 14px;
+  }
+  .anime09.ob-live-r12[data-ob-live-lang="ja"] .ob-live-excerpt { margin-bottom: 14px !important; }
+}

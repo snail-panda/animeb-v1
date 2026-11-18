@@ -1,0 +1,122 @@
+/* OFFBEAT Anime Home — R12 targeted repair 1.
+   Overlay only. R12 originals remain unchanged.
+   Refer to the OPENING/MIDDLE/LATE/CLIMAX labels below the timeline:
+   their actual CSS is 550 10px/1.25 var(--ob-ui-font), not Barlow.
+*/
+/* A. Keep W + week number quiet. MID/FINAL/PRELIM are separate, legible labels. */
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11.ob-live-r12 .n-season-13 .n-weeks>*:not(.n-prelim)>span{
+ font:400 8.8px/1.12 var(--ob-ui-font)!important;
+ letter-spacing:0!important;
+}
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11.ob-live-r12 .n-season-13 .n-weeks>*:not(.n-prelim)>b{
+ font:500 12.4px/1.12 var(--ob-ui-font)!important;
+ letter-spacing:0!important;
+}
+/* These are exactly the SAME family, weight, line-height and spacing as stage labels. */
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11.ob-live-r12 .n-season-13 .n-weeks .n-milestone::after{
+ font:550 10.8px/1.25 var(--ob-ui-font)!important;
+ letter-spacing:.015em!important;
+ margin:0!important;
+}
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11.ob-live-r12 .n-season-13 .n-weeks .n-prelim>span{
+ font:550 10.2px/1.25 var(--ob-ui-font)!important;
+ letter-spacing:.015em!important;
+}
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11.ob-live-r12 .n-season-13 .n-weeks .n-prelim>b{
+ font:500 12.4px/1.12 var(--ob-ui-font)!important;
+}
+/* B. Only the archived-season return link drops BELOW the row of season tabs. */
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11.ob-live-r12 .n-season-13 .n-season-chooser>.ob-r16-back:not([hidden]){
+ order:3!important;
+ display:flex!important;
+ flex:0 0 100%!important;
+ width:100%!important;
+ align-items:center!important;
+ justify-content:flex-end!important;
+ margin:3px 0 0!important;
+ padding:2px 0!important;
+ position:static!important;
+ text-align:right!important;
+}
+/* C. Keep the season-tab styling but remove internal Winter/Spring/Summer/Fall dividers. */
+/* Also cover the brief pre-enhancement state before the season chooser is rebuilt. */
+.anime09 .n-season-chooser .n-season-tabs > * + *{
+ border-left:0!important;
+}
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11.ob-live-r12 .n-season-13 .n-season-chooser .n-season-tabs.ob-r16-tabs{
+ gap:0!important;
+}
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11.ob-live-r12 .n-season-13 .n-season-chooser .n-season-tabs.ob-r16-tabs button+button{
+ border-left:0!important;
+}
+/* D. Week Peek header has ONE separating line, not two stacked rules. */
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11.ob-live-r12 .ob-live-population-r10{
+ border-top:0!important;
+ padding-top:5px!important;
+ margin-top:5px!important;
+}
+/* E. Show the three winners as one group: #1 featured, #2/#3 compact.
+   The kicker belongs to the group, not a detached row above it. */
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11.ob-live-r12 .ob-live-top3{
+ display:grid!important;
+ grid-template-columns:145px minmax(0,1fr)!important;
+ align-items:start!important;
+ gap:8px 14px!important;
+ padding-top:12px!important;
+ margin-top:12px!important;
+ border-top:1px solid #cad6c7!important;
+}
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11.ob-live-r12 .ob-live-top3>.ob-live-kicker{
+ margin:7px 0 0!important;
+ align-self:start!important;
+ font-size:11px!important;
+ line-height:1.3!important;
+}
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11.ob-live-r12 .ob-live-top3-grid{
+ margin:0!important;
+ min-width:0!important;
+ display:grid!important;
+ grid-template-columns:minmax(0,1.13fr) minmax(0,.87fr)!important;
+ grid-template-rows:repeat(2,minmax(60px,auto))!important;
+ gap:7px 9px!important;
+}
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11.ob-live-r12 .ob-live-top3-item{
+ min-height:60px!important;
+ padding:7px 8px!important;
+}
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11.ob-live-r12 .ob-live-top3-item:first-child{
+ grid-column:1!important;grid-row:1 / 3!important;
+}
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11.ob-live-r12 .ob-live-top3-item:nth-child(2){
+ grid-column:2!important;grid-row:1!important;
+}
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11.ob-live-r12 .ob-live-top3-item:nth-child(3){
+ grid-column:2!important;grid-row:2!important;
+}
+@media(max-width:770px){
+ .anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11.ob-live-r12 .ob-live-top3{
+  display:block!important;
+ }
+ .anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11.ob-live-r12 .ob-live-top3>.ob-live-kicker{
+  margin:0 0 8px!important;
+ }
+ .anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11.ob-live-r12 .ob-live-top3-grid{
+  grid-template-columns:1fr!important;grid-template-rows:none!important;
+ }
+ .anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11.ob-live-r12 .ob-live-top3-item:first-child,
+ .anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11.ob-live-r12 .ob-live-top3-item:nth-child(2),
+ .anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11.ob-live-r12 .ob-live-top3-item:nth-child(3){
+  grid-area:auto!important;
+ }
+ .anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11.ob-live-r12 .ob-live-top3-item:first-child img{
+  width:49px!important;height:67px!important;flex:0 0 49px!important;
+ }
+}
+@media(max-width:690px){
+ .anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11.ob-live-r12 .n-season-13 .n-weeks .n-milestone::after{
+  font-size:9.7px!important;
+ }
+ .anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11.ob-live-r12 .n-season-13 .n-weeks .n-prelim>span{
+  font-size:9.3px!important;
+ }
+}

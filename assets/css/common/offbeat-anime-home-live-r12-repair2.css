@@ -1,0 +1,28 @@
+/* OFFBEAT R12 repair 2 — week-number alignment and return-link underline only.
+   Requires repair 1. No other layout or data changes. */
+/* MID and FINAL use the same single centered W+number line as ordinary weeks.
+   The milestone label is placed below it, without altering the number baseline. */
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11.ob-live-r12 .n-season-13 .n-weeks .n-milestone{
+ display:flex!important; flex-direction:row!important; flex-wrap:nowrap!important;
+ align-items:center!important; justify-content:center!important; align-content:center!important;
+ gap:2px!important; position:relative!important;
+}
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11.ob-live-r12 .n-season-13 .n-weeks .n-milestone>span,
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11.ob-live-r12 .n-season-13 .n-weeks .n-milestone>b{
+ grid-area:auto!important; flex:0 0 auto!important; align-self:center!important;
+ order:0!important; margin:0!important; transform:none!important;
+}
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11.ob-live-r12 .n-season-13 .n-weeks .n-milestone::after{
+ position:absolute!important; display:block!important; grid-area:auto!important;
+ top:auto!important; bottom:3px!important; left:0!important; right:0!important;
+ width:100%!important; margin:0!important; padding:0!important;
+ text-align:center!important; align-self:auto!important; justify-self:auto!important;
+ font-size:10px!important; line-height:1.1!important;
+}
+/* The return action occupies a new row; ONLY its letters receive an underline.
+   The previous border was drawn across the full-width flex item. */
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11.ob-live-r12 .n-season-13 .n-season-chooser>.ob-r16-back:not([hidden]){
+ border:0!important; border-bottom:0!important; text-decoration:underline!important;
+ text-underline-offset:4px!important; text-decoration-color:#97aa96!important;
+ text-decoration-thickness:1px!important;
+}

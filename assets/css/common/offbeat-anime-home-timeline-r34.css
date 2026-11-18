@@ -1,0 +1,303 @@
+/* OFFBEAT Anime Home R34 — Timeline hierarchy and Season Checkpoints.
+   Additive to R33: current > imminent checkpoint > past > distant future.
+   This sheet does not alter editorial, ranking, Week Peek or season selection. */
+#anime-top .n-season-dashboard.ob-r34-timeline {
+  --ob34-prelim:#9c879c;
+  --ob34-prelim-wash:#F4F0F4;
+  --ob34-sage:#729380;
+  --ob34-amber:#bd8556;
+  --ob34-gold:#c0a774;
+  --ob34-ui:"Gill Sans","Trebuchet MS",sans-serif;
+}
+/* Preserve the existing intro and next-week signal; label the navigation. */
+#anime-top .n-season-dashboard.ob-r34-timeline #obLiveRoundIntroR3>span:first-child {letter-spacing:.015em;}
+/* Three special checkpoints get a consistent top line. Week 00 is outside
+   the twelve-week season but remains visible with a near-neutral lilac wash. */
+#anime-top .n-season-dashboard.ob-r34-timeline .n-weeks>.n-prelim,
+#anime-top.ob-r29-on .n-season-dashboard.ob-r34-timeline .n-weeks>.n-prelim:not(.n-now) {
+  background:var(--ob34-prelim-wash)!important;
+  color:#7b7180!important;
+  border:1px solid #d9d0da!important;
+  border-top:3px solid var(--ob34-prelim)!important;
+  box-shadow:none!important;
+}
+#anime-top .n-season-dashboard.ob-r34-timeline .n-weeks>.n-milestone-mid:not(.n-now) {
+  border-top:3px solid var(--ob34-amber)!important;
+  border-bottom:0!important;
+  box-shadow:none!important;
+}
+#anime-top .n-season-dashboard.ob-r34-timeline .n-weeks>.n-milestone-final:not(.n-now),
+#anime-top.ob-r29-on .n-season-dashboard.ob-r34-timeline .n-weeks>.n-milestone-final:not(.n-now) {
+  border:1px solid transparent!important;
+  border-top:3px solid var(--ob34-gold)!important;
+  border-bottom:0!important;
+  box-shadow:none!important;
+}
+/* Future checkpoints should not look like active editorial modules. */
+#anime-top .n-season-dashboard.ob-r34-timeline .n-weeks>.n-milestone-mid.ob-r34-future:not(.ob-r34-imminent),
+#anime-top .n-season-dashboard.ob-r34-timeline .n-weeks>.n-milestone-final.ob-r34-future:not(.ob-r34-imminent) {
+  background:#eff2ed!important;color:#a2b0a4!important;
+}
+#anime-top .n-season-dashboard.ob-r34-timeline .n-weeks>.n-milestone-final.ob-r34-future:not(.ob-r34-imminent)::after {
+  color:#829489!important; /* FINAL remains identifiable, not brightly lit. */
+}
+/* W06 when it is the NEXT round remains a proper midpoint beacon. */
+#anime-top .n-season-dashboard.ob-r34-timeline .n-weeks>.n-milestone-mid.ob-r34-imminent:not(.n-now) {
+  background:#f5e7d9!important;color:#a36b46!important;
+  border-top:3px solid var(--ob34-amber)!important;
+}
+/* W12 wakes up when Climax begins, not at W05. */
+#anime-top .n-season-dashboard.ob-r34-timeline .n-weeks>.n-milestone-final.ob-r34-imminent:not(.n-now) {
+  background:#f4f1e7!important;color:#6e7865!important;
+}
+#anime-top .n-season-dashboard.ob-r34-timeline .n-weeks>.n-milestone-final.ob-r34-imminent:not(.n-now)::after {color:#61745e!important;}
+/* A passed checkpoint keeps a readable but quiet, completed state. */
+#anime-top .n-season-dashboard.ob-r34-timeline .n-weeks>.n-milestone-mid.ob-r34-past:not(.n-now),
+#anime-top .n-season-dashboard.ob-r34-timeline .n-weeks>.n-milestone-final.ob-r34-past:not(.n-now) {
+  background:#e6ece4!important;color:#57705c!important;
+}
+/* Current week always wins: retain the original deep-green tile and bright
+   lower inset, even at W06/W12. The checkpoint top accent can still remain. */
+#anime-top .n-season-dashboard.ob-r34-timeline .n-weeks>.n-now {
+  background:#2f543e!important;color:#fffdf1!important;
+  border-color:#2f543e!important;
+  box-shadow:inset 0 -4px #afd28e,0 0 0 1px #344d33!important;
+}
+#anime-top .n-season-dashboard.ob-r34-timeline .n-weeks>.n-now.n-milestone-mid {border-top:3px solid var(--ob34-amber)!important;}
+#anime-top .n-season-dashboard.ob-r34-timeline .n-weeks>.n-now.n-milestone-final {border-top:3px solid var(--ob34-gold)!important;}
+#anime-top .n-season-dashboard.ob-r34-timeline .n-weeks>.n-now.n-prelim {background:#2f543e!important;color:#fffdf1!important;border-top-color:var(--ob34-prelim)!important;box-shadow:inset 0 -4px #afd28e!important;}
+#anime-top .n-season-dashboard.ob-r34-timeline .n-weeks>.n-now.n-milestone::after {color:#f8f5eb!important;}
+/* Past/current/future stage separation takes precedence over full palette.
+   Original phase labels, time ranges and responsive behavior remain intact. */
+#anime-top.ob-r29-on .n-season-dashboard.ob-r34-timeline #obLivePhasesR1>span {
+  background:transparent!important;
+  transition:background-color .2s ease;
+}
+#anime-top.ob-r29-on .n-season-dashboard.ob-r34-timeline #obLivePhasesR1>span.ob-r34-phase-past {
+  color:#688271!important;background:transparent!important;
+}
+#anime-top.ob-r29-on .n-season-dashboard.ob-r34-timeline #obLivePhasesR1>span.ob-r34-phase-current.ob-r29-opening {
+  background:#edf2e7!important;color:#426b52!important;
+}
+#anime-top.ob-r29-on .n-season-dashboard.ob-r34-timeline #obLivePhasesR1>span.ob-r34-phase-current.ob-r29-middle {
+  background:#f3eddf!important;color:#a66b45!important;
+}
+#anime-top.ob-r29-on .n-season-dashboard.ob-r34-timeline #obLivePhasesR1>span.ob-r34-phase-current.ob-r29-late {
+  background:#edf2f1!important;color:#65808a!important;
+}
+#anime-top.ob-r29-on .n-season-dashboard.ob-r34-timeline #obLivePhasesR1>span.ob-r34-phase-current.ob-r29-climax {
+  background:#f3f0e6!important;color:#80704c!important;
+}
+#anime-top.ob-r29-on .n-season-dashboard.ob-r34-timeline #obLivePhasesR1>span.ob-r34-phase-future {
+  background:transparent!important;color:#a4b0a8!important;
+}
+#anime-top.ob-r29-on .n-season-dashboard.ob-r34-timeline #obLivePhasesR1>span.ob-r34-phase-future.ob-r29-late {border-top-color:#d2dcda!important;}
+#anime-top.ob-r29-on .n-season-dashboard.ob-r34-timeline #obLivePhasesR1>span.ob-r34-phase-future.ob-r29-climax {border-top-color:#dcd5c4!important;}
+#anime-top.ob-r29-on .n-season-dashboard.ob-r34-timeline #obLivePhasesR1>span.ob-r34-phase-future .ob-live-phase-title,
+#anime-top.ob-r29-on .n-season-dashboard.ob-r34-timeline #obLivePhasesR1>span.ob-r34-phase-future .ob-live-phase-range {
+  color:#a9b6ab!important;font-weight:400!important;
+}
+#anime-top.ob-r29-on .n-season-dashboard.ob-r34-timeline #obLivePhasesR1>span.ob-r34-phase-current .ob-live-phase-title,
+#anime-top.ob-r29-on .n-season-dashboard.ob-r34-timeline #obLivePhasesR1>span.ob-r34-phase-current .ob-live-phase-range {
+  color:inherit!important;font-weight:500!important;
+}
+/* The original milestone micro-legend and R12 checkpoint DOM continue to exist
+   for compatibility. Once R34 has built its unified four-checkpoint row, hide
+   their duplicate visual versions only (Week Peek control is untouched). */
+#anime-top .n-season-dashboard.ob-r34-has-checkpoints .ob-live-stage-legend,
+#anime-top .n-season-dashboard.ob-r34-has-checkpoints>.n-checkpoints {display:none!important;}
+#anime-top .n-season-dashboard .ob-r34-checkpoints {
+  border-top:1px solid #c5d1c2;margin-top:10px;padding:12px 0 4px;
+}
+#anime-top .n-season-dashboard .ob-r34-checkpoints-title {
+  display:block;font:500 10px/1.2 var(--ob34-ui);letter-spacing:.12em;color:#956849;
+  margin:0 0 10px;
+}
+#anime-top .n-season-dashboard .ob-r34-checkpoints-grid {
+  display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px 12px;
+}
+#anime-top .n-season-dashboard .ob-r34-checkpoint {
+  --cp34:#9c879c;--cp34-text:#6f6676;--cp34-underline:#c9bdcb;
+  display:flex;align-items:center;flex-wrap:wrap;gap:4px 6px;
+  border-left:3px solid var(--cp34);border-bottom:1px solid var(--cp34-underline);
+  padding:4px 5px 7px 10px;min-width:0;box-sizing:border-box;
+  font:500 10.5px/1.28 var(--ob34-ui);letter-spacing:.04em;
+}
+#anime-top .n-season-dashboard .ob-r34-checkpoint.ob-r34-cp-opening {--cp34:#729380;--cp34-text:#4b745f;--cp34-underline:#9ab6a0;}
+#anime-top .n-season-dashboard .ob-r34-checkpoint.ob-r34-cp-middle {--cp34:#bd8556;--cp34-text:#996f52;--cp34-underline:#d2ac8e;}
+#anime-top .n-season-dashboard .ob-r34-checkpoint.ob-r34-cp-final {--cp34:#c0a774;--cp34-text:#8c794f;--cp34-underline:#d8caab;}
+#anime-top .n-season-dashboard .ob-r34-checkpoint>.ob-r34-cp-main {
+  color:var(--cp34-text);text-decoration:none;font:inherit;display:inline-flex;gap:4px;align-items:baseline;
+  min-width:0;
+}
+#anime-top .n-season-dashboard .ob-r34-checkpoint .ob-r34-cp-week {white-space:nowrap;color:inherit;font-weight:400;}
+#anime-top .n-season-dashboard .ob-r34-checkpoint.ob-r34-cp-future {
+  --cp34-text:#aab5ac;--cp34-underline:#dce2dc;
+  border-left-color:color-mix(in srgb,var(--cp34) 44%,#f4f4ee);
+}
+#anime-top .n-season-dashboard .ob-r34-checkpoint.ob-r34-cp-future.ob-r34-cp-final {--cp34-text:#acb2a7;--cp34-underline:#e0ded5;}
+#anime-top .n-season-dashboard .ob-r34-checkpoint>.ob-r34-cp-main[href]:hover,
+#anime-top .n-season-dashboard .ob-r34-checkpoint>.ob-r34-cp-main[href]:focus-visible {
+  color:#254d3c;text-decoration:underline;text-underline-offset:4px;
+}
+#anime-top .n-season-dashboard .ob-r34-checkpoint .ob-r34-cp-extra{
+  font:400 9px/1 var(--ob34-ui);text-decoration:none;white-space:nowrap;
+  color:#778a7d;border-bottom:1px solid #c4d0c2;
+}
+#anime-top .n-season-dashboard .ob-r34-checkpoint .ob-r34-cp-extra:hover{text-decoration:underline;}
+/* Compact on phones; don't force microscopic type into four equal columns. */
+@media(max-width:800px){
+ #anime-top .n-season-dashboard .ob-r34-checkpoints-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px 11px;}
+ #anime-top .n-season-dashboard .ob-r34-checkpoint{font-size:10px;padding:5px 5px 7px 8px;}
+}
+@media(max-width:410px){
+ #anime-top .n-season-dashboard .ob-r34-checkpoint{font-size:9.5px;letter-spacing:0;}
+}
+/* Educational diagram lives INSIDE the existing About S.O.W. dialog.
+   It is timeless: no selected/current-week state or published-link imitation. */
+#anime-top.anime09 #obLiveGuideR5 .ob-r34-map-details{
+  margin:14px 0 18px;border:1px solid #cbd6c8;background:#faf9f2;
+}
+#anime-top.anime09 #obLiveGuideR5 .ob-r34-map-details>summary{
+  cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:10px;
+  padding:11px 13px;font:500 11px/1.25 var(--ob34-ui,"Trebuchet MS",sans-serif);
+  color:#345b46;letter-spacing:.065em;
+}
+#anime-top.anime09 #obLiveGuideR5 .ob-r34-map-details>summary::-webkit-details-marker{display:none;}
+#anime-top.anime09 #obLiveGuideR5 .ob-r34-map-details>summary small{font-size:9px;letter-spacing:.05em;color:#789087;}
+#anime-top.anime09 #obLiveGuideR5 .ob-r34-map-details>summary::after{content:'+';font:500 17px/1 sans-serif;color:#708575;}
+#anime-top.anime09 #obLiveGuideR5 .ob-r34-map-details[open]>summary::after{content:'−';}
+#anime-top.anime09 #obLiveGuideR5 .ob-r34-map-contents{padding:12px 13px 14px;border-top:1px solid #d7ded2;}
+#anime-top.anime09 #obLiveGuideR5 .ob-r34-map-intro{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;
+  margin:0 0 11px;color:#718a81;font:400 10px/1.3 var(--ob34-ui,"Trebuchet MS",sans-serif);letter-spacing:.04em;}
+#anime-top.anime09 #obLiveGuideR5 .ob-r34-map-weeks{display:grid;grid-template-columns:repeat(13,minmax(0,1fr));gap:3px;}
+#anime-top.anime09 #obLiveGuideR5 .ob-r34-map-week{
+  min-height:39px;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  border-top:3px solid #a6bbaa;background:#f1f3ec;color:#667c6d;
+  font:500 10px/1.15 var(--ob34-ui,"Trebuchet MS",sans-serif);min-width:0;
+}
+#anime-top.anime09 #obLiveGuideR5 .ob-r34-map-week small{font-size:8px;font-weight:400;}
+#anime-top.anime09 #obLiveGuideR5 .ob-r34-map-week.is-prelim{background:#F4F0F4;border-color:#9c879c;color:#796d7e;}
+#anime-top.anime09 #obLiveGuideR5 .ob-r34-map-week.is-middle{border-color:#d1b198;}
+#anime-top.anime09 #obLiveGuideR5 .ob-r34-map-week.is-late{border-color:#c0cecf;}
+#anime-top.anime09 #obLiveGuideR5 .ob-r34-map-week.is-climax{border-color:#d1c49f;}
+#anime-top.anime09 #obLiveGuideR5 .ob-r34-map-week.is-midpoint{border-color:#bd8556;}
+#anime-top.anime09 #obLiveGuideR5 .ob-r34-map-week.is-final{border-color:#c0a774;}
+#anime-top.anime09 #obLiveGuideR5 .ob-r34-map-phases{
+  display:grid;grid-template-columns:.6fr 3fr 4fr 3fr 2fr;gap:4px;margin-top:12px;
+}
+#anime-top.anime09 #obLiveGuideR5 .ob-r34-map-phase{--map-accent:#9c879c;border-top:3px solid var(--map-accent);padding:6px 3px 5px;
+  display:flex;flex-direction:column;gap:3px;color:#718477;background:#f7f8f3;
+  font:500 10px/1.1 var(--ob34-ui,"Trebuchet MS",sans-serif);min-width:0;
+}
+#anime-top.anime09 #obLiveGuideR5 .ob-r34-map-phase small{font-size:8px;color:#8b9e92;font-weight:400;}
+#anime-top.anime09 #obLiveGuideR5 .ob-r34-map-phase.is-prelim{background:#f8f5f8;color:#85768a;}
+#anime-top.anime09 #obLiveGuideR5 .ob-r34-map-phase.is-opening{--map-accent:#729380;}
+#anime-top.anime09 #obLiveGuideR5 .ob-r34-map-phase.is-middle{--map-accent:#bd8556;}
+#anime-top.anime09 #obLiveGuideR5 .ob-r34-map-phase.is-late{--map-accent:#a6b9c2;}
+#anime-top.anime09 #obLiveGuideR5 .ob-r34-map-phase.is-climax{--map-accent:#c0a774;background:#faf9f3;}
+#anime-top.anime09 #obLiveGuideR5 .ob-r34-map-phase.is-prelim b{font-size:8px;word-break:break-word;}
+#anime-top.anime09 #obLiveGuideR5 .ob-r34-map-milestones{
+  display:flex;justify-content:space-between;gap:7px;flex-wrap:wrap;
+  border-top:1px solid #d2dbce;margin-top:12px;padding-top:9px;
+}
+#anime-top.anime09 #obLiveGuideR5 .ob-r34-map-milestone{border-left:3px solid #9c879c;padding-left:7px;
+  font:500 9px/1.3 var(--ob34-ui,"Trebuchet MS",sans-serif);color:#74697a;}
+#anime-top.anime09 #obLiveGuideR5 .ob-r34-map-milestone.is-opening{border-color:#729380;color:#597763;}
+#anime-top.anime09 #obLiveGuideR5 .ob-r34-map-milestone.is-middle{border-color:#bd8556;color:#986f50;}
+#anime-top.anime09 #obLiveGuideR5 .ob-r34-map-milestone.is-final{border-color:#c0a774;color:#86744f;}
+@media(max-width:620px){
+ #anime-top.anime09 #obLiveGuideR5 .ob-r34-map-contents{overflow-x:auto;}
+ #anime-top.anime09 #obLiveGuideR5 .ob-r34-map-intro{min-width:475px;}
+ #anime-top.anime09 #obLiveGuideR5 .ob-r34-map-weeks,
+ #anime-top.anime09 #obLiveGuideR5 .ob-r34-map-phases,
+ #anime-top.anime09 #obLiveGuideR5 .ob-r34-map-milestones{min-width:475px;}
+ #anime-top.anime09 #obLiveGuideR5 .ob-r34-map-week{font-size:9px;}
+}
+
+/* R50: the season map now belongs to the inline About S.O.W. guide.
+   Keep the original R34 infographic structure and colors; match the FAQ rhythm. */
+#anime-top.anime09 #obLiveGuideR5 .ob-r34-map-details {
+  border:0;margin:0;padding:0;background:transparent;
+  border-bottom:1px solid #d4ded0;
+}
+#anime-top.anime09 #obLiveGuideR5 .ob-r34-map-details>summary {
+  display:block;width:100%;box-sizing:border-box;padding:9px 3px;
+  border:0;color:#4e7057;background:transparent;
+  font:400 14px/1.2 "EB Garamond",Georgia,serif;
+  letter-spacing:0;
+}
+#anime-top.anime09 #obLiveGuideR5 .ob-r34-map-details>summary:hover {color:#a17b53;}
+#anime-top.anime09 #obLiveGuideR5 .ob-r34-map-details>summary::after {
+  float:right;font:400 13px/1 Georgia,serif;color:#80947d;
+}
+#anime-top.anime09 #obLiveGuideR5 .ob-r34-map-contents {
+  border:0;margin:5px 0 10px 9px;padding:8px 12px 11px;
+  border-left:2px solid #d1dec9;background:#fafaf4;
+}
+#anime-top.anime09 #obLiveGuideR5 .ob-r34-map-explain {
+  color:#476450;font:400 13.5px/1.55 "EB Garamond",Georgia,serif;
+  margin:0 0 9px;
+}
+#anime-top.anime09 #obLiveGuideR5 .ob-r34-map-week.is-prelim {background:#E8E8DC;color:#607860;}
+#anime-top.anime09 #obLiveGuideR5 .ob-r34-map-phase.is-prelim {background:#f0f0e9;color:#65786c;}
+#anime-top.anime09[data-ob-live-lang="ja"] #obLiveGuideR5 .ob-r34-map-explain {
+  font:400 12.5px/1.65 "Yu Mincho","Noto Serif JP",serif;
+}
+@media(max-width:620px){
+  #anime-top.anime09 #obLiveGuideR5 .ob-r34-map-contents {margin-left:5px;padding:8px 8px 11px;}
+  #anime-top.anime09 #obLiveGuideR5 .ob-r34-map-explain {font-size:13px;}
+}
+
+/* R51: Align the About S.O.W. map checkpoints with W00 / W01 / W06 / W12.
+   R50 map only. The live season timeline and editorial sections are untouched. */
+#anime-top.anime09 #obLiveGuideR5 .ob-r34-map-milestones {
+  display:grid;
+  grid-template-columns:repeat(13,minmax(0,1fr));
+  column-gap:3px;
+  row-gap:0;
+  align-items:start;
+  justify-content:initial;
+  flex-wrap:initial;
+}
+#anime-top.anime09 #obLiveGuideR5 .ob-r34-map-milestone {
+  box-sizing:border-box;
+  min-width:0;
+  padding-left:5px;
+  white-space:nowrap;
+}
+/* W00 has a narrow tile; its label may wrap naturally to the next line. */
+#anime-top.anime09 #obLiveGuideR5 .ob-r34-map-milestone.is-prelim {
+  grid-column:1 / span 1;
+  white-space:normal;
+  font-size:8px;
+  padding-left:3px;
+}
+/* First Impressions begins just after the preliminary tile, at W01. */
+#anime-top.anime09 #obLiveGuideR5 .ob-r34-map-milestone.is-opening {
+  grid-column:2 / span 4;
+}
+/* Midseason begins at W06, not beneath W08. */
+#anime-top.anime09 #obLiveGuideR5 .ob-r34-map-milestone.is-middle {
+  grid-column:7 / span 3;
+}
+/* Final begins at the final W12 tile. */
+#anime-top.anime09 #obLiveGuideR5 .ob-r34-map-milestone.is-final {
+  grid-column:13 / span 1;
+}
+@media (max-width:650px) {
+  /* Keep all three map bands on the same scale inside the existing
+     horizontally scrollable infographic; avoid label collisions on phones. */
+  #anime-top.anime09 #obLiveGuideR5 .ob-r34-map-weeks,
+  #anime-top.anime09 #obLiveGuideR5 .ob-r34-map-phases,
+  #anime-top.anime09 #obLiveGuideR5 .ob-r34-map-milestones {
+    min-width:700px;
+  }
+  #anime-top.anime09 #obLiveGuideR5 .ob-r34-map-milestone.is-prelim {
+    font-size:7px;
+    padding-left:2px;
+  }
+  #anime-top.anime09 #obLiveGuideR5 .ob-r34-map-milestone.is-final {
+    font-size:8px;
+  }
+}

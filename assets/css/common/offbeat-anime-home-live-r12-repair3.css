@@ -1,0 +1,76 @@
+/* OFFBEAT R12 targeted repair 3 — ONLY requested timeline / return control / NEW weight.
+   Requires R12 + Repair 1 + Repair 2. The prior files remain intact. */
+/* Optical baseline: W is smaller, and needs a slight downward optical offset. */
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11.ob-live-r12 .n-season-13 .n-weeks>*:not(.n-prelim)>span {
+ position:relative!important; transform:translateY(1.4px)!important;
+}
+/* Show MID and FINAL ABOVE W + number; the milestone may sit a little lower
+   than ordinary weeks. Keep the existing compact cell height. */
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11.ob-live-r12 .n-season-13 .n-weeks .n-milestone {
+ position:relative!important;display:flex!important;flex-direction:row!important;
+ flex-wrap:nowrap!important;align-items:center!important;justify-content:center!important;
+ align-content:center!important;column-gap:2px!important;
+}
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11.ob-live-r12 .n-season-13 .n-weeks .n-milestone::after {
+ content:'MID'; display:block!important;position:absolute!important;
+ left:0!important;right:0!important;top:5px!important;bottom:auto!important;
+ width:100%!important;max-height:14px!important;
+ margin:0!important;padding:0!important;order:0!important;
+ font:500 9px/1.17 var(--ob-ui-font)!important;
+ letter-spacing:.005em!important;text-align:center!important;white-space:nowrap!important;
+}
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11.ob-live-r12 .n-season-13 .n-weeks .n-milestone-final::after {content:'FINAL'!important;}
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11.ob-live-r12 .n-season-13 .n-weeks .n-milestone>span {
+ position:relative!important;transform:translateY(6.4px)!important;
+ margin:0!important;order:0!important;
+}
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11.ob-live-r12 .n-season-13 .n-weeks .n-milestone>b {
+ position:relative!important;transform:translateY(5px)!important;
+ margin:0!important;order:1!important;
+}
+/* PRELIM takes the same label-over-number reading order as MID / FINAL. */
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11.ob-live-r12 .n-season-13 .n-weeks .n-prelim {
+ display:flex!important;flex-direction:column!important;justify-content:center!important;
+ align-items:center!important;gap:3px!important;
+}
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11.ob-live-r12 .n-season-13 .n-weeks .n-prelim>span {
+ order:0!important;transform:none!important;
+ font:500 9px/1.17 var(--ob-ui-font)!important;letter-spacing:0!important;
+}
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11.ob-live-r12 .n-season-13 .n-weeks .n-prelim>b {order:1!important;transform:none!important;}
+/* The stable second row is always there for View All Seasons. Dock the return
+   control directly to its LEFT. No extra row on entering an archived season. */
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11.ob-live-r12 .n-season-13 .ob-r12-archive-actions {
+ display:flex!important;justify-content:flex-end!important;align-items:flex-start!important;
+ gap:16px!important;flex-wrap:nowrap!important;
+ width:100%!important;min-width:0!important;box-sizing:border-box!important;
+ margin:6px 0 0!important;padding:0!important;
+}
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11.ob-live-r12 .n-season-13 .ob-r12-archive-actions>.ob-r16-back:not([hidden]) {
+ position:static!important;inset:auto!important;transform:none!important;
+ flex:0 0 auto!important;order:0!important;
+ width:auto!important;max-width:none!important;min-width:0!important;
+ display:inline-flex!important;justify-content:center!important;align-items:center!important;
+ align-self:flex-start!important;margin:3px 0 0!important;padding:2px 0!important;
+ border:0!important;text-decoration:underline!important;text-decoration-color:#97aa96!important;
+ text-decoration-thickness:1px!important;text-underline-offset:4px!important;
+ text-align:right!important;white-space:nowrap!important;
+}
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11.ob-live-r12 .n-season-13 .ob-r12-archive-actions>.ob-r16-back[hidden] {display:none!important;}
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11.ob-live-r12 .n-season-13 .ob-r12-archive-actions>.ob-r16-overview {
+ order:1!important;flex:0 0 auto!important;min-width:0!important;max-width:100%!important;
+ clear:none!important;margin:0!important;padding:0!important;
+}
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11.ob-live-r12 .n-season-13 .ob-r12-archive-actions .ob-r16-summary {margin:3px 0 0 auto!important;}
+/* Opening the all-seasons list must remain possible; allow it to take the row. */
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11.ob-live-r12 .n-season-13 .ob-r12-archive-actions:has(.ob-r16-overview[open]) {flex-wrap:wrap!important;}
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11.ob-live-r12 .n-season-13 .ob-r12-archive-actions>.ob-r16-overview[open] {
+ flex:1 1 100%!important;order:2!important;width:100%!important;max-width:none!important;
+}
+/* 'NEW' alone: take one weight down; keep its outline, size and color. */
+.anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11.ob-live-r12 .ob-live-updates-label {font-weight:400!important;}
+@media(max-width:690px) {
+ .anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11.ob-live-r12 .n-season-13 .n-weeks .n-milestone::after {font-size:8.4px!important;top:5px!important;}
+ .anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11.ob-live-r12 .n-season-13 .n-weeks .n-prelim>span {font-size:8.4px!important;}
+ .anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11.ob-live-r12 .n-season-13 .ob-r12-archive-actions {gap:10px!important;}
+}

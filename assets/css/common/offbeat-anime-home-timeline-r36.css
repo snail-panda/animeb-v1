@@ -1,0 +1,36 @@
+/* OFFBEAT R36 — ONLY a micro-lightening of PRELIM's background and
+   moving R35's existing milestone legend alongside the original Week Peek.
+   All behavior/links/other colors/labels remain under R35's control. */
+#anime-top.ob-r29-on .n-season-dashboard.ob-r35-timeline .n-weeks>.n-prelim:not(.n-now) {
+  background:#F7F4F7!important; /* R35 #F4F0F4 -> almost imperceptibly paler */
+}
+/* The R35 foot is now empty because both of its original children have moved.
+   Hide its space only when this is actually true; keep DOM for R35/R12. */
+#anime-top.ob-r29-on .n-season-dashboard.ob-r36-legend-moved #obLivePhaseFootR3:empty {
+  display:none!important;
+}
+/* Let stage band + SEASON CHECKPOINTS read as one uninterrupted group. */
+#anime-top.ob-r29-on .n-season-dashboard.ob-r36-legend-moved .ob-r35-checkpoints {
+  margin-top:5px;
+}
+/* The EXISTING Week Peek button remains on the left; the EXISTING legend
+   occupies the otherwise-empty right side of the SAME R35 row. */
+#anime-top.ob-r29-on .n-season-dashboard.ob-r36-legend-moved #obR35PeekRow {
+  display:flex;justify-content:space-between;align-items:center;
+  flex-wrap:wrap;column-gap:16px;row-gap:7px;
+}
+#anime-top.ob-r29-on .n-season-dashboard.ob-r36-legend-moved #obR35PeekRow>.ob-live-stage-legend {
+  display:flex!important;justify-content:flex-end!important;align-items:center;
+  flex-wrap:wrap;gap:8px;margin-left:auto;max-width:100%;
+}
+/* Keep the R35 size/weight and all three PRELIM / MID / FINAL dot colors. */
+@media(max-width:690px) {
+  #anime-top.ob-r29-on .n-season-dashboard.ob-r36-legend-moved #obR35PeekRow {
+    row-gap:6px;
+  }
+  /* When the labels cannot share one mobile line, they may wrap naturally.
+     This avoids shrinking them into unreadability or introducing overflow. */
+  #anime-top.ob-r29-on .n-season-dashboard.ob-r36-legend-moved #obR35PeekRow>.ob-live-stage-legend {
+    justify-content:flex-end!important;
+  }
+}

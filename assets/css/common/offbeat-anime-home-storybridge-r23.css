@@ -1,0 +1,8 @@
+/* R23: Align NOW / 今週 kicker's top edge with the NEXT kicker.
+   Previous R20 gives the NEXT section 3px of padding-top, but not NOW.
+   Desktop two-column layout only. Nothing else changes. */
+@media (min-width: 691px) {
+  .anime09.ob-live-r12 .ob-live-now {
+    padding-top: 3px;
+  }
+}

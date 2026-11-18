@@ -1,0 +1,124 @@
+/* OFFBEAT / Anime Home / R20: quiet readability pass for the transition
+   This Week -> Next / Previous -> Season at a Glance.
+   Scoped: not a Week Peek or chart restyle. */
+.anime09.ob-live-r12 .ob-live-story{
+  background:#fbfaf2;
+}
+.anime09.ob-live-r12 .ob-live-now .ob-live-kicker,
+.anime09.ob-live-r12 .ob-live-side .ob-live-kicker{
+  color:#3e624c!important;
+  font-weight:600!important;
+  letter-spacing:.03em;
+}
+.anime09.ob-live-r12 .ob-live-now h3{
+  color:#204733;
+  font-size:clamp(23px,2vw,26px);
+  line-height:1.2;
+  font-weight:600;
+  margin:5px 0 9px;
+}
+.anime09.ob-live-r12 .ob-live-excerpt{
+  color:#395744;
+  font-size:15px;
+  line-height:1.52;
+  margin-bottom:9px;
+}
+.anime09.ob-live-r12 .ob-live-story-status{
+  color:#446c51!important;
+  font-weight:450!important;
+  font-size:11.5px!important;
+  line-height:1.5!important;
+}
+.anime09.ob-live-r12 .ob-live-story-status .ob-bridge-number-r20{
+  font-family:system-ui,"Segoe UI",sans-serif;
+  color:#264d37;
+  font-size:12.5px;
+  font-weight:650;
+  letter-spacing:0;
+}
+.anime09.ob-live-r12 .ob-live-side{
+  gap:8px;
+}
+.anime09.ob-live-r12 .ob-live-side>section{
+  padding-top:3px;
+  padding-bottom:9px;
+  border-bottom-color:#c8d6c4;
+}
+.anime09.ob-live-r12 .ob-live-side strong{
+  color:#a45937;
+  font:600 17px/1.25 "EB Garamond",Georgia,serif;
+  margin:5px 0 0;
+}
+.anime09.ob-live-r12 .ob-live-side p{
+  color:#456c53;
+  font-size:12.5px;
+  line-height:1.42;
+  margin:5px 0 0;
+}
+.anime09.ob-live-r12 .ob-live-previous a{
+  color:#254e38;
+  font-size:15px;
+  line-height:1.3;
+  font-weight:600;
+  margin:5px 0 0;
+}
+.anime09.ob-live-r12 .ob-live-previous-winner{
+  color:#557461!important;
+  font-size:11.5px!important;
+  line-height:1.5!important;
+  margin-top:5px!important;
+}
+/* Japanese is not a line-for-line typographic copy of the English panel. */
+.anime09.ob-live-r12[data-ob-live-lang="ja"] .ob-live-now h3{
+  font:600 22px/1.45 "Yu Mincho","Hiragino Mincho ProN","Noto Serif CJK JP",serif!important;
+  letter-spacing:.015em;
+  margin:5px 0 10px!important;
+}
+.anime09.ob-live-r12[data-ob-live-lang="ja"] .ob-live-excerpt{
+  font:400 13.5px/1.82 "Yu Gothic UI","Yu Gothic","Hiragino Kaku Gothic ProN",Meiryo,sans-serif!important;
+  letter-spacing:.012em;
+  color:#365342!important;
+  margin:0 0 12px!important;
+}
+.anime09.ob-live-r12[data-ob-live-lang="ja"] .ob-live-now .ob-live-kicker,
+.anime09.ob-live-r12[data-ob-live-lang="ja"] .ob-live-side .ob-live-kicker{
+  font:550 11px/1.45 system-ui,"Segoe UI","Yu Gothic UI",Meiryo,sans-serif!important;
+  color:#3c604a!important;
+  letter-spacing:.02em;
+}
+.anime09.ob-live-r12[data-ob-live-lang="ja"] .ob-live-side strong{
+  font:550 15.5px/1.5 "Yu Gothic UI","Yu Gothic",Meiryo,sans-serif!important;
+  color:#9d583b;
+  margin:7px 0 0!important;
+}
+.anime09.ob-live-r12[data-ob-live-lang="ja"] .ob-live-side p{
+  font:400 12.2px/1.75 "Yu Gothic UI","Yu Gothic",Meiryo,sans-serif!important;
+  color:#456950;
+  margin:6px 0 0!important;
+}
+.anime09.ob-live-r12[data-ob-live-lang="ja"] .ob-live-previous a{
+  font:550 14px/1.55 "Yu Gothic UI","Yu Gothic",Meiryo,sans-serif!important;
+  color:#284f3d;
+  margin-top:6px!important;
+}
+.anime09.ob-live-r12[data-ob-live-lang="ja"] .ob-live-previous-winner{
+  font:400 11.5px/1.7 "Yu Gothic UI","Yu Gothic",Meiryo,sans-serif!important;
+  color:#4e7159!important;
+  margin-top:6px!important;
+}
+.anime09.ob-live-r12[data-ob-live-lang="ja"] .ob-live-story-status{
+  font:450 11.2px/1.7 "Yu Gothic UI","Yu Gothic",Meiryo,sans-serif!important;
+  letter-spacing:0!important;
+}
+@media(max-width:690px){
+ .anime09.ob-live-r12 .ob-live-now h3{font-size:22px;line-height:1.22;}
+ .anime09.ob-live-r12 .ob-live-excerpt{font-size:14px;line-height:1.48;}
+ .anime09.ob-live-r12 .ob-live-side{gap:11px;}
+ .anime09.ob-live-r12 .ob-live-side>section{padding-bottom:6px;}
+ .anime09.ob-live-r12 .ob-live-side strong{font-size:14px;line-height:1.35;}
+ .anime09.ob-live-r12 .ob-live-side p{font-size:11.5px;line-height:1.5;}
+ .anime09.ob-live-r12[data-ob-live-lang="ja"] .ob-live-now h3{font-size:20px!important;line-height:1.42!important;}
+ .anime09.ob-live-r12[data-ob-live-lang="ja"] .ob-live-excerpt{font-size:13.2px!important;line-height:1.8!important;}
+ .anime09.ob-live-r12[data-ob-live-lang="ja"] .ob-live-side strong{font-size:13.5px!important;line-height:1.55!important;}
+ .anime09.ob-live-r12[data-ob-live-lang="ja"] .ob-live-side p{font-size:11.5px!important;line-height:1.65!important;}
+}
