@@ -446,15 +446,17 @@ function renderTierEditorial(data, meta, lang = "en") {
     card.append(make("span",label,"tier-stat-label"),make("strong",String(value),"tier-stat-value"));
     if(Number.isInteger(prior)){
       const line=make("small",null,"tier-stat-comparison");
-      line.append(make("span",previous,"tier-stat-period"),make("b",String(prior),"tier-stat-prior"));
+      const priorPart=make("span",null,"tier-stat-part");
+      priorPart.append(make("span",previous,"tier-stat-period"),make("b",String(prior),"tier-stat-prior"));line.append(priorPart);
       if(Number.isInteger(delta)&&delta!==0){
         const changeLabel=make("span",signed(delta),"tier-stat-delta");
         changeLabel.dataset.direction=delta<0?"negative":"positive";
-        changeLabel.setAttribute("aria-label",tr(`Change since ${previous}: ${signed(delta)}`,`${previous}からの増減：${signed(delta)}`));line.append(changeLabel);
+        changeLabel.setAttribute("aria-label",tr(`Change since ${previous}: ${signed(delta)}`,`${previous}からの増減：${signed(delta)}`));
+        const deltaPart=make("span",null,"tier-stat-part");deltaPart.append(make("span",tr("Change","増減"),"tier-stat-period"),changeLabel);line.append(deltaPart);
       }
       card.append(line);
     }
-    if(extra){const line=make("small",null,"tier-stat-comparison");line.append(make("span",extra[0],"tier-stat-period"),make("b",String(extra[1]),"tier-stat-prior"));card.append(line);}
+    if(extra){const line=make("small",null,"tier-stat-comparison"),part=make("span",null,"tier-stat-part");part.append(make("span",extra[0],"tier-stat-period"),make("b",String(extra[1]),"tier-stat-prior"));line.append(part);card.append(line);}
     stats.append(card);
   };
   stat("total",tr("Titles listed","全掲載作品"),n.totalTitles,baseline?n.previousTotal:null,baseline?n.totalTitles-n.previousTotal:null);
