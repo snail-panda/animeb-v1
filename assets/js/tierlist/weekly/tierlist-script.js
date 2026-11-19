@@ -195,7 +195,7 @@ function mountInteractiveTierBoard(data, year, season) {
   }
   function decorateEditorial(){
     const items=Array.from(document.querySelectorAll('.tier-auto-movers [data-mover-title]'));
-    const drops=[];
+    const drops=[], entrants=[];
     for(const item of items){
       const row=item.closest('li');const name=item.dataset.moverTitle;const id=item.dataset.moverId||'';
       const matches=rows.flatMap(r=>r.entries.map(entry=>({entry,tier:r.name}))).filter(x=>id?String(x.entry.imageId||'')===id:x.entry.title===name);
@@ -204,13 +204,33 @@ function mountInteractiveTierBoard(data, year, season) {
       if(item.tagName==='BUTTON')continue;
       const link=button(title(entry),'tier-auto-mover-title tier-auto-mover-link');link.dataset.moverTitle=name;link.dataset.moverId=id;link.addEventListener('click',()=>{openViewer(tier,entry.position||rows.find(r=>r.name===tier).entries.indexOf(entry)+1);showPoster(entry,tier,active);});item.replaceWith(link);
       if(row.dataset.moveKind==='newlyDropped')drops.push({row,entry});
+      if(row.dataset.moveKind==='backOnList')entrants.push({row,entry});
     }
-    if(drops.length)loadDetailData().then(d=>{
+    if(drops.length||entrants.length)loadDetailData().then(d=>{
       for(const {row,entry} of drops){
         if(!row.isConnected||row.querySelector('.tier-drop-context'))continue;
         const context=el('div','tier-drop-context');const event=baseWeek?weeklyDrop(d,entry,baseWeek):null;
         if(event)context.append(el('span',null,dropLabel(event)),dropLink(event));
         else context.append(el('span',null,tl('Weekly drop timing not confirmed','週間ランキングのドロップ時期は未確認')));
+        row.append(context);
+      }
+      // A previous non-rated tier is not proof of a return. The weekly JSON
+      // can independently establish the first recorded ranking appearance.
+      const complete=Array.from({length:weekNumber},(_,i)=>i+1).every(w=>Array.isArray(d.weekly?.[w]?.entries));
+      if(complete && baseWeek)for(const {row,entry} of entrants){
+        if(!row.isConnected||row.querySelector('.tier-entry-context'))continue;
+        const rated=[];
+        for(let w=1;w<=weekNumber;w++){
+          const rec=findEntry(d.weekly[w].entries,entry,x=>x.kv,x=>x.title);
+          if(rec&&Number.isInteger(rec.rank)&&rec.rank>0)rated.push({w,rec});
+        }
+        if(!rated.length||rated[0].w<=baseWeek)continue;
+        const {w,rec}=rated[0];
+        const ep=String(rec.episode??'').trim();
+        const num=ep.match(/^(?:ep\.?\s*|episode\s*|第\s*)?(\d+)\s*(?:話)?$/i)?.[1];
+        const episode=num?tl('Ep. '+num,'第'+num+'話'):'';
+        const context=el('div','tier-drop-context tier-entry-context');
+        context.append(el('span',null,tl('First weekly ranking entry · W'+weekText(w),'週間ランキング初登場 · W'+weekText(w))+(episode?' · '+episode:'')));
         row.append(context);
       }
     }).catch(()=>{});
@@ -427,7 +447,11 @@ function renderTierEditorial(data, meta, lang = "en") {
     if(Number.isInteger(prior)){
       const line=make("small",null,"tier-stat-comparison");
       line.append(make("span",previous,"tier-stat-period"),make("b",String(prior),"tier-stat-prior"));
-      if(Number.isInteger(delta)&&delta!==0)line.append(make("span",signed(delta),"tier-stat-delta"));
+      if(Number.isInteger(delta)&&delta!==0){
+        const changeLabel=make("span",signed(delta),"tier-stat-delta");
+        changeLabel.dataset.direction=delta<0?"negative":"positive";
+        changeLabel.setAttribute("aria-label",tr(`Change since ${previous}: ${signed(delta)}`,`${previous}からの増減：${signed(delta)}`));line.append(changeLabel);
+      }
       card.append(line);
     }
     if(extra){const line=make("small",null,"tier-stat-comparison");line.append(make("span",extra[0],"tier-stat-period"),make("b",String(extra[1]),"tier-stat-prior"));card.append(line);}
@@ -456,17 +480,18 @@ function renderTierEditorial(data, meta, lang = "en") {
       heading(content,`${title} · ${rows.length}`);
       const list=make("ul",null,"tier-auto-movers");
       rows.slice().sort((x,y)=>biggest?Math.abs(Number(y.steps)||0)-Math.abs(Number(x.steps)||0):0).forEach(r=>{
-        const li=make("li"), label=make("span",names(r)||"", "tier-auto-mover-title"), transition=make("span",`${r.from==null?"—":tierName(r.from)} → ${r.to==null?"—":tierName(r.to)}`,"tier-auto-transition");
+        const li=make("li"), label=make("span",names(r)||"", "tier-auto-mover-title"), transition=make("span",null,"tier-auto-transition");
+        transition.append(make("span",r.from==null?"—":tierName(r.from),"tier-motion-from"),make("span","→","tier-motion-arrow"),make("span",r.to==null?"—":tierName(r.to),"tier-motion-to"));
         li.dataset.moveKind=key;label.dataset.moverTitle=r.title||'';label.dataset.moverId=r.imageId||'';
         const motion=make('div',null,'tier-auto-motion');motion.append(transition);li.append(label,motion);
-        const steps=Number(r.steps);if(biggest&&Number.isFinite(steps)&&steps!==0){const magnitude=Math.abs(steps),sign=key==='promotions'?'+':'−';motion.append(make('small',tr(`${sign}${magnitude} tier${magnitude===1?'':'s'}`,`${sign}${magnitude}段階`),'tier-auto-step'));}
+        const steps=Number(r.steps);if(biggest&&Number.isFinite(steps)&&steps!==0){const magnitude=Math.abs(steps),sign=key==='promotions'?'+':'−';motion.append(make('small',tr(`(${sign}${magnitude} tier${magnitude===1?'':'s'})`,`（${sign}${magnitude}段階）`),'tier-auto-step'));}
         list.append(li);
       });content.append(list);
     };
     movement("promotions",tr("Promotions","昇格"),true);
     movement("demotions",tr("Demotions","降格"),true);
     movement("newlyDropped",tr("Newly Dropped","新規ドロップ"));
-    movement("backOnList",tr("Back in the Rated Tiers","評価Tierへ復帰・移行"));
+    movement("backOnList",tr("Entered the Rated Tiers","評価Tier入り"));
     movement("newEntries",tr("New Entries","新規掲載"));
     movement("removed",tr("No Longer Listed","掲載から除外"));
     // Other state transitions are not repeated under the drop/return sections.
