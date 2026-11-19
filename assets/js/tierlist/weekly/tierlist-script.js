@@ -164,16 +164,91 @@ function mountInteractiveTierBoard(data, year, season) {
       return {infos,compiled,engine,weekly,expected};
     })();return detailDataPromise;
   }
+  // Weekly drop decisions are independent of editorial tier placement. Only
+  // explicit decisions from validated, available weeks are used, never absence.
+  function weeklyDrop(d,entry,after=0){
+    const hist=d?.compiled?.histories?.[entry.imageId];
+    const events=[];
+    for(const w of d?.compiled?.weeks||[]){
+      if(w<=after||w>weekNumber)continue;
+      const raw=d.weekly[w];
+      const decision=findEntry(raw?.meta?.drop_decisions||[],entry,x=>x.kv,x=>x.title);
+      if(!decision)continue;
+      const rec=hist?.weeks?.find(r=>r.week===w);
+      // If a later recorded rating followed a decision, that decision is no
+      // longer the current removal. Do not attach it to a new tier drop.
+      if(hist?.weeks?.some(r=>r.week>w&&r.week<=weekNumber&&r.rank!=null))continue;
+      events.push({week:w,episode:decision.episode||rec?.episode||null,rec,mode:decision.mode,reason:decision.reason});
+    }
+    return events.at(-1)||null;
+  }
+  function dropLabel(event){
+    const ep=event.episode==null?'':String(event.episode).trim();
+    const episode=ep?(/^(?:ep\.?|episode\b|第)/i.test(ep)?ep:tl('Ep. '+ep,/^\d+$/.test(ep)?'第'+ep+'話':ep)):'';
+    return tl('Weekly drop decision · W'+weekText(event.week),'週間ランキング対象外決定 · W'+weekText(event.week))+(episode?' · '+episode:'');
+  }
+  function dropLink(event){
+    const link=el('a','tier-drop-review-link',tl('W'+weekText(event.week)+' drop reviews','W'+weekText(event.week)+'のドロップレビュー'));
+    link.href=root+`ranking/${year}/${season}/week${weekText(event.week)}/index.html#animeb-dropped-titles`;
+    return link;
+  }
+  function decorateEditorial(){
+    const items=Array.from(document.querySelectorAll('.tier-auto-movers [data-mover-title]'));
+    const drops=[];
+    for(const item of items){
+      const row=item.closest('li');const name=item.dataset.moverTitle;const id=item.dataset.moverId||'';
+      const matches=rows.flatMap(r=>r.entries.map(entry=>({entry,tier:r.name}))).filter(x=>id?String(x.entry.imageId||'')===id:x.entry.title===name);
+      if(matches.length!==1)continue;
+      const {entry,tier}=matches[0];
+      if(item.tagName==='BUTTON')continue;
+      const link=button(title(entry),'tier-auto-mover-title tier-auto-mover-link');link.dataset.moverTitle=name;link.dataset.moverId=id;link.addEventListener('click',()=>{openViewer(tier,entry.position||rows.find(r=>r.name===tier).entries.indexOf(entry)+1);showPoster(entry,tier,active);});item.replaceWith(link);
+      if(row.dataset.moveKind==='newlyDropped')drops.push({row,entry});
+    }
+    if(drops.length)loadDetailData().then(d=>{
+      for(const {row,entry} of drops){
+        if(!row.isConnected||row.querySelector('.tier-drop-context'))continue;
+        const context=el('div','tier-drop-context');const event=baseWeek?weeklyDrop(d,entry,baseWeek):null;
+        if(event)context.append(el('span',null,dropLabel(event)),dropLink(event));
+        else context.append(el('span',null,tl('Weekly drop timing not confirmed','週間ランキングのドロップ時期は未確認')));
+        row.append(context);
+      }
+    }).catch(()=>{});
+  }
   function detailLine(label,value){const box=el('div','live-tier-detail-metric');box.append(el('small',null,label),el('strong',null,value));return box;}
   function detailGrid(parent,values){const grid=el('div','live-tier-detail-grid');values.forEach(([k,v])=>grid.append(detailLine(k,v)));parent.append(grid);}
   const formatRank=r=>r?.rank==null?'—':`#${r.rank}${r.participantCount?' / '+r.participantCount:''}`;
   const fmt=v=>Number.isFinite(v)?v.toFixed(2):'—';
+  function performanceCharts(records){
+    const group=el('div','live-tier-performance-charts');
+    const namespace='http://www.w3.org/2000/svg';
+    const chart=(name,field,rank)=>{
+      const valid=r=>Number.isFinite(r?.[field])&&r.rank!=null;
+      const values=records.filter(valid);if(!values.length)return;
+      const max=rank?Math.max(2,...records.map(r=>r.participantCount||r.rank||0)):Math.max(10,Math.ceil(Math.max(...values.map(r=>r[field]))));
+      const min=rank?1:0, left=30,right=319,top=13,bottom=99;
+      const x=w=>left+(w-1)/(Math.max(2,weekNumber)-1)*(right-left);
+      const y=v=>rank?top+(v-min)/(max-min)*(bottom-top):bottom-(v-min)/(max-min)*(bottom-top);
+      const figure=el('figure','live-tier-chart');figure.append(el('figcaption',null,name));
+      const svg=document.createElementNS(namespace,'svg');svg.setAttribute('viewBox','0 0 332 121');svg.setAttribute('role','img');svg.setAttribute('aria-label',name+' — '+tl('values in the table below','下の表に数値を掲載'));
+      const put=(tag,attrs,text)=>{const n=document.createElementNS(namespace,tag);Object.entries(attrs).forEach(([k,v])=>n.setAttribute(k,String(v)));if(text!=null)n.textContent=text;svg.append(n);return n;};
+      const ticks=rank?[1,Math.round((max+1)/2),max]:[0,max/2,max];
+      for(const tick of [...new Set(ticks)]){const h=y(tick);put('line',{x1:left,y1:h,x2:right,y2:h,class:'chart-grid'});put('text',{x:left-5,y:h+3,'text-anchor':'end'},tick);}
+      let previous=null;
+      for(let w=1;w<=weekNumber;w++){
+        const r=records.find(v=>v.week===w),px=x(w);put('text',{x:px,y:115,'text-anchor':'middle'},weekText(w));
+        if(!valid(r)){previous=null;continue;}
+        const py=y(r[field]);if(previous)put('line',{x1:previous[0],y1:previous[1],x2:px,y2:py,class:'chart-line'});put('circle',{cx:px,cy:py,r:2.7,class:'chart-point'});previous=[px,py];
+      }
+      figure.append(svg);group.append(figure);
+    };
+    chart(tl('Weekly WRP','週間WRP'),'wrp_score',false);chart(tl('Weekly rank','週間順位'),'rank',true);return group;
+  }
   async function renderTitleDetails(entry,tier){
     const request=++detailRequest;detailBody.replaceChildren();
     const section=el('section','live-tier-detail-section');section.append(el('h3',null,tl('Tier history','Tierの変遷')));
     const movement=[...(data.analysis?.changes?.promotions||[]),...(data.analysis?.changes?.demotions||[])];const moved=findEntry(movement,entry,x=>x.imageId,x=>x.title);
     const former=entry.previousTier==null?'—':`${tierLabel(entry.previousTier)}${entry.previousPosition?' · #'+entry.previousPosition:''}`;
-    const change=Number.isFinite(moved?.steps)?`${moved.steps>0?'+':''}${moved.steps} ${tl('tiers','段階')}`:entry.previousTier==null?tl('No previous tier','前回なし'):entry.previousTier===tier?tl('Same tier','変化なし'):`${tierLabel(entry.previousTier)} → ${tierLabel(tier)}`;
+    const change=Number.isFinite(moved?.steps)?`${moved.steps>0?'+':moved.steps<0?'−':''}${Math.abs(moved.steps)} ${tl(Math.abs(moved.steps)===1?'tier':'tiers','段階')}`:entry.previousTier==null?tl('No previous tier','前回なし'):entry.previousTier===tier?tl('Same tier','変化なし'):`${tierLabel(entry.previousTier)} → ${tierLabel(tier)}`;
     detailGrid(section,[[tl(`Previous tier${baseWeek?' · W'+weekText(baseWeek):''}${baseWeek===1?' (First Impressions)':''}`,`前回のTier${baseWeek?' · W'+weekText(baseWeek):''}${baseWeek===1?'（初回印象）':''}`),former],[tl(`Current tier · W${weekText(weekNumber)}`,`今回のTier · W${weekText(weekNumber)}`),`${tierLabel(tier)} · #${entry.position||1}`],[tl('Tier change','Tierの変化'),change]]);
     detailBody.append(section);
     const loading=el('p','live-tier-detail-note',tl('Loading title information and weekly results…','作品情報・週間成績を読み込み中…'));detailBody.append(loading);
@@ -183,17 +258,30 @@ function mountInteractiveTierBoard(data, year, season) {
     const info=findEntry(d.infos,entry,x=>x.image_id||x.kv,x=>x.title)||Object.values(d.weekly).reverse().map(raw=>findEntry(raw.entries||[],entry,x=>x.kv,x=>x.title)).find(Boolean);
     if(info){const information=el('section','live-tier-detail-section');information.append(el('h3',null,tl('About the title','作品情報')));
       const studio=tl(info.studios,info.studios_ja||info.studiosJa||info.studios),rawGenre=info.genre||info.genres||'';const genreList=Array.isArray(rawGenre)?rawGenre:String(rawGenre).split('|');const genre=genreList.map(g=>tl(g,({Action:'アクション',Adventure:'冒険',Comedy:'コメディ',Drama:'ドラマ',Fantasy:'ファンタジー',Romance:'恋愛','Slice of Life':'日常',Sports:'スポーツ',Mystery:'ミステリー',Horror:'ホラー','Sci-Fi':'SF',Supernatural:'超自然',Suspense:'サスペンス',Ecchi:'お色気'}[g]||g))).join(' / ');
-      if(studio)information.append(el('p','live-tier-detail-meta',studio));if(genre)information.append(el('p','live-tier-detail-meta',genre));
-      const synopsis=tl(info.synopsis,info.synopsis_ja||info.synopsisJa||info.synopsis);if(synopsis)information.append(el('p','live-tier-detail-synopsis',synopsis));detailBody.append(information);
+      const metaRow=(label,value)=>{if(!value)return;const p=el('p','live-tier-detail-meta');p.append(el('strong',null,label),document.createTextNode(' '+value));information.append(p);};
+      metaRow(tl('Studio','制作会社'),studio);metaRow(tl('Genre','ジャンル'),genre);
+      const roman=info.romanized_title;if(roman&&roman!==entry.title&&roman!==entry.jpTitle)metaRow(tl('Romanized title','ローマ字タイトル'),roman);
+      const synopsis=tl(info.synopsis,info.synopsis_ja||info.synopsisJa||info.synopsis);if(synopsis){information.append(el('h4','live-tier-synopsis-heading',tl('Synopsis','あらすじ')),el('p','live-tier-detail-synopsis',synopsis));}detailBody.append(information);
     }
     const perf=el('section','live-tier-detail-section');perf.append(el('h3',null,tl('Weekly ranking performance','週間ランキング成績')));
     const hist=d.compiled?.histories?.[entry.imageId];
     const a=hist&&d.engine?.analyze?.(hist,weekNumber);
+    const decision=weeklyDrop(d,entry);
+    if(decision){ const box=el('div','live-tier-drop-detail');box.append(el('strong',null,dropLabel(decision)));
+      const rec=decision.rec;const details=[];
+      if(decision.mode==='unrated')details.push(tl('Unrated decision','未評価で対象外決定'));
+      else {if(rec?.rank!=null)details.push(tl('Rank ','順位 ')+formatRank(rec));if(Number.isFinite(rec?.wrp_score))details.push('WRP '+fmt(rec.wrp_score));}
+      if(details.length)box.append(el('p',null,details.join(' · ')));
+      const reason=tl(decision.reason?.en||decision.reason?.ja,decision.reason?.ja||decision.reason?.en);
+      if(typeof reason==='string'&&reason.trim()){const review=el('details','live-tier-drop-review');review.append(el('summary',null,tl('Original drop review','当時のドロップレビュー')),el('p',null,reason));box.append(review);}
+      box.append(dropLink(decision));perf.append(box);
+    }
     if(a&&a.n){
       const records=a.records;const prior=baseWeek?records.find(r=>r.week===baseWeek):null;const current=records.find(r=>r.week===weekNumber);
       const summary=[];if(baseWeek)summary.push([tl(`Week ${weekText(baseWeek)} rank / WRP`,`第${weekText(baseWeek)}週 順位 / WRP`),`${formatRank(prior)} · ${fmt(prior?.wrp_score)}`]);
       summary.push([tl(`Week ${weekText(weekNumber)} rank / WRP`,`第${weekText(weekNumber)}週 順位 / WRP`),`${formatRank(current)} · ${fmt(current?.wrp_score)}`],[tl('Average WRP','平均WRP'),fmt(a.mean/10)],[tl('Best rank','最高順位'),a.best==null?'—':'#'+a.best]);detailGrid(perf,summary);
       perf.append(el('p','live-tier-detail-note',tl('WRP = Weekly Ranking Points, on the usual weekly scale. Tier placement is a separate assessment.','WRP＝週間ランキングポイント（通常の週間評価尺度）。Tier評価とは別の指標です。')));
+      perf.append(performanceCharts(records));
       const table=el('table','live-tier-detail-history');const head=el('thead'),tr=el('tr');for(const txt of [tl('Week','週'),tl('Rank / field','順位 / 評価数'),'WRP',tl('Status','状態')]){const th=el('th',null,txt);th.scope='col';tr.append(th);}head.append(tr);table.append(head);const tbody=el('tbody');
       for(let w=1;w<=weekNumber;w++){const rec=records.find(r=>r.week===w),line=el('tr');const state=!rec?tl('Data unavailable','データなし'):rec.dropDecidedThisWeek?tl('Drop decided','ドロップ決定'):rec.rank!=null?tl('Rated','評価済み'):rec.droppedAfterWeek!=null?tl('Dropped','ドロップ'):rec.broadcast?.status==='no_air'?tl('No air','放送なし'):rec.broadcast?.status==='season_halted'?tl('Halted','放送中断'):rec.rankingCoverage==='full_reference'?tl('Not ranked','順位なし'):tl('Unconfirmed','未確認');line.append(el('td',null,'W'+weekText(w)),el('td',null,formatRank(rec)),el('td',null,fmt(rec?.wrp_score)),el('td',null,state));tbody.append(line);}table.append(tbody);perf.append(table);
     }else perf.append(el('p','live-tier-detail-note',tl('No verified weekly ranking results for this title in the available data.','取得できたデータには、この作品の確認済み週間ランキング成績がありません。')));
@@ -252,6 +340,7 @@ function mountInteractiveTierBoard(data, year, season) {
   });
   host.classList.add('has-live-tier-board');png.hidden=true;
   function syncBoard(){localized.forEach(fn=>fn());for(const board of [mainBoard,viewerBoard])if(board)board.querySelectorAll('.live-tier-card.live-tier-missing').forEach(card=>{const entry=rows.find(r=>r.name===card.dataset.tier)?.entries[Number(card.dataset.position)-1];const span=card.querySelector('.live-tier-missing-title');if(entry&&span)span.textContent=title(entry);});hideTip();if(detailEntry){renderDetailHeading();status.textContent=title(detailEntry);renderTitleDetails(detailEntry,detailTier);}else status.textContent=promptText();}
+  decorateEditorial();document.addEventListener('offbeat:tier-editorial-language',decorateEditorial);
   syncBoard();return syncBoard;
 }
 
@@ -291,6 +380,7 @@ function renderTierEditorial(data, meta, lang = "en") {
     return el;
   };
   const para = (root, text) => root.append(make("p", text));
+  const countedPara=(root,text)=>{const p=make('p');for(const part of text.split(/(\b\d+ titles?\b|\b\d+(?= in the rated tiers| marked as Dropped| outside the rated tiers| moved up| moved down)|\d+作品)/g)){if(!part)continue;p.append(/^\d+(?: titles?|作品)?$/.test(part)?make('strong',part,'tier-auto-count'):document.createTextNode(part));}root.append(p);};
   const heading = (root, text) => root.append(make("h3", text, "tier-editorial-subheading"));
   [intro, content, conclusion].forEach(el => el.replaceChildren());
   // Fail closed rather than displaying a previous season's copied text.
@@ -316,15 +406,15 @@ function renderTierEditorial(data, meta, lang = "en") {
   const addCustom = (root, key) => {
     if (typeof custom?.[key] === "string" && custom[key].trim()) custom[key].trim().split(/\n\s*\n/).forEach(t => para(root,t));
   };
-  para(intro, tr(`Here is the ${season} anime tier list at ${stage}${episodeLabel}. Week ${week} includes ${n.totalTitles} titles: ${n.ratedTitles} in the rated tiers, ${n.totalDropped} marked as Dropped, and ${n.unrated} outside the rated tiers (neither rated nor dropped).`, `${season}アニメの${stage}${episodeLabel}のティアリストです。第${Number(week)}週では全${n.totalTitles}作品を掲載し、評価対象は${n.ratedTitles}作品、ドロップは${n.totalDropped}作品、それ以外の評価対象外は${n.unrated}作品です。`));
+  countedPara(intro, tr(`Here is the ${season} anime tier list at ${stage}${episodeLabel}. Week ${week} includes ${n.totalTitles} titles: ${n.ratedTitles} in the rated tiers, ${n.totalDropped} marked as Dropped, and ${n.unrated} outside the rated tiers (neither rated nor dropped).`, `${season}アニメの${stage}${episodeLabel}のティアリストです。第${Number(week)}週では全${n.totalTitles}作品を掲載し、評価対象は${n.ratedTitles}作品、ドロップは${n.totalDropped}作品、それ以外の評価対象外は${n.unrated}作品です。`));
   if (baseline) {
-    para(intro, tr(`Compared with ${previous}, ${num("promotions")} titles moved up a rated tier and ${num("demotions")} moved down. ${num("newlyDropped")} titles moved into a Dropped category.`, `${previous}との比較では、評価Tier内の昇格が${num("promotions")}作品、降格が${num("demotions")}作品、新たにドロップ区分へ移った作品が${num("newlyDropped")}作品です。`));
+    countedPara(intro, tr(`Compared with ${previous}, ${num("promotions")} titles moved up a rated tier and ${num("demotions")} moved down. ${num("newlyDropped")} titles moved into a Dropped category.`, `${previous}との比較では、評価Tier内の昇格が${num("promotions")}作品、降格が${num("demotions")}作品、新たにドロップ区分へ移った作品が${num("newlyDropped")}作品です。`));
   }
   addCustom(intro,"intro");
   const note = make("aside", null, "tier-auto-note");
   note.append(make("strong", tr("A note on the tier list", "ティアリストについて")));
-  const noteEn = "The tier list is a separate assessment from the Weekly Ranking. Titles excluded from the Weekly Ranking may still be evaluated here. A change to Dropped refers to this tier list, not necessarily to the date a title left the Weekly Ranking.";
-  const noteJa = "ティアリストはウィークリーランキングとは別の評価です。週間ランキングの対象外となった作品でも、ここでは評価される場合があります。ドロップへの移動はティアリスト上の変化であり、週間ランキングから外れた時期と必ずしも一致しません。";
+  const noteEn = "The tier list is a separate assessment from the Weekly Ranking. Titles excluded from the Weekly Ranking may still be evaluated here. A change to Dropped refers to this tier list, not necessarily to the date a title left the Weekly Ranking. Dropping a title from the ranking is not necessarily a negative assessment or a decision to stop watching; the reasons vary by title.";
+  const noteJa = "ティアリストはウィークリーランキングとは別の評価です。週間ランキングの対象外となった作品でも、ここでは評価される場合があります。ドロップへの移動はティアリスト上の変化であり、週間ランキングから外れた時期と必ずしも一致しません。ランキング対象外とすることは、必ずしも作品への低評価や視聴中止を意味しません。理由は作品によって異なります。";
   para(note,tr(noteEn,noteJa));
   intro.append(note);
   heading(content, week === "06" ? tr("Midseason at a Glance", "中間時点の評価状況") : tr("The Lineup at a Glance", "評価状況"));
@@ -353,11 +443,11 @@ function renderTierEditorial(data, meta, lang = "en") {
       const rows=change(key);if(!rows.length)return;
       heading(content,`${title} · ${rows.length}`);
       const list=make("ul",null,"tier-auto-movers");
-      const max=biggest?Math.max(...rows.map(r=>Math.abs(Number(r.steps)||0))):0;
       rows.slice().sort((x,y)=>biggest?Math.abs(Number(y.steps)||0)-Math.abs(Number(x.steps)||0):0).forEach(r=>{
         const li=make("li"), label=make("span",names(r)||"", "tier-auto-mover-title"), transition=make("span",`${r.from==null?"—":tierName(r.from)} → ${r.to==null?"—":tierName(r.to)}`,"tier-auto-transition");
-        li.append(label,transition);
-        if(biggest && max && Math.abs(Number(r.steps)||0)===max)li.append(make("small",tr(`${max} tier${max===1?"":"s"}`,`${max}段階`),"tier-auto-step"));
+        li.dataset.moveKind=key;label.dataset.moverTitle=r.title||'';label.dataset.moverId=r.imageId||'';
+        const motion=make('div',null,'tier-auto-motion');motion.append(transition);li.append(label,motion);
+        const steps=Number(r.steps);if(biggest&&Number.isFinite(steps)&&steps!==0){const magnitude=Math.abs(steps),sign=key==='promotions'?'+':'−';motion.append(make('small',tr(`${sign}${magnitude} tier${magnitude===1?'':'s'}`,`${sign}${magnitude}段階`),'tier-auto-step'));}
         list.append(li);
       });content.append(list);
     };
@@ -379,6 +469,7 @@ function renderTierEditorial(data, meta, lang = "en") {
   const ratedChange = baseline ? n.ratedTitles - n.previousRated : 0;
   if(baseline && ratedChange !== 0) para(conclusion,tr(`The rated lineup ${ratedChange<0?"narrowed":"expanded"} from ${n.previousRated} to ${n.ratedTitles} titles since ${previous}. This is a snapshot of the tier list at Week ${week}, separate from the weekly scores.`, `${previous}から評価対象作品は${n.previousRated}作品から${n.ratedTitles}作品に${ratedChange<0?"減少":"増加"}しました。週間評価点とは別に、第${Number(week)}週時点の位置づけを示したものです。`));
   else para(conclusion,tr(`This edition records ${n.ratedTitles} rated titles at Week ${week}.`, `第${Number(week)}週時点の評価対象は${n.ratedTitles}作品です。`));
+  if(baseline&&num('newlyDropped'))countedPara(conclusion,tr(`${num('newlyDropped')} titles moved to Dropped in this edition. The promotions and demotions above track changes among the rated tiers; they are separate from those removals.`, `今回は${num('newlyDropped')}作品がドロップ区分へ移動しました。上記の昇格・降格は評価Tier間の移動を示し、ドロップとは区別しています。`));
   addCustom(conclusion,"conclusion");
   if(week==="01")para(conclusion,tr("The next regular tier list is the midseason update (Week 06).","次回の定期ティアリストは中間評価（第6週）です。"));
   if(week==="06")para(conclusion,tr("The next regular tier list is the season-final edition (Week 12).","次回の定期ティアリストは最終評価（第12週）です。"));
