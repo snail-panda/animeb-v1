@@ -34,7 +34,7 @@
 #anime-top .ob-r95-no-results{grid-column:1/-1;font:400 14px/1.4 'EB Garamond',Georgia,serif;color:#526e57;padding:8px 0}
 .ob-r95-performance{grid-column:1/-1;min-width:0;border-top:1px solid #cfd9c8;padding-top:12px;color:#36553c;font:400 14px/1.35 'EB Garamond',Georgia,serif}
 .ob-r95-performance-head{display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:6px;margin-bottom:10px}
-.ob-r95-performance-head h4{margin:0;font:500 23px/1.1 'EB Garamond',Georgia,serif;color:#254c35}
+.ob-r95-performance-head h4{margin:0;font:500 20px/1.15 'EB Garamond',Georgia,serif;color:#254c35}
 .ob-r95-performance-head>span,.ob-r95-detail-note{font:400 12px/1.4 'Barlow Condensed',Arial,sans-serif;color:#5d755f}
 .ob-r95-summary{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px 12px;padding:8px 0}
 .ob-r95-metric{display:flex;flex-direction:column;gap:2px;border-bottom:1px solid #e1e6d6;padding-bottom:5px}
@@ -49,4 +49,31 @@
 .ob-r95-gridline{stroke:#dce2d3;stroke-width:1}.ob-r95-chart-label{fill:#62765e;font:9px Arial,sans-serif}.ob-r95-series{stroke:#5a8757;stroke-width:2;stroke-linecap:round}.ob-r95-point{fill:#5a8757;stroke:#fffdf2;stroke-width:1}
 .ob-r95-history{width:100%;border-collapse:collapse;font:400 13px/1.35 'Barlow Condensed',Arial,sans-serif;text-align:left;font-variant-numeric:tabular-nums}
 .ob-r95-history th,.ob-r95-history td{padding:4px 5px;border-bottom:1px solid #e0e5d7}.ob-r95-history th{font-weight:500;color:#49654d}
-@media(max-width:540px){#anime-top .ob-r95-group-head{font-size:17px;margin-top:8px}.ob-r95-charts{grid-template-columns:minmax(0,1fr);gap:8px}.ob-r95-summary{gap:8px}.ob-r95-metric>strong{font-size:21px}.ob-r95-performance-head h4{font-size:20px}.ob-r95-history{font-size:12px}.ob-r95-history th,.ob-r95-history td{padding:4px 3px}}
+@media(max-width:540px){#anime-top .ob-r95-group-head{font-size:17px;margin-top:8px}.ob-r95-charts{grid-template-columns:minmax(0,1fr);gap:8px}.ob-r95-summary{gap:8px}.ob-r95-metric>strong{font-size:21px}.ob-r95-performance-head h4{font-size:16px}.ob-r95-history{font-size:12px}.ob-r95-history th,.ob-r95-history td{padding:4px 3px}}
+
+/* R95G: detail-panel labels and original weekly WRP scale only. */
+.ob-r95-scale-note{margin:0 0 5px;color:#5d755f;font:400 12px/1.5 'Barlow Condensed',Arial,sans-serif}
+.ob-r95-metric>span:first-child{overflow-wrap:break-word;line-height:1.35}
+.ob-r95-metric>span.ob-r95-converted{font-size:11px;color:#657965;font-variant-numeric:tabular-nums}
+.ob-r95-metric-help{margin:8px 0 12px;color:#45654b;font:400 13px/1.5 'Barlow Condensed',Arial,sans-serif}
+.ob-r95-metric-help>summary{width:fit-content;max-width:100%;cursor:pointer;font-weight:500;color:#3c6246}
+.ob-r95-metric-definitions{margin:8px 0 0;padding:8px 0 4px 10px;border-left:2px solid #c1d0b9}
+.ob-r95-metric-definitions dt{margin:0 0 3px;font-weight:500;color:#36583f}
+.ob-r95-metric-definitions dd{margin:0 0 9px;color:#526e57}
+.ob-r95-metric-definitions dd:last-child{margin-bottom:0}
+#obSeasonOverlayR3:lang(ja) .ob-r95-metric>span,#obSeasonOverlayR3:lang(ja) .ob-r95-scale-note,#obSeasonOverlayR3:lang(ja) .ob-r95-metric-help{font-family:system-ui,'Noto Sans JP','Hiragino Sans','Yu Gothic',sans-serif}
+#obSeasonOverlayR3:lang(ja) .ob-r95-metric-help{font-size:12px;line-height:1.65}
+@media(max-width:690px){
+ #obSeasonOverlayR3 .ob-season-dialog-r3:has(>.ob-r95-performance:not([hidden])) #obSeasonModalTitleR3:lang(en){font-size:18.5px;line-height:1.25}
+ #obSeasonOverlayR3 .ob-season-dialog-r3:has(>.ob-r95-performance:not([hidden])) .ob-season-facts{font-size:12.5px}
+ #obSeasonOverlayR3 .ob-season-dialog-r3:has(>.ob-r95-performance:not([hidden])) .ob-season-facts .ob-season-genre{font-size:10px}
+}
+@media(max-width:540px){
+ .ob-r95-metric>span:first-child{min-height:2.7em}
+ .ob-r95-metric>span.ob-r95-converted{font-size:11px}
+}
+/* Let the longest label in each row set the height; keep values aligned without artificial gaps. */
+@supports (grid-template-rows:subgrid){
+ .ob-r95-metric{display:grid;grid-row:span 3;grid-template-rows:subgrid;row-gap:2px}
+ .ob-r95-metric>span:first-child{min-height:0}
+}

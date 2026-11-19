@@ -53,6 +53,14 @@ function filterOptions(control,values,labels,caption,all,selected){control.capti
 let stats=new Map();
 function currentWeek(){return state.week||season?.weeks.at(-1)||0;}
 function numeric(v,d=1){return v==null?'—':v.toFixed(d);}
+// Display native weekly WRP here only. The R52 engine and grouping thresholds stay on ×10.
+function wrpText(v){
+ if(!Number.isFinite(v))return '—';
+ const magnitude=Math.round((Math.abs(v)+1e-10)*100)/100;
+ return (v<0&&magnitude!==0?'-':'')+magnitude.toFixed(2);
+}
+function nativeWRP(v){return v==null?'—':wrpText(v/10);}
+function signedWRP(v){const text=nativeWRP(v);return v>0&&text!=='0.00'?'+'+text:text;}
 function weekName(w){return 'W'+String(w).padStart(2,'0');}
 
 const info=document.createElement('p');info.className='ob-r53-readout';info.id='obLineupReadoutR53';info.hidden=true;
@@ -243,12 +251,13 @@ function chart(a,kind){
  function draw(tag,attrs,text){const e=document.createElementNS(NS,tag);for(const [k,v] of Object.entries(attrs))e.setAttribute(k,String(v));if(text!=null)e.textContent=text;svg.append(e);return e;}
  const top=12,bottom=96,left=26,right=306, maxRank=Math.max(2,...a.records.map(r=>r.participantCount||r.rank||0));
  const x=w=>left+(right-left)*(w-1)/11;
- const y=v=>score?bottom-(bottom-top)*v/100:top+(bottom-top)*(v-1)/(maxRank-1);
- const ticks=score?[100,75,50,25,0]:[1,Math.round((maxRank+1)/2),maxRank];
+ const scoreMax=Math.max(10,Math.ceil(Math.max(0,...a.records.map(r=>Number.isFinite(r.wrp_score)?r.wrp_score:0))));
+ const y=v=>score?bottom-(bottom-top)*v/scoreMax:top+(bottom-top)*(v-1)/(maxRank-1);
+ const ticks=score?(scoreMax>10?[scoreMax,8,6,4,2,0]:[10,7.5,5,2.5,0]):[1,Math.round((maxRank+1)/2),maxRank];
  for(const t of [...new Set(ticks)]){draw('line',{x1:left,x2:right,y1:y(t),y2:y(t),class:'ob-r95-gridline'});draw('text',{x:left-5,y:y(t)+3,'text-anchor':'end',class:'ob-r95-chart-label'},t);}
  for(let w=1;w<=12;w++)draw('text',{x:x(w),y:110,'text-anchor':'middle',class:'ob-r95-chart-label'},String(w).padStart(2,'0'));
  let last=null;
- for(const r of a.records){const v=score?(Number.isFinite(r.wrp_score)?r.wrp_score*10:null):r.rank;if(v==null){last=null;continue;}const next={w:r.week,v};if(last&&last.w+1===next.w)draw('line',{x1:x(last.w),y1:y(last.v),x2:x(next.w),y2:y(next.v),class:'ob-r95-series'});const dot=draw('circle',{cx:x(next.w),cy:y(next.v),r:3,class:'ob-r95-point'});const title=document.createElementNS(NS,'title');title.textContent=weekName(r.week)+' · '+(score?numeric(v):'#'+v+(r.participantCount?' / '+r.participantCount:''));dot.append(title);last=next;}
+ for(const r of a.records){const v=score?(Number.isFinite(r.wrp_score)?r.wrp_score:null):r.rank;if(v==null){last=null;continue;}const next={w:r.week,v};if(last&&last.w+1===next.w)draw('line',{x1:x(last.w),y1:y(last.v),x2:x(next.w),y2:y(next.v),class:'ob-r95-series'});const dot=draw('circle',{cx:x(next.w),cy:y(next.v),r:3,class:'ob-r95-point'});const title=document.createElementNS(NS,'title');title.textContent=weekName(r.week)+' · '+(score?wrpText(v):'#'+v+(r.participantCount?' / '+r.participantCount:''));dot.append(title);last=next;}
  box.append(svg);return box;
 }
 function renderPerformance(){
@@ -256,15 +265,40 @@ function renderPerformance(){
  const a=stats.get(overlay.dataset.obLineupKv);if(!a){panel.hidden=true;return;}
  panel.replaceChildren();panel.hidden=false;
  const header=node('div','ob-r95-performance-head');header.append(node('h4','',l('今期の成績','Season Performance')),node('span','',l('本戦 W01〜','Main season W01–')+weekName(currentWeek())));panel.append(header);
+ const w=String(currentWeek()).padStart(2,'0');
+ panel.append(node('div','ob-r95-scale-note',l('WRP（Weekly Ranking Points）＝週間ランキングポイント。原則10点満点（最大11点）。','WRP = Weekly Ranking Points. Normally out of 10 (maximum 11).')));
  const summary=node('div','ob-r95-summary');
- for(const [name,value] of [[l('平均WRP','Average WRP'),numeric(a.mean,2)],[l('選択週順位','Selected week rank'),a.current?.rank==null?'—':'#'+a.current.rank+(a.current.participantCount?' / '+a.current.participantCount:'')],[l('最高順位','Best rank'),a.best==null?'—':'#'+a.best],[l('TOP 3入り','Top 3 finishes'),String(a.top3)],[l('直近2回','Last 2 WRP'),numeric(a.recent)],[l('直近の変化','Recent change'),a.change==null?'—':(a.change>0?'+':'')+numeric(a.change)]]){const metric=node('div','ob-r95-metric');metric.append(node('span','',name),node('strong','',value));summary.append(metric);}panel.append(summary);
+ const metrics=[
+  [l('平均WRP','Average WRP'),nativeWRP(a.mean),a.mean==null?null:'×10: '+numeric(a.mean,2)],
+  [l(`第${w}週の順位`,`Week ${w} Rank`),a.current?.rank==null?'—':'#'+a.current.rank+(a.current.participantCount?' / '+a.current.participantCount:'')],
+  [l('最高順位','Best Rank'),a.best==null?'—':'#'+a.best],
+  [l('TOP 3入り回数','Top 3 Finishes'),String(a.top3)],
+  [l('直近2回の平均WRP','Last 2 WRP Avg.'),nativeWRP(a.recent)],
+  [l('直近の平均WRPの変化','Recent Avg. WRP Change'),signedWRP(a.change)]
+ ];
+ for(const [name,value,converted] of metrics){
+  const metric=node('div','ob-r95-metric');metric.append(node('span','',name),node('strong','',value));
+  if(converted)metric.append(node('span','ob-r95-converted',converted));
+  summary.append(metric);
+ }panel.append(summary);
  const badges=node('div','ob-r95-tags');badges.append(node('span','ob-r95-tag ob-r95-primary',groupLabel(a.group)));for(const t of a.features)badges.append(node('span','ob-r95-tag',tagLabel(t)));panel.append(badges);
  if(a.current?.rank==null&&a.current?.droppedAfterWeek==null&&!a.current?.broadcast)panel.append(node('div','ob-r95-detail-note',l('選択週の評価・個別の放送状況は未記録。過去の評価に基づく分類です。','Selected week has no rating or title-specific broadcast record. Group is based on earlier ratings.')));
- panel.append(node('div','ob-r95-detail-note',l(`${a.n}回評価 · WRPは100点換算 · 直近の変化：最近2回とその前2回の比較`,`${a.n} rated · WRP out of 100 · Recent change compares last 2 vs previous 2 ratings`)));
+ panel.append(node('div','ob-r95-detail-note',l(`本戦で${a.n}回評価（予選を除く）`,`${a.n} main-season ${a.n===1?'rating':'ratings'} (PRELIM excluded)`)));
  if(a.comparison!=null)panel.append(node('div','ob-r95-detail-note',l('相対順位の変化：','Relative rank change: ')+(a.comparison>0?'+':'')+numeric(a.comparison*100)+' '+l('ポイント','pp')));
+ const help=node('details','ob-r95-metric-help');help.append(node('summary','',l('成績データの見方','About These Numbers')));
+ const notes=node('dl','ob-r95-metric-definitions');
+ for(const [term,definition] of [
+  [l('平均WRP','Average WRP'),l('選択週までの本戦で、評価記録がある回のWRPの平均。予選や未評価の回は含みません。','Mean WRP of all rated main-season rounds through the selected week. PRELIM and unrated rounds are excluded.')],
+  [l('選択週の順位・評価数','Week rank / field'),l('第'+w+'週の順位と、その週のランキング評価作品数。順位の記録がなければ「—」を表示します。','Rank in Week '+w+' and the number of titles ranked that week. A dash means no rank was recorded.')],
+  [l('直近2回の平均WRP','Last 2 WRP Avg.'),l('最後に評価した2回分のWRPの平均。放送休止などで評価がなかった週は数えません。','Mean WRP of the two most recent rated rounds, skipping weeks without a rating.')],
+  [l('直近の平均WRPの変化','Recent Avg. WRP Change'),l('直近2回の平均WRPから、その前の2回の平均WRPを引いた値。算出には4回分の評価が必要です。','The latest two-rated-round mean minus the previous two-rated-round mean. At least four ratings are required.')],
+  [l('相対順位の変化','Relative rank change'),l('各週の評価作品数を考慮した順位の位置（1位＝100％、最下位＝0％）。直近2回とその前の2回の平均位置の差をパーセントポイントで示します。算出に必要な順位・評価数がそろった場合のみ表示します。','Rank position adjusted for the size of the weekly field (first = 100%, last = 0%). The change is the difference between the latest two and previous two rated-round mean positions, in percentage points (pp), shown only when enough ranking data is available.')],
+  [l('グループ分類とシーズン総合評価','Groups and final season score'),l('ラインナップの成績グループは平均WRPを10倍した数値を基準に分類します。この換算値は別途算出する正式なシーズン総合評価とは異なります。','Lineup score groups use the average WRP multiplied by 10. This converted average is not the final season ranking score, which is calculated separately.')]
+ ]){notes.append(node('dt','',term),node('dd','',definition));}
+ help.append(notes);panel.append(help);
  if(a.n){const charts=node('div','ob-r95-charts');charts.append(chart(a,'score'),chart(a,'rank'));panel.append(charts);}
  const table=node('table','ob-r95-history');const thead=node('thead'),hr=node('tr');for(const name of [l('週','Week'),l('順位 / 評価数','Rank / field'),'WRP',l('状態','Status')])hr.append(node('th','',name));thead.append(hr);table.append(thead);const tbody=node('tbody');
- for(let w=1;w<=currentWeek();w++){const r=a.records.find(x=>x.week===w),tr=node('tr');const status=!r?l('データなし','Data missing'):r.dropDecidedThisWeek?l('ドロップ決定','Drop decided'):r.droppedAfterWeek!=null?l('ドロップ','Dropped'):r.broadcast?.status==='no_air'?l('放送なし','No air'):r.broadcast?.status==='season_halted'?l('中断','Halted'):r.rank!=null?l('評価済み','Rated'):l('評価記録なし','No rating recorded');for(const v of [weekName(w),r?.rank!=null?'#'+r.rank+(r.participantCount?' / '+r.participantCount:''):'—',numeric(r?.wrp_score==null?null:r.wrp_score*10),status])tr.append(node('td','',v));tbody.append(tr);}table.append(tbody);panel.append(table);
+ for(let w=1;w<=currentWeek();w++){const r=a.records.find(x=>x.week===w),tr=node('tr');const status=!r?l('データなし','Data missing'):r.dropDecidedThisWeek?l('ドロップ決定','Drop decided'):r.droppedAfterWeek!=null?l('ドロップ','Dropped'):r.broadcast?.status==='no_air'?l('放送なし','No air'):r.broadcast?.status==='season_halted'?l('中断','Halted'):r.rank!=null?l('評価済み','Rated'):l('評価記録なし','No rating recorded');for(const v of [weekName(w),r?.rank!=null?'#'+r.rank+(r.participantCount?' / '+r.participantCount:''):'—',wrpText(r?.wrp_score),status])tr.append(node('td','',v));tbody.append(tr);}table.append(tbody);panel.append(table);
 }
 
 translate();
