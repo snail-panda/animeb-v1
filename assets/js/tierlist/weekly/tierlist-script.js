@@ -73,7 +73,8 @@ function mountInteractiveTierBoard(data, year, season) {
   if (!rows.length) return;
   const el = (tag,cls,text) => { const n=document.createElement(tag); if(cls)n.className=cls; if(text!=null)n.textContent=text; return n; };
   const button = (text,cls) => { const n=el('button',cls,text); n.type='button'; return n; };
-  const title = entry => entry.title;
+  const title = entry => tl(entry.title,entry.jpTitle||entry.title);
+  const alternateTitle = entry => tierLang==='ja'?entry.title:entry.jpTitle;
   const imageUrl = entry => {
     const id=String(entry.imageId||'').replace(/\.(?:webp|png|jpe?g)$/i,'');
     if (!id || /[/\\\x00-\x1f]/.test(id) || id==='.' || id==='..') return null;
@@ -96,7 +97,7 @@ function mountInteractiveTierBoard(data, year, season) {
   const tooltip=el('div','live-tier-tooltip');tooltip.hidden=true;tooltip.setAttribute('aria-hidden','true');document.body.append(tooltip);
   function hideTip(){tooltip.hidden=true;}
   function showTip(card,entry,event){
-    tooltip.textContent=title(entry);tooltip.hidden=false;
+    const alt=alternateTitle(entry);tooltip.replaceChildren(el('strong','live-tier-tooltip-main',title(entry)));if(alt&&alt!==title(entry))tooltip.append(el('small','live-tier-tooltip-alt',alt));tooltip.hidden=false;
     const r=card.getBoundingClientRect(); const x=event?.clientX??r.left;const y=event?.clientY??r.bottom;
     tooltip.style.left=Math.max(6,Math.min(x+10,innerWidth-tooltip.offsetWidth-6))+'px';
     tooltip.style.top=Math.max(6,Math.min(y+12,innerHeight-tooltip.offsetHeight-6))+'px';
@@ -115,26 +116,111 @@ function mountInteractiveTierBoard(data, year, season) {
   const poster=el('div','live-tier-poster');const posterTitle=el('h2','live-tier-poster-title');const posterTier=el('p','live-tier-poster-tier');
   preview.append(back,posterTitle,posterTier,poster);
   dialog.append(toolbar,status,scroll,preview);document.body.append(dialog);
-  let active=null,zoom=100,oldOverflow='',returnFocus=null,viewerBoard=null;
+  let active=null,zoom=100,oldOverflow='',returnFocus=null,viewerBoard=null,mainBoard=null,detailEntry=null,detailTier=null;
+  const localized=[];
+  function bindText(node,fn,attr){localized.push(()=>{if(attr)node.setAttribute(attr,fn());else node.textContent=fn();});}
+  bindText(open,()=>tl('Enlarge tier list','ティアリストを拡大'));bindText(original,()=>tl('PNG version','PNG版'));
+  bindText(hint,()=>tl('Hover over a visual for its title. Click the board to enlarge.','画像にカーソルを合わせると作品名を表示。表をタップ・クリックすると拡大します。'));
+  bindText(dialog,()=>tl('Enlarged tier list','拡大ティアリスト'),'aria-label');bindText(minus,()=>tl('Zoom out','縮小'),'aria-label');bindText(plus,()=>tl('Zoom in','拡大'),'aria-label');
+  bindText(close,()=>tl('Close ×','閉じる ×'));bindText(back,()=>tl('Back to tier list','ティアリストに戻る'));
+  const promptText=()=>tl('Select any visual to see title details.','作品画像を選ぶと詳細を表示します。');
+
   function clearActive(){if(active)active.classList.remove('is-selected');active=null;}
+  const altHeading=el('p','live-tier-alt-title');posterTitle.after(altHeading);
+  const detailBody=el('div','live-tier-detail-body');poster.after(detailBody);
+  const weekNumber=Number(location.pathname.match(/week(\d{2})\//)?.[1]);
+  const weekText=w=>String(w).padStart(2,'0');
+  const baselineWeek=String(data.analysis?.baseline||'').match(/\bW(?:eek\s*)?(\d{1,2})\b/i)?.[1];
+  const baseWeek=baselineWeek?Number(baselineWeek):null;
+  function renderDetailHeading(){posterTitle.textContent=title(detailEntry);altHeading.textContent=alternateTitle(detailEntry)||'';altHeading.hidden=!altHeading.textContent||altHeading.textContent===posterTitle.textContent;posterTier.textContent=tl(`Tier ${tierLabel(detailTier)} · #${detailEntry.position||rows.find(r=>r.name===detailTier).entries.indexOf(detailEntry)+1}`,`Tier ${tierLabel(detailTier)} · ${detailEntry.position||1}番目`);}
+  const findEntry=(list,entry,idFn,titleFn)=>{
+    const id=String(entry.imageId||'');const sameId=id?list.filter(x=>String(idFn(x)||'')===id):[];
+    if(sameId.length===1)return sameId[0];if(sameId.length>1)return null;
+    const sameTitle=list.filter(x=>titleFn(x)===entry.title);return sameTitle.length===1?sameTitle[0]:null;
+  };
+  const root='../../../../';let detailDataPromise=null,detailRequest=0;
+  const readJSON=async path=>{const r=await fetch(root+path);if(!r.ok)throw Error(path);return r.json();};
+  async function loadDetailData(){
+    if(detailDataPromise)return detailDataPromise;
+    detailDataPromise=(async()=>{
+      const key=`${year}-${season}`;
+      let master=null;
+      for(const path of [`master/${year}/${season}/anime-master-${key}.json`,`master/${year}/${season}/anime_master-${key}.json`,`assets/data/offbeat-season-${key}.json`,`assets/data/anime-master-${key}.json`,`assets/data/ranking/weekly/anime-master-${key}.json`]){
+        try{const d=await readJSON(path);if(Array.isArray(d.entries)||Array.isArray(d.items)){master=d;break;}}catch(_){}
+      }
+      let weekly={},expected=[];
+      try{const index=await readJSON('weekly-rankings.json');const list=index?.[year]?.[season[0].toUpperCase()+season.slice(1)]?.weeks||[];expected=[...new Set(list.map(x=>Number(String(x).match(/\d{1,2}/)?.[0])).filter(w=>Number.isInteger(w)&&w>=1&&w<=weekNumber))].sort((a,b)=>a-b);}catch(_){}
+      let engine=window.OFFBEAT_LINEUP_DATA_R52;
+      if(!engine){try{await new Promise((resolve,reject)=>{const script=el('script');script.src=root+'assets/js/common/offbeat-lineup-data-r52.js';script.onload=resolve;script.onerror=reject;document.head.append(script);});engine=window.OFFBEAT_LINEUP_DATA_R52;}catch(_){}}
+      if(engine&&expected.length){await Promise.all(expected.map(async w=>{try{weekly[w]=await readJSON(engine.pathFor(year,season,w));}catch(_){}}));}
+      const infos=(master?.entries||master?.items||[]).map(x=>x.info||x);
+      // Reuse the Anime Home engine, with the broader Tier List catalog. Only
+      // editions up to this article's week are ever loaded.
+      let compiled=null;
+      if(engine&&Object.keys(weekly).length){try{
+        const unique=new Map(),duplicates=new Set();for(const row of rows)for(const e of row.entries){const kv=String(e.imageId||'');if(!kv)continue;if(unique.has(kv))duplicates.add(kv);else unique.set(kv,{kv,title:e.title,jpTitle:e.jpTitle||''});}for(const kv of duplicates)unique.delete(kv);
+        compiled=engine.compileSeason({seasonYear:Number(year),season,items:[...unique.values()]},weekly);
+      }catch(e){console.warn('Tier performance unavailable',e);}}
+      return {infos,compiled,engine,weekly,expected};
+    })();return detailDataPromise;
+  }
+  function detailLine(label,value){const box=el('div','live-tier-detail-metric');box.append(el('small',null,label),el('strong',null,value));return box;}
+  function detailGrid(parent,values){const grid=el('div','live-tier-detail-grid');values.forEach(([k,v])=>grid.append(detailLine(k,v)));parent.append(grid);}
+  const formatRank=r=>r?.rank==null?'—':`#${r.rank}${r.participantCount?' / '+r.participantCount:''}`;
+  const fmt=v=>Number.isFinite(v)?v.toFixed(2):'—';
+  async function renderTitleDetails(entry,tier){
+    const request=++detailRequest;detailBody.replaceChildren();
+    const section=el('section','live-tier-detail-section');section.append(el('h3',null,tl('Tier history','Tierの変遷')));
+    const movement=[...(data.analysis?.changes?.promotions||[]),...(data.analysis?.changes?.demotions||[])];const moved=findEntry(movement,entry,x=>x.imageId,x=>x.title);
+    const former=entry.previousTier==null?'—':`${tierLabel(entry.previousTier)}${entry.previousPosition?' · #'+entry.previousPosition:''}`;
+    const change=Number.isFinite(moved?.steps)?`${moved.steps>0?'+':''}${moved.steps} ${tl('tiers','段階')}`:entry.previousTier==null?tl('No previous tier','前回なし'):entry.previousTier===tier?tl('Same tier','変化なし'):`${tierLabel(entry.previousTier)} → ${tierLabel(tier)}`;
+    detailGrid(section,[[tl(`Previous tier${baseWeek?' · W'+weekText(baseWeek):''}${baseWeek===1?' (First Impressions)':''}`,`前回のTier${baseWeek?' · W'+weekText(baseWeek):''}${baseWeek===1?'（初回印象）':''}`),former],[tl(`Current tier · W${weekText(weekNumber)}`,`今回のTier · W${weekText(weekNumber)}`),`${tierLabel(tier)} · #${entry.position||1}`],[tl('Tier change','Tierの変化'),change]]);
+    detailBody.append(section);
+    const loading=el('p','live-tier-detail-note',tl('Loading title information and weekly results…','作品情報・週間成績を読み込み中…'));detailBody.append(loading);
+    let d;try{d=await loadDetailData();}catch(_){d=null;}
+    if(request!==detailRequest||detailEntry!==entry||preview.hidden||!dialog.open)return;
+    loading.remove();if(!d){detailBody.append(el('p','live-tier-detail-note',tl('Additional information is unavailable.','追加情報を表示できません。')));return;}
+    const info=findEntry(d.infos,entry,x=>x.image_id||x.kv,x=>x.title)||Object.values(d.weekly).reverse().map(raw=>findEntry(raw.entries||[],entry,x=>x.kv,x=>x.title)).find(Boolean);
+    if(info){const information=el('section','live-tier-detail-section');information.append(el('h3',null,tl('About the title','作品情報')));
+      const studio=tl(info.studios,info.studios_ja||info.studiosJa||info.studios),rawGenre=info.genre||info.genres||'';const genreList=Array.isArray(rawGenre)?rawGenre:String(rawGenre).split('|');const genre=genreList.map(g=>tl(g,({Action:'アクション',Adventure:'冒険',Comedy:'コメディ',Drama:'ドラマ',Fantasy:'ファンタジー',Romance:'恋愛','Slice of Life':'日常',Sports:'スポーツ',Mystery:'ミステリー',Horror:'ホラー','Sci-Fi':'SF',Supernatural:'超自然',Suspense:'サスペンス',Ecchi:'お色気'}[g]||g))).join(' / ');
+      if(studio)information.append(el('p','live-tier-detail-meta',studio));if(genre)information.append(el('p','live-tier-detail-meta',genre));
+      const synopsis=tl(info.synopsis,info.synopsis_ja||info.synopsisJa||info.synopsis);if(synopsis)information.append(el('p','live-tier-detail-synopsis',synopsis));detailBody.append(information);
+    }
+    const perf=el('section','live-tier-detail-section');perf.append(el('h3',null,tl('Weekly ranking performance','週間ランキング成績')));
+    const hist=d.compiled?.histories?.[entry.imageId];
+    const a=hist&&d.engine?.analyze?.(hist,weekNumber);
+    if(a&&a.n){
+      const records=a.records;const prior=baseWeek?records.find(r=>r.week===baseWeek):null;const current=records.find(r=>r.week===weekNumber);
+      const summary=[];if(baseWeek)summary.push([tl(`Week ${weekText(baseWeek)} rank / WRP`,`第${weekText(baseWeek)}週 順位 / WRP`),`${formatRank(prior)} · ${fmt(prior?.wrp_score)}`]);
+      summary.push([tl(`Week ${weekText(weekNumber)} rank / WRP`,`第${weekText(weekNumber)}週 順位 / WRP`),`${formatRank(current)} · ${fmt(current?.wrp_score)}`],[tl('Average WRP','平均WRP'),fmt(a.mean/10)],[tl('Best rank','最高順位'),a.best==null?'—':'#'+a.best]);detailGrid(perf,summary);
+      perf.append(el('p','live-tier-detail-note',tl('WRP = Weekly Ranking Points, on the usual weekly scale. Tier placement is a separate assessment.','WRP＝週間ランキングポイント（通常の週間評価尺度）。Tier評価とは別の指標です。')));
+      const table=el('table','live-tier-detail-history');const head=el('thead'),tr=el('tr');for(const txt of [tl('Week','週'),tl('Rank / field','順位 / 評価数'),'WRP',tl('Status','状態')]){const th=el('th',null,txt);th.scope='col';tr.append(th);}head.append(tr);table.append(head);const tbody=el('tbody');
+      for(let w=1;w<=weekNumber;w++){const rec=records.find(r=>r.week===w),line=el('tr');const state=!rec?tl('Data unavailable','データなし'):rec.dropDecidedThisWeek?tl('Drop decided','ドロップ決定'):rec.rank!=null?tl('Rated','評価済み'):rec.droppedAfterWeek!=null?tl('Dropped','ドロップ'):rec.broadcast?.status==='no_air'?tl('No air','放送なし'):rec.broadcast?.status==='season_halted'?tl('Halted','放送中断'):rec.rankingCoverage==='full_reference'?tl('Not ranked','順位なし'):tl('Unconfirmed','未確認');line.append(el('td',null,'W'+weekText(w)),el('td',null,formatRank(rec)),el('td',null,fmt(rec?.wrp_score)),el('td',null,state));tbody.append(line);}table.append(tbody);perf.append(table);
+    }else perf.append(el('p','live-tier-detail-note',tl('No verified weekly ranking results for this title in the available data.','取得できたデータには、この作品の確認済み週間ランキング成績がありません。')));
+    if(!d.compiled||d.expected.some(w=>!d.compiled.weeks.includes(w)))perf.append(el('p','live-tier-detail-note',tl('Some weekly data may be unavailable; no missing ratings are treated as zero.','一部の週間データを取得できていない可能性があります。欠損評価は0点として扱いません。')));
+    if(d.compiled?.weeks.includes(weekNumber)){const link=el('a','live-tier-detail-ranking',tl(`View Week ${weekText(weekNumber)} Weekly Ranking`,`第${weekText(weekNumber)}週 ウィークリーランキングを見る`));link.href=root+`ranking/${year}/${season}/week${weekText(weekNumber)}/index.html`;perf.append(link);}
+    detailBody.append(perf);
+  }
   function showPoster(entry,tier,card){
     clearActive();active=card;active?.classList.add('is-selected');
-    posterTitle.textContent=title(entry);posterTier.textContent=`Tier ${tier} · ${entry.position || rows.find(r=>r.name===tier).entries.indexOf(entry)+1}`;
+    detailEntry=entry;detailTier=tier;renderDetailHeading();
     poster.classList.remove('live-tier-missing');poster.replaceChildren();addImage(poster,entry,true);
-    scroll.hidden=true;preview.hidden=false;status.textContent=title(entry);minus.disabled=plus.disabled=true;back.focus();
+    hideTip();scroll.hidden=true;preview.hidden=false;status.textContent=title(entry);minus.disabled=plus.disabled=true;renderTitleDetails(entry,tier);back.focus();
   }
-  function returnToBoard(){preview.hidden=true;scroll.hidden=false;minus.disabled=plus.disabled=false;status.textContent='Select any visual to view the poster and title.';if(active){active.focus({preventScroll:true});active.scrollIntoView({block:'nearest',inline:'nearest'});}else close.focus();}
+  function returnToBoard(){detailEntry=null;detailTier=null;preview.hidden=true;scroll.hidden=false;minus.disabled=plus.disabled=false;status.textContent=promptText();if(active){active.focus({preventScroll:true});active.scrollIntoView({block:'nearest',inline:'nearest'});}else close.focus();}
   function buildBoard(inViewer){
-    const board=el('div','live-tier-board');board.setAttribute('aria-label','Tier list');
+    const board=el('div','live-tier-board');bindText(board,()=>tl('Tier list','ティアリスト'),'aria-label');
+    if(!inViewer)board.addEventListener('click',event=>{if(!event.target.closest('.live-tier-card'))openViewer();});
     rows.forEach(row=>{
-      const line=el('div','live-tier-row');const tag=el('div','live-tier-label',row.name);tag.style.backgroundColor=row.color;
+      const line=el('div','live-tier-row');const tag=el('div','live-tier-label',tierLabel(row.name));tag.style.backgroundColor=row.color;bindText(tag,()=>tierLabel(row.name));
       const cards=el('div','live-tier-cards');
       row.entries.forEach((entry,index)=>{
         const card=button(null,'live-tier-card');card.dataset.tier=row.name;card.dataset.position=String(index+1);
-        card.title=title(entry);card.setAttribute('aria-label',`${title(entry)} — ${row.name}, ${index+1}`);
+        bindText(card,()=>`${title(entry)} — ${tierLabel(row.name)}, ${index+1}`,'aria-label');
         addImage(card,entry,inViewer);card.addEventListener('click',()=>inViewer?showPoster(entry,row.name,card):openViewer(row.name,index+1));
-        if(inViewer){const announce=()=>{status.textContent=`${row.name} · ${title(entry)}`;};card.addEventListener('pointerenter',announce);card.addEventListener('focus',announce);}
-        else {card.addEventListener('pointerenter',e=>showTip(card,entry,e));card.addEventListener('pointermove',e=>showTip(card,entry,e));card.addEventListener('pointerleave',hideTip);card.addEventListener('focus',()=>showTip(card,entry));card.addEventListener('blur',hideTip);}
+        const tip=e=>{if(inViewer)status.textContent=`${tierLabel(row.name)} · ${title(entry)}`;if(e.pointerType!=='touch')showTip(card,entry,e.type==='focus'?null:e);};
+        card.addEventListener('pointerenter',tip);card.addEventListener('pointermove',tip);card.addEventListener('pointerleave',hideTip);card.addEventListener('focus',tip);card.addEventListener('blur',hideTip);
+        const img=card.querySelector('img');if(img)bindText(img,()=>title(entry),'alt');
         cards.append(card);
       });line.append(tag,cards);board.append(line);
     });return board;
@@ -144,27 +230,54 @@ function mountInteractiveTierBoard(data, year, season) {
     hideTip();if(dialog.open)return;
     returnFocus=document.activeElement;oldOverflow=document.body.style.overflow;
     if(!viewerBoard){viewerBoard=buildBoard(true);scroll.append(viewerBoard);}
-    clearActive();preview.hidden=true;scroll.hidden=false;minus.disabled=plus.disabled=false;dialog.showModal();document.body.style.overflow='hidden';
-    setZoom(100);scroll.scrollTop=scroll.scrollLeft=0;status.textContent='Select any visual to view the poster and title.';
+    clearActive();detailEntry=null;detailTier=null;preview.hidden=true;scroll.hidden=false;minus.disabled=plus.disabled=false;dialog.append(tooltip);dialog.showModal();document.body.style.overflow='hidden';localized.forEach(fn=>fn());
+    setZoom(100);scroll.scrollTop=scroll.scrollLeft=0;status.textContent=promptText();
     if(tier!=null){const target=Array.from(viewerBoard.querySelectorAll('.live-tier-card')).find(c=>c.dataset.tier===tier&&c.dataset.position===String(position));if(target){active=target;target.classList.add('is-selected');target.focus({preventScroll:true});target.scrollIntoView({block:'nearest',inline:'nearest'});}}else close.focus();
   }
   open.addEventListener('click',()=>openViewer());close.addEventListener('click',()=>dialog.close());back.addEventListener('click',returnToBoard);
   minus.addEventListener('click',()=>setZoom(zoom-25));plus.addEventListener('click',()=>setZoom(zoom+25));
-  dialog.addEventListener('close',()=>{document.body.style.overflow=oldOverflow;hideTip();returnFocus?.focus({preventScroll:true});});
+  dialog.addEventListener('close',()=>{document.body.style.overflow=oldOverflow;hideTip();document.body.append(tooltip);detailEntry=null;detailTier=null;returnFocus?.focus({preventScroll:true});hideTip();});
   window.addEventListener('resize',()=>{hideTip();if(dialog.open&&!scroll.hidden)setZoom(zoom);});
   window.addEventListener('scroll',hideTip,{passive:true});
-  wrapper.append(buildBoard(false),controls,hint);png.insertAdjacentElement('afterend',wrapper);
+  mainBoard=buildBoard(false);wrapper.append(mainBoard,controls,hint);png.insertAdjacentElement('afterend',wrapper);
   // The original side list remains collapsible; each entry opens the matching visual.
   Array.from(sections.querySelectorAll('.tier-section')).forEach(section=>{
     const name=section.querySelector('.toggle-button')?.textContent;const row=rows.find(r=>r.name===name);if(!row)return;
-    Array.from(section.querySelectorAll('li')).forEach((li,i)=>{const entry=row.entries[i];if(!entry||li.textContent!==entry.title)return;const link=button(entry.title,'live-tier-title-link');link.addEventListener('click',()=>openViewer(name,i+1));li.replaceChildren(link);});
+    const toggle=section.querySelector('.toggle-button');bindText(toggle,()=>tierLabel(name));
+    Array.from(section.querySelectorAll('li')).forEach((li,i)=>{const entry=row.entries[i];if(!entry||li.textContent!==entry.title)return;const link=button(title(entry),'live-tier-title-link');bindText(link,()=>title(entry));
+      const target=Array.from(mainBoard.querySelectorAll('.live-tier-card')).find(c=>c.dataset.tier===name&&c.dataset.position===String(i+1));
+      const highlight=on=>{target?.classList.toggle('is-linked',on);mainBoard.classList.toggle('has-linked',on);};
+      link.addEventListener('pointerenter',()=>highlight(true));link.addEventListener('pointerleave',()=>highlight(false));link.addEventListener('focus',()=>highlight(true));link.addEventListener('blur',()=>highlight(false));
+      link.addEventListener('click',()=>{highlight(false);openViewer(name,i+1);showPoster(entry,name,active);});li.replaceChildren(link);});
   });
   host.classList.add('has-live-tier-board');png.hidden=true;
+  function syncBoard(){localized.forEach(fn=>fn());for(const board of [mainBoard,viewerBoard])if(board)board.querySelectorAll('.live-tier-card.live-tier-missing').forEach(card=>{const entry=rows.find(r=>r.name===card.dataset.tier)?.entries[Number(card.dataset.position)-1];const span=card.querySelector('.live-tier-missing-title');if(entry&&span)span.textContent=title(entry);});hideTip();if(detailEntry){renderDetailHeading();status.textContent=title(detailEntry);renderTitleDetails(detailEntry,detailTier);}else status.textContent=promptText();}
+  syncBoard();return syncBoard;
 }
 
 // Structured editorial, opt-in per article. Legacy prose is never replaced unless
 // the page explicitly requests auto mode. All copy is derived from this edition.
 const autoEditorial = document.body.dataset.tierEditorial === "auto";
+const tierLanguageKey = 'animeb-weekly-lang';
+let tierLang = 'en';
+if(autoEditorial){try{tierLang=localStorage.getItem(tierLanguageKey)==='ja'?'ja':'en';}catch(_){} }
+const tl = (en,ja) => tierLang==='ja'?ja:en;
+const tierLabel = name => tl(name,({Dropped:'ドロップ',RecentlyDropped:'新規ドロップ','Never Watched':'未視聴','N/A':'対象外'}[name]||name));
+function tierVersionJa(version,week){
+ const ep=String(version||'').match(/Episodes?\s+(\d+(?:\s*[–—-]\s*\d+)?)/i);
+ const name=({'week01':'初回印象','week06':'中間評価','week12':'最終評価'})[week];
+ return name?`${name} ティアリスト${ep?' — 第'+ep[1]+'話':''}`:String(version||'Tier List');
+}
+function installTierLanguage(update){
+ const group=document.createElement('div');group.className='tier-page-language';group.setAttribute('role','group');group.setAttribute('aria-label','Language / 言語');
+ for(const [lang,label] of [['en','EN'],['ja','日本語']]){const b=document.createElement('button');b.type='button';b.textContent=label;b.dataset.lang=lang;b.addEventListener('click',()=>apply(lang,true));group.append(b);}
+ function apply(lang,save){tierLang=lang==='ja'?'ja':'en';if(save){try{localStorage.setItem(tierLanguageKey,tierLang);}catch(_){}}document.documentElement.lang=tierLang;group.querySelectorAll('button').forEach(b=>{b.classList.toggle('selected',b.dataset.lang===tierLang);b.setAttribute('aria-pressed',String(b.dataset.lang===tierLang));});update();document.dispatchEvent(new CustomEvent('offbeat:tier-editorial-language',{detail:tierLang}));}
+ const mast=document.getElementById('offbeat-global-header');
+ const put=()=>{const tools=mast?.querySelector('.offbeat-header-tools');if(tools){tools.prepend(group);return true;}return false;};
+ if(!put()){const target=document.querySelector('.post-header');if(target)target.prepend(group);if(mast){const obs=new MutationObserver(()=>{if(put())obs.disconnect();});obs.observe(mast,{childList:true,subtree:true});}}
+ window.addEventListener('storage',e=>{if(e.key===tierLanguageKey)apply(e.newValue,false);});apply(tierLang,false);
+}
+
 function renderTierEditorial(data, meta, lang = "en") {
   const ja = lang === "ja";
   const tr = (en, jp) => ja ? jp : en;
@@ -213,7 +326,6 @@ function renderTierEditorial(data, meta, lang = "en") {
   const noteEn = "The tier list is a separate assessment from the Weekly Ranking. Titles excluded from the Weekly Ranking may still be evaluated here. A change to Dropped refers to this tier list, not necessarily to the date a title left the Weekly Ranking.";
   const noteJa = "ティアリストはウィークリーランキングとは別の評価です。週間ランキングの対象外となった作品でも、ここでは評価される場合があります。ドロップへの移動はティアリスト上の変化であり、週間ランキングから外れた時期と必ずしも一致しません。";
   para(note,tr(noteEn,noteJa));
-  if (!ja) { const d=make("details"); d.append(make("summary","日本語ノートを表示 / 隠す"),make("p",noteJa)); note.append(d); }
   intro.append(note);
   heading(content, week === "06" ? tr("Midseason at a Glance", "中間時点の評価状況") : tr("The Lineup at a Glance", "評価状況"));
   const stats = make("div",null,"tier-auto-stats");
@@ -351,6 +463,8 @@ if (!autoEditorial) {
       const disclaimerBox = document.getElementById("disclaimer");
       if (disclaimerBox) disclaimerBox.innerHTML = tierGuideData.disclaimer;
 
+      const guideEnglish = box?.innerHTML;
+      const disclaimerEnglish = disclaimerBox?.innerHTML;
       // 以下は簡易版生成とトグル（省略せずそのまま）
       const simpleList = document.createElement("ul");
       simpleList.className = "criteria-simple";
@@ -374,6 +488,36 @@ if (!autoEditorial) {
       toggleButton.classList.add("tier-guide-toggle");
       document.getElementById("tierGuide").appendChild(toggleButton);
 
+      function updateGuideLanguage(){
+        if(!autoEditorial||!box||!disclaimerBox)return;
+        const detailed=box.querySelector('.criteria-list');if(!detailed)return;
+        const english=document.createElement('div');english.innerHTML=guideEnglish||'';
+        const enList=english.querySelector('.criteria-list');
+        const isOpen=!detailed.classList.contains('hidden');
+        const midJa=[
+          ['🔴 SS – 至高','最高峰。絶対に見てほしい作品。'],
+          ['🟠 S – 素晴らしい','完成度が高く、勢いも十分。神がかり的な輝きにはあと一歩。おすすめはこのTierから。'],
+          ['🟡 A – 良作','堅実で、まだ興味を引く作品。十分楽しめるが、少し失速してきた、あるいは逆に持ち直してきた作品も。'],
+          ['⚪ B – まずまず','必見ではないが、普通に視聴できる。気軽に見るには十分。見逃しても大きな損はない。'],
+          ['🟢 C – 不出来／ひどい','うまくかみ合わない部分が多い。ただ、いくつかの要素がうまくまとまれば、わずかな希望は残る。'],
+          ['🔻 D – 駄作','視聴時間を正当化するのも難しいほどの駄作。しかし、ひどさゆえに楽しめることもあり、奇妙な魅力が瞬間的に光る。崩れかけていても、不思議とシーズン全体を形作る一部ではある。'],
+          ['🔵 ドロップ／再視聴の可能性','ひとまず視聴を中止。再挑戦の機会を与える作品もあるかもしれない。'],
+          ['⚫ N/A – 対象外','判断済み。評価の圏外。']
+        ];
+        const localGuide=tierLang==='ja'&&week==='week06'&&enList?.children.length===midJa.length;
+        if(enList)detailed.replaceChildren(...Array.from(enList.children).map(n=>n.cloneNode(true)));
+        if(localGuide)Array.from(detailed.children).forEach((li,i)=>{const span=li.querySelector('span');if(span){span.textContent=midJa[i][0];li.replaceChildren(span,document.createTextNode(' '+midJa[i][1]));}});
+        const h=box.querySelector('.criteria-title');if(h)h.textContent=tl('Tier Guide',localGuide?'Tierの評価基準':'Tierの評価基準（英語）');
+        simpleList.replaceChildren(...Array.from(detailed.children).map(li=>{const n=document.createElement('li');n.textContent=li.querySelector('span')?.textContent||li.textContent;return n;}));
+        detailed.classList.toggle('hidden',!isOpen);simpleList.classList.toggle('hidden',isOpen);
+        toggleButton.textContent=isOpen?tl('Hide details','詳細を閉じる'):tl('Show details','詳細を表示');
+        disclaimerBox.innerHTML=disclaimerEnglish||'';
+        if(tierLang==='ja'){
+          const title=document.createElement('div');title.className='disclaimer-title';title.textContent='※ N/A（対象外）について';
+          disclaimerBox.replaceChildren(title,document.createTextNode('N/Aの多くは、初回から数話の間、あるいは視聴途中で視聴をやめたり、対象から外したりした作品です。数分しか見ていないもの、ひと目で対象外にしたもの、そもそも見ていないものもあります。すべてがひどい作品というわけではありません。単に好みに合わない、あるいは週間ランキングの形式や雰囲気に合わないものが多いのです。良作や楽しめる作品でも当てはまる場合があります。とはいえ、本当にひどい作品もいくつかありました。'));
+        }
+      }
+      if(autoEditorial){document.addEventListener('offbeat:tier-editorial-language',updateGuideLanguage);updateGuideLanguage();}
       // ボタンクリックで切替
       toggleButton.addEventListener("click", function() {
         const detailed = document.querySelector(".criteria-list");
@@ -382,12 +526,12 @@ if (!autoEditorial) {
           // 詳細版を出す→簡易版を隠す
           detailed.classList.remove("hidden");
           simple.classList.add("hidden");
-          toggleButton.textContent = "Hide details";
+          toggleButton.textContent = autoEditorial?tl("Hide details","詳細を閉じる"):"Hide details";
         } else {
           // 簡易版に戻す
           detailed.classList.add("hidden");
           simple.classList.remove("hidden");
-          toggleButton.textContent = "Show details";
+          toggleButton.textContent = autoEditorial?tl("Show details","詳細を表示"):"Show details";
         }
       });
     } else {
@@ -574,7 +718,7 @@ function setTierImage() {
         console.warn("Editorial header skipped: JSON season/year differs from page URL", jsonData.season, year, season);
       }
       if (autoEditorial) {
-        renderTierEditorial(jsonData, validPage ? tierArticleMetadata : null);
+        renderTierEditorial(jsonData, validPage ? tierArticleMetadata : null, tierLang);
         // Future shared language switch can invoke this without re-fetching JSON.
         document.addEventListener("offbeat:tier-editorial-language", event => {
           renderTierEditorial(jsonData, validPage ? tierArticleMetadata : null, event.detail === "ja" ? "ja" : "en");
@@ -666,7 +810,27 @@ function setTierImage() {
   }  
         tierSections.appendChild(section);
       }
-      if (autoEditorial && validPage) mountInteractiveTierBoard(jsonData, year, season);
+      if (autoEditorial && validPage) {
+        const syncBoard = mountInteractiveTierBoard(jsonData, year, season);
+        const originalHeading = heading.cloneNode(true);
+        const enCaption=caption?.textContent||'';
+        const rawDate=dateNode?.textContent||'';
+        installTierLanguage(()=>{
+          const ja=tierLang==='ja';
+          // Keep approved hero hierarchy and season fitting in place, only replace text.
+          const right=heading.querySelector('.fall-hero-right'),enRight=originalHeading.querySelector('.fall-hero-right');
+          if(right&&enRight){right.replaceChildren(...Array.from(enRight.childNodes).map(n=>n.cloneNode(true)));if(ja){const ver=tierVersionJa(jsonData.version,week).split(' — ');const lines=right.querySelector('.fall-hero-lines');if(lines){const lead=document.createElement('span');lead.textContent=ver[0].replace(/ ティアリスト$/,'');const tier=document.createElement('span');tier.className='fall-hero-tier';tier.textContent='ティアリスト';lines.replaceChildren(lead,tier);}const episode=right.querySelector('.fall-hero-episode');if(episode&&ver[1])episode.textContent='— '+ver[1];}}
+          const seasonName=({winter:'冬',spring:'春',summer:'夏',fall:'秋'})[season]||season;
+          if(caption)caption.textContent=ja?`${year}年${seasonName}アニメ — ${tierVersionJa(jsonData.version,week)}`:enCaption;
+          document.title=ja?`${year}年${seasonName} ${tierVersionJa(jsonData.version,week)}`:fullSeasonTitle;
+          if(dateNode){const date=new Date(rawDate);dateNode.textContent=ja&&!isNaN(date)?new Intl.DateTimeFormat('ja-JP',{year:'numeric',month:'long',day:'numeric'}).format(date):rawDate;}
+          const label=(sel,en,jp)=>{const node=document.querySelector(sel);if(node)node.textContent=tl(en,jp);};
+          label('.nav-left','« Previous Tierlist','« 前のティアリスト');label('.nav-center','Anime Top','アニメトップ');label('.nav-right','Next Tierlist »','次のティアリスト »');
+          label('.tierlist-titles-header','Titles by Tier (Tap / Click):','Tier別作品一覧（タップ／クリック）');
+          label('.fall-hero-eyebrow-tier','TIER LIST','ティアリスト');
+          syncBoard?.();window.dispatchEvent(new Event('resize'));
+        });
+      }
     })
     .catch(err => {
       console.error(err);
