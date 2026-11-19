@@ -38,7 +38,8 @@ const groupNames={leading:['Leading Titles','トップランナー'],contenders:
 const tagNames={'in-form':['In Form','好調'],rising:['Rising','上昇傾向'],cooling:['Cooling Down','下降傾向'],consistent:['Consistent','安定'],volatile:['Volatile','浮き沈みが大きい'],breakthrough:['Seeking a Breakthrough','突破口を模索中'],winner:['Weekly Winner','週間1位経験']};
 function makeFilter(id){const wrap=document.createElement('label');wrap.className='ob-r53-week-wrap';const caption=document.createElement('span');caption.className='ob-r53-caption';const select=document.createElement('select');select.id=id;wrap.append(caption,select);return {wrap,caption,select};}
 const groupFilter=makeFilter('obR95Group'),formFilter=makeFilter('obR95Form');
-ui.append(weekWrap,orderWrap,viewWrap,groupFilter.wrap,formFilter.wrap);
+const rankNote=document.createElement('p');rankNote.className='ob-r95-rank-note';
+ui.append(weekWrap,orderWrap,viewWrap,groupFilter.wrap,formFilter.wrap,rankNote);
 const headings=new Map();
 for(const group of engine.groups){const h=document.createElement('h4');h.className='ob-r95-group-head';headings.set(group,h);}
 const empty=document.createElement('div');empty.className='ob-r95-no-results';empty.hidden=true;
@@ -71,6 +72,7 @@ function translate(){
  weekText.textContent=l('週','WEEK');orderText.textContent=l('並び順','ORDER');viewText.textContent=l('状態表示','STATUS');
  fixed.textContent=l('元の順','Fixed');grouped.textContent=l('グループ順','Grouped');
  on.textContent='ON';off.textContent='OFF';
+ rankNote.textContent=l('順位バッジは選択週の順位を表示しています。',"Rank badges show the selected week's rankings.");rankNote.hidden=!state.show;
  for(const [b,active] of [[fixed,state.order==='fixed'],[grouped,state.order==='grouped'],[on,state.show],[off,!state.show]]){
   b.setAttribute('aria-pressed',String(active));
  }

@@ -219,11 +219,11 @@
    Keep the original R34 infographic structure and colors; match the FAQ rhythm. */
 #anime-top.anime09 #obLiveGuideR5 .ob-r34-map-details {
   border:0;margin:0;padding:0;background:transparent;
-  border-bottom:1px solid #d4ded0;
+  border-bottom:1px solid #c2d0bf;
 }
 #anime-top.anime09 #obLiveGuideR5 .ob-r34-map-details>summary {
   display:block;width:100%;box-sizing:border-box;padding:9px 3px;
-  border:0;color:#4e7057;background:transparent;
+  border:0;color:#395d45;background:transparent;
   font:400 14px/1.2 "EB Garamond",Georgia,serif;
   letter-spacing:0;
 }
