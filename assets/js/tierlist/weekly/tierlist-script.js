@@ -52,6 +52,116 @@ function applyTierMetadataToArticles() {
   ["introText","contentText","conclusionText"].forEach(id => applyTierArticleMetadata(document.getElementById(id)));
 }
 
+// TL02: render individual title visuals from the same ordered Studio data.
+// Keep the original PNG and legacy viewer if the extended data is absent/invalid.
+function mountInteractiveTierBoard(data, year, season) {
+  const png = document.getElementById('tierImage');
+  const host = png && png.closest('.tierlist-image');
+  const sections = document.getElementById('tierSections');
+  if (!host || !sections || !data.tierEntries || host.classList.contains('has-live-tier-board')) return;
+  const rows = [];
+  const colors = {SSS:'#ff7777',SS:'#ff9b85',S:'#ffc080',A:'#ffdf80',B:'#ffff80',C:'#bfff80',D:'#80ff80',Dropped:'#80ffff',RecentlyDropped:'#80ffff','N/A':'#80bfff','Never Watched':'#d9d9d9'};
+  const settings = Array.isArray(data.tierSettings) ? data.tierSettings : [];
+  for (const [name, titles] of Object.entries(data.tiers || {})) {
+    if (!Array.isArray(titles)) return;
+    if (!titles.length) continue;
+    const entries = data.tierEntries[name];
+    if (!Array.isArray(entries) || entries.length !== titles.length || !entries.every((e,i)=>e && e.title === titles[i])) return;
+    const color = settings.find(x=>x && x.label===name)?.color;
+    rows.push({name,color:typeof color==='string' && /^#[0-9a-f]{6}$/i.test(color)?color:(colors[name]||'#d1c9ac'),entries});
+  }
+  if (!rows.length) return;
+  const el = (tag,cls,text) => { const n=document.createElement(tag); if(cls)n.className=cls; if(text!=null)n.textContent=text; return n; };
+  const button = (text,cls) => { const n=el('button',cls,text); n.type='button'; return n; };
+  const title = entry => entry.title;
+  const imageUrl = entry => {
+    const id=String(entry.imageId||'').replace(/\.(?:webp|png|jpe?g)$/i,'');
+    if (!id || /[/\\\x00-\x1f]/.test(id) || id==='.' || id==='..') return null;
+    return `../../../../images/key-visuals/${year}/${season}/${encodeURIComponent(id)}.webp`;
+  };
+  const addImage = (parent,entry,eager=false) => {
+    const url=imageUrl(entry);
+    const missing=()=>{parent.classList.add('live-tier-missing'); parent.replaceChildren(el('span','live-tier-missing-title',title(entry)));};
+    if (!url) {missing();return;}
+    const img=el('img'); img.alt=title(entry); img.decoding='async'; img.loading=eager?'eager':'lazy'; img.draggable=false;
+    const candidates=[url,...(/\.webp$/i.test(url)?['jpg','png','jpeg'].map(ext=>url.replace(/\.webp$/i,'.'+ext)):[])];
+    let attempt=0;img.addEventListener('error',()=>{if(++attempt<candidates.length)img.src=candidates[attempt];else missing();}); img.src=candidates[0]; parent.append(img);
+  };
+  const wrapper=el('div','live-tier-wrap');
+  const controls=el('div','live-tier-controls');
+  const open=button('Enlarge tier list','live-tier-action');
+  const original=el('a','live-tier-png','PNG version'); original.href=png.src; original.target='_blank'; original.rel='noopener';
+  controls.append(open,original);
+  const hint=el('p','live-tier-hint','Hover or focus a visual for its title. Select a visual to open the enlarged view.');
+  const tooltip=el('div','live-tier-tooltip');tooltip.hidden=true;tooltip.setAttribute('aria-hidden','true');document.body.append(tooltip);
+  function hideTip(){tooltip.hidden=true;}
+  function showTip(card,entry,event){
+    tooltip.textContent=title(entry);tooltip.hidden=false;
+    const r=card.getBoundingClientRect(); const x=event?.clientX??r.left;const y=event?.clientY??r.bottom;
+    tooltip.style.left=Math.max(6,Math.min(x+10,innerWidth-tooltip.offsetWidth-6))+'px';
+    tooltip.style.top=Math.max(6,Math.min(y+12,innerHeight-tooltip.offsetHeight-6))+'px';
+  }
+  const dialog=el('dialog','live-tier-dialog');dialog.setAttribute('aria-label','Enlarged tier list');
+  const toolbar=el('div','live-tier-toolbar');
+  const minus=button('−','live-tier-action');minus.setAttribute('aria-label','Zoom out');
+  const zoomLabel=el('span','live-tier-zoom-label','100%');
+  const plus=button('+','live-tier-action');plus.setAttribute('aria-label','Zoom in');
+  const close=button('Close ×','live-tier-action');
+  toolbar.append(minus,zoomLabel,plus,close);
+  const status=el('div','live-tier-selection','Select any visual to view the poster and title.');status.setAttribute('aria-live','polite');
+  const scroll=el('div','live-tier-scroll');
+  const preview=el('div','live-tier-preview');preview.hidden=true;
+  const back=button('Back to tier list','live-tier-action');
+  const poster=el('div','live-tier-poster');const posterTitle=el('h2','live-tier-poster-title');const posterTier=el('p','live-tier-poster-tier');
+  preview.append(back,posterTitle,posterTier,poster);
+  dialog.append(toolbar,status,scroll,preview);document.body.append(dialog);
+  let active=null,zoom=100,oldOverflow='',returnFocus=null,viewerBoard=null;
+  function clearActive(){if(active)active.classList.remove('is-selected');active=null;}
+  function showPoster(entry,tier,card){
+    clearActive();active=card;active?.classList.add('is-selected');
+    posterTitle.textContent=title(entry);posterTier.textContent=`Tier ${tier} · ${entry.position || rows.find(r=>r.name===tier).entries.indexOf(entry)+1}`;
+    poster.classList.remove('live-tier-missing');poster.replaceChildren();addImage(poster,entry,true);
+    scroll.hidden=true;preview.hidden=false;status.textContent=title(entry);minus.disabled=plus.disabled=true;back.focus();
+  }
+  function returnToBoard(){preview.hidden=true;scroll.hidden=false;minus.disabled=plus.disabled=false;status.textContent='Select any visual to view the poster and title.';if(active){active.focus({preventScroll:true});active.scrollIntoView({block:'nearest',inline:'nearest'});}else close.focus();}
+  function buildBoard(inViewer){
+    const board=el('div','live-tier-board');board.setAttribute('aria-label','Tier list');
+    rows.forEach(row=>{
+      const line=el('div','live-tier-row');const tag=el('div','live-tier-label',row.name);tag.style.backgroundColor=row.color;
+      const cards=el('div','live-tier-cards');
+      row.entries.forEach((entry,index)=>{
+        const card=button(null,'live-tier-card');card.dataset.tier=row.name;card.dataset.position=String(index+1);
+        card.title=title(entry);card.setAttribute('aria-label',`${title(entry)} — ${row.name}, ${index+1}`);
+        addImage(card,entry,inViewer);card.addEventListener('click',()=>inViewer?showPoster(entry,row.name,card):openViewer(row.name,index+1));
+        if(inViewer){const announce=()=>{status.textContent=`${row.name} · ${title(entry)}`;};card.addEventListener('pointerenter',announce);card.addEventListener('focus',announce);}
+        else {card.addEventListener('pointerenter',e=>showTip(card,entry,e));card.addEventListener('pointermove',e=>showTip(card,entry,e));card.addEventListener('pointerleave',hideTip);card.addEventListener('focus',()=>showTip(card,entry));card.addEventListener('blur',hideTip);}
+        cards.append(card);
+      });line.append(tag,cards);board.append(line);
+    });return board;
+  }
+  function setZoom(value){zoom=Math.max(75,Math.min(300,value));zoomLabel.textContent=zoom+'%';if(viewerBoard)viewerBoard.style.width=Math.round(Math.max(820,scroll.clientWidth)*zoom/100)+'px';}
+  function openViewer(tier,position){
+    hideTip();if(dialog.open)return;
+    returnFocus=document.activeElement;oldOverflow=document.body.style.overflow;
+    if(!viewerBoard){viewerBoard=buildBoard(true);scroll.append(viewerBoard);}
+    clearActive();preview.hidden=true;scroll.hidden=false;minus.disabled=plus.disabled=false;dialog.showModal();document.body.style.overflow='hidden';
+    setZoom(100);scroll.scrollTop=scroll.scrollLeft=0;status.textContent='Select any visual to view the poster and title.';
+    if(tier!=null){const target=Array.from(viewerBoard.querySelectorAll('.live-tier-card')).find(c=>c.dataset.tier===tier&&c.dataset.position===String(position));if(target){active=target;target.classList.add('is-selected');target.focus({preventScroll:true});target.scrollIntoView({block:'nearest',inline:'nearest'});}}else close.focus();
+  }
+  open.addEventListener('click',()=>openViewer());close.addEventListener('click',()=>dialog.close());back.addEventListener('click',returnToBoard);
+  minus.addEventListener('click',()=>setZoom(zoom-25));plus.addEventListener('click',()=>setZoom(zoom+25));
+  dialog.addEventListener('close',()=>{document.body.style.overflow=oldOverflow;hideTip();returnFocus?.focus({preventScroll:true});});
+  window.addEventListener('resize',()=>{hideTip();if(dialog.open&&!scroll.hidden)setZoom(zoom);});
+  window.addEventListener('scroll',hideTip,{passive:true});
+  wrapper.append(buildBoard(false),controls,hint);png.insertAdjacentElement('afterend',wrapper);
+  // The original side list remains collapsible; each entry opens the matching visual.
+  Array.from(sections.querySelectorAll('.tier-section')).forEach(section=>{
+    const name=section.querySelector('.toggle-button')?.textContent;const row=rows.find(r=>r.name===name);if(!row)return;
+    Array.from(section.querySelectorAll('li')).forEach((li,i)=>{const entry=row.entries[i];if(!entry||li.textContent!==entry.title)return;const link=button(entry.title,'live-tier-title-link');link.addEventListener('click',()=>openViewer(name,i+1));li.replaceChildren(link);});
+  });
+  host.classList.add('has-live-tier-board');png.hidden=true;
+}
+
 // Structured editorial, opt-in per article. Legacy prose is never replaced unless
 // the page explicitly requests auto mode. All copy is derived from this edition.
 const autoEditorial = document.body.dataset.tierEditorial === "auto";
@@ -556,6 +666,7 @@ function setTierImage() {
   }  
         tierSections.appendChild(section);
       }
+      if (autoEditorial && validPage) mountInteractiveTierBoard(jsonData, year, season);
     })
     .catch(err => {
       console.error(err);
@@ -569,7 +680,7 @@ document.addEventListener("DOMContentLoaded",()=>{
  viewer.innerHTML='<div class="tier-image-toolbar"><button type="button" data-action="minus" aria-label="Zoom out">−</button><span>Tier List · Zoom & pan</span><button type="button" data-action="plus" aria-label="Zoom in">+</button><button type="button" data-action="close">Close ×</button></div><div class="tier-image-scroll"><img alt="Enlarged tier list"></div>';
  document.body.append(viewer);const enlarged=viewer.querySelector("img"),scroll=viewer.querySelector(".tier-image-scroll");let zoom=window.innerWidth<=480?280:170;
  function setZoom(){enlarged.style.width=zoom+"%";}
- function close(){viewer.classList.remove("is-open");document.body.style.overflow="";}
+ function close(){if(!viewer.classList.contains("is-open"))return;viewer.classList.remove("is-open");document.body.style.overflow="";}
  const isTouchLayout=()=>matchMedia("(hover:none), (pointer:coarse)").matches;
  function alignTierHeadings(){const caption=document.querySelector(".tier-image-caption"),header=document.querySelector(".tierlist-titles-header");if(!caption||!header)return;caption.style.minHeight="";header.style.minHeight="";const height=Math.max(caption.getBoundingClientRect().height,header.getBoundingClientRect().height);caption.style.minHeight=height+"px";header.style.minHeight=height+"px";}
  requestAnimationFrame(alignTierHeadings);window.addEventListener("resize",alignTierHeadings);
