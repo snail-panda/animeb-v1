@@ -1,8 +1,69 @@
 {
   "schemaVersion": 1,
   "format": "OFFBEAT Post Index",
-  "updatedAt": "2026-11-15T07:56:46.326Z",
+  "updatedAt": "2026-11-19T19:55:24.142Z",
   "posts": [
+    {
+      "id": "post:tierlist/2026/fall/week06/tierlist.html",
+      "category": "ANIME",
+      "type": "tier",
+      "year": 2026,
+      "season": "fall",
+      "week": "06",
+      "url": "tierlist/2026/fall/week06/tierlist.html",
+      "status": "published",
+      "published": {
+        "iso": "2026-11-19",
+        "display": "November 19, 2026"
+      },
+      "period": {
+        "display": ""
+      },
+      "topN": null,
+      "stage": "mid",
+      "title": {
+        "display": "2026 FALL – Mid-Season Tier List: Fall 2026 Anime",
+        "html": "2026 <span class=\"title-season fall\">FALL</span> – <span class=\"title-final\">Mid-Season</span> Tier List: Fall 2026 Anime",
+        "en": "2026 FALL – Mid-Season Tier List: Fall 2026 Anime",
+        "ja": "2026年秋アニメ – ミッドシーズンティアリスト"
+      },
+      "intro": {
+        "en": "The mid-season tier list for the Fall 2026 anime season, as of Week 06.",
+        "ja": "2026年秋アニメの第6週時点でのミッドシーズンティアリストを掲載。",
+        "html": "The mid-season tier list for the Fall 2026 anime season, as of Week 06."
+      },
+      "image": {
+        "src": "images/tier-lists/2026/fall/week06/tierlist-2026-fall-week06.png",
+        "alt": "2026 Fall Anime Tier List Thumbnail",
+        "wrapperClass": "post-image-mumu",
+        "wrapperStyle": ""
+      },
+      "labels": [
+        {
+          "text": "Ranking",
+          "className": "tag-label tag-ranking"
+        },
+        {
+          "text": "Misc",
+          "className": "tag-label tag-misc"
+        }
+      ],
+      "tags": [
+        "2026",
+        "fall",
+        "week6",
+        "midseason",
+        "anime",
+        "review",
+        "ranking",
+        "tierlist"
+      ],
+      "tagsRaw": "2026,fall,week6,midseason,anime,review,ranking,tierlist",
+      "source": {
+        "kind": "tier-studio"
+      },
+      "originalCardHtml": "<div class=\"post-card\" data-tags=\"2026,fall,week6,midseason,anime,review,ranking,tierlist\"><div class=\"post-image-mumu\"><a href=\"tierlist/2026/fall/week06/tierlist.html\"><img src=\"images/tier-lists/2026/fall/week06/tierlist-2026-fall-week06.png\" alt=\"2026 Fall Anime Tier List Thumbnail\"></a></div><div class=\"post-details\"><div class=\"tag-container\"><span class=\"tag-label tag-ranking\">Ranking</span><span class=\"tag-label tag-misc\">Misc</span></div><h3 class=\"post-title\">2026 <span class=\"title-season fall\">FALL</span> – <span class=\"title-final\">Mid-Season</span> Tier List: Fall 2026 Anime</h3><p class=\"post-date\">November 19, 2026</p><p class=\"post-excerpt\">The mid-season tier list for the Fall 2026 anime season, as of Week 06.</p><a href=\"tierlist/2026/fall/week06/tierlist.html\" class=\"read-more\">Read More →</a></div></div>"
+    },
     {
       "id": "post:ranking/2026/fall/week06/index.html",
       "category": "ANIME",
