@@ -97,6 +97,34 @@ function orderKey(b){
 }
 function matches(b){const a=stats.get(b.dataset.obLineupKv);return (state.group==='all'||a?.group===state.group)&&(state.form==='all'||a?.features.includes(state.form));}
 function filteredView(){return state.order==='grouped'||state.group!=='all'||state.form!=='all';}
+function genreSelect(){return document.getElementById('obLiveGenreR4');}
+function setExpanded(open){
+ grid.classList.toggle('is-expanded',open);
+ if(!expand)return;
+ expand.hidden=false;
+ expand.setAttribute('aria-expanded',String(open));
+ if(open){const caption=l('閉じる','Show less');if(expand.textContent!==caption)expand.textContent=caption;}
+ else{
+  const n=masterOrder.size,parts=l(['全','作品を見る'],['View all ',' titles']);
+  const caption=parts[0]+n+parts[1];
+  if(expand.textContent!==caption||!expand.querySelector('.ob-r4-accent-number'))expand.replaceChildren(document.createTextNode(parts[0]),node('strong','ob-r4-accent-number',String(n)),document.createTextNode(parts[1]));
+ }
+}
+function closeLineup(){
+ state.order='fixed';state.group='all';state.form='all';
+ const genre=genreSelect();
+ if(genre&&genre.value!=='all'){genre.value='all';genre.dispatchEvent(new Event('change',{bubbles:true}));}
+ save();setExpanded(false);render();
+ // Once the tall grid collapses, return to its own heading, below the sticky mast.
+ requestAnimationFrame(()=>{
+  const head=document.getElementById('obLineupTitleR3')?.closest('.ob-study-head');
+  if(!head||grid.classList.contains('is-expanded'))return;
+  const rect=document.getElementById('greenNav')?.getBoundingClientRect();
+  const offset=rect&&rect.bottom>0&&rect.top<innerHeight?rect.bottom:0;
+  const top=head.getBoundingClientRect().top;
+  if(top<offset+10||top>innerHeight-80)window.scrollTo({top:Math.max(0,scrollY+top-offset-10),behavior:'instant'});
+ });
+}
 function updateGroupCounts(){
  const cards=cardList(), counts=new Map();let shown=0;
  for(const b of cards)if(!b.hidden&&!b.classList.contains('ob-r95-filtered')){const group=stats.get(b.dataset.obLineupKv)?.group;counts.set(group,(counts.get(group)||0)+1);shown++;}
@@ -163,14 +191,13 @@ function render(){
    for(let i=0;i<ak.length;i++)if(ak[i]!==bk[i])return ak[i]-bk[i];
    return 0;
   });
-  const expanded=filteredView();
+  const expanded=grid.classList.contains('is-expanded')||filteredView()||(genreSelect()?.value||'all')!=='all';
   const desired=[];
   if(state.order==='grouped'){
    for(const g of engine.groups){const members=sorted.filter(b=>stats.get(b.dataset.obLineupKv)?.group===g);if(members.length)desired.push(headings.get(g),...members);}
   }else desired.push(...sorted);
   desired.push(empty);
-  if(expanded&&!grid.classList.contains('is-expanded'))expand?.click();
-  if(expand)expand.hidden=expanded;
+  setExpanded(expanded);
   grid.classList.toggle('ob-r95-grouped',state.order==='grouped');
   const children=[...grid.children];
   if(desired.length!==children.length||desired.some((v,i)=>v!==children[i])){
@@ -191,11 +218,18 @@ const localeObserver=new MutationObserver(()=>schedule());
 localeObserver.observe(seasonalRoot,{attributes:true,attributeFilter:['lang']});
 function change(fn){fn();save();render();}
 fixed.addEventListener('click',()=>change(()=>state.order='fixed'));
-grouped.addEventListener('click',()=>change(()=>{
- state.order='grouped';
- // A grouped view should reveal all groups; existing Expand logic remains responsible.
- if(!grid.classList.contains('is-expanded'))document.getElementById('obLineupExpandR3')?.click();
-}));
+grouped.addEventListener('click',()=>change(()=>state.order='grouped'));
+// R3 still owns the fallback toggle before the published data is ready.
+// Once ready, intercept the button once so R3 cannot toggle it a second time.
+expand?.addEventListener('click',event=>{
+ if(!season||ui.hidden||cardList().length!==masterOrder.size)return;
+ event.preventDefault();event.stopImmediatePropagation();
+ if(grid.classList.contains('is-expanded'))closeLineup();
+ else{setExpanded(true);render();}
+},true);
+// The existing genre service expands its grid and owns the hidden attributes.
+// Synchronize the caption and allow the same close path for that filter too.
+parent.addEventListener('change',event=>{if(event.target===genreSelect())render();});
 on.addEventListener('click',()=>change(()=>state.show=true));
 off.addEventListener('click',()=>change(()=>state.show=false));
 weekSelect.addEventListener('change',()=>change(()=>state.week=Number(weekSelect.value)));
