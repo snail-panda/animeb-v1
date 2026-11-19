@@ -2,8 +2,8 @@
    No changes to R32's editorial columns, publication cards or timeline. */
 #anime-top.ob-r29-on #obR29Editorial .ob-r33-upnext {
   grid-row:6;
-  margin:19px 0 0 0;
-  padding:0 0 0 10px;
+  margin:23px 0 0 0;
+  padding:2px 0 3px 10px;
   border-left:2px solid #b9c9ba;
   max-width:100%;
   color:#5d7a6c;
@@ -15,7 +15,7 @@
 #anime-top.ob-r29-on #obR29Editorial .ob-r33-upnext.ob-r33-final  {border-left-color:#c7b27e;}
 #anime-top.ob-r29-on #obR29Editorial .ob-r33-upnext-label{
   display:flex;flex-wrap:wrap;align-items:baseline;gap:2px;
-  font:450 10px/1.35 var(--ob29-ui,"Gill Sans",sans-serif);
+  font:450 12px/1.35 var(--ob29-ui,"Gill Sans",sans-serif);
   letter-spacing:.07em;
 }
 #anime-top.ob-r29-on #obR29Editorial .ob-r33-upnext-label strong{
@@ -23,10 +23,10 @@
 }
 #anime-top.ob-r29-on #obR29Editorial .ob-r33-upnext-label span{color:#758a80;}
 #anime-top.ob-r29-on #obR29Editorial .ob-r33-upnext-copy{
-  margin:4px 0 0;
-  font:400 11.1px/1.45 var(--ob29-ui,"Gill Sans",sans-serif);
+  margin:7px 0 0;
+  font:400 12.5px/1.45 var(--ob29-ui,"Gill Sans",sans-serif);
   letter-spacing:.015em;color:#668174;
 }
 @media(max-width:850px){
-  #anime-top.ob-r29-on #obR29Editorial .ob-r33-upnext{margin-top:16px;}
+  #anime-top.ob-r29-on #obR29Editorial .ob-r33-upnext{margin-top:20px;}
 }

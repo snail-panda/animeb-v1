@@ -482,6 +482,11 @@
   padding-top:8px;
   padding-bottom:8px;
 }
+/* R95F: lift only the English title pair, keeping the card and CTA aligned. */
+#anime-top.ob-r29-on:not([data-ob-live-lang="ja"]) #obR29Editorial .ob-r29-article-main {
+  position:relative;
+  top:-3px;
+}
 #anime-top.ob-r29-on #obR29Editorial .ob-r29-action {
   flex-basis:58px;
 }
