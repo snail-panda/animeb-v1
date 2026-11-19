@@ -12,7 +12,7 @@
       "completed": 0,
       "total": 34,
       "droppedLastWeek": 2,
-      "decidedToDropThisWeek": 3,
+      "decidedToDropThisWeek": 4,
       "ratedThisWeek": 22,
       "currentLineup": 24,
       "seasonPool": 34,
@@ -22,6 +22,10 @@
       "initialSeasonPool": 34,
       "notAiredYet": 1,
       "startedAiringThisWeek": 0
+    },
+    "weekly_intro": {
+      "en": "<strong>Fall 2026 anime</strong> has already entered its <strong>fifth week</strong>. Time really does fly.\n\nWe're approaching the point where the early stretch begins to give way to the middle of the season, and we should be starting to see signs of the first little climaxes taking shape... Or at least, that's what I'd like to say. Unfortunately, aside from a handful of relatively big-name titles, so many of this season's crappy shows have been struggling to get anywhere since the very beginning. In fact, I'm not sensing anything resembling a midseason buildup, let alone even the slightest indication that they're <strong>laying the groundwork</strong> for something to come. What on earth is going on with this season? And where is it even heading from here? Those are the questions I keep asking myself.\n\nTo make matters worse, several shows I've been keeping at least some interest in—<strong>Tetsuryo! Meet with Tetsudou Musume</strong> and <strong>#Searching for Zombies</strong> (and, well, <strong>PSYREN</strong> too, I suppose)—were off the air this week, making an already underwhelming week feel even more lackluster. Still, the season marches on, whether there's much to get excited about or not, and here we are, having made it through another week.\n\nWell then, with all that said, what exactly happened in the rankings this week? Let's take a closer look and see for ourselves.",
+      "ja": "<strong>２０２６年秋アニメ</strong>も早いもので<strong>第5週目</strong>に突入しました。\n\n序盤から中盤戦もそろそろ架橋に入り、第一弾の小さな山場を迎えてくる兆しが見えてくる頃…と言いたいところですが、わずかながらな比較的ビッグタイトルは例外として、多くのク◯作品が序盤戦から伸び悩んでいたので、実のところ一切中盤の山場など感じない、ましてや<strong>種まき</strong>すらしている気配を感じえない今期となっています。一体どうなっているのでしょうか？そして今期、これからどうなるだろう？と思っているわけです。\n\nまた更に、そんな中でも個人的に多少気に留めている作品である、<strong>『てつりょー！meet with 鉄道むすめ』</strong>や、<strong>『＃ゾンビさがしてます』</strong>（あと一応<strong>『PSYREN -サイレン-』</strong>も）が今週は放送がお休みで、ますます盛り下がっていたわけです。とはいえ、それでもシーズンは淡々と進んでいくので、今週もこの日を無事迎えることが出来たわけなのです。\n\nさぁて、そんなこんなですが、今週は一体どんな動きだったんでしょう。それでは実際にその中身をとくとご覧ください。"
     },
     "presentation": {
       "header": {
@@ -75,6 +79,17 @@
         "reason": {
           "en": "Episode #5:The One and Only Weapon in This World\n\"I think I've seen enough. I simply couldn't find—or feel—any compelling reason to keep watching.\"\n\n[I'm just... done with this one, I think. I was planning to quietly drop it without saying anything, but I figured I'd at least make my departure official. It's not terrible, actually 2026 adaptation feels even decent. But I can't find any real reason to keep watching, either. The whole sequence of obtaining the Escudo made no sense to me. In the end, wasn't it simply a matter of the princess arranging for them to get the whole thing? And that's it...? Anyway, I couldn't find Escudo for me there, I guess...]",
           "ja": "第5話: この世で一つの武器\n”ここまで、もう十分でしょう。見る意義を見つける、感じることが出来ませんでした。”\n『ただただ、もういいかな…と。サイレント切りするつもりでしたが、一応お断りしておきます。酷くはないけど、見る意義も感じません。エスクードを手に入れる流れも意味不明。結局姫様にフルで手に入れさせてもらったってだけ…ってことで。』ー6点・対象外"
+        }
+      },
+      {
+        "title": "A Returner's Magic Should Be Special Season 2",
+        "jpTitle": "『帰還者の魔法は特別です』第二期",
+        "kv": "kikansha",
+        "episode": "",
+        "mode": "rated",
+        "reason": {
+          "en": "Episode #17  (Season2, Ep. #5): Error\n\"I think I've had enough... Just thoroughly disappointed, especially considering how much I liked the first season.\"\n\n[I've finally reached the point where I feel like I've had enough. I quite liked the first season and had reasonably high expectations for this one, but so far, it's been largely disappointing.\n\nI don't find the protagonist's ability to effortlessly overpower his opponents by reverse-engineering their magic particularly interesting anymore, either.\n\nIt also made little sense that Azest struggled so much against an opponent of that caliber (even if the wind magic he was using was so weak that it was difficult to detect). The animation was frequently off-model, and there were even moments when Plum's facial expressions and movements didn't match his voice. It was pretty awful.\n\nNot necessarily because of those issues alone, but I've decided there's little point in keeping this series in my weekly rankings.\n\nI'll probably continue watching it, though.]",
+          "ja": "第17話 (今期第5話)ː エラー\n”もういいかな・・・ただただ、ガッカリ。第1期好きだったのに”\n『流石にもういいかな…と思ってしまった。第1期は結構好きだったから、期待してたけ今のところは概ねガッカリの様相。主人公の逆算無双にも、面白みを感じないかな。アゼストがあれしきの相手に（微弱な風魔法使いに微弱すぎるとは言え）相当苦戦するのもオカシイし、作画も所々しょっちゅう崩れるし、プラムの顔・表情の動きと声も合ってなかったりと酷かった。だから、というわけでもないけどランキング対象にしておく意味はないと判断。視聴は続けるとはお思います。』"
         }
       }
     ],
@@ -560,7 +575,7 @@
           "wrp_score": 6.3,
           "score": 6,
           "prev_rank": 12,
-          "status": "Cont.",
+          "status": "N/A",
           "jpTitle": "『帰還者の魔法は特別です』第二期",
           "kv": "kikansha"
         },
@@ -649,10 +664,6 @@
           "kv": "saikyou"
         }
       ]
-    },
-    "weekly_intro": {
-      "en": "<strong>Fall 2026 anime</strong> has already entered its <strong>fifth week</strong>. Time really does fly.\n\nWe're approaching the point where the early stretch begins to give way to the middle of the season, and we should be starting to see signs of the first little climaxes taking shape... Or at least, that's what I'd like to say. Unfortunately, aside from a handful of relatively big-name titles, so many of this season's crappy shows have been struggling to get anywhere since the very beginning. In fact, I'm not sensing anything resembling a midseason buildup, let alone even the slightest indication that they're <strong>laying the groundwork</strong> for something to come. What on earth is going on with this season? And where is it even heading from here? Those are the questions I keep asking myself.\n\nTo make matters worse, several shows I've been keeping at least some interest in—<strong>Tetsuryo! Meet with Tetsudou Musume</strong> and <strong>#Searching for Zombies</strong> (and, well, <strong>PSYREN</strong> too, I suppose)—were off the air this week, making an already underwhelming week feel even more lackluster. Still, the season marches on, whether there's much to get excited about or not, and here we are, having made it through another week.\n\nWell then, with all that said, what exactly happened in the rankings this week? Let's take a closer look and see for ourselves.",
-      "ja": "<strong>２０２６年秋アニメ</strong>も早いもので<strong>第5週目</strong>に突入しました。\n\n序盤から中盤戦もそろそろ架橋に入り、第一弾の小さな山場を迎えてくる兆しが見えてくる頃…と言いたいところですが、わずかながらな比較的ビッグタイトルは例外として、多くのク◯作品が序盤戦から伸び悩んでいたので、実のところ一切中盤の山場など感じない、ましてや<strong>種まき</strong>すらしている気配を感じえない今期となっています。一体どうなっているのでしょうか？そして今期、これからどうなるだろう？と思っているわけです。\n\nまた更に、そんな中でも個人的に多少気に留めている作品である、<strong>『てつりょー！meet with 鉄道むすめ』</strong>や、<strong>『＃ゾンビさがしてます』</strong>（あと一応<strong>『PSYREN -サイレン-』</strong>も）が今週は放送がお休みで、ますます盛り下がっていたわけです。とはいえ、それでもシーズンは淡々と進んでいくので、今週もこの日を無事迎えることが出来たわけなのです。\n\nさぁて、そんなこんなですが、今週は一体どんな動きだったんでしょう。それでは実際にその中身をとくとご覧ください。"
     }
   },
   "entries": [
@@ -671,7 +682,7 @@
       "score": 10,
       "review": {
         "en": "<strong>Episode #18: (Total Ep. 18): Follow-up</strong>\n<p>\"Every little piece comes together to create a quietly perfect portrayal of a child, a woman, and a mother. An absolute gem of an episode.\"</p>\n<p>A perfect episode? At least for me, it was. The entire story unfolds through the inner monologue of a young elementary school girl who spends much of her time home alone. Her insecurities, her determination to be just a little better despite them, and her desire to cling to something like a lucky charm are all portrayed with remarkable sensitivity. Even her ordinary routine—spending time alone, listening to the evening radio, taking the train to and from cram school, and observing the people around her—never feels remotely boring. The little messages she repeatedly leaves for her mother also quietly reveal how thoughtful and sensible she is, always trying to be responsible and careful.<br><br>Then there's the incident involving people she encounters during those journeys, and the way the older woman hosting the radio program becomes involved. Without explicitly explaining anything, the episode also gives us enough to sense why this woman only accepts jobs involving children. And then comes the post-credits scene: the girl's radiant smile as she proudly shows off the uniform of the school she'd dreamed of attending, looking straight into her mother's camera. Meanwhile, the familiar voice of the radio host can be heard again, only now her program has moved from the evening to the morning—a new beginning. Every single piece falls perfectly into place.<br><br>Even the mother's love is conveyed so naturally, through the small detail that she postponed her night shifts for two months after the incident so she could accompany her daughter to and from cram school. And when you think about the girl's feelings as she finally pours out everything she'd been keeping bottled up, and those of the female assassin who listens to her so warmly—someone who presumably carries her own painful history involving children—it's genuinely hard to put the emotions into words. There isn't a single thing I could complain about. What a wonderful episode.</p>",
-        "jp": "第5話: (通算第18話)ː アフター・フォロー\n<p>\"ピースの一つ一つが紡がれ、子どもと女性ー母というものが地味ながら完璧に描かれた珠玉の一話\"</p>\n<p>完璧?な話だった、少なくとも私個人にとっては。終始この鍵っ子である小学生の女の子のモノローグで進む。この子の自身に対するコンプレックスやだからこそ\"少しでもこうあろう\"とする姿勢や、そこにラッキーアイテムにでもすがりたい想いなども関わってくる。この子の一人でいる時間、特に夕方のラヂヲを聴いてから塾に向かい電車での往復と帰宅というルーティーンの中での人間観察なども、繊細に描かれ全く退屈しない。繰り返し映される母親へのちょっとしたメッセージなどにもこの子がしっかりした子でいよう、慎重に行動しようとしている賢明さも伝わってくる。その行き帰りの中で見かけ多少関わった、人との間での事件。また、ラヂヲのパーソナリティのおばさんの関わり方とはっきりとは言わないが、何故彼女が子どもに関わる仕事だけ請け負うのかの理由も察することが出来る。そしてそこからのCパートで、この女の子が憧れの制服の学校に入学できた喜びを母親の向けるカメラに向かった満面の笑みで表現するさま、またその日に時間帯が夕方から始まりの朝に移動したラヂヲから聞こえるいつものパーソナリティの声・・・など何一つかけちがえのないピースの数々が完璧にハマっていた。事件の後2ヶ月夜勤を遅らせて、娘を塾の送り迎えをしていた母親の愛もさらりとえがいていたのも、また、普段誰にも言えずに鬱積していた想いを吐露した女の子の気持ち、またそれを温かく聞いていた—きっと子どもというものに対して何かしらツライ事情があるであろう殺し屋の女性—の気持ちなども察するとなんとも言えない気持ちになるし、もちろん文句などあるはずがないです。素晴らしい回だった。</p>"
+        "jp": "第5話: (通算第18話)ː アフター・フォロー\n<p>\"ピースの一つ一つが紡がれ、子どもと女性ー母というものが地味ながら完璧に描かれた珠玉の一話\"</p>\n<p>完璧?な話だった、少なくとも私個人にとっては。<br><br>終始この鍵っ子である小学生の女の子のモノローグで進む。この子の自身に対するコンプレックスや、だからこそ\"少しでもこうあろう\"とする姿勢や、そこにラッキーアイテムにでもすがりたい想いなども関わってくる。<br><br>この子の一人でいる時間、特に夕方のラヂヲを聴いてから塾に向かい電車での往復と帰宅というルーティーンの中での人間観察なども、繊細に描かれ全く退屈しない。<br><br>繰り返し映される母親へのちょっとしたメッセージなどにもこの子がしっかりした子でいよう、慎重に行動しようとしている賢明さも伝わってくる。その行き帰りの中で見かけ多少関わった、人との間での事件。また、ラヂヲのパーソナリティのおばさんの関わり方、またはっきりとは言わないが、何故彼女が子どもに関わる仕事だけ請け負うのかの理由も、見ていて十分に察することが出来る。<br><br>そしてそこからのCパートで、この女の子が憧れの制服の学校に入学できた喜びを母親の向けるカメラに向かった満面の笑みで表現するさま、またその日に時間帯が夕方から始まりの朝に移動したラヂヲから聞こえるいつものパーソナリティの声…など何一つかけちがえのないピースの数々が完璧にハマっていた。<br><br>事件の後2ヶ月夜勤を遅らせて、娘を塾の送り迎えをしていた母親の愛もさらりとえがいていたのも、また、普段誰にも言えずに鬱積していた想いを吐露した女の子の気持ち、またそれを温かく聞いていた—きっと子どもというものに対して何かしらツライ事情があるであろう殺し屋の女性—の気持ちなども察するとなんとも言えない気持ちになるし、もちろん文句などあるはずがないです。素晴らしい回だった。</p>"
       },
       "wrp_breakdown": {
         "base_score": 5,
