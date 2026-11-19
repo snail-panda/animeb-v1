@@ -114,3 +114,53 @@
   #anime-top.ob-r29-on .n-season-dashboard .ob-live-round-intro .ob-r35-round-name{font-size:10px!important;}
   #anime-top.ob-r29-on .n-season-dashboard .ob-live-round-intro .ob-r35-round-hint{font-size:9px!important;}
 }
+
+
+/* R94 — one mobile scroll surface for weeks and the corresponding stages.
+   Progress is pinned to the visible viewport; checkpoint and milestone rows stay outside. */
+@media(max-width:690px){
+  #anime-top .n-season-dashboard > .ob-r94-timeline-scroll {
+    display:block; width:100%; max-width:100%; min-width:0;
+    overflow-x:auto; overflow-y:hidden; overscroll-behavior-inline:contain;
+    scroll-snap-type:x proximity; scrollbar-width:none;
+  }
+  #anime-top .ob-r94-timeline-scroll::-webkit-scrollbar {display:none;}
+  #anime-top .ob-r94-timeline-track {width:max-content; min-width:100%;}
+  #anime-top.anime09.ob-live-r5 .n-season-13 .ob-r94-timeline-track > .n-weeks {
+    overflow:visible!important; width:max-content!important; min-width:100%;
+    max-width:none!important; scroll-snap-type:none!important;
+  }
+  #anime-top .ob-r94-timeline-track > .n-season-progress {
+    position:sticky!important; left:0; width:var(--ob-r94-view,100%); box-sizing:border-box;
+  }
+  #anime-top.ob-r29-on .n-season-dashboard.ob-r35-timeline .ob-r94-timeline-track > #obLivePhasesR1 {
+    display:grid!important; grid-template-columns:var(--ob-r94-stage-columns);
+    width:max-content; min-width:100%; gap:0!important; margin-left:0!important;
+  }
+  #anime-top .ob-r94-timeline-track > #obLivePhasesR1 > span {
+    grid-row:1; margin-right:var(--ob-r94-gap,3px); min-width:0;
+  }
+  #anime-top .ob-r94-timeline-track > #obLivePhasesR1 > span:nth-child(1) {grid-column:2;}
+  #anime-top .ob-r94-timeline-track > #obLivePhasesR1 > span:nth-child(2) {grid-column:3;}
+  #anime-top .ob-r94-timeline-track > #obLivePhasesR1 > span:nth-child(3) {grid-column:4;}
+  #anime-top .ob-r94-timeline-track > #obLivePhasesR1 > span:nth-child(4) {grid-column:5;margin-right:0;}
+}
+
+/* R94C: wide desktop uses the fitted grid, not a scroll container. Narrow
+   mouse-driven windows expose a thin scrollbar on the existing shared track.
+   Touch layout remains unchanged. */
+@media(min-width:691px){
+  #anime-top.anime09.ob-live-r5 .n-season-13 .n-season-dashboard .n-weeks {
+    overflow:visible!important; scrollbar-width:none; scroll-snap-type:none;
+  }
+  #anime-top.anime09.ob-live-r5 .n-season-13 .n-season-dashboard .n-weeks::-webkit-scrollbar {display:none;}
+}
+@media(max-width:690px) and (hover:hover) and (pointer:fine){
+  #anime-top .n-season-dashboard > .ob-r94-timeline-scroll {
+    scrollbar-width:thin; scrollbar-color:#b4c5ae transparent;
+    scroll-snap-type:none;
+  }
+  #anime-top .ob-r94-timeline-scroll::-webkit-scrollbar {display:block;height:7px;}
+  #anime-top .ob-r94-timeline-scroll::-webkit-scrollbar-track {background:transparent;}
+  #anime-top .ob-r94-timeline-scroll::-webkit-scrollbar-thumb {background:#b4c5ae;border-radius:4px;}
+}

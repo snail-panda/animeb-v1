@@ -199,7 +199,8 @@
 .anime09.ob-live-r5 .ob-live-digest-actions>a{font:500 11px "Barlow Condensed","Abel",sans-serif;color:#527251;border-bottom:1px solid #aebca9;}
 .anime09.ob-live-r5 .ob-live-trend-chart rect[role=button]{cursor:pointer;}
 .anime09.ob-live-r5 .ob-live-trend-chart rect[role=button]:focus{outline:none;stroke:#b88757;stroke-dasharray:3 5;}
-:root:has(.anime09.ob-live-r5.current) .green-nav > .ob-live-nav{display:flex!important;flex-direction:row!important;flex-wrap:nowrap;justify-content:center;align-items:center;background:transparent;border:0;padding:0;max-width:none;}
+/* R94F: three equal centered navigation slots; keep RANKINGS at the bar midpoint. */
+:root:has(.anime09.ob-live-r5.current) .green-nav > .ob-live-nav{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;justify-content:center;align-items:center;background:transparent;border:0;padding:0;max-width:384px;}
 .anime09.ob-live-r5 ~ .ob-week-peek-discovery-r15,
 .anime09.ob-live-r5 .ob-week-peek-discovery-r15{display:none!important;}
 .anime09.ob-live-r5 .n-season.n-season-12.n-season-13{margin-top:5px;}
@@ -268,11 +269,10 @@
 .anime09.ob-live-r5 .n-season-13 .n-season-chooser .n-season-tabs.ob-r16-tabs{flex:0 0 auto!important;width:auto!important;min-width:0!important;gap:2px!important;}
 .anime09.ob-live-r5 .n-season-13 .n-season-chooser .n-season-tabs.ob-r16-tabs button{width:auto!important;flex:0 0 auto!important;min-width:0!important;padding:5px 7px!important;font-weight:400!important;}
 .anime09.ob-live-r5 .ob-live-updates-cta[aria-expanded="true"]{color:#a27147;border-color:#a27147;}
-.anime09.ob-live-r5 .ob-live-updates-list{position:static;right:0;top:calc(100% - 2px);z-index:55;width:100%;max-height:none;overflow-y:auto;border:1px solid #d0dcc9;border-top:2px solid #78926e;background:#f4f6ed;box-shadow:none;padding:7px 14px 9px;display:block;overflow:visible;box-sizing:border-box;margin:1px 0 8px;}
+.anime09.ob-live-r5 .ob-live-updates-list{position:static;right:0;top:calc(100% - 2px);z-index:55;width:100%;max-height:none;overflow-y:auto;border:0;background:transparent;box-shadow:none;padding:2px 0 5px;max-width:691px;display:block;overflow:visible;box-sizing:border-box;margin:1px auto 8px;}
 .anime09.ob-live-r5 .ob-live-updates-list[hidden]{display:none!important;}
-.anime09.ob-live-r5 .ob-live-update-link{display:grid;gap:8px;align-items:baseline;font:400 14px/1.23 "EB Garamond",Georgia,serif;color:#31513a;text-decoration:none;padding:7px 0 8px;border-bottom:1px solid #dce5d8;grid-template-columns:158px minmax(0,1fr);column-gap:13px;}
-.anime09.ob-live-r5 .ob-live-update-link:last-child{border-bottom:0;border:0;}
-.anime09.ob-live-r5 .ob-live-update-link small{flex:0 0 35px;font:400 11px/1.3 "Barlow Condensed","Abel",sans-serif;color:#8f9b8b;}
+/* R94D: match the entrance Recent Posts row (actual #homeScreen styles). */
+.anime09.ob-live-r5 .ob-live-update-link{display:grid;grid-template-columns:78px 102px minmax(0,1fr);gap:8px;align-items:baseline;text-decoration:none;padding:9px 0;border-bottom:1px solid #e1e3d5;}
 .anime09.ob-live-r5 .ob-live-update-link:hover,.anime09.ob-live-r5 .ob-live-update-link:focus-visible{color:#9a6c42;}
 .anime09.ob-live-r5 .ob-live-how-wrap,
 .anime09.ob-live-r5 .ob-live-previous-wrap{margin:14px 0 0;border-top:1px solid #b5c5b0;border-bottom:1px solid #c8d4c5;background:transparent;padding:0 12px;}
@@ -302,10 +302,24 @@
 .anime09.ob-live-r5 .ob-live-winners>strong{font-weight:400;letter-spacing:.08em;}
 .anime09.ob-live-r5 .ob-live-enjoyment-face svg{display:block;}
 .anime09.ob-live-r5 .ob-live-updates-header{display:flex;align-items:center;gap:9px;min-width:0;min-height:36px;padding:2px 0;border:0;}
-.anime09.ob-live-r5 .ob-live-update-meta{display:grid;align-items:baseline;gap:6px;white-space:normal;min-width:0;grid-template-columns:40px minmax(0,1fr);}
-.anime09.ob-live-r5 .ob-live-update-date{font:400 11px/1.2 "Barlow Condensed","Abel",sans-serif;color:#6b826c;letter-spacing:.04em;flex:0 0 auto;}
-.anime09.ob-live-r5 .ob-live-update-kind{font:400 9px/1.2 "Barlow Condensed","Abel",sans-serif;color:#a27656;letter-spacing:.08em;flex:0 1 auto;white-space:normal;word-break:normal;font-size:10px;}
-.anime09.ob-live-r5 .ob-live-update-title{font:400 14px/1.25 "EB Garamond",Georgia,serif;color:#31543a;}
+.anime09.ob-live-r5 .ob-live-update-meta{display:contents;}
+.anime09.ob-live-r5 .ob-live-update-date{font:400 10.4px "Abel",sans-serif;color:#839184;letter-spacing:0;white-space:nowrap;text-transform:uppercase;min-width:0;}
+.anime09.ob-live-r5 .ob-live-update-link .ob-live-update-kind{font:400 9.8px "Abel",sans-serif;color:#829182;letter-spacing:.015em;min-width:0;overflow-wrap:anywhere;}
+.anime09.ob-live-r5 .ob-live-update-title{font:500 14.5px/1.14 "EB Garamond",Georgia,serif;color:#263e2d;min-width:0;overflow-wrap:anywhere;}
+.anime09.ob-live-r5 .ob-live-update-period{font-weight:400;color:#5f765f;}
+.anime09.ob-live-r5 .ob-live-update-link:hover .ob-live-update-title,.anime09.ob-live-r5 .ob-live-update-link:focus-visible .ob-live-update-title{text-decoration:underline;}
+@media(max-width:600px){
+  .anime09.ob-live-r5 .ob-live-update-link{grid-template-columns:max-content minmax(0,1fr);column-gap:9px;row-gap:4px;padding:12px 0 13px;}
+  .anime09.ob-live-r5 .ob-live-update-date{grid-column:1 / -1;grid-row:1;font-size:10.7px;line-height:1.23;letter-spacing:.018em;}
+  .anime09.ob-live-r5 .ob-live-update-link .ob-live-update-kind{grid-column:1;grid-row:2;font-size:10px;line-height:1.22;letter-spacing:.012em;white-space:nowrap;}
+  .anime09.ob-live-r5 .ob-live-update-title{grid-column:2;grid-row:2;font-size:clamp(11.5px,3vw,12.4px);line-height:1.22;letter-spacing:-.013em;}
+}
+@media(max-width:365px){
+  .anime09.ob-live-r5 .ob-live-update-link{column-gap:6px;row-gap:3px;padding:11px 0 12px;}
+  .anime09.ob-live-r5 .ob-live-update-date{font-size:10.3px;}
+  .anime09.ob-live-r5 .ob-live-update-link .ob-live-update-kind{font-size:9.4px;letter-spacing:0;}
+  .anime09.ob-live-r5 .ob-live-update-title{font-size:11.3px;}
+}
 .anime09.ob-live-r5 .n-mast{border-bottom:4px solid #294935;border-top:0!important;margin-top:0!important;}
 .anime09.ob-live-r5 .ob-live-sow-links-title{display:block;font:500 10px/1.25 "Barlow Condensed","Abel",sans-serif;color:#4a6954;letter-spacing:.085em;}
 .anime09.ob-live-r5 .ob-live-sow-strip .ob-sow-about-open-r1,.anime09.ob-live-r5 .ob-live-sow-how{display:block;font:400 13px/1.18 "EB Garamond",Georgia,serif;color:#4c7058;border:0;background:transparent;text-decoration:none;padding:0;margin:0;white-space:normal;text-align:left;cursor:pointer;}
@@ -374,7 +388,8 @@
 .anime09.ob-live-enhanced .n-focus{display:block;padding-top:18px;}
 .anime09 .ob-live-related{margin-top:12px;}
 :root:has(.anime09.ob-live-r5.current) .site > #greenNav{min-height:31px;}
-:root:has(.anime09.ob-live-r5.current) .green-nav .ob-live-nav{min-height:31px;padding:0 3px;gap:0;justify-content:space-around;}
+:root:has(.anime09.ob-live-r5.current) .green-nav > .ob-live-nav{min-height:31px;max-width:310px;}
+:root:has(.anime09.ob-live-r5.current) .green-nav .ob-live-nav-group:nth-child(2) .ob-live-nav-menu{left:50%;transform:translateX(-50%);}
 :root:has(.anime09.ob-live-r5.current) .green-nav .ob-live-nav-group>summary{font-size:11px;padding:9px 10px;letter-spacing:.02em;}
 :root:has(.anime09.ob-live-r5.current) .green-nav .ob-live-nav-group:last-child .ob-live-nav-menu{left:auto;right:0;}
 .anime09.ob-live-r5 .ob-live-updates-strip{padding:6px 0;gap:6px;font-size:10px;width:calc(100% - 22px);margin:0 11px 4px;}
@@ -444,13 +459,10 @@
 .anime09.ob-live-r5 .ob-live-digest-measures{gap:7px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));}
 .anime09.ob-live-r5 .ob-live-digest-winner img{width:42px;height:58px;}
 .anime09.ob-live-r5 .n-season-13 .n-season-chooser .n-season-tabs.ob-r16-tabs button{padding:4px 5px!important;}
-.anime09.ob-live-r5 .ob-live-updates-list{top:calc(100% + 2px);width:min(340px,calc(100vw - 18px));padding:6px 10px;}
+.anime09.ob-live-r5 .ob-live-updates-list{top:calc(100% + 2px);width:100%;padding:2px 0 5px;}
 .anime09.ob-live-r5 .ob-live-digest-measures b{font-size:17px;}
 .anime09.ob-live-r5 .ob-live-previous-wrap,.anime09.ob-live-r5 .ob-live-how-wrap{padding:0 6px;}
 .anime09.ob-live-r5 .ob-live-updates-header{gap:6px;min-height:31px;}
-.anime09.ob-live-r5 .ob-live-update-link{grid-template-columns:67px minmax(0,1fr);gap:10px;padding:7px 0;align-items:start;}
-.anime09.ob-live-r5 .ob-live-update-meta{display:flex;flex-direction:column;gap:3px;align-items:flex-start;white-space:nowrap;}
-.anime09.ob-live-r5 .ob-live-update-title{font-size:13px;line-height:1.22;}
 .anime09.ob-live-r5 .ob-live-sow-links-title{font-size:8px;line-height:1.16;letter-spacing:.01em;}
 .anime09.ob-live-r5 .ob-live-sow-strip .ob-sow-about-open-r1,.anime09.ob-live-r5 .ob-live-sow-how{font-size:11px;}
 .anime09.ob-live-r5 .ob-live-metric small{font-size:9px;min-height:26px;}
@@ -459,7 +471,6 @@
 .anime09.ob-live-r5 .ob-live-full-rank{font-size:10px;padding:9px 12px;}
 .anime09.ob-live-r5 .ob-live-guide,.anime09.ob-live-r5 .ob-live-previous-wrap{margin-left:11px;margin-right:11px;}
 .anime09.ob-live-r5 .ob-live-lineup-explore{gap:6px;flex-wrap:wrap;}
-.anime09.ob-live-r5 .ob-live-update-kind{font-size:9px;white-space:nowrap;}
 }
 @media (max-width:380px) {
 .anime09.ob-live-r5 .n-season-13 .n-season-name h2{font-size:27px;}
@@ -483,8 +494,8 @@
 }
 /* Nav: a light label is more legible than the earlier compressed bold. */
 :root:has(.anime09.ob-live-r5.current) .green-nav .ob-live-nav-group>summary{
-  font-family:var(--ob-ui-font);font-size:10px;font-weight:500;line-height:1.15;
-  letter-spacing:.08em;padding:11px 16px;
+  font-family:var(--ob-ui-font);font-size:11px;font-weight:500;line-height:1.15;
+  letter-spacing:.08em;padding:11px 8px;text-align:center;
 }
 /* Season identity: make the small label read clearly; the season and year lead. */
 .anime09.ob-live-r5 .n-season-13 .n-season-name small{
@@ -631,7 +642,7 @@
 }
 @media(max-width:690px){
   :root:has(.anime09.ob-live-r5.current) .green-nav .ob-live-nav-group>summary{
-    font-size:9px;padding:10px 6px;letter-spacing:.02em;
+    font-size:10px;padding:10px 6px;letter-spacing:.02em;
   }
   .anime09.ob-live-r5 .n-season-13 .n-season-name small{
     font-size:8.5px;letter-spacing:.055em;
@@ -693,15 +704,12 @@
 .anime09.ob-live-r5 .ob-live-reading-copy{display:grid;gap:5px;margin-top:8px;max-width:88ch;}
 .anime09.ob-live-r5 .ob-live-reading-copy p{font:400 12.5px/1.46 var(--ob-ui-font)!important;margin:0 0 3px;color:#475f4e;}
 .anime09.ob-live-r5 .ob-live-reading-copy strong{font-weight:600;color:#315742;}
-.anime09.ob-live-r5 .ob-live-update-meta{grid-template-columns:minmax(86px,auto) minmax(0,1fr)!important;}
-.anime09.ob-live-r5 .ob-live-update-date{white-space:nowrap!important;font-family:var(--ob-ui-font)!important;font-size:10px!important;letter-spacing:0!important;}
 .anime09.ob-live-r5 .ob-live-lineup-explore select{font-family:var(--ob-ui-font)!important;font-size:12px!important;}
 @media(max-width:690px){
  .anime09.ob-live-r5 .n-season-13 .n-season-chooser .ob-r16-chooser-top select,
  .anime09.ob-live-r5 .n-season-13 .n-season-chooser .n-season-tabs.ob-r16-tabs button{height:29px!important;min-height:29px!important;}
  .anime09.ob-live-r5 .n-season-13 .n-weeks .n-milestone>span{font-size:9px!important;}
  .anime09.ob-live-r5 .ob-live-metric .ob-live-metric-delta .ob-live-delta-value{font-size:12px!important;}
- .anime09.ob-live-r5 .ob-live-update-meta{grid-template-columns:minmax(78px,auto) minmax(0,1fr)!important;}
 }
 /* Original page i18n can replace text after the live renderer.
    Keep the Japanese S.O.W. companion label visible without an observer loop. */
@@ -1014,7 +1022,6 @@
 .anime09.ob-live-r5.ob-live-r8.ob-live-r9 .ob-live-updates-label{color:#7b4932!important;font-weight:700!important;}
 .anime09.ob-live-r5.ob-live-r8.ob-live-r9 .ob-live-updates-text{color:#365940!important;}
 .anime09.ob-live-r5.ob-live-r8.ob-live-r9 .ob-live-updates-cta{color:#2e5940!important;font-weight:600!important;}
-.anime09.ob-live-r5.ob-live-r8.ob-live-r9 .ob-live-update-date{color:#526e56!important;font-weight:550!important;}
 .anime09.ob-live-r5.ob-live-r8.ob-live-r9 .ob-live-sow-links-title{font-size:13px!important;line-height:1.3!important;letter-spacing:.06em!important;color:#2e513c!important;}
 /* Editorial entry: match the structural weight of the Concept without copying it verbatim. */
 .anime09.ob-live-r5.ob-live-r8.ob-live-r9 .ob-live-week-season-head-r8{border-bottom:1px solid #a6b9a2;margin-bottom:18px;padding-bottom:12px;align-items:baseline;}
@@ -1129,7 +1136,6 @@
 .anime09.ob-live-r10 .ob-live-updates-text{font-weight:400!important;color:#355b42!important;}
 .anime09.ob-live-r10 .ob-live-updates-label{font-weight:600!important;}
 .anime09.ob-live-r10 .ob-live-updates-cta{font-weight:500!important;}
-.anime09.ob-live-r10 .ob-live-update-date{font-weight:450!important;}
 .anime09.ob-live-r10 .ob-live-sow-links-title{font-size:13.5px!important;letter-spacing:.055em!important;}
 .anime09.ob-live-r10 .ob-sow-about-entry-r1 .ob-sow-about-open-r1,
 .anime09.ob-live-r10 .ob-live-sow-how{font-size:12px!important;line-height:1.5!important;margin-left:5px;}
@@ -1235,7 +1241,6 @@
 .anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11 .ob-live-updates-label{font-weight:500!important;}
 .anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11 .ob-live-updates-text{font-weight:400!important;}
 .anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11 .ob-live-updates-cta{font-weight:400!important;}
-.anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11 .ob-live-update-date{font-weight:400!important;color:#54705a!important;}
 /* The logo's label and secondary links must have a recognizable hierarchy. */
 .anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11 .ob-live-sow-links-title{font-size:13.5px!important;}
 .anime09.ob-live-r5.ob-live-r8.ob-live-r9.ob-live-r10.ob-live-r11 .ob-sow-about-entry-r1 .ob-sow-about-open-r1,
@@ -1937,7 +1942,7 @@
     font-size:10.8px!important; /* was 10px */
   }
   #anime-top.anime09.ob-live-r12.ob-r29-on .n-season-dashboard.ob-r35-ready .ob-r35-cp-label {
-    font-size:9.6px!important; /* was 9px */
+    font-size:10.6px!important; /* R94E: checkpoint labels only */
   }
   #anime-top.anime09.ob-live-r12.ob-r29-on .n-season-dashboard.ob-r35-ready .ob-r35-cp-links {
     font-size:10.6px!important; /* was 10px */

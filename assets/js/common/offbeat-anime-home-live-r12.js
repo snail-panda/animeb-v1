@@ -20,6 +20,28 @@
   const escURL=(url)=>{try{const u=new URL(url,base);return u.origin===base.origin && u.pathname.startsWith(base.pathname)?u.href:null;}catch{return null;}};
   const i=(ja,en)=>lang()==='ja'?ja:en;
   const bilingual=(node,ja,en)=>{node.dataset.obLiveJa=ja;node.dataset.obLiveEn=en;node.textContent=i(ja,en);return node;};
+  // Keep the period secondary without changing the post text or treating a
+  // title's own parentheses (e.g. a release year) as a ranking period.
+  function recentUpdateTitle(item,kind){
+    const ja=String(item.title?.ja||item.title?.display||'投稿');
+    const en=String(item.title?.en||item.title?.display||'Post');
+    const title=el('span','ob-live-update-title');
+    const period=kind==='ranking'?String(item.period?.display||'').trim():'';
+    if(!period)return bilingual(title,ja,en);
+    const split=value=>{
+      for(const suffix of [`(${period})`,`（${period}）`]){
+        if(value.endsWith(suffix)&&value.length>suffix.length){
+          return [value.slice(0,-suffix.length),suffix];
+        }
+      }
+      return [value,''];
+    };
+    const [jaMain,jaPeriod]=split(ja),[enMain,enPeriod]=split(en);
+    if(!jaPeriod&&!enPeriod)return bilingual(title,ja,en);
+    title.append(bilingual(el('span','ob-live-update-title-main'),jaMain,enMain),
+      bilingual(el('span','ob-live-update-period'),jaPeriod,enPeriod));
+    return title;
+  }
   function relabel(){
     document.querySelectorAll('#anime-top [data-ob-live-ja][data-ob-live-en], #obLiveNavR2 [data-ob-live-ja][data-ob-live-en]').forEach(node=>node.textContent=i(node.dataset.obLiveJa,node.dataset.obLiveEn));
     document.querySelectorAll('#anime-top [data-ob-live-date]').forEach(node=>{node.textContent=displayPostDate(node.dataset.obLiveDate);});
@@ -216,7 +238,7 @@
         const meta=el('span','ob-live-update-meta');
         const dateNode=el('small','ob-live-update-date',displayPostDate(date));dateNode.dataset.obLiveDate=date;
         meta.append(dateNode,bilingual(el('small','ob-live-update-kind'),...cat));
-        const title=bilingual(el('span','ob-live-update-title'),String(item.title?.ja||item.title?.display||'投稿'),String(item.title?.en||item.title?.display||'Post'));
+        const title=recentUpdateTitle(item,kind);
         row.append(meta,title);feed.append(row);
       });
       if(!feed.children.length)feed.append(el('p','ob-live-muted',i('公開済みの更新はありません','No published updates')));

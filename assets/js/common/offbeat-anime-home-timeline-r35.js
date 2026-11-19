@@ -29,9 +29,31 @@
   function align(){
     const dash=$('.n-season-dashboard'),nav=$('.n-weeks',dash),phase=$('#obLivePhasesR1',dash);
     if(!dash||!nav||!phase||nav.children.length!==13)return;
-    if(window.matchMedia('(max-width:690px)').matches){
-      dash.style.removeProperty('--ob-r35-phase-offset');return;
+    const phone=matchMedia('(max-width:690px)').matches;
+    const progress=$('.n-season-progress',dash);
+    let scroller=$('.ob-r94-timeline-scroll',dash);
+    if(phone && progress){
+      dash.style.removeProperty('--ob-r35-phase-offset');
+      if(!scroller){
+        // Keep the same nodes and handlers, and preserve their original order.
+        const offset=nav.scrollLeft;
+        scroller=mk('div','ob-r94-timeline-scroll');
+        const track=mk('div','ob-r94-timeline-track');
+        nav.before(scroller);scroller.append(track);track.append(nav,progress,phase);
+        scroller.scrollLeft=offset;
+      }
+      if(!scroller.clientWidth)return; // hidden Anime view; ResizeObserver retries
+      const rect=nav.getBoundingClientRect(), cells=[...nav.children].map(x=>x.getBoundingClientRect());
+      const starts=[1,4,8,11].map(j=>cells[j].left-rect.left);
+      const end=cells[12].right-rect.left;
+      const widths=[starts[0],starts[1]-starts[0],starts[2]-starts[1],starts[3]-starts[2],end-starts[3]];
+      const gap=Math.max(0,cells[2].left-cells[1].right);
+      // Track widths come from the rendered week cells, not arbitrary percentages.
+      const props={'--ob-r94-view':scroller.clientWidth+'px','--ob-r94-stage-columns':widths.map(v=>Math.max(0,v).toFixed(3)+'px').join(' '),'--ob-r94-gap':gap.toFixed(3)+'px'};
+      for(const [key,value] of Object.entries(props))if(scroller.style.getPropertyValue(key)!==value)scroller.style.setProperty(key,value);
+      return;
     }
+    if(scroller){scroller.before(nav,progress,phase);scroller.remove();}
     const inset=Math.max(0,nav.children[1].getBoundingClientRect().left-nav.getBoundingClientRect().left);
     dash.style.setProperty('--ob-r35-phase-offset',`${inset.toFixed(2)}px`);
   }
@@ -103,12 +125,12 @@
       if(help.textContent!==hint)help.textContent=hint;
     }else if(help)help.remove();
     // R59: on phones, place the existing MILESTONES legend above the existing
-    // Week Peek button. Restore its original parent on desktop; no clones.
+    // Week Peek button. Keep it in the R36 row on desktop; no competing moves.
     const legend=$('.ob-live-stage-legend',dash);
     if(legend){
       const onPhone=window.matchMedia('(max-width:690px)').matches;
       if(onPhone && legend.parentElement!==peek) peek.insertBefore(legend,button);
-      else if(!onPhone && legend.parentElement!==foot) foot.append(legend);
+      else if(!onPhone && legend.parentElement!==peek) peek.append(legend);
     }
   }
   let scheduled=false,sourceObserver=null;
@@ -127,7 +149,7 @@
         const dash=$('.n-season-dashboard');
         if(dash)new MutationObserver(schedule).observe(dash,{childList:true});
         const nav=$('.n-season-dashboard .n-weeks');
-        if(nav)new ResizeObserver(schedule).observe(nav);
+        if(nav){const ro=new ResizeObserver(schedule);ro.observe(nav);if(dash)ro.observe(dash);}
         new MutationObserver(schedule).observe(root,{attributes:true,attributeFilter:['data-ob-live-lang']});
         document.addEventListener('click',e=>{
           if(e.target instanceof Element&&e.target.closest('[data-peek-lang],#obLangToggle,.ob-language-toggle'))setTimeout(schedule,250);
