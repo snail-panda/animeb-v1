@@ -21,3 +21,27 @@
 #anime-top .ob-lineup-item.ob-r53-halted .ob-r53-flag{background:#855d7ee8}
 #anime-top .ob-lineup-item.ob-r53-status-off img{opacity:1;filter:none;outline:0}
 @media(max-width:540px){#anime-top .ob-r53-controls{gap:6px 8px;padding:6px 0}#anime-top .ob-r53-controls .ob-r53-caption{font-size:9px}#anime-top .ob-r53-controls select,#anime-top .ob-r53-controls button{font-size:10px;padding:3px 6px;min-height:23px}#anime-top .ob-lineup-item .ob-r53-rank{top:1px;right:1px;font-size:10px;padding:1px 2px;min-width:16px;min-height:15px}#anime-top .ob-lineup-item .ob-r53-rank .ob-r53-pound{font-size:8px;margin-right:.5px}#anime-top .ob-lineup-item .ob-r53-x{font-size:33px}#anime-top .ob-lineup-item .ob-r53-flag{font-size:7px}#anime-top .ob-r53-readout{font-size:9px}}
+
+/* R95: grouped season performance and title history. Existing poster grid remains intact. */
+#anime-top #obLineupGridR3>.ob-r95-filtered,#anime-top #obLineupGridR3>.ob-lineup-item[hidden],#anime-top #obLineupGridR3>.ob-r95-group-head[hidden],#anime-top #obLineupGridR3>.ob-r95-no-results[hidden],#anime-top #obLineupExpandR3[hidden],.ob-r95-performance[hidden]{display:none!important}
+#anime-top .ob-r95-group-head{grid-column:1/-1;display:flex;align-items:baseline;gap:10px;margin:10px 0 2px;padding:0 0 4px;border-bottom:1px solid #dce2d2;font:500 18px/1.25 'EB Garamond',Georgia,serif;color:#365c3f}
+#anime-top .ob-r95-group-count{font:400 12px/1.3 'Barlow Condensed',Arial,sans-serif;color:#68816a}
+#anime-top .ob-r95-no-results{grid-column:1/-1;font:400 14px/1.4 'EB Garamond',Georgia,serif;color:#526e57;padding:8px 0}
+.ob-r95-performance{grid-column:1/-1;min-width:0;border-top:1px solid #cfd9c8;padding-top:12px;color:#36553c;font:400 14px/1.35 'EB Garamond',Georgia,serif}
+.ob-r95-performance-head{display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:6px;margin-bottom:10px}
+.ob-r95-performance-head h4{margin:0;font:500 23px/1.1 'EB Garamond',Georgia,serif;color:#254c35}
+.ob-r95-performance-head>span,.ob-r95-detail-note{font:400 12px/1.4 'Barlow Condensed',Arial,sans-serif;color:#5d755f}
+.ob-r95-summary{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px 12px;padding:8px 0}
+.ob-r95-metric{display:flex;flex-direction:column;gap:2px;border-bottom:1px solid #e1e6d6;padding-bottom:5px}
+.ob-r95-metric>span{font:400 12px/1.2 'Barlow Condensed',Arial,sans-serif;color:#596f5b}
+.ob-r95-metric>strong{font:500 23px/1.15 'EB Garamond',Georgia,serif;font-variant-numeric:tabular-nums;color:#285139}
+.ob-r95-tags{display:flex;gap:5px;flex-wrap:wrap;margin:8px 0 5px}
+.ob-r95-tag{font:500 12px/1.3 'Barlow Condensed',Arial,sans-serif;border:1px solid #bfd0bd;padding:3px 7px;color:#47664b}
+.ob-r95-primary{background:#dce8d7;border-color:#dce8d7}
+.ob-r95-charts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin:12px 0 8px}
+.ob-r95-chart{min-width:0}.ob-r95-chart h5{font:500 14px/1.2 'Barlow Condensed',Arial,sans-serif;margin:0 0 2px;color:#3a5c45}
+.ob-r95-chart svg{width:100%;height:auto;display:block;overflow:visible}
+.ob-r95-gridline{stroke:#dce2d3;stroke-width:1}.ob-r95-chart-label{fill:#62765e;font:9px Arial,sans-serif}.ob-r95-series{stroke:#5a8757;stroke-width:2;stroke-linecap:round}.ob-r95-point{fill:#5a8757;stroke:#fffdf2;stroke-width:1}
+.ob-r95-history{width:100%;border-collapse:collapse;font:400 13px/1.35 'Barlow Condensed',Arial,sans-serif;text-align:left;font-variant-numeric:tabular-nums}
+.ob-r95-history th,.ob-r95-history td{padding:4px 5px;border-bottom:1px solid #e0e5d7}.ob-r95-history th{font-weight:500;color:#49654d}
+@media(max-width:540px){#anime-top .ob-r95-group-head{font-size:17px;margin-top:8px}.ob-r95-charts{grid-template-columns:minmax(0,1fr);gap:8px}.ob-r95-summary{gap:8px}.ob-r95-metric>strong{font-size:21px}.ob-r95-performance-head h4{font-size:20px}.ob-r95-history{font-size:12px}.ob-r95-history th,.ob-r95-history td{padding:4px 3px}}

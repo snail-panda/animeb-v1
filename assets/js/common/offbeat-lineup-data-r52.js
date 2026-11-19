@@ -50,6 +50,7 @@ function compileSeason(master,weeklyByWeek){
   const rankRows=complete?ref:raw.entries.filter(e=>typeof e.rank==='number');
   const rating=new Map(),broadcast=new Map(),decisions=new Map();
   for(const r of rankRows){const kv=resolve(r,week,'ranking');if(kv && !rating.has(kv))rating.set(kv,r);}
+  for(const kv of rating.keys()) if(droppedSince.has(kv) && droppedSince.get(kv)<week) droppedSince.delete(kv);
   for(const d of meta.drop_decisions||[]){const kv=resolve(d,week,'drop_decisions');if(kv){
     decisions.set(kv,d);if(!droppedSince.has(kv))droppedSince.set(kv,week);
   }}
@@ -71,6 +72,7 @@ function compileSeason(master,weeklyByWeek){
   for(const [kv,item] of masterByKv){
     const r=rating.get(kv),d=decisions.get(kv),b=broadcast.get(kv);
     const current={week,kv,rank:safeNumber(r?.rank),wrp_score:safeNumber(r?.wrp_score),score:safeNumber(r?.score),episode:r?.episode??null,
+      participantCount:complete?ref.length:null,
       rankingCoverage:complete?'full_reference':'partial_entries',
       rankingState:r?'rated':(complete?'not_ranked':'unknown'),
       droppedAfterWeek:droppedSince.get(kv)??null,
@@ -94,5 +96,36 @@ async function loadPublishedSeason({baseUrl=document.baseURI,masterUrl=null,year
  const compiled=compileSeason(master,Object.fromEntries(load.filter(([,v])=>v).map(([w,v])=>[w,v])));
  return {...compiled,warnings:[...compiled.warnings,...missing],missingWeeks:missing};
 }
-global.OFFBEAT_LINEUP_DATA_R52=Object.freeze({compileSeason,loadPublishedSeason,pathFor});
+// Main-season weekly WRP only; no PRELIM, no zero for absent weeks.
+const groups=['leading','contenders','chasing','struggling','lower','unrated','dropped','halted'];
+const tags=['in-form','rising','cooling','consistent','volatile','breakthrough','winner'];
+const avg=a=>a.length?a.reduce((x,y)=>x+y,0)/a.length:null;
+function analyze(history,week){
+ const records=(history?.weeks||[]).filter(r=>r.week<=week).sort((a,b)=>a.week-b.week);
+ const rated=records.filter(r=>Number.isFinite(r.wrp_score)&&r.rank!=null);
+ const values=rated.map(r=>r.wrp_score*10), n=values.length;
+ const mean=avg(values), recent=n>=2?avg(values.slice(-2)):null;
+ const previous=n>=4?avg(values.slice(-4,-2)):null;
+ const change=previous==null?null:recent-previous;
+ const sd=n>=4?Math.sqrt(avg(values.map(x=>(x-mean)**2))):null;
+ const ranked=rated.map(r=>r.rank), current=records.find(r=>r.week===week);
+ const wins=ranked.filter(r=>r===1).length, top3=ranked.filter(r=>r<=3).length;
+ const fraction=r=>Number.isFinite(r.participantCount)&&r.participantCount>1?(r.participantCount-r.rank)/(r.participantCount-1):null;
+ const recentRank=rated.slice(-2).map(fraction), priorRank=rated.slice(-4,-2).map(fraction);
+ const comparison=recentRank.length===2&&priorRank.length===2&&[...recentRank,...priorRank].every(Number.isFinite)?avg(recentRank)-avg(priorRank):null;
+ const scoreGroup=mean==null?'unrated':mean>=85-1e-9?'leading':mean>=80-1e-9?'contenders':mean>=74-1e-9?'chasing':mean>=70-1e-9?'struggling':'lower';
+ const group=current?.droppedAfterWeek!=null&&current.droppedAfterWeek<=week?'dropped':current?.broadcast?.status==='season_halted'?'halted':scoreGroup;
+ const features=[];
+ // Stale results remain visible in the history but are not described as current form.
+ const fresh=n>=2&&week-rated.at(-1).week<=1;
+ if(fresh&&recent>=85-1e-9)features.push('in-form');
+ if(fresh&&change!=null&&change>=5-1e-9)features.push('rising');
+ if(fresh&&change!=null&&change<=-5+1e-9)features.push('cooling');
+ if(sd!=null&&sd<=3)features.push('consistent');
+ if(sd!=null&&sd>=8)features.push('volatile');
+ if(fresh&&n>=4&&week>=4&&mean>=70&&mean<80&&top3===0&&recent<85&&change<5)features.push('breakthrough');
+ if(wins)features.push('winner');
+ return {records,rated,n,mean,recent,previous,change,sd,wins,top3,best:n?Math.min(...ranked):null,group,scoreGroup,features,current,comparison};
+}
+global.OFFBEAT_LINEUP_DATA_R52=Object.freeze({compileSeason,loadPublishedSeason,pathFor,analyze,groups,tags});
 })(window);
