@@ -6,7 +6,8 @@
 #anime-top .ob-r53-controls select,#anime-top .ob-r53-controls button{background:#fafbf5;border:1px solid #c7d4c1;color:#47634c;border-radius:2px;padding:4px 7px;font:500 11px/1.2 'Barlow Condensed',Arial,sans-serif;min-height:24px;cursor:pointer}
 #anime-top .ob-r53-controls button[aria-pressed="true"]{background:#42684c;border-color:#42684c;color:#fffdf4}
 #anime-top .ob-r53-controls button:focus-visible,#anime-top .ob-r53-controls select:focus-visible{outline:2px solid #ae8a57;outline-offset:2px}
-#anime-top .ob-r53-readout{font:400 10px/1.45 'Barlow Condensed',Arial,sans-serif;color:#728674;margin:6px 0 1px;letter-spacing:.01em}
+#anime-top .ob-r53-readout{font:400 11px/1.55 'Barlow Condensed',Arial,sans-serif;color:#728674;margin:13px 0 9px;letter-spacing:.01em}
+#anime-top .ob-r53-readout .ob-r95-readout-number{font-family:system-ui,Arial,sans-serif;font-weight:500;color:#516b55;font-variant-numeric:tabular-nums;white-space:nowrap}
 #anime-top .ob-lineup-item.ob-r53-top10 img{outline:2px solid #c8a067;outline-offset:-2px}
 #anime-top .ob-lineup-item.ob-r53-ranked img{outline:1px solid #8baf90;outline-offset:-1px}
 #anime-top .ob-lineup-item.ob-r53-no-air img{outline:2px solid #8ca6ae;outline-offset:-2px;filter:saturate(.75)}
@@ -20,7 +21,7 @@
 #anime-top .ob-lineup-item .ob-r53-flag{bottom:3px;left:1px;right:1px;text-align:center;background:#557580e8;color:#fff;font:600 9px/1.3 'Barlow Condensed',Arial,sans-serif;letter-spacing:.03em}
 #anime-top .ob-lineup-item.ob-r53-halted .ob-r53-flag{background:#855d7ee8}
 #anime-top .ob-lineup-item.ob-r53-status-off img{opacity:1;filter:none;outline:0}
-@media(max-width:540px){#anime-top .ob-r53-controls{gap:6px 8px;padding:6px 0}#anime-top .ob-r53-controls .ob-r53-caption{font-size:9px}#anime-top .ob-r53-controls select,#anime-top .ob-r53-controls button{font-size:10px;padding:3px 6px;min-height:23px}#anime-top .ob-lineup-item .ob-r53-rank{top:1px;right:1px;font-size:10px;padding:1px 2px;min-width:16px;min-height:15px}#anime-top .ob-lineup-item .ob-r53-rank .ob-r53-pound{font-size:8px;margin-right:.5px}#anime-top .ob-lineup-item .ob-r53-x{font-size:33px}#anime-top .ob-lineup-item .ob-r53-flag{font-size:7px}#anime-top .ob-r53-readout{font-size:9px}}
+@media(max-width:540px){#anime-top .ob-r53-controls{gap:6px 8px;padding:6px 0}#anime-top .ob-r53-controls .ob-r53-caption{font-size:9px}#anime-top .ob-r53-controls select,#anime-top .ob-r53-controls button{font-size:10px;padding:3px 6px;min-height:23px}#anime-top .ob-lineup-item .ob-r53-rank{top:1px;right:1px;font-size:10px;padding:1px 2px;min-width:16px;min-height:15px}#anime-top .ob-lineup-item .ob-r53-rank .ob-r53-pound{font-size:8px;margin-right:.5px}#anime-top .ob-lineup-item .ob-r53-x{font-size:33px}#anime-top .ob-lineup-item .ob-r53-flag{font-size:7px}#anime-top .ob-r53-readout{font-size:10px}}
 
 /* R95: grouped season performance and title history. Existing poster grid remains intact. */
 #anime-top #obLineupGridR3>.ob-r95-filtered,#anime-top #obLineupGridR3>.ob-lineup-item[hidden],#anime-top #obLineupGridR3>.ob-r95-group-head[hidden],#anime-top #obLineupGridR3>.ob-r95-no-results[hidden],#anime-top #obLineupExpandR3[hidden],.ob-r95-performance[hidden]{display:none!important}

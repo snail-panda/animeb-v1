@@ -138,7 +138,11 @@ function updateInfo(snap){
  if(unavailable) tail+=l(` · 放送なし ${noAir}作品（作品別情報未登録）`,` · ${noAir} no-air titles (identities not yet registered)`);
  const mode=state.order==='grouped'||state.group!=='all'||state.form!=='all'?l(' · 本戦の平均WRPで分類（予選除外）',' · Groups by main-season average WRP (PRELIM excluded)'):'';
  if(season.missingWeeks?.length||season.weeks.filter(w=>w<=currentWeek()).length<currentWeek()||season.snapshots.some(s=>s.week<=currentWeek()&&!s.hasFullRankingReference))tail+=l(' · 一部の週のデータが不足しています',' · Some weekly data is incomplete');
- info.textContent=text+tail+mode;
+ // Only the readout's week and counts use the more legible numeral face.
+ const readout=text+tail+mode;
+ const parts=readout.split(/(W\d{2}|\d+)/g);
+ info.replaceChildren(...parts.filter(Boolean).map(part=>
+  /^(?:W\d{2}|\d+)$/.test(part)?node('span','ob-r95-readout-number',part):document.createTextNode(part)));
  info.hidden=false;
 }
 function render(){

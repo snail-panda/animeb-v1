@@ -390,7 +390,7 @@
       const previousCopy=el('span','ob-live-prev-copy-r48 ob-live-prev-copy-r49');
       previousCopy.append(
         bilingual(el('span','ob-live-prev-head-r49'),'前シーズンを振り返る','A LOOK BACK'),
-        bilingual(el('span','ob-live-prev-title-r46 ob-live-prev-title-r49'),'前のシーズン · 2026年夏','PREVIOUS SEASON · SUMMER 2026'),
+        bilingual(el('span','ob-live-prev-title-r46 ob-live-prev-title-r49'),'前期 · 2026年夏','PREVIOUS SEASON · SUMMER 2026'),
         bilingual(el('small','ob-live-prev-deck-r46'),
           '前期はどんなシーズンだったっけ？ 最終ティアリストとおすすめを振り返ってみよう。もしかしたら、今季も少し違って見えるかも。',
           'How did last season turn out? Revisit the final tier list and recommendations. Who knows? You might see this season a little differently, too.')

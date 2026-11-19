@@ -1642,7 +1642,7 @@
 .anime09.ob-live-r5 #obLivePrevWrapR4 .ob-live-prev-copy-r49 {
   display:flex;
   flex-direction:column;
-  gap:7px;
+  gap:4px;
   align-items:flex-start;
   min-width:0;
 }
@@ -1670,10 +1670,11 @@
   padding-left:13px;
 }
 .anime09.ob-live-r5 #obLivePrevWrapR4 .ob-live-prev-deck-r46 {
-  font:400 13px/1.45 "EB Garamond",Georgia,serif;
+  font:400 14px/1.50 "EB Garamond",Georgia,serif;
   letter-spacing:0;
   color:#607760;
   padding-left:13px;
+  margin-top:9px;
 }
 .anime09.ob-live-r5 #obLivePrevWrapR4 > summary.ob-live-prev-summary-r49::after {
   float:none;
@@ -1699,14 +1700,14 @@
   .anime09.ob-live-r5 #obLivePrevWrapR4 .ob-live-prev-head-r49 {font-size:18px;}
   .anime09.ob-live-r5 #obLivePrevWrapR4 .ob-live-prev-head-r49::before {height:17px;}
   .anime09.ob-live-r5 #obLivePrevWrapR4 .ob-live-prev-title-r49 {font-size:10.5px;}
-  .anime09.ob-live-r5 #obLivePrevWrapR4 .ob-live-prev-deck-r46 {font-size:12.5px;}
+  .anime09.ob-live-r5 #obLivePrevWrapR4 .ob-live-prev-deck-r46 {font-size:13.5px;}
 }
 /* R95B: keep the editorial cards light; distinguish section, caption and links. */
 #anime-top.anime09 #obLivePrevWrapR4 .n-prev-links a {border-color:#aebfaa;border-left:3px solid #9bb29a;}
 #anime-top.anime09 #obLivePrevWrapR4 .n-prev-links a:hover,
 #anime-top.anime09 #obLivePrevWrapR4 .n-prev-links a:focus-visible {border-color:#94ab91;border-left-color:#789a80;}
 #anime-top.anime09 #obLivePrevWrapR4 .n-prev-links a b {color:#294b36;}
-#anime-top.anime09[data-ob-live-lang="ja"] #obLivePrevWrapR4 .ob-live-prev-deck-r46 {font-size:12px;line-height:1.55;}
+#anime-top.anime09[data-ob-live-lang="ja"] #obLivePrevWrapR4 .ob-live-prev-deck-r46 {font-size:12px;line-height:1.75;}
 
 /* R50 — ABOUT S.O.W. compact reading sections (live R12 source). */
 #anime-top.anime09 .ob-live-how-wrap #obHowMoreR3 {
@@ -1744,6 +1745,17 @@
 }
 @media(max-width:690px){
   #anime-top.anime09 #obLiveGuideR5 .ob-live-explain-content-r50 {margin-left:5px;padding:8px 8px 7px;font-size:13.5px;}
+}
+/* R95C: reading typography only; leave R95B colors, accents and diagram intact. */
+#anime-top.anime09[data-ob-live-lang="en"] #obLiveHowWrapR4 .ob-how-r3 p {font-size:16px;}
+#anime-top.anime09[data-ob-live-lang="ja"] #obLiveHowWrapR4 .ob-how-r3 p {line-height:1.8;}
+#anime-top.anime09[data-ob-live-lang="en"] #obLiveGuideR5 .ob-live-explain-content-r50 {font-size:15px;}
+@media(max-width:690px){
+  #anime-top.anime09[data-ob-live-lang="en"] #obLiveGuideR5 .ob-live-explain-content-r50 {font-size:14.5px;}
+}
+
+@media(max-width:540px){
+  #anime-top.anime09[data-ob-live-lang="en"] #obLiveHowWrapR4 .ob-how-r3 p {font-size:14px;}
 }
 
 /* R60: Repair the actual MOBILE Current Season layout, replacing R59 styles.
