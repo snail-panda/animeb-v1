@@ -1344,3 +1344,20 @@ body[data-tier-editorial="auto"] #contentText > .tier-movement-heading:has(+ .ti
     font-size:17px;
   }
 }
+/* TL05S movement mark: preserve the selected thin glyph; improve optical alignment. */
+body[data-tier-editorial="auto"] #contentText > .tier-movement-heading:has(+ .tier-auto-movers > li[data-move-kind="backOnList"])::before {
+  position:relative;top:-2px;font-weight:600;
+}
+body[data-tier-editorial="auto"] #contentText > .tier-movement-heading:has(+ .tier-auto-movers > li[data-move-kind="newlyDropped"])::before {
+  position:relative;top:2px;font-weight:600;
+}
+body[data-tier-editorial="auto"] .tier-entry-ranking-link {
+  color:#607d65;font-weight:500;text-decoration:underline;text-underline-offset:2px;
+}
+body[data-tier-editorial="auto"] .tier-studio-editorial-content {
+  max-width:44rem;margin:0 0 2.1rem;
+}
+body[data-tier-editorial="auto"] .tier-studio-editorial-content p {
+  margin:0 0 1rem;line-height:1.75;
+}
+body[data-tier-editorial="auto"] .tier-studio-editorial-content p:last-child {margin-bottom:0;}
