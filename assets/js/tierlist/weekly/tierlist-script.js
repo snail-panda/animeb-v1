@@ -14,6 +14,7 @@ document.addEventListener("DOMContentLoaded", function() {
     "D": "d",
     "Dropped": "dropped",
     "N/A": "na",
+    "Not Yet Aired": "not-yet-aired",
     "RecentlyDropped": "recently-dropped",
     // 追加（JSONのキーに合わせてどちらか一方を使う）
   "Never Watched": "neverwatched",
@@ -300,7 +301,11 @@ function mountInteractiveTierBoard(data, year, season) {
     if(a&&a.n){
       const records=a.records;const prior=baseWeek?records.find(r=>r.week===baseWeek):null;const current=records.find(r=>r.week===weekNumber);
       const summary=[];if(baseWeek)summary.push([tl(`Week ${weekText(baseWeek)} rank / WRP`,`第${weekText(baseWeek)}週 順位 / WRP`),`${formatRank(prior)} · ${fmt(prior?.wrp_score)}`]);
-      summary.push([tl(`Week ${weekText(weekNumber)} rank / WRP`,`第${weekText(weekNumber)}週 順位 / WRP`),`${formatRank(current)} · ${fmt(current?.wrp_score)}`],[tl('Average WRP','平均WRP'),fmt(a.mean/10)],[tl('Best rank','最高順位'),a.best==null?'—':'#'+a.best]);detailGrid(perf,summary);
+      summary.push([tl(`Week ${weekText(weekNumber)} rank / WRP`,`第${weekText(weekNumber)}週 順位 / WRP`),`${formatRank(current)} · ${fmt(current?.wrp_score)}`],[tl('Average WRP','平均WRP'),fmt(a.mean/10)],[tl('Best rank','最高順位'),a.best==null?'—':'#'+a.best]);
+       const recordedRanks = records.filter(r => Number.isInteger(r?.rank) && r.rank > 0);
+       const averageRank = recordedRanks.length ? recordedRanks.reduce((sum,r) => sum + r.rank, 0) / recordedRanks.length : null;
+       summary.push([tl('Average rank','平均順位'),averageRank == null ? '—' : averageRank.toFixed(1)]);
+       detailGrid(perf,summary);
       perf.append(el('p','live-tier-detail-note',tl('WRP = Weekly Ranking Points, on the usual weekly scale. Tier placement is a separate assessment.','WRP＝週間ランキングポイント（通常の週間評価尺度）。Tier評価とは別の指標です。')));
       perf.append(performanceCharts(records));
       const table=el('table','live-tier-detail-history');const head=el('thead'),tr=el('tr');for(const txt of [tl('Week','週'),tl('Rank / field','順位 / 評価数'),'WRP',tl('Status','状態')]){const th=el('th',null,txt);th.scope='col';tr.append(th);}head.append(tr);table.append(head);const tbody=el('tbody');
@@ -372,7 +377,7 @@ const tierLanguageKey = 'animeb-weekly-lang';
 let tierLang = 'en';
 if(autoEditorial){try{tierLang=localStorage.getItem(tierLanguageKey)==='ja'?'ja':'en';}catch(_){} }
 const tl = (en,ja) => tierLang==='ja'?ja:en;
-const tierLabel = name => tl(name,({Dropped:'ドロップ',RecentlyDropped:'新規ドロップ','Never Watched':'未視聴','N/A':'対象外'}[name]||name));
+const tierLabel = name => tl(name,({Dropped:'ドロップ',RecentlyDropped:'新規ドロップ','Not Yet Aired':'放送待ち','Never Watched':'未視聴','N/A':'対象外'}[name]||name));
 function tierVersionJa(version,week){
  const ep=String(version||'').match(/Episodes?\s+(\d+(?:\s*[–—-]\s*\d+)?)/i);
  const name=({'week01':'初回印象','week06':'中間評価','week12':'最終評価'})[week];
@@ -968,7 +973,13 @@ function setTierImage() {
 
         const button = document.createElement("button");
         button.className = `toggle-button ${normalizedClass}-button`;
-        button.textContent = tierName;
+        button.textContent = tierLabel(tierName);
+        // Match the status row to the color selected in Tier List Studio.
+        if (tierName === 'Not Yet Aired') {
+          const configured = Array.isArray(jsonData.tierSettings) ? jsonData.tierSettings.find(x => x && x.label === tierName) : null;
+          const shade = configured?.color;
+          button.style.backgroundColor = typeof shade === 'string' && /^#[0-9a-f]{6}$/i.test(shade) ? shade : '#A9C5D0';
+        }
         button.addEventListener("click", function() {
           list.classList.toggle("hidden");
         });

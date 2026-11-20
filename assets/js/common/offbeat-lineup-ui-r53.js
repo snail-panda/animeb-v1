@@ -280,7 +280,12 @@ function renderPerformance(){
   const metric=node('div','ob-r95-metric');metric.append(node('span','',name),node('strong','',value));
   if(converted)metric.append(node('span','ob-r95-converted',converted));
   summary.append(metric);
- }panel.append(summary);
+ }  const validRanks = Array.isArray(a.records) ? a.records.filter(r => Number.isInteger(r?.rank) && r.rank > 0) : [];
+  const averageRank = validRanks.length ? validRanks.reduce((sum,r) => sum + r.rank, 0) / validRanks.length : null;
+  const rankMetric = node('div','ob-r95-metric');
+  rankMetric.append(node('span','',l('平均順位','Average Rank')),node('strong','',averageRank == null ? '—' : l(averageRank.toFixed(1) + '位',averageRank.toFixed(1))));
+  summary.append(rankMetric);
+  panel.append(summary);
  const badges=node('div','ob-r95-tags');badges.append(node('span','ob-r95-tag ob-r95-primary',groupLabel(a.group)));for(const t of a.features)badges.append(node('span','ob-r95-tag',tagLabel(t)));panel.append(badges);
  if(a.current?.rank==null&&a.current?.droppedAfterWeek==null&&!a.current?.broadcast)panel.append(node('div','ob-r95-detail-note',l('選択週の評価・個別の放送状況は未記録。過去の評価に基づく分類です。','Selected week has no rating or title-specific broadcast record. Group is based on earlier ratings.')));
  panel.append(node('div','ob-r95-detail-note',l(`本戦で${a.n}回評価（予選を除く）`,`${a.n} main-season ${a.n===1?'rating':'ratings'} (PRELIM excluded)`)));
@@ -289,7 +294,8 @@ function renderPerformance(){
  const notes=node('dl','ob-r95-metric-definitions');
  for(const [term,definition] of [
   [l('平均WRP','Average WRP'),l('選択週までの本戦で、評価記録がある回のWRPの平均。予選や未評価の回は含みません。','Mean WRP of all rated main-season rounds through the selected week. PRELIM and unrated rounds are excluded.')],
-  [l('選択週の順位・評価数','Week rank / field'),l('第'+w+'週の順位と、その週のランキング評価作品数。順位の記録がなければ「—」を表示します。','Rank in Week '+w+' and the number of titles ranked that week. A dash means no rank was recorded.')],
+     [l('平均順位','Average Rank'),l('選択週までの本戦で順位が記録された回だけの単純平均。予選・順位未記録の週は含みません。','Arithmetic mean of recorded main-season ranks through the selected week. PRELIM and unranked weeks are excluded.')],
+   [l('選択週の順位・評価数','Week rank / field'),l('第'+w+'週の順位と、その週のランキング評価作品数。順位の記録がなければ「—」を表示します。','Rank in Week '+w+' and the number of titles ranked that week. A dash means no rank was recorded.')],
   [l('直近2回の平均WRP','Last 2 WRP Avg.'),l('最後に評価した2回分のWRPの平均。放送休止などで評価がなかった週は数えません。','Mean WRP of the two most recent rated rounds, skipping weeks without a rating.')],
   [l('直近の平均WRPの変化','Recent Avg. WRP Change'),l('直近2回の平均WRPから、その前の2回の平均WRPを引いた値。算出には4回分の評価が必要です。','The latest two-rated-round mean minus the previous two-rated-round mean. At least four ratings are required.')],
   [l('相対順位の変化','Relative rank change'),l('各週の評価作品数を考慮した順位の位置（1位＝100％、最下位＝0％）。直近2回とその前の2回の平均位置の差をパーセントポイントで示します。算出に必要な順位・評価数がそろった場合のみ表示します。','Rank position adjusted for the size of the weekly field (first = 100%, last = 0%). The change is the difference between the latest two and previous two rated-round mean positions, in percentage points (pp), shown only when enough ranking data is available.')],
