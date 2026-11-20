@@ -1690,5 +1690,82 @@
       "highlight": false,
       "display": "inline"
     }
-  ]
+  ],
+  "editorial": {
+    "en": {
+      "intro": "",
+      "content": "",
+      "conclusion": ""
+    },
+    "ja": {
+      "intro": "",
+      "content": "",
+      "conclusion": ""
+    }
+  },
+  "articleEditorial": {
+    "schemaVersion": 1,
+    "sections": {
+      "en": {
+        "intro": {
+          "mode": "auto",
+          "text": "We've reached the halfway point of the Fall 2026 anime season. Around Episodes 5–6, it's a good time to look beyond the individual weekly results and see how the lineup has taken shape.\n\nOf the 58 titles listed, 20 are in the rated tiers, 26 are marked as Dropped, and 12 are in other statuses. The last group includes 1 awaiting broadcast."
+        },
+        "content": {
+          "mode": "auto",
+          "text": "The strongest concentration in the rated lineup is B, with 6 titles. 2 of the 20 rated titles sit in the upper tiers (SSS / SS / S).\n\nThe rated lineup narrowed from 31 to 20 titles, while the number in the upper tiers held steady at 2.\n\nThe upper tiers still contain 2 titles, but the lineup has changed since the previous checkpoint; the unchanged count does not mean the same titles held their places.\n\n5 titles moved up within the rated tiers, while 3 moved down. The largest upward move was 2 tiers (Tetsuryou! Meet with Tetsudou Musume, Reborn as a Space Mercenary: I Woke Up Piloting the Strongest Starship!).\n\nOf the 12 newly dropped titles, the largest group came from D (7). This is a tier-list change, not a claim about when the weekly drop decision occurred.\n\nChitose Is in the Ramune Bottle Part 2 entered the rated tiers from Not Yet Aired. That is a different kind of change from a promotion or a reversal of an earlier evaluation.\n\nAcross the 6 imported weeks with complete ranking data, the weekly lineup average ranged from 6.84 (Week 05) to 7.34 (Week 02). The top ten in Week 06 averaged 8.54 WRP, compared with 7.33 across that week's full rated lineup. The recorded Weekly Enjoyment for Week 06 was 3.0/5. #I'm Looking For a Zombie moved from tier D to C; its weekly WRP was 8.35 in Week 01 and 4.85 in Week 06. These are separate measures."
+        },
+        "conclusion": {
+          "mode": "auto",
+          "text": "At this checkpoint, the rated lineup is smaller, yet the upper tiers are no thinner in number. The change is not simply a matter of fewer titles; the distribution itself tells part of the story.\n\nThe next checkpoint is Week 12, where we can revisit these placements in light of the weeks still to come."
+        }
+      },
+      "ja": {
+        "intro": {
+          "mode": "custom",
+          "text": "2026年秋アニメも第6週、中間地点を迎えました。毎週の結果だけでは見えにくい、ここまでの顔ぶれや評価の変化を振り返ってみたいと思います。\n\n掲載58作品のうち、評価Tierは20作品、ドロップは26作品、その他の対象外は12作品です。 その他の対象外には放送待ち1作品が含まれます。"
+        },
+        "content": {
+          "mode": "custom",
+          "text": "評価対象の中で作品数が最も多いのはB（6作品）。上位Tier（SSS / SS / S）には評価対象20作品のうち2作品が位置しています。\n\n評価対象は31作品から20作品へ減少。一方、上位Tierの作品数は2作品のまましています。\n\n評価Tier内では昇格5作品、降格3作品。 最大の昇格幅は2段階（てつりょー！meet with 鉄道むすめ、目覚めたら最強装備と宇宙船持ちだったので、一戸建て目指して傭兵として自由に生きたい）でした。\n\n新規ドロップ12作品のうち、前回の区分ではD（7作品）からの移動が最多でした。週間ランキングでの対象外決定時期とは区別しています。\n\n『千歳くんはラムネ瓶のなか』第2クールが放送待ちから評価Tierに入りました。通常の昇格や評価方針の変更とは異なる動きです。\n\n全評価作品のデータが揃った6週では、週間平均WRPは6.84（第5週）から7.34（第2週）の範囲で推移しました。 第6週のTop 10平均WRPは8.54、同週の全評価作品平均は7.33 でした。 第6週の週間満足度は3.0/5でした。 #ゾンビさがしてますはDからCへ移動。週間WRPは第1週の8.35から第6週では4.85となりました。Tierと週間WRPは別の指標です。"
+        },
+        "conclusion": {
+          "mode": "custom",
+          "text": "評価対象は絞られてきましたが、上位Tierの作品数は前回を下回っていません。単に作品が減っただけではなく、その残り方にも今回のティアリストの特徴が表れています。\n\n次の定期ティアリストは第12週。そこまでの変化も含め、改めて作品の位置づけを振り返ります。"
+        }
+      }
+    },
+    "weeklySources": [
+      {
+        "week": 1,
+        "complete": true,
+        "rated": 30
+      },
+      {
+        "week": 2,
+        "complete": true,
+        "rated": 32
+      },
+      {
+        "week": 3,
+        "complete": true,
+        "rated": 28
+      },
+      {
+        "week": 4,
+        "complete": true,
+        "rated": 26
+      },
+      {
+        "week": 5,
+        "complete": true,
+        "rated": 22
+      },
+      {
+        "week": 6,
+        "complete": true,
+        "rated": 19
+      }
+    ]
+  }
 }
