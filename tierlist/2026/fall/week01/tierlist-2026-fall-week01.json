@@ -1,7 +1,7 @@
 {
   "season": "2026 Fall",
   "version": "Anime Season Premiere / First impression Tier List – Episode 1",
-  "seasonDate": "October 11, 2026",
+  "seasonDate": "November 20, 2026",
   "intro": "",
   "content": "",
   "conclusion": "",
@@ -63,20 +63,1424 @@
       "Ghost Meets Gal!",
       "Now That I Can Control Reality with a Mouse Cursor, I'm Gonna Click Away on the Girls!"
     ],
+    "Not Yet Aired": [
+      "Cyberpunk: Edgerunners 2",
+      "Fool Night",
+      "Chitose Is in the Ramune Bottle Part 2"
+    ],
     "N/A": [
       "Watashi no Shiawase na Kekkon Special",
       "Dark Machine: The Animation",
       "Tougen Anki: Nikko Kegon Falls Arc",
       "As a Reincarnated Aristocrat, I'll Use My Appraisal Skill to Rise in the World Season 3",
       "Magical Sisters Lulutto Lilly Part 2",
-      "Fool Night",
-      "Cyberpunk: Edgerunners 2",
       "Girls und Panzer das Finale",
       "Demons' Crest",
       "Suikoden: The Anime",
       "Overgeared",
-      "Steel Ball Run: JoJo's Bizarre Adventure",
-      "Chitose Is in the Ramune Bottle Part 2"
+      "Steel Ball Run: JoJo's Bizarre Adventure"
     ]
-  }
+  },
+  "tiersJa": {
+    "S": [
+      "『薬屋のひとりごと』第3期",
+      "生徒会にも穴はある！"
+    ],
+    "A": [
+      "『氷の城壁』第2期",
+      "FX戦士くるみちゃん",
+      "『ホテル・インヒューマンズ』第2期",
+      "マロニエ王国の七人の騎士",
+      "凶乱令嬢ニア・リストン 病弱令嬢に転生した神殺しの武人の華麗なる無双録"
+    ],
+    "B": [
+      "超巡！超条先輩",
+      "転生ゴブリンだけど質問ある？",
+      "とある暗部の少女共棲",
+      "魔法騎士レイアース",
+      "ロメリア戦記",
+      "『東京リベンジャーズ』三天戦争編"
+    ],
+    "C": [
+      "目覚めたら最強装備と宇宙船持ちだったので、一戸建て目指して傭兵として自由に生きたい",
+      "『アオのハコ』Season2",
+      "信者ゼロの女神サマと始める異世界攻略",
+      "彼方から",
+      "バーテックスフォース",
+      "蒼き伝承 – Welsh & Shedar"
+    ],
+    "D": [
+      "#ゾンビさがしてます",
+      "弱気MAX令嬢なのに、辣腕婚約者様の賭けに乗ってしまった",
+      "PSYREN -サイレン-",
+      "転生した大聖女は、聖女であることをひた隠す",
+      "探偵はもう、死んでいる。Season2",
+      "世界最強の魔女、始めました",
+      "冰剣の魔術師が世界を統べるⅡ",
+      "『帰還者の魔法は特別です』第二期",
+      "追放されたチート付与魔術師は気ままなセカンドライフを謳歌する。 ～俺は武器だけじゃなく、あらゆるものに『強化ポイント』を付与できるし、俺の意思でいつでも効果を解除できるけど、残った人たち大丈夫？～",
+      "塩対応の佐藤さんが俺にだけ甘い",
+      "貸した魔力は【リボ払い】で強制徴収",
+      "てつりょー！meet with 鉄道むすめ"
+    ],
+    "Dropped": [
+      "転生したら剣でしたII",
+      "魔法少女育成計画restart",
+      "ホタルの嫁入り",
+      "どうも、好きな人に惚れ薬を依頼された魔女です。",
+      "TANK CHAIR-戦車椅子-",
+      "朱色の仮面",
+      "獣王武神ダンデヴァイン",
+      "ダークサモナーとデキている",
+      "『佐々木とピーちゃん』Season 2",
+      "『アオアシ Season2』第1クール",
+      "マジカル★エクスプローラー",
+      "彼女の友達",
+      "ごーすと・みーつ・ぎゃる！",
+      "マウスカーソルで現実を操作できるようになったので、女の子をいっぱいクリックしまーす"
+    ],
+    "Not Yet Aired": [
+      "Cyberpunk: Edgerunners 2",
+      "フールナイト",
+      "『千歳くんはラムネ瓶のなか』第2クール"
+    ],
+    "N/A": [
+      "『わたしの幸せな結婚』特別篇",
+      "DARK MACHINE THE ANIMATION",
+      "『桃源暗鬼』～日光・華厳の滝編～",
+      "転生貴族、鑑定スキルで成り上がる 第3期",
+      "『魔法の姉妹ルルットリリィ』第2クール",
+      "ガールズ＆パンツァー 最終章",
+      "デモンズ・クレスト",
+      "幻想水滸伝",
+      "テムパル～アイテムの力～",
+      "『スティール・ボール・ラン ジョジョの奇妙な冒険』2nd & 3rd STAGE"
+    ]
+  },
+  "tierEntries": {
+    "S": [
+      {
+        "title": "The Apothecary Diaries Season 3",
+        "jpTitle": "『薬屋のひとりごと』第3期",
+        "imageId": "kusuriya",
+        "position": 1,
+        "previousTier": "S",
+        "previousPosition": 1
+      },
+      {
+        "title": "Even the Student Council Has Its Holes!",
+        "jpTitle": "生徒会にも穴はある！",
+        "imageId": "seitokai",
+        "position": 2,
+        "previousTier": "S",
+        "previousPosition": 2
+      }
+    ],
+    "A": [
+      {
+        "title": "The Ramparts of Ice Season 2",
+        "jpTitle": "『氷の城壁』第2期",
+        "imageId": "jouheki",
+        "position": 1,
+        "previousTier": "A",
+        "previousPosition": 1
+      },
+      {
+        "title": "FX Fighter Kurumi-chan",
+        "jpTitle": "FX戦士くるみちゃん",
+        "imageId": "fx",
+        "position": 2,
+        "previousTier": "A",
+        "previousPosition": 2
+      },
+      {
+        "title": "Hotel Inhumans Season 2",
+        "jpTitle": "『ホテル・インヒューマンズ』第2期",
+        "imageId": "hotel",
+        "position": 3,
+        "previousTier": "A",
+        "previousPosition": 3
+      },
+      {
+        "title": "The Seven Knights of the Marronnier Kingdom",
+        "jpTitle": "マロニエ王国の七人の騎士",
+        "imageId": "oukoku",
+        "position": 4,
+        "previousTier": "A",
+        "previousPosition": 4
+      },
+      {
+        "title": "Nia Liston: The Merciless Maiden",
+        "jpTitle": "凶乱令嬢ニア・リストン 病弱令嬢に転生した神殺しの武人の華麗なる無双録",
+        "imageId": "kyouran",
+        "position": 5,
+        "previousTier": "A",
+        "previousPosition": 5
+      }
+    ],
+    "B": [
+      {
+        "title": "Super Psychic Policeman Chojo",
+        "jpTitle": "超巡！超条先輩",
+        "imageId": "choujou",
+        "position": 1,
+        "previousTier": "B",
+        "previousPosition": 1
+      },
+      {
+        "title": "So What's Wrong with Getting Reborn as a Goblin?",
+        "jpTitle": "転生ゴブリンだけど質問ある？",
+        "imageId": "goblin",
+        "position": 2,
+        "previousTier": "B",
+        "previousPosition": 2
+      },
+      {
+        "title": "A Certain Dark Item",
+        "jpTitle": "とある暗部の少女共棲",
+        "imageId": "toaru",
+        "position": 3,
+        "previousTier": "B",
+        "previousPosition": 3
+      },
+      {
+        "title": "Magic Knight Rayearth (2026)",
+        "jpTitle": "魔法騎士レイアース",
+        "imageId": "rayearth",
+        "position": 4,
+        "previousTier": "B",
+        "previousPosition": 4
+      },
+      {
+        "title": "Romelia War Chronicle",
+        "jpTitle": "ロメリア戦記",
+        "imageId": "romelia",
+        "position": 5,
+        "previousTier": "B",
+        "previousPosition": 5
+      },
+      {
+        "title": "Tokyo Revengers: War of the Three Titan Arc",
+        "jpTitle": "『東京リベンジャーズ』三天戦争編",
+        "imageId": "tokyo",
+        "position": 6,
+        "previousTier": "B",
+        "previousPosition": 6
+      }
+    ],
+    "C": [
+      {
+        "title": "Reborn as a Space Mercenary: I Woke Up Piloting the Strongest Starship!",
+        "jpTitle": "目覚めたら最強装備と宇宙船持ちだったので、一戸建て目指して傭兵として自由に生きたい",
+        "imageId": "mezametara",
+        "position": 1,
+        "previousTier": "C",
+        "previousPosition": 1
+      },
+      {
+        "title": "Blue Box Season 2",
+        "jpTitle": "『アオのハコ』Season2",
+        "imageId": "hako",
+        "position": 2,
+        "previousTier": "C",
+        "previousPosition": 2
+      },
+      {
+        "title": "Full Clearing Another World under a Goddess with Zero Believers",
+        "jpTitle": "信者ゼロの女神サマと始める異世界攻略",
+        "imageId": "shinja",
+        "position": 3,
+        "previousTier": "C",
+        "previousPosition": 3
+      },
+      {
+        "title": "From Far Away",
+        "jpTitle": "彼方から",
+        "imageId": "kanata",
+        "position": 4,
+        "previousTier": "C",
+        "previousPosition": 4
+      },
+      {
+        "title": "Vertex Force",
+        "jpTitle": "バーテックスフォース",
+        "imageId": "vertex",
+        "position": 5,
+        "previousTier": "C",
+        "previousPosition": 5
+      },
+      {
+        "title": "Aoki Denshou Welsh & Shedar",
+        "jpTitle": "蒼き伝承 – Welsh & Shedar",
+        "imageId": "aoki",
+        "position": 6,
+        "previousTier": "C",
+        "previousPosition": 6
+      }
+    ],
+    "D": [
+      {
+        "title": "#I'm Looking For a Zombie",
+        "jpTitle": "#ゾンビさがしてます",
+        "imageId": "zombie",
+        "position": 1,
+        "previousTier": "D",
+        "previousPosition": 1
+      },
+      {
+        "title": "Even Though I'm a Super Timid Noble Girl, I Accepted the Bet From My Cunning Fiancé",
+        "jpTitle": "弱気MAX令嬢なのに、辣腕婚約者様の賭けに乗ってしまった",
+        "imageId": "max",
+        "position": 2,
+        "previousTier": "D",
+        "previousPosition": 2
+      },
+      {
+        "title": "Psyren",
+        "jpTitle": "PSYREN -サイレン-",
+        "imageId": "psyren",
+        "position": 3,
+        "previousTier": "D",
+        "previousPosition": 3
+      },
+      {
+        "title": "A Tale of the Secret Saint",
+        "jpTitle": "転生した大聖女は、聖女であることをひた隠す",
+        "imageId": "hitakakusu",
+        "position": 4,
+        "previousTier": "D",
+        "previousPosition": 4
+      },
+      {
+        "title": "The Detective Is Already Dead Season 2",
+        "jpTitle": "探偵はもう、死んでいる。Season2",
+        "imageId": "tanmoshi",
+        "position": 5,
+        "previousTier": "D",
+        "previousPosition": 5
+      },
+      {
+        "title": "The World's Strongest Witch",
+        "jpTitle": "世界最強の魔女、始めました",
+        "imageId": "saikyou",
+        "position": 6,
+        "previousTier": "D",
+        "previousPosition": 6
+      },
+      {
+        "title": "The Iceblade Sorcerer Shall Rule the World II",
+        "jpTitle": "冰剣の魔術師が世界を統べるⅡ",
+        "imageId": "hyouken",
+        "position": 7,
+        "previousTier": "D",
+        "previousPosition": 7
+      },
+      {
+        "title": "A Returner's Magic Should Be Special Season 2",
+        "jpTitle": "『帰還者の魔法は特別です』第二期",
+        "imageId": "kikansha",
+        "position": 8,
+        "previousTier": "D",
+        "previousPosition": 8
+      },
+      {
+        "title": "The Laid-Off Cheat-Granting Mage Enjoys a Second Lease on Life",
+        "jpTitle": "追放されたチート付与魔術師は気ままなセカンドライフを謳歌する。 ～俺は武器だけじゃなく、あらゆるものに『強化ポイント』を付与できるし、俺の意思でいつでも効果を解除できるけど、残った人たち大丈夫？～",
+        "imageId": "fuyoshi",
+        "position": 9,
+        "previousTier": "D",
+        "previousPosition": 9
+      },
+      {
+        "title": "The Cold Sato-san is Only Sweet to Me",
+        "jpTitle": "塩対応の佐藤さんが俺にだけ甘い",
+        "imageId": "shiotaiou",
+        "position": 10,
+        "previousTier": "D",
+        "previousPosition": 10
+      },
+      {
+        "title": "Magic Repo Man: Dumped by My Party, I'll Cash In With a Cute Support Fairy to Become the Strongest!",
+        "jpTitle": "貸した魔力は【リボ払い】で強制徴収",
+        "imageId": "revo",
+        "position": 11,
+        "previousTier": "D",
+        "previousPosition": 11
+      },
+      {
+        "title": "Tetsuryou! Meet with Tetsudou Musume",
+        "jpTitle": "てつりょー！meet with 鉄道むすめ",
+        "imageId": "tetsuryo",
+        "position": 12,
+        "previousTier": "D",
+        "previousPosition": 12
+      }
+    ],
+    "Dropped": [
+      {
+        "title": "Reincarnated as a Sword Season 2",
+        "jpTitle": "転生したら剣でしたII",
+        "imageId": "tenken",
+        "position": 1,
+        "previousTier": "Dropped",
+        "previousPosition": 1
+      },
+      {
+        "title": "Mahou Shoujo Ikusei Keikaku: Restart",
+        "jpTitle": "魔法少女育成計画restart",
+        "imageId": "ikusei",
+        "position": 2,
+        "previousTier": "Dropped",
+        "previousPosition": 2
+      },
+      {
+        "title": "Firefly Wedding",
+        "jpTitle": "ホタルの嫁入り",
+        "imageId": "hotaru",
+        "position": 3,
+        "previousTier": "Dropped",
+        "previousPosition": 3
+      },
+      {
+        "title": "Hello, I Am a Witch and My Crush Wants Me to Make a Love Potion!",
+        "jpTitle": "どうも、好きな人に惚れ薬を依頼された魔女です。",
+        "imageId": "horegusuri",
+        "position": 4,
+        "previousTier": "Dropped",
+        "previousPosition": 4
+      },
+      {
+        "title": "Tank Chair",
+        "jpTitle": "TANK CHAIR-戦車椅子-",
+        "imageId": "chair",
+        "position": 5,
+        "previousTier": "Dropped",
+        "previousPosition": 5
+      },
+      {
+        "title": "The Vermilion Mask",
+        "jpTitle": "朱色の仮面",
+        "imageId": "shuiro",
+        "position": 6,
+        "previousTier": "Dropped",
+        "previousPosition": 6
+      },
+      {
+        "title": "Dandivine",
+        "jpTitle": "獣王武神ダンデヴァイン",
+        "imageId": "dandivine",
+        "position": 7,
+        "previousTier": "Dropped",
+        "previousPosition": 7
+      },
+      {
+        "title": "I'm Dating a Dark Summoner",
+        "jpTitle": "ダークサモナーとデキている",
+        "imageId": "summoner",
+        "position": 8,
+        "previousTier": "Dropped",
+        "previousPosition": 8
+      },
+      {
+        "title": "Sasaki and Peeps Season 2",
+        "jpTitle": "『佐々木とピーちゃん』Season 2",
+        "imageId": "sasaki",
+        "position": 9,
+        "previousTier": "Dropped",
+        "previousPosition": 9
+      },
+      {
+        "title": "Ao Ashi Season 2",
+        "jpTitle": "『アオアシ Season2』第1クール",
+        "imageId": "aoashi",
+        "position": 10,
+        "previousTier": "Dropped",
+        "previousPosition": 10
+      },
+      {
+        "title": "Magical★Explorer",
+        "jpTitle": "マジカル★エクスプローラー",
+        "imageId": "magical",
+        "position": 11,
+        "previousTier": "Dropped",
+        "previousPosition": 11
+      },
+      {
+        "title": "My Girlfriend's Friend",
+        "jpTitle": "彼女の友達",
+        "imageId": "tomodachi",
+        "position": 12,
+        "previousTier": "Dropped",
+        "previousPosition": 12
+      },
+      {
+        "title": "Ghost Meets Gal!",
+        "jpTitle": "ごーすと・みーつ・ぎゃる！",
+        "imageId": "gal",
+        "position": 13,
+        "previousTier": "Dropped",
+        "previousPosition": 13
+      },
+      {
+        "title": "Now That I Can Control Reality with a Mouse Cursor, I'm Gonna Click Away on the Girls!",
+        "jpTitle": "マウスカーソルで現実を操作できるようになったので、女の子をいっぱいクリックしまーす",
+        "imageId": "mouse",
+        "position": 14,
+        "previousTier": "Dropped",
+        "previousPosition": 14
+      }
+    ],
+    "Not Yet Aired": [
+      {
+        "title": "Cyberpunk: Edgerunners 2",
+        "jpTitle": "Cyberpunk: Edgerunners 2",
+        "imageId": "cyber",
+        "position": 1,
+        "previousTier": "N/A",
+        "previousPosition": 7
+      },
+      {
+        "title": "Fool Night",
+        "jpTitle": "フールナイト",
+        "imageId": "fool",
+        "position": 2,
+        "previousTier": "N/A",
+        "previousPosition": 6
+      },
+      {
+        "title": "Chitose Is in the Ramune Bottle Part 2",
+        "jpTitle": "『千歳くんはラムネ瓶のなか』第2クール",
+        "imageId": "chitose",
+        "position": 3,
+        "previousTier": "N/A",
+        "previousPosition": 13
+      }
+    ],
+    "N/A": [
+      {
+        "title": "Watashi no Shiawase na Kekkon Special",
+        "jpTitle": "『わたしの幸せな結婚』特別篇",
+        "imageId": "kekkon",
+        "position": 1,
+        "previousTier": "N/A",
+        "previousPosition": 1
+      },
+      {
+        "title": "Dark Machine: The Animation",
+        "jpTitle": "DARK MACHINE THE ANIMATION",
+        "imageId": "machine",
+        "position": 2,
+        "previousTier": "N/A",
+        "previousPosition": 2
+      },
+      {
+        "title": "Tougen Anki: Nikko Kegon Falls Arc",
+        "jpTitle": "『桃源暗鬼』～日光・華厳の滝編～",
+        "imageId": "tougen",
+        "position": 3,
+        "previousTier": "N/A",
+        "previousPosition": 3
+      },
+      {
+        "title": "As a Reincarnated Aristocrat, I'll Use My Appraisal Skill to Rise in the World Season 3",
+        "jpTitle": "転生貴族、鑑定スキルで成り上がる 第3期",
+        "imageId": "kantei",
+        "position": 4,
+        "previousTier": "N/A",
+        "previousPosition": 4
+      },
+      {
+        "title": "Magical Sisters Lulutto Lilly Part 2",
+        "jpTitle": "『魔法の姉妹ルルットリリィ』第2クール",
+        "imageId": "lilly",
+        "position": 5,
+        "previousTier": "N/A",
+        "previousPosition": 5
+      },
+      {
+        "title": "Girls und Panzer das Finale",
+        "jpTitle": "ガールズ＆パンツァー 最終章",
+        "imageId": "panzer",
+        "position": 6,
+        "previousTier": "N/A",
+        "previousPosition": 8
+      },
+      {
+        "title": "Demons' Crest",
+        "jpTitle": "デモンズ・クレスト",
+        "imageId": "crest",
+        "position": 7,
+        "previousTier": "N/A",
+        "previousPosition": 9
+      },
+      {
+        "title": "Suikoden: The Anime",
+        "jpTitle": "幻想水滸伝",
+        "imageId": "suikoden",
+        "position": 8,
+        "previousTier": "N/A",
+        "previousPosition": 10
+      },
+      {
+        "title": "Overgeared",
+        "jpTitle": "テムパル～アイテムの力～",
+        "imageId": "tem",
+        "position": 9,
+        "previousTier": "N/A",
+        "previousPosition": 11
+      },
+      {
+        "title": "Steel Ball Run: JoJo's Bizarre Adventure",
+        "jpTitle": "『スティール・ボール・ラン ジョジョの奇妙な冒険』2nd & 3rd STAGE",
+        "imageId": "sbr",
+        "position": 10,
+        "previousTier": "N/A",
+        "previousPosition": 12
+      }
+    ]
+  },
+  "tierSettings": [
+    {
+      "label": "SSS",
+      "color": "#ea8488",
+      "kind": "rated",
+      "showEmpty": false
+    },
+    {
+      "label": "SS",
+      "color": "#f29b99",
+      "kind": "rated",
+      "showEmpty": true
+    },
+    {
+      "label": "S",
+      "color": "#ffbe81",
+      "kind": "rated",
+      "showEmpty": true
+    },
+    {
+      "label": "A",
+      "color": "#ffdf84",
+      "kind": "rated",
+      "showEmpty": true
+    },
+    {
+      "label": "B",
+      "color": "#ffff97",
+      "kind": "rated",
+      "showEmpty": true
+    },
+    {
+      "label": "C",
+      "color": "#c2f68c",
+      "kind": "rated",
+      "showEmpty": true
+    },
+    {
+      "label": "D",
+      "color": "#8eed8b",
+      "kind": "rated",
+      "showEmpty": true
+    },
+    {
+      "label": "Dropped",
+      "color": "#8ee2ea",
+      "kind": "drop",
+      "showEmpty": true
+    },
+    {
+      "label": "RecentlyDropped",
+      "color": "#a6c9dc",
+      "kind": "drop",
+      "showEmpty": false
+    },
+    {
+      "label": "Not Yet Aired",
+      "color": "#a9c5d0",
+      "kind": "other",
+      "showEmpty": true,
+      "statusCode": "notYetAired"
+    },
+    {
+      "label": "Never Watched",
+      "color": "#a9abbc",
+      "kind": "other",
+      "showEmpty": false
+    },
+    {
+      "label": "N/A",
+      "color": "#8cb9e6",
+      "kind": "other",
+      "showEmpty": true
+    }
+  ],
+  "analysis": {
+    "hasBaseline": true,
+    "baseline": "2026 Fall W01",
+    "counts": {
+      "totalTitles": 58,
+      "ratedTitles": 31,
+      "totalDropped": 14,
+      "unrated": 13,
+      "notYetAired": 3,
+      "unassigned": 23,
+      "previousTotal": 58,
+      "previousRated": 31,
+      "promotions": 0,
+      "demotions": 0,
+      "unchanged": 55,
+      "statusChanges": 3,
+      "newEntries": 0,
+      "removed": 0,
+      "newlyDropped": 0,
+      "backOnList": 0,
+      "biggestClimbers": 0,
+      "biggestFallers": 0,
+      "enteredAfterAiringWait": 0,
+      "returnedFromDropped": 0,
+      "enteredFromOther": 0
+    },
+    "distribution": [
+      {
+        "tier": "SSS",
+        "kind": "rated",
+        "previous": 0,
+        "current": 0,
+        "delta": 0
+      },
+      {
+        "tier": "SS",
+        "kind": "rated",
+        "previous": 0,
+        "current": 0,
+        "delta": 0
+      },
+      {
+        "tier": "S",
+        "kind": "rated",
+        "previous": 2,
+        "current": 2,
+        "delta": 0
+      },
+      {
+        "tier": "A",
+        "kind": "rated",
+        "previous": 5,
+        "current": 5,
+        "delta": 0
+      },
+      {
+        "tier": "B",
+        "kind": "rated",
+        "previous": 6,
+        "current": 6,
+        "delta": 0
+      },
+      {
+        "tier": "C",
+        "kind": "rated",
+        "previous": 6,
+        "current": 6,
+        "delta": 0
+      },
+      {
+        "tier": "D",
+        "kind": "rated",
+        "previous": 12,
+        "current": 12,
+        "delta": 0
+      },
+      {
+        "tier": "Dropped",
+        "kind": "drop",
+        "previous": 14,
+        "current": 14,
+        "delta": 0
+      },
+      {
+        "tier": "RecentlyDropped",
+        "kind": "drop",
+        "previous": 0,
+        "current": 0,
+        "delta": 0
+      },
+      {
+        "tier": "Not Yet Aired",
+        "kind": "other",
+        "previous": 0,
+        "current": 3,
+        "delta": 3
+      },
+      {
+        "tier": "Never Watched",
+        "kind": "other",
+        "previous": 0,
+        "current": 0,
+        "delta": 0
+      },
+      {
+        "tier": "N/A",
+        "kind": "other",
+        "previous": 13,
+        "current": 10,
+        "delta": -3
+      }
+    ],
+    "changes": {
+      "promotions": [],
+      "demotions": [],
+      "unchanged": [
+        {
+          "title": "Aoki Denshou Welsh & Shedar",
+          "jpTitle": "蒼き伝承 – Welsh & Shedar",
+          "imageId": "aoki",
+          "from": "C",
+          "to": "C",
+          "previousPosition": 6,
+          "position": 6,
+          "steps": null,
+          "transition": "unchanged"
+        },
+        {
+          "title": "Blue Box Season 2",
+          "jpTitle": "『アオのハコ』Season2",
+          "imageId": "hako",
+          "from": "C",
+          "to": "C",
+          "previousPosition": 2,
+          "position": 2,
+          "steps": null,
+          "transition": "unchanged"
+        },
+        {
+          "title": "FX Fighter Kurumi-chan",
+          "jpTitle": "FX戦士くるみちゃん",
+          "imageId": "fx",
+          "from": "A",
+          "to": "A",
+          "previousPosition": 2,
+          "position": 2,
+          "steps": null,
+          "transition": "unchanged"
+        },
+        {
+          "title": "Magic Repo Man: Dumped by My Party, I'll Cash In With a Cute Support Fairy to Become the Strongest!",
+          "jpTitle": "貸した魔力は【リボ払い】で強制徴収",
+          "imageId": "revo",
+          "from": "D",
+          "to": "D",
+          "previousPosition": 11,
+          "position": 11,
+          "steps": null,
+          "transition": "unchanged"
+        },
+        {
+          "title": "From Far Away",
+          "jpTitle": "彼方から",
+          "imageId": "kanata",
+          "from": "C",
+          "to": "C",
+          "previousPosition": 4,
+          "position": 4,
+          "steps": null,
+          "transition": "unchanged"
+        },
+        {
+          "title": "A Returner's Magic Should Be Special Season 2",
+          "jpTitle": "『帰還者の魔法は特別です』第二期",
+          "imageId": "kikansha",
+          "from": "D",
+          "to": "D",
+          "previousPosition": 8,
+          "position": 8,
+          "steps": null,
+          "transition": "unchanged"
+        },
+        {
+          "title": "Nia Liston: The Merciless Maiden",
+          "jpTitle": "凶乱令嬢ニア・リストン 病弱令嬢に転生した神殺しの武人の華麗なる無双録",
+          "imageId": "kyouran",
+          "from": "A",
+          "to": "A",
+          "previousPosition": 5,
+          "position": 5,
+          "steps": null,
+          "transition": "unchanged"
+        },
+        {
+          "title": "The Apothecary Diaries Season 3",
+          "jpTitle": "『薬屋のひとりごと』第3期",
+          "imageId": "kusuriya",
+          "from": "S",
+          "to": "S",
+          "previousPosition": 1,
+          "position": 1,
+          "steps": null,
+          "transition": "unchanged"
+        },
+        {
+          "title": "The Ramparts of Ice Season 2",
+          "jpTitle": "『氷の城壁』第2期",
+          "imageId": "jouheki",
+          "from": "A",
+          "to": "A",
+          "previousPosition": 1,
+          "position": 1,
+          "steps": null,
+          "transition": "unchanged"
+        },
+        {
+          "title": "Psyren",
+          "jpTitle": "PSYREN -サイレン-",
+          "imageId": "psyren",
+          "from": "D",
+          "to": "D",
+          "previousPosition": 3,
+          "position": 3,
+          "steps": null,
+          "transition": "unchanged"
+        },
+        {
+          "title": "The Cold Sato-san is Only Sweet to Me",
+          "jpTitle": "塩対応の佐藤さんが俺にだけ甘い",
+          "imageId": "shiotaiou",
+          "from": "D",
+          "to": "D",
+          "previousPosition": 10,
+          "position": 10,
+          "steps": null,
+          "transition": "unchanged"
+        },
+        {
+          "title": "Full Clearing Another World under a Goddess with Zero Believers",
+          "jpTitle": "信者ゼロの女神サマと始める異世界攻略",
+          "imageId": "shinja",
+          "from": "C",
+          "to": "C",
+          "previousPosition": 3,
+          "position": 3,
+          "steps": null,
+          "transition": "unchanged"
+        },
+        {
+          "title": "Even the Student Council Has Its Holes!",
+          "jpTitle": "生徒会にも穴はある！",
+          "imageId": "seitokai",
+          "from": "S",
+          "to": "S",
+          "previousPosition": 2,
+          "position": 2,
+          "steps": null,
+          "transition": "unchanged"
+        },
+        {
+          "title": "The World's Strongest Witch",
+          "jpTitle": "世界最強の魔女、始めました",
+          "imageId": "saikyou",
+          "from": "D",
+          "to": "D",
+          "previousPosition": 6,
+          "position": 6,
+          "steps": null,
+          "transition": "unchanged"
+        },
+        {
+          "title": "#I'm Looking For a Zombie",
+          "jpTitle": "#ゾンビさがしてます",
+          "imageId": "zombie",
+          "from": "D",
+          "to": "D",
+          "previousPosition": 1,
+          "position": 1,
+          "steps": null,
+          "transition": "unchanged"
+        },
+        {
+          "title": "The Detective Is Already Dead Season 2",
+          "jpTitle": "探偵はもう、死んでいる。Season2",
+          "imageId": "tanmoshi",
+          "from": "D",
+          "to": "D",
+          "previousPosition": 5,
+          "position": 5,
+          "steps": null,
+          "transition": "unchanged"
+        },
+        {
+          "title": "The Laid-Off Cheat-Granting Mage Enjoys a Second Lease on Life",
+          "jpTitle": "追放されたチート付与魔術師は気ままなセカンドライフを謳歌する。 ～俺は武器だけじゃなく、あらゆるものに『強化ポイント』を付与できるし、俺の意思でいつでも効果を解除できるけど、残った人たち大丈夫？～",
+          "imageId": "fuyoshi",
+          "from": "D",
+          "to": "D",
+          "previousPosition": 9,
+          "position": 9,
+          "steps": null,
+          "transition": "unchanged"
+        },
+        {
+          "title": "Tetsuryou! Meet with Tetsudou Musume",
+          "jpTitle": "てつりょー！meet with 鉄道むすめ",
+          "imageId": "tetsuryo",
+          "from": "D",
+          "to": "D",
+          "previousPosition": 12,
+          "position": 12,
+          "steps": null,
+          "transition": "unchanged"
+        },
+        {
+          "title": "So What's Wrong with Getting Reborn as a Goblin?",
+          "jpTitle": "転生ゴブリンだけど質問ある？",
+          "imageId": "goblin",
+          "from": "B",
+          "to": "B",
+          "previousPosition": 2,
+          "position": 2,
+          "steps": null,
+          "transition": "unchanged"
+        },
+        {
+          "title": "A Tale of the Secret Saint",
+          "jpTitle": "転生した大聖女は、聖女であることをひた隠す",
+          "imageId": "hitakakusu",
+          "from": "D",
+          "to": "D",
+          "previousPosition": 4,
+          "position": 4,
+          "steps": null,
+          "transition": "unchanged"
+        },
+        {
+          "title": "A Certain Dark Item",
+          "jpTitle": "とある暗部の少女共棲",
+          "imageId": "toaru",
+          "from": "B",
+          "to": "B",
+          "previousPosition": 3,
+          "position": 3,
+          "steps": null,
+          "transition": "unchanged"
+        },
+        {
+          "title": "Tokyo Revengers: War of the Three Titan Arc",
+          "jpTitle": "『東京リベンジャーズ』三天戦争編",
+          "imageId": "tokyo",
+          "from": "B",
+          "to": "B",
+          "previousPosition": 6,
+          "position": 6,
+          "steps": null,
+          "transition": "unchanged"
+        },
+        {
+          "title": "Vertex Force",
+          "jpTitle": "バーテックスフォース",
+          "imageId": "vertex",
+          "from": "C",
+          "to": "C",
+          "previousPosition": 5,
+          "position": 5,
+          "steps": null,
+          "transition": "unchanged"
+        },
+        {
+          "title": "The Iceblade Sorcerer Shall Rule the World II",
+          "jpTitle": "冰剣の魔術師が世界を統べるⅡ",
+          "imageId": "hyouken",
+          "from": "D",
+          "to": "D",
+          "previousPosition": 7,
+          "position": 7,
+          "steps": null,
+          "transition": "unchanged"
+        },
+        {
+          "title": "Hotel Inhumans Season 2",
+          "jpTitle": "『ホテル・インヒューマンズ』第2期",
+          "imageId": "hotel",
+          "from": "A",
+          "to": "A",
+          "previousPosition": 3,
+          "position": 3,
+          "steps": null,
+          "transition": "unchanged"
+        },
+        {
+          "title": "The Seven Knights of the Marronnier Kingdom",
+          "jpTitle": "マロニエ王国の七人の騎士",
+          "imageId": "oukoku",
+          "from": "A",
+          "to": "A",
+          "previousPosition": 4,
+          "position": 4,
+          "steps": null,
+          "transition": "unchanged"
+        },
+        {
+          "title": "Reborn as a Space Mercenary: I Woke Up Piloting the Strongest Starship!",
+          "jpTitle": "目覚めたら最強装備と宇宙船持ちだったので、一戸建て目指して傭兵として自由に生きたい",
+          "imageId": "mezametara",
+          "from": "C",
+          "to": "C",
+          "previousPosition": 1,
+          "position": 1,
+          "steps": null,
+          "transition": "unchanged"
+        },
+        {
+          "title": "Even Though I'm a Super Timid Noble Girl, I Accepted the Bet From My Cunning Fiancé",
+          "jpTitle": "弱気MAX令嬢なのに、辣腕婚約者様の賭けに乗ってしまった",
+          "imageId": "max",
+          "from": "D",
+          "to": "D",
+          "previousPosition": 2,
+          "position": 2,
+          "steps": null,
+          "transition": "unchanged"
+        },
+        {
+          "title": "Romelia War Chronicle",
+          "jpTitle": "ロメリア戦記",
+          "imageId": "romelia",
+          "from": "B",
+          "to": "B",
+          "previousPosition": 5,
+          "position": 5,
+          "steps": null,
+          "transition": "unchanged"
+        },
+        {
+          "title": "Magic Knight Rayearth (2026)",
+          "jpTitle": "魔法騎士レイアース",
+          "imageId": "rayearth",
+          "from": "B",
+          "to": "B",
+          "previousPosition": 4,
+          "position": 4,
+          "steps": null,
+          "transition": "unchanged"
+        },
+        {
+          "title": "Super Psychic Policeman Chojo",
+          "jpTitle": "超巡！超条先輩",
+          "imageId": "choujou",
+          "from": "B",
+          "to": "B",
+          "previousPosition": 1,
+          "position": 1,
+          "steps": null,
+          "transition": "unchanged"
+        },
+        {
+          "title": "Ao Ashi Season 2",
+          "jpTitle": "『アオアシ Season2』第1クール",
+          "imageId": "aoashi",
+          "from": "Dropped",
+          "to": "Dropped",
+          "previousPosition": 10,
+          "position": 10,
+          "steps": null,
+          "transition": "unchanged"
+        },
+        {
+          "title": "Girls und Panzer das Finale",
+          "jpTitle": "ガールズ＆パンツァー 最終章",
+          "imageId": "panzer",
+          "from": "N/A",
+          "to": "N/A",
+          "previousPosition": 8,
+          "position": 6,
+          "steps": null,
+          "transition": "unchanged"
+        },
+        {
+          "title": "My Girlfriend's Friend",
+          "jpTitle": "彼女の友達",
+          "imageId": "tomodachi",
+          "from": "Dropped",
+          "to": "Dropped",
+          "previousPosition": 12,
+          "position": 12,
+          "steps": null,
+          "transition": "unchanged"
+        },
+        {
+          "title": "Sasaki and Peeps Season 2",
+          "jpTitle": "『佐々木とピーちゃん』Season 2",
+          "imageId": "sasaki",
+          "from": "Dropped",
+          "to": "Dropped",
+          "previousPosition": 9,
+          "position": 9,
+          "steps": null,
+          "transition": "unchanged"
+        },
+        {
+          "title": "The Vermilion Mask",
+          "jpTitle": "朱色の仮面",
+          "imageId": "shuiro",
+          "from": "Dropped",
+          "to": "Dropped",
+          "previousPosition": 6,
+          "position": 6,
+          "steps": null,
+          "transition": "unchanged"
+        },
+        {
+          "title": "Dandivine",
+          "jpTitle": "獣王武神ダンデヴァイン",
+          "imageId": "dandivine",
+          "from": "Dropped",
+          "to": "Dropped",
+          "previousPosition": 7,
+          "position": 7,
+          "steps": null,
+          "transition": "unchanged"
+        },
+        {
+          "title": "Steel Ball Run: JoJo's Bizarre Adventure",
+          "jpTitle": "『スティール・ボール・ラン ジョジョの奇妙な冒険』2nd & 3rd STAGE",
+          "imageId": "sbr",
+          "from": "N/A",
+          "to": "N/A",
+          "previousPosition": 12,
+          "position": 10,
+          "steps": null,
+          "transition": "unchanged"
+        },
+        {
+          "title": "I'm Dating a Dark Summoner",
+          "jpTitle": "ダークサモナーとデキている",
+          "imageId": "summoner",
+          "from": "Dropped",
+          "to": "Dropped",
+          "previousPosition": 8,
+          "position": 8,
+          "steps": null,
+          "transition": "unchanged"
+        },
+        {
+          "title": "Dark Machine: The Animation",
+          "jpTitle": "DARK MACHINE THE ANIMATION",
+          "imageId": "machine",
+          "from": "N/A",
+          "to": "N/A",
+          "previousPosition": 2,
+          "position": 2,
+          "steps": null,
+          "transition": "unchanged"
+        },
+        {
+          "title": "Tank Chair",
+          "jpTitle": "TANK CHAIR-戦車椅子-",
+          "imageId": "chair",
+          "from": "Dropped",
+          "to": "Dropped",
+          "previousPosition": 5,
+          "position": 5,
+          "steps": null,
+          "transition": "unchanged"
+        },
+        {
+          "title": "Firefly Wedding",
+          "jpTitle": "ホタルの嫁入り",
+          "imageId": "hotaru",
+          "from": "Dropped",
+          "to": "Dropped",
+          "previousPosition": 3,
+          "position": 3,
+          "steps": null,
+          "transition": "unchanged"
+        },
+        {
+          "title": "Magical★Explorer",
+          "jpTitle": "マジカル★エクスプローラー",
+          "imageId": "magical",
+          "from": "Dropped",
+          "to": "Dropped",
+          "previousPosition": 11,
+          "position": 11,
+          "steps": null,
+          "transition": "unchanged"
+        },
+        {
+          "title": "Mahou Shoujo Ikusei Keikaku: Restart",
+          "jpTitle": "魔法少女育成計画restart",
+          "imageId": "ikusei",
+          "from": "Dropped",
+          "to": "Dropped",
+          "previousPosition": 2,
+          "position": 2,
+          "steps": null,
+          "transition": "unchanged"
+        },
+        {
+          "title": "As a Reincarnated Aristocrat, I'll Use My Appraisal Skill to Rise in the World Season 3",
+          "jpTitle": "転生貴族、鑑定スキルで成り上がる 第3期",
+          "imageId": "kantei",
+          "from": "N/A",
+          "to": "N/A",
+          "previousPosition": 4,
+          "position": 4,
+          "steps": null,
+          "transition": "unchanged"
+        },
+        {
+          "title": "Reincarnated as a Sword Season 2",
+          "jpTitle": "転生したら剣でしたII",
+          "imageId": "tenken",
+          "from": "Dropped",
+          "to": "Dropped",
+          "previousPosition": 1,
+          "position": 1,
+          "steps": null,
+          "transition": "unchanged"
+        },
+        {
+          "title": "Tougen Anki: Nikko Kegon Falls Arc",
+          "jpTitle": "『桃源暗鬼』～日光・華厳の滝編～",
+          "imageId": "tougen",
+          "from": "N/A",
+          "to": "N/A",
+          "previousPosition": 3,
+          "position": 3,
+          "steps": null,
+          "transition": "unchanged"
+        },
+        {
+          "title": "Hello, I Am a Witch and My Crush Wants Me to Make a Love Potion!",
+          "jpTitle": "どうも、好きな人に惚れ薬を依頼された魔女です。",
+          "imageId": "horegusuri",
+          "from": "Dropped",
+          "to": "Dropped",
+          "previousPosition": 4,
+          "position": 4,
+          "steps": null,
+          "transition": "unchanged"
+        },
+        {
+          "title": "Overgeared",
+          "jpTitle": "テムパル～アイテムの力～",
+          "imageId": "tem",
+          "from": "N/A",
+          "to": "N/A",
+          "previousPosition": 11,
+          "position": 9,
+          "steps": null,
+          "transition": "unchanged"
+        },
+        {
+          "title": "Now That I Can Control Reality with a Mouse Cursor, I'm Gonna Click Away on the Girls!",
+          "jpTitle": "マウスカーソルで現実を操作できるようになったので、女の子をいっぱいクリックしまーす",
+          "imageId": "mouse",
+          "from": "Dropped",
+          "to": "Dropped",
+          "previousPosition": 14,
+          "position": 14,
+          "steps": null,
+          "transition": "unchanged"
+        },
+        {
+          "title": "Demons' Crest",
+          "jpTitle": "デモンズ・クレスト",
+          "imageId": "crest",
+          "from": "N/A",
+          "to": "N/A",
+          "previousPosition": 9,
+          "position": 7,
+          "steps": null,
+          "transition": "unchanged"
+        },
+        {
+          "title": "Magical Sisters Lulutto Lilly Part 2",
+          "jpTitle": "『魔法の姉妹ルルットリリィ』第2クール",
+          "imageId": "lilly",
+          "from": "N/A",
+          "to": "N/A",
+          "previousPosition": 5,
+          "position": 5,
+          "steps": null,
+          "transition": "unchanged"
+        },
+        {
+          "title": "Watashi no Shiawase na Kekkon Special",
+          "jpTitle": "『わたしの幸せな結婚』特別篇",
+          "imageId": "kekkon",
+          "from": "N/A",
+          "to": "N/A",
+          "previousPosition": 1,
+          "position": 1,
+          "steps": null,
+          "transition": "unchanged"
+        },
+        {
+          "title": "Suikoden: The Anime",
+          "jpTitle": "幻想水滸伝",
+          "imageId": "suikoden",
+          "from": "N/A",
+          "to": "N/A",
+          "previousPosition": 10,
+          "position": 8,
+          "steps": null,
+          "transition": "unchanged"
+        },
+        {
+          "title": "Ghost Meets Gal!",
+          "jpTitle": "ごーすと・みーつ・ぎゃる！",
+          "imageId": "gal",
+          "from": "Dropped",
+          "to": "Dropped",
+          "previousPosition": 13,
+          "position": 13,
+          "steps": null,
+          "transition": "unchanged"
+        }
+      ],
+      "statusChanges": [
+        {
+          "title": "Cyberpunk: Edgerunners 2",
+          "jpTitle": "Cyberpunk: Edgerunners 2",
+          "imageId": "cyber",
+          "from": "N/A",
+          "to": "Not Yet Aired",
+          "previousPosition": 7,
+          "position": 1,
+          "steps": null,
+          "transition": "movedToAiringWait"
+        },
+        {
+          "title": "Chitose Is in the Ramune Bottle Part 2",
+          "jpTitle": "『千歳くんはラムネ瓶のなか』第2クール",
+          "imageId": "chitose",
+          "from": "N/A",
+          "to": "Not Yet Aired",
+          "previousPosition": 13,
+          "position": 3,
+          "steps": null,
+          "transition": "movedToAiringWait"
+        },
+        {
+          "title": "Fool Night",
+          "jpTitle": "フールナイト",
+          "imageId": "fool",
+          "from": "N/A",
+          "to": "Not Yet Aired",
+          "previousPosition": 6,
+          "position": 2,
+          "steps": null,
+          "transition": "movedToAiringWait"
+        }
+      ],
+      "newEntries": [],
+      "removed": [],
+      "newlyDropped": [],
+      "backOnList": [],
+      "biggestClimbers": [],
+      "biggestFallers": [],
+      "enteredAfterAiringWait": [],
+      "returnedFromDropped": [],
+      "enteredFromOther": []
+    }
+  },
+  "titleEditorial": []
 }
