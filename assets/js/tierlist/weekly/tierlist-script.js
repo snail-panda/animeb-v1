@@ -596,7 +596,10 @@ function renderTierEditorial(data, meta, lang = "en") {
       heading(content,tr("Other Status Changes","その他の状態変化"));
       const list=make("ul",null,"tier-auto-movers");
       other.forEach(r=>{
-        const li=make("li",`${names(r)}: ${tierName(r.from)} → ${tierName(r.to)}`);
+        const li=make("li");
+        const statusLine=make("span",null,"tier-other-status-line");
+        statusLine.append(make("span",names(r)||"","tier-auto-mover-title"),document.createTextNode(`: ${tierName(r.from)} → ${tierName(r.to)}`));
+        li.append(statusLine);
         li.className='tier-other-status';li.dataset.otherId=r.imageId||'';li.dataset.otherTitle=r.title||'';
         const notes=Array.isArray(data.titleEditorial)?data.titleEditorial:[];
         const note=notes.find(x=>r.imageId&&x.imageId===r.imageId||!r.imageId&&x.title===r.title);

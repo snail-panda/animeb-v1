@@ -1361,3 +1361,24 @@ body[data-tier-editorial="auto"] .tier-studio-editorial-content p {
   margin:0 0 1rem;line-height:1.75;
 }
 body[data-tier-editorial="auto"] .tier-studio-editorial-content p:last-child {margin-bottom:0;}
+/* TL05T v2: balanced movement glyphs and distinct other-status title. */
+body[data-tier-editorial="auto"] #contentText > .tier-movement-heading:has(+ .tier-auto-movers > li:is([data-move-kind="promotions"],[data-move-kind="demotions"],[data-move-kind="backOnList"]))::before {
+  position:relative;
+  top:-3px;
+  font-weight:700;
+  -webkit-text-stroke:.32px currentColor;
+}
+body[data-tier-editorial="auto"] #contentText > .tier-movement-heading:has(+ .tier-auto-movers > li[data-move-kind="newlyDropped"])::before {
+  position:relative;
+  top:1px;
+  font-weight:700;
+  -webkit-text-stroke:.15px currentColor;
+}
+body[data-tier-editorial="auto"] .tier-other-status-line {
+  grid-column:1/-1;
+  min-width:0;
+  overflow-wrap:anywhere;
+}
+body[data-tier-editorial="auto"] .tier-other-status-line > .tier-auto-mover-title {
+  font-weight:600;
+}
