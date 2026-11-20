@@ -173,7 +173,7 @@
   align-self:stretch;border-left:1px solid #d3ddd1;
   display:flex;flex-direction:column;justify-content:center;align-items:center;
   gap:2px;flex:0 0 49px;white-space:nowrap;
-  font:400 11px/1.2 var(--ob29-ui);color:#526f64;
+  font:400 10px/1.2 var(--ob29-ui);color:#526f64;
 }
 #anime-top.ob-r29-on #obR29Editorial .ob-r29-action b{
   font:500 16.5px/1 "EB Garamond",Georgia,serif;color:var(--ob29-accent-ink);
