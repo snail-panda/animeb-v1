@@ -479,7 +479,11 @@ function renderTierEditorial(data, meta, lang = "en") {
     const names = r=>ja?(r.jpTitle||r.title):r.title;
     const movement = (key, title, biggest) => {
       const rows=change(key);if(!rows.length)return;
-      heading(content,`${title} · ${rows.length}`);
+      const h=make("h3",null,"tier-editorial-subheading tier-movement-heading");
+      const caption=make("span",title,"tier-movement-heading-text");
+      const count=make("span",String(rows.length),"tier-movement-count");
+      count.append(make("span",tr(rows.length===1?" title":" titles"," 作品"),"tier-movement-unit"));
+      caption.append(document.createTextNode(" "),count);h.append(caption);content.append(h);
       const list=make("ul",null,"tier-auto-movers");
       rows.slice().sort((x,y)=>biggest?Math.abs(Number(y.steps)||0)-Math.abs(Number(x.steps)||0):0).forEach(r=>{
         const li=make("li"), label=make("span",names(r)||"", "tier-auto-mover-title"), transition=make("span",null,"tier-auto-transition");
