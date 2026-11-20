@@ -1263,6 +1263,7 @@ body[data-tier-editorial="auto"] #contentText .tier-stat-caption::first-letter {
   vertical-align:baseline;
 }
 html:lang(en) body[data-tier-editorial="auto"] #conclusionText > p:first-of-type::first-letter {
+  font-family:Arial,Helvetica,sans-serif;
   font-size:250%;
   font-weight:700;
   line-height:.95;
