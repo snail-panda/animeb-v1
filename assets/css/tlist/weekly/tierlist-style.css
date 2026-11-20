@@ -1312,19 +1312,19 @@ body[data-tier-editorial="auto"] #contentText > .tier-movement-heading .tier-mov
 }
 /* Use the existing movement kind, not the translated heading text. */
 body[data-tier-editorial="auto"] #contentText > .tier-movement-heading:has(+ .tier-auto-movers > li[data-move-kind="promotions"]) {
-  --tier-heading-icon:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M12%2022V2%20M4%2010L12%202L20%2010%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%222.05%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%3C%2Fsvg%3E");
+  --tier-heading-icon:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M12%2020V4%20M8.6%207.5L12%204L15.4%207.5%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%222.25%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%3C%2Fsvg%3E");
   --tier-heading-mark-color:#73865a;
 }
 body[data-tier-editorial="auto"] #contentText > .tier-movement-heading:has(+ .tier-auto-movers > li[data-move-kind="demotions"]) {
-  --tier-heading-icon:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M12%202V22%20M4%2014L12%2022L20%2014%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%222.1%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%3C%2Fsvg%3E");
+  --tier-heading-icon:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M12%204V20%20M8.6%2016.5L12%2020L15.4%2016.5%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%222.25%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%3C%2Fsvg%3E");
   --tier-heading-mark-color:#ab766c;
 }
 body[data-tier-editorial="auto"] #contentText > .tier-movement-heading:has(+ .tier-auto-movers > li[data-move-kind="newlyDropped"]) {
-  --tier-heading-icon:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M3%203L21%2021%20M21%203L3%2021%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%222.35%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%3C%2Fsvg%3E");
-  --tier-heading-mark-color:#817d73;
+  --tier-heading-icon:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M6.8%206.8L17.2%2017.2%20M17.2%206.8L6.8%2017.2%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%222.8%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%3C%2Fsvg%3E");
+  --tier-heading-mark-color:#8a8a86;
 }
 body[data-tier-editorial="auto"] #contentText > .tier-movement-heading:has(+ .tier-auto-movers > li[data-move-kind="backOnList"]) {
-  --tier-heading-icon:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M2%2012H22%20M14%204L22%2012L14%2020%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%222.05%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%3C%2Fsvg%3E");
+  --tier-heading-icon:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M4%2012H20%20M16.5%208.6L20%2012L16.5%2015.4%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%222.25%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%3C%2Fsvg%3E");
   --tier-heading-mark-color:#7894a2;
 }
 body[data-tier-editorial="auto"] #contentText > .tier-movement-heading:has(+ .tier-auto-movers > li:is([data-move-kind="promotions"],[data-move-kind="demotions"],[data-move-kind="newlyDropped"],[data-move-kind="backOnList"]))::before {
@@ -1347,7 +1347,10 @@ body[data-tier-editorial="auto"] #contentText > .tier-movement-heading:has(+ .ti
 }
 @media (max-width:600px) {
   body[data-tier-editorial="auto"] #contentText > .tier-movement-heading {
-    font-size:clamp(18px,1.4rem,23px);
+    font-size:clamp(19px,1.45rem,24px);
+  }
+  body[data-tier-editorial="auto"] #contentText > .tier-movement-heading .tier-movement-heading-text {
+    -webkit-text-stroke:.16px currentColor;
   }
   body[data-tier-editorial="auto"] #contentText > .tier-movement-heading .tier-movement-count {
     font-size:17px;
@@ -1366,9 +1369,4 @@ body[data-tier-editorial="auto"] .tier-studio-editorial-content p:last-child {ma
 /* TL05U: stronger demotion/drop section hierarchy, without changing layout. */
 body[data-tier-editorial="auto"] #contentText > .tier-movement-heading:has(+ .tier-auto-movers > li:is([data-move-kind="demotions"],[data-move-kind="newlyDropped"])) .tier-movement-heading-text {
   color:#544e42;
-}
-body[data-tier-editorial="auto"] .tier-other-status-line {
-  grid-column:1/-1;
-  min-width:0;
-  overflow-wrap:anywhere;
 }

@@ -482,7 +482,7 @@ function renderTierEditorial(data, meta, lang = "en") {
    // TL05S Editorial bridge. The exported text is already resolved by Studio.
    const studioSections=data.articleEditorial?.schemaVersion===1?data.articleEditorial?.sections?.[lang]:null;
    const studioText=part=>typeof studioSections?.[part]?.text==='string'&&studioSections[part].text.trim()?studioSections[part].text.trim():'';
-   const studioParagraphs=(root,body)=>body.split(/\n\s*\n/).filter(x=>x.trim()).forEach(t=>para(root,t.trim()));
+   const studioParagraphs=(root,body)=>body.split(/\n\s*\n/).filter(x=>x.trim()).forEach(t=>(root===intro||root===conclusion?countedPara:para)(root,t.trim()));
   const addCustom = (root, key) => {
     if (typeof custom?.[key] === "string" && custom[key].trim()) custom[key].trim().split(/\n\s*\n/).forEach(t => para(root,t));
   };
@@ -597,9 +597,11 @@ function renderTierEditorial(data, meta, lang = "en") {
       const list=make("ul",null,"tier-auto-movers");
       other.forEach(r=>{
         const li=make("li");
-        const statusLine=make("span",null,"tier-other-status-line");
-        statusLine.append(make("span",names(r)||"","tier-auto-mover-title"),document.createTextNode(`: ${tierName(r.from)} → ${tierName(r.to)}`));
-        li.append(statusLine);
+        const label=make("span",names(r)||"","tier-auto-mover-title");
+        const transition=make("span",null,"tier-auto-transition");
+        transition.append(make("span",r.from==null?"—":tierName(r.from),"tier-motion-from"),make("span","→","tier-motion-arrow"),make("span",r.to==null?"—":tierName(r.to),"tier-motion-to"));
+        const motion=make("div",null,"tier-auto-motion");
+        motion.append(transition);li.append(label,motion);
         li.className='tier-other-status';li.dataset.otherId=r.imageId||'';li.dataset.otherTitle=r.title||'';
         const notes=Array.isArray(data.titleEditorial)?data.titleEditorial:[];
         const note=notes.find(x=>r.imageId&&x.imageId===r.imageId||!r.imageId&&x.title===r.title);
