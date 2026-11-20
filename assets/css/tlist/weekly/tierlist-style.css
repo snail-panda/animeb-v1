@@ -1242,3 +1242,57 @@ body[data-tier-editorial="auto"] .post-conclusion {
     padding-bottom:2.25rem;
   }
 }
+
+/* TL05L: compact mobile checkpoint cards and language-specific conclusion initials. */
+body[data-tier-editorial="auto"] #contentText .tier-stat-compare-label {
+  font-weight:400;
+  color:#827e70;
+}
+body[data-tier-editorial="auto"] #contentText .tier-stat-main .tier-stat-delta {
+  font-weight:500;
+}
+body[data-tier-editorial="auto"] #contentText .tier-stat-prior {
+  font-weight:500;
+  color:#827e70;
+}
+body[data-tier-editorial="auto"] #contentText .tier-stat-caption::first-letter {
+  font:inherit;
+  color:inherit;
+  margin:0;
+  padding:0;
+  vertical-align:baseline;
+}
+html:lang(en) body[data-tier-editorial="auto"] #conclusionText > p:first-of-type::first-letter {
+  font-size:250%;
+  font-weight:700;
+  line-height:.95;
+}
+html:lang(ja) body[data-tier-editorial="auto"] #conclusionText > p:first-of-type::first-letter {
+  font-size:180%;
+  font-weight:600;
+  color:#777365;
+  line-height:.95;
+}
+@media (max-width:600px) {
+  body[data-tier-editorial="auto"] .tier-auto-stats {
+    margin-inline:.7rem;
+    gap:.8rem 1.65rem;
+  }
+  body[data-tier-editorial="auto"] .tier-auto-stat {
+    padding:.42rem .1rem .45rem;
+  }
+  body[data-tier-editorial="auto"] .tier-stat-label {
+    gap:2px;
+  }
+  body[data-tier-editorial="auto"] .tier-stat-main {
+    min-height:41px;
+    margin:1px 0 4px;
+    gap:6px;
+  }
+  body[data-tier-editorial="auto"] .tier-stat-comparison {
+    padding-top:.35rem;
+  }
+  body[data-tier-editorial="auto"] .tier-stat-part {
+    gap:.1rem;
+  }
+}
