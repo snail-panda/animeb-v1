@@ -224,8 +224,8 @@
         "jpTitle": "『千歳くんはラムネ瓶のなか』第2クール",
         "imageId": "chitose",
         "position": 2,
-        "previousTier": "N/A",
-        "previousPosition": 13
+        "previousTier": "Not Yet Aired",
+        "previousPosition": 3
       },
       {
         "title": "The Seven Knights of the Marronnier Kingdom",
@@ -544,8 +544,8 @@
         "jpTitle": "フールナイト",
         "imageId": "fool",
         "position": 1,
-        "previousTier": "N/A",
-        "previousPosition": 6
+        "previousTier": "Not Yet Aired",
+        "previousPosition": 2
       }
     ],
     "N/A": [
@@ -555,7 +555,7 @@
         "imageId": "sbr",
         "position": 1,
         "previousTier": "N/A",
-        "previousPosition": 12
+        "previousPosition": 10
       },
       {
         "title": "Demons' Crest",
@@ -563,15 +563,15 @@
         "imageId": "crest",
         "position": 2,
         "previousTier": "N/A",
-        "previousPosition": 9
+        "previousPosition": 7
       },
       {
         "title": "Cyberpunk: Edgerunners 2",
         "jpTitle": "Cyberpunk: Edgerunners 2",
         "imageId": "cyber",
         "position": 3,
-        "previousTier": "N/A",
-        "previousPosition": 7
+        "previousTier": "Not Yet Aired",
+        "previousPosition": 1
       },
       {
         "title": "Magical Sisters Lulutto Lilly Part 2",
@@ -611,7 +611,7 @@
         "imageId": "panzer",
         "position": 8,
         "previousTier": "N/A",
-        "previousPosition": 8
+        "previousPosition": 6
       },
       {
         "title": "Suikoden: The Anime",
@@ -619,7 +619,7 @@
         "imageId": "suikoden",
         "position": 9,
         "previousTier": "N/A",
-        "previousPosition": 10
+        "previousPosition": 8
       },
       {
         "title": "Overgeared",
@@ -627,7 +627,7 @@
         "imageId": "tem",
         "position": 10,
         "previousTier": "N/A",
-        "previousPosition": 11
+        "previousPosition": 9
       },
       {
         "title": "Watashi no Shiawase na Kekkon Special",
@@ -696,7 +696,7 @@
     },
     {
       "label": "Not Yet Aired",
-      "color": "#a9c5d0",
+      "color": "#a5c9d0",
       "kind": "other",
       "showEmpty": true,
       "statusCode": "notYetAired"
@@ -736,9 +736,9 @@
       "backOnList": 1,
       "biggestClimbers": 2,
       "biggestFallers": 1,
-      "enteredAfterAiringWait": 0,
+      "enteredAfterAiringWait": 1,
       "returnedFromDropped": 0,
-      "enteredFromOther": 1
+      "enteredFromOther": 0
     },
     "distribution": [
       {
@@ -807,9 +807,9 @@
       {
         "tier": "Not Yet Aired",
         "kind": "other",
-        "previous": 0,
+        "previous": 3,
         "current": 1,
-        "delta": 1
+        "delta": -2
       },
       {
         "tier": "Never Watched",
@@ -821,9 +821,9 @@
       {
         "tier": "N/A",
         "kind": "other",
-        "previous": 13,
+        "previous": 10,
         "current": 11,
-        "delta": -2
+        "delta": 1
       }
     ],
     "changes": {
@@ -954,17 +954,6 @@
           "transition": "unchanged"
         },
         {
-          "title": "Cyberpunk: Edgerunners 2",
-          "jpTitle": "Cyberpunk: Edgerunners 2",
-          "imageId": "cyber",
-          "from": "N/A",
-          "to": "N/A",
-          "previousPosition": 7,
-          "position": 3,
-          "steps": null,
-          "transition": "unchanged"
-        },
-        {
           "title": "The Cold Sato-san is Only Sweet to Me",
           "jpTitle": "塩対応の佐藤さんが俺にだけ甘い",
           "imageId": "shiotaiou",
@@ -1031,6 +1020,17 @@
           "transition": "unchanged"
         },
         {
+          "title": "Fool Night",
+          "jpTitle": "フールナイト",
+          "imageId": "fool",
+          "from": "Not Yet Aired",
+          "to": "Not Yet Aired",
+          "previousPosition": 2,
+          "position": 1,
+          "steps": null,
+          "transition": "unchanged"
+        },
+        {
           "title": "Even Though I'm a Super Timid Noble Girl, I Accepted the Bet From My Cunning Fiancé",
           "jpTitle": "弱気MAX令嬢なのに、辣腕婚約者様の賭けに乗ってしまった",
           "imageId": "max",
@@ -1069,7 +1069,7 @@
           "imageId": "panzer",
           "from": "N/A",
           "to": "N/A",
-          "previousPosition": 8,
+          "previousPosition": 6,
           "position": 8,
           "steps": null,
           "transition": "unchanged"
@@ -1124,7 +1124,7 @@
           "imageId": "sbr",
           "from": "N/A",
           "to": "N/A",
-          "previousPosition": 12,
+          "previousPosition": 10,
           "position": 1,
           "steps": null,
           "transition": "unchanged"
@@ -1245,7 +1245,7 @@
           "imageId": "tem",
           "from": "N/A",
           "to": "N/A",
-          "previousPosition": 11,
+          "previousPosition": 9,
           "position": 10,
           "steps": null,
           "transition": "unchanged"
@@ -1267,7 +1267,7 @@
           "imageId": "crest",
           "from": "N/A",
           "to": "N/A",
-          "previousPosition": 9,
+          "previousPosition": 7,
           "position": 2,
           "steps": null,
           "transition": "unchanged"
@@ -1300,7 +1300,7 @@
           "imageId": "suikoden",
           "from": "N/A",
           "to": "N/A",
-          "previousPosition": 10,
+          "previousPosition": 8,
           "position": 9,
           "steps": null,
           "transition": "unchanged"
@@ -1363,6 +1363,17 @@
           "transition": "newlyDropped"
         },
         {
+          "title": "Cyberpunk: Edgerunners 2",
+          "jpTitle": "Cyberpunk: Edgerunners 2",
+          "imageId": "cyber",
+          "from": "Not Yet Aired",
+          "to": "N/A",
+          "previousPosition": 1,
+          "position": 3,
+          "steps": null,
+          "transition": "otherStatusChange"
+        },
+        {
           "title": "Psyren",
           "jpTitle": "PSYREN -サイレン-",
           "imageId": "psyren",
@@ -1388,12 +1399,12 @@
           "title": "Chitose Is in the Ramune Bottle Part 2",
           "jpTitle": "『千歳くんはラムネ瓶のなか』第2クール",
           "imageId": "chitose",
-          "from": "N/A",
+          "from": "Not Yet Aired",
           "to": "B",
-          "previousPosition": 13,
+          "previousPosition": 3,
           "position": 2,
           "steps": null,
-          "transition": "enteredFromOther"
+          "transition": "enteredAfterAiringWait"
         },
         {
           "title": "The Laid-Off Cheat-Granting Mage Enjoys a Second Lease on Life",
@@ -1449,17 +1460,6 @@
           "position": 1,
           "steps": null,
           "transition": "newlyDropped"
-        },
-        {
-          "title": "Fool Night",
-          "jpTitle": "フールナイト",
-          "imageId": "fool",
-          "from": "N/A",
-          "to": "Not Yet Aired",
-          "previousPosition": 6,
-          "position": 1,
-          "steps": null,
-          "transition": "movedToAiringWait"
         },
         {
           "title": "Magic Knight Rayearth (2026)",
@@ -1614,12 +1614,12 @@
           "title": "Chitose Is in the Ramune Bottle Part 2",
           "jpTitle": "『千歳くんはラムネ瓶のなか』第2クール",
           "imageId": "chitose",
-          "from": "N/A",
+          "from": "Not Yet Aired",
           "to": "B",
-          "previousPosition": 13,
+          "previousPosition": 3,
           "position": 2,
           "steps": null,
-          "transition": "enteredFromOther"
+          "transition": "enteredAfterAiringWait"
         }
       ],
       "biggestClimbers": [
@@ -1659,21 +1659,21 @@
           "transition": "demotion"
         }
       ],
-      "enteredAfterAiringWait": [],
-      "returnedFromDropped": [],
-      "enteredFromOther": [
+      "enteredAfterAiringWait": [
         {
           "title": "Chitose Is in the Ramune Bottle Part 2",
           "jpTitle": "『千歳くんはラムネ瓶のなか』第2クール",
           "imageId": "chitose",
-          "from": "N/A",
+          "from": "Not Yet Aired",
           "to": "B",
-          "previousPosition": 13,
+          "previousPosition": 3,
           "position": 2,
           "steps": null,
-          "transition": "enteredFromOther"
+          "transition": "enteredAfterAiringWait"
         }
-      ]
+      ],
+      "returnedFromDropped": [],
+      "enteredFromOther": []
     }
   },
   "titleEditorial": [
