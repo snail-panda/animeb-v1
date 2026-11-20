@@ -1074,7 +1074,7 @@ body[data-tier-editorial="auto"] #conclusionText > .tier-editorial-subheading {m
   body[data-tier-editorial="auto"] .tier-auto-table th,body[data-tier-editorial="auto"] .tier-auto-table td {padding:.48rem .27rem;}
   body[data-tier-editorial="auto"] .tier-auto-movers li {grid-template-columns:minmax(0,1fr);gap:.43rem;padding:1.12rem 0;}
   body[data-tier-editorial="auto"] .tier-auto-mover-title {font-size:17px;line-height:1.42;}
-  body[data-tier-editorial="auto"] .tier-auto-motion {justify-content:flex-start;gap:.25rem .55rem;}
+  body[data-tier-editorial="auto"] .tier-auto-motion {justify-content:flex-start;gap:.25rem .55rem;margin-top:.35rem;}
   body[data-tier-editorial="auto"] .tier-auto-transition {font-size:14.5px;}
   body[data-tier-editorial="auto"] [data-move-kind="promotions"] .tier-motion-to,
   body[data-tier-editorial="auto"] [data-move-kind="demotions"] .tier-motion-to,
