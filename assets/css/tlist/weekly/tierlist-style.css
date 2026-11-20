@@ -1185,7 +1185,10 @@ body[data-tier-editorial="auto"] .tier-page-language button:focus-visible {outli
 .live-tier-detail-ranking {display:inline-block;margin:.7rem 0;color:#35533a;text-decoration:underline;}
 @media(max-width:600px){body[data-tier-editorial="auto"] .tier-page-language button {font-size:9px;padding:3px 5px;}.live-tier-detail-grid {grid-template-columns:repeat(2,minmax(0,1fr));}.live-tier-detail-body {padding:0 .15rem .5rem;}}
 
-/* TL05J: editorial vertical rhythm only; preserve existing rules and type. */
+/* TL05J/K: editorial vertical rhythm only; preserve existing rules and type. */
+body[data-tier-editorial="auto"] .post-intro {
+  padding-top:.75rem;
+}
 body[data-tier-editorial="auto"] #introText > p,
 body[data-tier-editorial="auto"] #conclusionText > p {
   line-height:1.82;
@@ -1213,7 +1216,7 @@ body[data-tier-editorial="auto"] #contentText > .tier-movement-heading {
   margin-bottom:1.65rem;
 }
 body[data-tier-editorial="auto"] #conclusionText > .tier-editorial-subheading {
-  margin-bottom:1.95rem;
+  margin-bottom:3.05rem;
 }
 body[data-tier-editorial="auto"] .post-conclusion {
   padding-bottom:2.5rem;
@@ -1233,7 +1236,7 @@ body[data-tier-editorial="auto"] .post-conclusion {
     margin-bottom:1.65rem;
   }
   body[data-tier-editorial="auto"] #conclusionText > .tier-editorial-subheading {
-    margin-bottom:1.85rem;
+    margin-bottom:2.95rem;
   }
   body[data-tier-editorial="auto"] .post-conclusion {
     padding-bottom:2.25rem;
