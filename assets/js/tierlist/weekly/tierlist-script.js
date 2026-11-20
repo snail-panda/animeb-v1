@@ -388,6 +388,42 @@ function installTierLanguage(update){
  window.addEventListener('storage',e=>{if(e.key===tierLanguageKey)apply(e.newValue,false);});apply(tierLang,false);
 }
 
+// TL05I: historical checkpoints are their own Tier List snapshots, never Weekly Ranking totals.
+const tierCheckpointCache = new Map();
+function readTierCheckpointCounts(snapshot, meta) {
+  if (String(snapshot?.season || '').trim().toLowerCase() !== `${meta.year} ${meta.season}`.toLowerCase() || !snapshot.tiers || Array.isArray(snapshot.tiers) || typeof snapshot.tiers !== 'object') return null;
+  const kinds = new Map((Array.isArray(snapshot.tierSettings) ? snapshot.tierSettings : []).filter(x => x && typeof x.label === 'string').map(x => [x.label, x.kind]));
+  const counts = {totalTitles:0,ratedTitles:0,totalDropped:0,unrated:0};
+  for (const [label, titles] of Object.entries(snapshot.tiers)) {
+    if (!Array.isArray(titles) || !titles.every(t => typeof t === 'string')) return null;
+    const key = label.trim().toLowerCase().replace(/[\s_-]/g,'');
+    const kind = kinds.has(label) ? kinds.get(label) : /^(sss|ss|s|a|b|c|d)$/.test(key) ? 'rated' : /^(dropped|recentlydropped)$/.test(key) ? 'drop' : /^(n\/a|na|neverwatched)$/.test(key) ? 'other' : null;
+    const field = {rated:'ratedTitles',drop:'totalDropped',other:'unrated'}[kind];
+    if (!field) return null;
+    counts[field] += titles.length; counts.totalTitles += titles.length;
+  }
+  const declared = snapshot.analysis?.counts;
+  if (declared && Object.keys(counts).some(k => declared[k] !== counts[k])) return null;
+  return counts;
+}
+function tierCheckpointHistory(meta, week) {
+  const selected = ['01','06'].filter(w => Number(w) < Number(week));
+  const key = `${meta.year}/${meta.season}/${week}`;
+  if (!tierCheckpointCache.has(key)) {
+    const entry = {rows:null,promise:null};
+    entry.promise = Promise.all(selected.map(async w => {
+      try {
+        const season = meta.season.toLowerCase();
+        const response = await fetch(`../week${w}/tierlist-${meta.year}-${season}-week${w}.json`);
+        if (!response.ok) return {week:w,counts:null};
+        return {week:w,counts:readTierCheckpointCounts(await response.json(),meta)};
+      } catch (_) { return {week:w,counts:null}; }
+    })).then(rows => (entry.rows=rows));
+    tierCheckpointCache.set(key,entry);
+  }
+  return tierCheckpointCache.get(key);
+}
+
 function renderTierEditorial(data, meta, lang = "en") {
   const ja = lang === "ja";
   const tr = (en, jp) => ja ? jp : en;
@@ -438,32 +474,58 @@ function renderTierEditorial(data, meta, lang = "en") {
   const noteJa = "ティアリストはウィークリーランキングとは別の評価です。週間ランキングの対象外となった作品でも、ここでは評価される場合があります。ドロップへの移動はティアリスト上の変化であり、週間ランキングから外れた時期と必ずしも一致しません。ランキング対象外とすることは、必ずしも作品への低評価や視聴中止を意味しません。理由は作品によって異なります。";
   para(note,tr(noteEn,noteJa));
   intro.append(note);
-  heading(content, week === "06" ? tr("Midseason at a Glance", "中間時点の評価状況") : tr("The Lineup at a Glance", "評価状況"));
+  heading(content, week === "06" ? tr("Midseason at a Glance", "中間時点の評価状況") : week === "12" ? tr("Season at a Glance", "シーズン最終概要") : tr("The Lineup at a Glance", "評価状況"));
   const stats = make("div",null,"tier-auto-stats");
   const signed=x=>x>0?`+${x}`:x<0?`−${Math.abs(x)}`:"0";
-  const stat = (kind,label,value,prior,delta,extra) => {
-    const card=make("div",null,"tier-auto-stat");card.dataset.stat=kind;
-    card.append(make("span",label,"tier-stat-label"),make("strong",String(value),"tier-stat-value"));
-    if(Number.isInteger(prior)){
-      const line=make("small",null,"tier-stat-comparison");
-      const priorPart=make("span",null,"tier-stat-part");
-      priorPart.append(make("span",previous,"tier-stat-period"),make("b",String(prior),"tier-stat-prior"));line.append(priorPart);
-      if(Number.isInteger(delta)&&delta!==0){
-        const changeLabel=make("span",signed(delta),"tier-stat-delta");
-        changeLabel.dataset.direction=delta<0?"negative":"positive";
-        changeLabel.setAttribute("aria-label",tr(`Change since ${previous}: ${signed(delta)}`,`${previous}からの増減：${signed(delta)}`));
-        const deltaPart=make("span",null,"tier-stat-part");deltaPart.append(make("span",tr("Change","増減"),"tier-stat-period"),changeLabel);line.append(deltaPart);
-      }
-      card.append(line);
-    }
-    if(extra){const line=make("small",null,"tier-stat-comparison"),part=make("span",null,"tier-stat-part");part.append(make("span",extra[0],"tier-stat-period"),make("b",String(extra[1]),"tier-stat-prior"));line.append(part);card.append(line);}
-    stats.append(card);
+  const weekLabel=w=>tr(`Week ${w}`,`第${w}週`);
+  const fields = [
+    ["total",tr("Titles listed","全掲載作品"),"totalTitles"],
+    ["rated",tr("Rated titles","評価対象"),"ratedTitles"],
+    ["dropped",tr("Dropped","ドロップ"),"totalDropped"],
+    ["unrated",tr("N/A / Other","その他の対象外"),"unrated"]
+  ];
+  const deltaNode=(kind,value,prior,reference)=>{
+    if(!Number.isInteger(prior)||value===prior) return null;
+    const d=value-prior,el=make("span",`(${signed(d)})`,"tier-stat-delta");
+    el.dataset.direction=d<0?"negative":"positive";
+    el.setAttribute("aria-label",tr(`Change since ${weekLabel(reference)}: ${signed(d)}`,`${weekLabel(reference)}からの増減：${signed(d)}`));
+    return el;
   };
-  stat("total",tr("Titles listed","全掲載作品"),n.totalTitles,baseline?n.previousTotal:null,baseline?n.totalTitles-n.previousTotal:null);
-  stat("rated",tr("Rated titles","評価対象"),n.ratedTitles,baseline?n.previousRated:null,baseline?n.ratedTitles-n.previousRated:null);
-  stat("dropped",tr("Dropped","ドロップ"),n.totalDropped,null,null,baseline?[tr("Newly dropped","新規ドロップ"),num("newlyDropped")]:null);
-  stat("unrated",tr("N/A / Other","その他の対象外"),n.unrated,null,null);
-  content.append(stats);
+  const caption=make("div",null,"tier-stat-caption");caption.hidden=true;
+  function fillStats(rows, settled) {
+    stats.replaceChildren();
+    const last=rows[rows.length-1];
+    for(const [kind,label,field] of fields){
+      const card=make("div",null,"tier-auto-stat");card.dataset.stat=kind;
+      const labelWrap=make("div",null,"tier-stat-label");labelWrap.append(make("span",label));
+      if(last?.counts) labelWrap.append(make("span",tr(`(Compared to ${weekLabel(last.week)})`,`（${weekLabel(last.week)}比）`),"tier-stat-compare-label"));
+      const current=make("div",null,"tier-stat-main");
+      const d=last?.counts?deltaNode(kind,n[field],last.counts[field],last.week):null;
+      if(d)current.append(d);
+      current.append(make("strong",String(n[field]),"tier-stat-value"));
+      card.append(labelWrap,current);
+      if(rows.some(r=>r.counts)){
+        const history=make("div",null,"tier-stat-comparison");
+        rows.forEach((r,i)=>{
+          if(!r.counts)return;
+          const part=make("div",null,"tier-stat-part"), line=make("div",null,"tier-stat-history-line");
+          part.append(make("span",weekLabel(r.week),"tier-stat-period"));
+          line.append(make("b",String(r.counts[field]),"tier-stat-prior"));
+          const prev=rows[i-1];const historical=prev?.counts?deltaNode(kind,r.counts[field],prev.counts[field],prev.week):null;
+          if(historical)line.append(historical);
+          part.append(line);history.append(part);
+        });
+        card.append(history);
+      }
+      stats.append(card);
+    }
+    caption.hidden=!settled||!rows.length;
+    caption.textContent=rows.some(r=>!r.counts)?tr("Some earlier tier-list data is unavailable. Missing comparisons are omitted.","過去のティアリストデータの一部を取得できないため、該当する比較は省略しています。") : tr("Parentheses show the change from the preceding tier list.","括弧内は直前のティアリストからの増減です。");
+  }
+  content.append(stats,caption);
+  const history=tierCheckpointHistory(meta,week);
+  fillStats(history.rows||[],history.rows!==null);
+  if(history.rows===null)history.promise.then(rows=>{if(stats.isConnected)fillStats(rows,true);});
   heading(content,tr("Tier Distribution","Tier別作品数"));
   const table=make("table",null,"tier-auto-table"), thead=make("thead"), hrow=make("tr"), tbody=make("tbody");
   const th=(text)=>{const el=make("th",text);el.scope="col";return el;};

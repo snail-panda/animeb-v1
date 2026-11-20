@@ -985,7 +985,7 @@ body.tierlist-editorial-common .tier-final-heading::after {
   }
 }
 
-/* Data-driven editorial (TL05H). Preserve the paper palette and existing hero. */
+/* Data-driven editorial (TL05I). Preserve the paper palette and existing hero. */
 body[data-tier-editorial="auto"] .tier-auto-note { border-top:1px solid #d8d5ca; padding-top:.85rem; font-size:.88rem; line-height:1.65; }
 body[data-tier-editorial="auto"] .tier-auto-note summary { cursor:pointer; font-size:.82rem; }
 body[data-tier-editorial="auto"] .tier-auto-note strong { color:#625c4c; font-weight:600; }
@@ -994,19 +994,27 @@ body[data-tier-editorial="auto"] .tier-auto-stat { border-top:2px solid #bcb397;
 body[data-tier-editorial="auto"] .tier-auto-stat[data-stat="rated"] {border-top-color:#9ca784;}
 body[data-tier-editorial="auto"] .tier-auto-stat[data-stat="dropped"] {border-top-color:#ba9e83;}
 body[data-tier-editorial="auto"] .tier-auto-stat[data-stat="unrated"] {border-top-color:#b7bcb0;}
-body[data-tier-editorial="auto"] .tier-stat-label { font:500 max(12px,.78rem)/1.35 system-ui,sans-serif; color:#6c685a; overflow-wrap:anywhere; text-align:left; }
-body[data-tier-editorial="auto"] .tier-stat-value { font:700 clamp(34px,2.65rem,44px)/1.12 Georgia,"Georgia Pro","Noto Serif",serif; font-variant-numeric:lining-nums tabular-nums; font-feature-settings:"lnum" 1,"tnum" 1; letter-spacing:-.025em; color:#625d4e; margin:.4rem 0 .85rem; text-align:right; }
+body[data-tier-editorial="auto"] .tier-stat-label { display:flex; flex-direction:column; gap:3px; font:500 max(12px,.78rem)/1.35 system-ui,sans-serif; color:#6c685a; overflow-wrap:anywhere; text-align:left; }
+body[data-tier-editorial="auto"] .tier-stat-compare-label {font:400 10px/1.3 system-ui,sans-serif;color:#787464;}
+body[data-tier-editorial="auto"] .tier-stat-main {display:flex;justify-content:flex-end;align-items:flex-end;gap:8px;min-height:52px;margin:3px 0 10px;flex:1 0 auto;}
+body[data-tier-editorial="auto"] .tier-stat-value { font:700 clamp(34px,2.65rem,44px)/1.12 Georgia,"Georgia Pro","Noto Serif",serif; font-variant-numeric:lining-nums tabular-nums; font-feature-settings:"lnum" 1,"tnum" 1; letter-spacing:-.025em; color:#625d4e; margin:0; text-align:right; flex:none; }
 body[data-tier-editorial="auto"] [data-stat="rated"] .tier-stat-value {color:#65774f;}
 body[data-tier-editorial="auto"] [data-stat="dropped"] .tier-stat-value {color:#997354;}
+body[data-tier-editorial="auto"] [data-stat="unrated"] .tier-stat-value {color:#747d70;}
 body[data-tier-editorial="auto"] .tier-stat-comparison { display:flex; align-items:stretch; gap:0; font:400 max(11px,.71rem)/1.35 system-ui,sans-serif; letter-spacing:0; border-top:1px solid #ded8c8; padding-top:.55rem; margin-top:auto; }
 body[data-tier-editorial="auto"] .tier-stat-period {color:#797568;display:block;font-weight:400;}
 body[data-tier-editorial="auto"] .tier-stat-part {display:flex;flex:1 1 0;flex-direction:column;align-items:stretch;gap:.22rem;min-width:0;}
 body[data-tier-editorial="auto"] .tier-stat-part:not(:last-child) {padding-right:.55rem;}
 body[data-tier-editorial="auto"] .tier-stat-part + .tier-stat-part {border-left:1px solid #d8cdb8;padding-left:.55rem;}
-body[data-tier-editorial="auto"] .tier-stat-prior {font:500 max(17px,1.12rem)/1.15 system-ui,sans-serif;color:#605b4e;font-variant-numeric:tabular-nums;text-align:right;margin-top:auto;}
-body[data-tier-editorial="auto"] .tier-stat-delta {font:600 max(16px,1.08rem)/1.15 system-ui,sans-serif;color:#88694e;font-variant-numeric:tabular-nums;text-align:right;margin-top:auto;}
+body[data-tier-editorial="auto"] .tier-stat-history-line {display:flex;justify-content:flex-end;align-items:baseline;gap:4px;flex-wrap:wrap;line-height:1.15;}
+body[data-tier-editorial="auto"] .tier-stat-prior {font:550 max(17px,1.12rem)/1.15 system-ui,sans-serif;color:#605b4e;font-variant-numeric:tabular-nums;}
+body[data-tier-editorial="auto"] .tier-stat-delta {font:600 13px/1.25 system-ui,sans-serif;color:#88694e;font-variant-numeric:tabular-nums;white-space:nowrap;}
+body[data-tier-editorial="auto"] .tier-stat-main .tier-stat-delta {margin-bottom:5px;}
+body[data-tier-editorial="auto"] .tier-stat-history-line .tier-stat-delta {font-size:11px;font-weight:500;}
 body[data-tier-editorial="auto"] .tier-stat-delta[data-direction="negative"] {color:#a05746;}
 body[data-tier-editorial="auto"] .tier-stat-delta[data-direction="positive"] {color:#607747;}
+body[data-tier-editorial="auto"] [data-stat="dropped"] .tier-stat-delta[data-direction="positive"] {color:#997354;}
+body[data-tier-editorial="auto"] .tier-stat-caption {font:400 11px/1.6 system-ui,sans-serif;color:#777365;margin:-.65rem 0 1.5rem;}
 body[data-tier-editorial="auto"] .tier-auto-table { width:100%; border-collapse:collapse; margin:.75rem 0 1.5rem; font:400 max(12px,.9rem)/1.4 system-ui,sans-serif; font-variant-numeric:tabular-nums; letter-spacing:0; }
 body[data-tier-editorial="auto"] .tier-auto-table th,body[data-tier-editorial="auto"] .tier-auto-table td { border-bottom:1px solid #e0dbcd; padding:.5rem .45rem; text-align:right; overflow-wrap:normal; }
 body[data-tier-editorial="auto"] .tier-auto-table thead th {font-weight:500;color:#75705f;white-space:nowrap;font-size:.9em;}
@@ -1054,10 +1062,13 @@ body[data-tier-editorial="auto"] #conclusionText > .tier-editorial-subheading {m
 @media (max-width:600px) {
   body[data-tier-editorial="auto"] .tier-auto-stats {gap:1.05rem 1.05rem;}
   body[data-tier-editorial="auto"] .tier-auto-stat {padding:.65rem .1rem .75rem;}
-  body[data-tier-editorial="auto"] .tier-stat-value {font-size:36px;margin:.43rem 0 .9rem;}
+  body[data-tier-editorial="auto"] .tier-stat-value {font-size:36px;}
+  body[data-tier-editorial="auto"] .tier-stat-main {min-height:47px;margin:3px 0 9px;gap:6px;}
   body[data-tier-editorial="auto"] .tier-stat-comparison {padding-top:.55rem;gap:0;}
   body[data-tier-editorial="auto"] .tier-stat-prior {font-size:17px;}
-  body[data-tier-editorial="auto"] .tier-stat-delta {font-size:16px;}
+  body[data-tier-editorial="auto"] .tier-stat-delta {font-size:12px;}
+  body[data-tier-editorial="auto"] .tier-stat-history-line .tier-stat-delta {font-size:10px;}
+  body[data-tier-editorial="auto"] .tier-stat-history-line {gap:3px;}
   body[data-tier-editorial="auto"] .tier-stat-part:not(:last-child) {padding-right:.42rem;}
   body[data-tier-editorial="auto"] .tier-stat-part + .tier-stat-part {padding-left:.42rem;}
   body[data-tier-editorial="auto"] .tier-auto-table th,body[data-tier-editorial="auto"] .tier-auto-table td {padding:.48rem .27rem;}
