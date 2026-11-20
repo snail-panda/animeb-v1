@@ -3973,6 +3973,27 @@ if (reviewAnchor) {
     animebSetupKeyVisualViewer();
     animebApplyWeeklyLanguage();
     adjustScoreBars();
+    // TL05O: the external drop-review fragment may predate its dynamic DOM target.
+    if (window.location.hash === '#animeb-dropped-titles') {
+      requestAnimationFrame(() => requestAnimationFrame(() => {
+        if (window.location.hash !== '#animeb-dropped-titles') return;
+        const target = document.getElementById('animeb-dropped-titles');
+        if (!target) return;
+        // Respect the existing anchor margin and the actual sticky mast/nav height.
+        let offset = parseFloat(getComputedStyle(target).scrollMarginTop) || 0;
+        for (const bar of document.querySelectorAll('#offbeat-global-header, .nav-bar')) {
+          const style = getComputedStyle(bar);
+          if (!['sticky', 'fixed'].includes(style.position)) continue;
+          const top = parseFloat(style.top) || 0;
+          offset = Math.max(offset, top + bar.getBoundingClientRect().height + 12);
+        }
+        target.style.scrollMarginTop = `${Math.ceil(offset)}px`;
+        target.scrollIntoView({
+          block: 'start',
+          behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth'
+        });
+      }));
+    }
     setTimeout(() => {
       setupPopups();
     }, 0); // 🔁 DOMが確実に構築されてからイベントをバインド
