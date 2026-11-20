@@ -1026,7 +1026,7 @@ body[data-tier-editorial="auto"] .tier-auto-table td.tier-distribution-change {f
 body[data-tier-editorial="auto"] .tier-auto-table td.tier-distribution-neutral {color:#827d6e;}
 body[data-tier-editorial="auto"] .tier-auto-movers { list-style:none; margin:0 0 1.6rem; padding:0; }
 body[data-tier-editorial="auto"] .tier-auto-movers li { display:grid; grid-template-columns:minmax(0,1fr) minmax(10.5rem,max-content); align-items:baseline; column-gap:2.45rem; row-gap:.42rem; border-bottom:1px solid #e0dbcd; padding:1rem 0; }
-body[data-tier-editorial="auto"] .tier-auto-mover-title { min-width:0; overflow-wrap:anywhere; font:500 max(16px,1.1rem)/1.45 system-ui,sans-serif; color:#4d4b41; letter-spacing:0; }
+body[data-tier-editorial="auto"] .tier-auto-mover-title { min-width:0; overflow-wrap:anywhere; font:600 max(16px,1.1rem)/1.45 system-ui,sans-serif; color:#4d4b41; letter-spacing:0; }
 body[data-tier-editorial="auto"] .tier-auto-mover-link { appearance:none; background:none; border:0; text-align:left; padding:0; cursor:pointer; }
 body[data-tier-editorial="auto"] .tier-auto-mover-link:hover,body[data-tier-editorial="auto"] .tier-auto-mover-link:focus-visible { text-decoration:underline; text-underline-offset:3px; }
 body[data-tier-editorial="auto"] .tier-auto-motion { display:flex; justify-content:flex-end; gap:.25rem .58rem; flex-wrap:wrap; align-items:baseline; min-width:0; }
@@ -1312,29 +1312,38 @@ body[data-tier-editorial="auto"] #contentText > .tier-movement-heading .tier-mov
 }
 /* Use the existing movement kind, not the translated heading text. */
 body[data-tier-editorial="auto"] #contentText > .tier-movement-heading:has(+ .tier-auto-movers > li[data-move-kind="promotions"]) {
-  --tier-heading-mark:"↑";
+  --tier-heading-icon:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M12%2022V2%20M4%2010L12%202L20%2010%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%222.05%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%3C%2Fsvg%3E");
   --tier-heading-mark-color:#73865a;
 }
 body[data-tier-editorial="auto"] #contentText > .tier-movement-heading:has(+ .tier-auto-movers > li[data-move-kind="demotions"]) {
-  --tier-heading-mark:"↓";
-  --tier-heading-mark-color:#b07b70;
+  --tier-heading-icon:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M12%202V22%20M4%2014L12%2022L20%2014%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%222.1%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%3C%2Fsvg%3E");
+  --tier-heading-mark-color:#ab766c;
 }
 body[data-tier-editorial="auto"] #contentText > .tier-movement-heading:has(+ .tier-auto-movers > li[data-move-kind="newlyDropped"]) {
-  --tier-heading-mark:"×";
-  --tier-heading-mark-color:#928d80;
+  --tier-heading-icon:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M3%203L21%2021%20M21%203L3%2021%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%222.35%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%3C%2Fsvg%3E");
+  --tier-heading-mark-color:#817d73;
 }
 body[data-tier-editorial="auto"] #contentText > .tier-movement-heading:has(+ .tier-auto-movers > li[data-move-kind="backOnList"]) {
-  --tier-heading-mark:"→";
+  --tier-heading-icon:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M2%2012H22%20M14%204L22%2012L14%2020%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%222.05%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%3C%2Fsvg%3E");
   --tier-heading-mark-color:#7894a2;
 }
 body[data-tier-editorial="auto"] #contentText > .tier-movement-heading:has(+ .tier-auto-movers > li:is([data-move-kind="promotions"],[data-move-kind="demotions"],[data-move-kind="newlyDropped"],[data-move-kind="backOnList"]))::before {
-  content:var(--tier-heading-mark);
-  color:var(--tier-heading-mark-color);
-  font:500 1.4rem/1 Arial,Helvetica,sans-serif;
+  content:"";
+  display:block;
   width:1.35rem;
+  height:1.35rem;
   flex:0 0 1.35rem;
+  align-self:center;
+  background-color:var(--tier-heading-mark-color);
+  -webkit-mask-image:var(--tier-heading-icon);
+  mask-image:var(--tier-heading-icon);
+  -webkit-mask-size:contain;
+  mask-size:contain;
+  -webkit-mask-position:center;
+  mask-position:center;
+  -webkit-mask-repeat:no-repeat;
+  mask-repeat:no-repeat;
   border:0;
-  text-align:center;
 }
 @media (max-width:600px) {
   body[data-tier-editorial="auto"] #contentText > .tier-movement-heading {
@@ -1343,13 +1352,6 @@ body[data-tier-editorial="auto"] #contentText > .tier-movement-heading:has(+ .ti
   body[data-tier-editorial="auto"] #contentText > .tier-movement-heading .tier-movement-count {
     font-size:17px;
   }
-}
-/* TL05S movement mark: preserve the selected thin glyph; improve optical alignment. */
-body[data-tier-editorial="auto"] #contentText > .tier-movement-heading:has(+ .tier-auto-movers > li[data-move-kind="backOnList"])::before {
-  position:relative;top:-2px;font-weight:600;
-}
-body[data-tier-editorial="auto"] #contentText > .tier-movement-heading:has(+ .tier-auto-movers > li[data-move-kind="newlyDropped"])::before {
-  position:relative;top:2px;font-weight:600;
 }
 body[data-tier-editorial="auto"] .tier-entry-ranking-link {
   color:#607d65;font-weight:500;text-decoration:underline;text-underline-offset:2px;
@@ -1361,24 +1363,12 @@ body[data-tier-editorial="auto"] .tier-studio-editorial-content p {
   margin:0 0 1rem;line-height:1.75;
 }
 body[data-tier-editorial="auto"] .tier-studio-editorial-content p:last-child {margin-bottom:0;}
-/* TL05T v2: balanced movement glyphs and distinct other-status title. */
-body[data-tier-editorial="auto"] #contentText > .tier-movement-heading:has(+ .tier-auto-movers > li:is([data-move-kind="promotions"],[data-move-kind="demotions"],[data-move-kind="backOnList"]))::before {
-  position:relative;
-  top:-3px;
-  font-weight:700;
-  -webkit-text-stroke:.32px currentColor;
-}
-body[data-tier-editorial="auto"] #contentText > .tier-movement-heading:has(+ .tier-auto-movers > li[data-move-kind="newlyDropped"])::before {
-  position:relative;
-  top:1px;
-  font-weight:700;
-  -webkit-text-stroke:.15px currentColor;
+/* TL05U: stronger demotion/drop section hierarchy, without changing layout. */
+body[data-tier-editorial="auto"] #contentText > .tier-movement-heading:has(+ .tier-auto-movers > li:is([data-move-kind="demotions"],[data-move-kind="newlyDropped"])) .tier-movement-heading-text {
+  color:#544e42;
 }
 body[data-tier-editorial="auto"] .tier-other-status-line {
   grid-column:1/-1;
   min-width:0;
   overflow-wrap:anywhere;
-}
-body[data-tier-editorial="auto"] .tier-other-status-line > .tier-auto-mover-title {
-  font-weight:600;
 }
