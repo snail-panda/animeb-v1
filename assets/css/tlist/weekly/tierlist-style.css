@@ -1184,3 +1184,58 @@ body[data-tier-editorial="auto"] .tier-page-language button:focus-visible {outli
 .live-tier-detail-history th,.live-tier-detail-history td {padding:4px 6px;border-bottom:1px solid #dce2d3;}
 .live-tier-detail-ranking {display:inline-block;margin:.7rem 0;color:#35533a;text-decoration:underline;}
 @media(max-width:600px){body[data-tier-editorial="auto"] .tier-page-language button {font-size:9px;padding:3px 5px;}.live-tier-detail-grid {grid-template-columns:repeat(2,minmax(0,1fr));}.live-tier-detail-body {padding:0 .15rem .5rem;}}
+
+/* TL05J: editorial vertical rhythm only; preserve existing rules and type. */
+body[data-tier-editorial="auto"] #introText > p,
+body[data-tier-editorial="auto"] #conclusionText > p {
+  line-height:1.82;
+  margin-bottom:1.45rem;
+}
+html:lang(ja) body[data-tier-editorial="auto"] #introText > p,
+html:lang(ja) body[data-tier-editorial="auto"] #conclusionText > p {
+  line-height:1.98;
+}
+body[data-tier-editorial="auto"] #introText > .tier-auto-note {
+  margin-top:2rem;
+  padding-top:1.05rem;
+  line-height:1.75;
+}
+html:lang(ja) body[data-tier-editorial="auto"] #introText > .tier-auto-note {
+  line-height:1.9;
+}
+body[data-tier-editorial="auto"] #contentText > .tier-editorial-subheading {
+  margin-bottom:1.3rem;
+}
+body[data-tier-editorial="auto"] #contentText > .tier-editorial-subheading:not(:first-child) {
+  margin-top:3.5rem;
+}
+body[data-tier-editorial="auto"] #contentText > .tier-movement-heading {
+  margin-bottom:1.65rem;
+}
+body[data-tier-editorial="auto"] #conclusionText > .tier-editorial-subheading {
+  margin-bottom:1.95rem;
+}
+body[data-tier-editorial="auto"] .post-conclusion {
+  padding-bottom:2.5rem;
+}
+@media (max-width:600px) {
+  body[data-tier-editorial="auto"] #introText > .tier-auto-note {
+    margin-top:1.85rem;
+    padding-top:1rem;
+  }
+  body[data-tier-editorial="auto"] #contentText > .tier-editorial-subheading {
+    margin-bottom:1.2rem;
+  }
+  body[data-tier-editorial="auto"] #contentText > .tier-editorial-subheading:not(:first-child) {
+    margin-top:3.25rem;
+  }
+  body[data-tier-editorial="auto"] #contentText > .tier-movement-heading {
+    margin-bottom:1.65rem;
+  }
+  body[data-tier-editorial="auto"] #conclusionText > .tier-editorial-subheading {
+    margin-bottom:1.85rem;
+  }
+  body[data-tier-editorial="auto"] .post-conclusion {
+    padding-bottom:2.25rem;
+  }
+}
