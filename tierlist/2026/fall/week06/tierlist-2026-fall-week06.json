@@ -64,11 +64,13 @@
       "The Vermilion Mask",
       "Ghost Meets Gal!"
     ],
+    "Not Yet Aired": [
+      "Fool Night"
+    ],
     "N/A": [
       "Steel Ball Run: JoJo's Bizarre Adventure",
       "Demons' Crest",
       "Cyberpunk: Edgerunners 2",
-      "Fool Night",
       "Magical Sisters Lulutto Lilly Part 2",
       "Dark Machine: The Animation",
       "Tougen Anki: Nikko Kegon Falls Arc",
@@ -138,11 +140,13 @@
       "朱色の仮面",
       "ごーすと・みーつ・ぎゃる！"
     ],
+    "Not Yet Aired": [
+      "フールナイト"
+    ],
     "N/A": [
       "『スティール・ボール・ラン ジョジョの奇妙な冒険』2nd & 3rd STAGE",
       "デモンズ・クレスト",
       "Cyberpunk: Edgerunners 2",
-      "フールナイト",
       "『魔法の姉妹ルルットリリィ』第2クール",
       "DARK MACHINE THE ANIMATION",
       "『桃源暗鬼』～日光・華厳の滝編～",
@@ -534,6 +538,16 @@
         "previousPosition": 13
       }
     ],
+    "Not Yet Aired": [
+      {
+        "title": "Fool Night",
+        "jpTitle": "フールナイト",
+        "imageId": "fool",
+        "position": 1,
+        "previousTier": "N/A",
+        "previousPosition": 6
+      }
+    ],
     "N/A": [
       {
         "title": "Steel Ball Run: JoJo's Bizarre Adventure",
@@ -560,18 +574,10 @@
         "previousPosition": 7
       },
       {
-        "title": "Fool Night",
-        "jpTitle": "フールナイト",
-        "imageId": "fool",
-        "position": 4,
-        "previousTier": "N/A",
-        "previousPosition": 6
-      },
-      {
         "title": "Magical Sisters Lulutto Lilly Part 2",
         "jpTitle": "『魔法の姉妹ルルットリリィ』第2クール",
         "imageId": "lilly",
-        "position": 5,
+        "position": 4,
         "previousTier": "N/A",
         "previousPosition": 5
       },
@@ -579,7 +585,7 @@
         "title": "Dark Machine: The Animation",
         "jpTitle": "DARK MACHINE THE ANIMATION",
         "imageId": "machine",
-        "position": 6,
+        "position": 5,
         "previousTier": "N/A",
         "previousPosition": 2
       },
@@ -587,7 +593,7 @@
         "title": "Tougen Anki: Nikko Kegon Falls Arc",
         "jpTitle": "『桃源暗鬼』～日光・華厳の滝編～",
         "imageId": "tougen",
-        "position": 7,
+        "position": 6,
         "previousTier": "N/A",
         "previousPosition": 3
       },
@@ -595,7 +601,7 @@
         "title": "As a Reincarnated Aristocrat, I'll Use My Appraisal Skill to Rise in the World Season 3",
         "jpTitle": "転生貴族、鑑定スキルで成り上がる 第3期",
         "imageId": "kantei",
-        "position": 8,
+        "position": 7,
         "previousTier": "N/A",
         "previousPosition": 4
       },
@@ -603,7 +609,7 @@
         "title": "Girls und Panzer das Finale",
         "jpTitle": "ガールズ＆パンツァー 最終章",
         "imageId": "panzer",
-        "position": 9,
+        "position": 8,
         "previousTier": "N/A",
         "previousPosition": 8
       },
@@ -611,7 +617,7 @@
         "title": "Suikoden: The Anime",
         "jpTitle": "幻想水滸伝",
         "imageId": "suikoden",
-        "position": 10,
+        "position": 9,
         "previousTier": "N/A",
         "previousPosition": 10
       },
@@ -619,7 +625,7 @@
         "title": "Overgeared",
         "jpTitle": "テムパル～アイテムの力～",
         "imageId": "tem",
-        "position": 11,
+        "position": 10,
         "previousTier": "N/A",
         "previousPosition": 11
       },
@@ -627,7 +633,7 @@
         "title": "Watashi no Shiawase na Kekkon Special",
         "jpTitle": "『わたしの幸せな結婚』特別篇",
         "imageId": "kekkon",
-        "position": 12,
+        "position": 11,
         "previousTier": "N/A",
         "previousPosition": 1
       }
@@ -689,6 +695,13 @@
       "showEmpty": false
     },
     {
+      "label": "Not Yet Aired",
+      "color": "#a9c5d0",
+      "kind": "other",
+      "showEmpty": true,
+      "statusCode": "notYetAired"
+    },
+    {
       "label": "Never Watched",
       "color": "#a9abbc",
       "kind": "other",
@@ -709,19 +722,23 @@
       "ratedTitles": 20,
       "totalDropped": 26,
       "unrated": 12,
+      "notYetAired": 1,
       "unassigned": 23,
       "previousTotal": 58,
       "previousRated": 31,
       "promotions": 5,
       "demotions": 3,
-      "unchanged": 37,
-      "statusChanges": 13,
+      "unchanged": 36,
+      "statusChanges": 14,
       "newEntries": 0,
       "removed": 0,
       "newlyDropped": 12,
       "backOnList": 1,
       "biggestClimbers": 2,
-      "biggestFallers": 1
+      "biggestFallers": 1,
+      "enteredAfterAiringWait": 0,
+      "returnedFromDropped": 0,
+      "enteredFromOther": 1
     },
     "distribution": [
       {
@@ -788,6 +805,13 @@
         "delta": 0
       },
       {
+        "tier": "Not Yet Aired",
+        "kind": "other",
+        "previous": 0,
+        "current": 1,
+        "delta": 1
+      },
+      {
         "tier": "Never Watched",
         "kind": "other",
         "previous": 0,
@@ -798,8 +822,8 @@
         "tier": "N/A",
         "kind": "other",
         "previous": 13,
-        "current": 12,
-        "delta": -1
+        "current": 11,
+        "delta": -2
       }
     ],
     "changes": {
@@ -812,7 +836,8 @@
           "to": "C",
           "previousPosition": 1,
           "position": 1,
-          "steps": 1
+          "steps": 1,
+          "transition": "promotion"
         },
         {
           "title": "Tetsuryou! Meet with Tetsudou Musume",
@@ -822,7 +847,8 @@
           "to": "B",
           "previousPosition": 12,
           "position": 1,
-          "steps": 2
+          "steps": 2,
+          "transition": "promotion"
         },
         {
           "title": "Hotel Inhumans Season 2",
@@ -832,7 +858,8 @@
           "to": "S",
           "previousPosition": 3,
           "position": 2,
-          "steps": 1
+          "steps": 1,
+          "transition": "promotion"
         },
         {
           "title": "Reborn as a Space Mercenary: I Woke Up Piloting the Strongest Starship!",
@@ -842,7 +869,8 @@
           "to": "A",
           "previousPosition": 1,
           "position": 3,
-          "steps": 2
+          "steps": 2,
+          "transition": "promotion"
         },
         {
           "title": "Super Psychic Policeman Chojo",
@@ -852,7 +880,8 @@
           "to": "A",
           "previousPosition": 1,
           "position": 2,
-          "steps": 1
+          "steps": 1,
+          "transition": "promotion"
         }
       ],
       "demotions": [
@@ -864,7 +893,8 @@
           "to": "C",
           "previousPosition": 2,
           "position": 2,
-          "steps": -2
+          "steps": -2,
+          "transition": "demotion"
         },
         {
           "title": "The Apothecary Diaries Season 3",
@@ -874,7 +904,8 @@
           "to": "A",
           "previousPosition": 1,
           "position": 4,
-          "steps": -1
+          "steps": -1,
+          "transition": "demotion"
         },
         {
           "title": "The Seven Knights of the Marronnier Kingdom",
@@ -884,7 +915,8 @@
           "to": "B",
           "previousPosition": 4,
           "position": 3,
-          "steps": -1
+          "steps": -1,
+          "transition": "demotion"
         }
       ],
       "unchanged": [
@@ -896,7 +928,8 @@
           "to": "C",
           "previousPosition": 2,
           "position": 3,
-          "steps": null
+          "steps": null,
+          "transition": "unchanged"
         },
         {
           "title": "From Far Away",
@@ -906,7 +939,8 @@
           "to": "C",
           "previousPosition": 4,
           "position": 4,
-          "steps": null
+          "steps": null,
+          "transition": "unchanged"
         },
         {
           "title": "The Ramparts of Ice Season 2",
@@ -916,7 +950,8 @@
           "to": "A",
           "previousPosition": 1,
           "position": 1,
-          "steps": null
+          "steps": null,
+          "transition": "unchanged"
         },
         {
           "title": "Cyberpunk: Edgerunners 2",
@@ -926,7 +961,8 @@
           "to": "N/A",
           "previousPosition": 7,
           "position": 3,
-          "steps": null
+          "steps": null,
+          "transition": "unchanged"
         },
         {
           "title": "The Cold Sato-san is Only Sweet to Me",
@@ -936,7 +972,8 @@
           "to": "D",
           "previousPosition": 10,
           "position": 2,
-          "steps": null
+          "steps": null,
+          "transition": "unchanged"
         },
         {
           "title": "Full Clearing Another World under a Goddess with Zero Believers",
@@ -946,7 +983,8 @@
           "to": "C",
           "previousPosition": 3,
           "position": 5,
-          "steps": null
+          "steps": null,
+          "transition": "unchanged"
         },
         {
           "title": "Even the Student Council Has Its Holes!",
@@ -956,7 +994,8 @@
           "to": "S",
           "previousPosition": 2,
           "position": 1,
-          "steps": null
+          "steps": null,
+          "transition": "unchanged"
         },
         {
           "title": "The World's Strongest Witch",
@@ -966,7 +1005,8 @@
           "to": "D",
           "previousPosition": 6,
           "position": 3,
-          "steps": null
+          "steps": null,
+          "transition": "unchanged"
         },
         {
           "title": "So What's Wrong with Getting Reborn as a Goblin?",
@@ -976,7 +1016,8 @@
           "to": "B",
           "previousPosition": 2,
           "position": 5,
-          "steps": null
+          "steps": null,
+          "transition": "unchanged"
         },
         {
           "title": "Tokyo Revengers: War of the Three Titan Arc",
@@ -986,17 +1027,8 @@
           "to": "B",
           "previousPosition": 6,
           "position": 6,
-          "steps": null
-        },
-        {
-          "title": "Fool Night",
-          "jpTitle": "フールナイト",
-          "imageId": "fool",
-          "from": "N/A",
-          "to": "N/A",
-          "previousPosition": 6,
-          "position": 4,
-          "steps": null
+          "steps": null,
+          "transition": "unchanged"
         },
         {
           "title": "Even Though I'm a Super Timid Noble Girl, I Accepted the Bet From My Cunning Fiancé",
@@ -1006,7 +1038,8 @@
           "to": "D",
           "previousPosition": 2,
           "position": 1,
-          "steps": null
+          "steps": null,
+          "transition": "unchanged"
         },
         {
           "title": "Romelia War Chronicle",
@@ -1016,7 +1049,8 @@
           "to": "B",
           "previousPosition": 5,
           "position": 4,
-          "steps": null
+          "steps": null,
+          "transition": "unchanged"
         },
         {
           "title": "Ao Ashi Season 2",
@@ -1026,7 +1060,8 @@
           "to": "Dropped",
           "previousPosition": 10,
           "position": 24,
-          "steps": null
+          "steps": null,
+          "transition": "unchanged"
         },
         {
           "title": "Girls und Panzer das Finale",
@@ -1035,8 +1070,9 @@
           "from": "N/A",
           "to": "N/A",
           "previousPosition": 8,
-          "position": 9,
-          "steps": null
+          "position": 8,
+          "steps": null,
+          "transition": "unchanged"
         },
         {
           "title": "My Girlfriend's Friend",
@@ -1046,7 +1082,8 @@
           "to": "Dropped",
           "previousPosition": 12,
           "position": 7,
-          "steps": null
+          "steps": null,
+          "transition": "unchanged"
         },
         {
           "title": "Sasaki and Peeps Season 2",
@@ -1056,7 +1093,8 @@
           "to": "Dropped",
           "previousPosition": 9,
           "position": 6,
-          "steps": null
+          "steps": null,
+          "transition": "unchanged"
         },
         {
           "title": "The Vermilion Mask",
@@ -1066,7 +1104,8 @@
           "to": "Dropped",
           "previousPosition": 6,
           "position": 25,
-          "steps": null
+          "steps": null,
+          "transition": "unchanged"
         },
         {
           "title": "Dandivine",
@@ -1076,7 +1115,8 @@
           "to": "Dropped",
           "previousPosition": 7,
           "position": 23,
-          "steps": null
+          "steps": null,
+          "transition": "unchanged"
         },
         {
           "title": "Steel Ball Run: JoJo's Bizarre Adventure",
@@ -1086,7 +1126,8 @@
           "to": "N/A",
           "previousPosition": 12,
           "position": 1,
-          "steps": null
+          "steps": null,
+          "transition": "unchanged"
         },
         {
           "title": "I'm Dating a Dark Summoner",
@@ -1096,7 +1137,8 @@
           "to": "Dropped",
           "previousPosition": 8,
           "position": 9,
-          "steps": null
+          "steps": null,
+          "transition": "unchanged"
         },
         {
           "title": "Dark Machine: The Animation",
@@ -1105,8 +1147,9 @@
           "from": "N/A",
           "to": "N/A",
           "previousPosition": 2,
-          "position": 6,
-          "steps": null
+          "position": 5,
+          "steps": null,
+          "transition": "unchanged"
         },
         {
           "title": "Tank Chair",
@@ -1116,7 +1159,8 @@
           "to": "Dropped",
           "previousPosition": 5,
           "position": 15,
-          "steps": null
+          "steps": null,
+          "transition": "unchanged"
         },
         {
           "title": "Firefly Wedding",
@@ -1126,7 +1170,8 @@
           "to": "Dropped",
           "previousPosition": 3,
           "position": 22,
-          "steps": null
+          "steps": null,
+          "transition": "unchanged"
         },
         {
           "title": "Magical★Explorer",
@@ -1136,7 +1181,8 @@
           "to": "Dropped",
           "previousPosition": 11,
           "position": 10,
-          "steps": null
+          "steps": null,
+          "transition": "unchanged"
         },
         {
           "title": "Mahou Shoujo Ikusei Keikaku: Restart",
@@ -1146,7 +1192,8 @@
           "to": "Dropped",
           "previousPosition": 2,
           "position": 18,
-          "steps": null
+          "steps": null,
+          "transition": "unchanged"
         },
         {
           "title": "As a Reincarnated Aristocrat, I'll Use My Appraisal Skill to Rise in the World Season 3",
@@ -1155,8 +1202,9 @@
           "from": "N/A",
           "to": "N/A",
           "previousPosition": 4,
-          "position": 8,
-          "steps": null
+          "position": 7,
+          "steps": null,
+          "transition": "unchanged"
         },
         {
           "title": "Reincarnated as a Sword Season 2",
@@ -1166,7 +1214,8 @@
           "to": "Dropped",
           "previousPosition": 1,
           "position": 20,
-          "steps": null
+          "steps": null,
+          "transition": "unchanged"
         },
         {
           "title": "Tougen Anki: Nikko Kegon Falls Arc",
@@ -1175,8 +1224,9 @@
           "from": "N/A",
           "to": "N/A",
           "previousPosition": 3,
-          "position": 7,
-          "steps": null
+          "position": 6,
+          "steps": null,
+          "transition": "unchanged"
         },
         {
           "title": "Hello, I Am a Witch and My Crush Wants Me to Make a Love Potion!",
@@ -1186,7 +1236,8 @@
           "to": "Dropped",
           "previousPosition": 4,
           "position": 12,
-          "steps": null
+          "steps": null,
+          "transition": "unchanged"
         },
         {
           "title": "Overgeared",
@@ -1195,8 +1246,9 @@
           "from": "N/A",
           "to": "N/A",
           "previousPosition": 11,
-          "position": 11,
-          "steps": null
+          "position": 10,
+          "steps": null,
+          "transition": "unchanged"
         },
         {
           "title": "Now That I Can Control Reality with a Mouse Cursor, I'm Gonna Click Away on the Girls!",
@@ -1206,7 +1258,8 @@
           "to": "Dropped",
           "previousPosition": 14,
           "position": 8,
-          "steps": null
+          "steps": null,
+          "transition": "unchanged"
         },
         {
           "title": "Demons' Crest",
@@ -1216,7 +1269,8 @@
           "to": "N/A",
           "previousPosition": 9,
           "position": 2,
-          "steps": null
+          "steps": null,
+          "transition": "unchanged"
         },
         {
           "title": "Magical Sisters Lulutto Lilly Part 2",
@@ -1225,8 +1279,9 @@
           "from": "N/A",
           "to": "N/A",
           "previousPosition": 5,
-          "position": 5,
-          "steps": null
+          "position": 4,
+          "steps": null,
+          "transition": "unchanged"
         },
         {
           "title": "Watashi no Shiawase na Kekkon Special",
@@ -1235,8 +1290,9 @@
           "from": "N/A",
           "to": "N/A",
           "previousPosition": 1,
-          "position": 12,
-          "steps": null
+          "position": 11,
+          "steps": null,
+          "transition": "unchanged"
         },
         {
           "title": "Suikoden: The Anime",
@@ -1245,8 +1301,9 @@
           "from": "N/A",
           "to": "N/A",
           "previousPosition": 10,
-          "position": 10,
-          "steps": null
+          "position": 9,
+          "steps": null,
+          "transition": "unchanged"
         },
         {
           "title": "Ghost Meets Gal!",
@@ -1256,7 +1313,8 @@
           "to": "Dropped",
           "previousPosition": 13,
           "position": 26,
-          "steps": null
+          "steps": null,
+          "transition": "unchanged"
         }
       ],
       "statusChanges": [
@@ -1268,7 +1326,8 @@
           "to": "Dropped",
           "previousPosition": 6,
           "position": 13,
-          "steps": null
+          "steps": null,
+          "transition": "newlyDropped"
         },
         {
           "title": "Magic Repo Man: Dumped by My Party, I'll Cash In With a Cute Support Fairy to Become the Strongest!",
@@ -1278,7 +1337,8 @@
           "to": "Dropped",
           "previousPosition": 11,
           "position": 5,
-          "steps": null
+          "steps": null,
+          "transition": "newlyDropped"
         },
         {
           "title": "A Returner's Magic Should Be Special Season 2",
@@ -1288,7 +1348,8 @@
           "to": "Dropped",
           "previousPosition": 8,
           "position": 3,
-          "steps": null
+          "steps": null,
+          "transition": "newlyDropped"
         },
         {
           "title": "Nia Liston: The Merciless Maiden",
@@ -1298,7 +1359,8 @@
           "to": "Dropped",
           "previousPosition": 5,
           "position": 2,
-          "steps": null
+          "steps": null,
+          "transition": "newlyDropped"
         },
         {
           "title": "Psyren",
@@ -1308,7 +1370,8 @@
           "to": "Dropped",
           "previousPosition": 3,
           "position": 11,
-          "steps": null
+          "steps": null,
+          "transition": "newlyDropped"
         },
         {
           "title": "The Detective Is Already Dead Season 2",
@@ -1318,7 +1381,8 @@
           "to": "Dropped",
           "previousPosition": 5,
           "position": 21,
-          "steps": null
+          "steps": null,
+          "transition": "newlyDropped"
         },
         {
           "title": "Chitose Is in the Ramune Bottle Part 2",
@@ -1328,7 +1392,8 @@
           "to": "B",
           "previousPosition": 13,
           "position": 2,
-          "steps": null
+          "steps": null,
+          "transition": "enteredFromOther"
         },
         {
           "title": "The Laid-Off Cheat-Granting Mage Enjoys a Second Lease on Life",
@@ -1338,7 +1403,8 @@
           "to": "Dropped",
           "previousPosition": 9,
           "position": 17,
-          "steps": null
+          "steps": null,
+          "transition": "newlyDropped"
         },
         {
           "title": "A Tale of the Secret Saint",
@@ -1348,7 +1414,8 @@
           "to": "Dropped",
           "previousPosition": 4,
           "position": 14,
-          "steps": null
+          "steps": null,
+          "transition": "newlyDropped"
         },
         {
           "title": "A Certain Dark Item",
@@ -1358,7 +1425,8 @@
           "to": "Dropped",
           "previousPosition": 3,
           "position": 16,
-          "steps": null
+          "steps": null,
+          "transition": "newlyDropped"
         },
         {
           "title": "Vertex Force",
@@ -1368,7 +1436,8 @@
           "to": "Dropped",
           "previousPosition": 5,
           "position": 4,
-          "steps": null
+          "steps": null,
+          "transition": "newlyDropped"
         },
         {
           "title": "The Iceblade Sorcerer Shall Rule the World II",
@@ -1378,7 +1447,19 @@
           "to": "Dropped",
           "previousPosition": 7,
           "position": 1,
-          "steps": null
+          "steps": null,
+          "transition": "newlyDropped"
+        },
+        {
+          "title": "Fool Night",
+          "jpTitle": "フールナイト",
+          "imageId": "fool",
+          "from": "N/A",
+          "to": "Not Yet Aired",
+          "previousPosition": 6,
+          "position": 1,
+          "steps": null,
+          "transition": "movedToAiringWait"
         },
         {
           "title": "Magic Knight Rayearth (2026)",
@@ -1388,7 +1469,8 @@
           "to": "Dropped",
           "previousPosition": 4,
           "position": 19,
-          "steps": null
+          "steps": null,
+          "transition": "newlyDropped"
         }
       ],
       "newEntries": [],
@@ -1402,7 +1484,8 @@
           "to": "Dropped",
           "previousPosition": 6,
           "position": 13,
-          "steps": null
+          "steps": null,
+          "transition": "newlyDropped"
         },
         {
           "title": "Magic Repo Man: Dumped by My Party, I'll Cash In With a Cute Support Fairy to Become the Strongest!",
@@ -1412,7 +1495,8 @@
           "to": "Dropped",
           "previousPosition": 11,
           "position": 5,
-          "steps": null
+          "steps": null,
+          "transition": "newlyDropped"
         },
         {
           "title": "A Returner's Magic Should Be Special Season 2",
@@ -1422,7 +1506,8 @@
           "to": "Dropped",
           "previousPosition": 8,
           "position": 3,
-          "steps": null
+          "steps": null,
+          "transition": "newlyDropped"
         },
         {
           "title": "Nia Liston: The Merciless Maiden",
@@ -1432,7 +1517,8 @@
           "to": "Dropped",
           "previousPosition": 5,
           "position": 2,
-          "steps": null
+          "steps": null,
+          "transition": "newlyDropped"
         },
         {
           "title": "Psyren",
@@ -1442,7 +1528,8 @@
           "to": "Dropped",
           "previousPosition": 3,
           "position": 11,
-          "steps": null
+          "steps": null,
+          "transition": "newlyDropped"
         },
         {
           "title": "The Detective Is Already Dead Season 2",
@@ -1452,7 +1539,8 @@
           "to": "Dropped",
           "previousPosition": 5,
           "position": 21,
-          "steps": null
+          "steps": null,
+          "transition": "newlyDropped"
         },
         {
           "title": "The Laid-Off Cheat-Granting Mage Enjoys a Second Lease on Life",
@@ -1462,7 +1550,8 @@
           "to": "Dropped",
           "previousPosition": 9,
           "position": 17,
-          "steps": null
+          "steps": null,
+          "transition": "newlyDropped"
         },
         {
           "title": "A Tale of the Secret Saint",
@@ -1472,7 +1561,8 @@
           "to": "Dropped",
           "previousPosition": 4,
           "position": 14,
-          "steps": null
+          "steps": null,
+          "transition": "newlyDropped"
         },
         {
           "title": "A Certain Dark Item",
@@ -1482,7 +1572,8 @@
           "to": "Dropped",
           "previousPosition": 3,
           "position": 16,
-          "steps": null
+          "steps": null,
+          "transition": "newlyDropped"
         },
         {
           "title": "Vertex Force",
@@ -1492,7 +1583,8 @@
           "to": "Dropped",
           "previousPosition": 5,
           "position": 4,
-          "steps": null
+          "steps": null,
+          "transition": "newlyDropped"
         },
         {
           "title": "The Iceblade Sorcerer Shall Rule the World II",
@@ -1502,7 +1594,8 @@
           "to": "Dropped",
           "previousPosition": 7,
           "position": 1,
-          "steps": null
+          "steps": null,
+          "transition": "newlyDropped"
         },
         {
           "title": "Magic Knight Rayearth (2026)",
@@ -1512,7 +1605,8 @@
           "to": "Dropped",
           "previousPosition": 4,
           "position": 19,
-          "steps": null
+          "steps": null,
+          "transition": "newlyDropped"
         }
       ],
       "backOnList": [
@@ -1524,7 +1618,8 @@
           "to": "B",
           "previousPosition": 13,
           "position": 2,
-          "steps": null
+          "steps": null,
+          "transition": "enteredFromOther"
         }
       ],
       "biggestClimbers": [
@@ -1536,7 +1631,8 @@
           "to": "B",
           "previousPosition": 12,
           "position": 1,
-          "steps": 2
+          "steps": 2,
+          "transition": "promotion"
         },
         {
           "title": "Reborn as a Space Mercenary: I Woke Up Piloting the Strongest Starship!",
@@ -1546,7 +1642,8 @@
           "to": "A",
           "previousPosition": 1,
           "position": 3,
-          "steps": 2
+          "steps": 2,
+          "transition": "promotion"
         }
       ],
       "biggestFallers": [
@@ -1558,9 +1655,40 @@
           "to": "C",
           "previousPosition": 2,
           "position": 2,
-          "steps": -2
+          "steps": -2,
+          "transition": "demotion"
+        }
+      ],
+      "enteredAfterAiringWait": [],
+      "returnedFromDropped": [],
+      "enteredFromOther": [
+        {
+          "title": "Chitose Is in the Ramune Bottle Part 2",
+          "jpTitle": "『千歳くんはラムネ瓶のなか』第2クール",
+          "imageId": "chitose",
+          "from": "N/A",
+          "to": "B",
+          "previousPosition": 13,
+          "position": 2,
+          "steps": null,
+          "transition": "enteredFromOther"
         }
       ]
     }
-  }
+  },
+  "titleEditorial": [
+    {
+      "title": "Fool Night",
+      "imageId": "fool",
+      "reason": "other",
+      "relatedWeek": null,
+      "relatedEpisode": null,
+      "note": {
+        "en": "",
+        "ja": "これまでは対象外（N/A）としていましたが、今回から\"Not Yet Aired\" tierを追加したので移動しました。ただ、本作はこのまま評価対象に加えられない可能性があります。"
+      },
+      "highlight": false,
+      "display": "inline"
+    }
+  ]
 }
