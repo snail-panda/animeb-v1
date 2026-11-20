@@ -1297,3 +1297,50 @@ html:lang(ja) body[data-tier-editorial="auto"] #conclusionText > p:first-of-type
     gap:.1rem;
   }
 }
+
+/* TL05P: distinguish movement sections without changing the article rhythm. */
+body[data-tier-editorial="auto"] #contentText > .tier-movement-heading {
+  font-size:1.45rem;
+}
+body[data-tier-editorial="auto"] #contentText > .tier-movement-heading .tier-movement-count {
+  font-size:clamp(18px,1.2rem,21px);
+  font-weight:600;
+}
+body[data-tier-editorial="auto"] #contentText > .tier-movement-heading .tier-movement-unit {
+  font-size:11px;
+  font-weight:400;
+}
+/* Use the existing movement kind, not the translated heading text. */
+body[data-tier-editorial="auto"] #contentText > .tier-movement-heading:has(+ .tier-auto-movers > li[data-move-kind="promotions"]) {
+  --tier-heading-mark:"↑";
+  --tier-heading-mark-color:#73865a;
+}
+body[data-tier-editorial="auto"] #contentText > .tier-movement-heading:has(+ .tier-auto-movers > li[data-move-kind="demotions"]) {
+  --tier-heading-mark:"↓";
+  --tier-heading-mark-color:#b07b70;
+}
+body[data-tier-editorial="auto"] #contentText > .tier-movement-heading:has(+ .tier-auto-movers > li[data-move-kind="newlyDropped"]) {
+  --tier-heading-mark:"×";
+  --tier-heading-mark-color:#928d80;
+}
+body[data-tier-editorial="auto"] #contentText > .tier-movement-heading:has(+ .tier-auto-movers > li[data-move-kind="backOnList"]) {
+  --tier-heading-mark:"→";
+  --tier-heading-mark-color:#819475;
+}
+body[data-tier-editorial="auto"] #contentText > .tier-movement-heading:has(+ .tier-auto-movers > li:is([data-move-kind="promotions"],[data-move-kind="demotions"],[data-move-kind="newlyDropped"],[data-move-kind="backOnList"]))::before {
+  content:var(--tier-heading-mark);
+  color:var(--tier-heading-mark-color);
+  font:500 1.4rem/1 Arial,Helvetica,sans-serif;
+  width:1.35rem;
+  flex:0 0 1.35rem;
+  border:0;
+  text-align:center;
+}
+@media (max-width:600px) {
+  body[data-tier-editorial="auto"] #contentText > .tier-movement-heading {
+    font-size:clamp(18px,1.4rem,23px);
+  }
+  body[data-tier-editorial="auto"] #contentText > .tier-movement-heading .tier-movement-count {
+    font-size:17px;
+  }
+}
