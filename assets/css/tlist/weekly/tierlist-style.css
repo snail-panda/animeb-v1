@@ -1101,7 +1101,7 @@ body[data-tier-editorial="auto"] #conclusionText > .tier-editorial-subheading {m
 .tierlist-image.has-live-tier-board #tierImage,.tierlist-image.has-live-tier-board > .tier-image-touch-hint {display:none;}
 .live-tier-wrap {min-width:0;}
 .live-tier-board {width:100%;background:#191c18;border:1px solid #b7b8a9;border-radius:6px;overflow:hidden;box-shadow:0 3px 10px #252b2022;box-sizing:border-box;container-type:inline-size;}
-.live-tier-row {display:grid;grid-template-columns:12% minmax(0,1fr);border-bottom:1px solid #45483e;}
+.live-tier-row {display:grid;grid-template-columns:12% minmax(0,1fr);border-bottom:0;}
 .live-tier-row:last-child {border-bottom:0;}
 .live-tier-label {display:flex;align-items:center;justify-content:center;text-align:center;overflow-wrap:anywhere;min-width:0;padding:2px;color:#172017;font:500 clamp(8px,2.25cqw,24px)/1.2 system-ui,sans-serif;}
 .live-tier-cards {display:grid;grid-template-columns:repeat(11,minmax(0,1fr));align-content:start;min-width:0;}
@@ -1373,3 +1373,7 @@ body[data-tier-editorial="auto"] .tier-studio-editorial-content p:last-child {ma
 body[data-tier-editorial="auto"] #contentText > .tier-movement-heading:has(+ .tier-auto-movers > li:is([data-move-kind="demotions"],[data-move-kind="newlyDropped"])) .tier-movement-heading-text {
   color:#544e42;
 }
+
+/* OFFBEAT R1: faint separators on colored tier labels; preserve the dark image-side separators. */
+.live-tier-row:not(:last-child) > .live-tier-label {box-shadow:inset 0 -1px 0 rgba(30,45,35,.16);}
+.live-tier-row:not(:last-child) > .live-tier-cards {border-bottom:1px solid #45483e;}
