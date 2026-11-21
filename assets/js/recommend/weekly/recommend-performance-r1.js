@@ -214,7 +214,7 @@
       const weekCell=create('td');weekCell.append(link);tr.append(weekCell);
       tr.append(create('td','ob-rp-rank',r.rank==null?'—':`#${r.rank}${r.participantCount?' / '+r.participantCount:''}`));
       tr.append(create('td','',num(r.wrp_score)?r.wrp_score.toFixed(2):'—'));
-      tr.append(create('td','',rankStatus(r)));
+      tr.append(create('td',r.rank != null ? 'ob-rp-status-normal' : 'ob-rp-status-special',rankStatus(r)));
       tbody.append(tr);
     }
     table.append(tbody);const tableWrap=create('div','ob-rp-table-wrap');tableWrap.append(table);perf.append(tableWrap);
