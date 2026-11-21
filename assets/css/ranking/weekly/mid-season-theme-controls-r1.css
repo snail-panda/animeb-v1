@@ -1,4 +1,4 @@
-/* OFFBEAT Weekly MID-SEASON Theme Studio R1. Scoped to MID label only. */
+/* OFFBEAT Weekly MID-SEASON Theme Studio R1c. Scoped to MID label only. */
 .ob-mid-studio {
   min-width:0; box-sizing:border-box; padding:11px 12px 12px; margin:12px 0;
   border:1px solid #94ada0; border-radius:9px;
@@ -24,21 +24,33 @@
    optical separation at 8px after viewport scaling. */
 .wrapper > .header :is(.animeb-mid-under,.animeb-mid-above,.animeb-mid-inline,.animeb-mid-stack-label) {
   color:var(--ob-mid-color,var(--animeb-mid-label-color,#91765c)) !important;
-  font-family:'Antonio','Anton',sans-serif !important;
+  font-family:var(--ob-mid-font-family,'Antonio','Anton',sans-serif) !important;
   font-size:var(--ob-mid-desktop-size,8.5px) !important;
   font-weight:var(--ob-mid-desktop-weight,650) !important;
   line-height:1.05 !important;
   letter-spacing:.035em !important;
   -webkit-text-stroke:0 !important;
-  text-shadow:none !important;
+  text-shadow:var(--ob-mid-shadow,none) !important;
   font-synthesis:none;
   white-space:nowrap;
 }
 @media (max-width:768px){
  .wrapper > .header :is(.animeb-mid-under,.animeb-mid-above,.animeb-mid-inline,.animeb-mid-stack-label){
-   font-family:'Barlow Condensed','Roboto Condensed',sans-serif !important;
+   font-family:var(--ob-mid-font-family,'Barlow Condensed','Roboto Condensed',sans-serif) !important;
    font-size:var(--ob-mid-mobile-size,10.5px) !important;
    font-weight:var(--ob-mid-mobile-weight,500) !important;
    letter-spacing:.05em !important;
  }
+}
+
+/* R1c — Below WEEK: lift only the WEEK lettering, not the week number or date.
+   MID-SEASON occupies the space beneath the lifted word at the old baseline. */
+.wrapper > .header .week-title.animeb-mid-below .animeb-week-word > .animeb-week-label {
+  display:inline-block;
+  position:relative;
+  top:-6px;
+}
+.wrapper > .header .week-title.animeb-mid-below .animeb-week-word > .animeb-mid-under {
+  top:calc(100% - 4px);
+  bottom:auto;
 }
