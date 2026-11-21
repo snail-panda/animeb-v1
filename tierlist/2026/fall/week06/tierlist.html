@@ -9,7 +9,7 @@
 <style id="tl05x-style">
 /* TL05X: only N/A destinations within Other Status Changes. */
 body[data-tier-editorial="auto"] #contentText .tier-other-status .tier-motion-to.tl05x-na {
-  color:#898d85;
+  color:#9ca29b;
   font-size:1.6em;
   font-weight:750;
   line-height:1.08;
@@ -19,6 +19,7 @@ body[data-tier-editorial="auto"] #contentText .tier-other-status .tier-motion-to
 @media (max-width:600px) {
   body[data-tier-editorial="auto"] #contentText .tier-other-status .tier-motion-to.tl05x-na { font-size:1.75em; }
 }
+body[data-tier-editorial="auto"] #contentText .tier-other-status .tier-motion-to.tl05x-na .tl05x-slash { font-weight:400; }
 /* Match the existing editorial numeric accent without changing body typography. */
 body[data-tier-editorial="auto"] #conclusionText .tl05x-week12 {
   color:#777954;
@@ -86,6 +87,12 @@ body[data-tier-editorial="auto"] #conclusionText .tl05x-week12 {
   function decorate() {
     content.querySelectorAll('.tier-other-status .tier-motion-to').forEach(element => {
       const target = element.textContent.trim();
+      if (target === 'N/A' && !element.querySelector('.tl05x-slash')) {
+        const slash = document.createElement('span');
+        slash.className = 'tl05x-slash';
+        slash.textContent = '/';
+        element.replaceChildren(document.createTextNode('N'), slash, document.createTextNode('A'));
+      }
       element.classList.toggle('tl05x-na', target === 'N/A' || target === '対象外');
     });
     const walker = document.createTreeWalker(conclusion, NodeFilter.SHOW_TEXT);
