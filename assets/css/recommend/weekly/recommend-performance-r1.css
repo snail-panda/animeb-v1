@@ -326,3 +326,12 @@
   .ob-rp-dialog .ob-rp-summary .ob-rp-metric { padding-left: 5px; padding-right: 5px; }
   .ob-rp-dialog .ob-rp-summary .ob-rp-metric small { font-size: 10px; }
 }
+
+/* OFFBEAT R3b: PC Tier History width only. */
+@media (min-width: 621px) {
+  .ob-rp-dialog .ob-rp-tier-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    width: min(100%, 610px);
+    gap: 14px;
+  }
+}

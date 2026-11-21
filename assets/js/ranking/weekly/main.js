@@ -2662,18 +2662,25 @@ function animebApplyWeeklyPresentation(meta) {
         title.classList.add('mid'); // Mid-Season color for Week 6 by default, or chosen Week 5/7
         if(header.color==='auto')title.style.setProperty('--animeb-week-accent','#215973');
         if(header.labelColor==='auto')title.style.setProperty('--animeb-week-label-color','#215973');
-        const place = ['inline','below','stacked'].includes(header.midSeasonPlacement)?header.midSeasonPlacement:'below';
-        if(place==='below') {
-          title.classList.add('animeb-mid-below');
-          const sub=document.createElement('span');sub.className='animeb-mid-under';sub.textContent='MID-SEASON';title.appendChild(sub);
-        } else if(place==='inline') {
-          const sub=document.createElement('span');sub.className='animeb-mid-inline';sub.textContent='MID-SEASON';title.appendChild(sub);
+        // Four opt-in placements. The old 'stacked' JSON now keeps the date baseline fixed.
+        const place=['inline','below','stacked','above'].includes(header.midSeasonPlacement)?header.midSeasonPlacement:'below';
+        const midColor=goodHex(header.midSeasonColor)?header.midSeasonColor:'#91765c';
+        title.style.setProperty('--animeb-mid-label-color',midColor);
+        document.querySelector('.header')?.style.setProperty('--animeb-mid-label-color',midColor);
+        const sub=document.createElement('span');sub.textContent='MID-SEASON';
+        if(place==='below'||place==='above'){
+          const word=document.createElement('span');word.className='animeb-week-word';
+          label.replaceWith(word);word.append(label);
+          sub.className=place==='below'?'animeb-mid-under':'animeb-mid-above';
+          word.append(sub);
+          if(place==='below')title.classList.add('animeb-mid-below');
+        } else if(place==='inline'){
+          sub.className='animeb-mid-inline';title.append(sub);
         } else {
           const duration=document.querySelector('.header .duration');
-          if(duration) {
+          if(duration){
             const stack=document.createElement('span');stack.className='animeb-mid-stack';
-            const sub=document.createElement('span');sub.className='animeb-mid-stack-label';sub.textContent='MID-SEASON';
-            duration.before(stack);stack.append(sub,duration);
+            sub.className='animeb-mid-stack-label';duration.before(stack);stack.append(sub,duration);
           }
         }
       }

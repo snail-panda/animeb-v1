@@ -4904,3 +4904,32 @@ body[data-animeb-lang="ja"][data-animeb-theme="image"][data-animeb-image-tone="d
   }
 }
 /* OFFBEAT WEEKLY R10 REVIEW CLOSE CONTROL - END */
+
+/* OFFBEAT MID-SEASON R1: four placement options. */
+/* All selectors opt in only when enhanced presentation metadata renders the label. */
+.header .week-title.animeb-week-enhanced .animeb-week-word {
+  display: inline-flex; position: relative; align-items: baseline;
+  line-height: 1;
+}
+.week-title.animeb-week-enhanced.animeb-mid-below { padding-bottom: .48rem; }
+.week-title.animeb-week-enhanced .animeb-week-word .animeb-mid-under,
+.week-title.animeb-week-enhanced .animeb-week-word .animeb-mid-above {
+  position: absolute; left: 0; right: auto; transform: none;
+  white-space: nowrap; font: 650 .53rem/1 'Antonio','Anton',sans-serif;
+  color: var(--animeb-mid-label-color,#91765c); letter-spacing: 0;
+}
+.week-title.animeb-week-enhanced .animeb-week-word .animeb-mid-under { bottom: -.74rem; }
+.week-title.animeb-week-enhanced .animeb-week-word .animeb-mid-above { bottom: calc(100% + 2px); }
+.week-title.animeb-week-enhanced .animeb-mid-inline {
+  color: var(--animeb-mid-label-color,#91765c);
+}
+.header .animeb-mid-stack {
+  display: inline-flex; position: relative; flex-direction: row;
+  align-items: baseline; justify-content: flex-start; gap: 0;
+  margin-left: 1.1px;
+}
+.header .animeb-mid-stack .animeb-mid-stack-label {
+  position: absolute; left: 0; bottom: calc(100% + 1px);
+  color: var(--animeb-mid-label-color,#91765c);
+}
+.header .animeb-mid-stack .duration { margin-left: 0; }
