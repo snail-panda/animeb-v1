@@ -1,4 +1,4 @@
-/* OFFBEAT Recommendations & Enjoyment — Season Performance R1.
+/* OFFBEAT Recommendations & Enjoyment — Season Performance R3 (R2 visual refinement).
    Read-only and edition-scoped. Existing More Details and ranking data stay untouched. */
 (() => {
   'use strict';
@@ -123,8 +123,42 @@
     dialog.addEventListener('close',()=>{requestID++;priorFocus?.focus?.({preventScroll:true});});
     document.body.append(dialog);
   }
-  function infoRow(label,value) {
-    const row=create('div','ob-rp-metric');row.append(create('small','',label),create('strong','',value));return row;
+  function infoRow(label, value, unit = '') {
+    const row = create('div', 'ob-rp-metric');
+    const figure = create('strong', 'ob-rp-metric-value', value);
+    if (unit) figure.append(create('span', 'ob-rp-unit', unit));
+    row.append(create('small', '', label), figure);
+    return row;
+  }
+  function tierCard(week, tierInfo) {
+    const tier = String(tierInfo?.tier || '').trim();
+    const rated = /^(?:S{1,3}|[ABCD])$/i.test(tier);
+    const kind = rated ? tier.toLowerCase() : /^(?:not yet aired|not aired yet|nya)$/i.test(tier) ? 'not-aired'
+      : /^dropped$/i.test(tier) ? 'dropped' : 'neutral';
+    const card = create('div', `ob-rp-tier-card ob-rp-tier-${kind}`);
+    const meta = create('div', 'ob-rp-tier-meta');
+    const stage = week === 1 ? t('FIRST IMPRESSION', '初回評価')
+      : week === 6 ? t('MID-SEASON', '中間評価')
+      : week === 12 ? t('SEASON FINALE', '最終評価') : t('CHECKPOINT', '評価時点');
+    meta.append(create('span', 'ob-rp-tier-stage', stage), create('span', 'ob-rp-tier-week', `W${fmtWeek(week)}`));
+    card.append(meta);
+    const result = create('div', 'ob-rp-tier-result');
+    if (!tierInfo) {
+      result.append(create('span', 'ob-rp-tier-status', '—'));
+    } else {
+      const mark = create('div', 'ob-rp-tier-mark');
+      const displayed = ja ? ({'not yet aired':'放送待ち','not aired yet':'放送待ち',dropped:'対象外'}[tier.toLowerCase()] || tier) : tier;
+      mark.append(create('strong', rated ? 'ob-rp-tier-letter' : 'ob-rp-tier-status', displayed));
+      if (rated) mark.append(create('span', 'ob-rp-tier-kind', t('Tier', 'ティア')));
+      result.append(mark);
+      if (num(tierInfo.position) && tierInfo.position > 0) {
+        const pos = create('span', 'ob-rp-tier-position');
+        pos.append(create('b', '', `#${tierInfo.position}`), create('small', '', rated ? t('in tier', 'ティア内') : t('in group', '区分内')));
+        result.append(pos);
+      }
+    }
+    card.append(result);
+    return card;
   }
   function addSection(parent, en, jp) {const sec=create('section','ob-rp-section');sec.append(create('h3','',t(en,jp)));parent.append(sec);return sec;}
   function rankStatus(r) {
@@ -183,7 +217,7 @@
       if (!json) continue;
       const row=tierFor(json,entry);
       // An absent title is not interpreted as Dropped or N/A.
-      tierGrid.append(infoRow(`W${fmtWeek(w)}`,row?`${row.tier} · #${row.position}`:'—'));
+      tierGrid.append(tierCard(w, row));
     }
     if(tierGrid.childElementCount)tiers.append(tierGrid);
     else tiers.append(create('p','ob-rp-muted',t('Tier history is unavailable.','Tier履歴を取得できません。')));
@@ -196,8 +230,12 @@
       const summary=create('div','ob-rp-summary');
       const best=Math.min(...rated.map(r=>r.rank));
       const scores=rated.map(r=>r.wrp_score).filter(num);
-      summary.append(infoRow(t('Rated weeks','評価週数'),String(rated.length)),infoRow(t('Best rank','最高順位'),`#${best}`));
-      if(scores.length)summary.append(infoRow(t('Average weekly WRP','週間WRP平均'),(scores.reduce((a,b)=>a+b,0)/scores.length).toFixed(2)));
+      summary.append(
+        infoRow(t('Rated weeks','評価週数'), String(rated.length), t('weeks','週')),
+        infoRow(t('Best rank','最高順位'), `#${best}`, t('', '位'))
+      );
+      if(scores.length)summary.append(infoRow(t('Average weekly WRP','週間WRP平均'),
+        (scores.reduce((a,b)=>a+b,0)/scores.length).toFixed(2), t('pts','点')));
       perf.append(summary);
       const charts=create('div','ob-rp-charts');
       for(const chart of [svgChart(records,'wrp_score',t('Weekly WRP','週間WRP'),false),svgChart(records,'rank',t('Weekly rank','週間順位'),true)]) if(chart)charts.append(chart);

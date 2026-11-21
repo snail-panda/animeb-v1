@@ -1,4 +1,4 @@
-/* OFFBEAT Recommendation & Enjoyment Season Performance R2.
+/* OFFBEAT Recommendation & Enjoyment Season Performance R3.
    Scoped typography and responsive composition; no changes to ranking data. */
 .animeb-info-card img.animeb-kv[data-ob-rp-bound],
 .animeb-enjoyment-card img.animeb-kv[data-ob-rp-bound] { cursor: pointer; }
@@ -36,11 +36,11 @@
   justify-content: space-between;
   gap: 12px;
   padding: 9px 16px;
-  border-bottom: 1px solid #d0d5c9;
-  background: #e9ede1;
+  border-bottom: 1px solid #d8d5c7;
+  background: #f0efe5;
 }
 .ob-rp-dialog .ob-rp-kicker {
-  color: #526e54;
+  color: #605c50;
   font: 700 12px/1.25 system-ui, -apple-system, sans-serif;
   letter-spacing: .075em;
 }
@@ -50,12 +50,12 @@
   border: 1px solid #c5ccbf;
   border-radius: 5px;
   background: #fcfbf4;
-  color: #405448;
+  color: #44433c;
   font: 600 13px/1.3 system-ui, -apple-system, sans-serif;
   cursor: pointer;
 }
 .ob-rp-dialog .ob-rp-close:focus-visible {
-  outline: 2px solid #558254;
+  outline: 2px solid #ad8156;
   outline-offset: 2px;
 }
 .ob-rp-dialog .ob-rp-content { padding: 18px 22px 23px; }
@@ -87,13 +87,13 @@
   padding: 0;
   border: 0;
   background: none;
-  color: #304035;
+  color: #353731;
   font: 600 20px/1.32 Georgia, 'EB Garamond', serif;
 }
 .ob-rp-dialog .ob-rp-names small {
   display: block;
   margin: 5px 0 0;
-  color: #6c756b;
+  color: #77776f;
   font: 400 12.5px/1.4 system-ui, -apple-system, sans-serif;
 }
 
@@ -103,36 +103,109 @@
   border-top: 1px solid #d5dbd1;
 }
 .ob-rp-dialog .ob-rp-section h3 {
-  margin: 0 0 10px;
-  padding: 0;
+  margin: 0 0 11px;
+  padding: 0 0 0 10px;
   border: 0;
-  color: #465748;
-  font: 600 18px/1.32 Georgia, 'EB Garamond', serif;
+  border-left: 2px solid #c99568;
+  color: #45433c;
+  font: 600 17px/1.36 Georgia, 'EB Garamond', serif;
 }
 
-/* Tier tiles and the 3-value summary read as compact, distinct groups. */
+/* Edition cards: small stage/week metadata; tier and in-tier position are different things. */
 .ob-rp-dialog .ob-rp-tier-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(135px, 190px));
+  grid-template-columns: repeat(auto-fit, minmax(145px, 205px));
   justify-content: start;
   gap: 10px;
   margin: 0 0 11px;
 }
-.ob-rp-dialog .ob-rp-tier-grid .ob-rp-metric {
-  padding: 7px 10px 8px;
-  border: 1px solid #e0e2d7;
+.ob-rp-dialog .ob-rp-tier-card {
+  --ob-rp-tier-accent: #77766e;
+  min-width: 0;
+  padding: 9px 11px 10px;
+  border: 1px solid #e3ddcf;
+  border-top: 3px solid var(--ob-rp-tier-accent);
   border-radius: 5px;
-  background: #f4f3e9;
+  background: #f5f1e7;
 }
+.ob-rp-dialog .ob-rp-tier-s,
+.ob-rp-dialog .ob-rp-tier-ss,
+.ob-rp-dialog .ob-rp-tier-sss { --ob-rp-tier-accent: #a27c35; }
+.ob-rp-dialog .ob-rp-tier-a { --ob-rp-tier-accent: #ae795b; }
+.ob-rp-dialog .ob-rp-tier-b { --ob-rp-tier-accent: #809064; }
+.ob-rp-dialog .ob-rp-tier-c { --ob-rp-tier-accent: #648b8a; }
+.ob-rp-dialog .ob-rp-tier-d { --ob-rp-tier-accent: #8a8791; }
+.ob-rp-dialog .ob-rp-tier-dropped,
+.ob-rp-dialog .ob-rp-tier-neutral { --ob-rp-tier-accent: #a09b90; }
+.ob-rp-dialog .ob-rp-tier-not-aired { --ob-rp-tier-accent: #83a9ba; }
+.ob-rp-dialog .ob-rp-tier-meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 6px;
+  align-items: baseline;
+  color: #767467;
+  line-height: 1.3;
+}
+.ob-rp-dialog .ob-rp-tier-stage {
+  min-width: 0;
+  font: 650 10px/1.3 system-ui, -apple-system, sans-serif;
+  letter-spacing: .045em;
+}
+.ob-rp-dialog .ob-rp-tier-week {
+  flex: 0 0 auto;
+  font: 500 11px/1.3 system-ui, -apple-system, sans-serif;
+  color: #858075;
+  font-variant-numeric: tabular-nums;
+}
+.ob-rp-dialog .ob-rp-tier-result {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 3px 7px;
+  margin-top: 6px;
+}
+.ob-rp-dialog .ob-rp-tier-mark { display: flex; align-items: baseline; min-width: 0; gap: 5px; }
+.ob-rp-dialog .ob-rp-tier-letter {
+  color: var(--ob-rp-tier-accent);
+  font: 700 25px/1 Georgia, 'EB Garamond', serif;
+}
+.ob-rp-dialog .ob-rp-tier-kind {
+  color: #7b766a;
+  font: 500 11px/1.2 system-ui, -apple-system, sans-serif;
+}
+.ob-rp-dialog .ob-rp-tier-status {
+  color: var(--ob-rp-tier-accent);
+  font: 600 12.5px/1.2 system-ui, -apple-system, sans-serif;
+  overflow-wrap: anywhere;
+}
+.ob-rp-dialog .ob-rp-tier-position {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  text-align: right;
+  color: #55534a;
+  font-variant-numeric: tabular-nums;
+}
+.ob-rp-dialog .ob-rp-tier-position b {
+  font: 600 17px/1.05 Georgia, 'EB Garamond', serif;
+}
+.ob-rp-dialog .ob-rp-tier-position small {
+  margin-top: 2px;
+  color: #89857b;
+  font: 400 10px/1.15 system-ui, -apple-system, sans-serif;
+}
+
+/* Three statistics remain a group; labels recede and numbers carry the emphasis. */
 .ob-rp-dialog .ob-rp-summary {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 0;
   margin: 0 0 13px;
   overflow: hidden;
-  border: 1px solid #e0e2d7;
+  border: 1px solid #e2ddcf;
   border-radius: 6px;
-  background: #f4f3e9;
+  background: #f6f2e8;
 }
 .ob-rp-dialog .ob-rp-summary .ob-rp-metric {
   min-width: 0;
@@ -140,19 +213,26 @@
   border: 0;
 }
 .ob-rp-dialog .ob-rp-summary .ob-rp-metric + .ob-rp-metric {
-  border-left: 1px solid #dfe1d6;
+  border-left: 1px solid #e1dccf;
 }
 .ob-rp-dialog .ob-rp-metric small {
   display: block;
-  color: #637163;
+  color: #77766d;
   font: 400 12px/1.3 system-ui, -apple-system, sans-serif;
 }
 .ob-rp-dialog .ob-rp-metric strong {
   display: block;
-  margin-top: 3px;
-  color: #36463b;
-  font: 600 18px/1.25 Georgia, 'EB Garamond', serif;
+  margin-top: 4px;
+  color: #393d37;
+  font: 600 20px/1.18 Georgia, 'EB Garamond', serif;
   overflow-wrap: anywhere;
+}
+.ob-rp-dialog .ob-rp-unit {
+  display: inline;
+  margin-left: 4px;
+  color: #8b8579;
+  font: 400 10.5px/1 system-ui, -apple-system, sans-serif;
+  white-space: nowrap;
 }
 
 .ob-rp-dialog .ob-rp-charts {
@@ -164,7 +244,7 @@
 .ob-rp-dialog .ob-rp-chart { min-width: 0; margin: 0; }
 .ob-rp-dialog .ob-rp-chart figcaption {
   margin: 0 0 3px;
-  color: #455248;
+  color: #4b4a42;
   font: 600 13px/1.3 system-ui, -apple-system, sans-serif;
 }
 .ob-rp-dialog .ob-rp-chart svg {
@@ -174,7 +254,7 @@
   overflow: visible;
 }
 .ob-rp-dialog .ob-rp-chart svg text {
-  fill: #697769;
+  fill: #73796e;
   font: 9px system-ui, -apple-system, sans-serif;
 }
 .ob-rp-dialog .ob-rp-chart .ob-rp-grid { stroke: #d6dfd0; stroke-width: 1; }
@@ -185,7 +265,7 @@
 .ob-rp-dialog .ob-rp-table {
   width: 100%;
   border-collapse: collapse;
-  color: #39463b;
+  color: #45443f;
   text-align: left;
   font: 400 13px/1.45 system-ui, -apple-system, sans-serif;
   font-variant-numeric: tabular-nums;
@@ -196,7 +276,7 @@
   border-bottom: 1px solid #dce1d6;
   white-space: nowrap;
 }
-.ob-rp-dialog .ob-rp-table th { color: #5c6d5e; font-weight: 600; }
+.ob-rp-dialog .ob-rp-table th { color: #6d6b60; font-weight: 600; }
 .ob-rp-dialog .ob-rp-table a { color: #466d42; text-decoration: underline; font-weight: 600; }
 .ob-rp-dialog .ob-rp-status-normal { color: #768075; }
 .ob-rp-dialog .ob-rp-muted {
@@ -220,12 +300,19 @@
   .ob-rp-dialog .ob-rp-names h2 { font-size: 17px; line-height: 1.32; }
   .ob-rp-dialog .ob-rp-names small { font-size: 12px; }
   .ob-rp-dialog .ob-rp-section { margin-top: 12px; padding-top: 12px; }
-  .ob-rp-dialog .ob-rp-section h3 { font-size: 16.5px; margin-bottom: 9px; }
+  .ob-rp-dialog .ob-rp-section h3 { font-size: 15.5px; margin-bottom: 9px; }
   .ob-rp-dialog .ob-rp-tier-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
-  .ob-rp-dialog .ob-rp-tier-grid .ob-rp-metric { padding: 7px 9px; }
+  .ob-rp-dialog .ob-rp-tier-card { padding: 7px 8px 9px; }
+  .ob-rp-dialog .ob-rp-tier-stage { font-size: 9.3px; letter-spacing: .015em; }
+  .ob-rp-dialog .ob-rp-tier-week { font-size: 10px; }
+  .ob-rp-dialog .ob-rp-tier-letter { font-size: 23px; }
+  .ob-rp-dialog .ob-rp-tier-position b { font-size: 16px; }
+  .ob-rp-dialog .ob-rp-tier-kind { font-size: 10px; }
+  .ob-rp-dialog .ob-rp-tier-status { font-size: 11px; }
   .ob-rp-dialog .ob-rp-summary .ob-rp-metric { padding: 8px 7px 9px; }
   .ob-rp-dialog .ob-rp-summary .ob-rp-metric small { min-height: 28px; font-size: 10.8px; line-height: 1.25; }
-  .ob-rp-dialog .ob-rp-summary .ob-rp-metric strong { font-size: 17px; }
+  .ob-rp-dialog .ob-rp-summary .ob-rp-metric strong { font-size: 18px; }
+  .ob-rp-dialog .ob-rp-unit { margin-left: 3px; font-size: 9px; }
   .ob-rp-dialog .ob-rp-charts { grid-template-columns: minmax(0, 1fr); gap: 9px; margin: 10px 0 12px; }
   .ob-rp-dialog .ob-rp-chart { width: min(100%, 315px); margin: 0 auto; }
   .ob-rp-dialog .ob-rp-chart figcaption { font-size: 13px; }
