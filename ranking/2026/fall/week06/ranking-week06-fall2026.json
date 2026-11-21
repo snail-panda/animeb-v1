@@ -38,11 +38,14 @@
         "labelColor": "red",
         "customLabelColor": "#215973",
         "midSeasonLabel": "auto",
-        "midSeasonPlacement": "stacked"
+        "midSeasonPlacement": "stacked",
+        "midSeasonColor": "#562a98"
       },
       "satisfaction": {
         "value10": 6,
-        "displayScale": 5
+        "displayScale": 5,
+        "editorialLabelEn": "Low-key Rough",
+        "editorialLabelJa": "物足りない"
       }
     },
     "bottom_of_week": {
@@ -595,6 +598,15 @@
             "en": "Skipped this week\nNo broadcast this week. Episode 7 is scheduled to air sequentially starting November 16.",
             "ja": "放送休止、第7話は11月16日移行順次放送予定"
           }
+        }
+      ]
+    },
+    "not_aired_yet_details": {
+      "schema": "animeb-not-yet-aired-v1",
+      "items": [
+        {
+          "title": "Fool Night",
+          "scheduled_date": "2026/11/26"
         }
       ]
     }
