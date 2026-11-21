@@ -456,7 +456,30 @@ function renderTierEditorial(data, meta, lang = "en") {
     return el;
   };
   const para = (root, text) => root.append(make("p", text));
-  const countedPara=(root,text)=>{const p=make('p');for(const part of text.split(/(\b\d+ titles?\b|\b\d+(?= in the rated tiers| marked as Dropped| outside the rated tiers| moved up| moved down)|\d+作品)/g)){if(!part)continue;p.append(/^\d+(?: titles?|作品)?$/.test(part)?make('strong',part,'tier-auto-count'):document.createTextNode(part));}root.append(p);};
+   const countedPara=(root,text)=>{
+     const p=make("p");
+     const re=/\d+(?:\.\d+)?/g;
+     let last=0,m;
+     while((m=re.exec(text))!==null){
+       const start=m.index, end=start+m[0].length;
+       const before=text.slice(Math.max(0,start-60),start);
+       const after=text.slice(end,end+60);
+       const isDateOrTitle=Number(m[0])>999 || /^0\d/.test(m[0]) ||
+         /[A-Za-z0-9#]$/.test(before) || /^[A-Za-z0-9]/.test(after) ||
+         /(?:\b(?:week|w|ep(?:isode)?s?|part|season)\s*\.?\s*|\u7b2c\s*)$/i.test(before) ||
+         /^\s*(?:\u9031|\u8a71|\u5e74|\u671f|\u30af\u30fc\u30eb)/.test(after);
+       const countAfter=/^\s*(?:titles?\b|shows?\b|tiers?\b|rated\b|marked\b|outside\b|moved\b|awaiting\b|newly\b|of\s+the\b|to\b|from\b|are\s+(?:in|marked|outside|awaiting)\b|\u4f5c\u54c1|\u6bb5\u968e|\u4f4d|\u70b9|\u304b\u3089|\u3078|\u306e\u3046\u3061)/i.test(after);
+       const countBefore=/(?:\b(?:from|to|between|average|mean|WRP|top|rated|with|including|contains?)\s*|(?:\u4e0a\u4f4d|\u5e73\u5747|\u8a55\u4fa1\u5bfe\u8c61|\u6607\u683c|\u964d\u683c|\u4f5c\u54c1\u6570|\u30c9\u30ed\u30c3\u30d7)\s*)$/i.test(before);
+       const bracketedCount=/^\s*\)/.test(after) && /\b(?:[A-D]|group|tier)\s*\(\s*$/i.test(before);
+       const important=!isDateOrTitle && (m[0].includes('.') || countAfter || countBefore || bracketedCount);
+       if(!important)continue;
+       if(start>last)p.append(document.createTextNode(text.slice(last,start)));
+       p.append(make("strong",m[0],"tier-auto-count"));
+       last=end;
+     }
+     if(last<text.length)p.append(document.createTextNode(text.slice(last)));
+     root.append(p);
+   };
   const heading = (root, text) => root.append(make("h3", text, "tier-editorial-subheading"));
   [intro, content, conclusion].forEach(el => el.replaceChildren());
   // Fail closed rather than displaying a previous season's copied text.
@@ -482,7 +505,7 @@ function renderTierEditorial(data, meta, lang = "en") {
    // TL05S Editorial bridge. The exported text is already resolved by Studio.
    const studioSections=data.articleEditorial?.schemaVersion===1?data.articleEditorial?.sections?.[lang]:null;
    const studioText=part=>typeof studioSections?.[part]?.text==='string'&&studioSections[part].text.trim()?studioSections[part].text.trim():'';
-   const studioParagraphs=(root,body)=>body.split(/\n\s*\n/).filter(x=>x.trim()).forEach(t=>(root===intro||root===conclusion?countedPara:para)(root,t.trim()));
+   const studioParagraphs=(root,body)=>body.split(/\n\s*\n/).filter(x=>x.trim()).forEach(t=>countedPara(root,t.trim()));
   const addCustom = (root, key) => {
     if (typeof custom?.[key] === "string" && custom[key].trim()) custom[key].trim().split(/\n\s*\n/).forEach(t => para(root,t));
   };

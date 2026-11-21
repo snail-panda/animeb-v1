@@ -1073,7 +1073,7 @@ body[data-tier-editorial="auto"] #conclusionText > .tier-editorial-subheading {m
   body[data-tier-editorial="auto"] .tier-stat-part + .tier-stat-part {padding-left:.42rem;}
   body[data-tier-editorial="auto"] .tier-auto-table th,body[data-tier-editorial="auto"] .tier-auto-table td {padding:.48rem .27rem;}
   body[data-tier-editorial="auto"] .tier-auto-movers li {grid-template-columns:minmax(0,1fr);gap:.43rem;padding:1.12rem 0;}
-  body[data-tier-editorial="auto"] .tier-auto-mover-title {font-size:17px;line-height:1.42;}
+  body[data-tier-editorial="auto"] .tier-auto-mover-title {font-size:17px;line-height:1.42;font-weight:550;}
   body[data-tier-editorial="auto"] .tier-auto-motion {justify-content:flex-start;gap:.25rem .55rem;margin-top:.35rem;}
   body[data-tier-editorial="auto"] .tier-auto-transition {font-size:14.5px;}
   body[data-tier-editorial="auto"] [data-move-kind="promotions"] .tier-motion-to,
@@ -1312,11 +1312,11 @@ body[data-tier-editorial="auto"] #contentText > .tier-movement-heading .tier-mov
 }
 /* Use the existing movement kind, not the translated heading text. */
 body[data-tier-editorial="auto"] #contentText > .tier-movement-heading:has(+ .tier-auto-movers > li[data-move-kind="promotions"]) {
-  --tier-heading-icon:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M12%2020V4%20M8.6%207.5L12%204L15.4%207.5%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%222.25%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%3C%2Fsvg%3E");
+  --tier-heading-icon:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M12%2022V2%20M8.6%205.5L12%202L15.4%205.5%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%222.25%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%3C%2Fsvg%3E");
   --tier-heading-mark-color:#73865a;
 }
 body[data-tier-editorial="auto"] #contentText > .tier-movement-heading:has(+ .tier-auto-movers > li[data-move-kind="demotions"]) {
-  --tier-heading-icon:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M12%204V20%20M8.6%2016.5L12%2020L15.4%2016.5%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%222.25%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%3C%2Fsvg%3E");
+  --tier-heading-icon:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M12%202V22%20M8.6%2018.5L12%2022L15.4%2018.5%22%20fill%3D%22none%22%20stroke%3D%22black%22%20stroke-width%3D%222.25%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%3C%2Fsvg%3E");
   --tier-heading-mark-color:#ab766c;
 }
 body[data-tier-editorial="auto"] #contentText > .tier-movement-heading:has(+ .tier-auto-movers > li[data-move-kind="newlyDropped"]) {
@@ -1348,6 +1348,9 @@ body[data-tier-editorial="auto"] #contentText > .tier-movement-heading:has(+ .ti
 @media (max-width:600px) {
   body[data-tier-editorial="auto"] #contentText > .tier-movement-heading {
     font-size:clamp(19px,1.45rem,24px);
+  }
+  body[data-tier-editorial="auto"] #contentText > .tier-movement-heading:has(+ .tier-auto-movers > li:is([data-move-kind="promotions"],[data-move-kind="demotions"])) {
+    font-size:clamp(21px,1.58rem,26px);
   }
   body[data-tier-editorial="auto"] #contentText > .tier-movement-heading .tier-movement-heading-text {
     -webkit-text-stroke:.16px currentColor;
