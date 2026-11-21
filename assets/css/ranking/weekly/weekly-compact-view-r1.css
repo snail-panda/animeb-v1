@@ -1,4 +1,4 @@
-/* OFFBEAT Weekly Ranking Compact View R1 -- completely scoped to AWC components */
+/* OFFBEAT Weekly Ranking Compact View R2 -- completely scoped to AWC components */
 .awc-switch, .awc-list { --awc-bg:#f8f7ee;--awc-card:#fdfcf5;--awc-edge:#dce0d5;--awc-text:#2e3934;--awc-muted:#707970;--awc-top:#b4773c;--awc-up:#416f4b;--awc-down:#a65d57;--awc-new:#52718a; }
 body[data-animeb-theme="dark"] :is(.awc-switch,.awc-list),
 body[data-animeb-theme="image"][data-animeb-image-tone="dark"] :is(.awc-switch,.awc-list) {
@@ -70,3 +70,97 @@ body[data-animeb-theme="image"][data-animeb-image-scope="full"] .awc-switch {pos
   .awc-metric-caption{font-size:7.5px;}
   .awc-metric-value{font-size:11px;}
 }
+
+/* ===== R2 — sticky switch above the ranked table (not under a KV) ===== */
+.awc-switch {
+  position: sticky !important;
+  top: var(--awc-sticky-top, 6px) !important;
+  z-index: 10000 !important;
+  isolation: isolate;
+  opacity: 1;
+  background: var(--awc-bg) !important;
+  box-shadow: 0 3px 11px rgba(0,0,0,.22);
+}
+/* The transparent full-page Image theme must NOT turn the switch relative. */
+body[data-animeb-theme="image"][data-animeb-image-scope="full"] .awc-switch {
+  position: sticky !important;
+  z-index: 10000 !important;
+}
+/* Always give the switch its own row immediately preceding the table header. */
+.awc-switch + .table-header-mount {clear:both;}
+.awc-switch:focus-within {z-index:10001 !important;}
+/* Extra ranks are not numeric. Keep their editorial identity inside the rank slot. */
+.awc-rank-special {min-width:0;max-width:100%;gap:4px;text-align:center;}
+.awc-rank-special .awc-rank-number {
+  display:block;max-width:100%;font:800 10px/1.08 'Fira Sans','Yu Gothic UI',sans-serif;
+  letter-spacing:.01em;white-space:normal;overflow-wrap:anywhere;
+  color:var(--awc-muted);text-align:center;
+}
+.awc-special-fullrank {display:block;font:700 9px/1 Georgia,serif;color:var(--awc-text);}
+.awc-rank-special .awc-trend {max-width:100%;white-space:normal;text-align:center;justify-content:center;}
+.awc-row {overflow:clip;}
+.awc-poster.animeb-kv-view-trigger {cursor:zoom-in;outline-offset:2px;}
+.awc-poster.animeb-kv-view-trigger:focus-visible {outline:2px solid var(--awc-up);}
+@media(max-width:768px){
+  .awc-rank-special .awc-rank-number {font-size:8.5px;line-height:1.13;letter-spacing:-.02em;}
+  .awc-special-fullrank {font-size:8px;}
+  .awc-switch {z-index:10000 !important;}
+}
+/* ===== R2 — Bottom of the Week shares Compact mode =====
+   The original section remains in the DOM, so its info/review details and KV
+   lightbox retain the published behavior. Display-only changes in Compact. */
+body.animeb-weekly-compact-mode .animeb-bottom-week {
+  margin:24px 0 20px !important;
+  padding:14px 12px !important;
+}
+body.animeb-weekly-compact-mode .animeb-bottom-items {display:grid;grid-template-columns:minmax(0,1fr);gap:6px;}
+body.animeb-weekly-compact-mode .animeb-bottom-item {
+  display:grid;grid-template-columns:52px minmax(0,1fr);align-items:center;gap:12px;
+  padding:9px 10px;margin:3px 0;min-height:76px;box-sizing:border-box;
+  border:1px solid var(--awc-edge,#657477);border-radius:7px;
+  background:var(--awc-card,#192a32);
+}
+body.animeb-weekly-compact-mode .animeb-bottom-poster {width:52px !important;max-width:52px;height:auto !important;aspect-ratio:4/5;}
+body.animeb-weekly-compact-mode .animeb-bottom-name {font-size:.9rem;line-height:1.25;}
+body.animeb-weekly-compact-mode .animeb-bottom-episode-title,
+body.animeb-weekly-compact-mode .animeb-bottom-comment {display:none !important;}
+body.animeb-weekly-compact-mode .animeb-bottom-score {margin-top:3px;font-size:.75rem;}
+body.animeb-weekly-compact-mode .animeb-bottom-actions {margin-top:5px;gap:8px 13px;}
+/* Details can expand while Compact remains active. */
+body.animeb-weekly-compact-mode .animeb-bottom-details[open]{flex-basis:100%;}
+/* ===== R2 — Dropped Titles compact rows, including Prelim eliminations ===== */
+body.animeb-weekly-compact-mode .animeb-dropped-titles {margin-top:24px !important;padding:14px 12px !important;}
+body.animeb-weekly-compact-mode .animeb-dropped-explanation {font-size:.75rem;margin:5px 0 9px;}
+body.animeb-weekly-compact-mode .animeb-dropped-list {display:grid;grid-template-columns:minmax(0,1fr);gap:6px;}
+body.animeb-weekly-compact-mode .animeb-dropped-card {
+  display:grid;grid-template-columns:52px minmax(0,1fr);gap:12px;align-items:center;
+  padding:9px 10px;margin:3px 0;min-height:74px;box-sizing:border-box;
+  border:1px solid var(--awc-edge,#657477);border-radius:7px;
+  background:var(--awc-card,#192a32);scroll-margin-top:170px;
+}
+body.animeb-weekly-compact-mode .animeb-drop-poster:not(.animeb-drop-poster-mini) {width:52px !important;max-width:52px;height:auto !important;aspect-ratio:4/5;}
+body.animeb-weekly-compact-mode .animeb-dropped-name {font-size:.85rem;line-height:1.3;}
+body.animeb-weekly-compact-mode .animeb-dropped-reason {display:none;}
+body.animeb-weekly-compact-mode .animeb-dropped-go {font-size:.68rem;}
+body.animeb-weekly-compact-mode .animeb-drop-rating {font-size:.67rem;}
+@media(max-width:450px){
+  body.animeb-weekly-compact-mode .animeb-bottom-week,
+  body.animeb-weekly-compact-mode .animeb-dropped-titles {margin-left:0 !important;margin-right:0 !important;padding:11px 8px !important;}
+  body.animeb-weekly-compact-mode .animeb-bottom-item,
+  body.animeb-weekly-compact-mode .animeb-dropped-card {grid-template-columns:43px minmax(0,1fr);gap:9px;padding:7px 8px;min-height:70px;}
+  body.animeb-weekly-compact-mode .animeb-bottom-poster,
+  body.animeb-weekly-compact-mode .animeb-drop-poster:not(.animeb-drop-poster-mini) {width:43px !important;max-width:43px;}
+  body.animeb-weekly-compact-mode .animeb-bottom-name,
+  body.animeb-weekly-compact-mode .animeb-dropped-name {font-size:.77rem;}
+}
+
+/* Theme-conscious colors for compact Bottom / Dropped rows, without modifying source theme. */
+body.animeb-weekly-compact-mode .animeb-bottom-item,
+body.animeb-weekly-compact-mode .animeb-dropped-card {--awc-edge:#dce0d5;--awc-card:#fdfcf5;}
+body.animeb-weekly-compact-mode[data-animeb-theme="dark"] :is(.animeb-bottom-item,.animeb-dropped-card),
+body.animeb-weekly-compact-mode[data-animeb-theme="image"][data-animeb-image-tone="dark"] :is(.animeb-bottom-item,.animeb-dropped-card){--awc-edge:#4c6063;--awc-card:#192a32;}
+
+body.animeb-weekly-compact-mode .animeb-dropped-card.awc-reason-open .animeb-dropped-reason {display:block;margin-top:6px;}
+.awc-reason-toggle {display:none;}
+body.animeb-weekly-compact-mode .awc-reason-toggle {display:inline-block;margin-top:5px;padding:3px 5px;border:1px solid currentColor;border-radius:4px;background:transparent;color:inherit;font:600 .67rem/1.3 system-ui,sans-serif;opacity:.85;cursor:pointer;}
+.awc-reason-toggle:focus-visible {outline:2px solid #8bb9a0;outline-offset:2px;}

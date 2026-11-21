@@ -1,4 +1,4 @@
-/* OFFBEAT Weekly Ranking Compact View R1 (2026-11-21)
+/* OFFBEAT Weekly Ranking Compact View R2 (2026-11-21)
    Self-contained view: the original ranking DOM, JSON, popups and Theme Studio are untouched.
    Uses _animebEntry on original cards; never replaces, moves or mutates original .entry cards.
 */
@@ -40,8 +40,37 @@
   compactList.id = 'animeb-weekly-compact-list';
   compactList.setAttribute('aria-label', 'Weekly ranking compact list / 週間ランキング一覧');
   compactList.hidden = true;
+  // The table-header mount marks the precise start of the ranked section.
+  // Keep this control directly BEFORE it (PC and mobile), never in a row / KV.
   anchor.before(toolbar);
   original.before(compactList);
+
+  // The published header/nav can have different heights on desktop/mobile,
+  // and can be sticky itself. Keep our sticky switch just BELOW visible navigation.
+  let topScheduled = false;
+  function positionSwitch() {
+    topScheduled = false;
+    let occupied = 0;
+    for (const selector of ['#offbeat-global-header', '.nav-bar']) {
+      const bar = document.querySelector(selector);
+      if (!bar) continue;
+      const rect = bar.getBoundingClientRect();
+      const style = getComputedStyle(bar);
+      // Only visible sticky/fixed bars should reserve viewport space.
+      if ((style.position === 'sticky' || style.position === 'fixed') && rect.top <= 180 && rect.bottom > 0) {
+        occupied = Math.max(occupied, rect.bottom);
+      }
+    }
+    toolbar.style.setProperty('--awc-sticky-top', Math.max(4,Math.ceil(occupied + 4)) + 'px');
+  }
+  function scheduleTop() {
+    if (topScheduled) return;
+    topScheduled = true;
+    requestAnimationFrame(positionSwitch);
+  }
+  window.addEventListener('scroll', scheduleTop, {passive:true});
+  window.addEventListener('resize', scheduleTop, {passive:true});
+  positionSwitch();
 
   const setMode = next => {
     mode = next;
@@ -64,6 +93,7 @@
     detailed.textContent = label('Detailed', '詳細');
     compact.textContent = label('Compact', '一覧');
     toolbar.hidden = !ready;
+    scheduleTop();
   }
 
   // A prior-rank number is available on some weeks only. Never invent a numerical delta.
@@ -112,7 +142,20 @@
     const row = el('div', 'awc-row');
     row.dataset.rank = String(data.rank ?? (index + 1));
     const rank = el('div', 'awc-rank');
-    const rankNum = el('strong', 'awc-rank-number', typeof data.rank === 'number' ? String(data.rank).padStart(2,'0') : String(data.rank ?? '—'));
+    const special = typeof data.rank === 'string' && !/^\d+$/.test(data.rank.trim());
+    const specialKey = String(data.rank ?? '').toLowerCase().trim();
+    const shortNames = {'spotlight':'SPOT', "editor's pick":'PICK', 'dookie':'DOOKIE'};
+    const numberLabel = special ? (shortNames[specialKey] || String(data.rank).slice(0,9).toUpperCase())
+      : String(data.rank ?? '—').padStart(2,'0');
+    const rankNum = el('strong', 'awc-rank-number', numberLabel);
+    if (special) {
+      rank.classList.add('awc-rank-special');
+      rankNum.title = String(data.rank);
+      rankNum.setAttribute('aria-label', String(data.rank));
+      const full = source.querySelector('.animeb-extra-reference-rank')?.textContent?.trim();
+      if (full) rank.append(el('span','awc-special-fullrank',full));
+      if (source.querySelector('.animeb-extra-last-label')) rank.classList.add('awc-special-last');
+    }
     const move = trendParts(data);
     const trend = el('span', 'awc-trend awc-trend-' + move.cls, ja() ? move.jp : move.en);
     trend.setAttribute('aria-label', ja() ? move.jp : move.en);
@@ -121,7 +164,8 @@
       icon.setAttribute('aria-hidden','true');
       trend.prepend(icon);
     }
-    rank.append(rankNum,trend);
+    rank.prepend(rankNum);
+    rank.append(trend);
     if (typeof data.rank === 'number' && data.rank >= 1 && data.rank <= 3) rank.classList.add('awc-top-' + data.rank);
 
     const poster = el('div','awc-poster');
@@ -130,9 +174,15 @@
     if (src) {
       const img = el('img', 'awc-poster-image');
       img.src = src;
-      img.alt = '';
+      img.alt = (data.title || data.jpTitle || '') + ' key visual';
       img.loading = 'lazy';
       poster.append(img);
+      // Reuse the published weekly KV lightbox. Its delegated click/key handlers
+      // accept any .animeb-kv-view-trigger with a direct child IMG.
+      poster.classList.add('animeb-kv-view-trigger');
+      poster.setAttribute('role','button');
+      poster.tabIndex = 0;
+      poster.setAttribute('aria-label', label('Enlarge key visual: ','キービジュアルを拡大：') + (ja() ? (data.jpTitle||data.title) : data.title));
     } else poster.classList.add('awc-missing-poster');
 
     const names = el('div','awc-titles');
@@ -185,6 +235,10 @@
     container.append(makeHead());
     sources.forEach((source,i) => container.append(makeRow(source,i)));
     compactList.replaceChildren(container);
+    document.querySelectorAll('.awc-reason-toggle').forEach(toggle => {
+      const open = toggle.getAttribute('aria-expanded') === 'true';
+      toggle.textContent = ja() ? (open ? '理由 ▴' : '理由 ▾') : (open ? 'Reason ▴' : 'Reason ▾');
+    });
     ready = true;
     updateMode();
   }
@@ -193,6 +247,27 @@
     pending = true;
     requestAnimationFrame(() => { pending = false; draw(); });
   }
+  // Dropped Reasons remain accessible in Compact, without duplicating the content.
+  // The source section is mounted asynchronously, after the ranked list.
+  function syncDroppedReasonControls() {
+    document.querySelectorAll('.animeb-dropped-card').forEach(card => {
+      if (card.querySelector('.awc-reason-toggle')) return;
+      const reason = card.querySelector('.animeb-dropped-reason');
+      const copy = card.querySelector('.animeb-dropped-copy');
+      if (!reason || !copy || !reason.textContent.trim()) return;
+      const toggle = el('button','awc-reason-toggle',label('Reason ▾','理由 ▾'));
+      toggle.type = 'button';
+      toggle.setAttribute('aria-expanded','false');
+      toggle.addEventListener('click', () => {
+        const opened = card.classList.toggle('awc-reason-open');
+        toggle.setAttribute('aria-expanded',String(opened));
+        toggle.textContent = ja() ? (opened ? '理由 ▴' : '理由 ▾') : (opened ? 'Reason ▴' : 'Reason ▾');
+      });
+      copy.append(toggle);
+    });
+  }
+  new MutationObserver(syncDroppedReasonControls).observe(original.parentElement, {childList:true});
+  syncDroppedReasonControls();
   new MutationObserver(scheduleDraw).observe(original, {childList: true});
   new MutationObserver(scheduleDraw).observe(document.body, {attributes:true,attributeFilter:['data-animeb-lang','data-animeb-final-week']});
   if ([...original.children].some(n => n._animebEntry)) scheduleDraw();
