@@ -580,6 +580,23 @@
           "kv": "saikyou"
         }
       ]
+    },
+    "broadcast_status": {
+      "schema": "animeb-broadcast-status-v1",
+      "items": [
+        {
+          "title": "So What's Wrong with Getting Reborn as a Goblin?",
+          "kv": "",
+          "jpTitle": "",
+          "status": "no_air",
+          "resume": "unknown",
+          "resume_date": "",
+          "note": {
+            "en": "Skipped this week\nNo broadcast this week. Episode 7 is scheduled to air sequentially starting November 16.",
+            "ja": "放送休止、第7話は11月16日移行順次放送予定"
+          }
+        }
+      ]
     }
   },
   "entries": [
