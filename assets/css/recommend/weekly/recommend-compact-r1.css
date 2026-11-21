@@ -1,10 +1,10 @@
-/* OFFBEAT Recommendations & Enjoyment | Compact view R2
+/* OFFBEAT Recommendations & Enjoyment | Compact view R3
    Detailed mode retains all original card styles. Does not affect modal dialog. */
 #ob-cv-toolbar, #ob-cv-toolbar * { box-sizing:border-box; }
 #ob-cv-toolbar {
-  display:flex;align-items:center;flex-wrap:nowrap;gap:10px;
+  display:flex;align-items:center;flex-wrap:nowrap;gap:8px;
   width:max-content;max-width:100%;
-  margin:8px 0 22px;padding:9px 12px;
+  margin:8px 0 22px;padding:7px 9px;
   background:#f7f5ed;border:1px solid #dedbd0;border-left:3px solid #c98a57;
   border-radius:7px;color:#38403c;
   position:sticky;top:var(--ob-cv-sticky-top,48px);z-index:100;
@@ -12,8 +12,8 @@
 }
 #ob-cv-toolbar .ob-cv-lead{white-space:nowrap;}
 #ob-cv-toolbar .ob-cv-eyebrow{font:650 11px/1.2 'Fira Sans',system-ui,sans-serif;letter-spacing:.11em;color:#6a6e67;}
-#ob-cv-toolbar .ob-cv-actions{display:inline-flex;gap:2px;padding:3px;border:1px solid #d9d6cd;border-radius:5px;background:#eae8df;}
-#ob-cv-toolbar .ob-cv-mode{border:1px solid transparent;border-radius:3px;cursor:pointer;padding:7px 13px;background:transparent;color:#5c615e;font:600 13px/1.15 'Fira Sans',system-ui,sans-serif;white-space:nowrap;}
+#ob-cv-toolbar .ob-cv-actions{display:inline-flex;gap:2px;padding:2px;border:1px solid #d9d6cd;border-radius:5px;background:#eae8df;}
+#ob-cv-toolbar .ob-cv-mode{border:1px solid transparent;border-radius:3px;cursor:pointer;padding:6px 11px;background:transparent;color:#5c615e;font:600 13px/1.15 'Fira Sans',system-ui,sans-serif;white-space:nowrap;}
 #ob-cv-toolbar .ob-cv-mode[aria-pressed="true"]{background:#fffdf8;border-color:#d9d3c6;color:#2f3632;box-shadow:0 1px 3px #0001;}
 #ob-cv-toolbar :is(button,a):focus-visible{outline:2px solid #bd8159;outline-offset:3px;}
 .ob-cv-rank,.ob-cv-open{display:none;}
@@ -97,12 +97,21 @@ body.ob-cv-enabled .ob-cv-open-arrow{font:600 19px/.75 system-ui,sans-serif;}
    continuing in ten-title blocks. Mobile/detailed remain single-column. */
 #ob-cv-enjoyment .ob-cv-ten-block,
 #ob-cv-enjoyment .ob-cv-ten-half{display:contents;}
+/* Block guides belong only to compact two-column desktop view. */
+#ob-cv-enjoyment .ob-cv-ten-title{display:none;}
 @media(min-width:820px){
   body.ob-cv-enabled #ob-cv-enjoyment .ob-cv-ten-block{
     display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
-    gap:10px;align-items:start;
+    column-gap:10px;row-gap:8px;align-items:start;
   }
-  body.ob-cv-enabled #ob-cv-enjoyment .ob-cv-ten-block + .ob-cv-ten-block{margin-top:11px;}
+  body.ob-cv-enabled #ob-cv-enjoyment .ob-cv-ten-block + .ob-cv-ten-block{
+    margin-top:24px;padding-top:13px;border-top:1px solid #e5dfd2;
+  }
+  body.ob-cv-enabled #ob-cv-enjoyment .ob-cv-ten-title{
+    display:block;grid-column:1/-1;margin:0 0 1px;padding:0;
+    color:#967b62;font:600 12px/1.2 'Fira Sans',system-ui,sans-serif;
+    letter-spacing:.08em;text-transform:uppercase;
+  }
   body.ob-cv-enabled #ob-cv-enjoyment .ob-cv-ten-half{
     min-width:0;display:flex;flex-direction:column;gap:4px;
   }
@@ -116,9 +125,9 @@ body.ob-cv-enabled #ob-cv-enjoyment > p.note{
 }
 /* In compact mode images remain original Season Performance triggers. */
 @media(max-width:650px){
-  #ob-cv-toolbar{gap:8px;margin:8px 0 17px;padding:8px 10px;}
+  #ob-cv-toolbar{gap:7px;margin:8px 0 17px;padding:6px 8px;}
   #ob-cv-toolbar .ob-cv-lead{flex:0 0 auto;}
-  #ob-cv-toolbar .ob-cv-mode{padding:6px 9px;font-size:12px;}
+  #ob-cv-toolbar .ob-cv-mode{padding:5px 8px;font-size:12px;}
   body.ob-cv-enabled .section > :is(h1,h2){font-size:1.3rem;}
   body.ob-cv-enabled .section > :is(h1,h2) .class-description{font-size:.55em;}
   body.ob-cv-enabled .animeb-info-card,

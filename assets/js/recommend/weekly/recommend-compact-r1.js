@@ -1,4 +1,4 @@
-/* OFFBEAT Recommendations & Enjoyment | Compact view R2
+/* OFFBEAT Recommendations & Enjoyment | Compact view R3
    Presentation-only: reuse existing, JSON-rendered cards so Season Performance image
    clicks, original reviews, and More Details remain intact in both modes.
    Scope: recommendations pages only. */
@@ -122,6 +122,13 @@
       const left = document.createElement('div');
       const right = document.createElement('div');
       left.className = right.className = 'ob-cv-ten-half';
+      // Small reading guide for desktop columns; hidden in mobile/detailed modes.
+      const heading = document.createElement('h3');
+      heading.className = 'ob-cv-ten-title';
+      const end = Math.min(start + 10, cards.length);
+      const rankRange = `${String(start + 1).padStart(2, '0')}–${String(end).padStart(2, '0')}`;
+      heading.textContent = t(`Ranks ${rankRange}`, `${rankRange}位`);
+      block.append(heading);
       cards.slice(start, start + 5).forEach(card => left.append(card));
       cards.slice(start + 5, start + 10).forEach(card => right.append(card));
       block.append(left, right);
