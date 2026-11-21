@@ -1,20 +1,20 @@
-/* OFFBEAT Recommendations & Enjoyment | Compact view R1
+/* OFFBEAT Recommendations & Enjoyment | Compact view R2
    Detailed mode retains all original card styles. Does not affect modal dialog. */
 #ob-cv-toolbar, #ob-cv-toolbar * { box-sizing:border-box; }
 #ob-cv-toolbar {
-  display:flex;align-items:center;flex-wrap:wrap;gap:10px 16px;
-  margin:8px 0 22px;padding:12px 14px;
+  display:flex;align-items:center;flex-wrap:nowrap;gap:10px;
+  width:max-content;max-width:100%;
+  margin:8px 0 22px;padding:9px 12px;
   background:#f7f5ed;border:1px solid #dedbd0;border-left:3px solid #c98a57;
   border-radius:7px;color:#38403c;
-  position:relative;z-index:1;
+  position:sticky;top:var(--ob-cv-sticky-top,48px);z-index:100;
+  box-shadow:0 2px 7px rgba(33,31,25,.055);
 }
 #ob-cv-toolbar .ob-cv-lead{white-space:nowrap;}
 #ob-cv-toolbar .ob-cv-eyebrow{font:650 11px/1.2 'Fira Sans',system-ui,sans-serif;letter-spacing:.11em;color:#6a6e67;}
 #ob-cv-toolbar .ob-cv-actions{display:inline-flex;gap:2px;padding:3px;border:1px solid #d9d6cd;border-radius:5px;background:#eae8df;}
 #ob-cv-toolbar .ob-cv-mode{border:1px solid transparent;border-radius:3px;cursor:pointer;padding:7px 13px;background:transparent;color:#5c615e;font:600 13px/1.15 'Fira Sans',system-ui,sans-serif;white-space:nowrap;}
 #ob-cv-toolbar .ob-cv-mode[aria-pressed="true"]{background:#fffdf8;border-color:#d9d3c6;color:#2f3632;box-shadow:0 1px 3px #0001;}
-#ob-cv-toolbar .ob-cv-anchors{display:flex;gap:12px;flex-wrap:wrap;margin-left:auto;}
-#ob-cv-toolbar .ob-cv-anchors a{font:500 12px/1.3 'Fira Sans',system-ui,sans-serif;color:#806141;text-decoration:underline;text-underline-offset:3px;white-space:nowrap;}
 #ob-cv-toolbar :is(button,a):focus-visible{outline:2px solid #bd8159;outline-offset:3px;}
 .ob-cv-rank,.ob-cv-open{display:none;}
 #ob-cv-recommend,#ob-cv-enjoyment{scroll-margin-top:25px;}
@@ -92,21 +92,32 @@ body.ob-cv-enabled .ob-cv-open{
 body.ob-cv-enabled .ob-cv-open:hover{background:#efece2;color:#423e38;border-color:#d4c6b5;}
 body.ob-cv-enabled .ob-cv-open:focus-visible{outline:2px solid #bf865a;outline-offset:2px;}
 body.ob-cv-enabled .ob-cv-open-arrow{font:600 19px/.75 system-ui,sans-serif;}
-/* Wider desktop space is used for the long Enjoyment lineup (38 entries).
-   Document order remains unchanged: 1,2 on the first row; 3,4 on the next. */
+/* Original card dimensions are intentionally preserved.
+   Desktop reads 01-05 vertically on the left / 06-10 on the right,
+   continuing in ten-title blocks. Mobile/detailed remain single-column. */
+#ob-cv-enjoyment .ob-cv-ten-block,
+#ob-cv-enjoyment .ob-cv-ten-half{display:contents;}
 @media(min-width:820px){
-  body.ob-cv-enabled #ob-cv-enjoyment{
+  body.ob-cv-enabled #ob-cv-enjoyment .ob-cv-ten-block{
     display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
-    gap:4px 10px;align-items:stretch;
+    gap:10px;align-items:start;
   }
-  body.ob-cv-enabled #ob-cv-enjoyment > :not(.animeb-enjoyment-card){grid-column:1/-1;}
+  body.ob-cv-enabled #ob-cv-enjoyment .ob-cv-ten-block + .ob-cv-ten-block{margin-top:11px;}
+  body.ob-cv-enabled #ob-cv-enjoyment .ob-cv-ten-half{
+    min-width:0;display:flex;flex-direction:column;gap:4px;
+  }
   body.ob-cv-enabled #ob-cv-enjoyment .animeb-enjoyment-card{margin:0!important;}
+}
+/* The global .note has a negative top margin; don't overlap the Enjoyment title. */
+body.ob-cv-enabled #ob-cv-enjoyment > :is(h1,h2){margin-bottom:0!important;}
+body.ob-cv-enabled #ob-cv-enjoyment > p.note{
+  position:relative; margin:8px 0 18px!important;
+  line-height:1.45;
 }
 /* In compact mode images remain original Season Performance triggers. */
 @media(max-width:650px){
-  #ob-cv-toolbar{gap:9px 10px;margin:8px 0 17px;padding:10px 11px;}
+  #ob-cv-toolbar{gap:8px;margin:8px 0 17px;padding:8px 10px;}
   #ob-cv-toolbar .ob-cv-lead{flex:0 0 auto;}
-  #ob-cv-toolbar .ob-cv-anchors{width:100%;margin-left:0;justify-content:space-between;}
   #ob-cv-toolbar .ob-cv-mode{padding:6px 9px;font-size:12px;}
   body.ob-cv-enabled .section > :is(h1,h2){font-size:1.3rem;}
   body.ob-cv-enabled .section > :is(h1,h2) .class-description{font-size:.55em;}
