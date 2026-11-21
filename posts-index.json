@@ -1,8 +1,71 @@
 {
   "schemaVersion": 1,
   "format": "OFFBEAT Post Index",
-  "updatedAt": "2026-11-19T19:55:24.142Z",
+  "updatedAt": "2026-11-21T04:18:10.232Z",
   "posts": [
+    {
+      "id": "post:features/recommend/2026/fall/week06/index.html",
+      "category": "ANIME",
+      "type": "recommendation",
+      "year": 2026,
+      "season": "fall",
+      "week": "06",
+      "url": "features/recommend/2026/fall/week06/index.html",
+      "status": "published",
+      "published": {
+        "iso": "2026-11-20",
+        "display": "November 20, 2026"
+      },
+      "period": {
+        "display": ""
+      },
+      "topN": null,
+      "stage": "mid",
+      "title": {
+        "display": "2026 FALL – Mid-Season Recommendations & Enjoyment Ranking!",
+        "html": "2026 <span class=\"title-season fall\">FALL</span> – <span class=\"title-final\">Mid-Season</span> <span class=\"title-recommendation\">Recommendations</span> &amp; <span class=\"title-enjoyment\">Enjoyment</span> Ranking!",
+        "en": "2026 FALL – Mid-Season Recommendations & Enjoyment Ranking!",
+        "ja": "2026年秋 – Mid-Season オススメ & 満足度ランキング!"
+      },
+      "intro": {
+        "en": "Undoubtedly dull Fall 2026 anime season is already halfway through! Here are my unapologetically personal recommendations alongside a purely private, completely unfiltered and proudly uncensored Enjoyment Ranking. No sanitizing required! I believe you'll appreciate this carefully curated selection of shows I think are worth a look (no guarantees, of course!)",
+        "ja": "紛れもなく\"どん底\"以外の何物でもない今期、2026年秋アニメも早くも中盤を過ぎた今、満を持して？ここに極めて個人的な、何一つ忖度もバイアスも不純物のないピュアなオススメ、そして”楽しんでる”ランキングをお届けしたいと思います。保証はできませんが、きっとお気に入り頂けるのではないかと自負しております…。",
+        "html": "Undoubtedly dull Fall 2026 anime season is already halfway through! Here are my unapologetically personal recommendations alongside a purely private, completely unfiltered and proudly uncensored Enjoyment Ranking. No sanitizing required! I believe you&#39;ll appreciate this carefully curated selection of shows I think are worth a look (no guarantees, of course!)"
+      },
+      "image": {
+        "src": "images/key-visuals/2026/fall/fool.webp",
+        "alt": "2026 fall anime recommendations thumbnail",
+        "wrapperClass": "post-image-mumu",
+        "wrapperStyle": ""
+      },
+      "labels": [
+        {
+          "text": "Ranking",
+          "className": "tag-label tag-ranking"
+        },
+        {
+          "text": "Featured",
+          "className": "tag-label tag-featured"
+        }
+      ],
+      "tags": [
+        "2026",
+        "fall",
+        "week6",
+        "midseason",
+        "anime",
+        "review",
+        "recommendation",
+        "enjoyment-ranking",
+        "recommend",
+        "osusume"
+      ],
+      "tagsRaw": "2026,fall,week6,midseason,anime,review,recommendation,enjoyment-ranking,recommend,osusume",
+      "originalCardHtml": "<div class=\"post-card\" data-tags=\"2026,fall,week6,midseason,anime,review,recommendation,enjoyment-ranking,recommend,osusume\">\n  <div class=\"post-image-mumu\"><a href=\"features/recommend/2026/fall/week06/index.html\"><img src=\"images/key-visuals/2026/fall/fool.webp\" alt=\"2026 fall anime recommendations thumbnail\"></a></div>\n  <div class=\"post-details\"><div class=\"tag-container\"><span class=\"tag-label tag-ranking\">Ranking</span><span class=\"tag-label tag-featured\">Featured</span></div><h3 class=\"post-title\">2026 <span class=\"title-season fall\">FALL</span> – <span class=\"title-final\">Mid-Season</span> <span class=\"title-recommendation\">Recommendations</span> &amp; <span class=\"title-enjoyment\">Enjoyment</span> Ranking!</h3><p class=\"post-date\">November 20, 2026</p><p class=\"post-excerpt\">Undoubtedly dull Fall 2026 anime season is already halfway through! Here are my unapologetically personal recommendations alongside a purely private, completely unfiltered and proudly uncensored Enjoyment Ranking. No sanitizing required! I believe you&#39;ll appreciate this carefully curated selection of shows I think are worth a look (no guarantees, of course!)</p><a href=\"features/recommend/2026/fall/week06/index.html\" class=\"read-more\">Read More →</a></div>\n</div>",
+      "source": {
+        "kind": "recommend-studio"
+      }
+    },
     {
       "id": "post:tierlist/2026/fall/week06/tierlist.html",
       "category": "ANIME",
