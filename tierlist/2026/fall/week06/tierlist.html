@@ -6,6 +6,25 @@
   <title>2025 Spring Anime Tier List – Ep. 7–8</title>
   <link href="https://fonts.googleapis.com/css2?family=EB+Garamond&family=Abel&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../../../../assets/css/tlist/weekly/tierlist-style.css?v=20261120-tl05w">
+<style id="tl05x-style">
+/* TL05X: only N/A destinations within Other Status Changes. */
+body[data-tier-editorial="auto"] #contentText .tier-other-status .tier-motion-to.tl05x-na {
+  color:#898d85;
+  font-size:1.6em;
+  font-weight:750;
+  line-height:1.08;
+  position:relative;
+  top:3px;
+}
+@media (max-width:600px) {
+  body[data-tier-editorial="auto"] #contentText .tier-other-status .tier-motion-to.tl05x-na { font-size:1.75em; }
+}
+/* Match the existing editorial numeric accent without changing body typography. */
+body[data-tier-editorial="auto"] #conclusionText .tl05x-week12 {
+  color:#777954;
+  font-weight:600;
+}
+</style>
 </head>
 
 <body data-tier-editorial="auto">
@@ -58,5 +77,46 @@
 <script src="../../../../assets/js/tierlist/weekly/tierlist-script.js?v=20261120-tl05w"></script>
 <script src="../../../../assets/js/tierlist/weekly/tierlist-nav.js"></script>
 
+<script>
+/* TL05X: Week 06 only; decorate rendered text, not source data. */
+(() => {
+  const content = document.getElementById('contentText');
+  const conclusion = document.getElementById('conclusionText');
+  if (!content || !conclusion) return;
+  function decorate() {
+    content.querySelectorAll('.tier-other-status .tier-motion-to').forEach(element => {
+      const target = element.textContent.trim();
+      element.classList.toggle('tl05x-na', target === 'N/A' || target === '対象外');
+    });
+    const walker = document.createTreeWalker(conclusion, NodeFilter.SHOW_TEXT);
+    const nodes = [];
+    while (walker.nextNode()) {
+      const node = walker.currentNode;
+      if (!node.parentElement || node.parentElement.closest('a, strong, code, script, style')) continue;
+      if (/(?:Week\s*12\b|第\s*12\s*週)/i.test(node.nodeValue)) nodes.push(node);
+    }
+    nodes.forEach(node => {
+      const parts = node.nodeValue.split(/(Week\s*12\b|第\s*12\s*週)/gi);
+      const fragment = document.createDocumentFragment();
+      parts.forEach(part => {
+        if (!part) return;
+        if (/^(?:Week\s*12\b|第\s*12\s*週)$/i.test(part)) {
+          const emphasis = document.createElement('strong');
+          emphasis.className = 'tier-auto-count tl05x-week12';
+          emphasis.textContent = part;
+          fragment.append(emphasis);
+        } else {
+          fragment.append(document.createTextNode(part));
+        }
+      });
+      node.replaceWith(fragment);
+    });
+  }
+  const observer = new MutationObserver(decorate);
+  observer.observe(content, { childList:true, subtree:true, characterData:true });
+  observer.observe(conclusion, { childList:true, subtree:true, characterData:true });
+  decorate();
+})();
+</script>
 </body>
 </html>
