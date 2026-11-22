@@ -1,8 +1,113 @@
 {
   "schemaVersion": 1,
   "format": "OFFBEAT Post Index",
-  "updatedAt": "2026-11-21T04:18:10.232Z",
+  "updatedAt": "2026-11-22T18:28:53.683Z",
   "posts": [
+    {
+      "id": "post:ranking/2026/fall/week07/index.html",
+      "category": "ANIME",
+      "type": "ranking",
+      "year": 2026,
+      "season": "fall",
+      "week": "07",
+      "url": "ranking/2026/fall/week07/index.html",
+      "status": "published",
+      "published": {
+        "iso": "2026-11-22",
+        "display": "November 22, 2026"
+      },
+      "period": {
+        "display": "November 15–21",
+        "rawDuration": "11-15-Sun-11-21-Sat",
+        "sourceField": "meta.duration"
+      },
+      "topN": 10,
+      "stage": "mid",
+      "title": {
+        "display": "2026 FALL – Top 10 Weekly Anime Ranking Week 07 (November 15–21)",
+        "html": "2026 <span class=\"title-season fall\">FALL</span> – Top <span class=\"title-entry-number\">10</span> Weekly Anime Ranking <span class=\"post-week\">Week 07</span> <span class=\"post-ranking-period\">(November 15–21)</span>",
+        "en": "2026 FALL – Top 10 Weekly Anime Ranking Week 07 (November 15–21)",
+        "ja": ""
+      },
+      "intro": {
+        "en": "With the <strong>Fall 2026 anime season</strong> now entering <strong>Week 7</strong>, we're finally moving well and truly into <strong>the second half of the season</strong>.\n\nI feel like I might have said something similar last week, but I went into <strong>Week 7</strong> still unable to shake the thought, \"What on earth is going on with anime this season? Is everything going to be okay?\" There was almost a sense of unease hanging over me. And, to put it simply, the week turned out pretty much as I'd expected—or at least very close to it. But how was it for all of you?\n\nAnyway, Week 7 used to be around the time when we'd often see a few lighthearted beach or swimsuit episodes popping up as shows transitioned into their second halves. So, how did the rankings actually turn out this week?\n\nWithout further ado, let's take a look!",
+        "ja": "<strong>２０２６年秋アニメ</strong>も<strong>第７週目</strong>ということで、いよいよ本格的に<strong>後半戦突入</strong>となってきました。\n\n先週もそうだったような気がしないでもありませんが、\"一体全体今季のアニメはどうなっているんだ？大丈夫か？\"という思いが拭えないまま、そんなどこか不安にも似た心持ちで臨んだ<strong>第７週</strong>でしたが、個人的には平たく言って予想していた通り、またそれにごく近い状態だったかな？、そんな週だったと思いますが皆様に置かれましては如何だったでしょうか？\n\nそんなこんなで、かつては後半戦への切り替え時期として\"息抜きの海回・水着回\"なんかもちらほら見かけることが多かったこの第7週、実際のランキングはどうだったのか？それではご覧ください！",
+        "html": "With the <strong>Fall 2026 anime season</strong> now entering <strong>Week 7</strong>, we're finally moving well and truly into <strong>the second half of the season</strong>.\n\nI feel like I might have said something similar last week, but I went into <strong>Week 7</strong> still unable to shake the thought, \"What on earth is going on with anime this season? Is everything going to be okay?\" There was almost a sense of unease hanging over me. And, to put it simply, the week turned out pretty much as I'd expected—or at least very close to it. But how was it for all of you?\n\nAnyway, Week 7 used to be around the time when we'd often see a few lighthearted beach or swimsuit episodes popping up as shows transitioned into their second halves. So, how did the rankings actually turn out this week?\n\nWithout further ado, let's take a look!"
+      },
+      "image": {
+        "src": "images/key-visuals/2026/fall/oukoku.webp",
+        "alt": "Anime Thumbnail",
+        "wrapperClass": "post-image-mumu",
+        "wrapperStyle": ""
+      },
+      "labels": [
+        {
+          "text": "Ranking",
+          "className": "tag-label tag-ranking"
+        }
+      ],
+      "tags": [
+        "2026",
+        "fall",
+        "week7",
+        "top10",
+        "anime",
+        "review",
+        "ranking",
+        "weekly",
+        "The Ramparts of Ice Season 2",
+        "『氷の城壁』第2期",
+        "Koori no Jouheki 2nd Season",
+        "jouheki",
+        "Chitose Is in the Ramune Bottle Part 2",
+        "『千歳くんはラムネ瓶のなか』第2クール",
+        "Chitose-kun wa Ramune Bin no Naka Part 2",
+        "chitose",
+        "Even the Student Council Has Its Holes!",
+        "生徒会にも穴はある！",
+        "Seitokai ni mo Ana wa Aru!",
+        "seitokai",
+        "From Far Away",
+        "彼方から",
+        "Kanata kara",
+        "kanata",
+        "Super Psychic Policeman Chojo",
+        "超巡！超条先輩",
+        "Choujun! Choujou-senpai",
+        "choujou",
+        "Hotel Inhumans Season 2",
+        "『ホテル・インヒューマンズ』第2期",
+        "Hotel Inhumans 2nd Season",
+        "hotel",
+        "Reborn as a Space Mercenary: I Woke Up Piloting the Strongest Starship!",
+        "目覚めたら最強装備と宇宙船持ちだったので、一戸建て目指して傭兵として自由に生きたい",
+        "Mezametara Saikyou Soubi to Uchuusen-mochi datta node",
+        "Ikkodate Mezashite Youhei to shite Jiyuu ni Ikitai",
+        "mezametara",
+        "The Apothecary Diaries Season 3",
+        "『薬屋のひとりごと』第3期",
+        "Kusuriya no Hitorigoto 3rd Season",
+        "kusuriya",
+        "Tokyo Revengers: War of the Three Titan Arc",
+        "『東京リベンジャーズ』三天戦争編",
+        "Tokyo Revengers: Santen Sensou-hen",
+        "tokyo",
+        "#I'm Looking For a Zombie",
+        "#ゾンビさがしてます",
+        "#Zombie Sagashitemasu",
+        "zombie"
+      ],
+      "tagsRaw": "2026,fall,week7,top10,anime,review,ranking,weekly,The Ramparts of Ice Season 2,『氷の城壁』第2期,Koori no Jouheki 2nd Season,jouheki,Chitose Is in the Ramune Bottle Part 2,『千歳くんはラムネ瓶のなか』第2クール,Chitose-kun wa Ramune Bin no Naka Part 2,chitose,Even the Student Council Has Its Holes!,生徒会にも穴はある！,Seitokai ni mo Ana wa Aru!,seitokai,From Far Away,彼方から,Kanata kara,kanata,Super Psychic Policeman Chojo,超巡！超条先輩,Choujun! Choujou-senpai,choujou,Hotel Inhumans Season 2,『ホテル・インヒューマンズ』第2期,Hotel Inhumans 2nd Season,hotel,Reborn as a Space Mercenary: I Woke Up Piloting the Strongest Starship!,目覚めたら最強装備と宇宙船持ちだったので、一戸建て目指して傭兵として自由に生きたい,Mezametara Saikyou Soubi to Uchuusen-mochi datta node, Ikkodate Mezashite Youhei to shite Jiyuu ni Ikitai,mezametara,The Apothecary Diaries Season 3,『薬屋のひとりごと』第3期,Kusuriya no Hitorigoto 3rd Season,kusuriya,Tokyo Revengers: War of the Three Titan Arc,『東京リベンジャーズ』三天戦争編,Tokyo Revengers: Santen Sensou-hen,tokyo,#I'm Looking For a Zombie,#ゾンビさがしてます,#Zombie Sagashitemasu,zombie",
+      "originalCardHtml": "<div class=\"post-card\" data-tags=\"2026,fall,week7,top10,anime,review,ranking,weekly,The Ramparts of Ice Season 2,『氷の城壁』第2期,Koori no Jouheki 2nd Season,jouheki,Chitose Is in the Ramune Bottle Part 2,『千歳くんはラムネ瓶のなか』第2クール,Chitose-kun wa Ramune Bin no Naka Part 2,chitose,Even the Student Council Has Its Holes!,生徒会にも穴はある！,Seitokai ni mo Ana wa Aru!,seitokai,From Far Away,彼方から,Kanata kara,kanata,Super Psychic Policeman Chojo,超巡！超条先輩,Choujun! Choujou-senpai,choujou,Hotel Inhumans Season 2,『ホテル・インヒューマンズ』第2期,Hotel Inhumans 2nd Season,hotel,Reborn as a Space Mercenary: I Woke Up Piloting the Strongest Starship!,目覚めたら最強装備と宇宙船持ちだったので、一戸建て目指して傭兵として自由に生きたい,Mezametara Saikyou Soubi to Uchuusen-mochi datta node, Ikkodate Mezashite Youhei to shite Jiyuu ni Ikitai,mezametara,The Apothecary Diaries Season 3,『薬屋のひとりごと』第3期,Kusuriya no Hitorigoto 3rd Season,kusuriya,Tokyo Revengers: War of the Three Titan Arc,『東京リベンジャーズ』三天戦争編,Tokyo Revengers: Santen Sensou-hen,tokyo,#I'm Looking For a Zombie,#ゾンビさがしてます,#Zombie Sagashitemasu,zombie\">\n  <div class=\"post-image-mumu\">\n    <a href=\"ranking/2026/fall/week07/index.html\">\n      <img src=\"images/key-visuals/2026/fall/oukoku.webp\" alt=\"Anime Thumbnail\">\n    </a>\n  </div>\n  <div class=\"post-details\">\n    <span class=\"tag-label tag-ranking\">Ranking</span>\n    <h3 class=\"post-title\">2026 <span class=\"title-season fall\">FALL</span> – Top <span class=\"title-entry-number\">10</span> Weekly Anime Ranking <span class=\"post-week\">Week 07</span> <span class=\"post-ranking-period\">(November 15–21)</span></h3>\n    <p class=\"post-date\">November 22, 2026</p>\n    <p class=\"post-excerpt\">With the <strong>Fall 2026 anime season</strong> now entering <strong>Week 7</strong>, we're finally moving well and truly into <strong>the second half of the season</strong>.\n\nI feel like I might have said something similar last week, but I went into <strong>Week 7</strong> still unable to shake the thought, \"What on earth is going on with anime this season? Is everything going to be okay?\" There was almost a sense of unease hanging over me. And, to put it simply, the week turned out pretty much as I'd expected—or at least very close to it. But how was it for all of you?\n\nAnyway, Week 7 used to be around the time when we'd often see a few lighthearted beach or swimsuit episodes popping up as shows transitioned into their second halves. So, how did the rankings actually turn out this week?\n\nWithout further ado, let's take a look!</p>\n    <a href=\"ranking/2026/fall/week07/index.html\" class=\"read-more\">Read More →</a>\n  </div>\n</div>",
+      "source": {
+        "kind": "generator-v4.3"
+      },
+      "episodes": {
+        "display": "7–8",
+        "raw": "ep.7-8",
+        "sourceField": "meta.ep_range"
+      }
+    },
     {
       "id": "post:features/recommend/2026/fall/week06/index.html",
       "category": "ANIME",
