@@ -1,0 +1,338 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>S.O.W. Fantasy · My Season | R2.2 Preview</title>
+<meta name="theme-color" content="#f9f8ee">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Abel&family=Barlow+Condensed:wght@400;500;600;700&family=EB+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#f9f8ee;--ink:#273e31;--muted:#6e7e6d;--line:#d3dacb;--sage:#6e896e;--light:#f2f4e9;--sand:#9c795b;--white:#fffefa;--dark:#294a36;--rose:#9b6663}*{box-sizing:border-box}
+html{scroll-behavior:smooth}body{margin:0;background:#e7e9df;color:var(--ink);font-family:'EB Garamond',Georgia,'Yu Mincho',serif;line-height:1.43}a{color:inherit}button,select,input{font:inherit}button{cursor:pointer}.page{max-width:1030px;margin:auto;min-height:100vh;background:var(--paper);box-shadow:0 20px 55px #263b2b0b}
+.mast{height:75px;padding:0 clamp(19px,5vw,55px);display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line)}.brand{text-decoration:none;display:flex;align-items:baseline;gap:9px}.brand strong{font:700 25px 'Barlow Condensed',sans-serif;letter-spacing:.055em}.brand span{font:500 12px 'Barlow Condensed',sans-serif;letter-spacing:.13em;color:#68826e}.back{text-decoration:none;font:600 12px 'Barlow Condensed',sans-serif;letter-spacing:.1em;color:#5c795d}.back:hover{text-decoration:underline}
+.hero{padding:45px clamp(20px,6.5vw,68px) 34px;border-bottom:1px solid var(--line);background:linear-gradient(120deg,#f9f8ee,#eff2e8)}.eyebrow{font:600 11px 'Barlow Condensed',sans-serif;letter-spacing:.2em;color:#947758;text-transform:uppercase}.tag{display:inline-block;border:1px solid #b8bba9;color:#7e8a7a;padding:2px 7px;margin-left:8px;letter-spacing:.07em;font-size:10px}h1{font:500 clamp(53px,8vw,77px)/.93 'EB Garamond',Georgia,serif;letter-spacing:-.035em;margin:15px 0 12px}h1 span{color:#759276}.lede{color:#4e6c53;font-size:19px;max-width:680px;margin:0 0 13px}.disclosure{font:500 12px/1.5 'Barlow Condensed',sans-serif;color:#7f8d7a;letter-spacing:.015em;max-width:700px;margin:0}
+.grid{padding:29px clamp(20px,6.5vw,68px) 65px}.panel{padding:22px 0 28px;border-bottom:1px solid var(--line)}.panel:last-child{border:0}h2{font:500 clamp(28px,4vw,38px)/1 'EB Garamond',Georgia,serif;margin:7px 0 8px}.section-note{font-size:15px;color:var(--muted);margin:0 0 18px;max-width:740px}.name-wrap{display:flex;gap:15px;align-items:center;flex-wrap:wrap;margin:17px 0}.name-wrap label{font:600 12px 'Barlow Condensed',sans-serif;color:#5f765e;letter-spacing:.08em}.name-wrap input{min-width:170px;max-width:290px;width:250px;border:1px solid #bfcab9;padding:9px 11px;background:#fffef9;color:var(--ink);font:18px 'EB Garamond',Georgia,serif;border-radius:3px}.picks{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}.pick{border:1px solid var(--line);background:#fbfbf4;padding:17px 18px}.pick-top{display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin-bottom:8px}.pick-top strong{font:600 28px 'EB Garamond',serif;color:var(--dark)}.pick-top span{font:600 11px 'Barlow Condensed',sans-serif;letter-spacing:.11em;color:#7a9279}.pick select{display:block;width:100%;max-width:100%;min-width:0;border:1px solid #bfcab9;background:#fff;color:var(--ink);padding:11px 7px;font:14px 'Arial','Yu Gothic',sans-serif;overflow:hidden;text-overflow:ellipsis;border-radius:3px;height:43px}.pick .caption{font:400 12px 'Barlow Condensed',sans-serif;color:#8b9685;line-height:1.45;margin-top:7px}.captain-row{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-top:16px;padding:13px 16px;background:#edf2e7;border-left:3px solid #738c70}.captain-row label{font:600 12px 'Barlow Condensed',sans-serif;letter-spacing:.1em;color:#667f67}.captain-row select{background:#fff;border:1px solid #bfcab9;padding:7px 10px;color:#344a37;min-width:120px}.captain-row p{font-size:13px;margin:0;color:#58705b}.msg{margin:9px 0;color:var(--rose);font:600 13px Arial,sans-serif;min-height:20px}.aside{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-top:11px;color:#7c8a7e;font:500 12px 'Barlow Condensed',sans-serif}.secondary{border:1px solid #bccbb6;padding:7px 12px;background:transparent;color:#47664b;font:600 12px 'Barlow Condensed',sans-serif;letter-spacing:.06em}.secondary:hover{background:#e9f0e6}
+.scoreband{display:grid;grid-template-columns:1.3fr 1fr 1fr;background:#294938;color:#f8faeb;margin:17px 0 17px}.bigscore{padding:18px 23px}.bigscore small,.mini-score small{display:block;font:600 11px 'Barlow Condensed',sans-serif;letter-spacing:.14em;color:#c4d4c4}.bigscore strong{font:500 clamp(44px,7vw,66px)/1 'EB Garamond',serif;display:inline-block;margin-top:4px}.bigscore em{font:500 14px 'Barlow Condensed',sans-serif;color:#c6d7c4;font-style:normal;margin-left:5px}.mini-score{padding:20px 18px;border-left:1px solid #66816a}.mini-score strong{display:block;font:500 35px 'EB Garamond',serif;margin-top:7px}.mini-score span{display:block;font:500 11px 'Barlow Condensed',sans-serif;color:#c2d2bf}.stagebar{display:flex;gap:4px;margin:17px 0 9px}.stage{flex:1;min-width:0;padding:7px 7px 8px;background:#e4e9de;text-align:center;font:600 12px 'Barlow Condensed',sans-serif;color:#788b77}.stage.done{background:#bad0b5;color:#244831}.stage.here{background:#527558;color:#fff}.stage small{display:block;font-size:9px;letter-spacing:.07em;opacity:.8}.week-select{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:5px;margin:14px 0 18px}.week-select button{min-width:0;background:#f0f2e8;border:1px solid #d5ddcf;padding:11px 3px;text-align:center;color:#5e765e;font:600 13px 'Barlow Condensed',sans-serif;letter-spacing:.055em}.week-select button.active{background:var(--dark);border-color:var(--dark);color:white}.week-select button:hover{border-color:#728f72}.week-select button:disabled{opacity:.43;cursor:default}.week-select button strong{display:block;font:500 20px 'EB Garamond',serif;margin-top:1px}.round-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:7px}.roundpiece{padding:15px 13px;background:#f1f3e9;min-width:0}.roundpiece .role{font:600 11px 'Barlow Condensed',sans-serif;letter-spacing:.12em;color:#678466}.roundpiece .title{font:600 12px/1.35 Arial,'Yu Gothic',sans-serif;margin:5px 0 10px;min-height:35px;overflow-wrap:anywhere}.roundpiece .pts{font:500 28px 'EB Garamond',Georgia,serif;letter-spacing:-.02em}.roundpiece .unit{font:500 12px 'Barlow Condensed',sans-serif;color:#8c988b}.roundpiece .stat{font:500 11px/1.4 'Barlow Condensed',sans-serif;letter-spacing:.03em;color:#84917f;margin-top:2px}.roundpiece.no-score{opacity:.7}.round-result{display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap;background:#e8efe3;padding:16px 18px;margin-top:8px}.round-result label{font:600 12px 'Barlow Condensed',sans-serif;letter-spacing:.1em;color:#6b886d}.round-result strong{font:500 29px 'EB Garamond',serif;color:#2c5036}.weekly-table{width:100%;border-collapse:collapse;margin-top:12px}.weekly-table th{font:600 11px 'Barlow Condensed',sans-serif;letter-spacing:.11em;text-align:right;color:#708670;padding:9px 5px;border-bottom:1px solid var(--line)}.weekly-table th:first-child,.weekly-table td:first-child{text-align:left}.weekly-table td{text-align:right;font:500 15px 'EB Garamond',serif;padding:10px 5px;border-bottom:1px solid var(--line)}.weekly-table tr.is-current td{background:#edf2e8}.weekly-table td:first-child{font:600 13px 'Barlow Condensed',sans-serif;color:#58765b}.weekly-table .best{font-weight:700;color:#537554}.footnote{color:#7f8f7e;font-size:13px;max-width:740px;margin:15px 0 0}.footnote strong{color:#567157}.footer{border-top:1px solid var(--line);padding:20px clamp(20px,6.5vw,68px) 30px;display:flex;justify-content:space-between;gap:15px;color:#849382;font:600 12px 'Barlow Condensed',sans-serif;letter-spacing:.08em}.footer a{color:#59755d}
+button:focus-visible,select:focus-visible,input:focus-visible{outline:3px solid #b98753;outline-offset:3px}
+@media(max-width:640px){.mast{height:60px}.brand strong{font-size:21px}.brand span{font-size:10px}.back{font-size:11px}.hero{padding-top:38px}h1{font-size:58px}.lede{font-size:18px}.grid{padding-top:21px}.panel{padding:20px 0 25px}.picks{grid-template-columns:1fr 1fr;gap:7px}.pick{padding:12px 10px}.pick select{font-size:12px;padding:9px 4px}.pick .caption{font-size:10px}.pick-top strong{font-size:24px}.pick-top span{font-size:10px}.scoreband{grid-template-columns:1fr 1fr}.bigscore{grid-column:1/-1;border-bottom:1px solid #66816a}.mini-score{padding:14px 16px}.mini-score:nth-child(2){border-left:0}.week-select{grid-template-columns:repeat(6,minmax(0,1fr));gap:3px}.week-select button{padding:7px 1px;font-size:10px}.week-select button strong{font-size:16px}.round-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:5px}.roundpiece{padding:11px 12px}.roundpiece .title{min-height:31px}.stagebar{gap:2px}.stage{font-size:10px;padding:6px 2px}.footer{display:block}.footer a{display:block;margin-top:8px}}
+
+/* R2.1 — show score meaning first, keep stories downstream */
+.dual-notice{margin-top:12px;padding:12px 14px;background:#f1f4eb;border-left:3px solid #9cac95;font:13px/1.55 'Barlow Condensed','Yu Gothic',sans-serif;color:#516c53}
+.dual-notice strong{color:#34563a}.dual-notice .overlap-list{display:flex;flex-wrap:wrap;gap:5px 13px;margin-top:5px}.dual-notice .overlap-list span{font-family:Arial,'Yu Gothic',sans-serif;font-size:11px}
+.pick .interbadge{display:inline-block;margin-top:7px;border:1px solid #9ab59d;color:#42674a;padding:2px 7px;font:600 10px 'Barlow Condensed',sans-serif;letter-spacing:.04em;background:#edf3e8}
+.week-stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px;margin:12px 0 18px}
+.week-stat{background:#ebefe4;padding:13px 15px;min-width:0;border:1px solid #dce4d6}
+.week-stat small{display:block;font:600 11px 'Barlow Condensed',sans-serif;letter-spacing:.075em;color:#70886d}
+.week-stat strong{display:block;font:500 31px/1.12 'EB Garamond',Georgia,serif;color:#2d5138;margin-top:3px}
+.week-stat em{font-style:normal;color:#789078;font:500 12px 'Barlow Condensed',sans-serif}
+.round-head{font:600 12px 'Barlow Condensed',sans-serif;letter-spacing:.13em;color:#789177;text-transform:uppercase;margin:13px 0 8px}
+.roundpiece{position:relative}.roundpiece .stat{font-size:12px;color:#50694f;margin-top:5px;letter-spacing:0;font-weight:600}.roundpiece .stat b{font-size:14px;color:#315438}
+.roundpiece .state{display:inline-block;margin-top:7px;font:700 10px 'Barlow Condensed',sans-serif;letter-spacing:.055em;padding:3px 6px;background:#e5e8d8;color:#6d725c}
+.roundpiece .state.badge-drop{background:#f6e9e5;color:#955d51;border:1px solid #e6c9c0}
+.roundpiece .state.badge-upset{background:#e6eddf;color:#3d6746;border:1px solid #b8cfad}
+.roundpiece .piece-detail{margin-top:11px;border-top:1px solid #d6dfd1;padding-top:8px;font:12px/1.45 'Barlow Condensed','Yu Gothic',sans-serif;color:#61755f}
+.roundpiece .piece-detail summary{cursor:pointer;color:#436a4d;font-weight:700;list-style:disclosure-closed}
+.roundpiece .piece-detail .formula{padding-top:7px;font:12px/1.55 'Barlow Condensed',sans-serif;word-break:break-word}
+.round-result{align-items:flex-start}.round-result .combo-caption{font:600 12px/1.5 'Barlow Condensed','Yu Gothic',sans-serif;color:#567959;margin-top:4px;max-width:410px}
+.round-impact{margin:8px 0 0;padding:13px 16px;background:#f5f5ed;border:1px solid #e0e5d9;font-size:14px;line-height:1.55;color:#4d6952}
+.round-impact strong{color:#31583d}.round-impact .impact-kicker{font:700 11px 'Barlow Condensed',sans-serif;letter-spacing:.1em;color:#7d9177;margin-bottom:3px}
+.round-impact .impact-pill{display:inline-block;padding:3px 8px;margin:0 4px 4px 0;background:#e8efe3;color:#446b4b;border:1px solid #c8d9c1;font:600 11px 'Barlow Condensed',sans-serif}
+.weekly-table th,.weekly-table td{white-space:nowrap}.weekly-table-wrap{overflow:auto;max-width:100%;-webkit-overflow-scrolling:touch}
+.weekly-table .rank1{color:#366d45;font-weight:700}.weekly-table .rank-mid{color:#667d69}
+.weekly-table th,.weekly-table td{padding:10px 9px}.weekly-table tbody tr:hover td{background:#f3f5ec}
+.weekly-table .muted{font-size:11px;color:#8a988a}.weekly-table tr.is-current td{background:#e6efe4}
+.journal{padding-bottom:30px}.journal-lead{font-size:19px;line-height:1.45;color:#304f37;max-width:760px;margin:10px 0 19px}
+.journal-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.journal-card{border:1px solid #d7dfd2;background:#fbfcf4;padding:16px 19px;min-width:0}
+.journal-card h3{font:600 12px 'Barlow Condensed',sans-serif;letter-spacing:.14em;margin:0 0 8px;color:#8a805c;text-transform:uppercase}
+.journal-card p{font:16px/1.55 'EB Garamond','Yu Mincho',Georgia,serif;margin:0 0 9px;color:#405a44}
+.journal-card p:last-child{margin-bottom:0}.journal-card b{color:#2f593a}
+.journal-card .factline{font:700 12px/1.5 'Barlow Condensed',sans-serif;letter-spacing:.045em;color:#64836a;margin:3px 0 8px}
+.journal-card.forecast{background:#eef3e9;border-color:#cddfc8}
+.journal-caveat{font:12px/1.55 'Barlow Condensed','Yu Gothic',sans-serif;color:#879483;margin:13px 0 0}
+@media(max-width:640px){.week-stats{gap:4px}.week-stat{padding:10px 8px}.week-stat small{font-size:9px}.week-stat strong{font-size:23px}.roundpiece .stat b{font-size:13px}.roundpiece .piece-detail{font-size:11px}.journal-grid{grid-template-columns:1fr}.journal-card{padding:15px 17px}.journal-lead{font-size:18px}.round-impact{padding:11px 13px}.weekly-table th,.weekly-table td{padding:8px 8px}}
+
+/* R2.2 — visual hierarchy: weekly placements dominate; rival scores are supporting context */
+.pick .dual-choice{display:inline-flex;align-items:center;gap:5px;margin-top:8px;padding:4px 8px;background:#dce8d9;color:#345a3e;border:1px solid #b7d0b5;font:700 10px/1.2 'Barlow Condensed',Arial,sans-serif;letter-spacing:.055em}
+.pick .dual-choice .symbol{font-size:14px;color:#557d58;line-height:1}
+.pick .dual-hint{font:500 11px/1.45 'Barlow Condensed','Yu Gothic',sans-serif;color:#7a8976;margin-top:6px}
+.dual-notice{border-left-color:#9aaa8c;background:#f6f7f0;color:#536f56}
+.dual-notice .overlap-list{gap:7px;margin-top:8px}
+.dual-notice .overlap-list span{display:inline-flex;align-items:center;gap:5px;border:1px solid #d0dec8;padding:4px 7px;background:#eef3e9;font:600 11px/1.3 'Barlow Condensed',Arial,'Yu Gothic',sans-serif}
+.dual-notice .overlap-list b{color:#346646;letter-spacing:.02em}
+.dual-notice .legend{font:500 11px/1.55 Arial,'Yu Gothic',sans-serif;margin-top:6px;color:#718272}
+.roundpiece .drop-explainer{font:500 11px/1.5 Arial,'Yu Gothic',sans-serif;color:#7b655b;padding:8px 0 0;margin-top:7px;border-top:1px solid #dddbd2}
+.weekly-table{table-layout:auto}
+.weekly-table .group-label th{padding:10px 8px 5px;border-bottom:0;font-size:10px;letter-spacing:.14em;color:#879486}
+.weekly-table .group-label .own-columns{color:#365c3f;background:#e8f0e5;text-align:center}
+.weekly-table .group-label .rival-columns{text-align:center;background:#f5f5ed;color:#879184}
+.weekly-table .subheads th{padding:7px 8px 11px;border-bottom:1px solid #c8d8c3;color:#677d68}
+.weekly-table .subheads .owncol{background:#eef3e9;color:#466947}
+.weekly-table .subheads .rivalcol{background:#f6f7f1;color:#82917e}
+.weekly-table td{font-size:15px;padding:12px 8px}
+.weekly-table td.own-point{background:#f0f4ea;font:600 20px/1.2 'EB Garamond',Georgia,serif;color:#2f543a}
+.weekly-table td.own-place{background:#f0f4ea;text-align:center}
+.weekly-table .place-badge{display:inline-block;font:700 14px/1.25 'Barlow Condensed',Arial,sans-serif;padding:4px 9px;min-width:42px;background:#e0e9dd;color:#4b7250;border:1px solid #c6d8c1}
+.weekly-table .place-badge.first{background:#315a3d;color:#fff;border-color:#315a3d}
+.weekly-table .place-badge.third{background:#e9eae4;color:#7f897d;border-color:#d4d9d1}
+.weekly-table td.own-place small{display:inline-block;font:500 10px 'Barlow Condensed',sans-serif;margin-left:4px;color:#8b9988}
+.weekly-table td.rival-point{font:500 15px 'EB Garamond',Georgia,serif;color:#788a79;background:#f8f9f3}
+.weekly-table tbody tr.is-current td{box-shadow:inset 0 2px #779b7e,inset 0 -2px #779b7e}
+.weekly-table td:first-child{font:700 14px 'Barlow Condensed',sans-serif}
+.weekly-table tfoot td{border-top:2px solid #a9bcaa;background:#e8f0e5;font-weight:700}
+.weekly-table tfoot td.own-point{background:#e1eddc}
+.weekly-table-wrap{overflow-x:auto}
+.mobile-round-cards{display:none}
+.journal .journal-grid{grid-template-columns:1fr 1fr}
+.journal-card:nth-child(3){grid-column:1 / -1}
+.journal-card.forecast{grid-column:1/-1}
+.journal-card .analysis-line{background:#e5ede0;padding:9px 11px;margin:8px 0;font:650 12px/1.5 'Barlow Condensed','Yu Gothic',sans-serif;color:#33583e}
+.journal-card .analysis-line b{font-weight:750;color:#25512f}
+.journal-card p{font-family:'EB Garamond','Yu Mincho',Georgia,serif;line-height:1.6}
+.journal-card .round-timeline{display:flex;gap:6px;flex-wrap:wrap;margin-top:12px}
+.journal-card .round-timeline span{padding:7px 9px;border:1px solid #d5ddcc;background:#f1f4eb;font:650 12px 'Barlow Condensed',sans-serif;color:#61775c}
+.journal-card .round-timeline span b{display:block;font-size:16px;color:#365d41;margin-top:2px}
+@media(max-width:740px){
+ .weekly-table-wrap{display:none}
+ .mobile-round-cards{display:grid;gap:8px;margin-top:13px}
+ .mobile-round{display:grid;grid-template-columns:68px minmax(0,1fr);border:1px solid #d6e0d1;background:#fbfcf6;min-width:0}
+ .mobile-round.is-current{border-color:#66896a;background:#f0f5eb;box-shadow:inset 3px 0 #62866b}
+ .mobile-round .mr-week{padding:15px 9px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;background:#e8efe3;font:700 18px 'Barlow Condensed',sans-serif;color:#375b3e}
+ .mobile-round.is-current .mr-week{background:#d4e4cf}
+ .mobile-round .mr-week small{font:650 10px 'Barlow Condensed',sans-serif;color:#718d75}
+ .mr-body{padding:11px 12px;min-width:0}
+ .mr-primary{display:grid;grid-template-columns:1.16fr .82fr .82fr;gap:7px;align-items:end}
+ .mr-primary .mr-main strong{display:block;font:600 24px/1.08 'EB Garamond',serif;color:#2a5135;white-space:nowrap}
+ .mr-primary small{display:block;font:600 10px/1.3 'Barlow Condensed',sans-serif;color:#768d78;letter-spacing:.045em}
+ .mr-rank strong{display:block;font:700 18px/1.2 'Barlow Condensed',sans-serif;color:#3e6a47}
+ .mr-rank strong.first{color:#25623e}
+ .mr-rank strong.third{color:#829185}
+ .mr-rivals{border-top:1px solid #dde6d8;margin-top:9px;padding-top:7px;display:flex;flex-wrap:wrap;gap:2px 13px;font:600 11px/1.55 'Barlow Condensed',sans-serif;color:#7b8a79}
+ .mr-rivals b{font-weight:650;color:#586f5d}
+}
+@media(max-width:640px){
+ .journal .journal-grid{grid-template-columns:1fr}
+ .journal-card:nth-child(3){grid-column:1}
+ .roundpiece .drop-explainer{font-size:10px}
+ .mr-primary{gap:3px}
+ .mr-primary small{font-size:9px}
+ .mr-primary .mr-main strong{font-size:22px}
+ .mr-rank strong{font-size:17px}
+}
+</style></head>
+<body><div class="page"><header class="mast"><a class="brand" href="index.html"><strong>OFFBEAT</strong><span>/ S.O.W. / FANTASY</span></a><a class="back" href="index.html">FANTASY HOME</a></header>
+<main><div class="hero"><div class="eyebrow">SEASONS OF THE WATCH <span class="tag">PLAYER VIEW · R2.2 PREVIEW</span></div><h1>My <span>Season</span></h1><p class="lede">4作品を選んだら、毎週が試合になる。自分のチームが12週間をどう戦うのか、まずは体験してみる。</p><p class="disclosure">2026 FALL · Week 01–06の内蔵スナップショットを使用。仮グループ・仮倍率の試作版であり、登録・大会参加・他者への公開は行われません。</p></div>
+<div class="grid"><section class="panel" id="draft"><div class="eyebrow">01 / THE DRAFT</div><h2>Build your four.</h2><p class="section-note">グループから各1作品。ここで試した選択は、このブラウザにだけ保存されます。正式な事前選出ではありません。</p><div class="name-wrap"><label for="teamName">TEAM NAME</label><input id="teamName" maxlength="35" value="My S.O.W. Team" autocomplete="off"></div><div class="picks" id="picks"></div><div class="dual-notice" id="dualNotice"></div><div class="captain-row"><label for="captain">CAPTAIN</label><select id="captain"><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option></select><p>選んだ枠の得点に仮倍率 1.20×</p></div><div class="msg" id="warning" role="status"></div><div class="aside"><span id="saved">LOCAL PREVIEW · NOT SUBMITTED</span><button type="button" id="reset" class="secondary">編成を初期値に戻す</button></div></section>
+<section class="panel" id="results"><div class="eyebrow">02 / THE SEASON SO FAR</div><h2>Every week counts.</h2><p class="section-note">毎週の順位・WRPを元にしたチーム戦。現在はWeek 01–06だけの試算で、将来のWeekや正式大会の順位ではありません。</p><div id="scoreband" class="scoreband"></div><div class="stagebar"><div class="stage done">OPENING<small>W01–03</small></div><div class="stage here">MIDDLE<small>W04–06</small></div><div class="stage">LATE<small>W07–09</small></div><div class="stage">CLIMAX<small>W10–12</small></div></div><div id="weekSelect" class="week-select" aria-label="Select a week"></div><div id="weekStats" class="week-stats"></div><div id="roundHead" class="round-head"></div><div class="round-grid" id="pieces"></div><div class="round-result" id="roundResult"></div><div id="roundImpact" class="round-impact" aria-live="polite"></div></section>
+<section class="panel"><div class="eyebrow">03 / THE MATCH RECORD</div><h2>Round by round.</h2><p class="section-note">週間順位はその週の勝負。総合順位はそこまでの積み重ね。相手は<strong>固定サンプル2チーム</strong>で、実際の参加者ではありません。</p><div id="comparison"></div><p class="footnote">得点計算は <strong>Points Lab v0.3の初期設定</strong> と同じ。WRP 3.0、順位点20、作品数補正4、A/B/C/D倍率、Captain倍率、D大穴倍率、ABC同時上位ボーナスを使用。補欠制度・個別オッズ・ステージボーナスはまだ未実装です。対象外になった作品も自動補充されません。</p></section><section class="panel journal" id="journal"><div class="eyebrow">04 / BEYOND THE SCORE</div><h2>The season, between the numbers.</h2><p class="section-note">得点表の向こう側で、何が起きていたのか。意外な活躍も、失速も、次のラウンドの見どころも。週を切り替えると、そこまでの展開を振り返れます。</p><div id="journalBody" aria-live="polite"></div><p class="journal-caveat">※ 試作コメントは選択した週までのデータをもとに自動生成しています。比較対象は固定のサンプル2チームです。補欠・Midseason Transfer・正式なIn-Betweenの規則は未確定で、得点には反映していません。</p></section></div></main><footer class="footer"><span>S.O.W. FANTASY · R2.2 PREVIEW</span><a href="lab.html">OPEN POINTS LAB v0.3</a></footer></div>
+<script>
+
+'use strict';
+const WEEKS=[{"w":1,"n":30,"entries":[{"id":"kyouran","title":"Nia Liston: The Merciless Maiden","ja":"凶乱令嬢ニア・リストン 病弱令嬢に転生した神殺しの武人の華麗なる無双録","r":1,"wrp":9.45},{"id":"seitokai","title":"Even the Student Council Has Its Holes!","ja":"生徒会にも穴はある！","r":2,"wrp":9.3},{"id":"oukoku","title":"The Seven Knights of the Marronnier Kingdom","ja":"マロニエ王国の七人の騎士","r":3,"wrp":9.1},{"id":"kusuriya","title":"The Apothecary Diaries Season 3","ja":"『薬屋のひとりごと』第3期","r":4,"wrp":9.05},{"id":"hotel","title":"Hotel Inhumans Season 2","ja":"『ホテル・インヒューマンズ』第2期","r":5,"wrp":8.8},{"id":"romelia","title":"Romelia War Chronicle","ja":"ロメリア戦記","r":6,"wrp":8.4},{"id":"zombie","title":"#I'm Looking For a Zombie","ja":"#ゾンビさがしてます","r":7,"wrp":8.35},{"id":"jouheki","title":"The Ramparts of Ice Season 2","ja":"『氷の城壁』第2期","r":8,"wrp":8.2},{"id":"rayearth","title":"Magic Knight Rayearth (2026)","ja":"魔法騎士レイアース","r":9,"wrp":8},{"id":"choujou","title":"Super Psychic Policeman Chojo","ja":"超巡！超条先輩","r":10,"wrp":7.95},{"id":"toaru","title":"A Certain Dark Item","ja":"とある暗部の少女共棲","r":11,"wrp":7.9},{"id":"vertex","title":"Vertex Force","ja":"バーテックスフォース","r":12,"wrp":7.6},{"id":"revo","title":"Magic Repo Man: Dumped by My Party, I'll Cash In With a Cute Support Fairy to Become the Strongest!","ja":"貸した魔力は【リボ払い】で強制徴収","r":13,"wrp":7.5},{"id":"goblin","title":"So What's Wrong with Getting Reborn as a Goblin?","ja":"転生ゴブリンだけど質問ある？","r":14,"wrp":7.45},{"id":"aoki","title":"Aoki Denshou Welsh & Shedar","ja":"蒼き伝承 – Welsh & Shedar","r":15,"wrp":7.4},{"id":"tokyo","title":"Tokyo Revengers: War of the Three Titan Arc","ja":"『東京リベンジャーズ』三天戦争編","r":16,"wrp":7.25},{"id":"hako","title":"Blue Box Season 2","ja":"『アオのハコ』Season2","r":17,"wrp":7.1},{"id":"kanata","title":"From Far Away","ja":"彼方から","r":18,"wrp":7.05},{"id":"psyren","title":"Psyren","ja":"PSYREN -サイレン-","r":19,"wrp":7},{"id":"mezametara","title":"Reborn as a Space Mercenary: I Woke Up Piloting the Strongest Starship!","ja":"目覚めたら最強装備と宇宙船持ちだったので、一戸建て目指して傭兵として自由に生きたい","r":20,"wrp":6.8},{"id":"hitakakusu","title":"A Tale of the Secret Saint","ja":"転生した大聖女は、聖女であることをひた隠す","r":21,"wrp":6.65},{"id":"tanmoshi","title":"The Detective Is Already Dead Season 2","ja":"探偵はもう、死んでいる。Season2","r":22,"wrp":6.5},{"id":"fuyoshi","title":"The Laid-Off Cheat-Granting Mage Enjoys a Second Lease on Life","ja":"追放されたチート付与魔術師は気ままなセカンドライフを謳歌する。 ～俺は武器だけじゃなく、あらゆるものに『強化ポイント』を付与できるし、俺の意思でいつでも効果を解除できるけど、残った人たち大丈夫？～","r":23,"wrp":6.4},{"id":"max","title":"Even Though I'm a Super Timid Noble Girl, I Accepted the Bet From My Cunning Fiancé","ja":"弱気MAX令嬢なのに、辣腕婚約者様の賭けに乗ってしまった","r":24,"wrp":6.2},{"id":"shiotaiou","title":"The Cold Sato-san is Only Sweet to Me","ja":"塩対応の佐藤さんが俺にだけ甘い","r":25,"wrp":6.15},{"id":"fx","title":"FX Fighter Kurumi-chan","ja":"FX戦士くるみちゃん","r":26,"wrp":6},{"id":"tetsuryo","title":"Tetsuryou! Meet with Tetsudou Musume","ja":"てつりょー！meet with 鉄道むすめ","r":27,"wrp":5.9},{"id":"kikansha","title":"A Returner's Magic Should Be Special Season 2","ja":"『帰還者の魔法は特別です』第二期","r":28,"wrp":5.75},{"id":"hyouken","title":"The Iceblade Sorcerer Shall Rule the World II","ja":"冰剣の魔術師が世界を統べるⅡ","r":29,"wrp":5.35},{"id":"saikyou","title":"The World's Strongest Witch","ja":"世界最強の魔女、始めました","r":30,"wrp":3.95}]},{"w":2,"n":32,"entries":[{"id":"hotel","title":"Hotel Inhumans Season 2","ja":"『ホテル・インヒューマンズ』第2期","r":1,"wrp":9.7},{"id":"seitokai","title":"Even the Student Council Has Its Holes!","ja":"生徒会にも穴はある！","r":2,"wrp":9.2},{"id":"hitakakusu","title":"A Tale of the Secret Saint","ja":"転生した大聖女は、聖女であることをひた隠す","r":3,"wrp":9.05},{"id":"zombie","title":"#I'm Looking For a Zombie","ja":"#ゾンビさがしてます","r":4,"wrp":8.7},{"id":"mezametara","title":"Reborn as a Space Mercenary: I Woke Up Piloting the Strongest Starship!","ja":"目覚めたら最強装備と宇宙船持ちだったので、一戸建て目指して傭兵として自由に生きたい","r":5,"wrp":8.5},{"id":"chitose","title":"Chitose Is in the Ramune Bottle Part 2","ja":"『千歳くんはラムネ瓶のなか』第2クール","r":6,"wrp":8.4},{"id":"jouheki","title":"The Ramparts of Ice Season 2","ja":"『氷の城壁』第2期","r":7,"wrp":8.35},{"id":"kusuriya","title":"The Apothecary Diaries Season 3","ja":"『薬屋のひとりごと』第3期","r":8,"wrp":8.3},{"id":"choujou","title":"Super Psychic Policeman Chojo","ja":"超巡！超条先輩","r":9,"wrp":8.2},{"id":"oukoku","title":"The Seven Knights of the Marronnier Kingdom","ja":"マロニエ王国の七人の騎士","r":10,"wrp":8.1},{"id":"romelia","title":"Romelia War Chronicle","ja":"ロメリア戦記","r":11,"wrp":8},{"id":"kanata","title":"From Far Away","ja":"彼方から","r":12,"wrp":7.9},{"id":"goblin","title":"So What's Wrong with Getting Reborn as a Goblin?","ja":"転生ゴブリンだけど質問ある？","r":13,"wrp":7.8},{"id":"kikansha","title":"A Returner's Magic Should Be Special Season 2","ja":"『帰還者の魔法は特別です』第二期","r":14,"wrp":7.7},{"id":"fx","title":"FX Fighter Kurumi-chan","ja":"FX戦士くるみちゃん","r":15,"wrp":7.65},{"id":"vertex","title":"Vertex Force","ja":"バーテックスフォース","r":16,"wrp":7.4},{"id":"max","title":"Even Though I'm a Super Timid Noble Girl, I Accepted the Bet From My Cunning Fiancé","ja":"弱気MAX令嬢なのに、辣腕婚約者様の賭けに乗ってしまった","r":17,"wrp":7.3},{"id":"tetsuryo","title":"Tetsuryou! Meet with Tetsudou Musume","ja":"てつりょー！meet with 鉄道むすめ","r":18,"wrp":7.25},{"id":"rayearth","title":"Magic Knight Rayearth (2026)","ja":"魔法騎士レイアース","r":19,"wrp":7.2},{"id":"shinja","title":"Full Clearing Another World under a Goddess with Zero Believers","ja":"信者ゼロの女神サマと始める異世界攻略","r":20,"wrp":7},{"id":"tokyo","title":"Tokyo Revengers: War of the Three Titan Arc","ja":"『東京リベンジャーズ』三天戦争編","r":21,"wrp":6.9},{"id":"aoki","title":"Aoki Denshou Welsh & Shedar","ja":"蒼き伝承 – Welsh & Shedar","r":22,"wrp":6.85},{"id":"hako","title":"Blue Box Season 2","ja":"『アオのハコ』Season2","r":23,"wrp":6.8},{"id":"toaru","title":"A Certain Dark Item","ja":"とある暗部の少女共棲","r":24,"wrp":6.75},{"id":"hyouken","title":"The Iceblade Sorcerer Shall Rule the World II","ja":"冰剣の魔術師が世界を統べるⅡ","r":25,"wrp":6.7},{"id":"saikyou","title":"The World's Strongest Witch","ja":"世界最強の魔女、始めました","r":26,"wrp":6.5},{"id":"psyren","title":"Psyren","ja":"PSYREN -サイレン-","r":27,"wrp":6.2},{"id":"revo","title":"Magic Repo Man: Dumped by My Party, I'll Cash In With a Cute Support Fairy to Become the Strongest!","ja":"貸した魔力は【リボ払い】で強制徴収","r":28,"wrp":6.05},{"id":"kyouran","title":"Nia Liston: The Merciless Maiden","ja":"凶乱令嬢ニア・リストン 病弱令嬢に転生した神殺しの武人の華麗なる無双録","r":29,"wrp":6},{"id":"shiotaiou","title":"The Cold Sato-san is Only Sweet to Me","ja":"塩対応の佐藤さんが俺にだけ甘い","r":30,"wrp":5},{"id":"tanmoshi","title":"The Detective Is Already Dead Season 2","ja":"探偵はもう、死んでいる。Season2","r":31,"wrp":4.8},{"id":"fuyoshi","title":"The Laid-Off Cheat-Granting Mage Enjoys a Second Lease on Life","ja":"追放されたチート付与魔術師は気ままなセカンドライフを謳歌する。 ～俺は武器だけじゃなく、あらゆるものに『強化ポイント』を付与できるし、俺の意思でいつでも効果を解除できるけど、残った人たち大丈夫？～","r":32,"wrp":4.5}]},{"w":3,"n":28,"entries":[{"id":"zombie","title":"#I'm Looking For a Zombie","ja":"#ゾンビさがしてます","r":1,"wrp":9.5},{"id":"oukoku","title":"The Seven Knights of the Marronnier Kingdom","ja":"マロニエ王国の七人の騎士","r":2,"wrp":9.4},{"id":"tetsuryo","title":"Tetsuryou! Meet with Tetsudou Musume","ja":"てつりょー！meet with 鉄道むすめ","r":3,"wrp":9.3},{"id":"choujou","title":"Super Psychic Policeman Chojo","ja":"超巡！超条先輩","r":4,"wrp":9.25},{"id":"kikansha","title":"A Returner's Magic Should Be Special Season 2","ja":"『帰還者の魔法は特別です』第二期","r":5,"wrp":8.5},{"id":"mezametara","title":"Reborn as a Space Mercenary: I Woke Up Piloting the Strongest Starship!","ja":"目覚めたら最強装備と宇宙船持ちだったので、一戸建て目指して傭兵として自由に生きたい","r":6,"wrp":8.45},{"id":"jouheki","title":"The Ramparts of Ice Season 2","ja":"『氷の城壁』第2期","r":7,"wrp":8.3},{"id":"romelia","title":"Romelia War Chronicle","ja":"ロメリア戦記","r":8,"wrp":8.2},{"id":"seitokai","title":"Even the Student Council Has Its Holes!","ja":"生徒会にも穴はある！","r":9,"wrp":8.1},{"id":"kusuriya","title":"The Apothecary Diaries Season 3","ja":"『薬屋のひとりごと』第3期","r":10,"wrp":8},{"id":"rayearth","title":"Magic Knight Rayearth (2026)","ja":"魔法騎士レイアース","r":11,"wrp":7.55},{"id":"goblin","title":"So What's Wrong with Getting Reborn as a Goblin?","ja":"転生ゴブリンだけど質問ある？","r":12,"wrp":7.5},{"id":"hotel","title":"Hotel Inhumans Season 2","ja":"『ホテル・インヒューマンズ』第2期","r":13,"wrp":7.4},{"id":"chitose","title":"Chitose Is in the Ramune Bottle Part 2","ja":"『千歳くんはラムネ瓶のなか』第2クール","r":14,"wrp":7.3},{"id":"psyren","title":"Psyren","ja":"PSYREN -サイレン-","r":15,"wrp":6.9},{"id":"hako","title":"Blue Box Season 2","ja":"『アオのハコ』Season2","r":16,"wrp":6.8},{"id":"vertex","title":"Vertex Force","ja":"バーテックスフォース","r":17,"wrp":6.7},{"id":"hyouken","title":"The Iceblade Sorcerer Shall Rule the World II","ja":"冰剣の魔術師が世界を統べるⅡ","r":18,"wrp":6.6},{"id":"revo","title":"Magic Repo Man: Dumped by My Party, I'll Cash In With a Cute Support Fairy to Become the Strongest!","ja":"貸した魔力は【リボ払い】で強制徴収","r":19,"wrp":6.55},{"id":"shinja","title":"Full Clearing Another World under a Goddess with Zero Believers","ja":"信者ゼロの女神サマと始める異世界攻略","r":20,"wrp":6.5},{"id":"kyouran","title":"Nia Liston: The Merciless Maiden","ja":"凶乱令嬢ニア・リストン 病弱令嬢に転生した神殺しの武人の華麗なる無双録","r":21,"wrp":6.45},{"id":"fx","title":"FX Fighter Kurumi-chan","ja":"FX戦士くるみちゃん","r":22,"wrp":6.3},{"id":"max","title":"Even Though I'm a Super Timid Noble Girl, I Accepted the Bet From My Cunning Fiancé","ja":"弱気MAX令嬢なのに、辣腕婚約者様の賭けに乗ってしまった","r":23,"wrp":6},{"id":"tokyo","title":"Tokyo Revengers: War of the Three Titan Arc","ja":"『東京リベンジャーズ』三天戦争編","r":24,"wrp":5.95},{"id":"shiotaiou","title":"The Cold Sato-san is Only Sweet to Me","ja":"塩対応の佐藤さんが俺にだけ甘い","r":25,"wrp":5.2},{"id":"kanata","title":"From Far Away","ja":"彼方から","r":26,"wrp":5},{"id":"hitakakusu","title":"A Tale of the Secret Saint","ja":"転生した大聖女は、聖女であることをひた隠す","r":27,"wrp":4.95},{"id":"saikyou","title":"The World's Strongest Witch","ja":"世界最強の魔女、始めました","r":28,"wrp":4.25}]},{"w":4,"n":26,"entries":[{"id":"tetsuryo","title":"Tetsuryou! Meet with Tetsudou Musume","ja":"てつりょー！meet with 鉄道むすめ","r":1,"wrp":9.65},{"id":"chitose","title":"Chitose Is in the Ramune Bottle Part 2","ja":"『千歳くんはラムネ瓶のなか』第2クール","r":2,"wrp":9.55},{"id":"zombie","title":"#I'm Looking For a Zombie","ja":"#ゾンビさがしてます","r":3,"wrp":8.8},{"id":"jouheki","title":"The Ramparts of Ice Season 2","ja":"『氷の城壁』第2期","r":4,"wrp":8.75},{"id":"kusuriya","title":"The Apothecary Diaries Season 3","ja":"『薬屋のひとりごと』第3期","r":5,"wrp":8.65},{"id":"seitokai","title":"Even the Student Council Has Its Holes!","ja":"生徒会にも穴はある！","r":6,"wrp":8.45},{"id":"choujou","title":"Super Psychic Policeman Chojo","ja":"超巡！超条先輩","r":7,"wrp":8.4},{"id":"hako","title":"Blue Box Season 2","ja":"『アオのハコ』Season2","r":8,"wrp":8.3},{"id":"oukoku","title":"The Seven Knights of the Marronnier Kingdom","ja":"マロニエ王国の七人の騎士","r":9,"wrp":8.15},{"id":"mezametara","title":"Reborn as a Space Mercenary: I Woke Up Piloting the Strongest Starship!","ja":"目覚めたら最強装備と宇宙船持ちだったので、一戸建て目指して傭兵として自由に生きたい","r":10,"wrp":8},{"id":"tokyo","title":"Tokyo Revengers: War of the Three Titan Arc","ja":"『東京リベンジャーズ』三天戦争編","r":11,"wrp":7.8},{"id":"kikansha","title":"A Returner's Magic Should Be Special Season 2","ja":"『帰還者の魔法は特別です』第二期","r":12,"wrp":7.75},{"id":"romelia","title":"Romelia War Chronicle","ja":"ロメリア戦記","r":13,"wrp":7.65},{"id":"hotel","title":"Hotel Inhumans Season 2","ja":"『ホテル・インヒューマンズ』第2期","r":14,"wrp":7.2},{"id":"rayearth","title":"Magic Knight Rayearth (2026)","ja":"魔法騎士レイアース","r":15,"wrp":7.1},{"id":"goblin","title":"So What's Wrong with Getting Reborn as a Goblin?","ja":"転生ゴブリンだけど質問ある？","r":16,"wrp":7},{"id":"shiotaiou","title":"The Cold Sato-san is Only Sweet to Me","ja":"塩対応の佐藤さんが俺にだけ甘い","r":17,"wrp":6.9},{"id":"fx","title":"FX Fighter Kurumi-chan","ja":"FX戦士くるみちゃん","r":18,"wrp":6.8},{"id":"kyouran","title":"Nia Liston: The Merciless Maiden","ja":"凶乱令嬢ニア・リストン 病弱令嬢に転生した神殺しの武人の華麗なる無双録","r":19,"wrp":6.75},{"id":"kanata","title":"From Far Away","ja":"彼方から","r":20,"wrp":6.5},{"id":"shinja","title":"Full Clearing Another World under a Goddess with Zero Believers","ja":"信者ゼロの女神サマと始める異世界攻略","r":21,"wrp":6.4},{"id":"max","title":"Even Though I'm a Super Timid Noble Girl, I Accepted the Bet From My Cunning Fiancé","ja":"弱気MAX令嬢なのに、辣腕婚約者様の賭けに乗ってしまった","r":22,"wrp":6.3},{"id":"hyouken","title":"The Iceblade Sorcerer Shall Rule the World II","ja":"冰剣の魔術師が世界を統べるⅡ","r":23,"wrp":4.4},{"id":"hitakakusu","title":"A Tale of the Secret Saint","ja":"転生した大聖女は、聖女であることをひた隠す","r":24,"wrp":3.7},{"id":"revo","title":"Magic Repo Man: Dumped by My Party, I'll Cash In With a Cute Support Fairy to Become the Strongest!","ja":"貸した魔力は【リボ払い】で強制徴収","r":25,"wrp":3.05},{"id":"saikyou","title":"The World's Strongest Witch","ja":"世界最強の魔女、始めました","r":26,"wrp":2.8}]},{"w":5,"n":22,"entries":[{"id":"hotel","title":"Hotel Inhumans Season 2","ja":"『ホテル・インヒューマンズ』第2期","r":1,"wrp":9.6},{"id":"mezametara","title":"Reborn as a Space Mercenary: I Woke Up Piloting the Strongest Starship!","ja":"目覚めたら最強装備と宇宙船持ちだったので、一戸建て目指して傭兵として自由に生きたい","r":2,"wrp":9.15},{"id":"choujou","title":"Super Psychic Policeman Chojo","ja":"超巡！超条先輩","r":3,"wrp":9.05},{"id":"seitokai","title":"Even the Student Council Has Its Holes!","ja":"生徒会にも穴はある！","r":4,"wrp":9},{"id":"chitose","title":"Chitose Is in the Ramune Bottle Part 2","ja":"『千歳くんはラムネ瓶のなか』第2クール","r":5,"wrp":8.6},{"id":"kusuriya","title":"The Apothecary Diaries Season 3","ja":"『薬屋のひとりごと』第3期","r":6,"wrp":8.55},{"id":"tetsuryo","title":"Tetsuryou! Meet with Tetsudou Musume","ja":"てつりょー！meet with 鉄道むすめ","r":7,"wrp":8.3},{"id":"jouheki","title":"The Ramparts of Ice Season 2","ja":"『氷の城壁』第2期","r":8,"wrp":8.25},{"id":"goblin","title":"So What's Wrong with Getting Reborn as a Goblin?","ja":"転生ゴブリンだけど質問ある？","r":9,"wrp":8.2},{"id":"tokyo","title":"Tokyo Revengers: War of the Three Titan Arc","ja":"『東京リベンジャーズ』三天戦争編","r":10,"wrp":8.1},{"id":"fx","title":"FX Fighter Kurumi-chan","ja":"FX戦士くるみちゃん","r":11,"wrp":7.15},{"id":"oukoku","title":"The Seven Knights of the Marronnier Kingdom","ja":"マロニエ王国の七人の騎士","r":12,"wrp":6.85},{"id":"rayearth","title":"Magic Knight Rayearth (2026)","ja":"魔法騎士レイアース","r":13,"wrp":6.7},{"id":"kyouran","title":"Nia Liston: The Merciless Maiden","ja":"凶乱令嬢ニア・リストン 病弱令嬢に転生した神殺しの武人の華麗なる無双録","r":14,"wrp":6.6},{"id":"kikansha","title":"A Returner's Magic Should Be Special Season 2","ja":"『帰還者の魔法は特別です』第二期","r":15,"wrp":6.3},{"id":"max","title":"Even Though I'm a Super Timid Noble Girl, I Accepted the Bet From My Cunning Fiancé","ja":"弱気MAX令嬢なのに、辣腕婚約者様の賭けに乗ってしまった","r":16,"wrp":6},{"id":"romelia","title":"Romelia War Chronicle","ja":"ロメリア戦記","r":17,"wrp":5.9},{"id":"shiotaiou","title":"The Cold Sato-san is Only Sweet to Me","ja":"塩対応の佐藤さんが俺にだけ甘い","r":18,"wrp":5.6},{"id":"shinja","title":"Full Clearing Another World under a Goddess with Zero Believers","ja":"信者ゼロの女神サマと始める異世界攻略","r":19,"wrp":5.2},{"id":"kanata","title":"From Far Away","ja":"彼方から","r":20,"wrp":2.9},{"id":"hitakakusu","title":"A Tale of the Secret Saint","ja":"転生した大聖女は、聖女であることをひた隠す","r":21,"wrp":2.8},{"id":"saikyou","title":"The World's Strongest Witch","ja":"世界最強の魔女、始めました","r":22,"wrp":1.6}]},{"w":6,"n":19,"entries":[{"id":"seitokai","title":"Even the Student Council Has Its Holes!","ja":"生徒会にも穴はある！","r":1,"wrp":9.6},{"id":"jouheki","title":"The Ramparts of Ice Season 2","ja":"『氷の城壁』第2期","r":2,"wrp":9.5},{"id":"hotel","title":"Hotel Inhumans Season 2","ja":"『ホテル・インヒューマンズ』第2期","r":3,"wrp":9.2},{"id":"mezametara","title":"Reborn as a Space Mercenary: I Woke Up Piloting the Strongest Starship!","ja":"目覚めたら最強装備と宇宙船持ちだったので、一戸建て目指して傭兵として自由に生きたい","r":4,"wrp":8.6},{"id":"romelia","title":"Romelia War Chronicle","ja":"ロメリア戦記","r":5,"wrp":8.3},{"id":"kusuriya","title":"The Apothecary Diaries Season 3","ja":"『薬屋のひとりごと』第3期","r":6,"wrp":8.25},{"id":"choujou","title":"Super Psychic Policeman Chojo","ja":"超巡！超条先輩","r":7,"wrp":8.15},{"id":"tetsuryo","title":"Tetsuryou! Meet with Tetsudou Musume","ja":"てつりょー！meet with 鉄道むすめ","r":8,"wrp":8.05},{"id":"fx","title":"FX Fighter Kurumi-chan","ja":"FX戦士くるみちゃん","r":9,"wrp":8.0},{"id":"chitose","title":"Chitose Is in the Ramune Bottle Part 2","ja":"『千歳くんはラムネ瓶のなか』第2クール","r":10,"wrp":7.8},{"id":"hako","title":"Blue Box Season 2","ja":"『アオのハコ』Season2","r":11,"wrp":7.4},{"id":"tokyo","title":"Tokyo Revengers: War of the Three Titan Arc","ja":"『東京リベンジャーズ』三天戦争編","r":12,"wrp":7.3},{"id":"oukoku","title":"The Seven Knights of the Marronnier Kingdom","ja":"マロニエ王国の七人の騎士","r":13,"wrp":7.25},{"id":"kanata","title":"From Far Away","ja":"彼方から","r":14,"wrp":6.8},{"id":"max","title":"Even Though I'm a Super Timid Noble Girl, I Accepted the Bet From My Cunning Fiancé","ja":"弱気MAX令嬢なのに、辣腕婚約者様の賭けに乗ってしまった","r":15,"wrp":6.5},{"id":"shiotaiou","title":"The Cold Sato-san is Only Sweet to Me","ja":"塩対応の佐藤さんが俺にだけ甘い","r":16,"wrp":6.4},{"id":"shinja","title":"Full Clearing Another World under a Goddess with Zero Believers","ja":"信者ゼロの女神サマと始める異世界攻略","r":17,"wrp":6.3},{"id":"zombie","title":"#I'm Looking For a Zombie","ja":"#ゾンビさがしてます","r":18,"wrp":4.85},{"id":"saikyou","title":"The World's Strongest Witch","ja":"世界最強の魔女、始めました","r":19,"wrp":0.95}]}];
+const POOLS={"A":["kusuriya","jouheki","seitokai"],"B":["hotel","seitokai","choujou","oukoku","romelia","chitose","tokyo","hako","zombie"],"C":["mezametara","tetsuryo","fx","kanata","goblin","shinja","kikansha","revo","hitakakusu","zombie","rayearth"],"D":["saikyou","max","shiotaiou","fuyoshi","hyouken","tanmoshi","kyouran","aoki","psyren"]};
+const RIVALS=[{name:'Mia · Steady',picks:{A:'kusuriya',B:'choujou',C:'tetsuryo',D:'shiotaiou'},captain:'A'},{name:'Mia · Wildcard',picks:{A:'jouheki',B:'romelia',C:'fx',D:'max'},captain:'A'}];
+const DEFAULT={name:'My S.O.W. Team',picks:{A:'seitokai',B:'hotel',C:'mezametara',D:'saikyou'},captain:'A'};
+const STORAGE='offbeat-sow-fantasy-myteam-r2-preview-2026fall';
+const options={wrp:3,rank:20,field:4,A:.95,B:1.15,C:1.3,D:1.5,captain:1.2,d10:1.1,d5:1.25,d3:1.4,d1:1.6,t10:6,t5:12,t3:24};
+const label={A:'CONTENDER',B:'CHALLENGER',C:'DARK HORSE',D:'HIGH RISK'};
+const desc={A:'事前評価が高い本命候補',B:'上位争いに加わる有力候補',C:'意外性や伸びしろのある作品',D:'脱落リスクの高い大穴'};
+// Published drop decisions verified in actual W02, W03 and W05 ranking JSON.
+// Decision applies AFTER that week; never infer a drop solely from missing rankings.
+const DROP_DECISION_WEEK={aoki:2,tanmoshi:2,fuyoshi:2,psyren:3,kyouran:5,hitakakusu:5,rayearth:5};
+const names={};for(const w of WEEKS){for(const e of w.entries){names[e.id]=e.ja||e.title||e.id}}
+const els={picks:document.getElementById('picks'),name:document.getElementById('teamName'),cap:document.getElementById('captain'),warning:document.getElementById('warning'),saved:document.getElementById('saved')};
+function copy(o){return JSON.parse(JSON.stringify(o))}
+function load(){try{const v=JSON.parse(localStorage.getItem(STORAGE));if(!v||!v.picks||!['A','B','C','D'].every(g=>POOLS[g].includes(v.picks[g]))||!('ABCD'.includes(v.captain)))return copy(DEFAULT);return {name:String(v.name||DEFAULT.name).slice(0,35),picks:{...v.picks},captain:v.captain}}catch(e){return copy(DEFAULT)}}
+let team=load(),chosenWeek=6;
+function escapeHTML(s){return String(s??'').replace(/[&<>"']/g,x=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[x]))}
+function num(n){return Number(n).toFixed(2)}
+function shortName(id){return names[id]||id}
+function inGroups(id){return 'ABCD'.split('').filter(g=>POOLS[g].includes(id))}
+function groupLabel(id){return inGroups(id).join('/')}
+function save(){try{localStorage.setItem(STORAGE,JSON.stringify(team));els.saved.textContent='SAVED IN THIS BROWSER · NOT SUBMITTED'}catch(e){els.saved.textContent='LOCAL STORAGE UNAVAILABLE · NOT SUBMITTED'}}
+function valid(t){return new Set(Object.values(t.picks)).size===4}
+function renderDraft(){
+ els.name.value=team.name;els.cap.value=team.captain;
+ els.picks.innerHTML='ABCD'.split('').map(g=>{
+  const chosen=team.picks[g], dual=inGroups(chosen).length>1;
+  const choices=POOLS[g].filter(id=>names[id]);
+  const simple=choices.filter(id=>inGroups(id).length===1);
+  const flexible=choices.filter(id=>inGroups(id).length>1);
+  const option=id=>`<option value="${escapeHTML(id)}" ${chosen===id?'selected':''}>${flexible.includes(id)?'◇ ':''}${escapeHTML(names[id])}${flexible.includes(id)?' ['+groupLabel(id)+' · 仮]':''}</option>`;
+  return `<div class="pick"><div class="pick-top"><strong>${g}</strong><span>${label[g]}</span></div><select aria-label="${g} PICK" data-pick="${g}"><optgroup label="${g} · REGULAR PICKS">${simple.map(option).join('')}</optgroup>${flexible.length?`<optgroup label="◇ CROSS-GROUP CANDIDATES · 仮">${flexible.map(option).join('')}</optgroup>`:''}</select><div class="caption">${desc[g]}</div>${dual?`<span class="dual-choice"><span class="symbol">◇</span> ${groupLabel(chosen)} · 2グループ候補（仮）</span>`:`<div class="dual-hint">${flexible.length?'◇印は複数グループの仮候補':'この枠の通常候補'}</div>`}</div>`
+ }).join('');
+ const duals=[...new Set(Object.values(POOLS).flat())].filter(id=>names[id]&&inGroups(id).length>1);
+ document.getElementById('dualNotice').innerHTML=`<strong>◇ CROSS-GROUP · 仮の重複候補</strong><div class="legend">選択メニュー内の◇印と色付きバッジで区別。現在はテスト用の重複で、正式なIn-Betweenの資格は未確定です。</div><div class="overlap-list">${duals.map(id=>`<span>◇ ${escapeHTML(shortName(id))} <b>${groupLabel(id)}</b></span>`).join('')}</div>`;
+ for(const sel of els.picks.querySelectorAll('select'))sel.onchange=()=>{team.picks[sel.dataset.pick]=sel.value;save();renderDraft();render()};
+ els.cap.onchange=()=>{team.captain=els.cap.value;save();render()};
+ els.name.oninput=()=>{team.name=els.name.value;save()};
+}
+function baseDetail(r,wrp,n){
+ const pct=n>1?Math.max(0,Math.min(1,(n-r)/(n-1))):1;
+ const w=wrp*options.wrp,rank=options.rank*pct,field=options.field*n/34*pct;
+ return {w,rank,field,sum:w+rank+field};
+}
+function dBonus(r){if(r===1)return options.d1;if(r<=3)return options.d3;if(r<=5)return options.d5;if(r<=10)return options.d10;return 1}
+function score(t,w){
+ const map=new Map(w.entries.map(e=>[e.id,e]));let total=0;const pieces={};
+ for(const g of 'ABCD'){
+  const e=map.get(t.picks[g]);const parts=e?baseDetail(e.r,e.wrp,w.n):null;
+  const multipliers={group:options[g],captain:(t.captain===g?options.captain:1),upset:(e&&g==='D'?dBonus(e.r):1)};
+  const pts=parts?parts.sum*multipliers.group*multipliers.captain*multipliers.upset:0;
+  pieces[g]={e,pts,id:t.picks[g],parts,multipliers};total+=pts;
+ }
+ const highest=Math.max(...'ABC'.split('').map(g=>pieces[g].e?.r??Infinity));
+ const bonusType=highest<=3?'TOP 3':highest<=5?'TOP 5':highest<=10?'TOP 10':null;
+ const bonus=highest<=3?options.t3:highest<=5?options.t5:highest<=10?options.t10:0;
+ return {w:w.w,total:total+bonus,bonus,bonusType,pieces};
+}
+function scores(t){return WEEKS.map(w=>score(t,w))}
+function sum(rows){return rows.reduce((a,x)=>a+x.total,0)}
+function rankAmong(values,index){return 1+values.filter(x=>x>values[index]+1e-9).length}
+function allState(mine,rivals){
+ const teams=[mine,...rivals];const rounds=[];const acc=[0,0,0];
+ for(let i=0;i<mine.length;i++){
+  const weekly=teams.map(t=>t[i].total);weekly.forEach((n,j)=>acc[j]+=n);
+  rounds.push({week:i+1,weekly,weekRanks:weekly.map((_,j)=>rankAmong(weekly,j)),cumulative:[...acc],totalRanks:acc.map((_,j)=>rankAmong(acc,j))});
+ }
+ return rounds;
+}
+function statusFor(id,w){
+ const decision=DROP_DECISION_WEEK[id];
+ if(decision===undefined)return null;
+ if(w===decision)return {kind:'after',text:`W${String(w).padStart(2,'0')}終了時に対象外決定`};
+ if(w>decision)return {kind:'dropped',text:`W${String(decision).padStart(2,'0')}で対象外決定済み`};
+ return null;
+}
+function renderPieces(round,w){
+ document.getElementById('roundHead').textContent=`WEEK ${String(w).padStart(2,'0')} · YOUR FOUR PICKS`;
+ document.getElementById('pieces').innerHTML='ABCD'.split('').map(g=>{
+  const p=round.pieces[g],d=statusFor(p.id,w),isCap=team.captain===g;
+  const badges=[];
+  if(p.e&&g==='D'&&p.multipliers.upset>1)badges.push(`<span class="state badge-upset">D-GROUP UPSET ×${p.multipliers.upset.toFixed(2)}</span>`);
+  if(d)badges.push(`<span class="state badge-drop">${d.kind==='after'?'DROPPED AFTER WEEK':'DROPPED'} · W${String(DROP_DECISION_WEEK[p.id]).padStart(2,'0')}</span>`);
+  if(p.e&&p.e.r===1&&g!=='D')badges.push('<span class="state badge-upset">WEEKLY #1</span>');
+  const info=p.e?`<b>#${p.e.r} / ${WEEKS[w-1].n}作品</b> · WRP ${p.e.wrp}`:(d&&d.kind==='dropped'?'対象外につき得点なし':'今週の順位・採点記録なし');
+  let dropNote='';
+  if(d){
+   const decided=DROP_DECISION_WEEK[p.id];
+   const original=score(team,WEEKS[decided-1]).pieces[g];
+   const decisionScore=original.e?`W${String(decided).padStart(2,'0')}は採点あり（${num(original.pts)} pt）`:`W${String(decided).padStart(2,'0')}はこの作品の得点記録なし`;
+   dropNote=`<div class="drop-explainer">${decisionScore}。${d.kind==='after'?'この週の終了後に対象外を決定。':`W${String(decided).padStart(2,'0')}終了後に対象外 → 今週は0 pt。`}</div>`;
+  }
+  const formula=p.e?`<div class="formula">WRP：${num(p.parts.w)} + 順位：${num(p.parts.rank)} + 作品数補正：${num(p.parts.field)} = <b>${num(p.parts.sum)}</b><br>グループ ${p.multipliers.group.toFixed(2)}×${isCap?' · Captain '+p.multipliers.captain.toFixed(2)+'×':''}${p.multipliers.upset>1?' · D大穴 '+p.multipliers.upset.toFixed(2)+'×':''}<br><b>→ ${num(p.pts)} pts</b></div>`:'<div class="formula">この週は得点に使える週間評価がないため 0.00 pt。補欠の自動投入はまだ未実装です。</div>';
+  return `<div class="roundpiece ${p.e?'':'no-score'}"><div class="role">${g} PICK ${isCap?'★ CAPTAIN':''}</div><div class="title">${escapeHTML(shortName(p.id))}</div><div class="pts">${num(p.pts)}<span class="unit"> pt</span></div><div class="stat">${info}</div>${badges.join('')}${dropNote}<details class="piece-detail"><summary>得点の内訳</summary>${formula}</details></div>`
+ }).join('');
+ const abc='ABC'.split('').map(g=>round.pieces[g].e?.r).filter(x=>Number.isFinite(x));
+ const bonusDesc=round.bonus?`A / B / C の3作品がすべて ${round.bonusType} 入り（${abc.map(x=>'#'+x).join(' · ')}）。最も高い条件のボーナスを1回だけ加算。`:'A / B / C の3作品が同時に TOP10 に入らなかったため、チームボーナスはなし。';
+ document.getElementById('roundResult').innerHTML=`<div><label>WEEK ${String(w).padStart(2,'0')} · TEAM BONUS</label><br><strong>+${num(round.bonus)} <span style="font:12px 'Barlow Condensed',sans-serif">PTS</span></strong><div class="combo-caption">${bonusDesc}</div></div><div style="text-align:right"><label>ROUND TOTAL</label><br><strong>${num(round.total)} <span style="font:12px 'Barlow Condensed',sans-serif">PTS</span></strong></div>`;
+ const flagged='ABCD'.split('').filter(g=>round.pieces[g].e&&g==='D'&&round.pieces[g].multipliers.upset>1);
+ const drops='ABCD'.split('').filter(g=>statusFor(round.pieces[g].id,w)?.kind==='dropped');
+ const pills=[...(flagged.map(g=>`<span class="impact-pill">D UPSET ×${round.pieces[g].multipliers.upset.toFixed(2)}</span>`)),...(round.bonus?[`<span class="impact-pill">ABC ${round.bonusType} +${round.bonus}</span>`]:[]),...(drops.map(g=>`<span class="impact-pill">${g} PICK DROPPED</span>`))];
+ let explanation=flagged.length?`<strong>D枠の大穴</strong>が今週の得点を押し上げた。`:(round.bonus?'3作品の上位入りによる<strong>連携ボーナス</strong>が発動。':'');
+ if(drops.length)explanation+=` <strong>${drops.join('・')}枠</strong>には対象外の作品が含まれ、今週は得点できていない。`;
+ if(!explanation)explanation='今週は通常の週間評価に基づく得点。下のスコアカードで他チームとの勝敗を確認できる。';
+ document.getElementById('roundImpact').innerHTML=`<div class="impact-kicker">WHAT MOVED THE SCORE</div>${pills.join('')}<div>${explanation}</div>`;
+}
+function placeBadge(rank){return `<span class="place-badge ${rank===1?'first':rank===3?'third':''}">#${rank}<small>/3</small></span>`}
+function renderComparison(all,ok){
+ const body=all.map(r=>`<tr class="${chosenWeek===r.week?'is-current':''}"><td>W${String(r.week).padStart(2,'0')}</td><td class="own-point">${ok?num(r.weekly[0]):'—'}</td><td class="own-place">${ok?placeBadge(r.weekRanks[0]):'—'}</td><td class="own-place">${ok?placeBadge(r.totalRanks[0]):'—'}</td><td class="rival-point">${num(r.weekly[1])}</td><td class="rival-point">${num(r.weekly[2])}</td></tr>`).join('');
+ const last=all[all.length-1];
+ const desktop=`<div class="weekly-table-wrap"><table class="weekly-table"><thead><tr class="group-label"><th rowspan="2">ROUND</th><th class="own-columns" colspan="3">YOUR TEAM</th><th class="rival-columns" colspan="2">OPPONENTS · TEST TEAMS</th></tr><tr class="subheads"><th class="owncol">PTS</th><th class="owncol">WEEK RANK</th><th class="owncol">SEASON RANK</th><th class="rivalcol">STEADY PTS</th><th class="rivalcol">WILDCARD PTS</th></tr></thead><tbody>${body}</tbody><tfoot><tr><td>6W TOTAL</td><td class="own-point">${ok?num(last.cumulative[0]):'—'}</td><td class="own-place">—</td><td class="own-place">${ok?placeBadge(last.totalRanks[0]):'—'}</td><td>${num(last.cumulative[1])}</td><td>${num(last.cumulative[2])}</td></tr></tfoot></table></div>`;
+ const mobile=`<div class="mobile-round-cards" aria-label="Weekly team results">${all.map(r=>`<article class="mobile-round ${r.week===chosenWeek?'is-current':''}"><div class="mr-week">W${String(r.week).padStart(2,'0')}<small>${r.week===chosenWeek?'SELECTED':''}</small></div><div class="mr-body"><div class="mr-primary"><div class="mr-main"><small>MY PTS</small><strong>${ok?num(r.weekly[0]):'—'}</strong></div><div class="mr-rank"><small>WEEK</small><strong class="${r.weekRanks[0]===1?'first':r.weekRanks[0]===3?'third':''}">${ok?'#'+r.weekRanks[0]+'/3':'—'}</strong></div><div class="mr-rank"><small>OVERALL</small><strong class="${r.totalRanks[0]===1?'first':r.totalRanks[0]===3?'third':''}">${ok?'#'+r.totalRanks[0]+'/3':'—'}</strong></div></div><div class="mr-rivals"><span>STEADY <b>${num(r.weekly[1])}</b></span><span>WILDCARD <b>${num(r.weekly[2])}</b></span></div></div></article>`).join('')}</div>`;
+ document.getElementById('comparison').innerHTML=desktop+mobile+'<p class="footnote">WEEK＝その週だけの順位、OVERALL＝その週までの累計順位。すべて3つの仮チームによる比較です。編成を変えると過去の結果も再計算します。</p>';
+}
+function renderJournal(all,mine,w,ok){
+ const body=document.getElementById('journalBody');
+ if(!ok){body.innerHTML='<p class="journal-lead">同じ作品を二つの枠に選んでいます。4作品が別々になるように編成を変更してください。</p>';return}
+ const current=all[w-1],prev=all[w-2],round=mine[w-1];
+ const through=mine.slice(0,w),past=all.slice(0,w);
+ const scoreList=current.cumulative,standing=current.totalRanks[0];
+ const best=through.reduce((a,b)=>a.total>=b.total?a:b);
+ const peakD=through.flatMap(r=>Object.entries(r.pieces).filter(([g,p])=>g==='D'&&p.e?.r===1).map(([g,p])=>({w:r.w,p})));
+ const peak=peakD[0];
+ const rivals=[{name:'Steady',j:1},{name:'Wildcard',j:2}];
+ const sorted=rivals.map(t=>({...t,score:scoreList[t.j]})).sort((a,b)=>b.score-a.score);
+ const isLeader=standing===1;
+ const gap=isLeader?scoreList[0]-sorted[0].score:Math.max(...scoreList)-scoreList[0];
+ const lead=isLeader?`W${String(w).padStart(2,'0')}終了時点、<strong>総合首位</strong>。リードは <strong>${num(gap)} pt</strong>。ただし、この差を守り切れるかは別の話だ。`:`W${String(w).padStart(2,'0')}終了時点、<strong>総合${standing}位 / 3</strong>。首位との差は <strong>${num(gap)} pt</strong>。ここからの追撃が必要になる。`;
+ const liveWeek=current.weekRanks[0]===1?'この週は週間1位。':current.weekRanks[0]===3?'この週は週間3位。':'この週は週間2位。';
+ const bestPiece=Object.values(best.pieces).reduce((a,b)=>a.pts>=b.pts?a:b);
+ const bestRival=Math.max(...past[best.w-1].weekly.slice(1));
+ const bestEdge=best.total-bestRival;
+ const pastBonus=through.filter(r=>r.bonus).map(r=>`W${String(r.w).padStart(2,'0')} ${r.bonusType} +${r.bonus}`);
+ let turning=peak?`W${String(peak.w).padStart(2,'0')}、大穴D枠の<strong>${escapeHTML(shortName(peak.p.id))}</strong>が週間1位。1作品で<strong>${num(peak.p.pts)} pt</strong>を奪い取り、チームの得点を一気に押し上げた。D枠1.50×と1位ボーナス1.60×が重なった、まさに開幕の一撃だ。`:`最大得点はW${String(best.w).padStart(2,'0')}の<strong>${num(best.total)} pt</strong>。その週にチームを引っ張ったのは<strong>${escapeHTML(shortName(bestPiece.id))}</strong>（${num(bestPiece.pts)} pt）。`;
+ turning+=bestEdge>0.001?` W${String(best.w).padStart(2,'0')}は相手チームの最高得点を<strong>${num(bestEdge)} pt</strong>上回った。`:` W${String(best.w).padStart(2,'0')}も相手の得点を上回るには至らなかった。`;
+ const bonusStory=pastBonus.length?`さらに、ABCの連携ボーナスは${pastBonus.join('、')}。4作品の単独得点だけでなく、チーム全体の上位入りも効いている。`:'ここまではABC同時上位の連携ボーナスは発動していない。';
+ const shortWindow=through.slice(-3);
+ const recentText=shortWindow.map(r=>`<span>W${String(r.w).padStart(2,'0')}<b>${num(r.total)}</b></span>`).join('');
+ let formNote='';
+ if(w>1){
+  const delta=round.total-mine[w-2].total;
+  const trend=delta>=0?`前週から<strong>+${num(delta)} pt</strong>。`:`前週から<strong>−${num(-delta)} pt</strong>。`;
+  formNote=trend;
+  if(shortWindow.length===3&&shortWindow[0].total>shortWindow[1].total&&shortWindow[1].total>shortWindow[2].total){formNote+='直近3週は得点が下降している。ただ、それだけでチームの勢いを判断するのは早い。'}
+ } else formNote='開幕戦の結果。これが今季の最初の基準点になる。';
+ // Crucial context: a title was scored in the decision week but stops earning afterwards.
+ const missing='ABCD'.split('').map(g=>({g,id:team.picks[g],d:DROP_DECISION_WEEK[team.picks[g]]})).filter(x=>x.d!==undefined&&x.d<w&&!round.pieces[x.g].e);
+ const justLost=missing.filter(x=>x.d===w-1);
+ let absences='';
+ if(justLost.length){
+  const x=justLost[0],pPrev=mine[w-2].pieces[x.g],prevContribution=pPrev.pts,remainingCurrent='ABCD'.split('').filter(g=>g!==x.g).reduce((n,g)=>n+round.pieces[g].pts,0);
+  const remainingPrev='ABCD'.split('').filter(g=>g!==x.g).reduce((n,g)=>n+mine[w-2].pieces[g].pts,0);
+  const othersDelta=remainingCurrent-remainingPrev,bonusDelta=round.bonus-mine[w-2].bonus;
+  const prevRecord=pPrev.e?`W${String(w-1).padStart(2,'0')}には${num(prevContribution)} ptを取っていた`:`W${String(w-1).padStart(2,'0')}には得点記録がなかった`;
+  const sign=n=>(n>=0?'+':'−')+num(Math.abs(n));
+  absences=`ところがW${String(w-1).padStart(2,'0')}終了後、${escapeHTML(shortName(x.id))}が対象外に。${prevRecord}${x.g}枠は今週<strong>0 pt</strong>。それでもチーム全体では${num(round.total)} ptを残した。<div class="analysis-line">欠けた${x.g}枠 ${sign(-prevContribution)} ｜ 残る3枠 ${sign(othersDelta)} ｜ ABC連携 ${sign(bonusDelta)}<br>差し引き ${sign(round.total-mine[w-2].total)} pt</div>残ったメンバーが相当踏ん張っている、というのが数字の実態だ。`;
+ } else if(missing.length){
+  const x=missing[0];
+  absences=`${x.g}枠の${escapeHTML(shortName(x.id))}はW${String(x.d).padStart(2,'0')}終了時に対象外となり、今週は0 pt。補欠はまだ入っていない。それでも残るメンバーの戦いは続く。`;
+ }
+ const bestOther={name:'',val:-Infinity};
+ rivals.forEach(t=>{if(current.weekly[t.j]>bestOther.val){bestOther.val=current.weekly[t.j];bestOther.name=t.name}});
+ const thisGap=round.total-bestOther.val;
+ let opponentNote=thisGap>0?`今週は${escapeHTML(bestOther.name)}を${num(thisGap)} pt上回った。`:`今週は${escapeHTML(bestOther.name)}に${num(-thisGap)} pt先行された。`;
+ const wins=past.filter(x=>x.weekRanks[0]===1).length;
+ const podium=`この時点までの週間1位は<strong>${wins}回 / ${w}週</strong>。`;
+ if(isLeader&&current.weekRanks[0]!==1)opponentNote+=`週間首位を逃しても、ここまでの貯金で<strong>総合首位</strong>を保っている。`;
+ else if(standing!==1&&current.weekRanks[0]===1)opponentNote+=`週間首位でも、累計の差はまだ残る。`;
+ // Next round: use observed head-to-head swings, not a tautological threshold alone.
+ const baseRounds=past.length>=3?past.slice(1):past; // week 01 is unusually volatile in this test scenario
+ let worst={edge:0,w:null,name:null};
+ let bestChase={edge:0,w:null,name:null};
+ for(const r of baseRounds){for(const rival of rivals){
+   const edge=r.weekly[rival.j]-r.weekly[0];
+   if(edge>worst.edge){worst={edge,w:r.week,name:rival.name}}
+   if(-edge>bestChase.edge){bestChase={edge:-edge,w:r.week,name:rival.name}}
+ }}
+ let future='';
+ const next='W'+String(w+1).padStart(2,'0');
+ if(isLeader){
+  if(worst.edge>0.001){
+   const pace=worst.edge,n=Math.floor((gap+1e-8)/pace)+1;
+   future=`今のリードは<strong>${num(gap)} pt</strong>。ただ、${w>=3?'W02以降':'ここまで'}に相手へ許した最大の週間差は<strong>W${String(worst.w).padStart(2,'0')}・${worst.name}の${num(pace)} pt</strong>だった。この規模の差が続けば<strong>約${n}週</strong>で逆転圏内に入る。もちろん、同じ結果が繰り返されるという予測ではない。`;
+  }else future=`今は総合首位。${w>=2?'現時点まで相手に週間得点で先行される場面はなかったが、':'開幕の勢いを、'}次の${next}で守れるかが見どころになる。`;
+ }else{
+  if(bestChase.edge>0.001){
+   const n=Math.floor((gap+1e-8)/bestChase.edge)+1;
+   future=`首位までは<strong>${num(gap)} pt</strong>。${w>=3?'W02以降':'これまで'}に追い上げた最大の週間差は<strong>W${String(bestChase.w).padStart(2,'0')}・${num(bestChase.edge)} pt</strong>。同規模の追撃が続けば約${n}週で追いつける計算だが、実際は相手も毎週得点する。`;
+  }else future=`首位まで<strong>${num(gap)} pt</strong>。ここまでは週間得点の上積みが足りていない。次の${next}は流れを変えられるか。`;
+ }
+ const note=w===6?'W07以降はまだ計算していない。今はあくまでW06までの試合を振り返るためのプレビュー。':'この先の試合結果は、選んだ週のストーリーには含めていない。';
+ body.innerHTML=`<p class="journal-lead">${lead} ${liveWeek}</p><div class="journal-grid"><article class="journal-card"><h3>01 · The Breakthrough</h3><div class="factline">TURNING POINT · BEST ROUND W${String(best.w).padStart(2,'0')} · ${num(best.total)} PTS</div><p>${turning}</p><p>${bonusStory}</p></article><article class="journal-card"><h3>02 · Momentum & Setbacks</h3><div class="factline">W${String(w).padStart(2,'0')} · ${num(round.total)} PTS · WEEKLY #${current.weekRanks[0]}/3</div><p>${formNote}</p>${absences?`<p>${absences}</p>`:''}<div class="round-timeline">${recentText}</div></article><article class="journal-card"><h3>03 · The Other Side of the Scoreboard</h3><div class="factline">3-TEAM TEST LEAGUE · THROUGH W${String(w).padStart(2,'0')}</div><p>${opponentNote}</p><p>${podium}</p></article><article class="journal-card forecast"><h3>04 · Looking Ahead</h3><p>${future}</p><p>${note} 補欠・Midseason Transferはまだ試験中の構想で、今回の得点には反映していない。</p></article></div>`;
+}
+function render(){
+ const ok=valid(team);els.warning.textContent=ok?'':'同じ作品が複数の枠に選ばれています。重複しないようにしてください。';
+ const mine=scores(team),rivals=RIVALS.map(t=>scores(t)), all=allState(mine,rivals);
+ const latest=all[all.length-1],pick=all[chosenWeek-1],round=mine[chosenWeek-1];
+ const latestRank=latest.totalRanks[0];
+ document.getElementById('scoreband').innerHTML=`<div class="bigscore"><small>MY TEAM · 6-WEEK TOTAL</small><strong>${ok?num(latest.cumulative[0]):'—'}</strong><em>PTS</em></div><div class="mini-score"><small>OVERALL · 3 TEST TEAMS</small><strong>${ok?'#'+latestRank:'—'}</strong><span>THROUGH WEEK 06</span></div><div class="mini-score"><small>WEEKS SCORED</small><strong>06<span style="display:inline;font-size:18px"> / 12</span></strong><span>2026 FALL SNAPSHOT</span></div>`;
+ const nav=document.getElementById('weekSelect');nav.innerHTML=Array.from({length:12},(_,i)=>{const w=i+1;const found=mine.find(x=>x.w===w);return `<button type="button" ${w>6?'disabled':''} class="${w===chosenWeek?'active':''}" data-week="${w}" aria-pressed="${w===chosenWeek?'true':'false'}">W${String(w).padStart(2,'0')}<strong>${found&&ok?Math.round(found.total):'—'}</strong></button>`}).join('');
+ nav.querySelectorAll('button:not(:disabled)').forEach(b=>b.onclick=()=>{chosenWeek=+b.dataset.week;render()});
+ document.getElementById('weekStats').innerHTML=`<div class="week-stat"><small>W${String(chosenWeek).padStart(2,'0')} · TEAM SCORE</small><strong>${ok?num(round.total):'—'} <em>PT</em></strong></div><div class="week-stat"><small>W${String(chosenWeek).padStart(2,'0')} · WEEKLY RANK</small><strong>${ok?'#'+pick.weekRanks[0]+'/3':'—'}</strong></div><div class="week-stat"><small>AFTER W${String(chosenWeek).padStart(2,'0')} · OVERALL</small><strong>${ok?'#'+pick.totalRanks[0]+'/3':'—'}</strong></div>`;
+ renderPieces(round,chosenWeek);renderComparison(all,ok);renderJournal(all,mine,chosenWeek,ok);
+}
+function reset(){team=copy(DEFAULT);try{localStorage.removeItem(STORAGE)}catch(e){}els.saved.textContent='RESET TO SAMPLE TEAM · NOT SUBMITTED';renderDraft();render()}
+document.getElementById('reset').onclick=reset;
+renderDraft();render();
+
+
+</script></body></html>
