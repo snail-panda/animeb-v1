@@ -1,0 +1,31 @@
+/* S.O.W. Fantasy R1: intentionally scoped; does not restyle the season, ranking or header. */
+#anime-top #ob-sow-fantasy-entry-r1 {
+  box-sizing:border-box; max-width:920px; margin:23px auto 29px; padding:20px 25px 21px;
+  border-top:2px solid #78946f; border-bottom:1px solid #b8c6b3;
+  background:linear-gradient(108deg,#f0f2e8 0%,#f9f8ef 85%);
+  color:#294535; display:flex;justify-content:space-between;align-items:center;gap:18px;
+}
+#ob-sow-fantasy-entry-r1 * {box-sizing:border-box}
+#ob-sow-fantasy-entry-r1 .ob-sow-fantasy-copy {min-width:0;flex:1}
+#ob-sow-fantasy-entry-r1 .ob-sow-fantasy-kicker {font:600 10px/1.2 'Barlow Condensed','Abel',sans-serif;letter-spacing:.18em;color:#648269;display:flex;align-items:center;gap:8px}
+#ob-sow-fantasy-entry-r1 .ob-sow-fantasy-dot {width:6px;height:6px;background:#b3764f;display:inline-block;border-radius:50%}
+#ob-sow-fantasy-entry-r1 .ob-sow-fantasy-slash {color:#b3764f}
+#ob-sow-fantasy-entry-r1 .ob-sow-fantasy-state {border:1px solid #bcc8b5;color:#71816b;font-size:9px;letter-spacing:.10em;padding:2px 5px;margin-left:3px}
+#ob-sow-fantasy-entry-r1 .ob-sow-fantasy-head {display:flex;gap:11px;align-items:baseline;flex-wrap:wrap;margin:8px 0 5px}
+#ob-sow-fantasy-entry-r1 h2 {margin:0;color:#254332;font:500 31px/1 'EB Garamond',Georgia,serif;letter-spacing:-.015em}
+#ob-sow-fantasy-entry-r1 .ob-sow-fantasy-head p {margin:0;color:#8e6b4c;font:400 12px/1.3 'Barlow Condensed','Abel',sans-serif;letter-spacing:.025em}
+#ob-sow-fantasy-entry-r1 .ob-sow-fantasy-deck {font:400 14px/1.5 'EB Garamond',Georgia,serif;color:#53705a;max-width:530px;margin:0}
+#ob-sow-fantasy-entry-r1 .ob-sow-fantasy-go {flex:none;display:inline-flex;align-items:center;justify-content:center;gap:11px;border:1px solid #8ea58b;background:transparent;color:#355f44;padding:11px 12px;text-decoration:none;min-width:161px;font:600 11px/1.2 'Barlow Condensed','Abel',sans-serif;letter-spacing:.075em;transition:background .15s,color .15s}
+#ob-sow-fantasy-entry-r1 .ob-sow-fantasy-go i {height:7px;width:7px;border:solid currentColor;border-width:1.4px 1.4px 0 0;transform:rotate(45deg);display:block;flex:none}
+#ob-sow-fantasy-entry-r1 .ob-sow-fantasy-go:hover,#ob-sow-fantasy-entry-r1 .ob-sow-fantasy-go:focus-visible {background:#355e43;color:#fffef4}
+#ob-sow-fantasy-entry-r1 .ob-sow-fantasy-ja {display:none!important}
+#anime-top[data-ob-live-lang="ja"] #ob-sow-fantasy-entry-r1 .ob-sow-fantasy-en {display:none!important}
+#anime-top[data-ob-live-lang="ja"] #ob-sow-fantasy-entry-r1 .ob-sow-fantasy-ja {display:initial!important}
+@media(max-width:690px){
+  #anime-top #ob-sow-fantasy-entry-r1 {margin:20px 13px 25px;padding:17px 17px 18px;display:block}
+  #ob-sow-fantasy-entry-r1 .ob-sow-fantasy-head{gap:4px 12px;margin:9px 0 8px}
+  #ob-sow-fantasy-entry-r1 h2{font-size:29px}
+  #ob-sow-fantasy-entry-r1 .ob-sow-fantasy-head p{font-size:11.5px}
+  #ob-sow-fantasy-entry-r1 .ob-sow-fantasy-deck{font-size:13.5px;line-height:1.45}
+  #ob-sow-fantasy-entry-r1 .ob-sow-fantasy-go{display:inline-flex;width:100%;margin-top:13px;padding:10px 12px}
+}
