@@ -184,10 +184,16 @@
   let pending=false;
   function schedule(){if(pending)return;pending=true;requestAnimationFrame(()=>{pending=false;applyTimeline();checkpoints();});}
   async function init(){
-    for(let n=0;n<40;n++){
-      if($('.n-season-dashboard .n-weeks')?.children.length===13&&$('#obLivePhasesR1'))break;
-      await new Promise(r=>setTimeout(r,125));
-    }
+    // Do not give up after 5 seconds: the manifest can finish much later on slow links.
+    // Observe actual DOM readiness rather than keeping a polling timer running.
+    await new Promise(resolve=>{
+      const ready=()=>$('.n-season-dashboard .n-weeks')?.children.length===13&&$('#obLivePhasesR1');
+      if(ready())return resolve();
+      const watch=new MutationObserver(()=>{
+        if(ready()){watch.disconnect();resolve();}
+      });
+      watch.observe(root,{childList:true,subtree:true});
+    });
     applyTimeline();about();
     const nav=$('.n-season-dashboard .n-weeks');
     if(nav)new MutationObserver(schedule).observe(nav,{subtree:true,childList:true,attributes:true,attributeFilter:['class','aria-current']});
@@ -211,6 +217,7 @@
       console.warn('OFFBEAT R34: checkpoints left in original R12 presentation because the published index is unavailable.',err);
     }
   }
-  if(document.readyState==='complete')init();
-  else window.addEventListener('load',init,{once:true});
+  // Begin after DOM parsing, not after all page images have loaded.
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init,{once:true});
+  else init();
 })();

@@ -1021,6 +1021,7 @@
     document.addEventListener('click',e=>{if(e.target.closest('[data-peek-lang]'))setTimeout(schedule,75);},true);
     window.addEventListener('storage',e=>{if(e.key==='animeb-weekly-lang')schedule();});
   }
-  if(document.readyState==='complete')setTimeout(init,350);
-  else window.addEventListener('load',()=>setTimeout(init,350),{once:true});
+  // DOM is ready without waiting for the S.O.W. patch and other large images.
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',()=>setTimeout(init,0),{once:true});
+  else setTimeout(init,0);
 })();

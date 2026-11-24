@@ -142,10 +142,15 @@
   }
   function schedule(){if(scheduled)return;scheduled=true;requestAnimationFrame(run);}
   function init(){
-    let attempt=0;
-    const timer=setInterval(()=>{
-      if($('#obLiveRoundIntroR3')&&$('#obLivePhaseFootR3')){
-        clearInterval(timer);run();
+    // Start exactly once when R12 has built the timeline, even after many minutes.
+    // No 75-attempt cutoff and no perpetual polling interval.
+    let booted=false;
+    let watcher=null;
+    function start(){
+      if(booted||!($('#obLiveRoundIntroR3')&&$('#obLivePhaseFootR3')))return;
+      booted=true;
+      if(watcher)watcher.disconnect();
+      run();
         const dash=$('.n-season-dashboard');
         if(dash)new MutationObserver(schedule).observe(dash,{childList:true});
         const nav=$('.n-season-dashboard .n-weeks');
@@ -156,8 +161,10 @@
         },true);
         window.addEventListener('resize',schedule,{passive:true});
         window.addEventListener('storage',e=>{if(e.key==='animeb-weekly-lang')schedule();});
-      }else if(++attempt>=75)clearInterval(timer);
-    },120);
+    }
+    watcher=new MutationObserver(start);
+    watcher.observe(root,{childList:true,subtree:true});
+    start();
   }
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init,{once:true});else init();
 })();
