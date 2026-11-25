@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>S.O.W. Fantasy · My Season | R2.2 Preview</title>
+<title>S.O.W. Fantasy · My Season | R2.8 · Registration Desk</title>
 <meta name="theme-color" content="#f9f8ee">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Abel&family=Barlow+Condensed:wght@400;500;600;700&family=EB+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
@@ -117,78 +117,364 @@ button:focus-visible,select:focus-visible,input:focus-visible{outline:3px solid 
  .mr-primary .mr-main strong{font-size:22px}
  .mr-rank strong{font-size:17px}
 }
+
+/* R2.3 — reserve-order lab; calmer ranks, no dark score boxes */
+.pick{background:#fcfcf7}.pick-top strong{font-weight:500}
+.pick .dual-choice{background:transparent;border-color:#cfdbcb;color:#52715a;font-weight:500}
+.pick .caption{color:#667a68}
+.pick-reserves{margin-top:12px;border-top:1px solid #dce3d5;padding-top:10px}
+.pick-reserves summary{cursor:pointer;font:500 12px 'Barlow Condensed',Arial,sans-serif;letter-spacing:.045em;color:#47684d}
+.reserve-line{margin-top:9px}.reserve-line label{display:block;font:500 10px 'Barlow Condensed',Arial,sans-serif;letter-spacing:.08em;color:#748773;margin:0 0 4px}
+.pick .reserve-line select{font-size:12px;height:36px;padding:6px;background:#fff}
+.pick-reserves .reserve-help{font:11px/1.4 Arial,'Yu Gothic',sans-serif;color:#778877;margin-top:10px}
+.rulelab{margin-top:15px;padding:15px 17px;border:1px solid #d3decf;background:#f6f8f1;color:#4e6753;font:13px/1.5 Arial,'Yu Gothic',sans-serif}
+.rulelab-kicker{display:block;font:500 11px 'Barlow Condensed',sans-serif;letter-spacing:.13em;color:#718970;margin-bottom:7px}
+.rule-check,.rule-choice{display:flex;align-items:center;gap:8px;margin:8px 0;flex-wrap:wrap}
+.rule-check input{accent-color:#53785a;width:16px;height:16px}.rule-choice select{padding:5px 8px;border:1px solid #c1d1bd;background:white;color:#3a5b41;font:12px Arial,sans-serif}
+.rulelab p{margin:9px 0;font-size:11px;color:#687d69;line-height:1.55}
+.demo-button{border:1px solid #a2bba1;background:transparent;color:#416b49;padding:7px 10px;font:500 12px 'Barlow Condensed',sans-serif}
+.roundpiece .substatus{font:500 11px/1.4 Arial,'Yu Gothic',sans-serif;color:#647a64;margin-top:7px;overflow-wrap:anywhere}
+.roundpiece .substatus strong{font-weight:600;color:#416b4a}
+.roundpiece .absent{color:#96685c}.roundpiece .title{font-weight:500}.roundpiece .state{font-weight:500}
+.weekly-table .place-badge{min-width:0;display:inline;color:#536d58;border:0;background:transparent;font:500 15px 'Barlow Condensed',sans-serif;padding:0}
+.weekly-table .place-badge.first{border:0;background:transparent;color:#356443}.weekly-table .place-badge.third{border:0;background:transparent;color:#667a69}
+.weekly-table .place-badge small{color:#879787;font-weight:400}
+.weekly-table td.own-point,.weekly-table td.own-place{background:#f5f7f0}
+.weekly-table .group-label .own-columns,.weekly-table .subheads .owncol{background:#f1f5eb}
+.weekly-table tbody tr.is-current td{box-shadow:inset 0 1px #b1c5ad,inset 0 -1px #b1c5ad}
+.journal-card .analysis-line{background:#f2f5ee;color:#496b50;font-weight:500}
+.journal-card .factline{font-weight:500;color:#728574}.journal-card .round-timeline span{font-weight:500}
+.journal-card .round-timeline span b{font-weight:500}
+.journal-card h3{font-weight:500;color:#817b66}.journal-lead strong,.journal-card b{font-weight:600}
+.journal-card.is-feature{border-color:#c8d8c4;background:#f7faf3}
+.journal-card .sub-foot{font:11px/1.5 Arial,'Yu Gothic',sans-serif;color:#798877;margin-top:9px}
+.mr-rank strong,.mr-rivals b{font-weight:500}.mr-primary .mr-main strong{font-weight:500}
+@media(max-width:640px){.rulelab{padding:12px}.pick-reserves{margin-top:8px}.pick-reserves summary{font-size:11px}.pick .reserve-line select{font-size:11px}.weekly-table .place-badge{font-size:14px}}
+
+
+/* R2.4: team switcher & draft hierarchy, light visual weight */
+.team-switcher{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:18px 0 8px}
+.team-tab{border:1px solid #cbd5c4;background:#f9faf4;color:#345745;padding:10px 12px;text-align:left;min-height:56px;box-shadow:none;border-radius:2px}
+.team-tab.active{border-color:#66866a;background:#e9f0e6;box-shadow:inset 0 2px #54795e}
+.team-tab span{display:block;font:500 10px/1.3 'Barlow Condensed',Arial,sans-serif;letter-spacing:.11em;color:#66806d}
+.team-tab strong{display:block;font:500 15px/1.4 'EB Garamond',Georgia,'Yu Mincho',serif;white-space:normal;overflow-wrap:anywhere}
+.team-switch-note{font:12px/1.5 Arial,'Yu Gothic',sans-serif;color:#657b69;margin:0 0 14px}
+.pick select option:disabled{color:#9ca9a0;background:#f3f4ef}
+.pick select optgroup{font-weight:500;color:#466651}
+.pick .caption{font-weight:400}
+.roundpiece .substatus strong{font-weight:500}
+.journal-card p strong,.journal-lead strong{font-weight:500}
+@media (max-width:660px){.team-switcher{grid-template-columns:1fr 1fr 1fr;gap:5px}.team-tab{padding:9px 7px}.team-tab span{font-size:9px}.team-tab strong{font-size:12.5px}.team-switch-note{font-size:11px}}
+
+/* R2.4b: visible backup control and discreet trace */
+.sourced-note{margin-top:11px!important;line-height:1.6;color:#5a705c!important;font-size:11px!important}
+.settings-shortcut{font:11px/1.6 Arial,'Yu Gothic',sans-serif;margin:6px 0 8px;color:#617762}
+.settings-shortcut a{color:#315c46;text-underline-offset:3px}
+#backupSettings{scroll-margin-top:20px;margin:4px 0 15px}
+
+/* R2.6 scoring study - quiet by default; no changes to the site-wide theme. */
+.scoring-switch{margin:14px 0 16px;border:1px solid #d6dfd0;background:#f9fbf5;padding:15px 17px}
+.scoring-switch-label{display:block;font:500 12px 'Barlow Condensed',sans-serif;letter-spacing:.13em;color:#647b68;margin-bottom:9px}
+.scoring-modes{display:flex;gap:8px;flex-wrap:wrap}
+.scoring-modes label{font:500 13px/1.45 Arial,'Yu Gothic',sans-serif;color:#426047;padding:8px 11px;border:1px solid #ccd9c8;background:#fffef9;cursor:pointer}
+.scoring-modes label:has(input:checked){background:#e4eee0;border-color:#729679}
+.scoring-modes input{accent-color:#456b4d;margin-right:6px}
+.scoring-explain{font:12px/1.5 Arial,'Yu Gothic',sans-serif;color:#738173;margin:10px 0 0}
+.scoring-audit{margin:20px 0 0;border:1px solid #d5ddcf;background:#fbfcf6;padding:16px 18px}
+.scoring-audit h3{font:500 25px 'EB Garamond',Georgia,serif;color:#274634;margin:2px 0 7px}
+.scoring-audit p{font:13px/1.65 Arial,'Yu Gothic',sans-serif;color:#718271;margin:4px 0 10px}
+.scoring-audit-scroll{overflow-x:auto;max-width:100%;-webkit-overflow-scrolling:touch}
+.scoring-audit table{border-collapse:collapse;min-width:495px;width:100%;font:13px/1.45 'Barlow Condensed',Arial,sans-serif;color:#405a44}
+.scoring-audit th{text-align:right;padding:8px 9px;border-bottom:1px solid #bbcdb9;font-weight:500;color:#6b806e;letter-spacing:.02em}
+.scoring-audit th:first-child,.scoring-audit td:first-child{text-align:left}
+.scoring-audit td{text-align:right;padding:8px 9px;border-bottom:1px solid #e1e7dc;font-size:14px}
+.scoring-audit tr:last-child td{border-bottom:0}
+.scoring-audit .selected-row td{background:#edf4e9}
+.scoring-audit .diff{color:#456c50}
+.scoring-audit .audit-footer{font-size:12px;color:#7c8776;margin-top:11px}
+@media(max-width:640px){.scoring-switch{padding:13px 12px}.scoring-modes label{flex:1 1 145px;font-size:12px}.scoring-audit{padding:13px 11px}.scoring-audit h3{font-size:23px}}
+
+/* R2.7 · 24-team league, gentle hierarchy, mobile-first */
+.league-pulse{margin-top:22px;border:1px solid #c8d7c6;background:#f3f6ef}
+.pulse-link{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));text-decoration:none}
+.pulse-link>span{display:block;padding:12px 16px;border-right:1px solid #d3dfd0;min-width:0}
+.pulse-link>span:last-child{border:0}.pulse-link small{display:block;font:500 10px 'Barlow Condensed',sans-serif;letter-spacing:.11em;color:#748c75}
+.pulse-link strong{display:block;font:500 22px 'EB Garamond',Georgia,serif;color:#31563a;margin-top:4px;line-height:1.1}
+.pulse-link i{font:500 11px 'Barlow Condensed',sans-serif;color:#788e79;font-style:normal}
+.own-team-tag,.fixed-field-tag{display:flex;flex-direction:column;justify-content:center;padding:12px 17px;background:#edf3e9;border:1px solid #cfddca;min-width:0}
+.own-team-tag{border-left:3px solid #648968}.fixed-field-tag{background:#f7f7f0;border-color:#e0e4d8}
+.own-team-tag span,.fixed-field-tag span{font:600 10px 'Barlow Condensed',sans-serif;letter-spacing:.09em;color:#648168}
+.own-team-tag strong,.fixed-field-tag strong{font:500 18px 'EB Garamond',Georgia,serif;margin-top:4px;color:#33513d;overflow-wrap:anywhere}
+.league-headline{display:flex;justify-content:space-between;align-items:flex-end;gap:15px;flex-wrap:wrap;margin-bottom:10px}
+.league-headline p{color:#708370;font:13px/1.45 'Barlow Condensed','Yu Gothic',sans-serif;margin:4px 0 0}
+.league-scroll{width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch;border-top:1px solid #c8d7c5}
+.league-table{border-collapse:collapse;width:100%;min-width:470px}
+.league-table th{padding:12px 9px;text-align:left;font:500 11px 'Barlow Condensed',sans-serif;letter-spacing:.1em;color:#759078;border-bottom:1px solid #c7d7c4}
+.league-table td{border-bottom:1px solid #e1e7dc;padding:11px 9px;vertical-align:middle;font:500 16px 'EB Garamond',Georgia,serif;color:#3c5b42}
+.league-table tr.league-own td{background:#e7efe5}.league-pos{width:35px;font:600 17px 'EB Garamond',serif!important}
+.league-table .right{text-align:right;white-space:nowrap}.league-table .center{text-align:center;white-space:nowrap}
+.league-table .league-name{border:0;background:none;color:#2e533a;font:500 17px 'EB Garamond',Georgia,serif;text-align:left;padding:0;cursor:pointer}
+.league-name:hover{text-decoration:underline}.league-mobileweek{display:none}.league-profile{display:block;font:400 11px 'Barlow Condensed','Yu Gothic',sans-serif;color:#718772;margin-top:2px}
+.you-chip,.test-chip{font:500 9px 'Barlow Condensed',sans-serif;color:#648168;letter-spacing:.065em;border:1px solid #c7d8bf;padding:1px 4px;margin-left:4px;vertical-align:middle}
+.test-chip{color:#879288;border-color:#d9e0d7}.league-up{color:#476d4e;font:600 12px 'Barlow Condensed',sans-serif}
+.league-down{color:#9b7162;font:600 12px 'Barlow Condensed',sans-serif}.league-flat{color:#9daa9a}
+.league-more-note{display:inline-block;margin-top:8px;color:#7d8b7d;font:500 11px 'Barlow Condensed',sans-serif;letter-spacing:.08em}
+.league-legend{font:12px/1.65 'Barlow Condensed','Yu Gothic',sans-serif;color:#7b8979;margin:11px 0}
+.scout{margin-top:15px}.scout-invite{padding:13px 15px;color:#7e8c7a;font:14px 'Barlow Condensed','Yu Gothic',sans-serif;border:1px dashed #cbd9c8;background:#fafbf5}
+.scout-top{display:flex;align-items:start;justify-content:space-between;gap:10px;margin-bottom:14px}.scout-top h3{margin:5px 0 2px;font:500 26px 'EB Garamond',Georgia,serif}.scout-top p{font:12px 'Barlow Condensed','Yu Gothic',sans-serif;color:#748774;margin:0}
+.scout-picks{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}.scout-slot{border:1px solid #d7e1d2;padding:11px 14px;background:#fafbf5;min-width:0}
+.scout-slot>span{display:block;font:600 11px 'Barlow Condensed',sans-serif;letter-spacing:.075em;color:#637e68}
+.scout-slot strong{display:block;font:500 14px/1.4 Arial,'Yu Gothic',sans-serif;color:#3a5841;margin:6px 0}
+.scout-slot small{display:block;font:500 11px/1.5 'Barlow Condensed','Yu Gothic',sans-serif;color:#7c8c7a;overflow-wrap:anywhere}
+.scout-history{display:flex;gap:6px;flex-wrap:wrap;margin-top:13px}.scout-history span{padding:5px 9px;background:#eef2e9;font:500 12px 'Barlow Condensed',sans-serif;color:#657e66}.scout-history b{font-weight:600;color:#34513e}
+.scout-note{font:12px/1.55 'Barlow Condensed','Yu Gothic',sans-serif;color:#829080;margin:12px 0 0}
+@media(max-width:640px){.league-table{min-width:0}.league-table th:nth-child(4),.league-table td:nth-child(4),.league-table th:nth-child(5),.league-table td:nth-child(5){display:none}.league-mobileweek{display:inline}.pulse-link>span{padding:10px 8px}.pulse-link small{font-size:8.5px;letter-spacing:.025em}.pulse-link strong{font-size:19px}
+ .own-team-tag,.fixed-field-tag{padding:11px}.fixed-field-tag strong,.own-team-tag strong{font-size:16px}.scout-picks{grid-template-columns:1fr 1fr}.scout-slot{padding:9px 8px}.scout-slot strong{font-size:12px}.league-table td{padding:9px 6px}.league-table .league-name{font-size:15px}}
+
+
+/* R2.8: the R2.7 UI remains; only a compact, low-contrast draft desk is added. */
+.registration-desk{border:1px solid #c9d8c5;background:#f6f8f0;padding:18px 19px;margin:16px 0 13px}
+.registration-desk .eyebrow{font-size:11px;color:#829382;letter-spacing:.12em}
+.registration-head{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:9px;margin:5px 0}
+.registration-head h3{font:500 29px/1.1 'EB Garamond',Georgia,serif;color:#2b513a;margin:3px 0}
+.registration-state{font:500 10px 'Barlow Condensed',sans-serif;letter-spacing:.12em;border:1px solid #c4d3bd;padding:5px 8px;color:#516e57}
+.registration-state.is-locked{color:#fff;background:#355b41;border-color:#355b41}
+.reg-help,.reg-foot{font:12px/1.65 'Yu Gothic',Arial,sans-serif;color:#718372;margin:9px 0 13px}
+.reg-foot{margin-bottom:0;color:#849183;font-size:11px}
+.reg-status{font:12px/1.5 'Barlow Condensed','Yu Gothic',Arial,sans-serif;color:#466949;min-height:19px;margin-bottom:8px}
+.reg-status.is-error{color:#a44e3c}
+.reg-actions{display:flex;align-items:center;gap:7px;flex-wrap:wrap}
+.reg-actions button,.reg-actions .import-draft,.preseason-board button{font:500 11px 'Barlow Condensed','Yu Gothic',Arial,sans-serif;letter-spacing:.03em;line-height:1.35;min-height:34px;padding:8px 12px;cursor:pointer}
+.reg-actions button[hidden]{display:none!important}
+.import-draft{display:inline-flex;align-items:center;border:1px solid #bacbb9;color:#3b6146;background:#fbfcf7}
+.import-draft input{display:none}
+.import-draft.is-disabled{opacity:.45;pointer-events:none}
+#draft input:disabled,#draft select:disabled{cursor:not-allowed;opacity:.73}
+.preseason-board{margin:0 0 17px;border:1px solid #d9e1d3;padding:13px 17px;background:#f9faf4}
+.preseason-board summary{cursor:pointer;color:#48674d;font:500 12px/1.4 'Barlow Condensed',Arial,sans-serif;letter-spacing:.11em}
+.preseason-board summary span{letter-spacing:0;color:#859485;font-size:11px;margin-left:9px}
+.preseason-board-content{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:16px 0 12px}
+.preseason-group{border-top:2px solid #b8cbb6;padding:9px 0 1px;min-width:0}
+.preseason-group h4{font:500 18px 'EB Garamond',Georgia,serif;color:#2d5537;margin:0 0 7px}
+.preseason-group h4 small{font:500 11px 'Barlow Condensed',Arial,sans-serif;color:#788d7a;margin-left:8px}
+.preseason-group p{font:12px/1.6 'Yu Gothic',Arial,sans-serif;margin:6px 0;color:#647a67;overflow-wrap:anywhere}
+.preseason-group em{font:500 10px 'Barlow Condensed',Arial,sans-serif;letter-spacing:.09em;display:block;color:#9d8561;font-style:normal;margin-top:9px}
+@media(max-width:640px){.registration-desk{padding:15px 13px}.registration-head h3{font-size:26px}.preseason-board{padding:11px 12px}.preseason-board-content{grid-template-columns:1fr}}
+
 </style></head>
 <body><div class="page"><header class="mast"><a class="brand" href="index.html"><strong>OFFBEAT</strong><span>/ S.O.W. / FANTASY</span></a><a class="back" href="index.html">FANTASY HOME</a></header>
-<main><div class="hero"><div class="eyebrow">SEASONS OF THE WATCH <span class="tag">PLAYER VIEW · R2.2 PREVIEW</span></div><h1>My <span>Season</span></h1><p class="lede">4作品を選んだら、毎週が試合になる。自分のチームが12週間をどう戦うのか、まずは体験してみる。</p><p class="disclosure">2026 FALL · Week 01–06の内蔵スナップショットを使用。仮グループ・仮倍率の試作版であり、登録・大会参加・他者への公開は行われません。</p></div>
-<div class="grid"><section class="panel" id="draft"><div class="eyebrow">01 / THE DRAFT</div><h2>Build your four.</h2><p class="section-note">グループから各1作品。ここで試した選択は、このブラウザにだけ保存されます。正式な事前選出ではありません。</p><div class="name-wrap"><label for="teamName">TEAM NAME</label><input id="teamName" maxlength="35" value="My S.O.W. Team" autocomplete="off"></div><div class="picks" id="picks"></div><div class="dual-notice" id="dualNotice"></div><div class="captain-row"><label for="captain">CAPTAIN</label><select id="captain"><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option></select><p>選んだ枠の得点に仮倍率 1.20×</p></div><div class="msg" id="warning" role="status"></div><div class="aside"><span id="saved">LOCAL PREVIEW · NOT SUBMITTED</span><button type="button" id="reset" class="secondary">編成を初期値に戻す</button></div></section>
-<section class="panel" id="results"><div class="eyebrow">02 / THE SEASON SO FAR</div><h2>Every week counts.</h2><p class="section-note">毎週の順位・WRPを元にしたチーム戦。現在はWeek 01–06だけの試算で、将来のWeekや正式大会の順位ではありません。</p><div id="scoreband" class="scoreband"></div><div class="stagebar"><div class="stage done">OPENING<small>W01–03</small></div><div class="stage here">MIDDLE<small>W04–06</small></div><div class="stage">LATE<small>W07–09</small></div><div class="stage">CLIMAX<small>W10–12</small></div></div><div id="weekSelect" class="week-select" aria-label="Select a week"></div><div id="weekStats" class="week-stats"></div><div id="roundHead" class="round-head"></div><div class="round-grid" id="pieces"></div><div class="round-result" id="roundResult"></div><div id="roundImpact" class="round-impact" aria-live="polite"></div></section>
-<section class="panel"><div class="eyebrow">03 / THE MATCH RECORD</div><h2>Round by round.</h2><p class="section-note">週間順位はその週の勝負。総合順位はそこまでの積み重ね。相手は<strong>固定サンプル2チーム</strong>で、実際の参加者ではありません。</p><div id="comparison"></div><p class="footnote">得点計算は <strong>Points Lab v0.3の初期設定</strong> と同じ。WRP 3.0、順位点20、作品数補正4、A/B/C/D倍率、Captain倍率、D大穴倍率、ABC同時上位ボーナスを使用。補欠制度・個別オッズ・ステージボーナスはまだ未実装です。対象外になった作品も自動補充されません。</p></section><section class="panel journal" id="journal"><div class="eyebrow">04 / BEYOND THE SCORE</div><h2>The season, between the numbers.</h2><p class="section-note">得点表の向こう側で、何が起きていたのか。意外な活躍も、失速も、次のラウンドの見どころも。週を切り替えると、そこまでの展開を振り返れます。</p><div id="journalBody" aria-live="polite"></div><p class="journal-caveat">※ 試作コメントは選択した週までのデータをもとに自動生成しています。比較対象は固定のサンプル2チームです。補欠・Midseason Transfer・正式なIn-Betweenの規則は未確定で、得点には反映していません。</p></section></div></main><footer class="footer"><span>S.O.W. FANTASY · R2.2 PREVIEW</span><a href="lab.html">OPEN POINTS LAB v0.3</a></footer></div>
+<main><div class="hero"><div class="eyebrow">SEASONS OF THE WATCH <span class="tag">PLAYER VIEW · R2.8 · DRAFT DESK / 24-TEAM TEST</span></div><h1>My <span>Season</span></h1><p class="lede">4作品を選んだら、毎週が試合になる。自分のチームが12週間をどう戦うのか、まずは体験してみる。</p><p class="disclosure">2026 FALL · 全12ラウンド対応。W01–07は確認済みスナップショット、以降は公開ランキングが届き次第追加。仮グループ・仮倍率・仮補欠ルールの実験版。このブラウザのMy Teamと23の事前固定TESTチームでリーグ戦を体験。登録・大会参加・他者への公開は行われません。</p><div id="leaguePulse" class="league-pulse" aria-live="polite"></div></div>
+<div class="grid"><section class="panel" id="draft"><div class="eyebrow">01 / THE DRAFT</div><h2>Build your four.</h2><p class="section-note">A/B/C/Dから各1作品。候補を増やし、Aは上位3作品と次点候補を区別。補欠は各枠で最大2作品、全12枠の重複は不可。自分の編成と23の固定テストチームを比較できます。実際の参加登録ではありません。</p><div class="team-switcher" id="teamSwitcher" aria-label="Select editable test team"></div><p class="team-switch-note">My Teamだけ編集可能。ほかの23組は事前に固定した編成のため、結果を見て変更されません。</p><div class="name-wrap"><label for="teamName">TEAM NAME</label><input id="teamName" maxlength="35" value="My S.O.W. Team" autocomplete="off"></div><div class="rulelab" id="backupSettings"><span class="rulelab-kicker">BACKUP RULES · 試験中 · ここでON/OFF</span><label class="rule-check"><input type="checkbox" id="autoSubs" checked> 事前登録の補欠を起用する</label><label class="rule-choice">Dropped後の最初の不在週 <select id="dropGrace"><option value="0">0 pt（原則案）</option><option value="10">10 pt（お情け案）</option></select></label><p>放送前・一時休止は補欠がその週だけ出場。Droppedは翌週に猶予、その次の週から正式交代。補欠は使い捨てではなく固定順で繰り返し起用。いずれも未確定ルールです。</p><button id="loadExample" type="button" class="demo-button">W05を見る（編成はそのまま）</button><button id="loadScenario" type="button" class="secondary">W05サンプル編成を読み込む</button><p class="sourced-note" id="sourceAudit" aria-live="polite"></p></div><div class="picks" id="picks"></div><div class="dual-notice" id="dualNotice"></div><div class="captain-row"><label for="captain">CAPTAIN</label><select id="captain"><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option></select><p>選んだ枠の得点に仮倍率 1.20×</p></div><div class="msg" id="warning" role="status"></div>
+<div class="registration-desk" id="registrationDesk">
+ <div class="eyebrow">PRESEASON / DRAFT DESK</div>
+ <div class="registration-head"><h3>Your season entry.</h3><span class="registration-state" id="draftState">LOCAL DRAFT</span></div>
+ <p class="reg-help">このブラウザで編成を保存し、確認・書き出しできます。「確定」はこの端末内のテストロックです。オンライン登録・大会参加にはなりません。</p>
+ <div class="reg-status" id="regStatus" role="status" aria-live="polite"></div>
+ <div class="reg-actions">
+  <button type="button" id="lockDraft" class="demo-button">CONFIRM DRAFT · LOCAL</button>
+  <button type="button" id="unlockDraft" class="secondary" hidden>UNLOCK TEST DRAFT</button>
+  <button type="button" id="exportDraft" class="secondary">EXPORT ROSTER · JSON</button>
+  <label class="import-draft" for="importDraft">IMPORT ROSTER · JSON<input type="file" id="importDraft" accept=".json,application/json"></label>
+ </div>
+ <p class="reg-foot">確定すると主力・Captain・補欠を編集できなくなります。この試験版では解除できます。正式大会には締切判定・本人認証・サーバー側の確定記録が別途必要です。</p>
+</div>
+<details class="preseason-board" id="preseasonBoardDetails"><summary>PRESEASON GROUP BOARD <span>分類候補と境界を確認</span></summary><div class="preseason-board-content" id="preseasonBoard"></div><button class="secondary" type="button" id="exportGroups">EXPORT GROUPS · JSON</button><p class="reg-foot">分類はこの試験シーズンの仮設定。ここでは閲覧・書き出しのみ。設定変更は season-config-r25.js で管理し、参加受付開始後は遡及変更しません。</p></details>
+<div class="aside"><span id="saved">LOCAL PREVIEW · NOT SUBMITTED</span><button type="button" id="reset" class="secondary">選択中のチームを初期値に戻す</button></div></section>
+<section class="panel" id="results"><div class="eyebrow">02 / THE SEASON SO FAR</div><h2>Every week counts.</h2><p class="section-note">毎週の順位・WRPを元にしたチーム戦。公開された週だけを計算。状態別の補欠ルールも試験中で、将来のWeekや正式大会の順位ではありません。</p><div class="scoring-switch" id="scoringSettings"><span class="scoring-switch-label">SCORING · ORIGINAL OR ROLE-BASED TRIAL</span><div class="scoring-modes"><label><input type="radio" name="scoringMode" value="original">現行倍率（比較用）</label><label><input type="radio" name="scoringMode" value="roles" checked>役割・期待値方式（R2.6・推奨試算）</label></div><p class="scoring-explain">ルールを比較するための仮設定。A・Bは期待値を2段階に分け、C・Dの通常得点を抑える。Dの上位進出には大穴の価値を残す。WRPも併用するので、順位だけで大きなボーナスは付かない。編成・放送状況・補欠・ABC連携は両方共通。正式得点の変更ではありません。</p></div><div id="scoreband" class="scoreband"></div><p class="footnote" id="seasonSourceState" role="status" aria-live="polite">W01–07の確認済みデータを表示中。W08以降は公開済みランキングだけを追加で確認します。</p><p class="footnote">通常移籍・緊急救済はまだOFF。特殊事情にはシーズン設定の確認済みステータスだけで対応します。未確認の欠場を休止と決めつけません。</p><div class="stagebar"><div class="stage done">OPENING<small>W01–03</small></div><div class="stage here">MIDDLE<small>W04–06</small></div><div class="stage">LATE<small>W07–09</small></div><div class="stage">CLIMAX<small>W10–12</small></div></div><div id="weekSelect" class="week-select" aria-label="Select a week"></div><div id="weekStats" class="week-stats"></div><div id="roundHead" class="round-head"></div><div class="round-grid" id="pieces"></div><div class="round-result" id="roundResult"></div><div id="roundImpact" class="round-impact" aria-live="polite"></div></section>
+<section class="panel league-section" id="leagueStandings"><div class="eyebrow">03 / THE LEAGUE</div><h2>Twenty-four ways to play.</h2><p class="section-note">自分の1チームと23の事前固定テストチームで対戦。24チームは同じ週間ランキングと得点式を使用。異なるチームで同じ作品を選んでいてもOK。</p><div id="leagueStandingsBody"></div><div id="scout" class="scout" aria-live="polite"></div></section>
+<section class="panel"><div class="eyebrow">04 / THE MATCH RECORD</div><h2>Round by round.</h2><p class="section-note">週間順位はその週の勝負。総合順位はそこまでの積み重ね。比較相手は<strong>23の事前固定テストチーム</strong>。上のリーグ表で編成を確認できます。実在の参加者ではありません。</p><div id="comparison"></div><div id="scoringAudit" class="scoring-audit" aria-live="polite"></div><p class="footnote">現行方式の基礎得点は <strong>Points Lab v0.3と同一</strong>（WRP 3.0、順位点20、作品数補正4、枠・Captain・D大穴倍率、ABC連携）。今表示している補欠・Dropped猶予は現行の試験ルールで、正式決定ではありません。補欠のCaptain倍率は適用しません（試験案）。</p></section><section class="panel journal" id="journal"><div class="eyebrow">05 / BEYOND THE SCORE</div><h2>The season, between the numbers.</h2><p class="section-note">得点表の向こう側で、何が起きていたのか。意外な活躍も、失速も、次のラウンドの見どころも。週を切り替えると、そこまでの展開を振り返れます。</p><div id="journalBody" aria-live="polite"></div><p class="journal-caveat">※ 対象外決定は公開された週間ランキングJSONの meta.drop_decisions を参照。W05『#ゾンビさがしてます』と『アオのハコ』、W06『転生ゴブリンだけど質問ある？』の休止は個別確認した記録です。欠場理由が未確認のときは「未確認」として扱い、勝手に補欠を出場させません。比較相手は事前に固定した仮想テストチーム。補欠・In-Between・正式交代は未確定です。</p></section></div></main><footer class="footer"><span>S.O.W. FANTASY · R2.8 LOCAL DRAFT TEST</span><a href="lab.html">OPEN POINTS LAB v0.3</a></footer></div>
+<script src="season-config-r25.js?v=r27"></script>
+<script src="season-core-r25.js?v=r25"></script>
+<script src="season-roles-r26.js?v=r26"></script>
+<script src="league-seeds-r27.js?v=r27"></script>
 <script>
 
+
+
 'use strict';
-const WEEKS=[{"w":1,"n":30,"entries":[{"id":"kyouran","title":"Nia Liston: The Merciless Maiden","ja":"凶乱令嬢ニア・リストン 病弱令嬢に転生した神殺しの武人の華麗なる無双録","r":1,"wrp":9.45},{"id":"seitokai","title":"Even the Student Council Has Its Holes!","ja":"生徒会にも穴はある！","r":2,"wrp":9.3},{"id":"oukoku","title":"The Seven Knights of the Marronnier Kingdom","ja":"マロニエ王国の七人の騎士","r":3,"wrp":9.1},{"id":"kusuriya","title":"The Apothecary Diaries Season 3","ja":"『薬屋のひとりごと』第3期","r":4,"wrp":9.05},{"id":"hotel","title":"Hotel Inhumans Season 2","ja":"『ホテル・インヒューマンズ』第2期","r":5,"wrp":8.8},{"id":"romelia","title":"Romelia War Chronicle","ja":"ロメリア戦記","r":6,"wrp":8.4},{"id":"zombie","title":"#I'm Looking For a Zombie","ja":"#ゾンビさがしてます","r":7,"wrp":8.35},{"id":"jouheki","title":"The Ramparts of Ice Season 2","ja":"『氷の城壁』第2期","r":8,"wrp":8.2},{"id":"rayearth","title":"Magic Knight Rayearth (2026)","ja":"魔法騎士レイアース","r":9,"wrp":8},{"id":"choujou","title":"Super Psychic Policeman Chojo","ja":"超巡！超条先輩","r":10,"wrp":7.95},{"id":"toaru","title":"A Certain Dark Item","ja":"とある暗部の少女共棲","r":11,"wrp":7.9},{"id":"vertex","title":"Vertex Force","ja":"バーテックスフォース","r":12,"wrp":7.6},{"id":"revo","title":"Magic Repo Man: Dumped by My Party, I'll Cash In With a Cute Support Fairy to Become the Strongest!","ja":"貸した魔力は【リボ払い】で強制徴収","r":13,"wrp":7.5},{"id":"goblin","title":"So What's Wrong with Getting Reborn as a Goblin?","ja":"転生ゴブリンだけど質問ある？","r":14,"wrp":7.45},{"id":"aoki","title":"Aoki Denshou Welsh & Shedar","ja":"蒼き伝承 – Welsh & Shedar","r":15,"wrp":7.4},{"id":"tokyo","title":"Tokyo Revengers: War of the Three Titan Arc","ja":"『東京リベンジャーズ』三天戦争編","r":16,"wrp":7.25},{"id":"hako","title":"Blue Box Season 2","ja":"『アオのハコ』Season2","r":17,"wrp":7.1},{"id":"kanata","title":"From Far Away","ja":"彼方から","r":18,"wrp":7.05},{"id":"psyren","title":"Psyren","ja":"PSYREN -サイレン-","r":19,"wrp":7},{"id":"mezametara","title":"Reborn as a Space Mercenary: I Woke Up Piloting the Strongest Starship!","ja":"目覚めたら最強装備と宇宙船持ちだったので、一戸建て目指して傭兵として自由に生きたい","r":20,"wrp":6.8},{"id":"hitakakusu","title":"A Tale of the Secret Saint","ja":"転生した大聖女は、聖女であることをひた隠す","r":21,"wrp":6.65},{"id":"tanmoshi","title":"The Detective Is Already Dead Season 2","ja":"探偵はもう、死んでいる。Season2","r":22,"wrp":6.5},{"id":"fuyoshi","title":"The Laid-Off Cheat-Granting Mage Enjoys a Second Lease on Life","ja":"追放されたチート付与魔術師は気ままなセカンドライフを謳歌する。 ～俺は武器だけじゃなく、あらゆるものに『強化ポイント』を付与できるし、俺の意思でいつでも効果を解除できるけど、残った人たち大丈夫？～","r":23,"wrp":6.4},{"id":"max","title":"Even Though I'm a Super Timid Noble Girl, I Accepted the Bet From My Cunning Fiancé","ja":"弱気MAX令嬢なのに、辣腕婚約者様の賭けに乗ってしまった","r":24,"wrp":6.2},{"id":"shiotaiou","title":"The Cold Sato-san is Only Sweet to Me","ja":"塩対応の佐藤さんが俺にだけ甘い","r":25,"wrp":6.15},{"id":"fx","title":"FX Fighter Kurumi-chan","ja":"FX戦士くるみちゃん","r":26,"wrp":6},{"id":"tetsuryo","title":"Tetsuryou! Meet with Tetsudou Musume","ja":"てつりょー！meet with 鉄道むすめ","r":27,"wrp":5.9},{"id":"kikansha","title":"A Returner's Magic Should Be Special Season 2","ja":"『帰還者の魔法は特別です』第二期","r":28,"wrp":5.75},{"id":"hyouken","title":"The Iceblade Sorcerer Shall Rule the World II","ja":"冰剣の魔術師が世界を統べるⅡ","r":29,"wrp":5.35},{"id":"saikyou","title":"The World's Strongest Witch","ja":"世界最強の魔女、始めました","r":30,"wrp":3.95}]},{"w":2,"n":32,"entries":[{"id":"hotel","title":"Hotel Inhumans Season 2","ja":"『ホテル・インヒューマンズ』第2期","r":1,"wrp":9.7},{"id":"seitokai","title":"Even the Student Council Has Its Holes!","ja":"生徒会にも穴はある！","r":2,"wrp":9.2},{"id":"hitakakusu","title":"A Tale of the Secret Saint","ja":"転生した大聖女は、聖女であることをひた隠す","r":3,"wrp":9.05},{"id":"zombie","title":"#I'm Looking For a Zombie","ja":"#ゾンビさがしてます","r":4,"wrp":8.7},{"id":"mezametara","title":"Reborn as a Space Mercenary: I Woke Up Piloting the Strongest Starship!","ja":"目覚めたら最強装備と宇宙船持ちだったので、一戸建て目指して傭兵として自由に生きたい","r":5,"wrp":8.5},{"id":"chitose","title":"Chitose Is in the Ramune Bottle Part 2","ja":"『千歳くんはラムネ瓶のなか』第2クール","r":6,"wrp":8.4},{"id":"jouheki","title":"The Ramparts of Ice Season 2","ja":"『氷の城壁』第2期","r":7,"wrp":8.35},{"id":"kusuriya","title":"The Apothecary Diaries Season 3","ja":"『薬屋のひとりごと』第3期","r":8,"wrp":8.3},{"id":"choujou","title":"Super Psychic Policeman Chojo","ja":"超巡！超条先輩","r":9,"wrp":8.2},{"id":"oukoku","title":"The Seven Knights of the Marronnier Kingdom","ja":"マロニエ王国の七人の騎士","r":10,"wrp":8.1},{"id":"romelia","title":"Romelia War Chronicle","ja":"ロメリア戦記","r":11,"wrp":8},{"id":"kanata","title":"From Far Away","ja":"彼方から","r":12,"wrp":7.9},{"id":"goblin","title":"So What's Wrong with Getting Reborn as a Goblin?","ja":"転生ゴブリンだけど質問ある？","r":13,"wrp":7.8},{"id":"kikansha","title":"A Returner's Magic Should Be Special Season 2","ja":"『帰還者の魔法は特別です』第二期","r":14,"wrp":7.7},{"id":"fx","title":"FX Fighter Kurumi-chan","ja":"FX戦士くるみちゃん","r":15,"wrp":7.65},{"id":"vertex","title":"Vertex Force","ja":"バーテックスフォース","r":16,"wrp":7.4},{"id":"max","title":"Even Though I'm a Super Timid Noble Girl, I Accepted the Bet From My Cunning Fiancé","ja":"弱気MAX令嬢なのに、辣腕婚約者様の賭けに乗ってしまった","r":17,"wrp":7.3},{"id":"tetsuryo","title":"Tetsuryou! Meet with Tetsudou Musume","ja":"てつりょー！meet with 鉄道むすめ","r":18,"wrp":7.25},{"id":"rayearth","title":"Magic Knight Rayearth (2026)","ja":"魔法騎士レイアース","r":19,"wrp":7.2},{"id":"shinja","title":"Full Clearing Another World under a Goddess with Zero Believers","ja":"信者ゼロの女神サマと始める異世界攻略","r":20,"wrp":7},{"id":"tokyo","title":"Tokyo Revengers: War of the Three Titan Arc","ja":"『東京リベンジャーズ』三天戦争編","r":21,"wrp":6.9},{"id":"aoki","title":"Aoki Denshou Welsh & Shedar","ja":"蒼き伝承 – Welsh & Shedar","r":22,"wrp":6.85},{"id":"hako","title":"Blue Box Season 2","ja":"『アオのハコ』Season2","r":23,"wrp":6.8},{"id":"toaru","title":"A Certain Dark Item","ja":"とある暗部の少女共棲","r":24,"wrp":6.75},{"id":"hyouken","title":"The Iceblade Sorcerer Shall Rule the World II","ja":"冰剣の魔術師が世界を統べるⅡ","r":25,"wrp":6.7},{"id":"saikyou","title":"The World's Strongest Witch","ja":"世界最強の魔女、始めました","r":26,"wrp":6.5},{"id":"psyren","title":"Psyren","ja":"PSYREN -サイレン-","r":27,"wrp":6.2},{"id":"revo","title":"Magic Repo Man: Dumped by My Party, I'll Cash In With a Cute Support Fairy to Become the Strongest!","ja":"貸した魔力は【リボ払い】で強制徴収","r":28,"wrp":6.05},{"id":"kyouran","title":"Nia Liston: The Merciless Maiden","ja":"凶乱令嬢ニア・リストン 病弱令嬢に転生した神殺しの武人の華麗なる無双録","r":29,"wrp":6},{"id":"shiotaiou","title":"The Cold Sato-san is Only Sweet to Me","ja":"塩対応の佐藤さんが俺にだけ甘い","r":30,"wrp":5},{"id":"tanmoshi","title":"The Detective Is Already Dead Season 2","ja":"探偵はもう、死んでいる。Season2","r":31,"wrp":4.8},{"id":"fuyoshi","title":"The Laid-Off Cheat-Granting Mage Enjoys a Second Lease on Life","ja":"追放されたチート付与魔術師は気ままなセカンドライフを謳歌する。 ～俺は武器だけじゃなく、あらゆるものに『強化ポイント』を付与できるし、俺の意思でいつでも効果を解除できるけど、残った人たち大丈夫？～","r":32,"wrp":4.5}]},{"w":3,"n":28,"entries":[{"id":"zombie","title":"#I'm Looking For a Zombie","ja":"#ゾンビさがしてます","r":1,"wrp":9.5},{"id":"oukoku","title":"The Seven Knights of the Marronnier Kingdom","ja":"マロニエ王国の七人の騎士","r":2,"wrp":9.4},{"id":"tetsuryo","title":"Tetsuryou! Meet with Tetsudou Musume","ja":"てつりょー！meet with 鉄道むすめ","r":3,"wrp":9.3},{"id":"choujou","title":"Super Psychic Policeman Chojo","ja":"超巡！超条先輩","r":4,"wrp":9.25},{"id":"kikansha","title":"A Returner's Magic Should Be Special Season 2","ja":"『帰還者の魔法は特別です』第二期","r":5,"wrp":8.5},{"id":"mezametara","title":"Reborn as a Space Mercenary: I Woke Up Piloting the Strongest Starship!","ja":"目覚めたら最強装備と宇宙船持ちだったので、一戸建て目指して傭兵として自由に生きたい","r":6,"wrp":8.45},{"id":"jouheki","title":"The Ramparts of Ice Season 2","ja":"『氷の城壁』第2期","r":7,"wrp":8.3},{"id":"romelia","title":"Romelia War Chronicle","ja":"ロメリア戦記","r":8,"wrp":8.2},{"id":"seitokai","title":"Even the Student Council Has Its Holes!","ja":"生徒会にも穴はある！","r":9,"wrp":8.1},{"id":"kusuriya","title":"The Apothecary Diaries Season 3","ja":"『薬屋のひとりごと』第3期","r":10,"wrp":8},{"id":"rayearth","title":"Magic Knight Rayearth (2026)","ja":"魔法騎士レイアース","r":11,"wrp":7.55},{"id":"goblin","title":"So What's Wrong with Getting Reborn as a Goblin?","ja":"転生ゴブリンだけど質問ある？","r":12,"wrp":7.5},{"id":"hotel","title":"Hotel Inhumans Season 2","ja":"『ホテル・インヒューマンズ』第2期","r":13,"wrp":7.4},{"id":"chitose","title":"Chitose Is in the Ramune Bottle Part 2","ja":"『千歳くんはラムネ瓶のなか』第2クール","r":14,"wrp":7.3},{"id":"psyren","title":"Psyren","ja":"PSYREN -サイレン-","r":15,"wrp":6.9},{"id":"hako","title":"Blue Box Season 2","ja":"『アオのハコ』Season2","r":16,"wrp":6.8},{"id":"vertex","title":"Vertex Force","ja":"バーテックスフォース","r":17,"wrp":6.7},{"id":"hyouken","title":"The Iceblade Sorcerer Shall Rule the World II","ja":"冰剣の魔術師が世界を統べるⅡ","r":18,"wrp":6.6},{"id":"revo","title":"Magic Repo Man: Dumped by My Party, I'll Cash In With a Cute Support Fairy to Become the Strongest!","ja":"貸した魔力は【リボ払い】で強制徴収","r":19,"wrp":6.55},{"id":"shinja","title":"Full Clearing Another World under a Goddess with Zero Believers","ja":"信者ゼロの女神サマと始める異世界攻略","r":20,"wrp":6.5},{"id":"kyouran","title":"Nia Liston: The Merciless Maiden","ja":"凶乱令嬢ニア・リストン 病弱令嬢に転生した神殺しの武人の華麗なる無双録","r":21,"wrp":6.45},{"id":"fx","title":"FX Fighter Kurumi-chan","ja":"FX戦士くるみちゃん","r":22,"wrp":6.3},{"id":"max","title":"Even Though I'm a Super Timid Noble Girl, I Accepted the Bet From My Cunning Fiancé","ja":"弱気MAX令嬢なのに、辣腕婚約者様の賭けに乗ってしまった","r":23,"wrp":6},{"id":"tokyo","title":"Tokyo Revengers: War of the Three Titan Arc","ja":"『東京リベンジャーズ』三天戦争編","r":24,"wrp":5.95},{"id":"shiotaiou","title":"The Cold Sato-san is Only Sweet to Me","ja":"塩対応の佐藤さんが俺にだけ甘い","r":25,"wrp":5.2},{"id":"kanata","title":"From Far Away","ja":"彼方から","r":26,"wrp":5},{"id":"hitakakusu","title":"A Tale of the Secret Saint","ja":"転生した大聖女は、聖女であることをひた隠す","r":27,"wrp":4.95},{"id":"saikyou","title":"The World's Strongest Witch","ja":"世界最強の魔女、始めました","r":28,"wrp":4.25}]},{"w":4,"n":26,"entries":[{"id":"tetsuryo","title":"Tetsuryou! Meet with Tetsudou Musume","ja":"てつりょー！meet with 鉄道むすめ","r":1,"wrp":9.65},{"id":"chitose","title":"Chitose Is in the Ramune Bottle Part 2","ja":"『千歳くんはラムネ瓶のなか』第2クール","r":2,"wrp":9.55},{"id":"zombie","title":"#I'm Looking For a Zombie","ja":"#ゾンビさがしてます","r":3,"wrp":8.8},{"id":"jouheki","title":"The Ramparts of Ice Season 2","ja":"『氷の城壁』第2期","r":4,"wrp":8.75},{"id":"kusuriya","title":"The Apothecary Diaries Season 3","ja":"『薬屋のひとりごと』第3期","r":5,"wrp":8.65},{"id":"seitokai","title":"Even the Student Council Has Its Holes!","ja":"生徒会にも穴はある！","r":6,"wrp":8.45},{"id":"choujou","title":"Super Psychic Policeman Chojo","ja":"超巡！超条先輩","r":7,"wrp":8.4},{"id":"hako","title":"Blue Box Season 2","ja":"『アオのハコ』Season2","r":8,"wrp":8.3},{"id":"oukoku","title":"The Seven Knights of the Marronnier Kingdom","ja":"マロニエ王国の七人の騎士","r":9,"wrp":8.15},{"id":"mezametara","title":"Reborn as a Space Mercenary: I Woke Up Piloting the Strongest Starship!","ja":"目覚めたら最強装備と宇宙船持ちだったので、一戸建て目指して傭兵として自由に生きたい","r":10,"wrp":8},{"id":"tokyo","title":"Tokyo Revengers: War of the Three Titan Arc","ja":"『東京リベンジャーズ』三天戦争編","r":11,"wrp":7.8},{"id":"kikansha","title":"A Returner's Magic Should Be Special Season 2","ja":"『帰還者の魔法は特別です』第二期","r":12,"wrp":7.75},{"id":"romelia","title":"Romelia War Chronicle","ja":"ロメリア戦記","r":13,"wrp":7.65},{"id":"hotel","title":"Hotel Inhumans Season 2","ja":"『ホテル・インヒューマンズ』第2期","r":14,"wrp":7.2},{"id":"rayearth","title":"Magic Knight Rayearth (2026)","ja":"魔法騎士レイアース","r":15,"wrp":7.1},{"id":"goblin","title":"So What's Wrong with Getting Reborn as a Goblin?","ja":"転生ゴブリンだけど質問ある？","r":16,"wrp":7},{"id":"shiotaiou","title":"The Cold Sato-san is Only Sweet to Me","ja":"塩対応の佐藤さんが俺にだけ甘い","r":17,"wrp":6.9},{"id":"fx","title":"FX Fighter Kurumi-chan","ja":"FX戦士くるみちゃん","r":18,"wrp":6.8},{"id":"kyouran","title":"Nia Liston: The Merciless Maiden","ja":"凶乱令嬢ニア・リストン 病弱令嬢に転生した神殺しの武人の華麗なる無双録","r":19,"wrp":6.75},{"id":"kanata","title":"From Far Away","ja":"彼方から","r":20,"wrp":6.5},{"id":"shinja","title":"Full Clearing Another World under a Goddess with Zero Believers","ja":"信者ゼロの女神サマと始める異世界攻略","r":21,"wrp":6.4},{"id":"max","title":"Even Though I'm a Super Timid Noble Girl, I Accepted the Bet From My Cunning Fiancé","ja":"弱気MAX令嬢なのに、辣腕婚約者様の賭けに乗ってしまった","r":22,"wrp":6.3},{"id":"hyouken","title":"The Iceblade Sorcerer Shall Rule the World II","ja":"冰剣の魔術師が世界を統べるⅡ","r":23,"wrp":4.4},{"id":"hitakakusu","title":"A Tale of the Secret Saint","ja":"転生した大聖女は、聖女であることをひた隠す","r":24,"wrp":3.7},{"id":"revo","title":"Magic Repo Man: Dumped by My Party, I'll Cash In With a Cute Support Fairy to Become the Strongest!","ja":"貸した魔力は【リボ払い】で強制徴収","r":25,"wrp":3.05},{"id":"saikyou","title":"The World's Strongest Witch","ja":"世界最強の魔女、始めました","r":26,"wrp":2.8}]},{"w":5,"n":22,"entries":[{"id":"hotel","title":"Hotel Inhumans Season 2","ja":"『ホテル・インヒューマンズ』第2期","r":1,"wrp":9.6},{"id":"mezametara","title":"Reborn as a Space Mercenary: I Woke Up Piloting the Strongest Starship!","ja":"目覚めたら最強装備と宇宙船持ちだったので、一戸建て目指して傭兵として自由に生きたい","r":2,"wrp":9.15},{"id":"choujou","title":"Super Psychic Policeman Chojo","ja":"超巡！超条先輩","r":3,"wrp":9.05},{"id":"seitokai","title":"Even the Student Council Has Its Holes!","ja":"生徒会にも穴はある！","r":4,"wrp":9},{"id":"chitose","title":"Chitose Is in the Ramune Bottle Part 2","ja":"『千歳くんはラムネ瓶のなか』第2クール","r":5,"wrp":8.6},{"id":"kusuriya","title":"The Apothecary Diaries Season 3","ja":"『薬屋のひとりごと』第3期","r":6,"wrp":8.55},{"id":"tetsuryo","title":"Tetsuryou! Meet with Tetsudou Musume","ja":"てつりょー！meet with 鉄道むすめ","r":7,"wrp":8.3},{"id":"jouheki","title":"The Ramparts of Ice Season 2","ja":"『氷の城壁』第2期","r":8,"wrp":8.25},{"id":"goblin","title":"So What's Wrong with Getting Reborn as a Goblin?","ja":"転生ゴブリンだけど質問ある？","r":9,"wrp":8.2},{"id":"tokyo","title":"Tokyo Revengers: War of the Three Titan Arc","ja":"『東京リベンジャーズ』三天戦争編","r":10,"wrp":8.1},{"id":"fx","title":"FX Fighter Kurumi-chan","ja":"FX戦士くるみちゃん","r":11,"wrp":7.15},{"id":"oukoku","title":"The Seven Knights of the Marronnier Kingdom","ja":"マロニエ王国の七人の騎士","r":12,"wrp":6.85},{"id":"rayearth","title":"Magic Knight Rayearth (2026)","ja":"魔法騎士レイアース","r":13,"wrp":6.7},{"id":"kyouran","title":"Nia Liston: The Merciless Maiden","ja":"凶乱令嬢ニア・リストン 病弱令嬢に転生した神殺しの武人の華麗なる無双録","r":14,"wrp":6.6},{"id":"kikansha","title":"A Returner's Magic Should Be Special Season 2","ja":"『帰還者の魔法は特別です』第二期","r":15,"wrp":6.3},{"id":"max","title":"Even Though I'm a Super Timid Noble Girl, I Accepted the Bet From My Cunning Fiancé","ja":"弱気MAX令嬢なのに、辣腕婚約者様の賭けに乗ってしまった","r":16,"wrp":6},{"id":"romelia","title":"Romelia War Chronicle","ja":"ロメリア戦記","r":17,"wrp":5.9},{"id":"shiotaiou","title":"The Cold Sato-san is Only Sweet to Me","ja":"塩対応の佐藤さんが俺にだけ甘い","r":18,"wrp":5.6},{"id":"shinja","title":"Full Clearing Another World under a Goddess with Zero Believers","ja":"信者ゼロの女神サマと始める異世界攻略","r":19,"wrp":5.2},{"id":"kanata","title":"From Far Away","ja":"彼方から","r":20,"wrp":2.9},{"id":"hitakakusu","title":"A Tale of the Secret Saint","ja":"転生した大聖女は、聖女であることをひた隠す","r":21,"wrp":2.8},{"id":"saikyou","title":"The World's Strongest Witch","ja":"世界最強の魔女、始めました","r":22,"wrp":1.6}]},{"w":6,"n":19,"entries":[{"id":"seitokai","title":"Even the Student Council Has Its Holes!","ja":"生徒会にも穴はある！","r":1,"wrp":9.6},{"id":"jouheki","title":"The Ramparts of Ice Season 2","ja":"『氷の城壁』第2期","r":2,"wrp":9.5},{"id":"hotel","title":"Hotel Inhumans Season 2","ja":"『ホテル・インヒューマンズ』第2期","r":3,"wrp":9.2},{"id":"mezametara","title":"Reborn as a Space Mercenary: I Woke Up Piloting the Strongest Starship!","ja":"目覚めたら最強装備と宇宙船持ちだったので、一戸建て目指して傭兵として自由に生きたい","r":4,"wrp":8.6},{"id":"romelia","title":"Romelia War Chronicle","ja":"ロメリア戦記","r":5,"wrp":8.3},{"id":"kusuriya","title":"The Apothecary Diaries Season 3","ja":"『薬屋のひとりごと』第3期","r":6,"wrp":8.25},{"id":"choujou","title":"Super Psychic Policeman Chojo","ja":"超巡！超条先輩","r":7,"wrp":8.15},{"id":"tetsuryo","title":"Tetsuryou! Meet with Tetsudou Musume","ja":"てつりょー！meet with 鉄道むすめ","r":8,"wrp":8.05},{"id":"fx","title":"FX Fighter Kurumi-chan","ja":"FX戦士くるみちゃん","r":9,"wrp":8.0},{"id":"chitose","title":"Chitose Is in the Ramune Bottle Part 2","ja":"『千歳くんはラムネ瓶のなか』第2クール","r":10,"wrp":7.8},{"id":"hako","title":"Blue Box Season 2","ja":"『アオのハコ』Season2","r":11,"wrp":7.4},{"id":"tokyo","title":"Tokyo Revengers: War of the Three Titan Arc","ja":"『東京リベンジャーズ』三天戦争編","r":12,"wrp":7.3},{"id":"oukoku","title":"The Seven Knights of the Marronnier Kingdom","ja":"マロニエ王国の七人の騎士","r":13,"wrp":7.25},{"id":"kanata","title":"From Far Away","ja":"彼方から","r":14,"wrp":6.8},{"id":"max","title":"Even Though I'm a Super Timid Noble Girl, I Accepted the Bet From My Cunning Fiancé","ja":"弱気MAX令嬢なのに、辣腕婚約者様の賭けに乗ってしまった","r":15,"wrp":6.5},{"id":"shiotaiou","title":"The Cold Sato-san is Only Sweet to Me","ja":"塩対応の佐藤さんが俺にだけ甘い","r":16,"wrp":6.4},{"id":"shinja","title":"Full Clearing Another World under a Goddess with Zero Believers","ja":"信者ゼロの女神サマと始める異世界攻略","r":17,"wrp":6.3},{"id":"zombie","title":"#I'm Looking For a Zombie","ja":"#ゾンビさがしてます","r":18,"wrp":4.85},{"id":"saikyou","title":"The World's Strongest Witch","ja":"世界最強の魔女、始めました","r":19,"wrp":0.95}]}];
-const POOLS={"A":["kusuriya","jouheki","seitokai"],"B":["hotel","seitokai","choujou","oukoku","romelia","chitose","tokyo","hako","zombie"],"C":["mezametara","tetsuryo","fx","kanata","goblin","shinja","kikansha","revo","hitakakusu","zombie","rayearth"],"D":["saikyou","max","shiotaiou","fuyoshi","hyouken","tanmoshi","kyouran","aoki","psyren"]};
-const RIVALS=[{name:'Mia · Steady',picks:{A:'kusuriya',B:'choujou',C:'tetsuryo',D:'shiotaiou'},captain:'A'},{name:'Mia · Wildcard',picks:{A:'jouheki',B:'romelia',C:'fx',D:'max'},captain:'A'}];
-const DEFAULT={name:'My S.O.W. Team',picks:{A:'seitokai',B:'hotel',C:'mezametara',D:'saikyou'},captain:'A'};
-const STORAGE='offbeat-sow-fantasy-myteam-r2-preview-2026fall';
+let WEEKS=[{"w":1,"n":30,"entries":[{"id":"kyouran","title":"Nia Liston: The Merciless Maiden","ja":"凶乱令嬢ニア・リストン 病弱令嬢に転生した神殺しの武人の華麗なる無双録","r":1,"wrp":9.45},{"id":"seitokai","title":"Even the Student Council Has Its Holes!","ja":"生徒会にも穴はある！","r":2,"wrp":9.3},{"id":"oukoku","title":"The Seven Knights of the Marronnier Kingdom","ja":"マロニエ王国の七人の騎士","r":3,"wrp":9.1},{"id":"kusuriya","title":"The Apothecary Diaries Season 3","ja":"『薬屋のひとりごと』第3期","r":4,"wrp":9.05},{"id":"hotel","title":"Hotel Inhumans Season 2","ja":"『ホテル・インヒューマンズ』第2期","r":5,"wrp":8.8},{"id":"romelia","title":"Romelia War Chronicle","ja":"ロメリア戦記","r":6,"wrp":8.4},{"id":"zombie","title":"#I'm Looking For a Zombie","ja":"#ゾンビさがしてます","r":7,"wrp":8.35},{"id":"jouheki","title":"The Ramparts of Ice Season 2","ja":"『氷の城壁』第2期","r":8,"wrp":8.2},{"id":"rayearth","title":"Magic Knight Rayearth (2026)","ja":"魔法騎士レイアース","r":9,"wrp":8},{"id":"choujou","title":"Super Psychic Policeman Chojo","ja":"超巡！超条先輩","r":10,"wrp":7.95},{"id":"toaru","title":"A Certain Dark Item","ja":"とある暗部の少女共棲","r":11,"wrp":7.9},{"id":"vertex","title":"Vertex Force","ja":"バーテックスフォース","r":12,"wrp":7.6},{"id":"revo","title":"Magic Repo Man: Dumped by My Party, I'll Cash In With a Cute Support Fairy to Become the Strongest!","ja":"貸した魔力は【リボ払い】で強制徴収","r":13,"wrp":7.5},{"id":"goblin","title":"So What's Wrong with Getting Reborn as a Goblin?","ja":"転生ゴブリンだけど質問ある？","r":14,"wrp":7.45},{"id":"aoki","title":"Aoki Denshou Welsh & Shedar","ja":"蒼き伝承 – Welsh & Shedar","r":15,"wrp":7.4},{"id":"tokyo","title":"Tokyo Revengers: War of the Three Titan Arc","ja":"『東京リベンジャーズ』三天戦争編","r":16,"wrp":7.25},{"id":"hako","title":"Blue Box Season 2","ja":"『アオのハコ』Season2","r":17,"wrp":7.1},{"id":"kanata","title":"From Far Away","ja":"彼方から","r":18,"wrp":7.05},{"id":"psyren","title":"Psyren","ja":"PSYREN -サイレン-","r":19,"wrp":7},{"id":"mezametara","title":"Reborn as a Space Mercenary: I Woke Up Piloting the Strongest Starship!","ja":"目覚めたら最強装備と宇宙船持ちだったので、一戸建て目指して傭兵として自由に生きたい","r":20,"wrp":6.8},{"id":"hitakakusu","title":"A Tale of the Secret Saint","ja":"転生した大聖女は、聖女であることをひた隠す","r":21,"wrp":6.65},{"id":"tanmoshi","title":"The Detective Is Already Dead Season 2","ja":"探偵はもう、死んでいる。Season2","r":22,"wrp":6.5},{"id":"fuyoshi","title":"The Laid-Off Cheat-Granting Mage Enjoys a Second Lease on Life","ja":"追放されたチート付与魔術師は気ままなセカンドライフを謳歌する。 ～俺は武器だけじゃなく、あらゆるものに『強化ポイント』を付与できるし、俺の意思でいつでも効果を解除できるけど、残った人たち大丈夫？～","r":23,"wrp":6.4},{"id":"max","title":"Even Though I'm a Super Timid Noble Girl, I Accepted the Bet From My Cunning Fiancé","ja":"弱気MAX令嬢なのに、辣腕婚約者様の賭けに乗ってしまった","r":24,"wrp":6.2},{"id":"shiotaiou","title":"The Cold Sato-san is Only Sweet to Me","ja":"塩対応の佐藤さんが俺にだけ甘い","r":25,"wrp":6.15},{"id":"fx","title":"FX Fighter Kurumi-chan","ja":"FX戦士くるみちゃん","r":26,"wrp":6},{"id":"tetsuryo","title":"Tetsuryou! Meet with Tetsudou Musume","ja":"てつりょー！meet with 鉄道むすめ","r":27,"wrp":5.9},{"id":"kikansha","title":"A Returner's Magic Should Be Special Season 2","ja":"『帰還者の魔法は特別です』第二期","r":28,"wrp":5.75},{"id":"hyouken","title":"The Iceblade Sorcerer Shall Rule the World II","ja":"冰剣の魔術師が世界を統べるⅡ","r":29,"wrp":5.35},{"id":"saikyou","title":"The World's Strongest Witch","ja":"世界最強の魔女、始めました","r":30,"wrp":3.95}]},{"w":2,"n":32,"entries":[{"id":"hotel","title":"Hotel Inhumans Season 2","ja":"『ホテル・インヒューマンズ』第2期","r":1,"wrp":9.7},{"id":"seitokai","title":"Even the Student Council Has Its Holes!","ja":"生徒会にも穴はある！","r":2,"wrp":9.2},{"id":"hitakakusu","title":"A Tale of the Secret Saint","ja":"転生した大聖女は、聖女であることをひた隠す","r":3,"wrp":9.05},{"id":"zombie","title":"#I'm Looking For a Zombie","ja":"#ゾンビさがしてます","r":4,"wrp":8.7},{"id":"mezametara","title":"Reborn as a Space Mercenary: I Woke Up Piloting the Strongest Starship!","ja":"目覚めたら最強装備と宇宙船持ちだったので、一戸建て目指して傭兵として自由に生きたい","r":5,"wrp":8.5},{"id":"chitose","title":"Chitose Is in the Ramune Bottle Part 2","ja":"『千歳くんはラムネ瓶のなか』第2クール","r":6,"wrp":8.4},{"id":"jouheki","title":"The Ramparts of Ice Season 2","ja":"『氷の城壁』第2期","r":7,"wrp":8.35},{"id":"kusuriya","title":"The Apothecary Diaries Season 3","ja":"『薬屋のひとりごと』第3期","r":8,"wrp":8.3},{"id":"choujou","title":"Super Psychic Policeman Chojo","ja":"超巡！超条先輩","r":9,"wrp":8.2},{"id":"oukoku","title":"The Seven Knights of the Marronnier Kingdom","ja":"マロニエ王国の七人の騎士","r":10,"wrp":8.1},{"id":"romelia","title":"Romelia War Chronicle","ja":"ロメリア戦記","r":11,"wrp":8},{"id":"kanata","title":"From Far Away","ja":"彼方から","r":12,"wrp":7.9},{"id":"goblin","title":"So What's Wrong with Getting Reborn as a Goblin?","ja":"転生ゴブリンだけど質問ある？","r":13,"wrp":7.8},{"id":"kikansha","title":"A Returner's Magic Should Be Special Season 2","ja":"『帰還者の魔法は特別です』第二期","r":14,"wrp":7.7},{"id":"fx","title":"FX Fighter Kurumi-chan","ja":"FX戦士くるみちゃん","r":15,"wrp":7.65},{"id":"vertex","title":"Vertex Force","ja":"バーテックスフォース","r":16,"wrp":7.4},{"id":"max","title":"Even Though I'm a Super Timid Noble Girl, I Accepted the Bet From My Cunning Fiancé","ja":"弱気MAX令嬢なのに、辣腕婚約者様の賭けに乗ってしまった","r":17,"wrp":7.3},{"id":"tetsuryo","title":"Tetsuryou! Meet with Tetsudou Musume","ja":"てつりょー！meet with 鉄道むすめ","r":18,"wrp":7.25},{"id":"rayearth","title":"Magic Knight Rayearth (2026)","ja":"魔法騎士レイアース","r":19,"wrp":7.2},{"id":"shinja","title":"Full Clearing Another World under a Goddess with Zero Believers","ja":"信者ゼロの女神サマと始める異世界攻略","r":20,"wrp":7},{"id":"tokyo","title":"Tokyo Revengers: War of the Three Titan Arc","ja":"『東京リベンジャーズ』三天戦争編","r":21,"wrp":6.9},{"id":"aoki","title":"Aoki Denshou Welsh & Shedar","ja":"蒼き伝承 – Welsh & Shedar","r":22,"wrp":6.85},{"id":"hako","title":"Blue Box Season 2","ja":"『アオのハコ』Season2","r":23,"wrp":6.8},{"id":"toaru","title":"A Certain Dark Item","ja":"とある暗部の少女共棲","r":24,"wrp":6.75},{"id":"hyouken","title":"The Iceblade Sorcerer Shall Rule the World II","ja":"冰剣の魔術師が世界を統べるⅡ","r":25,"wrp":6.7},{"id":"saikyou","title":"The World's Strongest Witch","ja":"世界最強の魔女、始めました","r":26,"wrp":6.5},{"id":"psyren","title":"Psyren","ja":"PSYREN -サイレン-","r":27,"wrp":6.2},{"id":"revo","title":"Magic Repo Man: Dumped by My Party, I'll Cash In With a Cute Support Fairy to Become the Strongest!","ja":"貸した魔力は【リボ払い】で強制徴収","r":28,"wrp":6.05},{"id":"kyouran","title":"Nia Liston: The Merciless Maiden","ja":"凶乱令嬢ニア・リストン 病弱令嬢に転生した神殺しの武人の華麗なる無双録","r":29,"wrp":6},{"id":"shiotaiou","title":"The Cold Sato-san is Only Sweet to Me","ja":"塩対応の佐藤さんが俺にだけ甘い","r":30,"wrp":5},{"id":"tanmoshi","title":"The Detective Is Already Dead Season 2","ja":"探偵はもう、死んでいる。Season2","r":31,"wrp":4.8},{"id":"fuyoshi","title":"The Laid-Off Cheat-Granting Mage Enjoys a Second Lease on Life","ja":"追放されたチート付与魔術師は気ままなセカンドライフを謳歌する。 ～俺は武器だけじゃなく、あらゆるものに『強化ポイント』を付与できるし、俺の意思でいつでも効果を解除できるけど、残った人たち大丈夫？～","r":32,"wrp":4.5}]},{"w":3,"n":28,"entries":[{"id":"zombie","title":"#I'm Looking For a Zombie","ja":"#ゾンビさがしてます","r":1,"wrp":9.5},{"id":"oukoku","title":"The Seven Knights of the Marronnier Kingdom","ja":"マロニエ王国の七人の騎士","r":2,"wrp":9.4},{"id":"tetsuryo","title":"Tetsuryou! Meet with Tetsudou Musume","ja":"てつりょー！meet with 鉄道むすめ","r":3,"wrp":9.3},{"id":"choujou","title":"Super Psychic Policeman Chojo","ja":"超巡！超条先輩","r":4,"wrp":9.25},{"id":"kikansha","title":"A Returner's Magic Should Be Special Season 2","ja":"『帰還者の魔法は特別です』第二期","r":5,"wrp":8.5},{"id":"mezametara","title":"Reborn as a Space Mercenary: I Woke Up Piloting the Strongest Starship!","ja":"目覚めたら最強装備と宇宙船持ちだったので、一戸建て目指して傭兵として自由に生きたい","r":6,"wrp":8.45},{"id":"jouheki","title":"The Ramparts of Ice Season 2","ja":"『氷の城壁』第2期","r":7,"wrp":8.3},{"id":"romelia","title":"Romelia War Chronicle","ja":"ロメリア戦記","r":8,"wrp":8.2},{"id":"seitokai","title":"Even the Student Council Has Its Holes!","ja":"生徒会にも穴はある！","r":9,"wrp":8.1},{"id":"kusuriya","title":"The Apothecary Diaries Season 3","ja":"『薬屋のひとりごと』第3期","r":10,"wrp":8},{"id":"rayearth","title":"Magic Knight Rayearth (2026)","ja":"魔法騎士レイアース","r":11,"wrp":7.55},{"id":"goblin","title":"So What's Wrong with Getting Reborn as a Goblin?","ja":"転生ゴブリンだけど質問ある？","r":12,"wrp":7.5},{"id":"hotel","title":"Hotel Inhumans Season 2","ja":"『ホテル・インヒューマンズ』第2期","r":13,"wrp":7.4},{"id":"chitose","title":"Chitose Is in the Ramune Bottle Part 2","ja":"『千歳くんはラムネ瓶のなか』第2クール","r":14,"wrp":7.3},{"id":"psyren","title":"Psyren","ja":"PSYREN -サイレン-","r":15,"wrp":6.9},{"id":"hako","title":"Blue Box Season 2","ja":"『アオのハコ』Season2","r":16,"wrp":6.8},{"id":"vertex","title":"Vertex Force","ja":"バーテックスフォース","r":17,"wrp":6.7},{"id":"hyouken","title":"The Iceblade Sorcerer Shall Rule the World II","ja":"冰剣の魔術師が世界を統べるⅡ","r":18,"wrp":6.6},{"id":"revo","title":"Magic Repo Man: Dumped by My Party, I'll Cash In With a Cute Support Fairy to Become the Strongest!","ja":"貸した魔力は【リボ払い】で強制徴収","r":19,"wrp":6.55},{"id":"shinja","title":"Full Clearing Another World under a Goddess with Zero Believers","ja":"信者ゼロの女神サマと始める異世界攻略","r":20,"wrp":6.5},{"id":"kyouran","title":"Nia Liston: The Merciless Maiden","ja":"凶乱令嬢ニア・リストン 病弱令嬢に転生した神殺しの武人の華麗なる無双録","r":21,"wrp":6.45},{"id":"fx","title":"FX Fighter Kurumi-chan","ja":"FX戦士くるみちゃん","r":22,"wrp":6.3},{"id":"max","title":"Even Though I'm a Super Timid Noble Girl, I Accepted the Bet From My Cunning Fiancé","ja":"弱気MAX令嬢なのに、辣腕婚約者様の賭けに乗ってしまった","r":23,"wrp":6},{"id":"tokyo","title":"Tokyo Revengers: War of the Three Titan Arc","ja":"『東京リベンジャーズ』三天戦争編","r":24,"wrp":5.95},{"id":"shiotaiou","title":"The Cold Sato-san is Only Sweet to Me","ja":"塩対応の佐藤さんが俺にだけ甘い","r":25,"wrp":5.2},{"id":"kanata","title":"From Far Away","ja":"彼方から","r":26,"wrp":5},{"id":"hitakakusu","title":"A Tale of the Secret Saint","ja":"転生した大聖女は、聖女であることをひた隠す","r":27,"wrp":4.95},{"id":"saikyou","title":"The World's Strongest Witch","ja":"世界最強の魔女、始めました","r":28,"wrp":4.25}]},{"w":4,"n":26,"entries":[{"id":"tetsuryo","title":"Tetsuryou! Meet with Tetsudou Musume","ja":"てつりょー！meet with 鉄道むすめ","r":1,"wrp":9.65},{"id":"chitose","title":"Chitose Is in the Ramune Bottle Part 2","ja":"『千歳くんはラムネ瓶のなか』第2クール","r":2,"wrp":9.55},{"id":"zombie","title":"#I'm Looking For a Zombie","ja":"#ゾンビさがしてます","r":3,"wrp":8.8},{"id":"jouheki","title":"The Ramparts of Ice Season 2","ja":"『氷の城壁』第2期","r":4,"wrp":8.75},{"id":"kusuriya","title":"The Apothecary Diaries Season 3","ja":"『薬屋のひとりごと』第3期","r":5,"wrp":8.65},{"id":"seitokai","title":"Even the Student Council Has Its Holes!","ja":"生徒会にも穴はある！","r":6,"wrp":8.45},{"id":"choujou","title":"Super Psychic Policeman Chojo","ja":"超巡！超条先輩","r":7,"wrp":8.4},{"id":"hako","title":"Blue Box Season 2","ja":"『アオのハコ』Season2","r":8,"wrp":8.3},{"id":"oukoku","title":"The Seven Knights of the Marronnier Kingdom","ja":"マロニエ王国の七人の騎士","r":9,"wrp":8.15},{"id":"mezametara","title":"Reborn as a Space Mercenary: I Woke Up Piloting the Strongest Starship!","ja":"目覚めたら最強装備と宇宙船持ちだったので、一戸建て目指して傭兵として自由に生きたい","r":10,"wrp":8},{"id":"tokyo","title":"Tokyo Revengers: War of the Three Titan Arc","ja":"『東京リベンジャーズ』三天戦争編","r":11,"wrp":7.8},{"id":"kikansha","title":"A Returner's Magic Should Be Special Season 2","ja":"『帰還者の魔法は特別です』第二期","r":12,"wrp":7.75},{"id":"romelia","title":"Romelia War Chronicle","ja":"ロメリア戦記","r":13,"wrp":7.65},{"id":"hotel","title":"Hotel Inhumans Season 2","ja":"『ホテル・インヒューマンズ』第2期","r":14,"wrp":7.2},{"id":"rayearth","title":"Magic Knight Rayearth (2026)","ja":"魔法騎士レイアース","r":15,"wrp":7.1},{"id":"goblin","title":"So What's Wrong with Getting Reborn as a Goblin?","ja":"転生ゴブリンだけど質問ある？","r":16,"wrp":7},{"id":"shiotaiou","title":"The Cold Sato-san is Only Sweet to Me","ja":"塩対応の佐藤さんが俺にだけ甘い","r":17,"wrp":6.9},{"id":"fx","title":"FX Fighter Kurumi-chan","ja":"FX戦士くるみちゃん","r":18,"wrp":6.8},{"id":"kyouran","title":"Nia Liston: The Merciless Maiden","ja":"凶乱令嬢ニア・リストン 病弱令嬢に転生した神殺しの武人の華麗なる無双録","r":19,"wrp":6.75},{"id":"kanata","title":"From Far Away","ja":"彼方から","r":20,"wrp":6.5},{"id":"shinja","title":"Full Clearing Another World under a Goddess with Zero Believers","ja":"信者ゼロの女神サマと始める異世界攻略","r":21,"wrp":6.4},{"id":"max","title":"Even Though I'm a Super Timid Noble Girl, I Accepted the Bet From My Cunning Fiancé","ja":"弱気MAX令嬢なのに、辣腕婚約者様の賭けに乗ってしまった","r":22,"wrp":6.3},{"id":"hyouken","title":"The Iceblade Sorcerer Shall Rule the World II","ja":"冰剣の魔術師が世界を統べるⅡ","r":23,"wrp":4.4},{"id":"hitakakusu","title":"A Tale of the Secret Saint","ja":"転生した大聖女は、聖女であることをひた隠す","r":24,"wrp":3.7},{"id":"revo","title":"Magic Repo Man: Dumped by My Party, I'll Cash In With a Cute Support Fairy to Become the Strongest!","ja":"貸した魔力は【リボ払い】で強制徴収","r":25,"wrp":3.05},{"id":"saikyou","title":"The World's Strongest Witch","ja":"世界最強の魔女、始めました","r":26,"wrp":2.8}]},{"w":5,"n":22,"entries":[{"id":"hotel","title":"Hotel Inhumans Season 2","ja":"『ホテル・インヒューマンズ』第2期","r":1,"wrp":9.6},{"id":"mezametara","title":"Reborn as a Space Mercenary: I Woke Up Piloting the Strongest Starship!","ja":"目覚めたら最強装備と宇宙船持ちだったので、一戸建て目指して傭兵として自由に生きたい","r":2,"wrp":9.15},{"id":"choujou","title":"Super Psychic Policeman Chojo","ja":"超巡！超条先輩","r":3,"wrp":9.05},{"id":"seitokai","title":"Even the Student Council Has Its Holes!","ja":"生徒会にも穴はある！","r":4,"wrp":9},{"id":"chitose","title":"Chitose Is in the Ramune Bottle Part 2","ja":"『千歳くんはラムネ瓶のなか』第2クール","r":5,"wrp":8.6},{"id":"kusuriya","title":"The Apothecary Diaries Season 3","ja":"『薬屋のひとりごと』第3期","r":6,"wrp":8.55},{"id":"tetsuryo","title":"Tetsuryou! Meet with Tetsudou Musume","ja":"てつりょー！meet with 鉄道むすめ","r":7,"wrp":8.3},{"id":"jouheki","title":"The Ramparts of Ice Season 2","ja":"『氷の城壁』第2期","r":8,"wrp":8.25},{"id":"goblin","title":"So What's Wrong with Getting Reborn as a Goblin?","ja":"転生ゴブリンだけど質問ある？","r":9,"wrp":8.2},{"id":"tokyo","title":"Tokyo Revengers: War of the Three Titan Arc","ja":"『東京リベンジャーズ』三天戦争編","r":10,"wrp":8.1},{"id":"fx","title":"FX Fighter Kurumi-chan","ja":"FX戦士くるみちゃん","r":11,"wrp":7.15},{"id":"oukoku","title":"The Seven Knights of the Marronnier Kingdom","ja":"マロニエ王国の七人の騎士","r":12,"wrp":6.85},{"id":"rayearth","title":"Magic Knight Rayearth (2026)","ja":"魔法騎士レイアース","r":13,"wrp":6.7},{"id":"kyouran","title":"Nia Liston: The Merciless Maiden","ja":"凶乱令嬢ニア・リストン 病弱令嬢に転生した神殺しの武人の華麗なる無双録","r":14,"wrp":6.6},{"id":"kikansha","title":"A Returner's Magic Should Be Special Season 2","ja":"『帰還者の魔法は特別です』第二期","r":15,"wrp":6.3},{"id":"max","title":"Even Though I'm a Super Timid Noble Girl, I Accepted the Bet From My Cunning Fiancé","ja":"弱気MAX令嬢なのに、辣腕婚約者様の賭けに乗ってしまった","r":16,"wrp":6},{"id":"romelia","title":"Romelia War Chronicle","ja":"ロメリア戦記","r":17,"wrp":5.9},{"id":"shiotaiou","title":"The Cold Sato-san is Only Sweet to Me","ja":"塩対応の佐藤さんが俺にだけ甘い","r":18,"wrp":5.6},{"id":"shinja","title":"Full Clearing Another World under a Goddess with Zero Believers","ja":"信者ゼロの女神サマと始める異世界攻略","r":19,"wrp":5.2},{"id":"kanata","title":"From Far Away","ja":"彼方から","r":20,"wrp":2.9},{"id":"hitakakusu","title":"A Tale of the Secret Saint","ja":"転生した大聖女は、聖女であることをひた隠す","r":21,"wrp":2.8},{"id":"saikyou","title":"The World's Strongest Witch","ja":"世界最強の魔女、始めました","r":22,"wrp":1.6}]},{"w":6,"n":19,"entries":[{"id":"seitokai","title":"Even the Student Council Has Its Holes!","ja":"生徒会にも穴はある！","r":1,"wrp":9.6},{"id":"jouheki","title":"The Ramparts of Ice Season 2","ja":"『氷の城壁』第2期","r":2,"wrp":9.5},{"id":"hotel","title":"Hotel Inhumans Season 2","ja":"『ホテル・インヒューマンズ』第2期","r":3,"wrp":9.2},{"id":"mezametara","title":"Reborn as a Space Mercenary: I Woke Up Piloting the Strongest Starship!","ja":"目覚めたら最強装備と宇宙船持ちだったので、一戸建て目指して傭兵として自由に生きたい","r":4,"wrp":8.6},{"id":"romelia","title":"Romelia War Chronicle","ja":"ロメリア戦記","r":5,"wrp":8.3},{"id":"kusuriya","title":"The Apothecary Diaries Season 3","ja":"『薬屋のひとりごと』第3期","r":6,"wrp":8.25},{"id":"choujou","title":"Super Psychic Policeman Chojo","ja":"超巡！超条先輩","r":7,"wrp":8.15},{"id":"tetsuryo","title":"Tetsuryou! Meet with Tetsudou Musume","ja":"てつりょー！meet with 鉄道むすめ","r":8,"wrp":8.05},{"id":"fx","title":"FX Fighter Kurumi-chan","ja":"FX戦士くるみちゃん","r":9,"wrp":8.0},{"id":"chitose","title":"Chitose Is in the Ramune Bottle Part 2","ja":"『千歳くんはラムネ瓶のなか』第2クール","r":10,"wrp":7.8},{"id":"hako","title":"Blue Box Season 2","ja":"『アオのハコ』Season2","r":11,"wrp":7.4},{"id":"tokyo","title":"Tokyo Revengers: War of the Three Titan Arc","ja":"『東京リベンジャーズ』三天戦争編","r":12,"wrp":7.3},{"id":"oukoku","title":"The Seven Knights of the Marronnier Kingdom","ja":"マロニエ王国の七人の騎士","r":13,"wrp":7.25},{"id":"kanata","title":"From Far Away","ja":"彼方から","r":14,"wrp":6.8},{"id":"max","title":"Even Though I'm a Super Timid Noble Girl, I Accepted the Bet From My Cunning Fiancé","ja":"弱気MAX令嬢なのに、辣腕婚約者様の賭けに乗ってしまった","r":15,"wrp":6.5},{"id":"shiotaiou","title":"The Cold Sato-san is Only Sweet to Me","ja":"塩対応の佐藤さんが俺にだけ甘い","r":16,"wrp":6.4},{"id":"shinja","title":"Full Clearing Another World under a Goddess with Zero Believers","ja":"信者ゼロの女神サマと始める異世界攻略","r":17,"wrp":6.3},{"id":"zombie","title":"#I'm Looking For a Zombie","ja":"#ゾンビさがしてます","r":18,"wrp":4.85},{"id":"saikyou","title":"The World's Strongest Witch","ja":"世界最強の魔女、始めました","r":19,"wrp":0.95}]},{"w":7,"n":20,"entries":[{"id":"jouheki","title":"The Ramparts of Ice Season 2","ja":"『氷の城壁』第2期","r":1,"wrp":9.5},{"id":"chitose","title":"Chitose Is in the Ramune Bottle Part 2","ja":"『千歳くんはラムネ瓶のなか』第2クール","r":2,"wrp":9.1},{"id":"seitokai","title":"Even the Student Council Has Its Holes!","ja":"生徒会にも穴はある！","r":3,"wrp":9.05},{"id":"kanata","title":"From Far Away","ja":"彼方から","r":4,"wrp":8.6},{"id":"choujou","title":"Super Psychic Policeman Chojo","ja":"超巡！超条先輩","r":5,"wrp":8.55},{"id":"hotel","title":"Hotel Inhumans Season 2","ja":"『ホテル・インヒューマンズ』第2期","r":6,"wrp":8.5},{"id":"mezametara","title":"Reborn as a Space Mercenary: I Woke Up Piloting the Strongest Starship!","ja":"目覚めたら最強装備と宇宙船持ちだったので、一戸建て目指して傭兵として自由に生きたい","r":7,"wrp":8.45},{"id":"kusuriya","title":"The Apothecary Diaries Season 3","ja":"『薬屋のひとりごと』第3期","r":8,"wrp":8.4},{"id":"tokyo","title":"Tokyo Revengers: War of the Three Titan Arc","ja":"『東京リベンジャーズ』三天戦争編","r":9,"wrp":8.1},{"id":"zombie","title":"#I'm Looking For a Zombie","ja":"#ゾンビさがしてます","r":10,"wrp":7.8},{"id":"goblin","title":"So What's Wrong with Getting Reborn as a Goblin?","ja":"転生ゴブリンだけど質問ある？","r":11,"wrp":7.7},{"id":"fx","title":"FX Fighter Kurumi-chan","ja":"FX戦士くるみちゃん","r":12,"wrp":7.4},{"id":"max","title":"Even Though I'm a Super Timid Noble Girl, I Accepted the Bet From My Cunning Fiancé","ja":"弱気MAX令嬢なのに、辣腕婚約者様の賭けに乗ってしまった","r":13,"wrp":7.35},{"id":"romelia","title":"Romelia War Chronicle","ja":"ロメリア戦記","r":14,"wrp":6.95},{"id":"oukoku","title":"The Seven Knights of the Marronnier Kingdom","ja":"マロニエ王国の七人の騎士","r":15,"wrp":6.8},{"id":"shinja","title":"Full Clearing Another World under a Goddess with Zero Believers","ja":"信者ゼロの女神サマと始める異世界攻略","r":16,"wrp":6.75},{"id":"tetsuryo","title":"Tetsuryou! Meet with Tetsudou Musume","ja":"てつりょー！meet with 鉄道むすめ","r":17,"wrp":6.2},{"id":"hako","title":"Blue Box Season 2","ja":"『アオのハコ』Season2","r":18,"wrp":6.1},{"id":"shiotaiou","title":"The Cold Sato-san is Only Sweet to Me","ja":"塩対応の佐藤さんが俺にだけ甘い","r":19,"wrp":4.45},{"id":"saikyou","title":"The World's Strongest Witch","ja":"世界最強の魔女、始めました","r":20,"wrp":2.85}]}];
+// These preseason group boundaries are editable per season in season-config-r25.js.
+const SEASON_CONFIG=window.SOWFantasySeasonR25;
+const A_ELITE=SEASON_CONFIG.groupBands.A.elite;
+const A_CHALLENGERS=SEASON_CONFIG.groupBands.A.next;
+const POOLS={A:[...A_ELITE,...A_CHALLENGERS],B:SEASON_CONFIG.groupBands.B.all,C:SEASON_CONFIG.groupBands.C.all,D:SEASON_CONFIG.groupBands.D.all};
+const BACKUP_POOLS={A:[...A_CHALLENGERS],B:POOLS.B.filter(id=>!A_ELITE.includes(id)),C:POOLS.C,D:POOLS.D};
+const UNUSED_RIVALS=[
+ {name:'Mia · Steady',picks:{A:'kusuriya',B:'choujou',C:'tetsuryo',D:'shiotaiou'},captain:'A',backups:{A:['oukoku','chitose'],B:['hotel','romelia'],C:['mezametara','fx'],D:['saikyou','max']}},
+ {name:'Mia · Wildcard',picks:{A:'jouheki',B:'romelia',C:'fx',D:'max'},captain:'A',backups:{A:['oukoku','chitose'],B:['hotel','zombie'],C:['mezametara','tetsuryo'],D:['shiotaiou','saikyou']}}
+];
+const RIVALS=window.SOWFantasyDemoTeamsR27.map(t=>({...t,backups:Object.fromEntries(Object.entries(t.backups).map(([g,arr])=>[g,arr.slice(0,2)]))}));
+const DEFAULT={name:'My S.O.W. Team',picks:{A:'seitokai',B:'hotel',C:'mezametara',D:'saikyou'},captain:'A',backups:{A:['',''],B:['',''],C:['',''],D:['','']}};
+const STORAGE='offbeat-sow-fantasy-myteam-r23-preview-2026fall';
+const LEAGUE_STORAGE='offbeat-sow-fantasy-r24-three-teams-2026fall'; // read-only legacy migration
+const SELF_STORAGE='offbeat-sow-fantasy-r27-self-2026fall';
+const REG_LOCK_STORAGE='offbeat-sow-fantasy-r28-lock-2026fall';
+const ROSTER_SCHEMA='sow-fantasy-team-v1';
+const SEASON_KEY='2026-fall';
+const GROUP_REV='fall2026-preseason-test-r28';
+const OLD_STORAGE='offbeat-sow-fantasy-myteam-r2-preview-2026fall';
+const LAB_STORAGE='offbeat-sow-fantasy-r24-config';
 const options={wrp:3,rank:20,field:4,A:.95,B:1.15,C:1.3,D:1.5,captain:1.2,d10:1.1,d5:1.25,d3:1.4,d1:1.6,t10:6,t5:12,t3:24};
+let scoringMode='roles'; // R2.6 role-based trial is the default in this 24-team preview; original is one click away.
 const label={A:'CONTENDER',B:'CHALLENGER',C:'DARK HORSE',D:'HIGH RISK'};
 const desc={A:'事前評価が高い本命候補',B:'上位争いに加わる有力候補',C:'意外性や伸びしろのある作品',D:'脱落リスクの高い大穴'};
-// Published drop decisions verified in actual W02, W03 and W05 ranking JSON.
-// Decision applies AFTER that week; never infer a drop solely from missing rankings.
-const DROP_DECISION_WEEK={aoki:2,tanmoshi:2,fuyoshi:2,psyren:3,kyouran:5,hitakakusu:5,rayearth:5};
+// Drop decisions extracted from published weekly ranking JSON meta.drop_decisions for W02–W05.
+// Local deploy reads the actual repo files; preview mirrors verified W02–W05 records.
+// These decisions apply AFTER the scored decision week. Missing rank != drop.
+let DROP_DECISION_WEEK=/* SOW_DROPS_BEGIN */{"hyouken":4,"fuyoshi":2,"aoki":2,"kikansha":5,"toaru":2,"cyber":3,"hitakakusu":5,"tanmoshi":2,"revo":4,"psyren":3,"rayearth":5,"vertex":3,"kyouran":5}/* SOW_DROPS_END */;
 const names={};for(const w of WEEKS){for(const e of w.entries){names[e.id]=e.ja||e.title||e.id}}
+// Named no-air evidence: W05 zombie and hako are mentioned in the official weekly intro;
+// W06 goblin absence is confirmed directly by the ranking author (meta.status.noAir=1).
+// The weekly JSON's "noAir" number by itself does NOT name titles. Do not guess from missing ranks.
+// W01 late starters are confirmed against the weekly lineup. This remains a six-week test.
+const KNOWN_STATUS=SEASON_CONFIG.statusOverrides;
+const STATUS_WORD={upcoming:'放送開始前',noair:'放送休止',unrated:'採点記録なし（理由未確認）',dropped:'対象外',drop_grace:'対象外直後の猶予週',promoted:'正式交代'};
+const emptyBackups=()=>({A:['',''],B:['',''],C:['',''],D:['','']});
+function normalizedBackups(t){const b=emptyBackups();for(const g of 'ABCD'){const arr=t?.backups?.[g];if(Array.isArray(arr))b[g]=[0,1].map(i=>BACKUP_POOLS[g].includes(arr[i])?arr[i]:'')}return b}
+function situation(id,w,wm){return window.SOWFantasyCoreR25.situation(id,w,wm,{drops:DROP_DECISION_WEEK,statuses:KNOWN_STATUS});}
+
 const els={picks:document.getElementById('picks'),name:document.getElementById('teamName'),cap:document.getElementById('captain'),warning:document.getElementById('warning'),saved:document.getElementById('saved')};
 function copy(o){return JSON.parse(JSON.stringify(o))}
-function load(){try{const v=JSON.parse(localStorage.getItem(STORAGE));if(!v||!v.picks||!['A','B','C','D'].every(g=>POOLS[g].includes(v.picks[g]))||!('ABCD'.includes(v.captain)))return copy(DEFAULT);return {name:String(v.name||DEFAULT.name).slice(0,35),picks:{...v.picks},captain:v.captain}}catch(e){return copy(DEFAULT)}}
-let team=load(),chosenWeek=6;
+function saneTeam(v,fallback){
+ if(!v||!v.picks||!['A','B','C','D'].every(g=>POOLS[g].includes(v.picks[g])))return copy(fallback);
+ const t={name:String(v.name||fallback.name).slice(0,35),picks:{...v.picks},captain:'ABCD'.includes(v.captain)?v.captain:'A',backups:normalizedBackups(v)};
+ return t;
+}
+function loadLeague(){
+ let player=copy(DEFAULT);
+ try{
+  const self=JSON.parse(localStorage.getItem(SELF_STORAGE));
+  const oldLeague=JSON.parse(localStorage.getItem(LEAGUE_STORAGE));
+  const oldSelf=JSON.parse(localStorage.getItem(STORAGE)||localStorage.getItem(OLD_STORAGE));
+  player=saneTeam(self||((Array.isArray(oldLeague)&&oldLeague[0])?oldLeague[0]:oldSelf),DEFAULT);
+ }catch(e){}
+ // Real participant data is never implied: all 23 rivals are immutable preseason-like test seeds.
+ return [player,...RIVALS.map(t=>copy(t))];
+}
+const league=loadLeague();let activeIndex=0,chosenWeek=WEEKS.length,team=league[0];
+let leagueShowAll=false,scoutedIndex=null;
+let draftLock=null;
+let registrationMessage='';
+let registrationError=false;
+let rules={subs:true,grace:0};
+try{const v=JSON.parse(localStorage.getItem(LAB_STORAGE)||localStorage.getItem('offbeat-sow-fantasy-r23-config'));if(v&&typeof v.subs==='boolean'&&[0,10].includes(v.grace))rules=v}catch(e){}
 function escapeHTML(s){return String(s??'').replace(/[&<>"']/g,x=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[x]))}
 function num(n){return Number(n).toFixed(2)}
 function shortName(id){return names[id]||id}
 function inGroups(id){return 'ABCD'.split('').filter(g=>POOLS[g].includes(id))}
 function groupLabel(id){return inGroups(id).join('/')}
-function save(){try{localStorage.setItem(STORAGE,JSON.stringify(team));els.saved.textContent='SAVED IN THIS BROWSER · NOT SUBMITTED'}catch(e){els.saved.textContent='LOCAL STORAGE UNAVAILABLE · NOT SUBMITTED'}}
-function valid(t){return new Set(Object.values(t.picks)).size===4}
+function readRegistrationLock(){
+ try{
+  const locked=JSON.parse(localStorage.getItem(REG_LOCK_STORAGE));
+  if(locked?.schema!==ROSTER_SCHEMA||locked.season!==SEASON_KEY||locked.groupRevision!==GROUP_REV||!locked.team)return null;
+  const t=saneTeam(locked.team,DEFAULT);
+  if(!valid(t)||!allBackupsEligible(t))return null;
+  return {schema:ROSTER_SCHEMA,season:SEASON_KEY,groupRevision:GROUP_REV,lockedAt:String(locked.lockedAt||''),team:t};
+ }catch(err){return null}
+}
+function allBackupsEligible(t){return 'ABCD'.split('').every(g=>Array.isArray(t.backups[g])&&t.backups[g].length===2&&t.backups[g].every(id=>!id||BACKUP_POOLS[g].includes(id)))}
+function draftSnapshot(){return {schema:ROSTER_SCHEMA,season:SEASON_KEY,groupRevision:GROUP_REV,status:draftLock?'locked-local-test':'local-draft',exportedAt:new Date().toISOString(),team:copy(league[0])}}
+function setRegistrationMessage(msg,error=false){registrationMessage=msg;registrationError=error;renderRegistrationDesk()}
+function downloadJSON(filename,data){
+ const blob=new Blob([JSON.stringify(data,null,2)+'\n'],{type:'application/json;charset=utf-8'});
+ const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download=filename;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);
+}
+function locked(){return !!draftLock}
+function renderRegistrationDesk(){
+ const state=document.getElementById('draftState');if(!state)return;
+ state.textContent=locked()?'LOCKED · THIS BROWSER':'LOCAL DRAFT';state.classList.toggle('is-locked',locked());
+ const msg=document.getElementById('regStatus');msg.textContent=registrationMessage||(locked()?`ローカルで確定済み · ${draftLock.lockedAt.slice(0,19).replace('T',' ')}`:'編成は自動保存されます。確定後はこの端末で編集を停止します。');msg.classList.toggle('is-error',registrationError);
+ document.getElementById('lockDraft').hidden=locked();document.getElementById('unlockDraft').hidden=!locked();
+ document.getElementById('lockDraft').disabled=!valid(league[0])||!allBackupsEligible(league[0]);
+ document.querySelector('.import-draft')?.classList.toggle('is-disabled',locked());
+ const reset=document.getElementById('reset');if(reset)reset.disabled=locked();
+ const preset=document.getElementById('loadScenario');if(preset)preset.disabled=locked();
+}
+function renderPreseasonBoard(){
+ const groups=SEASON_CONFIG.groupBands;
+ const block=(g,items)=>`<article class="preseason-group"><h4>${g}<small>${items.length} CANDIDATES</small></h4>${g==='A'?`<em>ELITE · ${groups.A.elite.length}</em><p>${groups.A.elite.map(id=>escapeHTML(shortName(id))).join(' / ')}</p><em>NEXT TIER · ${groups.A.next.length}</em><p>${groups.A.next.map(id=>escapeHTML(shortName(id))).join(' / ')}</p>`:g==='B'?`<em>RELIABLE · ${groups.B.reliable.length}</em><p>${groups.B.reliable.map(id=>escapeHTML(shortName(id))).join(' / ')}</p><em>UPSIDE / UNCERTAIN · ${items.length-groups.B.reliable.length}</em><p>${items.filter(id=>!groups.B.reliable.includes(id)).map(id=>escapeHTML(shortName(id))).join(' / ')}</p>`:`<p>${items.map(id=>escapeHTML(shortName(id))).join(' / ')}</p>`}</article>`;
+ document.getElementById('preseasonBoard').innerHTML='ABCD'.split('').map(g=>block(g,POOLS[g])).join('');
+}
+function fullGroupManifest(){
+ const groups=copy(SEASON_CONFIG.groupBands);
+ return {schema:'sow-fantasy-preseason-groups-v1',season:SEASON_KEY,revision:GROUP_REV,status:'WORKING TEST · NOT FINAL',groupBands:groups,names:Object.fromEntries([...new Set(Object.values(POOLS).flat())].map(id=>[id,shortName(id)])),rules:{mainSlots:4,backupsPerSlot:2,noDuplicateWithinTeam:true,eligibilityOverlap:true}};
+}
+function parseImportedRoster(o){
+ if(!o||o.schema!==ROSTER_SCHEMA||o.season!==SEASON_KEY||o.groupRevision!==GROUP_REV)throw Error('シーズンまたは候補表の版が一致しません。');
+ if(!o.team||typeof o.team.name!=='string'||!o.team.name.trim()||o.team.name.length>35)throw Error('TEAM NAMEが不正です。');
+ if(!'ABCD'.split('').includes(o.team.captain))throw Error('Captainの指定が不正です。');
+ for(const g of 'ABCD'){
+  if(!POOLS[g].includes(o.team.picks?.[g]))throw Error(g+'の主力が候補外です。');
+  const bs=o.team.backups?.[g];if(!Array.isArray(bs)||bs.length!==2||!bs.every(x=>x===''||BACKUP_POOLS[g].includes(x)))throw Error(g+'の補欠が候補外です。');
+ }
+ const safe=saneTeam(o.team,DEFAULT);
+ if(!valid(safe)||!allBackupsEligible(safe))throw Error('作品の重複がある編成です。');
+ return safe;
+}
+function competitors(){return league.slice(1)}
+function allTaken(t){return [...Object.values(t.picks),...Object.values(normalizedBackups(t)).flat()].filter(Boolean)}
+function save(){if(locked())return;try{localStorage.setItem(SELF_STORAGE,JSON.stringify(league[0]));els.saved.textContent='YOUR DRAFT SAVED ON THIS BROWSER · NOT SUBMITTED'}catch(e){els.saved.textContent='LOCAL STORAGE UNAVAILABLE · NOT SUBMITTED'}}
+function valid(t){const chosen=allTaken(t);return new Set(chosen).size===chosen.length&&'ABCD'.split('').every(g=>POOLS[g].includes(t.picks[g]))}
+draftLock=readRegistrationLock();
+if(draftLock){league[0]=copy(draftLock.team);team=league[0];}
+
+function renderTeamTabs(){
+ document.getElementById('teamSwitcher').innerHTML=`<div class="own-team-tag"><span>YOUR TEAM · EDITABLE</span><strong>${escapeHTML(team.name)}</strong></div><div class="fixed-field-tag"><span>23 PRESEASON TEST TEAMS</span><strong>Fixed rosters · same rules</strong></div>`;
+}
 function renderDraft(){
- els.name.value=team.name;els.cap.value=team.captain;
+ renderTeamTabs();els.name.value=team.name;els.cap.value=team.captain;
+ els.name.disabled=locked();els.cap.disabled=locked();
+ const openGroups=new Set([...els.picks.querySelectorAll('details[open]')].map(d=>d.dataset.slot));
+ const taken=allTaken(team);
+ const pickedElsewhere=(id,current)=>taken.includes(id)&&id!==current;
  els.picks.innerHTML='ABCD'.split('').map(g=>{
-  const chosen=team.picks[g], dual=inGroups(chosen).length>1;
-  const choices=POOLS[g].filter(id=>names[id]);
-  const simple=choices.filter(id=>inGroups(id).length===1);
-  const flexible=choices.filter(id=>inGroups(id).length>1);
-  const option=id=>`<option value="${escapeHTML(id)}" ${chosen===id?'selected':''}>${flexible.includes(id)?'◇ ':''}${escapeHTML(names[id])}${flexible.includes(id)?' ['+groupLabel(id)+' · 仮]':''}</option>`;
-  return `<div class="pick"><div class="pick-top"><strong>${g}</strong><span>${label[g]}</span></div><select aria-label="${g} PICK" data-pick="${g}"><optgroup label="${g} · REGULAR PICKS">${simple.map(option).join('')}</optgroup>${flexible.length?`<optgroup label="◇ CROSS-GROUP CANDIDATES · 仮">${flexible.map(option).join('')}</optgroup>`:''}</select><div class="caption">${desc[g]}</div>${dual?`<span class="dual-choice"><span class="symbol">◇</span> ${groupLabel(chosen)} · 2グループ候補（仮）</span>`:`<div class="dual-hint">${flexible.length?'◇印は複数グループの仮候補':'この枠の通常候補'}</div>`}</div>`
+  const chosen=team.picks[g],dual=inGroups(chosen).length>1;
+  const option=(id,value)=>`<option value="${escapeHTML(id)}" ${value===id?'selected':''} ${pickedElsewhere(id,value)?'disabled':''}>${escapeHTML(shortName(id))}${inGroups(id).length>1?' ◇ ['+groupLabel(id)+' · 仮]':''}</option>`;
+  const regular=(value,empty)=>{
+   const choices=(empty?BACKUP_POOLS[g]:POOLS[g]).filter(id=>names[id]);
+   const top=(g==='A'&&!empty)?choices.filter(id=>A_ELITE.includes(id)):[];
+   const remaining=choices.filter(id=>!top.includes(id));
+   return `${empty?'<option value="">— 未登録 —</option>':''}${top.length?`<optgroup label="A · ELITE（仮）">${top.map(id=>option(id,value)).join('')}</optgroup>`:''}<optgroup label="${g==='A'?'A · NEXT TIER（仮）':g+' · 候補（仮）'}">${remaining.map(id=>option(id,value)).join('')}</optgroup>`;
+  };
+  const reserves=[0,1].map(i=>`<div class="reserve-line"><label for="reserve-${g}-${i}">BACKUP ${i+1}</label><select id="reserve-${g}-${i}" data-reserve="${g}" data-order="${i}">${regular(team.backups[g][i],true)}</select></div>`).join('');
+  const reserved=team.backups[g].filter(Boolean).length;
+  const aHelp=g==='A'?'Aの上位3作品は補欠に登録できません。次点候補から選びます。':'上から優先、使い捨てではありません。';
+  return `<div class="pick"><div class="pick-top"><strong>${g}</strong><span>${label[g]}</span></div><select aria-label="${g} PICK" data-pick="${g}">${regular(chosen,false)}</select><div class="caption">${desc[g]}</div>${dual?`<span class="dual-choice">◇ ${groupLabel(chosen)} · 仮</span>`:''}<details data-slot="${g}" class="pick-reserves" ${openGroups.has(g)?'open':''}><summary>BACKUPS · ${reserved?reserved+' REGISTERED':'SELECT UP TO TWO'}</summary>${reserves}<div class="reserve-help">${aHelp} 同じ作品を別枠に重複登録することはできません。</div></details></div>`;
  }).join('');
  const duals=[...new Set(Object.values(POOLS).flat())].filter(id=>names[id]&&inGroups(id).length>1);
- document.getElementById('dualNotice').innerHTML=`<strong>◇ CROSS-GROUP · 仮の重複候補</strong><div class="legend">選択メニュー内の◇印と色付きバッジで区別。現在はテスト用の重複で、正式なIn-Betweenの資格は未確定です。</div><div class="overlap-list">${duals.map(id=>`<span>◇ ${escapeHTML(shortName(id))} <b>${groupLabel(id)}</b></span>`).join('')}</div>`;
- for(const sel of els.picks.querySelectorAll('select'))sel.onchange=()=>{team.picks[sel.dataset.pick]=sel.value;save();renderDraft();render()};
- els.cap.onchange=()=>{team.captain=els.cap.value;save();render()};
- els.name.oninput=()=>{team.name=els.name.value;save()};
+ document.getElementById('dualNotice').innerHTML=`<strong>◇ IN-BETWEEN · グループ候補は仮設定</strong><div class="legend">現在の分類はプレシーズン仮説。過去のランキング実績から事前評価を確定したものではありません。Aの上位3作と次点候補を分け、補欠は次点候補から選びます。</div><div class="overlap-list">${duals.map(id=>`<span>◇ ${escapeHTML(shortName(id))} <b>${groupLabel(id)}</b></span>`).join('')}</div>`;
+ for(const sel of els.picks.querySelectorAll('select[data-pick]'))sel.onchange=()=>{
+  if(locked()){renderDraft();return;}
+  const g=sel.dataset.pick;
+  if(pickedElsewhere(sel.value,team.picks[g])){renderDraft();return;}
+  team.picks[g]=sel.value;save();renderDraft();render();
+ };
+ for(const sel of els.picks.querySelectorAll('select[data-reserve]'))sel.onchange=()=>{
+  if(locked()){renderDraft();return;}
+  const g=sel.dataset.reserve,i=+sel.dataset.order,old=team.backups[g][i];
+  if(sel.value&&pickedElsewhere(sel.value,old)){renderDraft();return;}
+  team.backups[g][i]=sel.value;save();renderDraft();els.picks.querySelector(`details[data-slot="${g}"]`).open=true;render();
+ };
+ els.cap.onchange=()=>{if(locked())return;team.captain=els.cap.value;save();render()};
+ els.name.oninput=()=>{if(locked())return;team.name=els.name.value;save();renderTeamTabs();render()};
+ document.getElementById('autoSubs').checked=rules.subs;
+ document.getElementById('dropGrace').value=String(rules.grace);
+ for(const sel of els.picks.querySelectorAll('select'))sel.disabled=locked();
+ renderRegistrationDesk();
+ document.getElementById('sourceAudit').textContent=`W01–W${String(WEEKS.length).padStart(2,'0')}は確認済みのランキングを使用。対象外決定 ${Object.keys(DROP_DECISION_WEEK).length}件（JSON記録）。休止は個別に確認済みの作品だけを指定。補欠 ${rules.subs?'ON':'OFF'}。`;
 }
-function baseDetail(r,wrp,n){
- const pct=n>1?Math.max(0,Math.min(1,(n-r)/(n-1))):1;
- const w=wrp*options.wrp,rank=options.rank*pct,field=options.field*n/34*pct;
- return {w,rank,field,sum:w+rank+field};
-}
-function dBonus(r){if(r===1)return options.d1;if(r<=3)return options.d3;if(r<=5)return options.d5;if(r<=10)return options.d10;return 1}
-function score(t,w){
- const map=new Map(w.entries.map(e=>[e.id,e]));let total=0;const pieces={};
- for(const g of 'ABCD'){
-  const e=map.get(t.picks[g]);const parts=e?baseDetail(e.r,e.wrp,w.n):null;
-  const multipliers={group:options[g],captain:(t.captain===g?options.captain:1),upset:(e&&g==='D'?dBonus(e.r):1)};
-  const pts=parts?parts.sum*multipliers.group*multipliers.captain*multipliers.upset:0;
-  pieces[g]={e,pts,id:t.picks[g],parts,multipliers};total+=pts;
- }
- const highest=Math.max(...'ABC'.split('').map(g=>pieces[g].e?.r??Infinity));
- const bonusType=highest<=3?'TOP 3':highest<=5?'TOP 5':highest<=10?'TOP 10':null;
- const bonus=highest<=3?options.t3:highest<=5?options.t5:highest<=10?options.t10:0;
- return {w:w.w,total:total+bonus,bonus,bonusType,pieces};
+
+// One authoritative calculation engine shared by all rounds and future screens.
+function score(t,w,activeRules=rules,overrideMode=scoringMode){
+ const ctx={options,drops:DROP_DECISION_WEEK,statuses:KNOWN_STATUS,rules:activeRules};
+ return overrideMode==='roles'?window.SOWFantasyRolesR26.score(t,w,ctx,SEASON_CONFIG):window.SOWFantasyCoreR25.score(t,w,ctx);
 }
 function scores(t){return WEEKS.map(w=>score(t,w))}
+
 function sum(rows){return rows.reduce((a,x)=>a+x.total,0)}
 function rankAmong(values,index){return 1+values.filter(x=>x>values[index]+1e-9).length}
 function allState(mine,rivals){
- const teams=[mine,...rivals];const rounds=[];const acc=[0,0,0];
+ const teams=[mine,...rivals];const rounds=[];const acc=teams.map(()=>0);
  for(let i=0;i<mine.length;i++){
   const weekly=teams.map(t=>t[i].total);weekly.forEach((n,j)=>acc[j]+=n);
   rounds.push({week:i+1,weekly,weekRanks:weekly.map((_,j)=>rankAmong(weekly,j)),cumulative:[...acc],totalRanks:acc.map((_,j)=>rankAmong(acc,j))});
@@ -203,136 +489,289 @@ function statusFor(id,w){
  return null;
 }
 function renderPieces(round,w){
- document.getElementById('roundHead').textContent=`WEEK ${String(w).padStart(2,'0')} · YOUR FOUR PICKS`;
+ document.getElementById('roundHead').textContent=`WEEK ${String(w).padStart(2,'0')} · ${team.name.toUpperCase().slice(0,30)} · FOUR SLOTS`;
  document.getElementById('pieces').innerHTML='ABCD'.split('').map(g=>{
-  const p=round.pieces[g],d=statusFor(p.id,w),isCap=team.captain===g;
+  const p=round.pieces[g],dec=DROP_DECISION_WEEK[p.primary],isCap=team.captain===g;
   const badges=[];
-  if(p.e&&g==='D'&&p.multipliers.upset>1)badges.push(`<span class="state badge-upset">D-GROUP UPSET ×${p.multipliers.upset.toFixed(2)}</span>`);
-  if(d)badges.push(`<span class="state badge-drop">${d.kind==='after'?'DROPPED AFTER WEEK':'DROPPED'} · W${String(DROP_DECISION_WEEK[p.id]).padStart(2,'0')}</span>`);
+  if(p.e&&g==='D'&&p.multipliers.upset>1)badges.push(`<span class="state badge-upset">D UPSET ×${p.multipliers.upset.toFixed(2)}</span>`);
+  if(dec!==undefined&&w===dec)badges.push(`<span class="state badge-drop">DROPPED AFTER W${String(dec).padStart(2,'0')}</span>`);
+  if(p.mode==='grace')badges.push('<span class="state badge-drop">DROP · GRACE WEEK</span>');
   if(p.e&&p.e.r===1&&g!=='D')badges.push('<span class="state badge-upset">WEEKLY #1</span>');
-  const info=p.e?`<b>#${p.e.r} / ${WEEKS[w-1].n}作品</b> · WRP ${p.e.wrp}`:(d&&d.kind==='dropped'?'対象外につき得点なし':'今週の順位・採点記録なし');
+  const sub=['substitute','promoted'].includes(p.mode);
+  const replaced=sub?`<div class="substatus"><strong>${p.mode==='promoted'?'PERMANENT REPLACEMENT':'TEMPORARY BACKUP'} ${p.order}</strong><br>元の作品：${escapeHTML(shortName(p.primary))} · ${p.status.label}</div>`:'';
+  const statusDesc=p.mode==='grace'?`対象外決定後の最初の不在週。${rules.grace} pt（試験案）。`:
+   p.mode==='inactive'?`${p.status.label}。${!rules.subs?'補欠自動起用がOFFです。':p.needed?'今週出場できる登録済みの補欠がいません。':'休止・放送開始前と確認されていないため、補欠起用の対象外です。'}`:
+   p.mode==='restored'?'対象外決定の翌週に復活。正規枠で得点。':'';
+  const info=p.e?`<b>#${p.e.r} / ${WEEKS[w-1].n}作品</b> · WRP ${p.e.wrp}`:statusDesc;
   let dropNote='';
-  if(d){
-   const decided=DROP_DECISION_WEEK[p.id];
-   const original=score(team,WEEKS[decided-1]).pieces[g];
-   const decisionScore=original.e?`W${String(decided).padStart(2,'0')}は採点あり（${num(original.pts)} pt）`:`W${String(decided).padStart(2,'0')}はこの作品の得点記録なし`;
-   dropNote=`<div class="drop-explainer">${decisionScore}。${d.kind==='after'?'この週の終了後に対象外を決定。':`W${String(decided).padStart(2,'0')}終了後に対象外 → 今週は0 pt。`}</div>`;
+  if(dec!==undefined&&w>=dec){
+   const eAtDecision=WEEKS[dec-1].entries.find(e=>e.id===p.primary);
+   dropNote=`<div class="drop-explainer">W${String(dec).padStart(2,'0')}までは${eAtDecision?'評価・得点あり':'当週の評価記録は未確認'}。対象外の判定はその週の終了後。</div>`;
   }
-  const formula=p.e?`<div class="formula">WRP：${num(p.parts.w)} + 順位：${num(p.parts.rank)} + 作品数補正：${num(p.parts.field)} = <b>${num(p.parts.sum)}</b><br>グループ ${p.multipliers.group.toFixed(2)}×${isCap?' · Captain '+p.multipliers.captain.toFixed(2)+'×':''}${p.multipliers.upset>1?' · D大穴 '+p.multipliers.upset.toFixed(2)+'×':''}<br><b>→ ${num(p.pts)} pts</b></div>`:'<div class="formula">この週は得点に使える週間評価がないため 0.00 pt。補欠の自動投入はまだ未実装です。</div>';
-  return `<div class="roundpiece ${p.e?'':'no-score'}"><div class="role">${g} PICK ${isCap?'★ CAPTAIN':''}</div><div class="title">${escapeHTML(shortName(p.id))}</div><div class="pts">${num(p.pts)}<span class="unit"> pt</span></div><div class="stat">${info}</div>${badges.join('')}${dropNote}<details class="piece-detail"><summary>得点の内訳</summary>${formula}</details></div>`
+  const formula=p.e?`<div class="formula">WRP ${num(p.parts.w)} + 順位 ${num(p.parts.rank)} + 作品数補正 ${num(p.parts.field)} = ${num(p.parts.sum)}<br>枠 ${p.multipliers.group.toFixed(2)}×${isCap&&p.multipliers.captain>1?' · Captain '+p.multipliers.captain.toFixed(2)+'×':''}${p.multipliers.upset>1?' · 大穴 '+p.multipliers.upset.toFixed(2)+'×':''}${p.roleTrial?' · '+p.roleTrial.band.replace('_',' ')+'（仮）':''}<br>→ ${num(p.pts)} pt</div>`:`<div class="formula">${escapeHTML(statusDesc||'評価記録がないため、この週の得点はありません。')}</div>`;
+  const originalTitle=sub?`<div class="substatus">${escapeHTML(shortName(p.id))}</div>`:'';
+  return `<div class="roundpiece ${p.e?'':'no-score'}"><div class="role">${g} SLOT ${isCap?'★ CAPTAIN':''}</div><div class="title">${escapeHTML(shortName(p.primary))}</div>${sub?`<div class="substatus">↳ ${escapeHTML(shortName(p.id))}</div>`:''}<div class="pts">${num(p.pts)}<span class="unit"> pt</span></div><div class="stat">${info}</div>${badges.join('')}${replaced}${dropNote}<details class="piece-detail"><summary>得点の内訳</summary>${formula}</details></div>`;
  }).join('');
  const abc='ABC'.split('').map(g=>round.pieces[g].e?.r).filter(x=>Number.isFinite(x));
- const bonusDesc=round.bonus?`A / B / C の3作品がすべて ${round.bonusType} 入り（${abc.map(x=>'#'+x).join(' · ')}）。最も高い条件のボーナスを1回だけ加算。`:'A / B / C の3作品が同時に TOP10 に入らなかったため、チームボーナスはなし。';
+ const bonusDesc=round.bonus?`A / B / C の3作品がすべて ${round.bonusType} 入り（${abc.map(x=>'#'+x).join(' · ')}）。最も高い条件のボーナスを1回だけ加算。`:'A / B / C が同時にTOP10に入らず、連携ボーナスなし。';
  document.getElementById('roundResult').innerHTML=`<div><label>WEEK ${String(w).padStart(2,'0')} · TEAM BONUS</label><br><strong>+${num(round.bonus)} <span style="font:12px 'Barlow Condensed',sans-serif">PTS</span></strong><div class="combo-caption">${bonusDesc}</div></div><div style="text-align:right"><label>ROUND TOTAL</label><br><strong>${num(round.total)} <span style="font:12px 'Barlow Condensed',sans-serif">PTS</span></strong></div>`;
- const flagged='ABCD'.split('').filter(g=>round.pieces[g].e&&g==='D'&&round.pieces[g].multipliers.upset>1);
- const drops='ABCD'.split('').filter(g=>statusFor(round.pieces[g].id,w)?.kind==='dropped');
- const pills=[...(flagged.map(g=>`<span class="impact-pill">D UPSET ×${round.pieces[g].multipliers.upset.toFixed(2)}</span>`)),...(round.bonus?[`<span class="impact-pill">ABC ${round.bonusType} +${round.bonus}</span>`]:[]),...(drops.map(g=>`<span class="impact-pill">${g} PICK DROPPED</span>`))];
- let explanation=flagged.length?`<strong>D枠の大穴</strong>が今週の得点を押し上げた。`:(round.bonus?'3作品の上位入りによる<strong>連携ボーナス</strong>が発動。':'');
- if(drops.length)explanation+=` <strong>${drops.join('・')}枠</strong>には対象外の作品が含まれ、今週は得点できていない。`;
- if(!explanation)explanation='今週は通常の週間評価に基づく得点。下のスコアカードで他チームとの勝敗を確認できる。';
- document.getElementById('roundImpact').innerHTML=`<div class="impact-kicker">WHAT MOVED THE SCORE</div>${pills.join('')}<div>${explanation}</div>`;
+ const subs='ABCD'.split('').filter(g=>['substitute','promoted'].includes(round.pieces[g].mode));
+ const grace='ABCD'.split('').filter(g=>round.pieces[g].mode==='grace');
+ const unknown='ABCD'.split('').filter(g=>round.pieces[g].mode==='inactive'&&round.pieces[g].status.kind==='unrated');
+ const pills=[...(subs.map(g=>`<span class="impact-pill">${g} ${round.pieces[g].mode==='promoted'?'PROMOTED':'TEMP BACKUP'}</span>`)),...(grace.map(g=>`<span class="impact-pill">${g} DROP GRACE</span>`)),...(round.bonus?[`<span class="impact-pill">ABC ${round.bonusType} +${round.bonus}</span>`]:[])];
+ const explanation=[];
+ if(subs.length)explanation.push(`補欠${subs.join('・')}枠が出場。元の作品との交代が得点に反映されている。`);
+ if(grace.length)explanation.push(`対象外直後の${grace.join('・')}枠は猶予週。翌週以降は固定補欠に正式交代する案。`);
+ if(unknown.length)explanation.push(`${unknown.join('・')}枠の不在理由は未確認。休止とは断定せず、補欠を自動投入していない。`);
+ if(!rules.subs)explanation.unshift('補欠制度は現在OFFです。休止が分かっていても自動交代せず、当該枠は0 ptになります。');
+ if(!explanation.length)explanation.push('今週の記録された評価を用いて計算。作品別の得点と他チームの結果を見比べられる。');
+ document.getElementById('roundImpact').innerHTML=`<div class="impact-kicker">WHAT MOVED THE SCORE · BACKUPS ${rules.subs?'ON':'OFF'}</div><div class="settings-shortcut"><a href="#backupSettings">補欠設定を確認・変更</a> · <span>対象外決定は週間JSONで確認</span></div>${!rules.subs?'<div style="margin:7px 0 10px"><button type="button" id="enableSubsHere" class="demo-button">補欠をONにして再計算</button></div>':''}${pills.join('')}<div>${explanation.join(' ')}</div>`;
+ if(!rules.subs)document.getElementById('enableSubsHere').onclick=()=>{rules.subs=true;document.getElementById('autoSubs').checked=true;saveRules()};
 }
-function placeBadge(rank){return `<span class="place-badge ${rank===1?'first':rank===3?'third':''}">#${rank}<small>/3</small></span>`}
+
+function placeBadge(rank){return `<span class="place-badge ${rank===1?'first':rank===league.length?'third':''}">#${rank}<small>/${league.length}</small></span>`}
 function renderComparison(all,ok){
- const body=all.map(r=>`<tr class="${chosenWeek===r.week?'is-current':''}"><td>W${String(r.week).padStart(2,'0')}</td><td class="own-point">${ok?num(r.weekly[0]):'—'}</td><td class="own-place">${ok?placeBadge(r.weekRanks[0]):'—'}</td><td class="own-place">${ok?placeBadge(r.totalRanks[0]):'—'}</td><td class="rival-point">${num(r.weekly[1])}</td><td class="rival-point">${num(r.weekly[2])}</td></tr>`).join('');
- const last=all[all.length-1];
- const desktop=`<div class="weekly-table-wrap"><table class="weekly-table"><thead><tr class="group-label"><th rowspan="2">ROUND</th><th class="own-columns" colspan="3">YOUR TEAM</th><th class="rival-columns" colspan="2">OPPONENTS · TEST TEAMS</th></tr><tr class="subheads"><th class="owncol">PTS</th><th class="owncol">WEEK RANK</th><th class="owncol">SEASON RANK</th><th class="rivalcol">STEADY PTS</th><th class="rivalcol">WILDCARD PTS</th></tr></thead><tbody>${body}</tbody><tfoot><tr><td>6W TOTAL</td><td class="own-point">${ok?num(last.cumulative[0]):'—'}</td><td class="own-place">—</td><td class="own-place">${ok?placeBadge(last.totalRanks[0]):'—'}</td><td>${num(last.cumulative[1])}</td><td>${num(last.cumulative[2])}</td></tr></tfoot></table></div>`;
- const mobile=`<div class="mobile-round-cards" aria-label="Weekly team results">${all.map(r=>`<article class="mobile-round ${r.week===chosenWeek?'is-current':''}"><div class="mr-week">W${String(r.week).padStart(2,'0')}<small>${r.week===chosenWeek?'SELECTED':''}</small></div><div class="mr-body"><div class="mr-primary"><div class="mr-main"><small>MY PTS</small><strong>${ok?num(r.weekly[0]):'—'}</strong></div><div class="mr-rank"><small>WEEK</small><strong class="${r.weekRanks[0]===1?'first':r.weekRanks[0]===3?'third':''}">${ok?'#'+r.weekRanks[0]+'/3':'—'}</strong></div><div class="mr-rank"><small>OVERALL</small><strong class="${r.totalRanks[0]===1?'first':r.totalRanks[0]===3?'third':''}">${ok?'#'+r.totalRanks[0]+'/3':'—'}</strong></div></div><div class="mr-rivals"><span>STEADY <b>${num(r.weekly[1])}</b></span><span>WILDCARD <b>${num(r.weekly[2])}</b></span></div></div></article>`).join('')}</div>`;
- document.getElementById('comparison').innerHTML=desktop+mobile+'<p class="footnote">WEEK＝その週だけの順位、OVERALL＝その週までの累計順位。すべて3つの仮チームによる比較です。編成を変えると過去の結果も再計算します。</p>';
+ const bestOther=r=>Math.max(...r.weekly.slice(1));
+ const avgOther=r=>r.weekly.slice(1).reduce((a,b)=>a+b,0)/(league.length-1);
+ const body=all.map(r=>`<tr class="${chosenWeek===r.week?'is-current':''}"><td>W${String(r.week).padStart(2,'0')}</td><td class="own-point">${ok?num(r.weekly[0]):'—'}</td><td class="own-place">${ok?placeBadge(r.weekRanks[0]):'—'}</td><td class="own-place">${ok?placeBadge(r.totalRanks[0]):'—'}</td><td class="rival-point">${num(bestOther(r))}</td><td class="rival-point">${num(avgOther(r))}</td></tr>`).join('');
+ const last=all.at(-1);
+ const desktop=`<div class="weekly-table-wrap"><table class="weekly-table"><thead><tr class="group-label"><th rowspan="2">ROUND</th><th class="own-columns" colspan="3">YOUR TEAM</th><th class="rival-columns" colspan="2">23 TEST TEAMS</th></tr><tr class="subheads"><th class="owncol">PTS</th><th class="owncol">WEEK RANK</th><th class="owncol">SEASON RANK</th><th class="rivalcol">BEST WEEK PTS</th><th class="rivalcol">AVG WEEK PTS</th></tr></thead><tbody>${body}</tbody><tfoot><tr><td>${WEEKS.length}W TOTAL</td><td class="own-point">${ok?num(last.cumulative[0]):'—'}</td><td>—</td><td class="own-place">${ok?placeBadge(last.totalRanks[0]):'—'}</td><td colspan="2">LIVE TEST FIELD · ${league.length} TEAMS</td></tr></tfoot></table></div>`;
+ const mobile=`<div class="mobile-round-cards" aria-label="Weekly team results">${all.map(r=>`<article class="mobile-round ${r.week===chosenWeek?'is-current':''}"><div class="mr-week">W${String(r.week).padStart(2,'0')}<small>${r.week===chosenWeek?'SELECTED':''}</small></div><div class="mr-body"><div class="mr-primary"><div class="mr-main"><small>TEAM PTS</small><strong>${ok?num(r.weekly[0]):'—'}</strong></div><div class="mr-rank"><small>WEEK</small><strong>${ok?'#'+r.weekRanks[0]+'/'+league.length:'—'}</strong></div><div class="mr-rank"><small>OVERALL</small><strong>${ok?'#'+r.totalRanks[0]+'/'+league.length:'—'}</strong></div></div><div class="mr-rivals"><span>BEST RIVAL <b>${num(bestOther(r))}</b></span><span>FIELD AVG <b>${num(avgOther(r))}</b></span></div></div></article>`).join('')}</div>`;
+ document.getElementById('comparison').innerHTML=desktop+mobile+'<p class="footnote">WEEK＝その週だけの順位、OVERALL＝その週までの累計順位。23の事前固定テストチームと比較。自分の編成を変えると過去の試算も再計算されます（正式大会の記録ではありません）。</p>';
+}
+
+function renderLeagueBoard(all,ok){
+ const current=all[chosenWeek-1],before=chosenWeek>1?all[chosenWeek-2]:null;
+ const order=league.map((t,i)=>({i,name:t.name,total:current.cumulative[i],week:current.weekly[i],rank:current.totalRanks[i],weekRank:current.weekRanks[i],profile:i===0?'YOUR DRAFT':t.profile})).sort((a,b)=>b.total-a.total||a.i-b.i);
+ const leader=order[0],own=order.find(t=>t.i===0),gap=leader.total-own.total;
+ const change=before?before.totalRanks[0]-current.totalRanks[0]:0;
+ const movement=change>0?'▲ '+change:change<0?'▼ '+Math.abs(change):'—';
+ document.getElementById('leaguePulse').innerHTML=`<a href="#leagueStandings" class="pulse-link"><span><small>LEAGUE · ${league.length} TEAMS</small><strong>YOUR POSITION #${ok?own.rank:'—'} <i>/ ${league.length}</i></strong></span><span><small>THROUGH W${String(chosenWeek).padStart(2,'0')}</small><strong>${ok?num(own.total):'—'} <i>PTS</i></strong></span><span><small>TO LEADER</small><strong>${ok?(gap>0?'−'+num(gap):'LEADING'):'—'} <i>${gap>0?'PTS':''}</i></strong></span></a>`;
+ const rows=order.filter((t,idx)=>leagueShowAll||idx<10||t.i===0).map(t=>{
+  const ownRow=t.i===0,prevRank=before?.totalRanks[t.i];
+  const delta=prevRank==null?'—':prevRank-t.rank;
+  const trend=delta>0?`<span class="league-up">▲${delta}</span>`:delta<0?`<span class="league-down">▼${Math.abs(delta)}</span>`:'<span class="league-flat">—</span>';
+  return `<tr class="${ownRow?'league-own':''}"><td class="league-pos">${t.rank}</td><td><button type="button" class="league-name" data-scout="${t.i}" aria-label="${escapeHTML(t.name)}の編成を表示">${escapeHTML(t.name)} ${ownRow?'<span class="you-chip">YOU</span>':'<span class="test-chip">TEST</span>'}</button><span class="league-profile">${escapeHTML(t.profile)} <span class="league-mobileweek">· W${String(chosenWeek).padStart(2,'0')} ${num(t.week)}pt</span></span></td><td class="right">${num(t.total)}</td><td class="right">${num(t.week)}</td><td class="center">${trend}</td></tr>`;
+ }).join('');
+ const extra=order.length>10&&!leagueShowAll?'<span class="league-more-note">TOP 10 + YOUR TEAM</span>':'';
+ document.getElementById('leagueStandingsBody').innerHTML=`<div class="league-headline"><div><span class="eyebrow">LIVE RANKING · W${String(chosenWeek).padStart(2,'0')}</span><p>${league.length}チームの累計。順位は現在選択している週までの結果で更新される。</p></div><button type="button" class="secondary league-all" id="leagueAll">${leagueShowAll?'TOP 10 に戻す':'全24チームを見る'}</button></div><div class="league-scroll"><table class="league-table"><thead><tr><th>#</th><th>TEAM / STRATEGY</th><th class="right">TOTAL</th><th class="right">WEEK</th><th class="center">CHANGE</th></tr></thead><tbody>${rows}</tbody></table></div>${extra}<p class="league-legend">▲▼ は前週終了時からの累計順位変化。各チームを選ぶと、固定編成と週間得点を確認できる。<strong>TEST</strong> は実在プレイヤーではない仮想チーム。</p>`;
+ document.getElementById('leagueAll').onclick=()=>{leagueShowAll=!leagueShowAll;renderLeagueBoard(all,ok)};
+ document.querySelectorAll('[data-scout]').forEach(b=>b.onclick=()=>{scoutedIndex=Number(b.dataset.scout);renderScout(all);document.getElementById('scout').scrollIntoView({block:'nearest',behavior:'smooth'})});
+ renderScout(all);
+}
+function renderScout(all){
+ const box=document.getElementById('scout');
+ if(scoutedIndex==null){box.innerHTML='<p class="scout-invite">チーム名を選ぶと、ドラフト内容や今週までの結果を確認できます。</p>';return;}
+ const t=league[scoutedIndex],r=all[chosenWeek-1],shown=scoutedIndex===0;
+ const cards='ABCD'.split('').map(g=>`<div class="scout-slot"><span>${g}${t.captain===g?' ★ CAPTAIN':''}</span><strong>${escapeHTML(shortName(t.picks[g]))}</strong><small>BACKUPS · ${t.backups[g].filter(Boolean).map(x=>escapeHTML(shortName(x))).join(' / ')||'NONE'}</small></div>`).join('');
+ const weekly=all.slice(0,chosenWeek).map(x=>`<span>W${String(x.week).padStart(2,'0')} <b>${num(x.weekly[scoutedIndex])}</b></span>`).join('');
+ box.innerHTML=`<div class="scout-top"><div><span class="eyebrow">${shown?'YOUR TEAM':'FIXED TEST ROSTER'} · SCOUT FILE</span><h3>${escapeHTML(t.name)}</h3><p>${shown?'Your locally editable draft':escapeHTML(t.profile)+' · preseason-style test team'} · #${r.totalRanks[scoutedIndex]} / ${league.length} · ${num(r.cumulative[scoutedIndex])} pt</p></div><button class="secondary" id="closeScout">CLOSE</button></div><div class="scout-picks">${cards}</div><div class="scout-history">${weekly}</div><p class="scout-note">${shown?'編成を上で変更すると試算が更新されます。':'このテストチームの編成は事前に固定されています。公開済みの結果を見て変更することはありません。'}</p>`;
+ document.getElementById('closeScout').onclick=()=>{scoutedIndex=null;renderScout(all)};
 }
 function renderJournal(all,mine,w,ok){
  const body=document.getElementById('journalBody');
- if(!ok){body.innerHTML='<p class="journal-lead">同じ作品を二つの枠に選んでいます。4作品が別々になるように編成を変更してください。</p>';return}
- const current=all[w-1],prev=all[w-2],round=mine[w-1];
- const through=mine.slice(0,w),past=all.slice(0,w);
- const scoreList=current.cumulative,standing=current.totalRanks[0];
- const best=through.reduce((a,b)=>a.total>=b.total?a:b);
- const peakD=through.flatMap(r=>Object.entries(r.pieces).filter(([g,p])=>g==='D'&&p.e?.r===1).map(([g,p])=>({w:r.w,p})));
- const peak=peakD[0];
- const rivals=[{name:'Steady',j:1},{name:'Wildcard',j:2}];
- const sorted=rivals.map(t=>({...t,score:scoreList[t.j]})).sort((a,b)=>b.score-a.score);
- const isLeader=standing===1;
- const gap=isLeader?scoreList[0]-sorted[0].score:Math.max(...scoreList)-scoreList[0];
- const lead=isLeader?`W${String(w).padStart(2,'0')}終了時点、<strong>総合首位</strong>。リードは <strong>${num(gap)} pt</strong>。ただし、この差を守り切れるかは別の話だ。`:`W${String(w).padStart(2,'0')}終了時点、<strong>総合${standing}位 / 3</strong>。首位との差は <strong>${num(gap)} pt</strong>。ここからの追撃が必要になる。`;
- const liveWeek=current.weekRanks[0]===1?'この週は週間1位。':current.weekRanks[0]===3?'この週は週間3位。':'この週は週間2位。';
- const bestPiece=Object.values(best.pieces).reduce((a,b)=>a.pts>=b.pts?a:b);
- const bestRival=Math.max(...past[best.w-1].weekly.slice(1));
- const bestEdge=best.total-bestRival;
- const pastBonus=through.filter(r=>r.bonus).map(r=>`W${String(r.w).padStart(2,'0')} ${r.bonusType} +${r.bonus}`);
- let turning=peak?`W${String(peak.w).padStart(2,'0')}、大穴D枠の<strong>${escapeHTML(shortName(peak.p.id))}</strong>が週間1位。1作品で<strong>${num(peak.p.pts)} pt</strong>を奪い取り、チームの得点を一気に押し上げた。D枠1.50×と1位ボーナス1.60×が重なった、まさに開幕の一撃だ。`:`最大得点はW${String(best.w).padStart(2,'0')}の<strong>${num(best.total)} pt</strong>。その週にチームを引っ張ったのは<strong>${escapeHTML(shortName(bestPiece.id))}</strong>（${num(bestPiece.pts)} pt）。`;
- turning+=bestEdge>0.001?` W${String(best.w).padStart(2,'0')}は相手チームの最高得点を<strong>${num(bestEdge)} pt</strong>上回った。`:` W${String(best.w).padStart(2,'0')}も相手の得点を上回るには至らなかった。`;
- const bonusStory=pastBonus.length?`さらに、ABCの連携ボーナスは${pastBonus.join('、')}。4作品の単独得点だけでなく、チーム全体の上位入りも効いている。`:'ここまではABC同時上位の連携ボーナスは発動していない。';
- const shortWindow=through.slice(-3);
- const recentText=shortWindow.map(r=>`<span>W${String(r.w).padStart(2,'0')}<b>${num(r.total)}</b></span>`).join('');
- let formNote='';
- if(w>1){
-  const delta=round.total-mine[w-2].total;
-  const trend=delta>=0?`前週から<strong>+${num(delta)} pt</strong>。`:`前週から<strong>−${num(-delta)} pt</strong>。`;
-  formNote=trend;
-  if(shortWindow.length===3&&shortWindow[0].total>shortWindow[1].total&&shortWindow[1].total>shortWindow[2].total){formNote+='直近3週は得点が下降している。ただ、それだけでチームの勢いを判断するのは早い。'}
- } else formNote='開幕戦の結果。これが今季の最初の基準点になる。';
- // Crucial context: a title was scored in the decision week but stops earning afterwards.
- const missing='ABCD'.split('').map(g=>({g,id:team.picks[g],d:DROP_DECISION_WEEK[team.picks[g]]})).filter(x=>x.d!==undefined&&x.d<w&&!round.pieces[x.g].e);
- const justLost=missing.filter(x=>x.d===w-1);
- let absences='';
- if(justLost.length){
-  const x=justLost[0],pPrev=mine[w-2].pieces[x.g],prevContribution=pPrev.pts,remainingCurrent='ABCD'.split('').filter(g=>g!==x.g).reduce((n,g)=>n+round.pieces[g].pts,0);
-  const remainingPrev='ABCD'.split('').filter(g=>g!==x.g).reduce((n,g)=>n+mine[w-2].pieces[g].pts,0);
-  const othersDelta=remainingCurrent-remainingPrev,bonusDelta=round.bonus-mine[w-2].bonus;
-  const prevRecord=pPrev.e?`W${String(w-1).padStart(2,'0')}には${num(prevContribution)} ptを取っていた`:`W${String(w-1).padStart(2,'0')}には得点記録がなかった`;
-  const sign=n=>(n>=0?'+':'−')+num(Math.abs(n));
-  absences=`ところがW${String(w-1).padStart(2,'0')}終了後、${escapeHTML(shortName(x.id))}が対象外に。${prevRecord}${x.g}枠は今週<strong>0 pt</strong>。それでもチーム全体では${num(round.total)} ptを残した。<div class="analysis-line">欠けた${x.g}枠 ${sign(-prevContribution)} ｜ 残る3枠 ${sign(othersDelta)} ｜ ABC連携 ${sign(bonusDelta)}<br>差し引き ${sign(round.total-mine[w-2].total)} pt</div>残ったメンバーが相当踏ん張っている、というのが数字の実態だ。`;
- } else if(missing.length){
-  const x=missing[0];
-  absences=`${x.g}枠の${escapeHTML(shortName(x.id))}はW${String(x.d).padStart(2,'0')}終了時に対象外となり、今週は0 pt。補欠はまだ入っていない。それでも残るメンバーの戦いは続く。`;
+ if(!ok){body.innerHTML='<p class="journal-lead">同じ作品が重複登録されています。正規メンバー4作品を別々にし、同じ枠内の補欠も重複しないようにしてください。</p>';return;}
+ const cur=all[w-1],r=mine[w-1],prev=w>1?mine[w-2]:null,prevState=w>1?all[w-2]:null;
+ const opponentNames=competitors().map(t=>t.name);
+ const leaderIndex=cur.cumulative.indexOf(Math.max(...cur.cumulative));
+ const leaderName=leaderIndex===0?'あなた':opponentNames[leaderIndex-1];
+ const leadGap=Math.max(...cur.cumulative)-cur.cumulative[0];
+ const myLead=cur.cumulative[0]-Math.max(...cur.cumulative.slice(1));
+ const statusNow=cur.totalRanks[0]===1?`総合首位（2位との差 ${num(myLead)} pt）`:`総合${cur.totalRanks[0]}位、首位${escapeHTML(leaderName)}との差 ${num(leadGap)} pt`;
+ const intro=`W${String(w).padStart(2,'0')}は <strong>${num(r.total)} pt</strong>、週間${cur.weekRanks[0]}位 / ${league.length}。${statusNow}。`;
+ const noSubs=score(team,WEEKS[w-1],{subs:false,grace:0});
+ const reserveBoost=r.total-noSubs.total;
+ const sections=[];
+ function add(title,fact,paragraph,cls=''){sections.push(`<article class="journal-card ${cls}"><h3>${title}</h3><div class="factline">${fact}</div><p>${paragraph}</p></article>`);}
+ const signed=n=>(n>=-0.00001?'+':'−')+num(Math.abs(n));
+ const contributions='ABCD'.split('').map(g=>({g,p:r.pieces[g],old:prev?.pieces[g]}));
+ const strongest=contributions.reduce((a,b)=>a.p.pts>=b.p.pts?a:b);
+ const special=contributions.filter(x=>['substitute','promoted','grace'].includes(x.p.mode));
+ const unknown=contributions.filter(x=>x.p.status.kind==='unrated'&&x.p.mode==='inactive');
+ if(special.length){
+  const explanation=special.map(x=>{
+   const p=x.p;
+   if(p.mode==='grace')return `${x.g}枠の${escapeHTML(shortName(p.primary))}は対象外決定直後。今回は${num(p.pts)} ptの猶予週で、次週も戻らなければ事前登録の補欠へ正式交代する試験ルール。`;
+   const why=p.status.kind==='upcoming'?'放送開始前':p.status.kind==='noair'?'放送休止':'対象外による正式交代';
+   return `${x.g}枠の${escapeHTML(shortName(p.primary))}は${why}。補欠${p.order}の${escapeHTML(shortName(p.id))}が出場し、<strong>${num(p.pts)} pt</strong>を獲得した。`;
+  }).join(' ');
+  let impact='';
+  if(Math.abs(reserveBoost)>0.005&&special.some(x=>['substitute','promoted'].includes(x.p.mode))){
+   const bDiff=r.bonus-noSubs.bonus;
+   impact=`補欠なしなら<strong>${num(noSubs.total)} pt</strong>。今回の仮ルールでは<strong>${signed(reserveBoost)} pt</strong>の差（うちABC連携 ${signed(bDiff)} pt）。これは補欠登録が不運を防いだだけでなく、場合によっては有利にも働く例だ。`;
+  }
+  add('The Change of Lineup',`W${String(w).padStart(2,'0')} · ${special.length} SLOT${special.length>1?'S':''} AFFECTED`,explanation+impact,'is-feature');
+ }else if(unknown.length){
+  add('An Unscored Slot',`W${String(w).padStart(2,'0')} · STATUS NOT VERIFIED`,`${unknown.map(x=>x.g+'枠の'+escapeHTML(shortName(x.p.primary))).join('・')}には今週の評価記録がない。ただし、放送休止なのか別の理由なのかは確認できていないため、自動補欠の対象にはしていない。`);
  }
- const bestOther={name:'',val:-Infinity};
- rivals.forEach(t=>{if(current.weekly[t.j]>bestOther.val){bestOther.val=current.weekly[t.j];bestOther.name=t.name}});
- const thisGap=round.total-bestOther.val;
- let opponentNote=thisGap>0?`今週は${escapeHTML(bestOther.name)}を${num(thisGap)} pt上回った。`:`今週は${escapeHTML(bestOther.name)}に${num(-thisGap)} pt先行された。`;
- const wins=past.filter(x=>x.weekRanks[0]===1).length;
- const podium=`この時点までの週間1位は<strong>${wins}回 / ${w}週</strong>。`;
- if(isLeader&&current.weekRanks[0]!==1)opponentNote+=`週間首位を逃しても、ここまでの貯金で<strong>総合首位</strong>を保っている。`;
- else if(standing!==1&&current.weekRanks[0]===1)opponentNote+=`週間首位でも、累計の差はまだ残る。`;
- // Next round: use observed head-to-head swings, not a tautological threshold alone.
- const baseRounds=past.length>=3?past.slice(1):past; // week 01 is unusually volatile in this test scenario
- let worst={edge:0,w:null,name:null};
- let bestChase={edge:0,w:null,name:null};
- for(const r of baseRounds){for(const rival of rivals){
-   const edge=r.weekly[rival.j]-r.weekly[0];
-   if(edge>worst.edge){worst={edge,w:r.week,name:rival.name}}
-   if(-edge>bestChase.edge){bestChase={edge:-edge,w:r.week,name:rival.name}}
- }}
- let future='';
- const next='W'+String(w+1).padStart(2,'0');
- if(isLeader){
-  if(worst.edge>0.001){
-   const pace=worst.edge,n=Math.floor((gap+1e-8)/pace)+1;
-   future=`今のリードは<strong>${num(gap)} pt</strong>。ただ、${w>=3?'W02以降':'ここまで'}に相手へ許した最大の週間差は<strong>W${String(worst.w).padStart(2,'0')}・${worst.name}の${num(pace)} pt</strong>だった。この規模の差が続けば<strong>約${n}週</strong>で逆転圏内に入る。もちろん、同じ結果が繰り返されるという予測ではない。`;
-  }else future=`今は総合首位。${w>=2?'現時点まで相手に週間得点で先行される場面はなかったが、':'開幕の勢いを、'}次の${next}で守れるかが見どころになる。`;
+ if(prev){
+  const delta=r.total-prev.total;
+  const swing=contributions.map(x=>({...x,delta:x.p.pts-x.old.pts})).sort((a,b)=>Math.abs(b.delta)-Math.abs(a.delta));
+  const top=swing[0],topName=escapeHTML(shortName(top.p.primary));
+  const rest=swing.slice(1).reduce((v,x)=>v+x.delta,0);
+  const bonusDelta=r.bonus-prev.bonus;
+  const biggest=swing.slice(0,2).map(x=>`${x.g} ${signed(x.delta)}`).join(' / ');
+  const why=top.p.mode==='substitute'?`${top.g}枠で補欠が代打し、${escapeHTML(shortName(top.p.id))}が${num(top.p.pts)} ptを稼いだ。`:
+   top.p.status.kind==='noair'?`${top.g}枠の${topName}が放送休止で、前週の${num(top.old.pts)} ptを失った。`:
+   top.p.mode==='grace'?`${top.g}枠の${topName}は対象外後の猶予週に入り、前週の${num(top.old.pts)} ptから${num(top.p.pts)} ptになった。`:
+   top.p.e?`${top.g}枠の${topName}の寄与が${signed(top.delta)} pt変動した。`:`${top.g}枠の${topName}は今週得点できず、前週から${signed(top.delta)} pt。`;
+  const partnerNote=`ほかの3枠を合わせると${signed(rest)} pt、ABC連携は${signed(bonusDelta)} pt。`;
+  add('What Changed the Score',`W${String(w-1).padStart(2,'0')} → W${String(w).padStart(2,'0')} · ${signed(delta)} PT`,`${why}${partnerNote}<div class="analysis-line">${biggest} ｜ その他 ${signed(rest-(swing[1]?.delta||0))} ｜ 連携 ${signed(bonusDelta)}<br>合計 ${signed(delta)} pt</div>`,Math.abs(delta)>35?'is-feature':'');
  }else{
-  if(bestChase.edge>0.001){
-   const n=Math.floor((gap+1e-8)/bestChase.edge)+1;
-   future=`首位までは<strong>${num(gap)} pt</strong>。${w>=3?'W02以降':'これまで'}に追い上げた最大の週間差は<strong>W${String(bestChase.w).padStart(2,'0')}・${num(bestChase.edge)} pt</strong>。同規模の追撃が続けば約${n}週で追いつける計算だが、実際は相手も毎週得点する。`;
-  }else future=`首位まで<strong>${num(gap)} pt</strong>。ここまでは週間得点の上積みが足りていない。次の${next}は流れを変えられるか。`;
+  add('The Opening Round',`W01 · ${num(r.total)} PT`,`最初の週、最大の得点源は${strongest.g}枠の${escapeHTML(shortName(strongest.p.id))}で${num(strongest.p.pts)} pt。ここが今季の出発点。`);
  }
- const note=w===6?'W07以降はまだ計算していない。今はあくまでW06までの試合を振り返るためのプレビュー。':'この先の試合結果は、選んだ週のストーリーには含めていない。';
- body.innerHTML=`<p class="journal-lead">${lead} ${liveWeek}</p><div class="journal-grid"><article class="journal-card"><h3>01 · The Breakthrough</h3><div class="factline">TURNING POINT · BEST ROUND W${String(best.w).padStart(2,'0')} · ${num(best.total)} PTS</div><p>${turning}</p><p>${bonusStory}</p></article><article class="journal-card"><h3>02 · Momentum & Setbacks</h3><div class="factline">W${String(w).padStart(2,'0')} · ${num(round.total)} PTS · WEEKLY #${current.weekRanks[0]}/3</div><p>${formNote}</p>${absences?`<p>${absences}</p>`:''}<div class="round-timeline">${recentText}</div></article><article class="journal-card"><h3>03 · The Other Side of the Scoreboard</h3><div class="factline">3-TEAM TEST LEAGUE · THROUGH W${String(w).padStart(2,'0')}</div><p>${opponentNote}</p><p>${podium}</p></article><article class="journal-card forecast"><h3>04 · Looking Ahead</h3><p>${future}</p><p>${note} 補欠・Midseason Transferはまだ試験中の構想で、今回の得点には反映していない。</p></article></div>`;
+ const rivals=opponentNames.map((name,j)=>({name,j:j+1,weekly:cur.weekly[j+1],cum:cur.cumulative[j+1]}));
+ const bestRival=rivals.reduce((a,b)=>a.weekly>=b.weekly?a:b);
+ const weekEdge=r.total-bestRival.weekly;
+ const rankChanged=prevState&&prevState.totalRanks[0]!==cur.totalRanks[0];
+ const leadBefore=prevState?prevState.cumulative[0]-Math.max(...prevState.cumulative.slice(1)):null;
+ const leadAfter=myLead;
+ const leadShift=prevState?signed(leadAfter-leadBefore):null;
+ const otherStatus=cur.weekRanks[0]===1?'他の23チームを週間得点で上回った。':`${escapeHTML(bestRival.name)}の${num(bestRival.weekly)} ptには${num(-weekEdge)} pt届かなかった。`;
+ let ranks=`${otherStatus}`;
+ if(prevState){ranks+=`相手の最上位チームとの累計差（自分−相手）は ${signed(leadBefore)} → ${signed(leadAfter)} pt（変化 ${leadShift}）。`;
+  if(rankChanged)ranks+=`総合順位は${prevState.totalRanks[0]}位から${cur.totalRanks[0]}位へ動いた。`;
+  else if(cur.totalRanks[0]===1&&cur.weekRanks[0]!==1)ranks+='週間首位は逃したが、累計首位は維持した。';}
+ add('Across the League',`W${String(w).padStart(2,'0')} · RANK #${cur.weekRanks[0]} / ${league.length}`,ranks);
+ if(w>1){
+  const last=mine.slice(Math.max(0,w-3),w);const totals=last.map(x=>`W${String(x.w).padStart(2,'0')} ${num(x.total)}`).join(' · ');
+  const wPrevious=prev?.total??0;
+  let looking=`直近の推移は ${totals} pt。`;
+  if(r.pieces.A.e?.r===1||r.pieces.B.e?.r===1||r.pieces.C.e?.r===1||r.pieces.D.e?.r===1){
+   const wins=contributions.filter(x=>x.p.e?.r===1).map(x=>x.g+'枠');looking+=`${wins.join('・')}は今週1位。`;
+  }
+  if(w<WEEKS.length){looking+=special.some(x=>x.p.mode==='substitute')?`次のW${String(w+1).padStart(2,'0')}は、正規メンバーの復帰と補欠の活躍がどう入れ替わるかが焦点。`:`次のW${String(w+1).padStart(2,'0')}は、今週動いた枠が反転するか、他の枠が埋め合わせるかに注目したい。`}
+  else if(w<SEASON_CONFIG.rounds) looking+='次のランキングは未公開。将来の結果を知っているような予測はしない。'; else looking+='12ラウンドが終了した。';
+  add('The Next Question',`THROUGH W${String(w).padStart(2,'0')} · NO FUTURE RESULTS`,looking);
+ }
+ body.innerHTML=`<p class="journal-lead">${intro}</p><div class="journal-grid">${sections.join('')}</div>`;
 }
+
+function renderScoringAudit(){
+ const body=document.getElementById('scoringAudit');
+ const classic=league.map(t=>WEEKS.map(w=>score(t,w,rules,'original')));
+ const trial=league.map(t=>WEEKS.map(w=>score(t,w,rules,'roles')));
+ const cTotal=classic.map(rows=>sum(rows)),rTotal=trial.map(rows=>sum(rows));
+ const cRound=classic[activeIndex][chosenWeek-1],rRound=trial[activeIndex][chosenWeek-1];
+ const signed=n=>(n>=0?'+':'−')+num(Math.abs(n));
+ const head=(arr,i)=>rankAmong(arr,i);
+ const auditOrder=[0,...Array.from({length:league.length-1},(_,i)=>i+1).sort((a,b)=>rTotal[b]-rTotal[a]).slice(0,4)];
+ const teams=auditOrder.map(i=>`<tr class="${i===activeIndex?'selected-row':''}"><td>${escapeHTML(league[i].name)}</td><td>${num(cTotal[i])} <small>#${head(cTotal,i)}</small></td><td>${num(rTotal[i])} <small>#${head(rTotal,i)}</small></td><td class="diff">${signed(rTotal[i]-cTotal[i])}</td></tr>`).join('');
+ const pieces='ABCD'.split('').map(g=>{
+  const a=cRound.pieces[g],b=rRound.pieces[g];
+  const memo=b.roleTrial?`${b.roleTrial.band.replace('_',' ')} · ×${b.roleTrial.value.toFixed(2)}`:(b.e?'—':'欠場・猶予');
+  return `<tr><td>${g} · ${escapeHTML(shortName(b.id))}<br><small>${escapeHTML(memo)}</small></td><td>${num(a.pts)}</td><td>${num(b.pts)}</td><td class="diff">${signed(b.pts-a.pts)}</td></tr>`;
+ }).join('');
+ body.innerHTML=`<div class="scoring-switch-label">SAME TEAMS · SAME RESULTS · TWO SCORING RULES</div><h3>Before changing the rules.</h3><p>今あるW01–W${String(WEEKS.length).padStart(2,'0')}の実際の週間記録で比較。右端は試験方式−現行方式。順位は24チーム間の比較です。</p><div class="scoring-audit-scroll"><table><thead><tr><th>TEAM · CUMULATIVE</th><th>現行</th><th>期待値型（仮）</th><th>差</th></tr></thead><tbody>${teams}</tbody></table></div><p style="margin-top:13px">W${String(chosenWeek).padStart(2,'0')} · 選択中チームの枠別差。同じ作品・同じ順位・同じWRPでの比較。</p><div class="scoring-audit-scroll"><table><thead><tr><th>ACTIVE SLOTS</th><th>現行</th><th>期待値型（仮）</th><th>差</th></tr></thead><tbody>${pieces}<tr><td><strong>WEEK TOTAL</strong></td><td>${num(cRound.total)}</td><td>${num(rRound.total)}</td><td class="diff">${signed(rRound.total-cRound.total)}</td></tr></tbody></table></div><p class="audit-footer">両方式とも補欠のON/OFF・対象外・Captain・ABCボーナスは同一。役割型では通常のD倍率と大穴倍率を合算した段階係数に置き換える。シーズンごとの分類は固定後に遡及修正しない想定。</p>`;
+}
+
 function render(){
- const ok=valid(team);els.warning.textContent=ok?'':'同じ作品が複数の枠に選ばれています。重複しないようにしてください。';
- const mine=scores(team),rivals=RIVALS.map(t=>scores(t)), all=allState(mine,rivals);
+ const ok=valid(team);els.warning.textContent=ok?'':'編成内で同一作品が重複しています。各チームで主力・補欠の全作品が重ならないよう選び直してください。';
+ const mine=scores(team),rivals=competitors().map(t=>scores(t)), all=allState(mine,rivals);
  const latest=all[all.length-1],pick=all[chosenWeek-1],round=mine[chosenWeek-1];
  const latestRank=latest.totalRanks[0];
- document.getElementById('scoreband').innerHTML=`<div class="bigscore"><small>MY TEAM · 6-WEEK TOTAL</small><strong>${ok?num(latest.cumulative[0]):'—'}</strong><em>PTS</em></div><div class="mini-score"><small>OVERALL · 3 TEST TEAMS</small><strong>${ok?'#'+latestRank:'—'}</strong><span>THROUGH WEEK 06</span></div><div class="mini-score"><small>WEEKS SCORED</small><strong>06<span style="display:inline;font-size:18px"> / 12</span></strong><span>2026 FALL SNAPSHOT</span></div>`;
- const nav=document.getElementById('weekSelect');nav.innerHTML=Array.from({length:12},(_,i)=>{const w=i+1;const found=mine.find(x=>x.w===w);return `<button type="button" ${w>6?'disabled':''} class="${w===chosenWeek?'active':''}" data-week="${w}" aria-pressed="${w===chosenWeek?'true':'false'}">W${String(w).padStart(2,'0')}<strong>${found&&ok?Math.round(found.total):'—'}</strong></button>`}).join('');
+ document.getElementById('scoreband').innerHTML=`<div class="bigscore"><small>ACTIVE TEAM · ${WEEKS.length}-WEEK TOTAL · ${scoringMode==='roles'?'TRIAL':'ORIGINAL'}</small><strong>${ok?num(latest.cumulative[0]):'—'}</strong><em>PTS</em></div><div class="mini-score"><small>OVERALL · ${league.length} TEAMS</small><strong>${ok?'#'+latestRank:'—'}</strong><span>THROUGH WEEK ${String(WEEKS.length).padStart(2,'0')}</span></div><div class="mini-score"><small>WEEKS SCORED</small><strong>${String(WEEKS.length).padStart(2,'0')}<span style="display:inline;font-size:18px"> / 12</span></strong><span>2026 FALL · PUBLISHED</span></div>`;
+ const nav=document.getElementById('weekSelect');nav.innerHTML=Array.from({length:12},(_,i)=>{const w=i+1;const found=mine.find(x=>x.w===w);return `<button type="button" ${w>WEEKS.length?'disabled':''} class="${w===chosenWeek?'active':''}" data-week="${w}" aria-pressed="${w===chosenWeek?'true':'false'}">W${String(w).padStart(2,'0')}<strong>${found&&ok?Math.round(found.total):'—'}</strong></button>`}).join('');
  nav.querySelectorAll('button:not(:disabled)').forEach(b=>b.onclick=()=>{chosenWeek=+b.dataset.week;render()});
- document.getElementById('weekStats').innerHTML=`<div class="week-stat"><small>W${String(chosenWeek).padStart(2,'0')} · TEAM SCORE</small><strong>${ok?num(round.total):'—'} <em>PT</em></strong></div><div class="week-stat"><small>W${String(chosenWeek).padStart(2,'0')} · WEEKLY RANK</small><strong>${ok?'#'+pick.weekRanks[0]+'/3':'—'}</strong></div><div class="week-stat"><small>AFTER W${String(chosenWeek).padStart(2,'0')} · OVERALL</small><strong>${ok?'#'+pick.totalRanks[0]+'/3':'—'}</strong></div>`;
- renderPieces(round,chosenWeek);renderComparison(all,ok);renderJournal(all,mine,chosenWeek,ok);
+ document.getElementById('weekStats').innerHTML=`<div class="week-stat"><small>W${String(chosenWeek).padStart(2,'0')} · TEAM SCORE</small><strong>${ok?num(round.total):'—'} <em>PT</em></strong></div><div class="week-stat"><small>W${String(chosenWeek).padStart(2,'0')} · WEEKLY RANK</small><strong>${ok?'#'+pick.weekRanks[0]+'/'+league.length:'—'}</strong></div><div class="week-stat"><small>AFTER W${String(chosenWeek).padStart(2,'0')} · OVERALL</small><strong>${ok?'#'+pick.totalRanks[0]+'/'+league.length:'—'}</strong></div>`;
+ document.querySelectorAll('.stagebar .stage').forEach((stage,i)=>{
+   const first=i*3+1,last=first+2;
+   stage.classList.toggle('done',WEEKS.length>last);
+   stage.classList.toggle('here',WEEKS.length>=first&&WEEKS.length<=last);
+  });
+  renderPieces(round,chosenWeek);renderLeagueBoard(all,ok);renderComparison(all,ok);renderScoringAudit();renderJournal(all,mine,chosenWeek,ok);
 }
-function reset(){team=copy(DEFAULT);try{localStorage.removeItem(STORAGE)}catch(e){}els.saved.textContent='RESET TO SAMPLE TEAM · NOT SUBMITTED';renderDraft();render()}
+function reset(){
+ if(locked())return;
+ league[0]=copy(DEFAULT);team=league[0];
+ save();els.saved.textContent='RESET ACTIVE TEAM TO DEFAULT · NOT SUBMITTED';renderDraft();render();
+}
+function saveRules(){try{localStorage.setItem(LAB_STORAGE,JSON.stringify(rules))}catch(e){}renderDraft();render()}
+document.getElementById('autoSubs').onchange=e=>{rules.subs=e.target.checked;saveRules()};
+document.getElementById('dropGrace').onchange=e=>{rules.grace=+e.target.value;saveRules()};
+document.querySelectorAll('input[name=scoringMode]').forEach(el=>el.onchange=()=>{scoringMode=el.value;render()});
+// Navigate without replacing ANY team's lineup.
+document.getElementById('loadExample').onclick=()=>{
+ chosenWeek=5;render();document.getElementById('results').scrollIntoView({block:'start',behavior:'smooth'});
+};
+// A separate, explicitly destructive operation to load the curated W05 test scenario.
+document.getElementById('loadScenario').onclick=()=>{
+ if(locked())return;
+ const preset={name:'W05 · Zombie Case',picks:{A:'seitokai',B:'zombie',C:'tetsuryo',D:'max'},captain:'A',backups:{A:['oukoku','chitose'],B:['hotel','vertex'],C:['mezametara','fx'],D:['shiotaiou','saikyou']}};
+ if(!window.confirm('現在選択中のテストチームの編成をW05サンプルで置き換えますか？ 他の23テストチームはそのままです。'))return;
+ league[0]=copy(preset);team=league[0];chosenWeek=5;save();renderDraft();render();document.getElementById('results').scrollIntoView({block:'start',behavior:'smooth'});
+};
 document.getElementById('reset').onclick=reset;
+
+// Local-first registration bridge, intentionally not an online entrant service.
+document.getElementById('lockDraft').onclick=()=>{
+ if(locked()||!valid(team)||!allBackupsEligible(team)){setRegistrationMessage('編成の重複または候補外の作品があります。',true);return;}
+ if(!window.confirm('このブラウザで編成を確定し、編集を停止しますか？\n正式な大会参加にはなりません。'))return;
+ const lock={schema:ROSTER_SCHEMA,season:SEASON_KEY,groupRevision:GROUP_REV,lockedAt:new Date().toISOString(),team:copy(team)};
+ try{localStorage.setItem(REG_LOCK_STORAGE,JSON.stringify(lock));draftLock=lock;setRegistrationMessage('この端末で編成を確定しました。JSONに書き出して控えを保存できます。');renderDraft();render()}
+ catch(e){setRegistrationMessage('ブラウザに保存できませんでした。確定は行っていません。',true)}
+};
+document.getElementById('unlockDraft').onclick=()=>{
+ if(!locked()||!window.confirm('テスト用の確定を解除して、編成を編集可能にしますか？\n正式大会では確定後の解除はできない想定です。'))return;
+ try{localStorage.removeItem(REG_LOCK_STORAGE);draftLock=null;save();setRegistrationMessage('ローカルのテスト確定を解除しました。編成は維持されています。');renderDraft();render()}
+ catch(e){setRegistrationMessage('ブラウザから確定情報を削除できませんでした。',true)}
+};
+document.getElementById('exportDraft').onclick=()=>{
+ if(!valid(team)||!allBackupsEligible(team)){setRegistrationMessage('重複・候補外の作品があるため書き出せません。',true);return;}
+ downloadJSON('SOW-Fantasy-2026-Fall-My-Roster.json',draftSnapshot());
+ setRegistrationMessage('編成JSONを書き出しました。これは提出・オンライン登録ではありません。');
+};
+document.getElementById('importDraft').onchange=async e=>{
+ const input=e.target,file=input.files?.[0];if(!file)return;
+ if(locked()){setRegistrationMessage('確定した編成は読み込みで変更できません。',true);input.value='';return;}
+ try{
+  if(file.size>65536)throw Error('64KBを超えるJSONは受け付けません。');
+  const t=parseImportedRoster(JSON.parse(await file.text()));
+  if(!window.confirm(`${t.name} の編成を読み込み、現在のMy Teamを置き換えますか？`))return;
+  league[0]=t;team=league[0];save();setRegistrationMessage('編成JSONを読み込みました。ローカルの下書きとして保存しました。');renderDraft();render();
+ }catch(err){setRegistrationMessage('読み込み失敗: '+err.message,true)}finally{input.value=''}
+};
+document.getElementById('exportGroups').onclick=()=>downloadJSON('SOW-Fantasy-2026-Fall-Group-Board-TEST.json',fullGroupManifest());
+renderPreseasonBoard();
+
 renderDraft();render();
+// Official 12-round source bridge. The page starts immediately from the verified snapshot.
+// Only 2026 Fall is checked; no 2023/2024 seasons or unnecessary key visuals are requested.
+// A newer week is accepted ONLY if it is listed in the current index AND has all ranking positions.
+async function refreshPublishedRounds(){
+ const status=document.getElementById('seasonSourceState');
+ try{
+  const response=await fetch(SEASON_CONFIG.indexUrl,{cache:'no-cache'});
+  if(!response.ok)throw Error('Index HTTP '+response.status);
+  const index=await response.json();
+  const published=index?.[String(SEASON_CONFIG.year)]?.[SEASON_CONFIG.season]?.weeks;
+  if(!Array.isArray(published))throw Error('Season index unavailable');
+  const announced=new Set(published.map(x=>Number(String(x).match(/\d+/)?.[0])).filter(Number.isFinite));
+  let added=0;
+  for(let week=WEEKS.length+1;week<=SEASON_CONFIG.rounds;week++){
+   if(!announced.has(week))break;
+   const url=SEASON_CONFIG.rankingUrl(week);
+   const weekResponse=await fetch(url,{cache:'no-cache'});
+   if(!weekResponse.ok)throw Error('W'+week+' HTTP '+weekResponse.status);
+   const parsed=window.SOWFantasyCoreR25.normalizePublishedWeek(await weekResponse.json(),week);
+   // No retroactive overwrite of existing historical drop decisions.
+   for(const id of parsed.drops){if(DROP_DECISION_WEEK[id]!==undefined&&DROP_DECISION_WEEK[id]!==week)throw Error('Conflicting drop decision '+id);}
+   for(const id of parsed.drops)DROP_DECISION_WEEK[id]=week;
+   for(const entry of parsed.week.entries)names[entry.id]=entry.ja||entry.title||entry.id;
+   const wasLatest=chosenWeek===WEEKS.length;
+   WEEKS.push(parsed.week);added++;
+   // Keep a manually selected historical week selected.
+   if(wasLatest)chosenWeek=week;
+   renderDraft();render();
+  }
+  status.textContent=`公開済み W01–W${String(WEEKS.length).padStart(2,'0')} を計算中。全${SEASON_CONFIG.rounds}ラウンド構成。${added?'新着'+added+'週をランキングJSONから追加。':'未公開の週は空欄のまま。'}`;
+ }catch(err){
+  status.textContent=`確認済み W01–W${String(WEEKS.length).padStart(2,'0')} を表示中。追加データを取得できませんでした（${String(err.message).slice(0,70)}）。既存の結果は維持。`;
+ }
+}
+// file:// cannot fetch local ranking JSON in many browsers. Snapshot remains fully usable.
+if(location.protocol==='http:'||location.protocol==='https:')refreshPublishedRounds();
+else document.getElementById('seasonSourceState').textContent='ローカルプレビュー：確認済みW01–07を使用。追加週はGitHub Pages上で自動取得。';
 
 
 </script></body></html>
