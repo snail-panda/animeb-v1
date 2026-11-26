@@ -13,6 +13,10 @@
   const saveButton = $('onlineSave');
   const confirmButton = $('onlineConfirm');
   const loadButton = $('onlineLoad');
+  const commissioner = $('sowCommissioner');
+  const adminState = $('sowAdminState');
+  const liveCount = $('onlineLiveCount');
+  let isCommissioner = false;
   let api = null, user = null, season = null, entry = null, busy = false;
 
   function message(value, error = false) {
@@ -27,7 +31,7 @@
   }
   function setBusy(state) {
     busy = state;
-    for (const b of [saveButton, confirmButton, loadButton, $('onlineSendOtp'), $('onlineSignOut')]) {
+    for (const b of [saveButton, confirmButton, loadButton, $('onlineSendOtp'), $('onlineSignOut'), $('sowAdminRefresh'), ...document.querySelectorAll('[data-sow-admin]')]) {
       b.disabled = state;
     }
   }
@@ -55,9 +59,10 @@
     loginBox.hidden = !!user;
     signedBox.hidden = !user;
     $('onlineIdentity').textContent = user ? `SIGNED IN · ${user.email || 'verified account'}` : '';
-    saveButton.disabled = busy || !isOpen || !matching || confirmed;
-    confirmButton.disabled = busy || !isOpen || !matching || confirmed;
+    saveButton.disabled = busy || !isOpen || !matching || confirmed || bridge.isServerTeamView();
+    confirmButton.disabled = busy || !isOpen || !matching || confirmed || bridge.isServerTeamView();
     loadButton.disabled = busy || !entry || bridge.isLocalClassification() || !matching;
+    $('onlineRestoreLocal').hidden = !bridge.isServerTeamView();
     showSnapshot();
     if (!user) { message('メールアドレスで認証してから、受付中のシーズンに編成を登録できます。'); return; }
     if (!season) { message('現在のシーズンはサーバーに登録されていません。大会受付はまだ始まっていません。'); return; }
@@ -68,7 +73,7 @@
     message(entry ? '編成はサーバーに下書き保存済み。締切まで更新できます。FINAL CONFIRMすると変更不可です。' : '受付中。My Teamの内容をサーバーへSAVEできます。ローカルでの保存とは別です。');
   }
   async function loadRemote() {
-    if (!api || !user) { season = null; entry = null; controls(); return; }
+    if (!api || !user) { season = null; entry = null; commissioner.hidden=true; controls(); await getCount(); return; }
     try {
       const seasonResult = await api.from('sow_seasons').select('season_id,classification_revision,status,opens_at,closes_at').eq('season_id', bridge.season).maybeSingle();
       if (seasonResult.error) throw seasonResult.error;
@@ -76,13 +81,20 @@
       const result = await api.from('sow_entries').select('season_id,user_id,team_name,picks,backups,captain,group_revision,status,updated_at,confirmed_at').eq('season_id', bridge.season).maybeSingle();
       if (result.error) throw result.error;
       entry = result.data;
+      if(entry && !bridge.isLocalClassification() && entry.group_revision===bridge.groupRevision() && season?.classification_revision===bridge.groupRevision()){
+        try {bridge.showServerTeam({name:entry.team_name,picks:entry.picks,backups:entry.backups,captain:entry.captain});}
+        catch(err){message('サーバー編成を表示できません: '+String(err.message||err),true);}
+      }else{bridge.restoreLocalView();}
       controls();
+      await getCount();
+      await getAdmin();
     } catch (err) { message(`サーバーの登録状況を取得できません: ${String(err.message || err)}`, true); }
   }
   async function submit(confirm) {
     if (!user || busy || !season) return;
     // The database validates again; these checks are only explanatory UX.
     if (bridge.isLocalClassification() || bridge.groupRevision() !== season.classification_revision) { controls(); return; }
+    if(bridge.isServerTeamView()) { message('サーバー編成を更新する場合はLOAD SERVER ENTRYでローカル編集用にコピーしてください。',true);return; }
     const t = bridge.getTeam();
     if (!bridge.validateTeam(t)) { message('編成に候補外・重複・不足があるため、送信できません。', true); return; }
     if (confirm && !window.confirm('この編成をサーバーで最終確定しますか？ 確定後は締切前でも変更できません。')) return;
@@ -98,6 +110,45 @@
     } catch (err) { failure = `送信できませんでした。サーバーには反映されたとみなさないでください: ${String(err.message || err)}`; }
     finally { setBusy(false); controls(); if(failure)message(failure,true); }
   }
+
+  async function getCount(){
+    if(!api)return;
+    try{
+      const r=await api.rpc('sow_entry_counts',{p_season_id:bridge.season});
+      if(r.error)throw r.error;
+      liveCount.textContent=`REAL ONLINE ENTRIES · ${r.data.total} SAVED / ${r.data.confirmed} CONFIRMED · separate from 23 TEST teams`;
+    }catch(_){liveCount.textContent='REAL ONLINE ENTRIES · Count unavailable; run R3.2 SQL';}
+  }
+  async function getAdmin(){
+    commissioner.hidden=true;isCommissioner=false;
+    if(!user || !api)return;
+    try{
+      const auth=await api.rpc('sow_is_commissioner');
+      if(auth.error)throw auth.error;
+      isCommissioner=auth.data===true;
+      commissioner.hidden=!isCommissioner;
+      if(!isCommissioner)return;
+      const r=await api.rpc('sow_commissioner_status',{p_season_id:bridge.season});
+      if(r.error)throw r.error;
+      const x=r.data;
+      adminState.textContent=`${String(x.status).toUpperCase()} · ${x.total} saved / ${x.confirmed} confirmed · Deadline ${new Date(x.closes_at).toLocaleString()}`;
+    }catch(err){commissioner.hidden=true;isCommissioner=false;}
+  }
+  $('onlineRestoreLocal').onclick=()=>{bridge.restoreLocalView();controls();message('この端末のローカル編成を表示しています。登録済み編成はサーバー上で保持されています。');};
+  $('sowAdminRefresh').onclick=async()=>{await loadRemote();await getAdmin();};
+  for(const btn of document.querySelectorAll('[data-sow-admin]'))btn.onclick=async()=>{
+    if(!isCommissioner||busy)return;
+    const action=btn.dataset.sowAdmin,minutes=Number(btn.dataset.duration||30);
+    const msg=action==='open'?`全ユーザーに登録受付を${minutes===30?'30分':minutes===1440?'24時間':'7日間'}開きますか？`:'受付を停止しますか？ 登録済み編成は保持されます。';
+    if(!window.confirm(msg))return;
+    setBusy(true);
+    try{
+      const r=await api.rpc('sow_commissioner_change',{p_season_id:bridge.season,p_action:action,p_minutes:minutes});
+      if(r.error)throw r.error;
+      await loadRemote();await getAdmin();message('サーバーの受付状態を更新しました。');
+    }catch(err){message('受付の変更に失敗: '+String(err.message||err),true);}
+    finally{setBusy(false);controls();}
+  };
   $('onlineSendOtp').onclick = async () => {
     const email = $('onlineEmail').value.trim();
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { message('有効なメールアドレスを入力してください。', true); return; }
@@ -113,7 +164,7 @@
   };
   $('onlineSignOut').onclick = async () => {
     setBusy(true);
-    try { const r = await api.auth.signOut(); if (r.error) throw r.error; user = null; entry = null; season = null; }
+    try { const r = await api.auth.signOut(); if (r.error) throw r.error; bridge.restoreLocalView(); user = null; entry = null; season = null; isCommissioner=false;commissioner.hidden=true; }
     catch (e) { message('サインアウトに失敗しました: ' + e.message,true); }
     finally { setBusy(false); controls(); }
   };
@@ -123,8 +174,10 @@
     if (!entry || !season || season.classification_revision !== bridge.groupRevision()) return;
     if (!window.confirm('サーバーに保存された編成を、このブラウザのMy Teamに読み込みますか？\n現在のローカル編成は上書きされます。')) return;
     try {
+      bridge.restoreLocalView();
       bridge.loadTeam({name:entry.team_name,picks:entry.picks,backups:entry.backups,captain:entry.captain});
-      message('サーバーの編成をローカルMy Teamに読み込みました。');
+      controls();
+      message('サーバー編成をローカルの編集用My Teamにコピーしました。サーバー側の編成は変更されません。');
     } catch (err) { message(err.message,true); }
   };
 
