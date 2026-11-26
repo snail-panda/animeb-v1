@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>S.O.W. Fantasy · My Season | R3.0 · Season Classification</title>
+<title>S.O.W. Fantasy · My Season | R3.1 · Online Entry Foundation</title>
 <meta name="theme-color" content="#f9f8ee">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Abel&family=Barlow+Condensed:wght@400;500;600;700&family=EB+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
@@ -318,10 +318,30 @@ button:focus-visible,select:focus-visible,input:focus-visible{outline:3px solid 
 @media(max-width:789px){.ce-board-work{display:flex;flex-direction:column;gap:12px}.ce-selected{order:-1}.ce-board-work>.ce-section{order:0}}
 
 .ce-active-box{padding:11px 12px;margin:13px 0;background:#eaf0e5;border-left:3px solid #648668;color:#45634b;font:12px/1.5 Arial,'Yu Gothic',sans-serif;overflow-wrap:anywhere}.ce-actions button.ce-primary{background:#396747;border-color:#396747;color:white}.ce-actions button.ce-primary:hover{background:#2f573b}
+
+/* R3.1 — online entry, deliberately subordinate to the established My Season UI */
+.online-entry{border-top:1px solid #dbe6d8;margin-top:15px;padding-top:12px;color:#48664c;font:12px/1.55 Arial,'Yu Gothic',sans-serif}
+.online-entry summary{cursor:pointer;font:600 13px 'Barlow Condensed',Arial,sans-serif;letter-spacing:.1em;color:#355e40}
+.online-entry summary span{font:400 11px Arial,'Yu Gothic',sans-serif;color:#809180;letter-spacing:0;margin-left:9px}
+.online-entry .online-content{padding:13px 0 0}
+.online-entry .online-status{padding:11px 12px;background:#edf3e7;border:1px solid #d1dfc9;margin-bottom:12px;color:#3e6b45;overflow-wrap:anywhere}
+.online-entry .online-status.is-error{background:#fcf1eb;border-color:#e4c9bd;color:#9d5443}
+.online-entry .online-row{display:flex;flex-wrap:wrap;align-items:center;gap:9px;margin:9px 0}
+.online-entry .online-row input[type=email]{flex:1;min-width:170px;padding:9px 10px;border:1px solid #bfcdb8;background:#fff;color:#34533b;font:12px Arial,sans-serif}
+.online-entry .online-row button{border:1px solid #b6c8b1;background:#fffefa;color:#3d6b48;padding:9px 13px;font:600 12px 'Barlow Condensed',Arial,sans-serif}
+.online-entry .online-row button.online-primary{background:#355f40;color:#fff;border-color:#355f40}
+.online-entry .online-row button:disabled{opacity:.4;cursor:not-allowed}
+.online-entry .online-row button:hover:not(:disabled){filter:brightness(.96)}
+.online-entry .online-muted{font-size:11px;color:#7c8b7b;margin:8px 0}
+.online-entry .online-identity{font:500 12px Arial,sans-serif;color:#385c42}
+.online-entry .online-snapshot{border:1px solid #cedcc8;padding:11px 13px;background:#fafcf7;white-space:normal;overflow-wrap:anywhere}
+.online-entry .online-snapshot p{margin:4px 0;font-size:12px}
+.online-entry [hidden]{display:none!important}
+@media(max-width:640px){.online-entry summary span{display:block;margin:3px 0 0}.online-entry .online-row input[type=email]{width:100%;flex-basis:100%}}
 </style></head>
 <body><div class="page"><header class="mast"><a class="brand" href="index.html"><strong>OFFBEAT</strong><span>/ S.O.W. / FANTASY</span></a><a class="back" href="index.html">FANTASY HOME</a></header>
-<main><div class="hero"><div class="eyebrow">SEASONS OF THE WATCH <span class="tag">R3.0 · CLASSIFICATION CONNECTED / 24-TEAM TEST</span></div><h1>My <span>Season</span></h1><p class="lede">4作品を選んだら、毎週が試合になる。自分のチームが12週間をどう戦うのか、まずは体験してみる。</p><p class="disclosure">2026 FALL · 全12ラウンド対応。W01–07は確認済みスナップショット、以降は公開ランキングが届き次第追加。分類は2026秋のプレシーズン設定を使用。倍率・補欠は試験中。このブラウザのMy Teamと23の事前固定TESTチームでリーグ戦を体験。登録・大会参加・他者への公開は行われません。</p><div id="leaguePulse" class="league-pulse" aria-live="polite"></div></div>
-<div class="grid"><section class="panel" id="draft"><div class="eyebrow">01 / THE DRAFT</div><h2>Build your four.</h2><p class="section-note">A/B/C/Dから各1作品。候補を増やし、Aは上位3作品と次点候補を区別。補欠は各枠で最大2作品、全12枠の重複は不可。自分の編成と23の固定テストチームを比較できます。実際の参加登録ではありません。</p><div class="team-switcher" id="teamSwitcher" aria-label="Select editable test team"></div><p class="team-switch-note">My Teamだけ編集可能。ほかの23組は事前に固定した編成のため、結果を見て変更されません。</p><div class="name-wrap"><label for="teamName">TEAM NAME</label><input id="teamName" maxlength="35" value="My S.O.W. Team" autocomplete="off"></div><div class="rulelab" id="backupSettings"><span class="rulelab-kicker">BACKUP RULES · 試験中 · ここでON/OFF</span><label class="rule-check"><input type="checkbox" id="autoSubs" checked> 事前登録の補欠を起用する</label><label class="rule-choice">Dropped後の最初の不在週 <select id="dropGrace"><option value="0">0 pt（原則案）</option><option value="10">10 pt（お情け案）</option></select></label><p>放送前・一時休止は補欠がその週だけ出場。Droppedは翌週に猶予、その次の週から正式交代。補欠は使い捨てではなく固定順で繰り返し起用。いずれも未確定ルールです。</p><button id="loadExample" type="button" class="demo-button">W05を見る（編成はそのまま）</button><button id="loadScenario" type="button" class="secondary">W05サンプル編成を読み込む</button><p class="sourced-note" id="sourceAudit" aria-live="polite"></p></div><div class="picks" id="picks"></div><div class="dual-notice" id="dualNotice"></div><div class="captain-row"><label for="captain">CAPTAIN</label><select id="captain"><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option></select><p>選んだ枠の得点に仮倍率 1.20×</p></div><div class="msg" id="warning" role="status"></div>
+<main><div class="hero"><div class="eyebrow">SEASONS OF THE WATCH <span class="tag">R3.1 · CLASSIFICATION + ONLINE ENTRY / 24-TEAM TEST</span></div><h1>My <span>Season</span></h1><p class="lede">4作品を選んだら、毎週が試合になる。自分のチームが12週間をどう戦うのか、まずは体験してみる。</p><p class="disclosure">2026 FALL · 全12ラウンド対応。W01–07は確認済みスナップショット、以降は公開ランキングが届き次第追加。分類は2026秋のプレシーズン設定を使用。倍率・補欠は試験中。このブラウザのMy Teamと23の事前固定TESTチームでリーグ戦を体験。ローカルのMy Teamは大会参加になりません。オンライン参加はサーバー接続と受付期間の設定後に利用可能。</p><div id="leaguePulse" class="league-pulse" aria-live="polite"></div></div>
+<div class="grid"><section class="panel" id="draft"><div class="eyebrow">01 / THE DRAFT</div><h2>Build your four.</h2><p class="section-note">A/B/C/Dから各1作品。候補を増やし、Aは上位3作品と次点候補を区別。補欠は各枠で最大2作品、全12枠の重複は不可。自分の編成と23の固定テストチームを比較できます。ローカル編成だけでは参加登録されません。</p><div class="team-switcher" id="teamSwitcher" aria-label="Select editable test team"></div><p class="team-switch-note">My Teamだけ編集可能。ほかの23組は事前に固定した編成のため、結果を見て変更されません。</p><div class="name-wrap"><label for="teamName">TEAM NAME</label><input id="teamName" maxlength="35" value="My S.O.W. Team" autocomplete="off"></div><div class="rulelab" id="backupSettings"><span class="rulelab-kicker">BACKUP RULES · 試験中 · ここでON/OFF</span><label class="rule-check"><input type="checkbox" id="autoSubs" checked> 事前登録の補欠を起用する</label><label class="rule-choice">Dropped後の最初の不在週 <select id="dropGrace"><option value="0">0 pt（原則案）</option><option value="10">10 pt（お情け案）</option></select></label><p>放送前・一時休止は補欠がその週だけ出場。Droppedは翌週に猶予、その次の週から正式交代。補欠は使い捨てではなく固定順で繰り返し起用。いずれも未確定ルールです。</p><button id="loadExample" type="button" class="demo-button">W05を見る（編成はそのまま）</button><button id="loadScenario" type="button" class="secondary">W05サンプル編成を読み込む</button><p class="sourced-note" id="sourceAudit" aria-live="polite"></p></div><div class="picks" id="picks"></div><div class="dual-notice" id="dualNotice"></div><div class="captain-row"><label for="captain">CAPTAIN</label><select id="captain"><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option></select><p>選んだ枠の得点に仮倍率 1.20×</p></div><div class="msg" id="warning" role="status"></div>
 <div class="registration-desk" id="registrationDesk">
  <div class="eyebrow">PRESEASON / DRAFT DESK</div>
  <div class="registration-head"><h3>Your season entry.</h3><span class="registration-state" id="draftState">LOCAL DRAFT</span></div>
@@ -333,7 +353,23 @@ button:focus-visible,select:focus-visible,input:focus-visible{outline:3px solid 
   <button type="button" id="exportDraft" class="secondary">EXPORT ROSTER · JSON</button>
   <label class="import-draft" for="importDraft">IMPORT ROSTER · JSON<input type="file" id="importDraft" accept=".json,application/json"></label>
  </div>
- <p class="reg-foot">確定すると主力・Captain・補欠を編集できなくなります。この試験版では解除できます。正式大会には締切判定・本人認証・サーバー側の確定記録が別途必要です。</p>
+ <p class="reg-foot">確定すると主力・Captain・補欠を編集できなくなります。この試験版では解除できます。ローカルの確定と、オンラインの正式登録は別の操作です。</p>
+ <details class="online-entry" id="onlineEntry">
+  <summary>ONLINE SEASON ENTRY <span>メール認証・サーバー登録（開催時のみ）</span></summary>
+  <div class="online-content">
+   <div id="onlineStatus" class="online-status" role="status" aria-live="polite">接続先と開催設定を確認中です。</div>
+   <div id="onlineLogin" hidden>
+    <p class="online-muted">自分のメールアドレスで本人確認してから編成を登録します。メールアドレスは公開されません。</p>
+    <div class="online-row"><input type="email" id="onlineEmail" placeholder="your-email@example.com" autocomplete="email" aria-label="Registration email"><button type="button" id="onlineSendOtp">SEND SIGN-IN LINK</button></div>
+   </div>
+   <div id="onlineSignedIn" hidden>
+    <div class="online-row"><span id="onlineIdentity" class="online-identity"></span><button type="button" id="onlineSignOut">SIGN OUT</button></div>
+    <div id="onlineSnapshot" class="online-snapshot" hidden></div>
+    <div class="online-row"><button type="button" id="onlineSave" class="online-primary">SAVE ENTRY · SERVER</button><button type="button" id="onlineConfirm">FINAL CONFIRM · SERVER</button><button type="button" id="onlineLoad">LOAD SERVER ENTRY</button></div>
+    <p class="online-muted">SAVEは締切まで更新可能。FINAL CONFIRM後は変更不可。サーバー側で候補・重複・締切を検証します。ローカルのMy Teamは登録後も自動同期されません。</p>
+   </div>
+  </div>
+ </details>
 </div>
 <details class="preseason-board" id="preseasonBoardDetails"><summary>PRESEASON GROUP BOARD <span>分類候補と境界を確認</span></summary><div class="preseason-board-content" id="preseasonBoard"></div><button class="secondary" type="button" id="exportGroups">EXPORT GROUPS · JSON</button><p class="reg-foot">現在有効な分類を表示。公開設定はGitHubで配布された版、ローカル適用はこのブラウザだけに反映されます。参加登録は引き続きテストです。</p></details>
 
@@ -888,4 +924,17 @@ if(location.protocol==='http:'||location.protocol==='https:')refreshPublishedRou
 else document.getElementById('seasonSourceState').textContent='ローカルプレビュー：確認済みW01–07を使用。追加週はGitHub Pages上で自動取得。';
 
 
-</script><script src="preseason-editor-r29.js?v=r30"></script></body></html>
+window.SOWFantasyOnlineBridgeR31=Object.freeze({
+ season:SEASON_KEY,
+ groupRevision:()=>GROUP_REV,
+ isLocalClassification:()=>Boolean(ACTIVE_GROUPS.isLocal),
+ getTeam:()=>copy(league[0]),
+ validateTeam:(t)=>Boolean(t&&t.picks&&t.backups&&valid(t)&&allBackupsEligible(t)),
+ teamLabel:(id)=>shortName(id),
+ loadTeam:(t)=>{
+  if(locked())throw Error('ローカルの確定を解除してから読み込んでください。');
+  if(!t||!t.picks||!t.backups||!valid(t)||!allBackupsEligible(t))throw Error('候補外・重複のある編成は読み込めません。');
+  league[0]=copy(t);team=league[0];save();renderDraft();render();
+ }
+});
+</script><script src="preseason-editor-r29.js?v=r30"></script><script src="registration-public-config-r31.js?v=1"></script><script src="registration-client-r31.js?v=1"></script></body></html>
