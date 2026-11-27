@@ -414,10 +414,84 @@ button:focus-visible,select:focus-visible,input:focus-visible{outline:3px solid 
 #sowCommissioner #sowAdminState[data-state="neutral"]{background:#f4f7f0;padding:9px 12px;font-weight:600}
 #sowCommissioner #testWindowControls[data-state="closed"] #testHeadline{background:#f3f4f1;padding:9px 12px;font-weight:600}
 #sowCommissioner .registration-countdown{display:block;width:fit-content;max-width:100%;box-sizing:border-box;padding:10px 16px 12px}
+
+/* R3.4: registration desk visual integration; preserves existing scoring surfaces. */
+.mast .r34-lang{display:flex;gap:1px;padding:2px;background:rgba(247,240,252,.97);border:1px solid #dfcbea;border-radius:16px;box-shadow:0 2px 8px rgba(75,43,98,.10);white-space:nowrap;font-family:'Yu Gothic UI',Arial,sans-serif;flex:none}
+.mast .r34-lang button{appearance:none;border:0;background:transparent;color:#7d678e;font:600 10px/1.2 'Yu Gothic UI',Arial,sans-serif;border-radius:12px;min-height:24px;padding:3px 7px}
+.mast .r34-lang button.selected{background:#78549b;color:white}
+.mast .r34-lang button:focus-visible{outline:2px solid #55347b;outline-offset:2px}
+.mast .r34-mast-right{display:flex;align-items:center;gap:12px}
+.registration-desk{background:#fbfbf5;border:1px solid #deded4;padding:22px;color:#454c43}
+.registration-desk .reg-help,.registration-desk .reg-status,.registration-desk .reg-foot{color:#62675f;font-weight:400}
+.online-entry{color:#454c43;font:13px/1.55 Arial,'Yu Gothic',sans-serif;border-color:#deded4}
+.online-entry .online-status{background:#f2f3ed;border:0;border-left:2px solid #a5a99b;color:#555d53;padding:10px 12px;margin-bottom:9px}
+.online-entry #onlineLiveCount{background:#f5f4ef;border:0;border-left:2px solid #b1aea0;color:#555d53}
+.online-entry #onlineDeadline{border:0;border-left:2px solid #b9a06b;background:#f7f2e7;color:#765d39}
+.online-entry .online-muted{color:#6b7067;font-size:12px;line-height:1.55}
+.online-entry .online-snapshot{background:#fafaf6;border-color:#deded4;color:#454c43}
+.online-entry .online-row button{font-weight:500;letter-spacing:.015em;min-height:36px}
+.online-entry .online-row{gap:8px;margin:11px 0}
+#sowCommissioner{background:#fcfcf8;border:1px solid #ddded4;padding:20px;margin-top:24px}
+#sowCommissioner>.eyebrow{color:#88785b;margin-bottom:16px;font-weight:500}
+#sowCommissioner .admin-card{background:transparent;border:0;border-radius:0;margin:0;padding:0;color:#454c43}
+#sowCommissioner .admin-card+.admin-card{margin-top:22px;padding-top:17px;border-top:1px solid #dbddd3}
+#sowCommissioner #officialCard,#sowCommissioner #testWindowControls{border-left:2px solid var(--reg-accent);padding-left:17px}
+#sowCommissioner .admin-card h3:not(#testHeadline){font:600 15px/1.35 'Barlow Condensed',Arial,sans-serif;letter-spacing:.04em;color:#555c50;margin:0 0 10px}
+#sowCommissioner .registration-headline,#sowCommissioner #testHeadline,#sowCommissioner #sowAdminState[data-state=neutral],#sowCommissioner #testWindowControls[data-state=closed] #testHeadline{display:table;max-width:100%;font:500 27px/1.12 'Barlow Condensed',Arial,sans-serif;letter-spacing:.04em;background:var(--reg-wash);color:var(--reg-ink);padding:7px 13px 8px;margin:0 0 12px;border:0}
+#sowCommissioner #testWindowControls #testHeadline{font-size:23px}
+#sowCommissioner #testWindowControls:is([data-state=open],[data-state=soon],[data-state=urgent],[data-state=critical]) #testHeadline{background:none;padding:0}
+#sowCommissioner .admin-card p{color:#525650;font-size:13px;line-height:1.55;max-width:650px;margin:9px 0}
+#sowCommissioner .admin-facts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px;margin:16px 0 12px}
+#sowCommissioner .admin-facts>div{border-top:1px solid #deded5;padding-top:9px;min-width:0}
+#sowCommissioner .admin-facts dt{font:500 15px/1.25 'Barlow Condensed',Arial,sans-serif;color:#6b6e65;margin-bottom:4px}
+#sowCommissioner .admin-facts>div:last-child dt{color:#8f7252}
+#sowCommissioner .admin-facts dd{font:500 23px/1.2 'EB Garamond',Georgia,serif;color:#454c43;margin:0}
+#sowCommissioner .admin-facts dd small{display:block;font:400 12px/1.35 Arial,sans-serif;color:#686e66;margin-top:4px}
+#sowCommissioner .registration-countdown{width:fit-content;max-width:100%;padding:10px 16px;margin:0 0 12px;background:var(--reg-wash);color:var(--reg-ink)}
+#sowCommissioner .countdown-digits{gap:18px}
+#sowCommissioner .countdown-digits strong{font-size:38px}
+#sowCommissioner .entry-counts{gap:9px}
+#sowCommissioner .entry-counts strong{font-size:29px}
+#sowCommissioner .entry-counts>div{background:#f2f2ed;border-color:#a5a79e;color:#525951;padding:9px 6px 10px}
+#sowCommissioner .entry-counts>div:nth-child(2){background:#f7f2e6;border-color:#b9a06b;color:#8a6c36}
+#sowCommissioner .entry-counts>div:nth-child(3){background:#eff3ea;border-color:#82967c;color:#486449}
+#sowCommissioner .entry-counts[data-final=true]>div:nth-child(2){background:#f2f2ef;border-color:#92968f;color:#555b53}
+#sowCommissioner .entry-counts span{margin-top:5px;font-size:12px}
+#sowCommissioner summary{font:500 14px/1.35 'Barlow Condensed',Arial,sans-serif;letter-spacing:.06em;color:#66726c;margin-bottom:11px}
+#sowCommissioner [data-state=neutral]{--reg-accent:#69836c;--reg-wash:#eef2e9;--reg-ink:#425d49}
+#sowCommissioner [data-state=scheduled]{--reg-accent:#b59559;--reg-wash:#f5efdf;--reg-ink:#84672f}
+#sowCommissioner [data-state=open]{--reg-accent:#b67b54;--reg-wash:#f7eee5;--reg-ink:#885839}
+#sowCommissioner [data-state=soon]{--reg-accent:#b67850;--reg-wash:#f7eee5;--reg-ink:#8b5434}
+#sowCommissioner [data-state=urgent]{--reg-accent:#b2766a;--reg-wash:#f7edeb;--reg-ink:#92554c}
+#sowCommissioner [data-state=critical]{--reg-accent:#9d514b;--reg-wash:#f6e9e7;--reg-ink:#833f39}
+#sowCommissioner [data-state=paused]{--reg-accent:#aa9270;--reg-wash:#f4eee4;--reg-ink:#7b6444}
+#sowCommissioner [data-state=closed],#sowCommissioner [data-state=unavailable]{--reg-accent:#a5a49d;--reg-wash:#efefeb;--reg-ink:#626760}
+.scoring-audit-scroll table{min-width:0;table-layout:fixed}
+.scoring-audit-scroll th:first-child,.scoring-audit-scroll td:first-child{width:37%;overflow-wrap:anywhere}
+.scoring-audit-scroll th,.scoring-audit-scroll td{white-space:normal;overflow-wrap:anywhere}
+.r34-fold{margin:12px 0 16px;border-top:1px solid #d3dacb;border-bottom:1px solid #d3dacb;padding:10px 0}
+.r34-fold>summary{cursor:pointer;font:500 13px 'Barlow Condensed',Arial,sans-serif;color:#647267;letter-spacing:.06em}
+@media(max-width:640px){
+ .mast .r34-mast-right{gap:7px}.mast .back{display:none}.mast .brand span{font-size:9px}.mast .r34-lang button{min-height:30px;padding:3px 6px}
+ .registration-desk{padding:14px 10px}.online-entry .online-content{padding-top:10px}
+ #sowCommissioner{padding:14px 8px;border-left:0;border-right:0;margin-left:-6px;margin-right:-6px}
+ #sowCommissioner #officialCard,#sowCommissioner #testWindowControls{padding-left:10px}
+ #sowCommissioner .registration-headline,#sowCommissioner #sowAdminState[data-state=neutral]{font-size:24px;padding:7px 10px}
+ #sowCommissioner .admin-facts{gap:10px}#sowCommissioner .admin-facts dd{font-size:21px}
+ #sowCommissioner .countdown-digits strong{font-size:34px}#sowCommissioner .countdown-digits{gap:12px}
+ #sowCommissioner .entry-counts{gap:5px}#sowCommissioner .entry-counts strong{font-size:25px}#sowCommissioner .entry-counts span{font-size:11px}
+ #sowCommissioner .admin-dates label{width:100%}#sowCommissioner .admin-dates input{width:100%}
+ .online-entry .online-row button{min-height:40px}.online-entry .online-row input:not([type=email]){min-height:38px}
+ .scoring-audit-scroll th,.scoring-audit-scroll td{padding:7px 3px;font-size:11px}
+ .ce-toolbar{flex-wrap:wrap}.ce-toolbar input{flex-basis:100%;min-width:0}
+}
+html[lang=ja] #sowCommissioner .registration-headline,html[lang=ja] #sowCommissioner #testHeadline,html[lang=ja] #sowCommissioner #sowAdminState[data-state=neutral]{font-family:Arial,'Yu Gothic',sans-serif;font-size:21px;letter-spacing:0;font-weight:500}
+html[lang=ja] #sowCommissioner .admin-facts dt,html[lang=ja] #sowCommissioner .admin-card h3:not(#testHeadline){font-family:Arial,'Yu Gothic',sans-serif;font-size:13px;letter-spacing:0}
+
 </style></head>
-<body><div class="page"><header class="mast"><a class="brand" href="index.html"><strong>OFFBEAT</strong><span>/ S.O.W. / FANTASY</span></a><a class="back" href="index.html">FANTASY HOME</a></header>
-<main><div class="hero"><div class="eyebrow">SEASONS OF THE WATCH <span class="tag">R3.3 · SERVER ENTRY + 24-TEAM TEST</span></div><h1>My <span>Season</span></h1><div class="account-strip"><span id="accountTop" class="online-identity" aria-live="polite">Checking sign-in…</span><button type="button" id="accountJump">ACCOUNT / ENTRY</button></div><section class="season-context" aria-label="Season overview"><div class="season-context-heading"><strong id="seasonContextName">Fall 2026</strong><span id="seasonProgressLabel">Checking results…</span></div><div class="season-context-grid"><div><small>Latest available results</small><strong id="seasonLatestWeek">—</strong></div><div><small>Next round</small><strong id="seasonNextWeek">—</strong></div><div id="seasonEntryCell" data-tone="closed"><small>Official team registration</small><strong id="seasonEntrySummary">Checking status…</strong></div></div><p class="season-context-note"><span id="seasonProgressNote"></span> <a href="#results">View weekly results</a></p><p class="season-context-note" id="seasonTestNote" hidden></p></section><p class="lede">4作品を選んだら、毎週が試合になる。自分のチームが12週間をどう戦うのか、まずは体験してみる。</p><p class="disclosure">全12ラウンド対応。確認済みの週別結果を表示し、公開ランキングから新しい結果を追加します。分類は2026秋のプレシーズン設定を使用。倍率・補欠は試験中。このブラウザのMy Teamと23の事前固定TESTチームでリーグ戦を体験。ローカルのMy Teamは大会参加になりません。オンライン参加はサーバー接続と受付期間の設定後に利用可能。</p><div id="leaguePulse" class="league-pulse" aria-live="polite"></div></div>
-<div class="grid"><section class="panel" id="draft"><div class="eyebrow">01 / THE DRAFT</div><h2>Build your four.</h2><p class="section-note">A/B/C/Dから各1作品。候補を増やし、Aは上位3作品と次点候補を区別。補欠は各枠で最大2作品、全12枠の重複は不可。自分の編成と23の固定テストチームを比較できます。ローカル編成だけでは参加登録されません。</p><div class="team-switcher" id="teamSwitcher" aria-label="Select editable test team"></div><p class="team-switch-note">My Teamだけ編集可能。ほかの23組は事前に固定した編成のため、結果を見て変更されません。</p><div class="name-wrap"><label for="teamName">TEAM NAME</label><input id="teamName" maxlength="35" value="My S.O.W. Team" autocomplete="off"></div><div class="rulelab" id="backupSettings"><span class="rulelab-kicker">BACKUP RULES · 試験中 · ここでON/OFF</span><label class="rule-check"><input type="checkbox" id="autoSubs" checked> 事前登録の補欠を起用する</label><label class="rule-choice">Dropped後の最初の不在週 <select id="dropGrace"><option value="0">0 pt（原則案）</option><option value="10">10 pt（お情け案）</option></select></label><p>放送前・一時休止は補欠がその週だけ出場。Droppedは翌週に猶予、その次の週から正式交代。補欠は使い捨てではなく固定順で繰り返し起用。いずれも未確定ルールです。</p><button id="loadExample" type="button" class="demo-button">W05を見る（編成はそのまま）</button><button id="loadScenario" type="button" class="secondary">W05サンプル編成を読み込む</button><p class="sourced-note" id="sourceAudit" aria-live="polite"></p></div><div class="picks" id="picks"></div><div class="dual-notice" id="dualNotice"></div><div class="captain-row"><label for="captain">CAPTAIN</label><select id="captain"><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option></select><p>選んだ枠の得点に仮倍率 1.20×</p></div><div class="msg" id="warning" role="status"></div>
+<body><div class="page"><header class="mast"><a class="brand" href="index.html"><strong>OFFBEAT</strong><span>/ S.O.W. / FANTASY</span></a><div class="r34-mast-right"><a class="back" href="index.html">FANTASY HOME</a><div class="r34-lang" aria-label="Language"><button type="button" data-r34-lang="en">EN</button><button type="button" data-r34-lang="ja">日本語</button></div></div></header>
+<main><div class="hero"><div class="eyebrow">SEASONS OF THE WATCH <span class="tag">R3.4 · SERVER ENTRY + 24-TEAM TEST</span></div><h1>My <span>Season</span></h1><div class="account-strip"><span id="accountTop" class="online-identity" aria-live="polite">Checking sign-in…</span><button type="button" id="accountJump">ACCOUNT / ENTRY</button></div><section class="season-context" aria-label="Season overview"><div class="season-context-heading"><strong id="seasonContextName">Fall 2026</strong><span id="seasonProgressLabel">Checking results…</span></div><div class="season-context-grid"><div><small>Latest available results</small><strong id="seasonLatestWeek">—</strong></div><div><small>Next round</small><strong id="seasonNextWeek">—</strong></div><div id="seasonEntryCell" data-tone="closed"><small>Official team registration</small><strong id="seasonEntrySummary">Checking status…</strong></div></div><p class="season-context-note"><span id="seasonProgressNote"></span> <a href="#results">View weekly results</a></p><p class="season-context-note" id="seasonTestNote" hidden></p></section><p class="lede">4作品を選んだら、毎週が試合になる。自分のチームが12週間をどう戦うのか、まずは体験してみる。</p><p class="disclosure">全12ラウンド対応。確認済みの週別結果を表示し、公開ランキングから新しい結果を追加します。分類は2026秋のプレシーズン設定を使用。倍率・補欠は試験中。このブラウザのMy Teamと23の事前固定TESTチームでリーグ戦を体験。ローカルのMy Teamは大会参加になりません。オンライン参加はサーバー接続と受付期間の設定後に利用可能。</p><div id="leaguePulse" class="league-pulse" aria-live="polite"></div></div>
+<div class="grid"><section class="panel" id="draft"><div class="eyebrow">01 / THE DRAFT</div><h2>Build your four.</h2><p class="section-note">A/B/C/Dから各1作品。候補を増やし、Aは上位3作品と次点候補を区別。補欠は各枠で最大2作品、全12枠の重複は不可。自分の編成と23の固定テストチームを比較できます。ローカル編成だけでは参加登録されません。</p><div class="team-switcher" id="teamSwitcher" aria-label="Select editable test team"></div><p class="team-switch-note">My Teamだけ編集可能。ほかの23組は事前に固定した編成のため、結果を見て変更されません。</p><div class="name-wrap"><label for="teamName">TEAM NAME</label><input id="teamName" maxlength="35" value="My S.O.W. Team" autocomplete="off"></div><div class="rulelab" id="backupSettings"><span class="rulelab-kicker">BACKUP RULES · 試験中 · ここでON/OFF</span><label class="rule-check"><input type="checkbox" id="autoSubs" checked> 事前登録の補欠を起用する</label><label class="rule-choice">Dropped後の最初の不在週 <select id="dropGrace"><option value="0">0 pt（原則案）</option><option value="10">10 pt（お情け案）</option></select></label><p>放送前・一時休止は補欠がその週だけ出場。Droppedは翌週に猶予、その次の週から正式交代。補欠は使い捨てではなく固定順で繰り返し起用。いずれも未確定ルールです。</p><button id="loadExample" type="button" class="demo-button">W05を見る（編成はそのまま）</button><button id="loadScenario" type="button" class="secondary">W05サンプル編成を読み込む</button><p class="sourced-note" id="sourceAudit" aria-live="polite"></p></div><div class="picks" id="picks"></div><details class="r34-fold"><summary>Multi-group eligibility</summary><div class="dual-notice" id="dualNotice"></div></details><div class="captain-row"><label for="captain">CAPTAIN</label><select id="captain"><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option></select><p>選んだ枠の得点に仮倍率 1.20×</p></div><div class="msg" id="warning" role="status"></div>
 <div class="registration-desk" id="registrationDesk">
  <div class="eyebrow">PRESEASON / DRAFT DESK</div>
  <div class="registration-head"><h3>Your season entry.</h3><span class="registration-state" id="draftState">LOCAL DRAFT</span></div>
@@ -488,7 +562,8 @@ button:focus-visible,select:focus-visible,input:focus-visible{outline:3px solid 
 <div class="aside"><span id="saved">LOCAL PREVIEW · NOT SUBMITTED</span><button type="button" id="reset" class="secondary">選択中のチームを初期値に戻す</button></div></section>
 <section class="panel" id="results"><div class="eyebrow">02 / THE SEASON SO FAR</div><h2>Every week counts.</h2><p class="section-note">毎週の順位・WRPを元にしたチーム戦。公開された週だけを計算。状態別の補欠ルールも試験中で、将来のWeekや正式大会の順位ではありません。</p><div class="scoring-switch" id="scoringSettings"><span class="scoring-switch-label">SCORING · ORIGINAL OR ROLE-BASED TRIAL</span><div class="scoring-modes"><label><input type="radio" name="scoringMode" value="original">現行倍率（比較用）</label><label><input type="radio" name="scoringMode" value="roles" checked>役割・期待値方式（R2.6・推奨試算）</label></div><p class="scoring-explain">ルールを比較するための仮設定。A・Bは期待値を2段階に分け、C・Dの通常得点を抑える。Dの上位進出には大穴の価値を残す。WRPも併用するので、順位だけで大きなボーナスは付かない。編成・放送状況・補欠・ABC連携は両方共通。正式得点の変更ではありません。</p></div><div id="scoreband" class="scoreband"></div><p class="footnote" id="seasonSourceState" role="status" aria-live="polite">W01–07の確認済みデータを表示中。W08以降は公開済みランキングだけを追加で確認します。</p><p class="footnote">通常移籍・緊急救済はまだOFF。特殊事情にはシーズン設定の確認済みステータスだけで対応します。未確認の欠場を休止と決めつけません。</p><div class="stagebar"><div class="stage done">OPENING<small>W01–03</small></div><div class="stage here">MIDDLE<small>W04–06</small></div><div class="stage">LATE<small>W07–09</small></div><div class="stage">CLIMAX<small>W10–12</small></div></div><div id="weekSelect" class="week-select" aria-label="Select a week"></div><div id="weekStats" class="week-stats"></div><div id="roundHead" class="round-head"></div><div class="round-grid" id="pieces"></div><div class="round-result" id="roundResult"></div><div id="roundImpact" class="round-impact" aria-live="polite"></div></section>
 <section class="panel league-section" id="leagueStandings"><div class="eyebrow">03 / THE LEAGUE</div><h2>Twenty-four ways to play.</h2><p class="section-note">自分の1チームと23の事前固定テストチームで対戦。24チームは同じ週間ランキングと得点式を使用。異なるチームで同じ作品を選んでいてもOK。</p><div id="leagueStandingsBody"></div><div id="scout" class="scout" aria-live="polite"></div></section>
-<section class="panel"><div class="eyebrow">04 / THE MATCH RECORD</div><h2>Round by round.</h2><p class="section-note">週間順位はその週の勝負。総合順位はそこまでの積み重ね。比較相手は<strong>23の事前固定テストチーム</strong>。上のリーグ表で編成を確認できます。実在の参加者ではありません。</p><div id="comparison"></div><div id="scoringAudit" class="scoring-audit" aria-live="polite"></div><p class="footnote">現行方式の基礎得点は <strong>Points Lab v0.3と同一</strong>（WRP 3.0、順位点20、作品数補正4、枠・Captain・D大穴倍率、ABC連携）。今表示している補欠・Dropped猶予は現行の試験ルールで、正式決定ではありません。補欠のCaptain倍率は適用しません（試験案）。</p></section><section class="panel journal" id="journal"><div class="eyebrow">05 / BEYOND THE SCORE</div><h2>The season, between the numbers.</h2><p class="section-note">得点表の向こう側で、何が起きていたのか。意外な活躍も、失速も、次のラウンドの見どころも。週を切り替えると、そこまでの展開を振り返れます。</p><div id="journalBody" aria-live="polite"></div><p class="journal-caveat">※ 対象外決定は公開された週間ランキングJSONの meta.drop_decisions を参照。W05『#ゾンビさがしてます』と『アオのハコ』、W06『転生ゴブリンだけど質問ある？』の休止は個別確認した記録です。欠場理由が未確認のときは「未確認」として扱い、勝手に補欠を出場させません。比較相手は事前に固定した仮想テストチーム。補欠・In-Between・正式交代は未確定です。</p></section></div></main><footer class="footer"><span>S.O.W. FANTASY · R2.8 LOCAL DRAFT TEST</span><a href="lab.html">OPEN POINTS LAB v0.3</a></footer></div>
+<section class="panel"><div class="eyebrow">04 / THE MATCH RECORD</div><h2>Round by round.</h2><p class="section-note">週間順位はその週の勝負。総合順位はそこまでの積み重ね。比較相手は<strong>23の事前固定テストチーム</strong>。上のリーグ表で編成を確認できます。実在の参加者ではありません。</p><div id="comparison"></div><details class="r34-fold"><summary>Compare scoring rules</summary><div id="scoringAudit" class="scoring-audit" aria-live="polite"></div></details><p class="footnote">現行方式の基礎得点は <strong>Points Lab v0.3と同一</strong>（WRP 3.0、順位点20、作品数補正4、枠・Captain・D大穴倍率、ABC連携）。今表示している補欠・Dropped猶予は現行の試験ルールで、正式決定ではありません。補欠のCaptain倍率は適用しません（試験案）。</p></section><section class="panel journal" id="journal"><div class="eyebrow">05 / BEYOND THE SCORE</div><h2>The season, between the numbers.</h2><p class="section-note">得点表の向こう側で、何が起きていたのか。意外な活躍も、失速も、次のラウンドの見どころも。週を切り替えると、そこまでの展開を振り返れます。</p><div id="journalBody" aria-live="polite"></div><p class="journal-caveat">※ 対象外決定は公開された週間ランキングJSONの meta.drop_decisions を参照。W05『#ゾンビさがしてます』と『アオのハコ』、W06『転生ゴブリンだけど質問ある？』の休止は個別確認した記録です。欠場理由が未確認のときは「未確認」として扱い、勝手に補欠を出場させません。比較相手は事前に固定した仮想テストチーム。補欠・In-Between・正式交代は未確定です。</p></section></div></main><footer class="footer"><span>S.O.W. FANTASY · R3.4 · 24-TEAM TEST</span><a href="lab.html">OPEN POINTS LAB v0.3</a></footer></div>
+<script src="r34-language.js?v=1"></script>
 <script src="season-config-r25.js?v=r27"></script>
 <script src="season-core-r25.js?v=r25"></script>
 <script src="season-roles-r26.js?v=r26"></script>
@@ -604,7 +679,7 @@ let rules={subs:true,grace:0};
 try{const v=JSON.parse(localStorage.getItem(LAB_STORAGE)||localStorage.getItem('offbeat-sow-fantasy-r23-config'));if(v&&typeof v.subs==='boolean'&&[0,10].includes(v.grace))rules=v}catch(e){}
 function escapeHTML(s){return String(s??'').replace(/[&<>"']/g,x=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[x]))}
 function num(n){return Number(n).toFixed(2)}
-function shortName(id){return names[id]||id}
+function shortName(id){if(window.SOWR34?.lang()==='en'){for(let i=WEEKS.length-1;i>=0;i--){const e=WEEKS[i].entries.find(x=>x.id===id);if(e?.title)return e.title;}}return names[id]||id}
 function inGroups(id){return 'ABCD'.split('').filter(g=>POOLS[g].includes(id))}
 function groupLabel(id){return inGroups(id).join('/')}
 function readRegistrationLock(){
@@ -1070,4 +1145,6 @@ window.SOWFantasyOnlineBridgeR31=Object.freeze({
   league[0]=copy(t);team=league[0];save();renderDraft();render();
  }
 });
-</script><script src="preseason-editor-r29.js?v=r30"></script><script src="registration-public-config-r31.js?v=1"></script><script src="registration-client-r31.js?v=335"></script></body></html>
+
+window.addEventListener('sow-r34-language',()=>{renderDraft();render();});
+</script><script src="preseason-editor-r29.js?v=r30"></script><script src="registration-public-config-r31.js?v=1"></script><script src="registration-client-r31.js?v=340"></script></body></html>
