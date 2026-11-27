@@ -1,4 +1,4 @@
-/* S.O.W. Fantasy R3.3.4 — server-owned registration and scoped local practice. */
+/* S.O.W. Fantasy R3.3.5 — server-owned registration and scoped local practice. */
 (() => {
  'use strict';
  const $=id=>document.getElementById(id), bridge=window.SOWFantasyOnlineBridgeR31, cfg=window.SOWFantasyOnlineConfigR31||{};
@@ -75,17 +75,25 @@
    $('technicalClock').textContent=known?'Server time: '+date(now()):'Server time unavailable';
    $('entryTotal').textContent=known&&adminData?adminData.total:'—';$('entryConfirmed').textContent=known&&adminData?adminData.confirmed:'—';$('entryDraft').textContent=known&&adminData?adminData.total-adminData.confirmed:'—';$('entryDraftLabel').textContent=official&&finalized()?'Not entered':'Draft teams';$('entryConfirmedLabel').textContent=official&&finalized()?'Official participants':'Confirmed teams';$('entryCounts').dataset.final=String(official&&finalized());
    $('entryCountNote').textContent=test?'Includes teams saved or confirmed during the test.':official&&finalized()?'Official participants include manually and automatically confirmed teams.':official&&locked?'Deadline reached. Automatic confirmations are being processed; counts are not final.':'Confirmed teams can be reopened before the deadline while registration is open. Excludes the 23 simulated teams.';
-   $('adminResult').textContent=adminNoticeScope==='official'?adminNotice:'';$('testResult').textContent=adminNoticeScope==='test'?adminNotice:'';
-   if(known){$('onlineDeadline').textContent=test?`TEST REGISTRATION · ${locked?'ENDED':paused?'PAUSED':open()?'OPEN':'NOT OPEN'} · Test closes ${date(season.closes_at)}`:officialState+(official?` · Opens ${date(season.opens_at)} · Closes ${date(season.closes_at)}`:'');}else $('onlineDeadline').textContent='Registration status unavailable.';
-   const msg=!signed?'Googleアカウントでサインインできます。':!ready?'アカウント情報を確認中。':!season?'シーズン未登録。':!matching()?'公開分類とサーバー分類を確認してください。':deadlineLocked()?confirmed()?'締切済み・正式参加。':entry?.auto_confirm&&!finalized()?'締切済み・自動確定処理待ち。':'締切済み・未確定の編成は不参加。':confirmed()?'正式参加を確定済み。受付中ならREOPEN ENTRYで再編集できます。':!open()?'登録受付期間外。サーバー送信はできません。':entry?'サーバー保存済み。編集後はSAVE DRAFTで更新してください。':'受付中。SAVE DRAFTまたはFINAL CONFIRMで登録してください。';
+   $('adminResult').textContent=adminNoticeScope==='official'?adminNotice:'';$('testResult').textContent=adminNoticeScope==='test'&&!(test&&locked&&adminNotice.startsWith('Test started.'))?adminNotice:'';
+   const publicState=!known?'Status unavailable':!official?'Not accepting entries':finalized()||locked?'Closed':paused?'Paused':Date.parse(season.opens_at)>now()?'Scheduled':'Open';
+   const publicTone=!known||!official||locked||paused?'closed':Date.parse(season.opens_at)>now()?'scheduled':'open';
+   $('seasonEntrySummary').textContent=publicState;$('seasonEntryCell').dataset.tone=publicTone;
+   $('seasonTestNote').hidden=!known||!test;$('seasonTestNote').textContent=known&&test?'Development test · '+(locked?'Ended':paused?'Paused':'Running')+' · Not official registration.':'';
+   $('onlineDeadline').dataset.tone=test?'test':publicTone;
+   $('onlineDeadline').textContent='Fall 2026 · Official registration: '+publicState+(!known?'':!official?' · No official schedule set.':` · Opens ${date(season.opens_at)} · Closes ${date(season.closes_at)}`)+(known&&test?` | Development test: ${locked?'Ended':paused?'Paused':open()?'Open':'Not open'} · Test deadline ${date(season.closes_at)}`:'');
+   const msg=!signed?'Googleアカウントでサインインできます。':!ready?'アカウント情報を確認中。':!season?'シーズン未登録。':!matching()?'公開分類とサーバー分類を確認してください。':test?(
+     deadlineLocked()?confirmed()?'テスト終了 · テスト編成は確定済みです。':!finalized()&&entry?.auto_confirm?'テスト終了 · 自動確定処理待ち。':'テスト終了 · 正式参加の判定ではありません。':confirmed()?'テスト編成を確定済み。受付中ならREOPEN ENTRYで再編集できます。':!open()?'テスト受付停止中。':entry?'テスト用下書き保存済み。編集後はSAVE DRAFTで更新できます。':'テスト受付中。正式な参加登録ではありません。'
+   ):!official?'正式な参加受付はまだ設定されていません。':deadlineLocked()?confirmed()?'正式受付終了 · 参加確定。':entry?.auto_confirm&&!finalized()?'正式受付終了 · 自動確定処理待ち。':'正式受付終了 · 参加未確定。':confirmed()?'参加意思を確定済み。受付中ならREOPEN ENTRYで再編集できます。':!open()?'正式受付期間外。サーバー送信はできません。':entry?'サーバー保存済み。編集後はSAVE DRAFTで更新してください。':'正式受付中。SAVE DRAFTまたはFINAL CONFIRMで登録してください。';
+   if(locked&&!error)notice='';
    $('onlineStatus').textContent=notice||msg; $('onlineStatus').classList.toggle('is-error',error);
  }
  function snapshot(){
    const box=$('onlineSnapshot');box.replaceChildren();box.hidden=!entry;
    if(!entry)return;
-   for(const line of [`SERVER ENTRY · ${confirmed()?'CONFIRMED':finalized()?'NOT ENTERED':'SAVED DRAFT'}`,`${entry.team_name} · CAPTAIN ${entry.captain}`, ...[...'ABCD'].map(g=>`${g}: ${bridge.teamLabel(entry.picks?.[g]||'')}`),`Last saved: ${date(entry.updated_at)} · Auto confirm ${entry.auto_confirm?'ON':'OFF'}`]){const p=document.createElement('p');p.textContent=line;box.appendChild(p);}
+   for(const line of [`SERVER ENTRY · ${season?.test_mode?(confirmed()?'TEST CONFIRMED':finalized()?'TEST ENDED · DRAFT':'TEST DRAFT'):confirmed()?'CONFIRMED':finalized()?'NOT ENTERED':'SAVED DRAFT'}`,`${entry.team_name} · CAPTAIN ${entry.captain}`, ...[...'ABCD'].map(g=>`${g}: ${bridge.teamLabel(entry.picks?.[g]||'')}`),`Last saved: ${date(entry.updated_at)} · Auto confirm ${entry.auto_confirm?'ON':'OFF'}`]){const p=document.createElement('p');p.textContent=line;box.appendChild(p);}
  }
- async function count(){try{const r=await api.rpc('sow_entry_counts',{p_season_id:bridge.season});if(r.error)throw r.error;$('onlineLiveCount').textContent=`REAL ONLINE ENTRIES · ${r.data.total} SAVED TEAMS / ${r.data.confirmed} CONFIRMED TEAMS · separate from 23 TEST teams`;}catch(_){$('onlineLiveCount').textContent='REAL ONLINE ENTRIES · Count unavailable';}}
+ async function count(){try{const r=await api.rpc('sow_entry_counts',{p_season_id:bridge.season});if(r.error)throw r.error;$('onlineLiveCount').textContent=`SERVER-SAVED TEAMS · ${r.data.total} saved / ${r.data.confirmed} confirmed · Excludes 23 simulated opponents`;}catch(_){$('onlineLiveCount').textContent='Server-saved teams · Count unavailable';}}
  function displaySaved(){
    if(!entry||!matching()||entry.group_revision!==bridge.groupRevision())return;
    if(confirmed()||deadlineLocked())bridge.showServerTeam(roster(entry));
@@ -135,12 +143,12 @@
  async function submit(confirm){
    if(!open()||!matching()||confirmed()||bridge.isServerTeamView())return;
    const t=bridge.getTeam();if(!bridge.validateTeam(t)){say('編成に候補外・重複・不足があります。',true);return;}
-   if(confirm&&!window.confirm('正式参加を確定しますか？ 締切前なら受付中にREOPEN ENTRYで再編集できます。'))return;
+   if(confirm&&!window.confirm(season?.test_mode?'テスト編成を確定しますか？ 正式参加にはなりません。':'正式参加を確定しますか？ 締切前なら受付中にREOPEN ENTRYで再編集できます。'))return;
    const auto=$('autoConfirm').checked;
    await operation(async(e,u)=>{
      await rpc('sow_save_entry',{p_season_id:bridge.season,p_roster:{name:t.name,picks:t.picks,backups:t.backups,captain:t.captain,groupRevision:bridge.groupRevision(),autoConfirm:auto,ownerId:u},p_confirm:confirm});
      if(current(e,u))await refresh(e,true);
-   },confirm?'正式参加を確定しました。':'サーバーに下書き保存しました。');
+   },confirm?(season?.test_mode?'テスト編成を確定しました。':'正式参加を確定しました。'):'サーバーに下書き保存しました。');
  }
  $('accountJump').onclick=()=>{$('onlineEntry').open=true;$('onlineEntry').scrollIntoView({block:'start',behavior:'smooth'});};
  $('autoConfirm').onchange=()=>say('自動確定の設定を変更しました。SAVE DRAFTでサーバーに保存してください。');
@@ -151,7 +159,7 @@
  async function adminOperation(name,args,success,scope='official'){
    if(!admin||busy||!ready)return;adminNoticeScope=scope;adminNotice='Applying…';
    await operation(async(e,u)=>{await rpc(name,args);if(current(e,u))await refresh(e,false);},success);
-   adminNotice=!ready?'Unable to verify server status. Refresh before continuing.':error?notice:success;controls();
+   adminNotice=!ready?'Unable to verify server status. Refresh before continuing.':error?notice:success;if(ready&&!error)notice='';controls();
  }
  $('sowAdminRefresh').onclick=()=>{notice='';error=false;adminNotice='';void refresh(epoch,false);};
  for(const b of document.querySelectorAll('[data-sow-admin]'))b.onclick=()=>{

@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>S.O.W. Fantasy · My Season | R3.3.2 · Online Commissioner</title>
+<title>S.O.W. Fantasy · My Season | Fall 2026</title>
 <meta name="theme-color" content="#f9f8ee">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Abel&family=Barlow+Condensed:wght@400;500;600;700&family=EB+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
@@ -377,14 +377,47 @@ button:focus-visible,select:focus-visible,input:focus-visible{outline:3px solid 
 .entry-counts[data-final="true"]>div:nth-child(2){background:#eceee9;border-color:#92968f;color:#555b53}
 .entry-counts span{display:block;margin-top:7px;line-height:1.25}
 @media(max-width:640px){#sowCommissioner .admin-card{padding:11px 10px}.countdown-digits{gap:14px}.countdown-digits strong,.entry-counts strong{font-size:30px}.entry-counts{gap:5px}.entry-counts span{font-size:11px}}
+
+/* R3.3.5 — quieter status surfaces and independent season context. */
+#sowCommissioner .registration-headline,#sowCommissioner #testHeadline{background:transparent;border:0;padding:5px 0;margin:8px 0 4px;font-weight:500;font-size:clamp(19px,2vw,23px);letter-spacing:.025em}
+#officialCard,#testWindowControls{border-left-width:3px}
+#sowCommissioner [data-state="scheduled"]{--reg-wash:#faf7eb}
+#sowCommissioner [data-state="open"]{--reg-wash:#fcf7ef}
+#sowCommissioner [data-state="soon"]{--reg-wash:#fbf3e9}
+#sowCommissioner [data-state="urgent"]{--reg-wash:#fbefed}
+#sowCommissioner [data-state="critical"]{--reg-wash:#f8e9e9}
+.registration-countdown{padding:10px 12px 12px}
+#sowCommissioner .entry-counts strong{font-size:clamp(23px,3vw,31px)}
+#sowCommissioner .entry-counts>div{padding:10px 5px;background:#f6f6f1;border-top-width:1px}
+#sowCommissioner .entry-counts>div:nth-child(2){background:#fbf6eb}
+#sowCommissioner .entry-counts>div:nth-child(3){background:#f1f5ed}
+#sowCommissioner .entry-counts[data-final="true"]>div:nth-child(2){background:#f2f2ef}
+.season-context{margin:22px 0 18px;padding:15px 0;border-top:1px solid #c8d2bd;border-bottom:1px solid #c8d2bd;color:#31563e}
+.season-context-heading{display:flex;align-items:baseline;flex-wrap:wrap;gap:8px 18px;margin-bottom:14px}
+.season-context-heading strong{font:400 clamp(25px,4vw,36px)/1.15 Georgia,serif;color:#294a35}
+.season-context-heading span{font:500 13px/1.4 'Barlow Condensed',Arial,sans-serif;letter-spacing:.09em}
+.season-context-grid{display:grid;grid-template-columns:1fr 1fr 1.5fr;gap:12px}
+.season-context-grid>div{min-width:0;border-left:2px solid #c3cdb9;padding-left:10px}
+.season-context-grid small{display:block;font:500 11px/1.4 Arial,sans-serif;color:#6c786a;margin-bottom:5px}
+.season-context-grid strong{display:block;font:400 clamp(16px,2.2vw,23px)/1.2 Georgia,serif;overflow-wrap:anywhere}
+.season-context-grid #seasonEntrySummary{font:500 15px/1.3 'Barlow Condensed',Arial,sans-serif}
+.season-context-grid #seasonEntryCell[data-tone="closed"]{border-color:#9da19a;color:#626860}
+.season-context-grid #seasonEntryCell[data-tone="open"]{border-color:#bc8c4a;color:#805621}
+.season-context-grid #seasonEntryCell[data-tone="scheduled"]{border-color:#ba9b45;color:#805f21}
+.season-context-note{font:12px/1.5 Arial,sans-serif;margin:12px 0 0;color:#667564}
+.season-context-note a{color:#355f40;margin-left:10px;text-decoration:underline;text-underline-offset:3px}
+#onlineDeadline[data-tone="closed"]{background:#f0f1ed;border-color:#d0d3cc;color:#5e655d}
+#onlineDeadline[data-tone="open"],#onlineDeadline[data-tone="scheduled"]{background:#faf5e9;border-color:#ded1ae;color:#795e2f}
+#onlineDeadline[data-tone="test"]{background:#f6f3eb;border-color:#d7c9a9;color:#755d36}
+@media(max-width:640px){.season-context-grid{grid-template-columns:1fr 1fr;gap:12px 8px}.season-context-grid #seasonEntryCell{grid-column:1/-1}.season-context{margin:18px 0 14px}.season-context-note a{display:inline-block;margin:4px 0 0}}
 </style></head>
 <body><div class="page"><header class="mast"><a class="brand" href="index.html"><strong>OFFBEAT</strong><span>/ S.O.W. / FANTASY</span></a><a class="back" href="index.html">FANTASY HOME</a></header>
-<main><div class="hero"><div class="eyebrow">SEASONS OF THE WATCH <span class="tag">R3.3 · SERVER ENTRY + 24-TEAM TEST</span></div><h1>My <span>Season</span></h1><div class="account-strip"><span id="accountTop" class="online-identity" aria-live="polite">Checking sign-in…</span><button type="button" id="accountJump">ACCOUNT / ENTRY</button></div><p class="lede">4作品を選んだら、毎週が試合になる。自分のチームが12週間をどう戦うのか、まずは体験してみる。</p><p class="disclosure">2026 FALL · 全12ラウンド対応。W01–07は確認済みスナップショット、以降は公開ランキングが届き次第追加。分類は2026秋のプレシーズン設定を使用。倍率・補欠は試験中。このブラウザのMy Teamと23の事前固定TESTチームでリーグ戦を体験。ローカルのMy Teamは大会参加になりません。オンライン参加はサーバー接続と受付期間の設定後に利用可能。</p><div id="leaguePulse" class="league-pulse" aria-live="polite"></div></div>
+<main><div class="hero"><div class="eyebrow">SEASONS OF THE WATCH <span class="tag">R3.3 · SERVER ENTRY + 24-TEAM TEST</span></div><h1>My <span>Season</span></h1><div class="account-strip"><span id="accountTop" class="online-identity" aria-live="polite">Checking sign-in…</span><button type="button" id="accountJump">ACCOUNT / ENTRY</button></div><section class="season-context" aria-label="Season overview"><div class="season-context-heading"><strong id="seasonContextName">Fall 2026</strong><span id="seasonProgressLabel">Checking results…</span></div><div class="season-context-grid"><div><small>Latest available results</small><strong id="seasonLatestWeek">—</strong></div><div><small>Next round</small><strong id="seasonNextWeek">—</strong></div><div id="seasonEntryCell" data-tone="closed"><small>Official team registration</small><strong id="seasonEntrySummary">Checking status…</strong></div></div><p class="season-context-note"><span id="seasonProgressNote"></span> <a href="#results">View weekly results</a></p><p class="season-context-note" id="seasonTestNote" hidden></p></section><p class="lede">4作品を選んだら、毎週が試合になる。自分のチームが12週間をどう戦うのか、まずは体験してみる。</p><p class="disclosure">全12ラウンド対応。確認済みの週別結果を表示し、公開ランキングから新しい結果を追加します。分類は2026秋のプレシーズン設定を使用。倍率・補欠は試験中。このブラウザのMy Teamと23の事前固定TESTチームでリーグ戦を体験。ローカルのMy Teamは大会参加になりません。オンライン参加はサーバー接続と受付期間の設定後に利用可能。</p><div id="leaguePulse" class="league-pulse" aria-live="polite"></div></div>
 <div class="grid"><section class="panel" id="draft"><div class="eyebrow">01 / THE DRAFT</div><h2>Build your four.</h2><p class="section-note">A/B/C/Dから各1作品。候補を増やし、Aは上位3作品と次点候補を区別。補欠は各枠で最大2作品、全12枠の重複は不可。自分の編成と23の固定テストチームを比較できます。ローカル編成だけでは参加登録されません。</p><div class="team-switcher" id="teamSwitcher" aria-label="Select editable test team"></div><p class="team-switch-note">My Teamだけ編集可能。ほかの23組は事前に固定した編成のため、結果を見て変更されません。</p><div class="name-wrap"><label for="teamName">TEAM NAME</label><input id="teamName" maxlength="35" value="My S.O.W. Team" autocomplete="off"></div><div class="rulelab" id="backupSettings"><span class="rulelab-kicker">BACKUP RULES · 試験中 · ここでON/OFF</span><label class="rule-check"><input type="checkbox" id="autoSubs" checked> 事前登録の補欠を起用する</label><label class="rule-choice">Dropped後の最初の不在週 <select id="dropGrace"><option value="0">0 pt（原則案）</option><option value="10">10 pt（お情け案）</option></select></label><p>放送前・一時休止は補欠がその週だけ出場。Droppedは翌週に猶予、その次の週から正式交代。補欠は使い捨てではなく固定順で繰り返し起用。いずれも未確定ルールです。</p><button id="loadExample" type="button" class="demo-button">W05を見る（編成はそのまま）</button><button id="loadScenario" type="button" class="secondary">W05サンプル編成を読み込む</button><p class="sourced-note" id="sourceAudit" aria-live="polite"></p></div><div class="picks" id="picks"></div><div class="dual-notice" id="dualNotice"></div><div class="captain-row"><label for="captain">CAPTAIN</label><select id="captain"><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option></select><p>選んだ枠の得点に仮倍率 1.20×</p></div><div class="msg" id="warning" role="status"></div>
 <div class="registration-desk" id="registrationDesk">
  <div class="eyebrow">PRESEASON / DRAFT DESK</div>
  <div class="registration-head"><h3>Your season entry.</h3><span class="registration-state" id="draftState">LOCAL DRAFT</span></div>
- <p class="reg-help">このブラウザで編成を保存し、確認・書き出しできます。「確定」はこの端末内のテストロックです。オンライン登録・大会参加にはなりません。</p>
+ <p class="reg-help" id="entryDeskHelp">Fall 2026 · 練習用編成とサーバーへの参加登録は別です。</p>
  <div class="reg-status" id="regStatus" role="status" aria-live="polite"></div>
  <div class="reg-actions">
   <button type="button" id="lockDraft" class="demo-button">CONFIRM DRAFT · LOCAL</button>
@@ -392,12 +425,12 @@ button:focus-visible,select:focus-visible,input:focus-visible{outline:3px solid 
   <button type="button" id="exportDraft" class="secondary">EXPORT ROSTER · JSON</button>
   <label class="import-draft" for="importDraft">IMPORT ROSTER · JSON<input type="file" id="importDraft" accept=".json,application/json"></label>
  </div>
- <p class="reg-foot">確定すると主力・Captain・補欠を編集できなくなります。この試験版では解除できます。ローカルの確定と、オンラインの正式登録は別の操作です。</p>
+ <p class="reg-foot" id="entryDeskFoot">ローカルの確定と、オンラインの正式登録は別の操作です。</p>
  <details class="online-entry" id="onlineEntry">
-  <summary>ONLINE SEASON ENTRY <span>Google認証・サーバー登録（開催時のみ）</span></summary>
+  <summary>ONLINE SEASON ENTRY <span>Google認証・2026年秋の参加登録</span></summary>
   <div class="online-content">
    <div id="onlineStatus" class="online-status" role="status" aria-live="polite">接続先と開催設定を確認中です。</div>
-   <div id="onlineLiveCount" class="online-status">REAL ENTRIES · 読み込み中（23組のTESTチームとは別）</div>
+   <div id="onlineLiveCount" class="online-status">Server-saved teams · Checking counts…</div><div id="onlineDeadline" class="online-status" data-tone="closed">Fall 2026 · Checking official registration…</div>
    <div id="onlineLogin" hidden>
     <p class="online-muted">Googleアカウントでログインして、自分の編成をサーバーに登録します。メールアドレスはサイト上に公開しません。</p>
     <div class="online-row"><button type="button" id="onlineGoogle" class="online-google">SIGN IN WITH GOOGLE</button></div>
@@ -408,7 +441,7 @@ button:focus-visible,select:focus-visible,input:focus-visible{outline:3px solid 
    </div>
    <div id="onlineSignedIn" hidden>
     <div class="online-row"><span id="onlineIdentity" class="online-identity"></span><button type="button" id="onlineSignOut">SIGN OUT</button></div>
-    <div class="online-row"><label for="nickname">NICKNAME</label><input id="nickname" maxlength="35" autocomplete="off"><button id="saveNickname" type="button">SAVE NAME</button></div><p class="online-muted">未設定ならPlayer番号。Nicknameは重複不可（大文字・小文字を区別しません）。Player番号は予約名です。メールアドレスは表示しません。</p><label><input type="checkbox" id="autoConfirm" checked> Automatically confirm my saved entry at the deadline.</label><p class="online-muted">選択はSAVE DRAFTでサーバーに保存されます。</p><div id="onlineDeadline" class="online-status"></div><div id="onlineSnapshot" class="online-snapshot" hidden></div>
+    <div class="online-row"><label for="nickname">NICKNAME</label><input id="nickname" maxlength="35" autocomplete="off"><button id="saveNickname" type="button">SAVE NAME</button></div><p class="online-muted">未設定ならPlayer番号。Nicknameは重複不可（大文字・小文字を区別しません）。Player番号は予約名です。メールアドレスは表示しません。</p><label><input type="checkbox" id="autoConfirm" checked> Automatically confirm my saved entry at the deadline.</label><p class="online-muted">選択はSAVE DRAFTでサーバーに保存されます。</p><div id="onlineSnapshot" class="online-snapshot" hidden></div>
     <div class="online-row"><button type="button" id="onlineSave" class="online-primary">SAVE DRAFT · SERVER</button><button type="button" id="onlineConfirm">FINAL CONFIRM · SERVER</button><button type="button" id="onlineLoad">RELOAD SAVED ENTRY</button><button type="button" id="onlineRestoreLocal" hidden>RESTORE LOCAL VIEW</button><button type="button" id="reopenEntry" hidden>REOPEN ENTRY</button></div>
     <p class="online-muted">ログイン時に保存済み編成を読み込みます。下書きは受付中に編集できます。再読み込みすると未保存の変更は失われます。これは23組のTEST対戦相手との比較であり、実参加者同士の公式順位表ではありません。</p>
     <section id="sowCommissioner" hidden class="sow-commissioner">
@@ -590,6 +623,8 @@ function locked(){return !!draftLock||serverViewMode}
 function renderRegistrationDesk(){
  const state=document.getElementById('draftState');if(!state)return;
  state.textContent=serverViewMode?'SERVER · READ ONLY':locked()?'LOCKED · THIS BROWSER':'LOCAL DRAFT';state.classList.toggle('is-locked',locked());
+ document.getElementById('entryDeskHelp').textContent=serverViewMode?'2026年秋 · サーバーに保存された自分の編成を表示しています。':'2026年秋 · 練習用編成はブラウザに保存されます。参加登録はONLINE SEASON ENTRYから行います。';
+ document.getElementById('entryDeskFoot').textContent=serverViewMode?'編集できるかどうかは下の参加登録状況をご確認ください。':'ローカルの確定はこの端末内の練習用ロックです。オンライン参加の確定とは異なります。';
  const msg=document.getElementById('regStatus');msg.textContent=serverViewMode?'本人のサーバー編成を表示中（読み取り専用）。23の仮想対戦相手との試験順位です。':registrationMessage||(draftLock?`ローカルで確定済み · ${draftLock.lockedAt.slice(0,19).replace('T',' ')}`:'編成は自動保存されます。確定後はこの端末で編集を停止します。');msg.classList.toggle('is-error',registrationError);
  document.getElementById('lockDraft').hidden=locked();document.getElementById('unlockDraft').hidden=!draftLock||serverViewMode;
  document.getElementById('lockDraft').disabled=!valid(league[0])||!allBackupsEligible(league[0]);
@@ -872,7 +907,16 @@ function renderScoringAudit(){
  body.innerHTML=`<div class="scoring-switch-label">SAME TEAMS · SAME RESULTS · TWO SCORING RULES</div><h3>Before changing the rules.</h3><p>今あるW01–W${String(WEEKS.length).padStart(2,'0')}の実際の週間記録で比較。右端は試験方式−現行方式。順位は24チーム間の比較です。</p><div class="scoring-audit-scroll"><table><thead><tr><th>TEAM · CUMULATIVE</th><th>現行</th><th>期待値型（仮）</th><th>差</th></tr></thead><tbody>${teams}</tbody></table></div><p style="margin-top:13px">W${String(chosenWeek).padStart(2,'0')} · 選択中チームの枠別差。同じ作品・同じ順位・同じWRPでの比較。</p><div class="scoring-audit-scroll"><table><thead><tr><th>ACTIVE SLOTS</th><th>現行</th><th>期待値型（仮）</th><th>差</th></tr></thead><tbody>${pieces}<tr><td><strong>WEEK TOTAL</strong></td><td>${num(cRound.total)}</td><td>${num(rRound.total)}</td><td class="diff">${signed(rRound.total-cRound.total)}</td></tr></tbody></table></div><p class="audit-footer">両方式とも補欠のON/OFF・対象外・Captain・ABCボーナスは同一。役割型では通常のD倍率と大穴倍率を合算した段階係数に置き換える。シーズンごとの分類は固定後に遡及修正しない想定。</p>`;
 }
 
+function renderSeasonContext(){
+ const total=SEASON_CONFIG.rounds, latest=WEEKS.length, week=n=>'Week '+String(n).padStart(2,'0');
+ const seasonLabel=String(SEASON_CONFIG.season);document.getElementById('seasonContextName').textContent=seasonLabel.charAt(0).toUpperCase()+seasonLabel.slice(1)+' '+SEASON_CONFIG.year;
+ document.getElementById('seasonProgressLabel').textContent=latest>=total?'ALL ROUNDS SCORED':latest?'SEASON IN PROGRESS':'PRESEASON';
+ document.getElementById('seasonLatestWeek').textContent=latest?week(latest):'Not available';
+ document.getElementById('seasonNextWeek').textContent=latest>=total?'Completed':week(latest+1);
+ document.getElementById('seasonProgressNote').textContent=latest>=total?'All '+total+' rounds have results.':latest+' of '+total+' rounds scored. '+week(latest+1)+' results are not yet loaded.';
+}
 function render(){
+ renderSeasonContext();
  const ok=valid(team);els.warning.textContent=ok?'':'編成内で同一作品が重複しています。各チームで主力・補欠の全作品が重ならないよう選び直してください。';
  const mine=scores(team),rivals=competitors().map(t=>scores(t)), all=allState(mine,rivals);
  const latest=all[all.length-1],pick=all[chosenWeek-1],round=mine[chosenWeek-1];
@@ -1022,4 +1066,4 @@ window.SOWFantasyOnlineBridgeR31=Object.freeze({
   league[0]=copy(t);team=league[0];save();renderDraft();render();
  }
 });
-</script><script src="preseason-editor-r29.js?v=r30"></script><script src="registration-public-config-r31.js?v=1"></script><script src="registration-client-r31.js?v=334"></script></body></html>
+</script><script src="preseason-editor-r29.js?v=r30"></script><script src="registration-public-config-r31.js?v=1"></script><script src="registration-client-r31.js?v=335"></script></body></html>
