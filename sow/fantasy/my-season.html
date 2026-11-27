@@ -346,9 +346,14 @@ button:focus-visible,select:focus-visible,input:focus-visible{outline:3px solid 
 .online-entry .online-email-fallback>summary{font:500 11px Arial,sans-serif;letter-spacing:0;color:#718572}
 
 .online-entry [hidden]{display:none!important}
+
+.account-strip{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin:10px 0;color:#385c42;font:500 13px/1.5 Arial,sans-serif}
+.account-strip button{border:1px solid #b6c8b1;background:#fffefa;color:#3d6b48;padding:7px 12px;font:600 12px 'Barlow Condensed',Arial,sans-serif;cursor:pointer}
+.online-entry .online-row input:not([type=email]){max-width:100%;min-width:0;padding:8px;border:1px solid #bfcdb8;background:#fff;color:#34533b;font:12px Arial,sans-serif}
+.online-entry .online-row label{max-width:100%}
 </style></head>
 <body><div class="page"><header class="mast"><a class="brand" href="index.html"><strong>OFFBEAT</strong><span>/ S.O.W. / FANTASY</span></a><a class="back" href="index.html">FANTASY HOME</a></header>
-<main><div class="hero"><div class="eyebrow">SEASONS OF THE WATCH <span class="tag">R3.2 · SERVER ENTRY + 24-TEAM TEST</span></div><h1>My <span>Season</span></h1><p class="lede">4作品を選んだら、毎週が試合になる。自分のチームが12週間をどう戦うのか、まずは体験してみる。</p><p class="disclosure">2026 FALL · 全12ラウンド対応。W01–07は確認済みスナップショット、以降は公開ランキングが届き次第追加。分類は2026秋のプレシーズン設定を使用。倍率・補欠は試験中。このブラウザのMy Teamと23の事前固定TESTチームでリーグ戦を体験。ローカルのMy Teamは大会参加になりません。オンライン参加はサーバー接続と受付期間の設定後に利用可能。</p><div id="leaguePulse" class="league-pulse" aria-live="polite"></div></div>
+<main><div class="hero"><div class="eyebrow">SEASONS OF THE WATCH <span class="tag">R3.3 · SERVER ENTRY + 24-TEAM TEST</span></div><h1>My <span>Season</span></h1><div class="account-strip"><span id="accountTop" class="online-identity" aria-live="polite">Checking sign-in…</span><button type="button" id="accountJump">ACCOUNT / ENTRY</button></div><p class="lede">4作品を選んだら、毎週が試合になる。自分のチームが12週間をどう戦うのか、まずは体験してみる。</p><p class="disclosure">2026 FALL · 全12ラウンド対応。W01–07は確認済みスナップショット、以降は公開ランキングが届き次第追加。分類は2026秋のプレシーズン設定を使用。倍率・補欠は試験中。このブラウザのMy Teamと23の事前固定TESTチームでリーグ戦を体験。ローカルのMy Teamは大会参加になりません。オンライン参加はサーバー接続と受付期間の設定後に利用可能。</p><div id="leaguePulse" class="league-pulse" aria-live="polite"></div></div>
 <div class="grid"><section class="panel" id="draft"><div class="eyebrow">01 / THE DRAFT</div><h2>Build your four.</h2><p class="section-note">A/B/C/Dから各1作品。候補を増やし、Aは上位3作品と次点候補を区別。補欠は各枠で最大2作品、全12枠の重複は不可。自分の編成と23の固定テストチームを比較できます。ローカル編成だけでは参加登録されません。</p><div class="team-switcher" id="teamSwitcher" aria-label="Select editable test team"></div><p class="team-switch-note">My Teamだけ編集可能。ほかの23組は事前に固定した編成のため、結果を見て変更されません。</p><div class="name-wrap"><label for="teamName">TEAM NAME</label><input id="teamName" maxlength="35" value="My S.O.W. Team" autocomplete="off"></div><div class="rulelab" id="backupSettings"><span class="rulelab-kicker">BACKUP RULES · 試験中 · ここでON/OFF</span><label class="rule-check"><input type="checkbox" id="autoSubs" checked> 事前登録の補欠を起用する</label><label class="rule-choice">Dropped後の最初の不在週 <select id="dropGrace"><option value="0">0 pt（原則案）</option><option value="10">10 pt（お情け案）</option></select></label><p>放送前・一時休止は補欠がその週だけ出場。Droppedは翌週に猶予、その次の週から正式交代。補欠は使い捨てではなく固定順で繰り返し起用。いずれも未確定ルールです。</p><button id="loadExample" type="button" class="demo-button">W05を見る（編成はそのまま）</button><button id="loadScenario" type="button" class="secondary">W05サンプル編成を読み込む</button><p class="sourced-note" id="sourceAudit" aria-live="polite"></p></div><div class="picks" id="picks"></div><div class="dual-notice" id="dualNotice"></div><div class="captain-row"><label for="captain">CAPTAIN</label><select id="captain"><option value="A">A</option><option value="B">B</option><option value="C">C</option><option value="D">D</option></select><p>選んだ枠の得点に仮倍率 1.20×</p></div><div class="msg" id="warning" role="status"></div>
 <div class="registration-desk" id="registrationDesk">
  <div class="eyebrow">PRESEASON / DRAFT DESK</div>
@@ -377,17 +382,17 @@ button:focus-visible,select:focus-visible,input:focus-visible{outline:3px solid 
    </div>
    <div id="onlineSignedIn" hidden>
     <div class="online-row"><span id="onlineIdentity" class="online-identity"></span><button type="button" id="onlineSignOut">SIGN OUT</button></div>
-    <div id="onlineSnapshot" class="online-snapshot" hidden></div>
-    <div class="online-row"><button type="button" id="onlineSave" class="online-primary">SAVE ENTRY · SERVER</button><button type="button" id="onlineConfirm">FINAL CONFIRM · SERVER</button><button type="button" id="onlineLoad">LOAD SERVER ENTRY</button><button type="button" id="onlineRestoreLocal" hidden>RESTORE LOCAL VIEW</button></div>
-    <p class="online-muted">ログインするとサーバーから自分の編成が表示されます。別端末でもログイン後に自分の編成がMy Seasonへ自動表示されます（読み取り専用）。LOAD SERVER ENTRYは編集用のローカルコピーを作る操作です。これは23組のTEST対戦相手との比較であり、実参加者同士の公式順位表ではありません。</p>
+    <div class="online-row"><label for="nickname">NICKNAME</label><input id="nickname" maxlength="35" autocomplete="off"><button id="saveNickname" type="button">SAVE NAME</button></div><p class="online-muted">未設定ならPlayer番号。メールアドレスは表示しません。</p><label><input type="checkbox" id="autoConfirm" checked> Automatically confirm my saved entry at the deadline.</label><p class="online-muted">選択はSAVE DRAFTでサーバーに保存されます。</p><div id="onlineDeadline" class="online-status"></div><div id="onlineSnapshot" class="online-snapshot" hidden></div>
+    <div class="online-row"><button type="button" id="onlineSave" class="online-primary">SAVE DRAFT · SERVER</button><button type="button" id="onlineConfirm">FINAL CONFIRM · SERVER</button><button type="button" id="onlineLoad">RELOAD SAVED ENTRY</button><button type="button" id="onlineRestoreLocal" hidden>RESTORE LOCAL VIEW</button><button type="button" id="reopenEntry" hidden>REOPEN ENTRY</button></div>
+    <p class="online-muted">ログイン時に保存済み編成を読み込みます。下書きは受付中に編集できます。再読み込みすると未保存の変更は失われます。これは23組のTEST対戦相手との比較であり、実参加者同士の公式順位表ではありません。</p>
     <section id="sowCommissioner" hidden class="sow-commissioner">
       <div class="eyebrow">COMMISSIONER ONLY · ONLINE REGISTRATION</div>
-      <div id="sowAdminState" class="online-status">受付状況を確認中。</div>
+      <div class="online-row"><label>Opens (device time) <input type="datetime-local" id="windowOpen"></label><label>Deadline (device time) <input type="datetime-local" id="windowClose"></label><button type="button" id="setWindow">SET WINDOW / OPEN</button></div><div id="sowAdminState" class="online-status">受付状況を確認中。</div>
       <div class="online-row">
        <button type="button" data-sow-admin="open" data-duration="30">OPEN · 30 MIN</button>
        <button type="button" data-sow-admin="open" data-duration="1440">OPEN · 24 H</button>
        <button type="button" data-sow-admin="open" data-duration="10080">OPEN · 7 DAYS</button>
-       <button type="button" data-sow-admin="closed">CLOSE</button>
+       <button type="button" data-sow-admin="closed">PAUSE / CLOSE</button><button type="button" data-sow-admin="resume">RESUME</button>
        <button type="button" data-sow-admin="setup">SETUP</button>
        <button type="button" id="sowAdminRefresh">REFRESH</button>
       </div>
@@ -450,8 +455,8 @@ const RIVALS=window.SOWFantasyDemoTeamsR27.map(t=>({...t,backups:Object.fromEntr
 const DEFAULT={name:'My S.O.W. Team',picks:{A:'seitokai',B:'hotel',C:'mezametara',D:'saikyou'},captain:'A',backups:{A:['',''],B:['',''],C:['',''],D:['','']}};
 const STORAGE='offbeat-sow-fantasy-myteam-r23-preview-2026fall';
 const LEAGUE_STORAGE='offbeat-sow-fantasy-r24-three-teams-2026fall'; // read-only legacy migration
-const SELF_STORAGE='offbeat-sow-fantasy-r27-self-2026fall';
-const REG_LOCK_STORAGE='offbeat-sow-fantasy-r28-lock-2026fall';
+let SELF_STORAGE='offbeat-sow-fantasy-r27-self-2026fall';
+let REG_LOCK_STORAGE='offbeat-sow-fantasy-r28-lock-2026fall';
 const ROSTER_SCHEMA='sow-fantasy-team-v1';
 const SEASON_KEY='2026-fall';
 const GROUP_REV=ACTIVE_GROUPS.revision;
@@ -530,6 +535,7 @@ const league=loadLeague();let activeIndex=0,chosenWeek=WEEKS.length,team=league[
 let leagueShowAll=false,scoutedIndex=null;
 let draftLock=null;
 let serverViewMode=false, localBeforeServerView=null;
+const guestSelfKey=SELF_STORAGE, guestLockKey=REG_LOCK_STORAGE; let accountScope=null;
 let registrationMessage=migrationNote;
 try {const oldLock=JSON.parse(localStorage.getItem(REG_LOCK_STORAGE)||'null');if(oldLock?.groupRevision&&oldLock.groupRevision!==GROUP_REV){registrationMessage=(registrationMessage?registrationMessage+' ':'')+'以前の分類で確定したテスト編成のロックは現在の分類に引き継がれません。必要なら新しい分類で再確認してください。';}}catch(e){}
 let registrationError=false;
@@ -959,6 +965,21 @@ window.SOWFantasyOnlineBridgeR31=Object.freeze({
  validateTeam:(t)=>Boolean(t&&t.picks&&t.backups&&valid(t)&&allBackupsEligible(t)),
  teamLabel:(id)=>shortName(id),
  isServerTeamView:()=>serverViewMode,
+ switchAccount:(id)=>{
+  if(id===accountScope)return;
+  if(accountScope===null&&!serverViewMode){try{if(!localStorage.getItem(guestSelfKey))localStorage.setItem(guestSelfKey,JSON.stringify({...league[0],groupRevision:GROUP_REV}));}catch(_){}}
+  accountScope=id;serverViewMode=false;localBeforeServerView=null;draftLock=null;
+  SELF_STORAGE=guestSelfKey+(id?':'+id:'');REG_LOCK_STORAGE=guestLockKey+(id?':'+id:'');
+  let t=copy(DEFAULT);try{const saved=JSON.parse(localStorage.getItem(SELF_STORAGE));if(saved)t=saneTeam(saved,DEFAULT);}catch(_){}
+  league[0]=t;team=t;draftLock=readRegistrationLock();if(draftLock){league[0]=copy(draftLock.team);team=league[0];}
+  registrationMessage='';renderDraft();render();
+ },
+ editServerTeam:(t)=>{
+  if(!t||!valid(t)||!allBackupsEligible(t))throw Error('Invalid server roster');
+  serverViewMode=false;localBeforeServerView=null;draftLock=null;
+  try{localStorage.removeItem(REG_LOCK_STORAGE);}catch(_){}
+  league[0]=copy(t);team=league[0];save();renderDraft();render();
+ },
  showServerTeam:(t)=>{
   if(!t||!t.picks||!t.backups||!valid(t)||!allBackupsEligible(t))throw Error('サーバー編成の検証に失敗しました。');
   if(!serverViewMode)localBeforeServerView=copy(league[0]);
@@ -977,4 +998,4 @@ window.SOWFantasyOnlineBridgeR31=Object.freeze({
   league[0]=copy(t);team=league[0];save();renderDraft();render();
  }
 });
-</script><script src="preseason-editor-r29.js?v=r30"></script><script src="registration-public-config-r31.js?v=1"></script><script src="registration-client-r31.js?v=2"></script></body></html>
+</script><script src="preseason-editor-r29.js?v=r30"></script><script src="registration-public-config-r31.js?v=1"></script><script src="registration-client-r31.js?v=33"></script></body></html>
