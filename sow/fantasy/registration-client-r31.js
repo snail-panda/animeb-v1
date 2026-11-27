@@ -31,7 +31,7 @@
   }
   function setBusy(state) {
     busy = state;
-    for (const b of [saveButton, confirmButton, loadButton, $('onlineSendOtp'), $('onlineSignOut'), $('sowAdminRefresh'), ...document.querySelectorAll('[data-sow-admin]')]) {
+    for (const b of [saveButton, confirmButton, loadButton, $('onlineSendOtp'), $('onlineGoogle'), $('onlineSignOut'), $('sowAdminRefresh'), ...document.querySelectorAll('[data-sow-admin]')]) {
       b.disabled = state;
     }
   }
@@ -64,7 +64,7 @@
     loadButton.disabled = busy || !entry || bridge.isLocalClassification() || !matching;
     $('onlineRestoreLocal').hidden = !bridge.isServerTeamView();
     showSnapshot();
-    if (!user) { message('メールアドレスで認証してから、受付中のシーズンに編成を登録できます。'); return; }
+    if (!user) { message('Googleアカウントでサインインして、受付中のシーズンに編成を登録できます。'); return; }
     if (!season) { message('現在のシーズンはサーバーに登録されていません。大会受付はまだ始まっていません。'); return; }
     if (confirmed) { message('この編成はサーバーで正式確定済みです。変更できません。'); return; }
     if (bridge.isLocalClassification()) { message('ローカル試験分類が有効です。ONLINE ENTRYでは公開分類に戻してから登録してください。'); return; }
@@ -148,6 +148,20 @@
       await loadRemote();await getAdmin();message('サーバーの受付状態を更新しました。');
     }catch(err){message('受付の変更に失敗: '+String(err.message||err),true);}
     finally{setBusy(false);controls();}
+  };
+  // Supabase manages OAuth state and redirects through its configured Google provider.
+  // The client ID and secret belong in Supabase / Google Cloud dashboards, never in GitHub Pages.
+  $('onlineGoogle').onclick = async () => {
+    if (busy || !api) return;
+    if (location.protocol !== 'https:') { message('Googleログインは公開サイトのHTTPSページで行ってください。', true); return; }
+    setBusy(true);
+    try {
+      const redirectTo = location.origin + location.pathname;
+      const result = await api.auth.signInWithOAuth({provider:'google',options:{redirectTo}});
+      if (result.error) throw result.error;
+      // A successful OAuth request redirects the page to Google.
+    } catch (err) { message('Googleログインを開始できません: ' + String(err.message || err), true); }
+    finally { setBusy(false); }
   };
   $('onlineSendOtp').onclick = async () => {
     const email = $('onlineEmail').value.trim();

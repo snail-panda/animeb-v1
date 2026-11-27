@@ -341,6 +341,10 @@ button:focus-visible,select:focus-visible,input:focus-visible{outline:3px solid 
 .sow-commissioner{border:1px solid #91ad8b;background:#edf4e8;margin:14px 0 0;padding:14px}
 .sow-commissioner .online-row button{font-size:11px;padding:8px 9px}
 .online-entry #onlineLiveCount{background:#edf2e9;border-color:#b5cbb2}
+.online-entry .online-row button.online-google{background:#fff;color:#275338;border:1px solid #8cac8a;padding:11px 17px;font:600 13px 'Barlow Condensed',Arial,sans-serif;letter-spacing:.035em}
+.online-entry .online-email-fallback{border-top:1px solid #dce6d8;margin-top:15px;padding-top:9px}
+.online-entry .online-email-fallback>summary{font:500 11px Arial,sans-serif;letter-spacing:0;color:#718572}
+
 .online-entry [hidden]{display:none!important}
 </style></head>
 <body><div class="page"><header class="mast"><a class="brand" href="index.html"><strong>OFFBEAT</strong><span>/ S.O.W. / FANTASY</span></a><a class="back" href="index.html">FANTASY HOME</a></header>
@@ -359,13 +363,17 @@ button:focus-visible,select:focus-visible,input:focus-visible{outline:3px solid 
  </div>
  <p class="reg-foot">確定すると主力・Captain・補欠を編集できなくなります。この試験版では解除できます。ローカルの確定と、オンラインの正式登録は別の操作です。</p>
  <details class="online-entry" id="onlineEntry">
-  <summary>ONLINE SEASON ENTRY <span>メール認証・サーバー登録（開催時のみ）</span></summary>
+  <summary>ONLINE SEASON ENTRY <span>Google認証・サーバー登録（開催時のみ）</span></summary>
   <div class="online-content">
    <div id="onlineStatus" class="online-status" role="status" aria-live="polite">接続先と開催設定を確認中です。</div>
    <div id="onlineLiveCount" class="online-status">REAL ENTRIES · 読み込み中（23組のTESTチームとは別）</div>
    <div id="onlineLogin" hidden>
-    <p class="online-muted">自分のメールアドレスで本人確認してから編成を登録します。メールアドレスは公開されません。</p>
-    <div class="online-row"><input type="email" id="onlineEmail" placeholder="your-email@example.com" autocomplete="email" aria-label="Registration email"><button type="button" id="onlineSendOtp">SEND SIGN-IN LINK</button></div>
+    <p class="online-muted">Googleアカウントでログインして、自分の編成をサーバーに登録します。メールアドレスはサイト上に公開しません。</p>
+    <div class="online-row"><button type="button" id="onlineGoogle" class="online-google">SIGN IN WITH GOOGLE</button></div>
+    <details class="online-email-fallback"><summary>EMAIL LINK · 旧方式（送信制限あり）</summary>
+      <div class="online-row"><input type="email" id="onlineEmail" placeholder="your-email@example.com" autocomplete="email" aria-label="Registration email"><button type="button" id="onlineSendOtp">SEND SIGN-IN LINK</button></div>
+      <p class="online-muted">以前のメールログインを残しています。Supabaseの送信制限により利用できない場合があります。</p>
+    </details>
    </div>
    <div id="onlineSignedIn" hidden>
     <div class="online-row"><span id="onlineIdentity" class="online-identity"></span><button type="button" id="onlineSignOut">SIGN OUT</button></div>
