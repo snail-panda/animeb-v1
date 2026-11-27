@@ -1,4 +1,4 @@
-/* S.O.W. Fantasy R3.3.3 — server-owned registration and scoped local practice. */
+/* S.O.W. Fantasy R3.3.4 — server-owned registration and scoped local practice. */
 (() => {
  'use strict';
  const $=id=>document.getElementById(id), bridge=window.SOWFantasyOnlineBridgeR31, cfg=window.SOWFantasyOnlineConfigR31||{};
@@ -14,6 +14,30 @@
  const current=(e,u)=>e===epoch&&user?.id===u;
  function say(s,err=false){notice=s;error=err;controls();}
  function date(v){return v?new Date(v).toLocaleString(undefined,{timeZoneName:'short'}):'—';}
+ // Pure presentation rules; server timestamps and flags remain authoritative.
+ function visualState(s,t,known){
+   if(!known)return 'unavailable';
+   if(!s.deadline_armed)return 'neutral';
+   const left=Date.parse(s.closes_at)-t;
+   if(s.finalized_at||left<=0)return 'closed';
+   if(s.status!=='open')return 'paused';
+   if(Date.parse(s.opens_at)>t)return 'scheduled';
+   return left<=600000?'critical':left<=3600000?'urgent':left<=86400000?'soon':'open';
+ }
+ function timeParts(ms){
+   const seconds=Math.max(0,Math.ceil(ms/1000)), d=Math.floor(seconds/86400),h=Math.floor(seconds%86400/3600),m=Math.floor(seconds%3600/60),sec=seconds%60;
+   return d?[['Days',d],['Hours',h],['Min',m]]:h?[['Hours',h],['Min',m],['Sec',sec]]:[['Min',m],['Sec',sec]];
+ }
+ function renderTimer(id,s,t,active){
+   const el=$(id);el.hidden=!active;if(!active)return;
+   const before=Date.parse(s.opens_at)>t, parts=timeParts(Date.parse(before?s.opens_at:s.closes_at)-t);
+   const label=before?'Registration opens in':s.status!=='open'?'Time until deadline (countdown continues)':'Time left to enter';
+   const key=JSON.stringify([label,parts]);if(el.dataset.key===key)return;el.dataset.key=key;
+   const caption=document.createElement('div');caption.className='countdown-caption';caption.textContent=label;
+   const digits=document.createElement('div');digits.className='countdown-digits';
+   for(const [unit,value] of parts){const cell=document.createElement('div'), n=document.createElement('strong'), u=document.createElement('span');n.textContent=String(value).padStart(2,'0');u.textContent=unit;cell.append(n,u);digits.append(cell);}
+   el.replaceChildren(caption,digits);
+ }
  function controls(){
    const signed=!!user, name=profile?.display_name||'Signed in';
    $('accountTop').textContent=signed?`● ${name}${admin?' · COMMISSIONER':''}`:api?'○ Not signed in':'○ Offline / checking sign-in';
@@ -30,12 +54,12 @@
    for(const id of ['onlineGoogle','onlineSendOtp','onlineSignOut','sowAdminRefresh','setWindow'])$(id).disabled=busy||!api;
    const canAdmin=admin&&ready&&!!season&&!busy, locked=deadlineLocked(), armed=!!season?.deadline_armed, test=!!season?.test_mode, official=armed&&!test;
    const known=ready&&!!season, paused=season?.status!=='open';
-   const officialState=!known?'Registration status unavailable':!official?'NOT YET SCHEDULED':finalized()?'REGISTRATION CLOSED · TEAMS LOCKED':locked?'REGISTRATION CLOSED':paused?'REGISTRATION PAUSED':Date.parse(season.opens_at)>now()?'REGISTRATION OPENS SOON':'REGISTRATION OPEN';
+   const officialState=!known?'Registration status unavailable':!official?'NOT YET SCHEDULED':finalized()?'REGISTRATION CLOSED · TEAMS LOCKED':locked?'REGISTRATION CLOSED':paused?'REGISTRATION PAUSED':Date.parse(season.opens_at)>now()?'REGISTRATION SCHEDULED':'REGISTRATION OPEN';
    const officialAdvice=!known?'Unable to check the registration period. Refresh the page before making changes.':!official?'The official registration period has not been set.'+(test?' Reset the registration test before setting official dates.':''):finalized()?'The official deadline has passed. Team lineups cannot be changed.':locked?'The official deadline has passed. Team updates are closed; automatic confirmations are being processed.':paused?'New submissions are paused. The closing time still applies.':'You can change the registration dates until the closing time.';
-   const remaining=()=>{const m=Math.max(0,Math.ceil((Date.parse(season.closes_at)-now())/60000));return `${Math.floor(m/1440)}d ${Math.floor(m%1440/60)}h ${m%60}m`;};
+
    function facts(id,rows){const box=$(id);box.replaceChildren();box.hidden=!rows.length;for(const [k,v] of rows){const dt=document.createElement('dt'),dd=document.createElement('dd');dt.textContent=k;dd.textContent=v;box.append(dt,dd);}}
-   const dates=()=>[['Registration opens',date(season.opens_at)],['Registration closes',date(season.closes_at)],...(!locked?[['Time until closing',remaining()]]:[])];
-   $('sowAdminState').textContent=officialState;$('sowAdminState').dataset.state=official&&locked?'closed':official&&open()?'open':'neutral';$('adminAdvice').textContent=officialAdvice;
+   const dates=()=>[['Registration opens',date(season.opens_at)],['Registration closes',date(season.closes_at)]];
+   $('sowAdminState').textContent=officialState;const tone=known?(official?visualState(season,now(),true):'neutral'):'unavailable';$('sowAdminState').dataset.state=tone;$('officialCard').dataset.state=tone;renderTimer('officialCountdown',season,now(),known&&official&&!locked);$('adminAdvice').textContent=officialAdvice;
    facts('adminFacts',known&&official?dates():known?[['Registration opens','Not set'],['Registration closes','Not set']]:[]);
    $('editWindow').hidden=!known||locked||test;$('editWindow').disabled=!canAdmin;$('editWindow').textContent=official?'CHANGE REGISTRATION PERIOD':'SET REGISTRATION PERIOD';
    if(!known||locked||test){$('windowEditor').hidden=true;$('adminReview').hidden=true;pendingWindow=null;}
@@ -46,11 +70,11 @@
    $('testDuration').hidden=test||official;$('resetTestWindow').hidden=!test;$('resetTestWindow').disabled=!canAdmin||!test;
    $('testHeadline').textContent=!known?'Test status unavailable':!test?'No test running':finalized()?'TEST COMPLETED':locked?'TEST ENDED · Processing confirmations':paused?'TEST PAUSED':'TEST RUNNING';
    $('testWindowState').textContent=!known?'Check server status first.':official?'An official registration period is set. Testing is unavailable.':!test?'Run a temporary registration test without setting an official deadline.':locked?'Reset the test to allow another test. Saved teams are kept. Teams automatically confirmed during the test return to draft; manually confirmed teams stay confirmed.':'Test registration uses saved team entries. Resetting ends the test, keeps saved teams and reverses automatic test confirmations. Manually confirmed teams stay confirmed.';
-   facts('testFacts',known&&test?dates():[]);
+   facts('testFacts',known&&test?dates():[]);$('testWindowControls').dataset.state=known&&test?visualState(season,now(),true):'neutral';renderTimer('testCountdown',season,now(),known&&test&&!locked);
    $('adminZone').textContent='Time zone: '+Intl.DateTimeFormat().resolvedOptions().timeZone;
    $('technicalClock').textContent=known?'Server time: '+date(now()):'Server time unavailable';
-   $('entryTotal').textContent=known&&adminData?adminData.total:'—';$('entryConfirmed').textContent=known&&adminData?adminData.confirmed:'—';$('entryDraft').textContent=known&&adminData?adminData.total-adminData.confirmed:'—';$('entryDraftLabel').textContent=official&&finalized()?'Unconfirmed teams':'Draft teams';
-   $('entryCountNote').textContent=test?'Includes teams saved or confirmed during the test.':'Counts actual saved team entries, not the 23 simulated league teams.';
+   $('entryTotal').textContent=known&&adminData?adminData.total:'—';$('entryConfirmed').textContent=known&&adminData?adminData.confirmed:'—';$('entryDraft').textContent=known&&adminData?adminData.total-adminData.confirmed:'—';$('entryDraftLabel').textContent=official&&finalized()?'Not entered':'Draft teams';$('entryConfirmedLabel').textContent=official&&finalized()?'Official participants':'Confirmed teams';$('entryCounts').dataset.final=String(official&&finalized());
+   $('entryCountNote').textContent=test?'Includes teams saved or confirmed during the test.':official&&finalized()?'Official participants include manually and automatically confirmed teams.':official&&locked?'Deadline reached. Automatic confirmations are being processed; counts are not final.':'Confirmed teams can be reopened before the deadline while registration is open. Excludes the 23 simulated teams.';
    $('adminResult').textContent=adminNoticeScope==='official'?adminNotice:'';$('testResult').textContent=adminNoticeScope==='test'?adminNotice:'';
    if(known){$('onlineDeadline').textContent=test?`TEST REGISTRATION · ${locked?'ENDED':paused?'PAUSED':open()?'OPEN':'NOT OPEN'} · Test closes ${date(season.closes_at)}`:officialState+(official?` · Opens ${date(season.opens_at)} · Closes ${date(season.closes_at)}`:'');}else $('onlineDeadline').textContent='Registration status unavailable.';
    const msg=!signed?'Googleアカウントでサインインできます。':!ready?'アカウント情報を確認中。':!season?'シーズン未登録。':!matching()?'公開分類とサーバー分類を確認してください。':deadlineLocked()?confirmed()?'締切済み・正式参加。':entry?.auto_confirm&&!finalized()?'締切済み・自動確定処理待ち。':'締切済み・未確定の編成は不参加。':confirmed()?'正式参加を確定済み。受付中ならREOPEN ENTRYで再編集できます。':!open()?'登録受付期間外。サーバー送信はできません。':entry?'サーバー保存済み。編集後はSAVE DRAFTで更新してください。':'受付中。SAVE DRAFTまたはFINAL CONFIRMで登録してください。';

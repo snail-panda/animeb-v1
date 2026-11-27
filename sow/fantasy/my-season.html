@@ -353,6 +353,30 @@ button:focus-visible,select:focus-visible,input:focus-visible{outline:3px solid 
 .online-entry .online-row label{max-width:100%}
 
 .registration-headline{font-size:20px;font-weight:700;padding:12px;background:#edf2e8;border-left:4px solid #78936c}.registration-headline[data-state="open"]{background:#e2f0e0;color:#245b31}.registration-headline[data-state="closed"]{background:#f3e9df;border-color:#a36e36}.entry-counts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;text-align:center}.entry-counts strong{display:block;font-size:25px}.entry-counts span{font-size:12px}.admin-editor{margin-top:14px;padding-top:10px;border-top:1px solid #c9d8c3}.admin-card summary{cursor:pointer;font-weight:600;margin-bottom:10px}#testResult:empty{display:none}.admin-card{background:#fff;border:1px solid #c9d8c3;padding:14px;margin-top:12px;border-radius:5px;color:#26382a}.admin-card h3{font-size:16px;margin:0 0 9px;color:#315b3a}.admin-card p{font-size:13px;line-height:1.5;margin:8px 0}.admin-facts{display:grid;grid-template-columns:minmax(110px,1fr) 2fr;gap:6px 12px;font-size:13px;margin:12px 0}.admin-facts dt{font-weight:600}.admin-facts dd{margin:0;overflow-wrap:anywhere}.admin-dates{display:flex;flex-wrap:wrap;gap:12px}.admin-dates label{display:flex;flex-direction:column;gap:5px;min-width:0}.admin-dates input{max-width:100%}.admin-review{border:2px solid #a36e36;background:#fff8ec;padding:12px;margin-top:12px}.admin-official{border-left:3px solid #a36e36}.admin-card button{border:1px solid #b6c8b1;background:#fffefa;color:#315b3a;padding:9px 13px;font:600 12px Arial,sans-serif;cursor:pointer}.admin-card button.online-primary{background:#355f40;color:white}.admin-card button:disabled{opacity:.45;cursor:not-allowed}.admin-card [hidden]{display:none!important}#adminResult:empty{display:none}
+
+/* R3.3.4 — semantic registration colors, compact responsive countdown. */
+#officialCard,#testWindowControls{--reg-accent:#748b65;--reg-ink:#3d5734;--reg-wash:#edf2e7;border-left:4px solid var(--reg-accent);transition:background-color .25s,border-color .25s}
+#sowCommissioner [data-state="scheduled"]{--reg-accent:#b99535;--reg-ink:#75540e;--reg-wash:#faf1d5}
+#sowCommissioner [data-state="open"]{--reg-accent:#c78a4f;--reg-ink:#874b1e;--reg-wash:#fbefe2}
+#sowCommissioner [data-state="soon"]{--reg-accent:#cd692e;--reg-ink:#9c431c;--reg-wash:#fbe8da}
+#sowCommissioner [data-state="urgent"]{--reg-accent:#b94b3e;--reg-ink:#98382e;--reg-wash:#fae3df}
+#sowCommissioner [data-state="critical"]{--reg-accent:#8e292e;--reg-ink:#801f25;--reg-wash:#f4d9da}
+#sowCommissioner [data-state="paused"]{--reg-accent:#aa854c;--reg-ink:#785c30;--reg-wash:#f2e9d9}
+#sowCommissioner [data-state="closed"],#sowCommissioner [data-state="unavailable"]{--reg-accent:#92968f;--reg-ink:#555b53;--reg-wash:#eceee9}
+#sowCommissioner .registration-headline,#sowCommissioner #testHeadline{font:600 clamp(19px,2.2vw,26px)/1.15 'Barlow Condensed',Arial,sans-serif;letter-spacing:.035em;background:var(--reg-wash);color:var(--reg-ink);border:0;border-left:3px solid var(--reg-accent);padding:12px 14px;margin:8px 0 0}
+#sowCommissioner .admin-card h3:not(#testHeadline){font:600 20px/1.2 'Barlow Condensed',Arial,sans-serif;letter-spacing:.025em}
+.registration-countdown{background:var(--reg-wash);color:var(--reg-ink);padding:12px 14px 15px;margin-top:3px}
+.countdown-caption{font-size:12px;letter-spacing:.035em;margin-bottom:7px}
+.countdown-digits{display:flex;align-items:baseline;gap:clamp(12px,3vw,32px);flex-wrap:wrap}
+.countdown-digits>div{display:flex;align-items:baseline;gap:5px}
+.countdown-digits strong,.entry-counts strong{font:400 clamp(28px,4vw,39px)/1 Georgia,serif;font-variant-numeric:lining-nums tabular-nums}
+.countdown-digits span{font-size:12px}
+.entry-counts>div{padding:12px 5px;background:#f1f2ec;border-top:2px solid #9ba394;min-width:0}
+.entry-counts>div:nth-child(2){background:#faf0dc;border-color:#b99535;color:#805c1c}
+.entry-counts>div:nth-child(3){background:#e8f1e3;border-color:#748b65;color:#375b38}
+.entry-counts[data-final="true"]>div:nth-child(2){background:#eceee9;border-color:#92968f;color:#555b53}
+.entry-counts span{display:block;margin-top:7px;line-height:1.25}
+@media(max-width:640px){#sowCommissioner .admin-card{padding:11px 10px}.countdown-digits{gap:14px}.countdown-digits strong,.entry-counts strong{font-size:30px}.entry-counts{gap:5px}.entry-counts span{font-size:11px}}
 </style></head>
 <body><div class="page"><header class="mast"><a class="brand" href="index.html"><strong>OFFBEAT</strong><span>/ S.O.W. / FANTASY</span></a><a class="back" href="index.html">FANTASY HOME</a></header>
 <main><div class="hero"><div class="eyebrow">SEASONS OF THE WATCH <span class="tag">R3.3 · SERVER ENTRY + 24-TEAM TEST</span></div><h1>My <span>Season</span></h1><div class="account-strip"><span id="accountTop" class="online-identity" aria-live="polite">Checking sign-in…</span><button type="button" id="accountJump">ACCOUNT / ENTRY</button></div><p class="lede">4作品を選んだら、毎週が試合になる。自分のチームが12週間をどう戦うのか、まずは体験してみる。</p><p class="disclosure">2026 FALL · 全12ラウンド対応。W01–07は確認済みスナップショット、以降は公開ランキングが届き次第追加。分類は2026秋のプレシーズン設定を使用。倍率・補欠は試験中。このブラウザのMy Teamと23の事前固定TESTチームでリーグ戦を体験。ローカルのMy Teamは大会参加になりません。オンライン参加はサーバー接続と受付期間の設定後に利用可能。</p><div id="leaguePulse" class="league-pulse" aria-live="polite"></div></div>
@@ -389,14 +413,14 @@ button:focus-visible,select:focus-visible,input:focus-visible{outline:3px solid 
     <p class="online-muted">ログイン時に保存済み編成を読み込みます。下書きは受付中に編集できます。再読み込みすると未保存の変更は失われます。これは23組のTEST対戦相手との比較であり、実参加者同士の公式順位表ではありません。</p>
     <section id="sowCommissioner" hidden class="sow-commissioner">
       <div class="eyebrow">COMMISSIONER ONLY · ONLINE REGISTRATION</div>
-      <div class="admin-card admin-official"><h3>Official registration period</h3>
-        <div id="sowAdminState" class="registration-headline" role="status">Checking registration…</div><p id="adminAdvice"></p><dl id="adminFacts" class="admin-facts" hidden></dl>
+      <div class="admin-card admin-official" id="officialCard"><h3>Official registration period</h3>
+        <div id="sowAdminState" class="registration-headline" role="status">Checking registration…</div><div class="registration-countdown" id="officialCountdown" hidden></div><p id="adminAdvice"></p><dl id="adminFacts" class="admin-facts" hidden></dl>
         <div class="online-row"><button type="button" id="editWindow">SET REGISTRATION PERIOD</button><button type="button" data-sow-admin="closed" data-scope="official">PAUSE REGISTRATION</button><button type="button" data-sow-admin="resume" data-scope="official">RESUME REGISTRATION</button></div>
         <div id="windowEditor" hidden class="admin-editor"><h4>Set official registration period</h4><div class="admin-dates"><label>Opening date and time <input type="datetime-local" id="windowOpen"></label><label>Closing date and time <input type="datetime-local" id="windowClose"></label></div><p id="adminZone" class="online-muted"></p><p>Both dates will be saved together, only when you apply the schedule.</p><div class="online-row"><button type="button" id="dismissWindow">CANCEL</button><button type="button" id="setWindow">REVIEW SCHEDULE</button></div></div>
         <div id="adminReview" hidden class="admin-review"><strong>Confirm official registration period</strong><p id="adminReviewText" style="white-space:pre-line"></p><p>You can change these dates before the closing time. Once it arrives, team lineups are locked for the season. You cannot reset an official deadline here.</p><div class="online-row"><button type="button" id="cancelWindow">BACK</button><button type="button" id="applyWindow" class="online-primary">APPLY OFFICIAL SCHEDULE</button></div></div>
         <div id="adminResult" role="status" class="online-status"></div></div>
-      <div class="admin-card"><h3>Team entries</h3><div id="entryCounts" class="entry-counts"><div><strong id="entryTotal">—</strong><span>Total saved teams</span></div><div><strong id="entryDraft">—</strong><span id="entryDraftLabel">Draft teams</span></div><div><strong id="entryConfirmed">—</strong><span>Confirmed teams</span></div></div><p id="entryCountNote" class="online-muted"></p></div>
-      <details class="admin-card" id="testWindowControls" hidden><summary>DEVELOPMENT TOOLS · Registration testing</summary><h3 id="testHeadline">No test running</h3><p id="testWindowState"></p><dl id="testFacts" class="admin-facts" hidden></dl><label id="testDuration">Test duration (minutes) <input type="number" id="testMinutes" min="1" max="60" value="5"></label><div class="online-row"><button type="button" id="startTestWindow">START REGISTRATION TEST</button><button type="button" id="resetTestWindow">RESET TEST</button><button type="button" data-sow-admin="closed" data-scope="test">PAUSE TEST</button><button type="button" data-sow-admin="resume" data-scope="test">RESUME TEST</button></div><p id="testResult" role="status" class="online-status"></p><details><summary>Technical status</summary><p id="technicalClock"></p><button type="button" id="sowAdminRefresh">REFRESH STATUS</button></details></details>
+      <div class="admin-card"><h3>Team entries</h3><div id="entryCounts" class="entry-counts"><div><strong id="entryTotal">—</strong><span>Total saved teams</span></div><div><strong id="entryDraft">—</strong><span id="entryDraftLabel">Draft teams</span></div><div><strong id="entryConfirmed">—</strong><span id="entryConfirmedLabel">Confirmed teams</span></div></div><p id="entryCountNote" class="online-muted"></p></div>
+      <details class="admin-card" id="testWindowControls" hidden><summary>DEVELOPMENT TOOLS · Registration testing</summary><h3 id="testHeadline">No test running</h3><div class="registration-countdown" id="testCountdown" hidden></div><p id="testWindowState"></p><dl id="testFacts" class="admin-facts" hidden></dl><label id="testDuration">Test duration (minutes) <input type="number" id="testMinutes" min="1" max="60" value="5"></label><div class="online-row"><button type="button" id="startTestWindow">START REGISTRATION TEST</button><button type="button" id="resetTestWindow">RESET TEST</button><button type="button" data-sow-admin="closed" data-scope="test">PAUSE TEST</button><button type="button" data-sow-admin="resume" data-scope="test">RESUME TEST</button></div><p id="testResult" role="status" class="online-status"></p><details><summary>Technical status</summary><p id="technicalClock"></p><button type="button" id="sowAdminRefresh">REFRESH STATUS</button></details></details>
     </section>
    </div>
   </div>
@@ -998,4 +1022,4 @@ window.SOWFantasyOnlineBridgeR31=Object.freeze({
   league[0]=copy(t);team=league[0];save();renderDraft();render();
  }
 });
-</script><script src="preseason-editor-r29.js?v=r30"></script><script src="registration-public-config-r31.js?v=1"></script><script src="registration-client-r31.js?v=333"></script></body></html>
+</script><script src="preseason-editor-r29.js?v=r30"></script><script src="registration-public-config-r31.js?v=1"></script><script src="registration-client-r31.js?v=334"></script></body></html>
