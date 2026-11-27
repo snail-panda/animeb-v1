@@ -1,10 +1,10 @@
-/* S.O.W. Fantasy R3.3.2 — server-owned registration and scoped local practice. */
+/* S.O.W. Fantasy R3.3.3 — server-owned registration and scoped local practice. */
 (() => {
  'use strict';
  const $=id=>document.getElementById(id), bridge=window.SOWFantasyOnlineBridgeR31, cfg=window.SOWFantasyOnlineConfigR31||{};
  if(!bridge||!$('onlineStatus'))return;
  let api=null,user=null,season=null,entry=null,profile=null,admin=false,busy=false,ready=false,epoch=0,loaded=false,deadlineRefresh=0,authRequest=0;
- let notice='',error=false, pendingWindow=null, adminData=null, clockOffset=0, adminNotice='';
+ let notice='',error=false, pendingWindow=null, adminData=null, clockOffset=0, adminNotice='', adminNoticeScope='official';
  const roster=e=>({name:e.team_name,picks:e.picks,backups:e.backups,captain:e.captain});
  const now=()=>Date.now()+clockOffset, expired=()=>!!season&&now()>=Date.parse(season.closes_at), finalized=()=>!!season?.finalized_at;
  const deadlineLocked=()=>finalized()||!!season?.deadline_armed&&expired();
@@ -28,29 +28,31 @@
    $('autoConfirm').disabled=busy||!open()||confirmed();
    $('saveNickname').disabled=busy||!ready;
    for(const id of ['onlineGoogle','onlineSendOtp','onlineSignOut','sowAdminRefresh','setWindow'])$(id).disabled=busy||!api;
-   const canAdmin=admin&&ready&&!!season&&!busy, locked=deadlineLocked(), armed=!!season?.deadline_armed, test=!!season?.test_mode;
-   $('setWindow').disabled=!canAdmin||locked||test;
-   $('applyWindow').disabled=$('setWindow').disabled||!pendingWindow;
-   for(const b of document.querySelectorAll('[data-sow-admin]'))b.disabled=!canAdmin||locked||!armed||(b.dataset.sowAdmin==='closed'?season?.status!=='open':season?.status==='open');
-   $('testWindowControls').hidden=bridge.season!=='2026-fall';
-   $('startTestWindow').disabled=!canAdmin||test||armed||locked;
-   $('resetTestWindow').disabled=!canAdmin||!test;
-   $('testWindowState').textContent=test?'Test active or completed. RESET TEST is available.':armed?'An official schedule is set; test cannot replace it.':'No test running. Start a test without creating an official deadline.';
-   $('adminZone').textContent='Input time zone: '+Intl.DateTimeFormat().resolvedOptions().timeZone+'. Both dates are applied together.';
-   if(admin){
-     const mode=test?'TEST':armed?'OFFICIAL':'NOT CONFIGURED';
-     const state=!ready?'SERVER STATUS UNAVAILABLE':!season?'NO SEASON':finalized()?(test?'TEST COMPLETE — RESET AVAILABLE':'OFFICIAL FINALIZED — LOCKED'):locked?'DEADLINE REACHED — FINALIZATION PENDING':!armed?'NO ACTIVE SCHEDULE':season.status!=='open'?'PAUSED — DEADLINE STILL RUNNING':open()?'OPEN — ACCEPTING ENTRIES':'SCHEDULED — NOT OPEN YET';
-     $('sowAdminState').textContent=state;
-     const facts=$('adminFacts');facts.replaceChildren();
-     for(const [k,v] of [['Mode',mode],['Saved opens',armed?date(season?.opens_at):season?.opens_at?date(season.opens_at)+' (inactive)':'Not set'],['Saved deadline',armed?date(season?.closes_at):season?.closes_at?date(season.closes_at)+' (inactive)':'Not set'],['Server clock',ready?date(now()):'Unavailable'],['Time remaining',armed&&!locked?`${Math.max(0,Math.ceil((Date.parse(season.closes_at)-now())/60000))} min`:'—'],['Finalization',finalized()?date(season.finalized_at):locked?'Pending':'Not finalized'],['Can reschedule?',!ready?'Unknown':test?'Reset test first':locked?'No':'Yes, before deadline'],['Saved / confirmed',adminData?`${adminData.total} / ${adminData.confirmed}`:'Unavailable']]){const dt=document.createElement('dt'),dd=document.createElement('dd');dt.textContent=k;dd.textContent=v;facts.append(dt,dd);}
-     $('adminAdvice').textContent=!ready?'Refresh status before making changes.':test?'Reset test to return to an unscheduled state.':locked?'Official deadline has passed; this panel cannot unlock it.':armed?'Official dates are saved. You may change both before the deadline.':'No official deadline is armed. You can safely start a test or review an official schedule.';
-     $('adminResult').textContent=adminNotice;
-   }
-   if(season){
-     const ms=Date.parse(season.closes_at)-now(), mins=Math.max(0,Math.ceil(ms/60000));
-     $('onlineDeadline').textContent=`${season.test_mode?'TEST MODE · ':''}${finalized()?'DEADLINE LOCKED':!season.deadline_armed?'NO ACTIVE SCHEDULE':open()?'REGISTRATION OPEN':season.status==='open'&&expired()?'DEADLINE PASSED':season.status==='open'?'SCHEDULED':'REGISTRATION PAUSED / CLOSED'}${season.deadline_armed?` · Opens ${date(season.opens_at)} · Deadline ${date(season.closes_at)}`:''}${open()?` · ${Math.floor(mins/60)}h ${mins%60}m remaining`:''}`;
-
-   }else $('onlineDeadline').textContent='No registration window loaded.';
+   const canAdmin=admin&&ready&&!!season&&!busy, locked=deadlineLocked(), armed=!!season?.deadline_armed, test=!!season?.test_mode, official=armed&&!test;
+   const known=ready&&!!season, paused=season?.status!=='open';
+   const officialState=!known?'Registration status unavailable':!official?'NOT YET SCHEDULED':finalized()?'REGISTRATION CLOSED · TEAMS LOCKED':locked?'REGISTRATION CLOSED':paused?'REGISTRATION PAUSED':Date.parse(season.opens_at)>now()?'REGISTRATION OPENS SOON':'REGISTRATION OPEN';
+   const officialAdvice=!known?'Unable to check the registration period. Refresh the page before making changes.':!official?'The official registration period has not been set.'+(test?' Reset the registration test before setting official dates.':''):finalized()?'The official deadline has passed. Team lineups cannot be changed.':locked?'The official deadline has passed. Team updates are closed; automatic confirmations are being processed.':paused?'New submissions are paused. The closing time still applies.':'You can change the registration dates until the closing time.';
+   const remaining=()=>{const m=Math.max(0,Math.ceil((Date.parse(season.closes_at)-now())/60000));return `${Math.floor(m/1440)}d ${Math.floor(m%1440/60)}h ${m%60}m`;};
+   function facts(id,rows){const box=$(id);box.replaceChildren();box.hidden=!rows.length;for(const [k,v] of rows){const dt=document.createElement('dt'),dd=document.createElement('dd');dt.textContent=k;dd.textContent=v;box.append(dt,dd);}}
+   const dates=()=>[['Registration opens',date(season.opens_at)],['Registration closes',date(season.closes_at)],...(!locked?[['Time until closing',remaining()]]:[])];
+   $('sowAdminState').textContent=officialState;$('sowAdminState').dataset.state=official&&locked?'closed':official&&open()?'open':'neutral';$('adminAdvice').textContent=officialAdvice;
+   facts('adminFacts',known&&official?dates():known?[['Registration opens','Not set'],['Registration closes','Not set']]:[]);
+   $('editWindow').hidden=!known||locked||test;$('editWindow').disabled=!canAdmin;$('editWindow').textContent=official?'CHANGE REGISTRATION PERIOD':'SET REGISTRATION PERIOD';
+   if(!known||locked||test){$('windowEditor').hidden=true;$('adminReview').hidden=true;pendingWindow=null;}
+   $('setWindow').disabled=!canAdmin||locked||test;$('applyWindow').disabled=$('setWindow').disabled||!pendingWindow;
+   for(const b of document.querySelectorAll('[data-sow-admin]')){const applicable=known&&armed&&!locked&&(b.dataset.scope==='test'?test:official);b.hidden=!applicable||(b.dataset.sowAdmin==='closed'?paused:!paused);b.disabled=!canAdmin||!applicable;}
+   $('testWindowControls').hidden=bridge.season!=='2026-fall';if(test&&known&&!$('testWindowControls').dataset.wasTest)$('testWindowControls').open=true;if(test&&known)$('testWindowControls').dataset.wasTest='1';else delete $('testWindowControls').dataset.wasTest;
+   $('startTestWindow').hidden=test||official;$('startTestWindow').disabled=!canAdmin||test||armed||locked;
+   $('testDuration').hidden=test||official;$('resetTestWindow').hidden=!test;$('resetTestWindow').disabled=!canAdmin||!test;
+   $('testHeadline').textContent=!known?'Test status unavailable':!test?'No test running':finalized()?'TEST COMPLETED':locked?'TEST ENDED · Processing confirmations':paused?'TEST PAUSED':'TEST RUNNING';
+   $('testWindowState').textContent=!known?'Check server status first.':official?'An official registration period is set. Testing is unavailable.':!test?'Run a temporary registration test without setting an official deadline.':locked?'Reset the test to allow another test. Saved teams are kept. Teams automatically confirmed during the test return to draft; manually confirmed teams stay confirmed.':'Test registration uses saved team entries. Resetting ends the test, keeps saved teams and reverses automatic test confirmations. Manually confirmed teams stay confirmed.';
+   facts('testFacts',known&&test?dates():[]);
+   $('adminZone').textContent='Time zone: '+Intl.DateTimeFormat().resolvedOptions().timeZone;
+   $('technicalClock').textContent=known?'Server time: '+date(now()):'Server time unavailable';
+   $('entryTotal').textContent=known&&adminData?adminData.total:'—';$('entryConfirmed').textContent=known&&adminData?adminData.confirmed:'—';$('entryDraft').textContent=known&&adminData?adminData.total-adminData.confirmed:'—';$('entryDraftLabel').textContent=official&&finalized()?'Unconfirmed teams':'Draft teams';
+   $('entryCountNote').textContent=test?'Includes teams saved or confirmed during the test.':'Counts actual saved team entries, not the 23 simulated league teams.';
+   $('adminResult').textContent=adminNoticeScope==='official'?adminNotice:'';$('testResult').textContent=adminNoticeScope==='test'?adminNotice:'';
+   if(known){$('onlineDeadline').textContent=test?`TEST REGISTRATION · ${locked?'ENDED':paused?'PAUSED':open()?'OPEN':'NOT OPEN'} · Test closes ${date(season.closes_at)}`:officialState+(official?` · Opens ${date(season.opens_at)} · Closes ${date(season.closes_at)}`:'');}else $('onlineDeadline').textContent='Registration status unavailable.';
    const msg=!signed?'Googleアカウントでサインインできます。':!ready?'アカウント情報を確認中。':!season?'シーズン未登録。':!matching()?'公開分類とサーバー分類を確認してください。':deadlineLocked()?confirmed()?'締切済み・正式参加。':entry?.auto_confirm&&!finalized()?'締切済み・自動確定処理待ち。':'締切済み・未確定の編成は不参加。':confirmed()?'正式参加を確定済み。受付中ならREOPEN ENTRYで再編集できます。':!open()?'登録受付期間外。サーバー送信はできません。':entry?'サーバー保存済み。編集後はSAVE DRAFTで更新してください。':'受付中。SAVE DRAFTまたはFINAL CONFIRMで登録してください。';
    $('onlineStatus').textContent=notice||msg; $('onlineStatus').classList.toggle('is-error',error);
  }
@@ -59,7 +61,7 @@
    if(!entry)return;
    for(const line of [`SERVER ENTRY · ${confirmed()?'CONFIRMED':finalized()?'NOT ENTERED':'SAVED DRAFT'}`,`${entry.team_name} · CAPTAIN ${entry.captain}`, ...[...'ABCD'].map(g=>`${g}: ${bridge.teamLabel(entry.picks?.[g]||'')}`),`Last saved: ${date(entry.updated_at)} · Auto confirm ${entry.auto_confirm?'ON':'OFF'}`]){const p=document.createElement('p');p.textContent=line;box.appendChild(p);}
  }
- async function count(){try{const r=await api.rpc('sow_entry_counts',{p_season_id:bridge.season});if(r.error)throw r.error;$('onlineLiveCount').textContent=`REAL ONLINE ENTRIES · ${r.data.total} SAVED / ${r.data.confirmed} CONFIRMED · separate from 23 TEST teams`;}catch(_){$('onlineLiveCount').textContent='REAL ONLINE ENTRIES · Count unavailable';}}
+ async function count(){try{const r=await api.rpc('sow_entry_counts',{p_season_id:bridge.season});if(r.error)throw r.error;$('onlineLiveCount').textContent=`REAL ONLINE ENTRIES · ${r.data.total} SAVED TEAMS / ${r.data.confirmed} CONFIRMED TEAMS · separate from 23 TEST teams`;}catch(_){$('onlineLiveCount').textContent='REAL ONLINE ENTRIES · Count unavailable';}}
  function displaySaved(){
    if(!entry||!matching()||entry.group_revision!==bridge.groupRevision())return;
    if(confirmed()||deadlineLocked())bridge.showServerTeam(roster(entry));
@@ -87,7 +89,7 @@
    const next=session?.user||null;
    if(user?.id===next?.id&&loaded&&ready)return;
    const e=++epoch; user=next;season=null;entry=null;profile=null;admin=false;busy=false;ready=false;loaded=false;notice='';error=false;deadlineRefresh=0;
-   pendingWindow=null;adminData=null;adminNotice='';clockOffset=0;$('adminReview').hidden=true;$('windowOpen').value='';$('windowClose').value='';
+   pendingWindow=null;adminData=null;adminNotice='';adminNoticeScope='official';$('windowEditor').hidden=true;clockOffset=0;$('adminReview').hidden=true;$('windowOpen').value='';$('windowClose').value='';
    bridge.switchAccount(user?.id||null);$('nickname').value='';$('onlineEmail').value='';$('autoConfirm').checked=true;snapshot();controls();
    if(!user){await refresh(e);if(e===epoch)loaded=true;return;}
    const u=user.id;
@@ -122,8 +124,8 @@
  $('onlineLoad').onclick=()=>{if(!entry||!matching())return;if(!window.confirm('保存済み編成を再読み込みしますか？ 未保存の変更は失われます。'))return;try{displaySaved();$('autoConfirm').checked=entry.auto_confirm;say('サーバー編成を読み込みました。');}catch(err){say(err.message,true);}};
  $('reopenEntry').onclick=()=>{if(!open()||!confirmed()||!window.confirm('確定を取り消し、下書きに戻しますか？'))return;void operation(async(e,u)=>{await rpc('sow_reopen_entry',{p_season_id:bridge.season});if(current(e,u))await refresh(e,true);},'下書きに戻しました。');};
  $('saveNickname').onclick=()=>{const name=$('nickname').value.trim();if(name.includes('@')){say('メールアドレスではなくNicknameを入力してください。',true);return;}void operation(async(e,u)=>{const p=await rpc('sow_profile',{p_nickname:name});if(current(e,u)){profile=p;$('nickname').value=p.nickname||'';}},'Nicknameを保存しました。');};
- async function adminOperation(name,args,success){
-   if(!admin||busy||!ready)return;adminNotice='Applying…';
+ async function adminOperation(name,args,success,scope='official'){
+   if(!admin||busy||!ready)return;adminNoticeScope=scope;adminNotice='Applying…';
    await operation(async(e,u)=>{await rpc(name,args);if(current(e,u))await refresh(e,false);},success);
    adminNotice=!ready?'Unable to verify server status. Refresh before continuing.':error?notice:success;controls();
  }
@@ -131,31 +133,33 @@
  for(const b of document.querySelectorAll('[data-sow-admin]'))b.onclick=()=>{
    if(b.disabled)return;const action=b.dataset.sowAdmin;
    if(!window.confirm(action==='resume'?'Resume submissions with the same deadline?':'Pause submissions? The deadline and automatic finalization will still proceed.'))return;
-   void adminOperation('sow_commissioner_change',{p_season_id:bridge.season,p_action:action},action==='resume'?'Registration resumed.':'Registration paused; deadline unchanged.');
+   void adminOperation('sow_commissioner_change',{p_season_id:bridge.season,p_action:action},action==='resume'?'Registration resumed.':'Registration paused; deadline unchanged.',b.dataset.scope);
  };
  $('startTestWindow').onclick=()=>{
    const m=Number($('testMinutes').value);if($('startTestWindow').disabled)return;
-   if(!Number.isInteger(m)||m<1||m>60){adminNotice='Enter a whole number from 1 to 60 minutes.';controls();return;}
+   if(!Number.isInteger(m)||m<1||m>60){adminNoticeScope='test';adminNotice='Enter a whole number from 1 to 60 minutes.';controls();return;}
    if(!window.confirm(`Start a ${m}-minute development test? No official schedule will be created.`))return;
-   void adminOperation('sow_start_test_r332',{p_season_id:bridge.season,p_minutes:m},'Test started. Reset is available after the deadline.');
+   void adminOperation('sow_start_test_r332',{p_season_id:bridge.season,p_minutes:m},'Test started. No official dates were set.','test');
  };
  $('resetTestWindow').onclick=()=>{
    if($('resetTestWindow').disabled||!window.confirm('Reset test? Automatically confirmed test entries return to draft. Manual confirmations remain.'))return;
-   void adminOperation('sow_test_window',{p_season_id:bridge.season,p_action:'reset'},'Test reset. No active registration schedule.');
+   void adminOperation('sow_test_window',{p_season_id:bridge.season,p_action:'reset'},'Test reset. Saved teams retained.','test');
  };
- function cancelReview(){pendingWindow=null;$('adminReview').hidden=true;adminNotice='';controls();}
- $('cancelWindow').onclick=cancelReview;$('windowOpen').oninput=cancelReview;$('windowClose').oninput=cancelReview;
+ function cancelReview(){pendingWindow=null;$('adminReview').hidden=true;$('windowEditor').hidden=false;adminNotice='';controls();}
+ $('editWindow').onclick=()=>{if($('editWindow').disabled)return;pendingWindow=null;$('adminReview').hidden=true;$('windowEditor').hidden=false;adminNoticeScope='official';adminNotice='';const local=v=>{const d=new Date(v);return new Date(+d-d.getTimezoneOffset()*60000).toISOString().slice(0,16);};$('windowOpen').value=season.deadline_armed?local(season.opens_at):'';$('windowClose').value=season.deadline_armed?local(season.closes_at):'';controls();};
+ $('dismissWindow').onclick=()=>{pendingWindow=null;$('windowEditor').hidden=true;$('adminReview').hidden=true;adminNotice='';controls();};
+ $('cancelWindow').onclick=cancelReview;
  $('setWindow').onclick=()=>{
-   if($('setWindow').disabled)return;const a=new Date($('windowOpen').value),b=new Date($('windowClose').value);
-   if(!Number.isFinite(+a)||!Number.isFinite(+b)||+b<=+a||+b<=now()){adminNotice='Enter both dates. Deadline must be after opening and in the future.';controls();return;}
+   if($('setWindow').disabled)return;adminNoticeScope='official';const a=new Date($('windowOpen').value),b=new Date($('windowClose').value);
+   if(!Number.isFinite(+a)||!Number.isFinite(+b)||+b<=+a||+b<=now()){adminNotice='Enter both dates. Closing time must be after opening and in the future.';controls();return;}
    pendingWindow={p_season_id:bridge.season,p_opens_at:a.toISOString(),p_closes_at:b.toISOString()};
-   $('adminReviewText').textContent=`Opens: ${date(a)} · Deadline: ${date(b)}. No changes have been saved yet.`;$('adminReview').hidden=false;adminNotice='Review only — not saved.';controls();
+   $('adminReviewText').textContent=`Registration will open: ${date(a)}\nRegistration will close: ${date(b)}\n${+a<=now()?'Registration will open immediately when applied.':'Registration will open automatically at the scheduled time.'}`;$('windowEditor').hidden=true;$('adminReview').hidden=false;adminNotice='';controls();
  };
- $('applyWindow').onclick=()=>{if($('applyWindow').disabled||!pendingWindow)return;const args=pendingWindow;cancelReview();void adminOperation('sow_set_window',args,'Official schedule applied. Both dates saved.');};
+ $('applyWindow').onclick=()=>{if($('applyWindow').disabled||!pendingWindow)return;const args=pendingWindow;pendingWindow=null;$('adminReview').hidden=true;$('windowEditor').hidden=true;void adminOperation('sow_set_window',args,'Official registration period saved.');};
  $('onlineGoogle').onclick=async()=>{if(!api||busy)return;busy=true;controls();try{const r=await api.auth.signInWithOAuth({provider:'google',options:{redirectTo:location.origin+location.pathname,queryParams:{prompt:'select_account'}}});if(r.error)throw r.error;}catch(err){say('Googleログインに失敗: '+err.message,true);}finally{busy=false;controls();}};
  $('onlineSendOtp').onclick=async()=>{if(!api||busy)return;const email=$('onlineEmail').value.trim();if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){say('有効なメールアドレスを入力してください。',true);return;}busy=true;controls();try{const r=await api.auth.signInWithOtp({email,options:{emailRedirectTo:location.origin+location.pathname}});if(r.error)throw r.error;say('認証メールを送信しました。');}catch(err){say('メール認証に失敗: '+err.message,true);}finally{busy=false;controls();}};
  $('onlineSignOut').onclick=async()=>{if(!api||busy)return;busy=true;controls();try{const r=await api.auth.signOut({scope:'local'});if(r.error)throw r.error;await sessionChanged(null);}catch(err){say('サインアウトに失敗: '+err.message,true);}finally{busy=false;controls();}};
- setInterval(()=>{if(!api)return;controls();if((admin||ready&&(season?.test_mode||deadlineLocked()))&&!busy&&now()-deadlineRefresh>15000){deadlineRefresh=now();void refresh(epoch,false);}},1000);
+ setInterval(()=>{if(!api)return;controls();if((admin||ready)&&!busy&&now()-deadlineRefresh>15000){deadlineRefresh=now();void refresh(epoch,false);}},1000);
  try{if(location.protocol!=='https:'||new URL(cfg.url).protocol!=='https:'||typeof cfg.publishableKey!=='string')throw Error('Offline');}catch(_){say('オンライン登録は公開HTTPSページで利用できます。');return;}
  const sdk=document.createElement('script');sdk.src='https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2';
  sdk.onload=()=>{try{api=window.supabase.createClient(cfg.url,cfg.publishableKey);api.auth.onAuthStateChange((event,session)=>{if(user?.id===session?.user?.id&&loaded&&ready)return;const request=++authRequest;if(user?.id!==session?.user?.id){++epoch;ready=false;loaded=false;busy=true;controls();}setTimeout(()=>{if(request===authRequest)void sessionChanged(session);},0);});}catch(err){say('認証初期化に失敗: '+err.message,true);}};
