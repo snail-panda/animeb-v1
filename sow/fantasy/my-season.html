@@ -382,7 +382,7 @@ button:focus-visible,select:focus-visible,input:focus-visible{outline:3px solid 
    </div>
    <div id="onlineSignedIn" hidden>
     <div class="online-row"><span id="onlineIdentity" class="online-identity"></span><button type="button" id="onlineSignOut">SIGN OUT</button></div>
-    <div class="online-row"><label for="nickname">NICKNAME</label><input id="nickname" maxlength="35" autocomplete="off"><button id="saveNickname" type="button">SAVE NAME</button></div><p class="online-muted">未設定ならPlayer番号。メールアドレスは表示しません。</p><label><input type="checkbox" id="autoConfirm" checked> Automatically confirm my saved entry at the deadline.</label><p class="online-muted">選択はSAVE DRAFTでサーバーに保存されます。</p><div id="onlineDeadline" class="online-status"></div><div id="onlineSnapshot" class="online-snapshot" hidden></div>
+    <div class="online-row"><label for="nickname">NICKNAME</label><input id="nickname" maxlength="35" autocomplete="off"><button id="saveNickname" type="button">SAVE NAME</button></div><p class="online-muted">未設定ならPlayer番号。Nicknameは重複不可（大文字・小文字を区別しません）。Player番号は予約名です。メールアドレスは表示しません。</p><label><input type="checkbox" id="autoConfirm" checked> Automatically confirm my saved entry at the deadline.</label><p class="online-muted">選択はSAVE DRAFTでサーバーに保存されます。</p><div id="onlineDeadline" class="online-status"></div><div id="onlineSnapshot" class="online-snapshot" hidden></div>
     <div class="online-row"><button type="button" id="onlineSave" class="online-primary">SAVE DRAFT · SERVER</button><button type="button" id="onlineConfirm">FINAL CONFIRM · SERVER</button><button type="button" id="onlineLoad">RELOAD SAVED ENTRY</button><button type="button" id="onlineRestoreLocal" hidden>RESTORE LOCAL VIEW</button><button type="button" id="reopenEntry" hidden>REOPEN ENTRY</button></div>
     <p class="online-muted">ログイン時に保存済み編成を読み込みます。下書きは受付中に編集できます。再読み込みすると未保存の変更は失われます。これは23組のTEST対戦相手との比較であり、実参加者同士の公式順位表ではありません。</p>
     <section id="sowCommissioner" hidden class="sow-commissioner">
@@ -395,6 +395,11 @@ button:focus-visible,select:focus-visible,input:focus-visible{outline:3px solid 
        <button type="button" data-sow-admin="closed">PAUSE / CLOSE</button><button type="button" data-sow-admin="resume">RESUME</button>
        <button type="button" data-sow-admin="setup">SETUP</button>
        <button type="button" id="sowAdminRefresh">REFRESH</button>
+      </div>
+      <div class="online-row" id="testWindowControls" hidden>
+       <button type="button" id="startTestWindow">TEST · 5 MIN</button>
+       <button type="button" id="resetTestWindow">RESET TEST DEADLINE</button>
+       <span id="testWindowState" class="online-muted"></span>
       </div>
       <p class="online-muted">管理操作はログイン済みの管理者だけが実行できます。開閉状態はサーバーで判定され、すべての端末に共通。閉じても編成は消えません。</p>
     </section>
@@ -998,4 +1003,4 @@ window.SOWFantasyOnlineBridgeR31=Object.freeze({
   league[0]=copy(t);team=league[0];save();renderDraft();render();
  }
 });
-</script><script src="preseason-editor-r29.js?v=r30"></script><script src="registration-public-config-r31.js?v=1"></script><script src="registration-client-r31.js?v=33"></script></body></html>
+</script><script src="preseason-editor-r29.js?v=r30"></script><script src="registration-public-config-r31.js?v=1"></script><script src="registration-client-r31.js?v=331"></script></body></html>
