@@ -566,6 +566,29 @@ html[lang=ja] #sowCommissioner .admin-facts dt,html[lang=ja] #sowCommissioner .a
 #classificationEditor[hidden],#r356Lab[hidden]{display:none!important}
 .r34-mast-right .r356-anime{display:inline-block}
 @media(max-width:640px){#sowCommissioner .admin-facts dd{font-size:18px}.r356-overlap>summary{font-size:16px}.r34-mast-right .r356-anime{font-size:10px}}
+
+/* R3.5.7 — reuse the lineup palette in weekly results; local visual changes only. */
+#draft .r351-classic>summary,#draft .r356-overlap>summary{
+ font:400 15px/1.45 'EB Garamond',Georgia,serif;letter-spacing:0;color:#415c48;
+}
+/* renderPieces always renders A, B, C, D in this order. */
+#pieces>.roundpiece{--slot-accent:#4c7255;--slot-bg:#edf1e8;--slot-line:#cbd7c8;background:var(--slot-bg);border-top:2px solid var(--slot-accent)}
+#pieces>.roundpiece:nth-child(2){--slot-accent:#466b7e;--slot-bg:#eaf0f1;--slot-line:#ccd9df}
+#pieces>.roundpiece:nth-child(3){--slot-accent:#896529;--slot-bg:#f4efdf;--slot-line:#dfd4ba}
+#pieces>.roundpiece:nth-child(4){--slot-accent:#975b47;--slot-bg:#f5ebe5;--slot-line:#e2d0c5}
+#pieces .roundpiece .role,#pieces .roundpiece .piece-detail summary{color:var(--slot-accent)}
+#pieces .roundpiece .piece-detail{border-top-color:var(--slot-line);color:#555b53}
+#pieces .roundpiece .piece-detail summary{font-weight:500}
+#pieces .roundpiece .title,#pieces .roundpiece .pts{color:#303d35}
+#pieces .roundpiece .stat,#pieces .roundpiece .stat b{color:#4f5a51;font-weight:500}
+#results #roundResult{background:#f1eee5;color:#4f5047;border-top:1px solid #d8d0bd}
+#results #roundResult label{color:#786a51;font-weight:500}
+#results #roundResult strong{color:#3c463d}
+#results #roundResult .combo-caption{color:#66665c;font-weight:400}
+#results #r352Ranking:not([hidden]){display:inline-flex;align-items:center;padding:6px 10px;background:#edf1f1;border:1px solid #c2d1d6;color:#365c70;font:500 13px/1.35 Arial,'Yu Gothic',sans-serif;text-decoration:underline;text-underline-offset:3px}
+#results #r352Ranking:hover{background:#e1eaed}
+#results #r352Ranking:focus-visible{outline:2px solid #53788b;outline-offset:3px}
+@media(max-width:640px){#results #r352Ranking:not([hidden]){min-height:32px}}
 </style></head>
 <body><div class="page"><header class="mast"><a class="brand" href="index.html"><strong>OFFBEAT</strong><span>/ S.O.W. / FANTASY</span></a><div class="r34-mast-right"><a class="back r356-anime" href="../../index.html">ANIME HOME</a><a class="back" href="index.html">FANTASY HOME</a><div class="r34-lang" aria-label="Language"><button type="button" data-r34-lang="en">EN</button><button type="button" data-r34-lang="ja">日本語</button></div></div></header>
 <nav class="r352-nav" aria-label="My Season sections"><a href="#draft" id="r354MyTeam" data-r352-en="My Team" data-r352-ja="マイチーム">My Team</a><a href="#scoreband" data-r352-ja="週間成績">Weekly Results</a><a href="#leagueStandings" data-r352-ja="リーグ順位">Standings</a><a href="#matchRecord" data-r352-ja="週別記録">Round by Round</a><a href="#journal" data-r352-ja="分析">Analysis</a></nav>
