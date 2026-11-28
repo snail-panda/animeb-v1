@@ -585,10 +585,16 @@ html[lang=ja] #sowCommissioner .admin-facts dt,html[lang=ja] #sowCommissioner .a
 #results #roundResult label{color:#786a51;font-weight:500}
 #results #roundResult strong{color:#3c463d}
 #results #roundResult .combo-caption{color:#66665c;font-weight:400}
-#results #r352Ranking:not([hidden]){display:inline-flex;align-items:center;padding:6px 10px;background:#edf1f1;border:1px solid #c2d1d6;color:#365c70;font:500 13px/1.35 Arial,'Yu Gothic',sans-serif;text-decoration:underline;text-underline-offset:3px}
-#results #r352Ranking:hover{background:#e1eaed}
-#results #r352Ranking:focus-visible{outline:2px solid #53788b;outline-offset:3px}
+#results #r352Ranking:not([hidden]){display:inline-flex;align-items:center;padding:6px 10px;background:#f1edf6;border:1px solid #d5c7e4;color:#655078;font:500 13px/1.35 Arial,'Yu Gothic',sans-serif;text-decoration:none}
+#results #r352Ranking:hover{background:#e8e0f0}
+#results #r352Ranking:focus-visible{outline:2px solid #81639d;outline-offset:3px}
 @media(max-width:640px){#results #r352Ranking:not([hidden]){min-height:32px}}
+/* R3.5.8 — only rank numerals receive podium accents. */
+#results #r352Ranking .r358-week{text-decoration:underline;text-underline-offset:3px;margin-left:.35em}
+#matchRecord .rank-1,#matchRecord .place-badge.rank-1{color:#89651e}
+#matchRecord .rank-2,#matchRecord .place-badge.rank-2{color:#526d83}
+#matchRecord .rank-3,#matchRecord .place-badge.rank-3{color:#986047}
+#matchRecord .rank-1 small,#matchRecord .rank-2 small,#matchRecord .rank-3 small{color:inherit;opacity:.75}
 </style></head>
 <body><div class="page"><header class="mast"><a class="brand" href="index.html"><strong>OFFBEAT</strong><span>/ S.O.W. / FANTASY</span></a><div class="r34-mast-right"><a class="back r356-anime" href="../../index.html">ANIME HOME</a><a class="back" href="index.html">FANTASY HOME</a><div class="r34-lang" aria-label="Language"><button type="button" data-r34-lang="en">EN</button><button type="button" data-r34-lang="ja">日本語</button></div></div></header>
 <nav class="r352-nav" aria-label="My Season sections"><a href="#draft" id="r354MyTeam" data-r352-en="My Team" data-r352-ja="マイチーム">My Team</a><a href="#scoreband" data-r352-ja="週間成績">Weekly Results</a><a href="#leagueStandings" data-r352-ja="リーグ順位">Standings</a><a href="#matchRecord" data-r352-ja="週別記録">Round by Round</a><a href="#journal" data-r352-ja="分析">Analysis</a></nav>
@@ -662,9 +668,9 @@ html[lang=ja] #sowCommissioner .admin-facts dt,html[lang=ja] #sowCommissioner .a
  </div>
 </details>
 <div class="aside"><span id="saved">LOCAL PREVIEW · NOT SUBMITTED</span><button type="button" id="reset" class="secondary">選択中のチームを初期値に戻す</button></div></section>
-<section class="panel" id="results"><div class="eyebrow">02 / THE SEASON SO FAR</div><h2>Every week counts.</h2><p class="section-note">毎週の順位・WRPを元にしたチーム戦。公開された週だけを計算。状態別の補欠ルールも試験中で、将来のWeekや正式大会の順位ではありません。</p><div class="scoring-switch" id="scoringSettings"><span class="scoring-switch-label">SCORING · ORIGINAL OR ROLE-BASED TRIAL</span><div class="scoring-modes"><label><input type="radio" name="scoringMode" value="original">現行倍率（比較用）</label><label><input type="radio" name="scoringMode" value="roles" checked>役割・期待値方式（R2.6・推奨試算）</label></div><p class="scoring-explain">ルールを比較するための仮設定。A・Bは期待値を2段階に分け、C・Dの通常得点を抑える。Dの上位進出には大穴の価値を残す。WRPも併用するので、順位だけで大きなボーナスは付かない。編成・放送状況・補欠・ABC連携は両方共通。正式得点の変更ではありません。</p></div><div id="scoreband" class="scoreband"></div><p class="footnote" id="seasonSourceState" role="status" aria-live="polite">W01–07の確認済みデータを表示中。W08以降は公開済みランキングだけを追加で確認します。</p><p class="footnote">通常移籍・緊急救済はまだOFF。特殊事情にはシーズン設定の確認済みステータスだけで対応します。未確認の欠場を休止と決めつけません。</p><div class="stagebar"><div class="stage done">OPENING<small>W01–03</small></div><div class="stage here">MIDDLE<small>W04–06</small></div><div class="stage">LATE<small>W07–09</small></div><div class="stage">CLIMAX<small>W10–12</small></div></div><div id="weekSelect" class="week-select" aria-label="Select a week"></div><div id="weekStats" class="week-stats"></div><div class="r352-weeklinks"><a id="r352Ranking" hidden>View Weekly Ranking</a></div><div id="roundHead" class="round-head"></div><div class="round-grid" id="pieces"></div><div class="round-result" id="roundResult"></div><div id="roundImpact" class="round-impact" aria-live="polite"></div></section>
+<section class="panel" id="results"><div class="eyebrow">02 / THE SEASON SO FAR</div><h2>Every week counts.</h2><p class="section-note">毎週の順位・WRPを元にしたチーム戦。公開された週だけを計算。状態別の補欠ルールも試験中で、将来のWeekや正式大会の順位ではありません。</p><div class="scoring-switch" id="scoringSettings"><span class="scoring-switch-label">SCORING · ORIGINAL OR ROLE-BASED TRIAL</span><div class="scoring-modes"><label><input type="radio" name="scoringMode" value="original">現行倍率（比較用）</label><label><input type="radio" name="scoringMode" value="roles" checked>役割・期待値方式（R2.6・推奨試算）</label></div><p class="scoring-explain">ルールを比較するための仮設定。A・Bは期待値を2段階に分け、C・Dの通常得点を抑える。Dの上位進出には大穴の価値を残す。WRPも併用するので、順位だけで大きなボーナスは付かない。編成・放送状況・補欠・チーム成績ボーナスは両方共通。正式得点の変更ではありません。</p></div><div id="scoreband" class="scoreband"></div><p class="footnote" id="seasonSourceState" role="status" aria-live="polite">W01–07の確認済みデータを表示中。W08以降は公開済みランキングだけを追加で確認します。</p><p class="footnote">通常移籍・緊急救済はまだOFF。特殊事情にはシーズン設定の確認済みステータスだけで対応します。未確認の欠場を休止と決めつけません。</p><div class="stagebar"><div class="stage done">OPENING<small>W01–03</small></div><div class="stage here">MIDDLE<small>W04–06</small></div><div class="stage">LATE<small>W07–09</small></div><div class="stage">CLIMAX<small>W10–12</small></div></div><div id="weekSelect" class="week-select" aria-label="Select a week"></div><div id="weekStats" class="week-stats"></div><div class="r352-weeklinks"><a id="r352Ranking" hidden>View Weekly Ranking</a></div><div id="roundHead" class="round-head"></div><div class="round-grid" id="pieces"></div><div class="round-result" id="roundResult"></div><div id="roundImpact" class="round-impact" aria-live="polite"></div></section>
 <section class="panel league-section" id="leagueStandings"><div class="eyebrow">03 / THE LEAGUE</div><h2 data-r352-ja="仮想リーグで、実力を試す。">How would your team fare?</h2><p class="section-note" data-r352-ja="自分のチームと、異なる戦略で事前に編成された23の仮想チームが、実際の週間ランキングをもとに競います。同じ得点ルールで、選択した週までの順位を比較できます。正式大会の順位ではありません。">See how your team stacks up against 23 simulated rivals with different preseason strategies. Every team is scored using the same published weekly rankings and rules. The standings reflect the selected round, not an official competition.</p><div id="leagueStandingsBody"></div><div id="scout" class="scout" aria-live="polite"></div></section>
-<section class="panel" id="matchRecord"><div class="eyebrow">04 / THE MATCH RECORD</div><h2>Round by round.</h2><p class="section-note">週間順位はその週の勝負。総合順位はそこまでの積み重ね。比較相手は<strong>23の事前固定テストチーム</strong>。上のリーグ表で編成を確認できます。実在の参加者ではありません。</p><div id="comparison"></div><details class="r34-fold"><summary>Compare scoring rules</summary><div id="scoringAudit" class="scoring-audit" aria-live="polite"></div></details><p class="footnote">現行方式の基礎得点は <strong>Points Lab v0.3と同一</strong>（WRP 3.0、順位点20、作品数補正4、枠・Captain・D大穴倍率、ABC連携）。今表示している補欠・Dropped猶予は現行の試験ルールで、正式決定ではありません。補欠のCaptain倍率は適用しません（試験案）。</p></section><section class="panel journal" id="journal"><div class="eyebrow">05 / BEYOND THE SCORE</div><h2 data-r352-ja="数字の向こうにあるシーズン。">The season, between the numbers.</h2><p class="section-note" data-r352-ja="得点が動いた理由、リーグ内での変化、直近の成績を、選択した週まで振り返ります。">Explore what drove your score, how your team fared against its rivals, and recent results through the selected week.</p><div id="journalBody" aria-live="polite"></div><p class="journal-caveat" data-r352-ja="※ 対象外決定は公開された週間ランキングJSONの meta.drop_decisions を参照。W05『#ゾンビさがしてます』と『アオのハコ』、W06『転生ゴブリンだけど質問ある？』の休止は個別確認した記録です。欠場理由が未確認のときは未確認として扱い、自動補欠は起用しません。比較相手は固定仮想チーム。補欠・In-Between・正式交代は未確定です。">Drop decisions use the published weekly ranking JSON (meta.drop_decisions). The W05 hiatuses of #Zombie Sagashitemasu and Blue Box, and the W06 hiatus of the Goblin title were individually verified. Unverified absences do not trigger automatic substitution. Rivals are fixed simulated teams; backup, multi-group and permanent replacement rules remain provisional.</p></section></div></main><footer class="footer"><span>S.O.W. FANTASY · R3.4 · 24-TEAM TEST</span><a id="r356Lab" href="lab.html" hidden>OPEN POINTS LAB v0.3</a></footer></div>
+<section class="panel" id="matchRecord"><div class="eyebrow">04 / THE MATCH RECORD</div><h2>Round by round.</h2><p class="section-note">週間順位はその週の勝負。総合順位はそこまでの積み重ね。比較相手は<strong>23の事前固定テストチーム</strong>。上のリーグ表で編成を確認できます。実在の参加者ではありません。</p><div id="comparison"></div><details class="r34-fold"><summary>Compare scoring rules</summary><div id="scoringAudit" class="scoring-audit" aria-live="polite"></div></details><p class="footnote">現行方式の基礎得点は <strong>Points Lab v0.3と同一</strong>（WRP 3.0、順位点20、作品数補正4、枠・Captain・D大穴倍率）。チーム成績ボーナスは新試算（旧ABC方式とは異なります）。今表示している補欠・Dropped猶予は現行の試験ルールで、正式決定ではありません。補欠のCaptain倍率は適用しません（試験案）。</p></section><section class="panel journal" id="journal"><div class="eyebrow">05 / BEYOND THE SCORE</div><h2 data-r352-ja="数字の向こうにあるシーズン。">The season, between the numbers.</h2><p class="section-note" data-r352-ja="得点が動いた理由、リーグ内での変化、直近の成績を、選択した週まで振り返ります。">Explore what drove your score, how your team fared against its rivals, and recent results through the selected week.</p><div id="journalBody" aria-live="polite"></div><p class="journal-caveat" data-r352-ja="※ 対象外決定は公開された週間ランキングJSONの meta.drop_decisions を参照。W05『#ゾンビさがしてます』と『アオのハコ』、W06『転生ゴブリンだけど質問ある？』の休止は個別確認した記録です。欠場理由が未確認のときは未確認として扱い、自動補欠は起用しません。比較相手は固定仮想チーム。補欠・In-Between・正式交代は未確定です。">Drop decisions use the published weekly ranking JSON (meta.drop_decisions). The W05 hiatuses of #Zombie Sagashitemasu and Blue Box, and the W06 hiatus of the Goblin title were individually verified. Unverified absences do not trigger automatic substitution. Rivals are fixed simulated teams; backup, multi-group and permanent replacement rules remain provisional.</p></section></div></main><footer class="footer"><span>S.O.W. FANTASY · R3.4 · 24-TEAM TEST</span><a id="r356Lab" href="lab.html" hidden>OPEN POINTS LAB v0.3</a></footer></div>
 <script src="r34-language.js?v=1"></script>
 <script src="season-config-r25.js?v=r27"></script>
 <script src="season-core-r25.js?v=r25"></script>
@@ -898,9 +904,17 @@ function renderDraft(){
 }
 
 // One authoritative calculation engine shared by all rounds and future screens.
+function teamPerformanceBonus(pieces){
+ const ranks=Object.values(pieces).filter(p=>p.e&&Number.isFinite(p.e.r)).map(p=>p.e.r);
+ const candidates=[[3,3,24],[5,4,30],[5,3,12],[10,4,20],[10,3,6]];
+ const best=candidates.filter(([limit,count])=>ranks.filter(r=>r<=limit).length>=count).sort((a,b)=>b[2]-a[2])[0];
+ return best?{bonus:best[2],bonusType:'TOP '+best[0],bonusCount:best[1]}:{bonus:0,bonusType:null,bonusCount:0};
+}
 function score(t,w,activeRules=rules,overrideMode=scoringMode){
  const ctx={options,drops:DROP_DECISION_WEEK,statuses:KNOWN_STATUS,rules:activeRules};
- return overrideMode==='roles'?window.SOWFantasyRolesR26.score(t,w,ctx,SEASON_CONFIG):window.SOWFantasyCoreR25.score(t,w,ctx);
+ const result=overrideMode==='roles'?window.SOWFantasyRolesR26.score(t,w,ctx,SEASON_CONFIG):window.SOWFantasyCoreR25.score(t,w,ctx);
+ const legacyBonus=result.bonus, next=teamPerformanceBonus(result.pieces);
+ return {...result,...next,legacyBonus,total:result.total-legacyBonus+next.bonus};
 }
 function scores(t){return WEEKS.map(w=>score(t,w))}
 
@@ -945,13 +959,14 @@ function renderPieces(round,w){
   const originalTitle=sub?`<div class="substatus">${escapeHTML(shortName(p.id))}</div>`:'';
   return `<div class="roundpiece ${p.e?'':'no-score'}"><div class="role">${g} SLOT ${isCap?'★ CAPTAIN':''}</div><div class="title">${escapeHTML(shortName(p.primary))}</div>${sub?`<div class="substatus">↳ ${escapeHTML(shortName(p.id))}</div>`:''}<div class="pts">${num(p.pts)}<span class="unit"> pt</span></div><div class="stat">${info}</div>${badges.join('')}${replaced}${dropNote}<details class="piece-detail"><summary>得点の内訳</summary>${formula}</details></div>`;
  }).join('');
- const abc='ABC'.split('').map(g=>round.pieces[g].e?.r).filter(x=>Number.isFinite(x));
- const bonusDesc=round.bonus?`A / B / C の3作品がすべて ${round.bonusType} 入り（${abc.map(x=>'#'+x).join(' · ')}）。最も高い条件のボーナスを1回だけ加算。`:'A / B / C が同時にTOP10に入らず、連携ボーナスなし。';
- document.getElementById('roundResult').innerHTML=`<div><label>WEEK ${String(w).padStart(2,'0')} · TEAM BONUS</label><br><strong>+${num(round.bonus)} <span style="font:12px 'Barlow Condensed',sans-serif">PTS</span></strong><div class="combo-caption">${bonusDesc}</div></div><div style="text-align:right"><label>ROUND TOTAL</label><br><strong>${num(round.total)} <span style="font:12px 'Barlow Condensed',sans-serif">PTS</span></strong></div>`;
+ const ja=window.SOWR34?.lang()==='ja';
+ const qualifying=Object.entries(round.pieces).filter(([g,p])=>p.e&&p.e.r<=Number(round.bonusType?.split(' ')[1])).map(([g,p])=>`${g} #${p.e.r}`).join(' · ');
+ const bonusDesc=round.bonus?(ja?`${round.bonusCount}作品が${round.bonusType}入り（${qualifying}）。最高条件のみ加算。`:`${round.bonusCount} titles in ${round.bonusType} (${qualifying}). Highest qualifying bonus only.`):(ja?'TOP 10入りが3作品未満のため、ボーナスなし。':'Fewer than three titles in the TOP 10. No bonus.');
+ document.getElementById('roundResult').innerHTML=`<div><label>WEEK ${String(w).padStart(2,'0')} · ${ja?"チーム成績ボーナス":"TEAM PERFORMANCE BONUS"}</label><br><strong>+${num(round.bonus)} <span style="font:12px 'Barlow Condensed',sans-serif">PTS</span></strong><div class="combo-caption">${bonusDesc}</div></div><div style="text-align:right"><label>ROUND TOTAL</label><br><strong>${num(round.total)} <span style="font:12px 'Barlow Condensed',sans-serif">PTS</span></strong></div>`;
  const subs='ABCD'.split('').filter(g=>['substitute','promoted'].includes(round.pieces[g].mode));
  const grace='ABCD'.split('').filter(g=>round.pieces[g].mode==='grace');
  const unknown='ABCD'.split('').filter(g=>round.pieces[g].mode==='inactive'&&round.pieces[g].status.kind==='unrated');
- const pills=[...(subs.map(g=>`<span class="impact-pill">${g} ${round.pieces[g].mode==='promoted'?'PROMOTED':'TEMP BACKUP'}</span>`)),...(grace.map(g=>`<span class="impact-pill">${g} DROP GRACE</span>`)),...(round.bonus?[`<span class="impact-pill">ABC ${round.bonusType} +${round.bonus}</span>`]:[])];
+ const pills=[...(subs.map(g=>`<span class="impact-pill">${g} ${round.pieces[g].mode==='promoted'?'PROMOTED':'TEMP BACKUP'}</span>`)),...(grace.map(g=>`<span class="impact-pill">${g} DROP GRACE</span>`)),...(round.bonus?[`<span class="impact-pill">TEAM ${round.bonusCount} · ${round.bonusType} +${round.bonus}</span>`]:[])];
  const explanation=[];
  if(subs.length)explanation.push(`補欠${subs.join('・')}枠が出場。元の作品との交代が得点に反映されている。`);
  if(grace.length)explanation.push(`対象外直後の${grace.join('・')}枠は猶予週。翌週以降は固定補欠に正式交代する案。`);
@@ -962,14 +977,14 @@ function renderPieces(round,w){
  if(!rules.subs)document.getElementById('enableSubsHere').onclick=()=>{rules.subs=true;document.getElementById('autoSubs').checked=true;saveRules()};
 }
 
-function placeBadge(rank){return `<span class="place-badge ${rank===1?'first':rank===league.length?'third':''}">#${rank}<small>/${league.length}</small></span>`}
+function placeBadge(rank){return `<span class="place-badge ${rank<=3?'rank-'+rank:''}">#${rank}<small>/${league.length}</small></span>`}
 function renderComparison(all,ok){
  const bestOther=r=>Math.max(...r.weekly.slice(1));
  const avgOther=r=>r.weekly.slice(1).reduce((a,b)=>a+b,0)/(league.length-1);
  const body=all.map(r=>`<tr class="${chosenWeek===r.week?'is-current':''}"><td><button type="button" class="r352-weekjump" data-r352-week="${r.week}">W${String(r.week).padStart(2,'0')}</button></td><td class="own-point">${ok?num(r.weekly[0]):'—'}</td><td class="own-place">${ok?placeBadge(r.weekRanks[0]):'—'}</td><td class="own-place">${ok?placeBadge(r.totalRanks[0]):'—'}</td><td class="rival-point">${num(bestOther(r))}</td><td class="rival-point">${num(avgOther(r))}</td></tr>`).join('');
  const last=all.at(-1);
  const desktop=`<div class="weekly-table-wrap"><table class="weekly-table"><thead><tr class="group-label"><th rowspan="2">ROUND</th><th class="own-columns" colspan="3">YOUR TEAM</th><th class="rival-columns" colspan="2">23 TEST TEAMS</th></tr><tr class="subheads"><th class="owncol">PTS</th><th class="owncol">WEEK RANK</th><th class="owncol">SEASON RANK</th><th class="rivalcol">BEST WEEK PTS</th><th class="rivalcol">AVG WEEK PTS</th></tr></thead><tbody>${body}</tbody><tfoot><tr><td>${WEEKS.length}W TOTAL</td><td class="own-point">${ok?num(last.cumulative[0]):'—'}</td><td>—</td><td class="own-place">${ok?placeBadge(last.totalRanks[0]):'—'}</td><td colspan="2">LIVE TEST FIELD · ${league.length} TEAMS</td></tr></tfoot></table></div>`;
- const mobile=`<div class="mobile-round-cards" aria-label="Weekly team results">${all.map(r=>`<article class="mobile-round ${r.week===chosenWeek?'is-current':''}"><button type="button" class="mr-week r352-weekjump" data-r352-week="${r.week}">W${String(r.week).padStart(2,'0')}<small>${r.week===chosenWeek?'SELECTED':''}</small></button><div class="mr-body"><div class="mr-primary"><div class="mr-main"><small>TEAM PTS</small><strong>${ok?num(r.weekly[0]):'—'}</strong></div><div class="mr-rank"><small>WEEK</small><strong>${ok?'#'+r.weekRanks[0]+'/'+league.length:'—'}</strong></div><div class="mr-rank"><small>OVERALL</small><strong>${ok?'#'+r.totalRanks[0]+'/'+league.length:'—'}</strong></div></div><div class="mr-rivals"><span>BEST RIVAL <b>${num(bestOther(r))}</b></span><span>FIELD AVG <b>${num(avgOther(r))}</b></span></div></div></article>`).join('')}</div>`;
+ const mobile=`<div class="mobile-round-cards" aria-label="Weekly team results">${all.map(r=>`<article class="mobile-round ${r.week===chosenWeek?'is-current':''}"><button type="button" class="mr-week r352-weekjump" data-r352-week="${r.week}">W${String(r.week).padStart(2,'0')}<small>${r.week===chosenWeek?'SELECTED':''}</small></button><div class="mr-body"><div class="mr-primary"><div class="mr-main"><small>TEAM PTS</small><strong>${ok?num(r.weekly[0]):'—'}</strong></div><div class="mr-rank"><small>WEEK</small><strong class="rank-${ok?r.weekRanks[0]:0}">${ok?'#'+r.weekRanks[0]+'/'+league.length:'—'}</strong></div><div class="mr-rank"><small>OVERALL</small><strong class="rank-${ok?r.totalRanks[0]:0}">${ok?'#'+r.totalRanks[0]+'/'+league.length:'—'}</strong></div></div><div class="mr-rivals"><span>TOP RIVAL <b>${num(bestOther(r))}</b></span><span>RIVAL AVG <b>${num(avgOther(r))}</b></span></div></div></article>`).join('')}</div>`;
  document.getElementById('comparison').innerHTML=desktop+mobile+'<p class="footnote">WEEK＝その週だけの順位、OVERALL＝その週までの累計順位。23の事前固定テストチームと比較。自分の編成を変えると過去の試算も再計算されます（正式大会の記録ではありません）。</p>';
 }
 
@@ -1021,7 +1036,7 @@ function renderJournal(all,mine,w,ok){
    return tr(`${g} slot: ${title(p.primary)} (${why}). Backup ${p.order}, ${title(p.id)}, scored ${num(p.pts)} pts.`,`${g}枠の${title(p.primary)}は${why}。補欠${p.order}の${title(p.id)}が${num(p.pts)} ptを獲得しました。`);
   }).join(' ');
   const noSubs=score(team,WEEKS[w-1],{subs:false,grace:0}),boost=r.total-noSubs.total;
-  const impact=Math.abs(boost)>0.005&&special.some(x=>['substitute','promoted'].includes(x.p.mode))?`<p>${tr(`Without backups: ${num(noSubs.total)} pts. Difference: ${signed(boost)} pts (ABC bonus: ${signed(r.bonus-noSubs.bonus)} pts).`,`補欠なしの場合は${num(noSubs.total)} pt。差は${signed(boost)} pt（ABC連携 ${signed(r.bonus-noSubs.bonus)} pt）。`)}</p>`:'';
+  const impact=Math.abs(boost)>0.005&&special.some(x=>['substitute','promoted'].includes(x.p.mode))?`<p>${tr(`Without backups: ${num(noSubs.total)} pts. Difference: ${signed(boost)} pts (Team performance bonus: ${signed(r.bonus-noSubs.bonus)} pts).`,`補欠なしの場合は${num(noSubs.total)} pt。差は${signed(boost)} pt（チーム成績ボーナス ${signed(r.bonus-noSubs.bonus)} pt）。`)}</p>`:'';
   add('Lineup changes','編成の変化',week(w),`<p>${explanation}</p>${impact}`);
  }
  if(unknown.length)add('Unscored slots','未評価の枠',week(w),`<p>${tr(`${unknown.map(x=>x.g+' · '+title(x.p.primary)).join(' / ')} has no score this week. The reason is unverified, so no automatic substitution was made.`,`${unknown.map(x=>x.g+'枠の'+title(x.p.primary)).join('・')}は今週の評価がなく、理由も未確認のため自動補欠は起用していません。`)}</p>`);
@@ -1029,7 +1044,7 @@ function renderJournal(all,mine,w,ok){
   const delta=r.total-prev.total,swing=contributions.map(x=>({...x,delta:x.p.pts-x.old.pts})).sort((a,b)=>Math.abs(b.delta)-Math.abs(a.delta)),top=swing[0],bonusDelta=r.bonus-prev.bonus;
   const name=title(top.p.id||top.p.primary),direction=top.delta>=0?tr('rose','増加'):tr('fell','減少');
   const why=tr(`The biggest change came from slot ${top.g} (${name}): its score ${direction} from ${num(top.old.pts)} to ${num(top.p.pts)} pts.`,`${top.g}枠（${name}）の得点が最も大きく変化しました。${num(top.old.pts)} ptから${num(top.p.pts)} ptへ${direction}しました。`);
-  const rows=[...swing.map(x=>[tr(`Slot ${x.g}`,`${x.g}枠`),x.delta]),[tr('ABC bonus','ABC連携'),bonusDelta],[tr('Team total change','チーム得点の増減'),delta]];
+  const rows=[...swing.map(x=>[tr(`Slot ${x.g}`,`${x.g}枠`),x.delta]),[tr('Team performance bonus','チーム成績ボーナス'),bonusDelta],[tr('Team total change','チーム得点の増減'),delta]];
   const breakdown=rows.map(([label,value])=>`<span>${label}</span><span class="${tone(value)}">${signed(value)} pt</span>`).join('');
   add('What changed the score?','得点はなぜ動いた？',`${week(w-1)} – ${week(w)}`,`<p>${why}</p><div class="r354-breakdown">${breakdown}</div>`,signed(delta)+' pt',tone(delta));
  }else{const strongest=contributions.reduce((a,b)=>a.p.pts>=b.p.pts?a:b);add('The opening round','開幕戦',week(w),`<p>${tr(`Slot ${strongest.g} (${title(strongest.p.id)}) led your team with ${num(strongest.p.pts)} pts.`,`${strongest.g}枠（${title(strongest.p.id)}）が${num(strongest.p.pts)} ptでチーム最多得点でした。`)}</p>`,num(r.total)+' pt');}
@@ -1046,6 +1061,10 @@ function renderScoringAudit(){
  const classic=league.map(t=>WEEKS.map(w=>score(t,w,rules,'original')));
  const trial=league.map(t=>WEEKS.map(w=>score(t,w,rules,'roles')));
  const cTotal=classic.map(rows=>sum(rows)),rTotal=trial.map(rows=>sum(rows));
+ const current=scoringMode==='roles'?trial:classic;
+ const newTotals=current.map(sum), oldTotals=current.map(rows=>rows.reduce((a,r)=>a+r.total-r.bonus+r.legacyBonus,0));
+ const bonusAudit=`<details><summary>${window.SOWR34?.lang()==='ja'?'旧ABCボーナスとの比較（全チーム）':'Compare with legacy ABC bonus · all teams'}</summary><div class="scoring-audit-scroll"><table><thead><tr><th>TEAM</th><th>LEGACY</th><th>NEW</th><th>Δ</th></tr></thead><tbody>${league.map((t,i)=>`<tr><td>${escapeHTML(t.name)}</td><td>${num(oldTotals[i])} #${rankAmong(oldTotals,i)}</td><td>${num(newTotals[i])} #${rankAmong(newTotals,i)}</td><td>${num(newTotals[i]-oldTotals[i])}</td></tr>`).join('')}</tbody></table></div></details>`;
+
  const cRound=classic[activeIndex][chosenWeek-1],rRound=trial[activeIndex][chosenWeek-1];
  const signed=n=>(n>=0?'+':'−')+num(Math.abs(n));
  const head=(arr,i)=>rankAmong(arr,i);
@@ -1056,7 +1075,7 @@ function renderScoringAudit(){
   const memo=b.roleTrial?`${b.roleTrial.band.replace('_',' ')} · ×${b.roleTrial.value.toFixed(2)}`:(b.e?'—':'欠場・猶予');
   return `<tr><td>${g} · ${escapeHTML(shortName(b.id))}<br><small>${escapeHTML(memo)}</small></td><td>${num(a.pts)}</td><td>${num(b.pts)}</td><td class="diff">${signed(b.pts-a.pts)}</td></tr>`;
  }).join('');
- body.innerHTML=`<div class="scoring-switch-label">SAME TEAMS · SAME RESULTS · TWO SCORING RULES</div><h3>Before changing the rules.</h3><p>今あるW01–W${String(WEEKS.length).padStart(2,'0')}の実際の週間記録で比較。右端は試験方式−現行方式。順位は24チーム間の比較です。</p><div class="scoring-audit-scroll"><table><thead><tr><th>TEAM · CUMULATIVE</th><th>現行</th><th>期待値型（仮）</th><th>差</th></tr></thead><tbody>${teams}</tbody></table></div><p style="margin-top:13px">W${String(chosenWeek).padStart(2,'0')} · 選択中チームの枠別差。同じ作品・同じ順位・同じWRPでの比較。</p><div class="scoring-audit-scroll"><table><thead><tr><th>ACTIVE SLOTS</th><th>現行</th><th>期待値型（仮）</th><th>差</th></tr></thead><tbody>${pieces}<tr><td><strong>WEEK TOTAL</strong></td><td>${num(cRound.total)}</td><td>${num(rRound.total)}</td><td class="diff">${signed(rRound.total-cRound.total)}</td></tr></tbody></table></div><p class="audit-footer">両方式とも補欠のON/OFF・対象外・Captain・ABCボーナスは同一。役割型では通常のD倍率と大穴倍率を合算した段階係数に置き換える。シーズンごとの分類は固定後に遡及修正しない想定。</p>`;
+ body.innerHTML=`<div class="scoring-switch-label">SAME TEAMS · SAME RESULTS · TWO SCORING RULES</div><h3>Before changing the rules.</h3><p>今あるW01–W${String(WEEKS.length).padStart(2,'0')}の実際の週間記録で比較。右端は試験方式−現行方式。順位は24チーム間の比較です。</p><div class="scoring-audit-scroll"><table><thead><tr><th>TEAM · CUMULATIVE</th><th>現行</th><th>期待値型（仮）</th><th>差</th></tr></thead><tbody>${teams}</tbody></table></div><p style="margin-top:13px">W${String(chosenWeek).padStart(2,'0')} · 選択中チームの枠別差。同じ作品・同じ順位・同じWRPでの比較。</p><div class="scoring-audit-scroll"><table><thead><tr><th>ACTIVE SLOTS</th><th>現行</th><th>期待値型（仮）</th><th>差</th></tr></thead><tbody>${pieces}<tr><td><strong>WEEK TOTAL</strong></td><td>${num(cRound.total)}</td><td>${num(rRound.total)}</td><td class="diff">${signed(rRound.total-cRound.total)}</td></tr></tbody></table></div><p class="audit-footer">両方式とも補欠のON/OFF・対象外・Captain・チーム成績ボーナスは同一。役割型では通常のD倍率と大穴倍率を合算した段階係数に置き換える。シーズンごとの分類は固定後に遡及修正しない想定。</p>${bonusAudit}`;
 }
 
 function renderSeasonContext(){
@@ -1082,7 +1101,7 @@ function render(){
    stage.classList.toggle('done',WEEKS.length>last);
    stage.classList.toggle('here',WEEKS.length>=first&&WEEKS.length<=last);
   });
-  const rankingLink=document.getElementById("r352Ranking"); if(rankingLink){rankingLink.href=SEASON_CONFIG.rankingUrl(chosenWeek).replace(/[^/]+\.json$/, "index.html"); rankingLink.hidden=false; rankingLink.textContent=(window.SOWR34?.lang()==='ja'?"週間ランキングへ · W":"View Weekly Ranking · W")+String(chosenWeek).padStart(2,"0");}
+  const rankingLink=document.getElementById("r352Ranking"); if(rankingLink){rankingLink.href=SEASON_CONFIG.rankingUrl(chosenWeek).replace(/[^/]+\.json$/, "index.html"); rankingLink.hidden=false; rankingLink.innerHTML=(window.SOWR34?.lang()==='ja'?"週間ランキングへ ·":"View Weekly Ranking ·")+`<span class="r358-week">W${String(chosenWeek).padStart(2,"0")}</span>`;}
   renderPieces(round,chosenWeek);renderLeagueBoard(all,ok);renderComparison(all,ok);renderScoringAudit();renderJournal(all,mine,chosenWeek,ok);
 }
 function reset(){
